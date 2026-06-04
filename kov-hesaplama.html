@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KDV Hesaplama</title>
+</head>
+<body style="font-family:Arial;padding:40px">
+
+<h1>KDV Hesaplama</h1>
+
+<input id="tutar" type="number" placeholder="Tutar Gir">
+
+<button onclick="hesapla()">
+Hesapla
+</button>
+
+<h2 id="sonuc"></h2>
+
+<script>
+
+function hesapla(){
+
+let tutar =
+parseFloat(document.getElementById("tutar").value);
+
+let kdv = tutar * 0.20;
+
+let toplam = tutar + kdv;
+
+document.getElementById("sonuc").innerHTML =
+"KDV: " + kdv.toFixed(2)
++ " TL | Toplam: "
++ toplam.toFixed(2)
++ " TL";
+
+}
+
+</script>
+
+</body>
+</html>
