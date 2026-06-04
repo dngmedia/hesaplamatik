@@ -1,21 +1,119 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hesapmatik</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hesapmatik - Türkiye'nin Hesaplama Merkezi</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+}
+
+header{
+padding:80px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+header p{
+font-size:20px;
+color:#cbd5e1;
+}
+
+.tools{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+transition:.3s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+color:#94a3b8;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#94a3b8;
+}
+</style>
+
 </head>
 <body>
-    <h1>Hesapmatik</h1>
-    <p>Türkiye'nin ücretsiz hesaplama merkezi</p>
 
-    <h2>Popüler Araçlar</h2>
+<header>
+<h1>Hesapmatik</h1>
+<p>Türkiye'nin ücretsiz hesaplama merkezi</p>
+</header>
 
-    <ul>
-        <li>KDV Hesaplama</li>
-        <li>Yüzde Hesaplama</li>
-        <li>Bileşik Faiz Hesaplama</li>
-        <li>Kredi Hesaplama</li>
-    </ul>
+<section class="tools">
+
+<div class="card">
+<h3>KDV Hesaplama</h3>
+<p>KDV dahil ve hariç fiyat hesaplayın.</p>
+</div>
+
+<div class="card">
+<h3>Yüzde Hesaplama</h3>
+<p>Yüzde artış ve indirim hesaplayın.</p>
+</div>
+
+<div class="card">
+<h3>Bileşik Faiz</h3>
+<p>Yatırım getirilerinizi hesaplayın.</p>
+</div>
+
+<div class="card">
+<h3>Kredi Hesaplama</h3>
+<p>Aylık kredi taksitlerinizi öğrenin.</p>
+</div>
+
+<div class="card">
+<h3>Brüt Net Maaş</h3>
+<p>Maaş dönüşümlerinizi hesaplayın.</p>
+</div>
+
+<div class="card">
+<h3>MTV Hesaplama</h3>
+<p>Araç verginizi hesaplayın.</p>
+</div>
+
+</section>
+
+<footer>
+© 2026 Hesapmatik
+</footer>
+
 </body>
 </html>
