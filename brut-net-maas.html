@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brüt Net Maaş Hesaplama - Hesapmatik</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#07142c;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.card{
+background:#102348;
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:550px;
+}
+
+input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+margin-bottom:15px;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#3b82f6;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+padding:15px;
+background:#1b3568;
+border-radius:10px;
+}
+
+.back{
+display:block;
+text-align:center;
+margin-top:20px;
+color:#9ec5ff;
+text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Brüt → Net Maaş</h1>
+
+<input type="number" id="brut" placeholder="Brüt Maaş">
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result" style="display:none;"></div>
+
+<a href="index.html" class="back">← Ana Sayfaya Dön</a>
+
+</div>
+
+<script>
+
+function hesapla(){
+
+let brut=parseFloat(document.getElementById("brut").value);
+
+if(!brut){
+alert("Brüt maaş giriniz");
+return;
+}
+
+let net = brut * 0.75;
+
+document.getElementById("sonuc").style.display="block";
+
+document.getElementById("sonuc").innerHTML=
+`
+Brüt Maaş: ${brut.toFixed(2)} TL<br>
+Tahmini Net Maaş: ${net.toFixed(2)} TL
+`;
+
+}
+
+</script>
+
+</body>
+</html>
