@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İş Günü Hesaplama</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#111827;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    background:#1f2937;
+    padding:25px;
+    border-radius:12px;
+    width:420px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>İş Günü Hesaplama</h1>
+
+<label>Başlangıç Tarihi</label>
+<input type="date" id="baslangic">
+
+<label>Bitiş Tarihi</label>
+<input type="date" id="bitis">
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result"></div>
+
+</div>
+
+<script>
+
+function hesapla(){
+
+let start = new Date(document.getElementById("baslangic").value);
+let end = new Date(document.getElementById("bitis").value);
+
+let count = 0;
+
+while(start <= end){
+
+let day = start.getDay();
+
+if(day !== 0 && day !== 6){
+count++;
+}
+
+start.setDate(start.getDate()+1);
+
+}
+
+document.getElementById("sonuc").innerHTML =
+"Toplam İş Günü: " + count;
+
+}
+
+</script>
+
+</body>
+</html>
