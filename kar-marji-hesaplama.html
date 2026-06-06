@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kâr Marjı Hesaplama - Hesapmatik</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#07142c;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+.card{
+background:#102348;
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:500px;
+}
+input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+margin-bottom:15px;
+box-sizing:border-box;
+}
+button{
+width:100%;
+padding:15px;
+background:#8b5cf6;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+.result{
+margin-top:20px;
+padding:15px;
+background:#1b3568;
+border-radius:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+<h1>Kâr Marjı Hesaplama</h1>
+
+<input type="number" id="maliyet" placeholder="Maliyet (TL)">
+<input type="number" id="satis" placeholder="Satış Fiyatı (TL)">
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result" style="display:none;"></div>
+
+</div>
+
+<script>
+function hesapla(){
+
+let maliyet=parseFloat(document.getElementById("maliyet").value);
+let satis=parseFloat(document.getElementById("satis").value);
+
+let kar=satis-maliyet;
+let marj=(kar/satis)*100;
+
+document.getElementById("sonuc").style.display="block";
+
+document.getElementById("sonuc").innerHTML=
+"Kâr: <strong>"+kar.toFixed(2)+" TL</strong><br><br>Kâr Marjı: <strong>%"+marj.toFixed(2)+"</strong>";
+
+}
+</script>
+
+</body>
+</html>
