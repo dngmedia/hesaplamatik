@@ -43,6 +43,35 @@ gap:12px;
 flex-wrap:wrap;
 justify-content:center;
 }
+.menu-btn{
+display:none;
+font-size:24px;
+cursor:pointer;
+color:white;
+}
+
+@media(max-width:768px){
+
+.menu-btn{
+display:block;
+}
+
+.nav-links{
+display:none;
+position:absolute;
+top:70px;
+right:10px;
+flex-direction:column;
+background:rgba(20,20,40,.95);
+padding:15px;
+border-radius:12px;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+}  
 
 .nav-links a{
 text-decoration:none;
