@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Araç Değer Kaybı Hesaplama</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+.container{
+background:#1f2937;
+padding:25px;
+border-radius:12px;
+width:420px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Araç Değer Kaybı</h1>
+
+<input type="number" id="aracDegeri" placeholder="Araç Değeri (₺)">
+
+<input type="number" id="hasarTutari" placeholder="Hasar Tutarı (₺)">
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result"></div>
+
+</div>
+
+<script>
+
+function hesapla(){
+
+let arac=parseFloat(document.getElementById("aracDegeri").value);
+let hasar=parseFloat(document.getElementById("hasarTutari").value);
+
+if(!arac || !hasar){
+alert("Tüm alanları doldurun");
+return;
+}
+
+let kayip = hasar * 0.20;
+
+document.getElementById("sonuc").innerHTML =
+"Tahmini Değer Kaybı: " +
+kayip.toLocaleString("tr-TR") +
+" ₺";
+
+}
+
+</script>
+
+</body>
+</html>
