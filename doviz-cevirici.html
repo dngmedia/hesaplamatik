@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Döviz Çevirici</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+.container{
+background:#1f2937;
+padding:25px;
+border-radius:12px;
+width:420px;
+}
+
+h1{
+text-align:center;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+.result{
+margin-top:15px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>💱 Döviz Çevirici</h1>
+
+<input type="number" id="amount" placeholder="Miktar">
+
+<select id="from">
+<option value="USD">USD</option>
+<option value="EUR">EUR</option>
+<option value="GBP">GBP</option>
+<option value="TRY">TRY</option>
+<option value="SAR">SAR</option>
+<option value="AED">AED</option>
+<option value="CHF">CHF</option>
+<option value="CAD">CAD</option>
+</select>
+
+<select id="to">
+<option value="TRY">TRY</option>
+<option value="USD">USD</option>
+<option value="EUR">EUR</option>
+<option value="GBP">GBP</option>
+<option value="SAR">SAR</option>
+<option value="AED">AED</option>
+<option value="CHF">CHF</option>
+<option value="CAD">CAD</option>
+</select>
+
+<button onclick="convertCurrency()">Çevir</button>
+
+<div id="result" class="result"></div>
+
+</div>
+
+<script>
+
+async function convertCurrency(){
+
+const amount=document.getElementById("amount").value;
+const from=document.getElementById("from").value;
+const to=document.getElementById("to").value;
+
+if(!amount){
+alert("Miktar giriniz");
+return;
+}
+
+const response=await fetch(
+`https://open.er-api.com/v6/latest/${from}`
+);
+
+const data=await response.json();
+
+const rate=data.rates[to];
+
+const result=(amount*rate).toFixed(2);
+
+document.getElementById("result").innerHTML=
+`${amount} ${from} = ${result} ${to}`;
+
+}
+
+</script>
+
+</body>
+</html>
