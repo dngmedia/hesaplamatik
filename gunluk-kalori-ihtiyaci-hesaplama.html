@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Günlük Kalori İhtiyacı Hesaplama</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#111827;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    background:#1f2937;
+    padding:25px;
+    border-radius:12px;
+    width:420px;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Günlük Kalori İhtiyacı</h1>
+
+<input type="number" id="yas" placeholder="Yaş">
+
+<input type="number" id="kilo" placeholder="Kilo (kg)">
+
+<input type="number" id="boy" placeholder="Boy (cm)">
+
+<select id="cinsiyet">
+<option value="erkek">Erkek</option>
+<option value="kadin">Kadın</option>
+</select>
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result"></div>
+
+</div>
+
+<script>
+function hesapla(){
+
+let yas = Number(document.getElementById("yas").value);
+let kilo = Number(document.getElementById("kilo").value);
+let boy = Number(document.getElementById("boy").value);
+let cinsiyet = document.getElementById("cinsiyet").value;
+
+let kalori;
+
+if(cinsiyet==="erkek"){
+    kalori = 10*kilo + 6.25*boy - 5*yas + 5;
+}else{
+    kalori = 10*kilo + 6.25*boy - 5*yas - 161;
+}
+
+document.getElementById("sonuc").innerHTML =
+"Günlük Kalori İhtiyacı: " +
+Math.round(kalori) +
+" kcal";
+
+}
+</script>
+
+</body>
+</html>
