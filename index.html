@@ -188,6 +188,10 @@ HESAP<span>MATİK</span>
 <div class="nav-text">
 Akıllı Hesaplama Araçları
 </div>
+  <div class="menu-btn" onclick="toggleMenu()">
+☰
+</div>
+  
 <div class="nav-links">
 
 <a href="#finans">Finans</a>
@@ -473,6 +477,11 @@ Türkiye'nin ücretsiz hesaplama merkezi
 </p>
 
 </footer>
-
+<script>
+function toggleMenu() {
+document.querySelector('.nav-links').classList.toggle('active');
+}
+</script>
+  
 </body>
 </html>
