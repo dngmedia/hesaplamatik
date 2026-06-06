@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not Ortalaması Hesaplama</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#111827;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    background:#1f2937;
+    padding:25px;
+    border-radius:12px;
+    width:400px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Not Ortalaması Hesaplama</h1>
+
+<input type="number" id="not1" placeholder="1. Not">
+<input type="number" id="not2" placeholder="2. Not">
+<input type="number" id="not3" placeholder="3. Not">
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div class="result" id="sonuc"></div>
+</div>
+
+<script>
+function hesapla(){
+
+let n1 = Number(document.getElementById("not1").value);
+let n2 = Number(document.getElementById("not2").value);
+let n3 = Number(document.getElementById("not3").value);
+
+let ortalama = (n1+n2+n3)/3;
+
+document.getElementById("sonuc").innerHTML =
+"Ortalama: " + ortalama.toFixed(2);
+
+}
+</script>
+
+</body>
+</html>
