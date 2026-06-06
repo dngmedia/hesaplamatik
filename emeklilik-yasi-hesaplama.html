@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emeklilik Yaşı Hesaplama</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+.container{
+background:#1f2937;
+padding:25px;
+border-radius:12px;
+width:420px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Emeklilik Yaşı Hesaplama</h1>
+
+<input type="number" id="dogumYili" placeholder="Doğum Yılı">
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result"></div>
+
+</div>
+
+<script>
+
+function hesapla(){
+
+let yil = parseInt(document.getElementById("dogumYili").value);
+
+if(!yil){
+alert("Doğum yılı giriniz");
+return;
+}
+
+let emeklilikYasi = 60;
+let emeklilikYili = yil + emeklilikYasi;
+
+document.getElementById("sonuc").innerHTML =
+"Tahmini Emeklilik Yılı: " + emeklilikYili;
+
+}
+
+</script>
+
+</body>
+</html>
