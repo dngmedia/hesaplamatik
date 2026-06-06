@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÖTV Hesaplama</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#0b1437;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+.container{
+background:#16204d;
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:500px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+background:#8b5cf6;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>ÖTV Hesaplama</h1>
+
+<label>Vergisiz Fiyat (₺)</label>
+<input type="number" id="fiyat">
+
+<label>ÖTV Oranı (%)</label>
+<input type="number" id="oran">
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result"></div>
+
+</div>
+
+<script>
+function hesapla(){
+
+let fiyat=parseFloat(document.getElementById("fiyat").value);
+let oran=parseFloat(document.getElementById("oran").value);
+
+if(!fiyat || !oran){
+alert("Tüm alanları doldurun");
+return;
+}
+
+let otv=fiyat*oran/100;
+let toplam=fiyat+otv;
+
+document.getElementById("sonuc").innerHTML=
+"ÖTV: "+otv.toLocaleString("tr-TR")+" ₺<br><br>Toplam: "+toplam.toLocaleString("tr-TR")+" ₺";
+}
+</script>
+
+</body>
+</html>
