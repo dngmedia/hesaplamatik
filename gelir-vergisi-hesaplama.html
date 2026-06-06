@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gelir Vergisi Hesaplama</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+.container{
+background:#1f2937;
+padding:25px;
+border-radius:12px;
+width:420px;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Gelir Vergisi Hesaplama</h1>
+
+<input type="number" id="gelir" placeholder="Gelir Tutarı (₺)">
+
+<select id="oran">
+<option value="15">%15</option>
+<option value="20">%20</option>
+<option value="27">%27</option>
+<option value="35">%35</option>
+<option value="40">%40</option>
+</select>
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result"></div>
+
+</div>
+
+<script>
+
+function hesapla(){
+
+let gelir=parseFloat(document.getElementById("gelir").value);
+let oran=parseFloat(document.getElementById("oran").value);
+
+if(!gelir){
+alert("Gelir giriniz");
+return;
+}
+
+let vergi=gelir*(oran/100);
+let kalan=gelir-vergi;
+
+document.getElementById("sonuc").innerHTML=
+"Vergi: " +
+vergi.toLocaleString("tr-TR") +
+" ₺<br><br>Net Gelir: " +
+kalan.toLocaleString("tr-TR") +
+" ₺";
+
+}
+
+</script>
+
+</body>
+</html>
