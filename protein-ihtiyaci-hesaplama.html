@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protein İhtiyacı Hesaplama</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+.container{
+background:#1f2937;
+padding:25px;
+border-radius:12px;
+width:420px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Protein İhtiyacı Hesaplama</h1>
+
+<input type="number" id="kilo" placeholder="Kilo (kg)">
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result"></div>
+
+</div>
+
+<script>
+
+function hesapla(){
+
+let kilo=parseFloat(document.getElementById("kilo").value);
+
+if(!kilo){
+alert("Kilo giriniz");
+return;
+}
+
+let protein=kilo*1.6;
+
+document.getElementById("sonuc").innerHTML=
+"Günlük Protein İhtiyacı: "+
+protein.toFixed(0)+
+" gram";
+
+}
+
+</script>
+
+</body>
+</html>
