@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dosya İndirme Süresi Hesaplama</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+.container{
+background:#1f2937;
+padding:25px;
+border-radius:12px;
+width:450px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-size:18px;
+font-weight:bold;
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Dosya İndirme Süresi</h1>
+
+<input type="number" id="boyut" placeholder="Dosya Boyutu (GB)">
+
+<input type="number" id="hiz" placeholder="İnternet Hızı (Mbps)">
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result"></div>
+
+</div>
+
+<script>
+
+function hesapla(){
+
+let boyut=parseFloat(document.getElementById("boyut").value);
+let hiz=parseFloat(document.getElementById("hiz").value);
+
+if(!boyut || !hiz){
+alert("Tüm alanları doldurun");
+return;
+}
+
+let saniye=(boyut*1024*8)/hiz;
+
+let dakika=saniye/60;
+
+document.getElementById("sonuc").innerHTML=
+"Tahmini Süre: "+
+dakika.toFixed(1)+
+" dakika";
+
+}
+
+</script>
+
+</body>
+</html>
