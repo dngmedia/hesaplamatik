@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vücut Yağ Oranı Hesaplama</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+.container{
+background:#1f2937;
+padding:25px;
+border-radius:12px;
+width:420px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Vücut Yağ Oranı Hesaplama</h1>
+
+<input type="number" id="boy" placeholder="Boy (cm)">
+
+<input type="number" id="bel" placeholder="Bel Çevresi (cm)">
+
+<input type="number" id="boyun" placeholder="Boyun Çevresi (cm)">
+
+<button onclick="hesapla()">Hesapla</button>
+
+<div id="sonuc" class="result"></div>
+
+</div>
+
+<script>
+
+function hesapla(){
+
+let boy=parseFloat(document.getElementById("boy").value);
+let bel=parseFloat(document.getElementById("bel").value);
+let boyun=parseFloat(document.getElementById("boyun").value);
+
+if(!boy || !bel || !boyun){
+alert("Tüm alanları doldurun");
+return;
+}
+
+let yag=((bel-boyun)*0.74)-(boy*0.082);
+
+document.getElementById("sonuc").innerHTML=
+"Tahmini Yağ Oranı: %"+
+Math.abs(yag/10).toFixed(1);
+
+}
+
+</script>
+
+</body>
+</html>
