@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://dngmedia.github.io/hesaplamatik/</loc>
-</url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/</loc></url>
 
-<url>
-<loc>https://dngmedia.github.io/hesaplamatik/kov-hesaplama.html</loc>
-</url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/kdv-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/yuzde-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/bilesik-faiz.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/kredi-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/brut-net-maas.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/mtv-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/yas-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/indirim-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/gun-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/ortalama-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/vucut-kitle-indeksi.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/kar-zarar-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/mevduat-faizi-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/yakit-maliyeti-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/saatlik-ucret-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/enflasyon-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/fazla-mesai-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/kar-marji-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/komisyon-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/yakit-tuketimi-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/kidem-tazminati-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/ihbar-tazminati-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/arac-kredisi-hesaplama.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/otv-hesaplama.html</loc></url>
 
-<url>
-<loc>https://dngmedia.github.io/hesaplamatik/yuzde-hesaplama.html</loc>
-</url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/hakkimizda.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/iletisim.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/gizlilik-politikasi.html</loc></url>
+<url><loc>https://dngmedia.github.io/hesaplamatik/kullanim-sartlari.html</loc></url>
 
 </urlset>
