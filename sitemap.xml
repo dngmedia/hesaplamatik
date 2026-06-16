@@ -1,36 +1,492 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-<url><loc>https://dngmedia.github.io/hesaplamatik/</loc></url>
 
-<url><loc>https://dngmedia.github.io/hesaplamatik/kdv-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/yuzde-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/bilesik-faiz.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/kredi-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/brut-net-maas.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/mtv-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/yas-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/indirim-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/gun-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/ortalama-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/vucut-kitle-indeksi.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/kar-zarar-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/mevduat-faizi-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/yakit-maliyeti-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/saatlik-ucret-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/enflasyon-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/fazla-mesai-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/kar-marji-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/komisyon-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/yakit-tuketimi-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/kidem-tazminati-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/ihbar-tazminati-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/arac-kredisi-hesaplama.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/otv-hesaplama.html</loc></url>
+  <url>
+    <loc>https://hesaplarsin.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-<url><loc>https://dngmedia.github.io/hesaplamatik/hakkimizda.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/iletisim.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/gizlilik-politikasi.html</loc></url>
-<url><loc>https://dngmedia.github.io/hesaplamatik/kullanim-sartlari.html</loc></url>
+  <url>
+    <loc>https://hesaplarsin.com/amortisman-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/arac-deger-kaybi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/arac-kredisi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/arac-muayene-gecikme-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/ayt-net-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/basa-bas-noktasi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/bazal-metabolizma-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/bel-kalca-orani-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/bilesik-faiz.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/borc-kapatma-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/boya-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/brut-kar-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/brut-net-maas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/ciro-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/dogalgaz-faturasi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/dosya-boyutu-donusturucu.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/dosya-indirme-suresi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/doviz-cevirici.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/elektrik-faturasi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/emeklilik-yasi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/enflasyon-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/fazla-mesai-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/gelir-vergisi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/gun-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/gunluk-kalori-ihtiyaci-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/hedef-kilo-suresi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/ideal-kilo-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/ihbar-tazminati-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/indirim-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/internet-hizi-donusturucu.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/is-gunu-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/iskonto-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kalori-yakma-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kar-marji-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kar-zarar-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kdv-haric-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kidem-tazminati-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kira-artis-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kira-getirisi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/komisyon-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kov-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kpss-net-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kredi-erken-kapama-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kredi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kredi-karti-asgari-odeme-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kripto-kar-zarar-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/maas-zam-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/metrekare-fiyat-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/mevduat-faizi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/mtv-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/net-kar-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/not-ortalamasi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/ortalama-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/otv-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/para-deger-kaybi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/prim-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/protein-ihtiyaci-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/roi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/saatlik-ucret-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/stok-karliligi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/su-faturasi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/su-ihtiyaci-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/takdir-tesekkur-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/tapu-harci-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/tyt-net-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/veri-kullanim-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/vucut-kitle-indeksi.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/vucut-yag-orani-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/yakit-maliyeti-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/yakit-tuketimi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/yas-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/yatirim-geri-donus-suresi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/yuzde-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog sayfalarÄ± -->
+  <url>
+    <loc>https://hesaplarsin.com/blog-bilesik-faiz.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/blog-kdv-nedir.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/blog-kredi-hesaplama.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Kurumsal sayfalar -->
+  <url>
+    <loc>https://hesaplarsin.com/hakkimizda.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/iletisim.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/gizlilik-politikasi.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://hesaplarsin.com/kullanim-sartlari.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
 
 </urlset>
