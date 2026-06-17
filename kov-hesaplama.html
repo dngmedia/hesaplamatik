@@ -1,149 +1,986 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="KDV hesaplama aracı ile KDV dahil ve hariç tutarları kolayca hesaplayın. Güncel KDV oranlarıyla ücretsiz online hesaplama.">
-  
-<meta name="robots" content="index, follow">  
-<title>KDV Hesaplama Aracı (KDV Dahil & Hariç) | Hesaplarsin</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#07142c;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-}
+  <!-- ═══ SEO META ═══ -->
+  <title>KDV Hesaplama 2025 – KDV Dahil & Hariç Hesapla | Hesaplarsın</title>
+  <meta name="description" content="KDV hesaplama aracı ile KDV dahil ve hariç tutarları anında hesaplayın. %1, %10 ve %20 güncel KDV oranları, detaylı vergi dökümü. Ücretsiz ve reklamsız." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hesaplarsin.com/kov-hesaplama.html" />
 
-.card{
-background:#102348;
-padding:30px;
-border-radius:20px;
-width:90%;
-max-width:500px;
-box-shadow:0 0 25px rgba(0,0,0,.3);
-}
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KDV Hesaplama 2025 – KDV Dahil & Hariç | Hesaplarsın" />
+  <meta property="og:description" content="KDV dahil ve hariç tutarları anında hesaplayın. %1, %10, %20 oranları — ücretsiz." />
+  <meta property="og:url" content="https://hesaplarsin.com/kov-hesaplama.html" />
+  <meta property="og:site_name" content="Hesaplarsın" />
 
-h1{
-text-align:center;
-margin-bottom:20px;
-}
+  <!-- ═══ SCHEMA.ORG — WebApplication ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "KDV Hesaplama Aracı",
+    "url": "https://hesaplarsin.com/kov-hesaplama.html",
+    "description": "KDV dahil ve hariç tutarları anında hesaplayan ücretsiz online araç.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+    "provider": { "@type": "Organization", "name": "Hesaplarsın", "url": "https://hesaplarsin.com" }
+  }
+  </script>
 
-input,select{
-width:100%;
-padding:14px;
-border:none;
-border-radius:10px;
-margin-bottom:15px;
-font-size:16px;
-}
+  <!-- ═══ SCHEMA.ORG — FAQ ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "KDV nasıl hesaplanır?",
+        "acceptedAnswer": { "@type": "Answer", "text": "KDV tutarı = (KDV hariç tutar × KDV oranı) / 100 formülüyle hesaplanır. KDV dahil tutar ise KDV hariç tutar ile KDV tutarının toplamıdır." }
+      },
+      {
+        "@type": "Question",
+        "name": "Türkiye'de kaç çeşit KDV oranı var?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Türkiye'de 2025 itibarıyla %1, %10 ve %20 olmak üzere üç temel KDV oranı uygulanmaktadır." }
+      },
+      {
+        "@type": "Question",
+        "name": "KDV dahil fiyattan KDV hariç nasıl bulunur?",
+        "acceptedAnswer": { "@type": "Answer", "text": "KDV hariç tutar = KDV dahil tutar / (1 + KDV oranı/100) formülüyle hesaplanır." }
+      }
+    ]
+  }
+  </script>
 
-button{
-width:100%;
-padding:15px;
-background:#3b82f6;
-color:white;
-border:none;
-border-radius:10px;
-font-size:18px;
-cursor:pointer;
-}
+  <!-- ═══ BREADCRUMB SCHEMA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://hesaplarsin.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Vergi Araçları", "item": "https://hesaplarsin.com/#vergi" },
+      { "@type": "ListItem", "position": 3, "name": "KDV Hesaplama", "item": "https://hesaplarsin.com/kov-hesaplama.html" }
+    ]
+  }
+  </script>
 
-button:hover{
-background:#2563eb;
-}
+  <style>
+    /* ═══════════════════════════════════════
+       DESIGN TOKENS — hesaplarsin.com temeli
+       ═══════════════════════════════════════ */
+    :root {
+      --bg-dark:      #0f1117;
+      --bg-card:      #1a1d2e;
+      --bg-card-2:    #1e2235;
+      --border:       #2a2f4a;
+      --border-light: #323760;
 
-.result{
-margin-top:20px;
-background:#1b3568;
-padding:15px;
-border-radius:10px;
-line-height:2;
-}
+      --blue:         #4f8ef7;
+      --blue-dark:    #3a6fd4;
+      --purple:       #7c5cbf;
+      --purple-light: #9b7de0;
+      --gradient:     linear-gradient(135deg, #4f8ef7 0%, #7c5cbf 100%);
+      --gradient-btn: linear-gradient(135deg, #4f8ef7 0%, #6b4fc4 100%);
 
-.back{
-display:block;
-text-align:center;
-margin-top:20px;
-color:#9ec5ff;
-text-decoration:none;
-}
-</style>
+      --green:        #22c55e;
+      --green-bg:     rgba(34,197,94,.12);
+      --amber:        #f59e0b;
+      --amber-bg:     rgba(245,158,11,.12);
+      --red:          #ef4444;
+      --red-bg:       rgba(239,68,68,.12);
+
+      --text-primary:   #f0f2ff;
+      --text-secondary: #a0a8cc;
+      --text-muted:     #636a8a;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow: 0 4px 24px rgba(0,0,0,.4);
+      --shadow-card: 0 8px 40px rgba(0,0,0,.5);
+
+      --font: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--purple-light); }
+
+    /* ═══ NAV ═══ */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-size: 1.2rem; font-weight: 700;
+      background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: .875rem; color: var(--text-secondary);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    @media(max-width:600px){ .nav-links { display:none; } }
+
+    /* ═══ BREADCRUMB ═══ */
+    .breadcrumb {
+      max-width: 1100px; margin: 0 auto;
+      padding: 1rem 1.5rem .25rem;
+      font-size: .8rem; color: var(--text-muted);
+      display: flex; align-items: center; gap: .4rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb span { color: var(--text-secondary); }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      max-width: 1100px; margin: 0 auto;
+      padding: 2.5rem 1.5rem 1.5rem;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--gradient); color: #fff;
+      font-size: .75rem; font-weight: 600; letter-spacing: .04em;
+      padding: .3rem .8rem; border-radius: 99px; margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800; line-height: 1.2;
+      margin-bottom: .75rem;
+    }
+    .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub {
+      color: var(--text-secondary); font-size: 1.05rem;
+      max-width: 600px;
+    }
+
+    /* ═══ MAIN GRID ═══ */
+    .main-grid {
+      max-width: 1100px; margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    @media(max-width:860px){
+      .main-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ═══ CALCULATOR CARD ═══ */
+    .calc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .calc-header {
+      padding: 1.4rem 1.6rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .calc-icon {
+      width: 42px; height: 42px; border-radius: var(--radius-sm);
+      background: var(--gradient);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .calc-title { font-size: 1.1rem; font-weight: 700; }
+    .calc-title small { display: block; font-size: .8rem; font-weight: 400; color: var(--text-secondary); }
+
+    .calc-body { padding: 1.6rem; }
+
+    /* ═══ MODE TOGGLE ═══ */
+    .mode-toggle {
+      display: grid; grid-template-columns: 1fr 1fr;
+      background: var(--bg-dark); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 1.4rem;
+    }
+    .mode-btn {
+      padding: .65rem; text-align: center;
+      font-size: .85rem; font-weight: 600;
+      cursor: pointer; border: none;
+      background: transparent; color: var(--text-secondary);
+      transition: all .2s;
+    }
+    .mode-btn.active {
+      background: var(--gradient-btn); color: #fff;
+    }
+
+    /* ═══ FORM ═══ */
+    .field { margin-bottom: 1.2rem; }
+    .field label {
+      display: block; font-size: .83rem; font-weight: 600;
+      color: var(--text-secondary); margin-bottom: .45rem;
+      letter-spacing: .02em;
+    }
+    .input-wrap { position: relative; }
+    .input-wrap .prefix,
+    .input-wrap .suffix {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      font-size: .9rem; font-weight: 600; color: var(--text-muted);
+      pointer-events: none;
+    }
+    .input-wrap .prefix { left: .9rem; }
+    .input-wrap .suffix { right: .9rem; }
+    input[type="number"] {
+      width: 100%; padding: .75rem 2.4rem .75rem .9rem;
+      background: var(--bg-dark); border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm); color: var(--text-primary);
+      font-size: 1rem; font-family: var(--font);
+      outline: none; transition: border-color .2s;
+      -moz-appearance: textfield;
+    }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+    input[type="number"]:focus { border-color: var(--blue); }
+    input[type="number"].has-prefix { padding-left: 2.4rem; }
+
+    /* ═══ KDV RATE PILLS ═══ */
+    .rate-group {
+      display: flex; gap: .6rem; flex-wrap: wrap;
+    }
+    .rate-pill {
+      padding: .5rem 1rem; border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: transparent; color: var(--text-secondary);
+      font-size: .85rem; font-weight: 600; cursor: pointer;
+      transition: all .2s;
+    }
+    .rate-pill.active {
+      background: var(--gradient-btn);
+      border-color: transparent; color: #fff;
+    }
+    .rate-pill:hover:not(.active) {
+      border-color: var(--blue); color: var(--blue);
+    }
+
+    /* ═══ RESULT BOX ═══ */
+    .result-box {
+      margin-top: 1.4rem;
+      background: var(--bg-dark);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all .3s;
+    }
+    .result-box.has-result { border-color: var(--blue); }
+
+    .result-main {
+      padding: 1.2rem 1.4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: .5rem;
+    }
+    .result-label {
+      font-size: .8rem; font-weight: 600;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em;
+    }
+    .result-value {
+      font-size: 2rem; font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .result-breakdown {
+      border-top: 1px solid var(--border);
+      padding: 1rem 1.4rem;
+      display: grid; gap: .6rem;
+    }
+    .result-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .88rem;
+    }
+    .result-row .r-label { color: var(--text-secondary); }
+    .result-row .r-val  { font-weight: 700; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+    .result-row .r-val.highlight { color: var(--green); }
+    .result-divider { border:none; border-top: 1px dashed var(--border); margin: .2rem 0; }
+
+    /* ═══ COPY BTN ═══ */
+    .copy-btn {
+      display: flex; align-items: center; gap: .4rem;
+      margin: 0 1.4rem 1rem;
+      padding: .55rem 1rem;
+      background: transparent; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); color: var(--text-secondary);
+      font-size: .82rem; cursor: pointer; transition: all .2s;
+      width: calc(100% - 2.8rem);
+      justify-content: center;
+    }
+    .copy-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .copy-btn.copied { border-color: var(--green); color: var(--green); }
+
+    /* ═══ EMPTY STATE ═══ */
+    .empty-state {
+      padding: 2rem 1.4rem;
+      text-align: center; color: var(--text-muted);
+      font-size: .9rem;
+    }
+
+    /* ═══ SIDEBAR ═══ */
+    .sidebar { display: flex; flex-direction: column; gap: 1rem; }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.2rem;
+    }
+    .info-card h3 {
+      font-size: .95rem; font-weight: 700; margin-bottom: .8rem;
+      color: var(--text-primary);
+    }
+
+    /* ═══ RATE TABLE ═══ */
+    .rate-table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+    .rate-table th {
+      text-align: left; padding: .4rem .5rem;
+      color: var(--text-muted); font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+    .rate-table td { padding: .5rem .5rem; color: var(--text-secondary); }
+    .rate-table tr:not(:last-child) td { border-bottom: 1px solid var(--border); }
+    .rate-badge {
+      display: inline-block; padding: .15rem .5rem;
+      border-radius: 99px; font-weight: 700; font-size: .8rem;
+    }
+    .rate-badge.r1  { background: rgba(34,197,94,.15); color: #22c55e; }
+    .rate-badge.r10 { background: rgba(79,142,247,.15); color: #4f8ef7; }
+    .rate-badge.r20 { background: rgba(124,92,191,.15); color: #9b7de0; }
+
+    /* ═══ RELATED TOOLS ═══ */
+    .related-list { display: flex; flex-direction: column; gap: .5rem; }
+    .related-item {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .6rem .8rem;
+      background: var(--bg-dark); border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: all .2s;
+      color: var(--text-primary); font-size: .87rem;
+    }
+    .related-item:hover {
+      border-color: var(--blue);
+      background: rgba(79,142,247,.06);
+      color: var(--text-primary);
+    }
+    .related-item .ri-icon { font-size: 1.1rem; }
+    .related-item .ri-text { flex: 1; }
+    .related-item .ri-text small { display: block; font-size: .75rem; color: var(--text-muted); }
+    .related-item .ri-arrow { color: var(--text-muted); font-size: .8rem; }
+
+    /* ═══ ARTICLE ═══ */
+    .article-section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+    .article-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+    @media(max-width:860px){ .article-grid { grid-template-columns: 1fr; } }
+
+    .article h2 {
+      font-size: 1.25rem; font-weight: 700;
+      margin: 2rem 0 .75rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .article h2:first-child { margin-top: 0; }
+    .article h3 { font-size: 1rem; font-weight: 700; margin: 1.2rem 0 .5rem; color: var(--blue); }
+    .article p { color: var(--text-secondary); font-size: .93rem; line-height: 1.75; margin-bottom: .75rem; }
+    .article a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+    .article a:hover { color: var(--purple-light); }
+
+    .formula-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem; margin: .8rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: .9rem; color: var(--text-primary);
+      line-height: 1.8;
+    }
+
+    .example-box {
+      background: var(--bg-card-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.2rem; margin: 1rem 0;
+    }
+    .example-box .ex-title {
+      font-size: .8rem; font-weight: 700;
+      color: var(--purple-light); letter-spacing: .05em;
+      text-transform: uppercase; margin-bottom: .6rem;
+    }
+    .example-box p { color: var(--text-secondary); font-size: .88rem; margin-bottom: .3rem; }
+    .example-box strong { color: var(--text-primary); }
+
+    /* ═══ FAQ ═══ */
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden; margin-bottom: .6rem;
+    }
+    .faq-q {
+      width: 100%; text-align: left;
+      padding: .9rem 1rem; font-size: .9rem; font-weight: 600;
+      background: var(--bg-card); color: var(--text-primary);
+      border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background .2s;
+    }
+    .faq-q:hover { background: var(--bg-card-2); }
+    .faq-q .faq-arrow { transition: transform .25s; color: var(--text-muted); }
+    .faq-q.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a {
+      display: none; padding: .9rem 1rem;
+      font-size: .88rem; color: var(--text-secondary); line-height: 1.7;
+      border-top: 1px solid var(--border); background: var(--bg-dark);
+    }
+    .faq-a.open { display: block; }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 1.5rem;
+      text-align: center; color: var(--text-muted); font-size: .83rem;
+    }
+    footer .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    footer .footer-links a { color: var(--text-muted); }
+    footer .footer-links a:hover { color: var(--blue); }
+
+    /* ═══ UTILITIES ═══ */
+    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+  </style>
 </head>
 
 <body>
 
-<div class="card">
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav aria-label="Ana navigasyon">
+    <div class="nav-inner">
+      <a href="https://hesaplarsin.com/" class="nav-logo">Hesaplarsın</a>
+      <div class="nav-links">
+        <a href="https://hesaplarsin.com/#finans">Finans</a>
+        <a href="https://hesaplarsin.com/#vergi">Vergi</a>
+        <a href="https://hesaplarsin.com/#maas">Maaş</a>
+        <a href="https://hesaplarsin.com/#saglik">Sağlık</a>
+        <a href="https://hesaplarsin.com/#blog">Blog</a>
+      </div>
+    </div>
+  </nav>
 
-<h1>KDV Hesaplama</h1>
+  <!-- ═══════════════ BREADCRUMB ═══════════════ -->
+  <nav aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="https://hesaplarsin.com/">Ana Sayfa</a>
+      <span>›</span>
+      <a href="https://hesaplarsin.com/#vergi">Vergi</a>
+      <span>›</span>
+      <span aria-current="page">KDV Hesaplama</span>
+    </div>
+  </nav>
 
-<input type="number" id="tutar" placeholder="Tutar Gir">
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <header class="hero">
+    <div class="hero-badge">🧾 Vergi Aracı</div>
+    <h1>KDV <span>Dahil & Hariç</span><br>Hesaplama</h1>
+    <p class="hero-sub">Tutarı girin, KDV oranını seçin — vergi dökümü ve net/brüt fiyat anında karşınızda. 2025 güncel oranları.</p>
+  </header>
 
-<select id="oran">
-<option value="1">%1</option>
-<option value="10">%10</option>
-<option value="20" selected>%20</option>
-</select>
+  <!-- ═══════════════ MAIN GRID ═══════════════ -->
+  <main class="main-grid" id="hesaplama">
 
-<button onclick="hesapla()">Hesapla</button>
+    <!-- ── CALCULATOR ── -->
+    <div>
+      <div class="calc-card">
+        <div class="calc-header">
+          <div class="calc-icon" aria-hidden="true">🧾</div>
+          <div class="calc-title">
+            KDV Hesaplama
+            <small>Anlık hesaplama · 2025 güncel oranları</small>
+          </div>
+        </div>
 
-<div id="sonuc" class="result" style="display:none;"></div>
+        <div class="calc-body">
 
-<a href="index.html" class="back">← Ana Sayfaya Dön</a>
+          <!-- Mode Toggle -->
+          <div class="mode-toggle" role="group" aria-label="Hesaplama yönü">
+            <button class="mode-btn active" id="btn-dahil" onclick="setMode('dahil')" type="button">
+              KDV Hariç → Dahil
+            </button>
+            <button class="mode-btn" id="btn-haric" onclick="setMode('haric')" type="button">
+              KDV Dahil → Hariç
+            </button>
+          </div>
 
-</div>
+          <!-- Amount Field -->
+          <div class="field">
+            <label for="amount" id="amount-label">KDV Hariç Tutar (₺)</label>
+            <div class="input-wrap">
+              <span class="prefix" aria-hidden="true">₺</span>
+              <input
+                type="number"
+                id="amount"
+                class="has-prefix"
+                placeholder="0,00"
+                min="0"
+                step="any"
+                aria-labelledby="amount-label"
+                oninput="calculate()"
+              />
+            </div>
+          </div>
 
-<script>
-function hesapla(){
+          <!-- KDV Rate -->
+          <div class="field">
+            <label>KDV Oranı</label>
+            <div class="rate-group" role="radiogroup" aria-label="KDV oranı seçin">
+              <button class="rate-pill" data-rate="1"  onclick="setRate(1)"  type="button" role="radio" aria-checked="false">%1</button>
+              <button class="rate-pill" data-rate="10" onclick="setRate(10)" type="button" role="radio" aria-checked="false">%10</button>
+              <button class="rate-pill active" data-rate="20" onclick="setRate(20)" type="button" role="radio" aria-checked="true">%20</button>
+            </div>
+          </div>
 
-let tutar=parseFloat(document.getElementById("tutar").value);
-let oran=parseFloat(document.getElementById("oran").value);
+          <!-- Result -->
+          <div class="result-box" id="result-box" aria-live="polite" aria-atomic="true">
+            <div class="empty-state" id="empty-state">
+              Tutarı girin, sonuç burada görünecek.
+            </div>
 
-if(!tutar){
-alert("Tutar giriniz");
-return;
-}
+            <div id="result-content" style="display:none">
+              <div class="result-main">
+                <div>
+                  <div class="result-label" id="main-result-label">KDV Dahil Tutar</div>
+                  <div class="result-value" id="main-result-value">₺0,00</div>
+                </div>
+              </div>
+              <div class="result-breakdown">
+                <div class="result-row">
+                  <span class="r-label" id="base-label">KDV Hariç Tutar</span>
+                  <span class="r-val" id="base-val">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="r-label">KDV Oranı</span>
+                  <span class="r-val" id="rate-val">—</span>
+                </div>
+                <hr class="result-divider" />
+                <div class="result-row">
+                  <span class="r-label">KDV Tutarı</span>
+                  <span class="r-val highlight" id="kdv-val">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="r-label" id="total-label">KDV Dahil Tutar</span>
+                  <span class="r-val" id="total-val">—</span>
+                </div>
+              </div>
 
-let kdv=tutar*oran/100;
-let toplam=tutar+kdv;
+              <button class="copy-btn" id="copy-btn" onclick="copyResult()" type="button" aria-label="Sonucu kopyala">
+                📋 Sonucu Kopyala
+              </button>
+            </div>
+          </div>
 
-document.getElementById("sonuc").style.display="block";
-document.getElementById("sonuc").innerHTML=
-`
-KDV Hariç: ${tutar.toFixed(2)} TL<br>
-KDV Oranı: %${oran}<br>
-KDV Tutarı: ${kdv.toFixed(2)} TL<br>
-KDV Dahil: ${toplam.toFixed(2)} TL
-`;
-}
-</script>
+        </div><!-- /calc-body -->
+      </div><!-- /calc-card -->
+    </div>
 
-<section>
-<h2>KDV Nedir?</h2>
-<p>
-Katma Değer Vergisi (KDV), mal ve hizmet satışlarında uygulanan dolaylı bir vergidir. Türkiye'de ürün ve hizmet türüne göre farklı oranlarda uygulanır.
-</p>
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar" aria-label="Ek bilgiler">
 
-<h2>KDV Nasıl Hesaplanır?</h2>
-<p>
-KDV hesaplaması için tutar, seçilen KDV oranı ile çarpılır ve 100'e bölünür. Elde edilen sonuç KDV tutarını verir.
-</p>
+      <!-- KDV Oranları Tablosu -->
+      <div class="info-card">
+        <h3>📊 2025 KDV Oranları</h3>
+        <table class="rate-table" aria-label="Türkiye KDV oranları tablosu">
+          <thead>
+            <tr>
+              <th>Oran</th>
+              <th>Uygulama Alanı</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="rate-badge r1">%1</span></td>
+              <td>Temel gıda, konut kirası, gazete</td>
+            </tr>
+            <tr>
+              <td><span class="rate-badge r10">%10</span></td>
+              <td>İşlenmiş gıda, sağlık hizmetleri, su</td>
+            </tr>
+            <tr>
+              <td><span class="rate-badge r20">%20</span></td>
+              <td>Genel oran; dayanıklı tüketim, tekstil, hizmet</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-<h2>KDV Dahil ve Hariç Hesaplama</h2>
-<p>
-KDV dahil fiyat hesaplamasında vergi tutarı ana bedele eklenir. KDV hariç hesaplamada ise toplam tutardan vergi ayrıştırılır.
-</p>
+      <!-- İlgili Araçlar -->
+      <div class="info-card">
+        <h3>🔗 İlgili Vergi Araçları</h3>
+        <nav class="related-list" aria-label="İlgili araçlar">
+          <a href="https://hesaplarsin.com/kdv-haric-hesaplama.html" class="related-item">
+            <span class="ri-icon">🧮</span>
+            <span class="ri-text">KDV Hariç Hesaplama<small>Dahil fiyattan vergiyi ayır</small></span>
+            <span class="ri-arrow">›</span>
+          </a>
+          <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html" class="related-item">
+            <span class="ri-icon">📋</span>
+            <span class="ri-text">Gelir Vergisi<small>Vergi dilimi ve tutar</small></span>
+            <span class="ri-arrow">›</span>
+          </a>
+          <a href="https://hesaplarsin.com/otv-hesaplama.html" class="related-item">
+            <span class="ri-icon">🏷️</span>
+            <span class="ri-text">ÖTV Hesaplama<small>Özel tüketim vergisi</small></span>
+            <span class="ri-arrow">›</span>
+          </a>
+          <a href="https://hesaplarsin.com/tapu-harci-hesaplama.html" class="related-item">
+            <span class="ri-icon">🏡</span>
+            <span class="ri-text">Tapu Harcı<small>Gayrimenkul alım-satım vergisi</small></span>
+            <span class="ri-arrow">›</span>
+          </a>
+          <a href="https://hesaplarsin.com/indirim-hesaplama.html" class="related-item">
+            <span class="ri-icon">🏷️</span>
+            <span class="ri-text">İndirim Hesaplama<small>İndirimli net fiyat</small></span>
+            <span class="ri-arrow">›</span>
+          </a>
+        </nav>
+      </div>
 
-<h2>Güncel KDV Oranları</h2>
-<p>
-Türkiye'de yaygın olarak %1, %10 ve %20 KDV oranları kullanılmaktadır.
-</p>
-</section>
+      <!-- Finans Araçları -->
+      <div class="info-card">
+        <h3>💰 Popüler Finans Araçları</h3>
+        <nav class="related-list" aria-label="Finans araçları">
+          <a href="https://hesaplarsin.com/kredi-hesaplama.html" class="related-item">
+            <span class="ri-icon">💳</span>
+            <span class="ri-text">Kredi Hesaplama<small>Taksit ve geri ödeme</small></span>
+            <span class="ri-arrow">›</span>
+          </a>
+          <a href="https://hesaplarsin.com/brut-net-maas.html" class="related-item">
+            <span class="ri-icon">💼</span>
+            <span class="ri-text">Net Maaş Hesaplama<small>SGK ve vergi kesintileri</small></span>
+            <span class="ri-arrow">›</span>
+          </a>
+          <a href="https://hesaplarsin.com/kar-zarar-hesaplama.html" class="related-item">
+            <span class="ri-icon">⚖️</span>
+            <span class="ri-text">Kar / Zarar<small>Alış-satış kâr hesabı</small></span>
+            <span class="ri-arrow">›</span>
+          </a>
+        </nav>
+      </div>
+
+    </aside>
+  </main>
+
+  <!-- ═══════════════ ARTICLE ═══════════════ -->
+  <section class="article-section" aria-label="KDV hakkında bilgi">
+    <div class="article-grid">
+      <article class="article">
+
+        <h2>KDV Nedir?</h2>
+        <p>
+          <strong>Katma Değer Vergisi (KDV)</strong>, mal ve hizmetlerin üretim ve dağıtım zincirinin her aşamasında yaratılan değer artışı üzerinden alınan dolaylı bir vergidir. Türkiye'de 1985 yılından bu yana uygulanmakta olup yasal dayanağını <em>3065 sayılı Katma Değer Vergisi Kanunu</em>'ndan almaktadır.
+        </p>
+        <p>
+          KDV, tüketici tarafından nihai olarak ödenen ancak satıcı tarafından devlete aktarılan bir vergi türüdür. Bu nedenle <strong>dolaylı vergi</strong> olarak sınıflandırılır. Vergiyi tahsil eden satıcı, gelir elde etmez; yalnızca devlet adına aracılık yapar.
+        </p>
+        <p>
+          Fatura düzenlerken, muhasebe kayıtlarında veya alışveriş kararlarında doğru KDV hesabı yapmak için <a href="#hesaplama">yukarıdaki aracı</a> kullanabilir, <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">Gelir Vergisi Hesaplama</a> aracıyla da toplam vergi yükünüzü karşılaştırabilirsiniz.
+        </p>
+
+        <h2>KDV Nasıl Hesaplanır? Formüller</h2>
+
+        <h3>KDV Hariç Fiyattan Dahil Fiyat Bulma</h3>
+        <div class="formula-box">
+          KDV Tutarı&nbsp;&nbsp;&nbsp; = KDV Hariç Tutar × (KDV Oranı / 100)<br>
+          KDV Dahil Tutar = KDV Hariç Tutar + KDV Tutarı
+        </div>
+
+        <div class="example-box">
+          <div class="ex-title">📌 Örnek Hesaplama — %20 KDV</div>
+          <p>KDV Hariç Tutar: <strong>₺1.000</strong></p>
+          <p>KDV Tutarı: 1.000 × 0,20 = <strong>₺200</strong></p>
+          <p>KDV Dahil Tutar: 1.000 + 200 = <strong>₺1.200</strong></p>
+        </div>
+
+        <h3>KDV Dahil Fiyattan Hariç Fiyat Bulma</h3>
+        <div class="formula-box">
+          KDV Hariç Tutar = KDV Dahil Tutar / (1 + KDV Oranı / 100)<br>
+          KDV Tutarı&nbsp;&nbsp;&nbsp; = KDV Dahil Tutar − KDV Hariç Tutar
+        </div>
+
+        <div class="example-box">
+          <div class="ex-title">📌 Örnek Hesaplama — %20 KDV (ters)</div>
+          <p>KDV Dahil Tutar: <strong>₺1.200</strong></p>
+          <p>KDV Hariç Tutar: 1.200 / 1,20 = <strong>₺1.000</strong></p>
+          <p>KDV Tutarı: 1.200 − 1.000 = <strong>₺200</strong></p>
+        </div>
+
+        <h2>2025 Türkiye KDV Oranları</h2>
+        <p>
+          Türkiye'de Cumhurbaşkanlığı kararnameleriyle belirlenen üç temel KDV oranı uygulanmaktadır:
+        </p>
+        <p>
+          <strong>%1 KDV:</strong> Temel ihtiyaç maddelerinde uygulanır. Taze sebze-meyve, ekmek, konut kirası, gazete ve dergi bu gruba girer.
+        </p>
+        <p>
+          <strong>%10 KDV:</strong> İşlenmiş gıda ürünleri, restoran hizmetleri (alkol hariç), sağlık hizmetleri ve ilaçlar bu oranda vergilendirilir. <a href="https://hesaplarsin.com/gunluk-kalori-ihtiyaci-hesaplama.html">Beslenme planlaması</a> yapanlar için ödenen gıda KDV'sini hesaplamak faydalı olabilir.
+        </p>
+        <p>
+          <strong>%20 KDV:</strong> Genel oran olup yukarıdaki kategorilere girmeyen tüm mal ve hizmetlere uygulanır. Dayanıklı tüketim malları, giyim, elektronik, inşaat malzemeleri bu gruba dahildir.
+        </p>
+
+        <h2>KDV'yi Kim Öder?</h2>
+        <p>
+          KDV'yi ekonomik olarak nihai tüketici öder. Ancak <strong>vergiyi beyan eden ve devlete aktaran</strong> taraf, satıcı ya da hizmet sağlayıcıdır. Bu zincirde; üretici hammaddeye ödediği KDV'yi, toptancı üreticiye ödediği KDV'yi, perakendeci ise toptancıya ödediği KDV'yi devletten iade alır. Bu mekanizma <em>KDV indirimi</em> olarak adlandırılır.
+        </p>
+        <p>
+          Esnaf ve işletmeler için doğru KDV muhasebesi kritiktir. <a href="https://hesaplarsin.com/kar-marji-hesaplama.html">Kâr Marjı Hesaplama</a> ve <a href="https://hesaplarsin.com/net-kar-hesaplama.html">Net Kâr Hesaplama</a> araçlarımızla da KDV sonrası gerçek kârlılığınızı ölçebilirsiniz.
+        </p>
+
+        <!-- FAQ -->
+        <h2>Sık Sorulan Sorular</h2>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" type="button">
+            KDV dahil fiyattan KDV'yi nasıl çıkarırım?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-a">
+            Fiyatı (1 + KDV oranı/100)'e bölün. Örneğin %20 KDV dahil ₺600 için: 600 ÷ 1,20 = ₺500 (KDV hariç), KDV tutarı = ₺100. Yukarıdaki hesaplama aracında "KDV Dahil → Hariç" modunu seçerek bu işlemi otomatik yapabilirsiniz.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" type="button">
+            Fatura düzenlerken hangi KDV oranını kullanmalıyım?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-a">
+            Ürün veya hizmetinizin tabi olduğu KDV oranını, Gelir İdaresi Başkanlığı'nın (GİB) yayımladığı KDV oranları listesinden belirlemeniz gerekir. Genel kural: bir ürün özel indirimli oranda yer almıyorsa %20 oranı uygulanır.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" type="button">
+            %8 KDV oranı hâlâ geçerli mi?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-a">
+            Hayır. Temmuz 2023'te yayımlanan Cumhurbaşkanlığı Kararnamesi ile %8 oranı %10'a, %18 oranı ise %20'ye yükseltilmiştir. 2025 itibarıyla geçerli oranlar %1, %10 ve %20'dir.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" type="button">
+            KDV istisnası nedir?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-a">
+            Bazı mal ve hizmet teslimleri KDV'den tamamen muaf tutulmuştur. İhracat teslimleri, eğitim hizmetleri (belirli koşullarda), sosyal güvenlik kuruluşlarına yapılan teslimler ve uluslararası taşımacılık bu istisnaların başında gelir.
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Article Sidebar: Blog önerileri -->
+      <aside aria-label="İlgili blog yazıları">
+        <div class="info-card" style="position:sticky;top:80px;">
+          <h3>📖 İlgili Rehberler</h3>
+          <nav class="related-list">
+            <a href="https://hesaplarsin.com/blog-kdv-nedir.html" class="related-item">
+              <span class="ri-icon">📘</span>
+              <span class="ri-text">KDV Nedir? Kapsamlı Rehber<small>5 dk okuma</small></span>
+              <span class="ri-arrow">›</span>
+            </a>
+            <a href="https://hesaplarsin.com/blog-kredi-hesaplama.html" class="related-item">
+              <span class="ri-icon">📘</span>
+              <span class="ri-text">Kredi Hesaplama Rehberi<small>7 dk okuma</small></span>
+              <span class="ri-arrow">›</span>
+            </a>
+            <a href="https://hesaplarsin.com/blog-bilesik-faiz.html" class="related-item">
+              <span class="ri-icon">📘</span>
+              <span class="ri-text">Bileşik Faiz Nedir?<small>6 dk okuma</small></span>
+              <span class="ri-arrow">›</span>
+            </a>
+          </nav>
+
+          <div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border)">
+            <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:.6rem;">Tüm hesaplama araçları</p>
+            <a href="https://hesaplarsin.com/" style="display:flex;align-items:center;gap:.4rem;font-size:.85rem;color:var(--blue);">
+              ← Ana Sayfaya Dön
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
+      <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+      <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
+      <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a>
+    </div>
+    <p>© 2025 Hesaplarsın — Türkiye'nin ücretsiz hesaplama platformu</p>
+  </footer>
+
+  <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+  <script>
+    let currentMode = 'dahil'; // 'dahil' = KDV hariçten dahil bul | 'haric' = KDV dahilden hariç bul
+    let currentRate = 20;
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.getElementById('btn-dahil').classList.toggle('active', mode === 'dahil');
+      document.getElementById('btn-haric').classList.toggle('active', mode === 'haric');
+
+      const lbl = document.getElementById('amount-label');
+      lbl.textContent = mode === 'dahil' ? 'KDV Hariç Tutar (₺)' : 'KDV Dahil Tutar (₺)';
+
+      calculate();
+    }
+
+    function setRate(rate) {
+      currentRate = rate;
+      document.querySelectorAll('.rate-pill').forEach(p => {
+        const active = parseInt(p.dataset.rate) === rate;
+        p.classList.toggle('active', active);
+        p.setAttribute('aria-checked', String(active));
+      });
+      calculate();
+    }
+
+    function fmt(n) {
+      return '₺' + n.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function calculate() {
+      const raw = parseFloat(document.getElementById('amount').value);
+      const box   = document.getElementById('result-box');
+      const empty = document.getElementById('empty-state');
+      const cont  = document.getElementById('result-content');
+
+      if (isNaN(raw) || raw <= 0) {
+        empty.style.display = '';
+        cont.style.display  = 'none';
+        box.classList.remove('has-result');
+        return;
+      }
+
+      let baseAmount, kdvAmount, totalAmount;
+
+      if (currentMode === 'dahil') {
+        // KDV hariç → dahil
+        baseAmount  = raw;
+        kdvAmount   = raw * (currentRate / 100);
+        totalAmount = raw + kdvAmount;
+      } else {
+        // KDV dahil → hariç
+        totalAmount = raw;
+        baseAmount  = raw / (1 + currentRate / 100);
+        kdvAmount   = raw - baseAmount;
+      }
+
+      // Update UI
+      document.getElementById('main-result-label').textContent =
+        currentMode === 'dahil' ? 'KDV Dahil Tutar' : 'KDV Hariç Tutar';
+      document.getElementById('main-result-value').textContent =
+        currentMode === 'dahil' ? fmt(totalAmount) : fmt(baseAmount);
+
+      document.getElementById('base-label').textContent =
+        currentMode === 'dahil' ? 'KDV Hariç Tutar' : 'KDV Dahil Tutar (girilen)';
+      document.getElementById('base-val').textContent =
+        currentMode === 'dahil' ? fmt(baseAmount) : fmt(totalAmount);
+
+      document.getElementById('rate-val').textContent   = '%' + currentRate;
+      document.getElementById('kdv-val').textContent    = fmt(kdvAmount);
+
+      document.getElementById('total-label').textContent =
+        currentMode === 'dahil' ? 'KDV Dahil Tutar' : 'KDV Hariç Tutar';
+      document.getElementById('total-val').textContent =
+        currentMode === 'dahil' ? fmt(totalAmount) : fmt(baseAmount);
+
+      empty.style.display = 'none';
+      cont.style.display  = '';
+      box.classList.add('has-result');
+
+      // Store for copy
+      window._lastResult = { baseAmount, kdvAmount, totalAmount, rate: currentRate, mode: currentMode };
+    }
+
+    function copyResult() {
+      if (!window._lastResult) return;
+      const r = window._lastResult;
+      const lines = [
+        'KDV Hesaplama Sonucu — hesaplarsin.com',
+        '─────────────────────────────',
+        `KDV Hariç Tutar : ${r.mode === 'dahil' ? fmt(r.baseAmount) : fmt(r.totalAmount)}`,
+        `KDV Oranı       : %${r.rate}`,
+        `KDV Tutarı      : ${fmt(r.kdvAmount)}`,
+        `KDV Dahil Tutar : ${r.mode === 'dahil' ? fmt(r.totalAmount) : fmt(r.baseAmount)}`,
+      ];
+      navigator.clipboard.writeText(lines.join('\n')).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ Kopyalandı!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = '📋 Sonucu Kopyala';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    function toggleFaq(btn) {
+      const ans = btn.nextElementSibling;
+      const open = ans.classList.toggle('open');
+      btn.classList.toggle('open', open);
+    }
+
+    // Keyboard: Enter on rate pills
+    document.querySelectorAll('.rate-pill').forEach(p => {
+      p.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setRate(parseInt(p.dataset.rate));
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
