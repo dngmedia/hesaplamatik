@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>AYT Net Hesaplama 2026 | SAY EA SÖZ DİL Puan Hesaplama | Hesaplarsın</title>
+  <meta name="description" content="2026 AYT net hesaplama aracı. TYT + AYT netlerinizi girerek SAY, EA, SÖZ ve DİL ham puanı ile OBP dahil yerleştirme puanınızı anında hesaplayın. ÖSYM 2026 katsayıları." />
+  <meta name="keywords" content="AYT net hesaplama 2026, AYT puan hesaplama, SAY puan hesaplama, EA puan hesaplama, SÖZ puan hesaplama, YKS puan hesaplama 2026, TYT AYT hesaplama, OBP hesaplama" />
+  <link rel="canonical" href="https://hesaplarsin.com/ayt-net-hesaplama.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hesaplarsın" />
+  <meta property="og:title" content="AYT Net Hesaplama 2026 | SAY EA SÖZ DİL | Hesaplarsın" />
+  <meta property="og:description" content="TYT + AYT netlerinizle SAY, EA, SÖZ ve DİL puanlarınızı anında hesaplayın. 2026 ÖSYM katsayıları." />
+  <meta property="og:url" content="https://hesaplarsin.com/ayt-net-hesaplama.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"AYT Net Hesaplama 2026","url":"https://hesaplarsin.com/ayt-net-hesaplama.html","description":"2026 ÖSYM katsayılarıyla TYT ve AYT netlerinden SAY, EA, SÖZ ve DİL ham puanı ile OBP dahil yerleştirme puanı hesaplama aracı.","applicationCategory":"EducationalApplication","operatingSystem":"All","inLanguage":"tr","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"publisher":{"@type":"Organization","name":"Hesaplarsın","url":"https://hesaplarsin.com"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AYT net hesaplama formülü nedir?","acceptedAnswer":{"@type":"Answer","text":"Net = Doğru − (Yanlış ÷ 4). Her 4 yanlış 1 doğruyu götürür. Boş sorular nete dahil değildir. Ham puan, netlerin ilgili ders katsayısıyla çarpılıp toplanması ve sabit bir başlangıç puanının eklenmesiyle oluşur."}},{"@type":"Question","name":"2026 AYT SAY katsayıları nedir?","acceptedAnswer":{"@type":"Answer","text":"2026 AYT SAY puan türü katsayıları: Matematik ~3,19, Fizik ~2,43, Kimya ~3,07, Biyoloji ~2,51. TYT katsayıları: Türkçe ~1,11, Sosyal Bilimler ~1,12, Temel Matematik ~1,11, Fen Bilimleri ~1,20."}},{"@type":"Question","name":"OBP nedir ve nasıl hesaplanır?","acceptedAnswer":{"@type":"Answer","text":"OBP (Ortaöğretim Başarı Puanı) = Diploma Notu × 5. Örneğin 85 diploma notu → OBP 425. Bu OBP değeri 0,12 katsayısıyla çarpılarak yerleştirme puanına eklenir. Daha önce bir programa yerleşmişseniz katsayı 0,06'ya düşer."}},{"@type":"Question","name":"SAY EA SÖZ puan türleri için hangi dersler gerekli?","acceptedAnswer":{"@type":"Answer","text":"SAY: TYT + AYT Matematik, Fizik, Kimya, Biyoloji. EA: TYT + AYT Matematik, Türk Dili ve Edebiyatı, Tarih-1, Coğrafya-1. SÖZ: TYT + AYT Türk Dili ve Edebiyatı, Tarih-1, Coğrafya-1, Tarih-2, Coğrafya-2, Felsefe Grubu, DKAB. DİL: YDT (80 soru)."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://hesaplarsin.com"},{"@type":"ListItem","position":2,"name":"Eğitim","item":"https://hesaplarsin.com/#egitim"},{"@type":"ListItem","position":3,"name":"AYT Net Hesaplama","item":"https://hesaplarsin.com/ayt-net-hesaplama.html"}]}
+  </script>
+
+  <!-- AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand:#1a56db; --brand-dark:#1341b0; --brand-light:#e8f0fe;
+      --accent:#f59e0b; --success:#10b981; --danger:#ef4444;
+      --say:#7c3aed; --say-light:#ede9fe;
+      --ea:#0891b2; --ea-light:#e0f2fe;
+      --soz:#059669; --soz-light:#d1fae5;
+      --dil:#dc2626; --dil-light:#fee2e2;
+      --text:#111827; --muted:#6b7280; --border:#e5e7eb;
+      --bg:#f9fafb; --card:#ffffff; --r:12px;
+      --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.05);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; font-size:16px; -webkit-text-size-adjust:100%; }
+
+    /* NAV */
+    nav.topnav { background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:200; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .nav-inner { max-width:1140px; margin:0 auto; padding:0 16px; height:56px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .logo { font-size:1.2rem; font-weight:800; color:var(--brand); text-decoration:none; white-space:nowrap; }
+    .nav-links { display:flex; gap:2px; flex-wrap:wrap; }
+    .nav-links a { font-size:.8rem; font-weight:500; color:var(--muted); text-decoration:none; padding:5px 9px; border-radius:6px; transition:background .15s,color .15s; white-space:nowrap; }
+    .nav-links a:hover,.nav-links a.active { background:var(--brand-light); color:var(--brand); }
+    .ham { display:none; background:none; border:none; cursor:pointer; padding:6px; }
+    .ham span { display:block; width:22px; height:2px; background:var(--text); margin:5px 0; border-radius:2px; }
+    @media(max-width:640px){ .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 16px 16px;border-bottom:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08);gap:4px;z-index:201;} .nav-links.open{display:flex;} .nav-links a{padding:10px 12px;border-radius:8px;font-size:.9rem;} .ham{display:block;} }
+
+    /* BREADCRUMB */
+    .breadcrumb { max-width:1140px; margin:0 auto; padding:12px 16px 0; font-size:.8rem; color:var(--muted); }
+    .breadcrumb a { color:var(--brand); text-decoration:none; }
+    .breadcrumb span { margin:0 5px; }
+
+    /* HERO */
+    .hero { background:linear-gradient(135deg,#0f307a 0%,#1341b0 50%,#1a56db 100%); color:#fff; padding:44px 16px 40px; }
+    .hero-inner { max-width:1140px; margin:0 auto; }
+    .hero-tag { display:inline-block; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); border-radius:20px; font-size:.76rem; font-weight:600; padding:4px 12px; margin-bottom:14px; }
+    .hero h1 { font-size:clamp(1.5rem,4vw,2.1rem); font-weight:900; line-height:1.2; margin-bottom:10px; letter-spacing:-.4px; }
+    .hero p { font-size:.93rem; opacity:.88; max-width:580px; line-height:1.7; margin-bottom:16px; }
+    .hero-badges { display:flex; gap:8px; flex-wrap:wrap; }
+    .hbadge { font-size:.73rem; font-weight:600; padding:4px 10px; border-radius:20px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); }
+
+    /* LAYOUT */
+    .main-grid { max-width:1140px; margin:24px auto 0; padding:0 16px 60px; display:grid; grid-template-columns:1fr 300px; gap:22px; }
+    @media(max-width:840px){ .main-grid{grid-template-columns:1fr;} }
+
+    /* CARD */
+    .card { background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); border:1px solid var(--border); padding:22px; }
+    @media(max-width:480px){ .card{padding:16px;} }
+    .card-title { font-size:1rem; font-weight:800; margin-bottom:16px; display:flex; align-items:center; gap:8px; padding-bottom:12px; border-bottom:2px solid var(--brand-light); }
+
+    /* SECTION HEADER */
+    .sec-header { background:var(--brand-light); border-radius:9px; padding:11px 14px; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+    .sec-header .sh-title { font-size:.88rem; font-weight:800; color:var(--brand-dark); }
+    .sec-header .sh-sub { font-size:.74rem; color:var(--brand); font-weight:500; margin-left:auto; }
+
+    /* NET GİRİŞ GRID */
+    .ders-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:16px; }
+    @media(max-width:480px){ .ders-grid{grid-template-columns:1fr;} }
+    .ders-item { background:var(--bg); border:1.5px solid var(--border); border-radius:9px; padding:11px 12px; }
+    .ders-item .di-name { font-size:.75rem; font-weight:700; color:var(--text); margin-bottom:6px; display:flex; align-items:center; justify-content:space-between; }
+    .ders-item .di-name span { font-size:.68rem; color:var(--muted); font-weight:400; }
+    .ders-item .di-row { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+    .ders-item label { font-size:.69rem; font-weight:600; color:var(--muted); display:block; margin-bottom:2px; }
+    input[type="number"] { width:100%; padding:7px 10px; border:1.5px solid var(--border); border-radius:7px; font-size:.88rem; color:var(--text); background:#fff; outline:none; -webkit-appearance:none; -moz-appearance:textfield; transition:border .15s,box-shadow .15s; }
+    input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { -webkit-appearance:none; }
+    input::placeholder { color:#c4c9d4; }
+    input:focus { border-color:var(--brand); box-shadow:0 0 0 3px rgba(26,86,219,.1); }
+    .net-display { font-size:.75rem; color:var(--brand); font-weight:700; margin-top:5px; min-height:16px; }
+
+    /* OBP ALANI */
+    .obp-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+    @media(max-width:380px){ .obp-row{grid-template-columns:1fr;} }
+    .obp-item { display:flex; flex-direction:column; gap:4px; }
+    .obp-item label { font-size:.8rem; font-weight:600; }
+    .obp-item small { font-size:.72rem; color:var(--muted); }
+
+    /* CHECKBOX */
+    .check-item { display:flex; align-items:center; gap:8px; padding:10px 12px; background:var(--bg); border:1.5px solid var(--border); border-radius:8px; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+    .check-item input { width:16px; height:16px; accent-color:var(--brand); cursor:pointer; flex-shrink:0; }
+    .check-item span { font-size:.83rem; font-weight:600; }
+    .check-item small { font-size:.72rem; color:var(--muted); display:block; margin-top:1px; }
+
+    /* BUTONLAR */
+    .btn-calc { width:100%; padding:14px; background:var(--brand); color:#fff; font-size:.96rem; font-weight:700; border:none; border-radius:10px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:background .15s,transform .1s; margin-top:16px; -webkit-tap-highlight-color:transparent; }
+    .btn-calc:hover { background:var(--brand-dark); }
+    .btn-calc:active { transform:scale(.98); }
+    .btn-reset { width:100%; padding:9px; background:transparent; color:var(--muted); font-size:.84rem; font-weight:500; border:1.5px solid var(--border); border-radius:8px; cursor:pointer; transition:all .15s; margin-top:8px; }
+    .btn-reset:hover { border-color:var(--danger); color:var(--danger); }
+
+    /* SONUÇ */
+    .result-section { display:none; margin-top:20px; }
+
+    /* PUAN TÜRLERİ GRID */
+    .puan-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:16px; }
+    @media(max-width:360px){ .puan-grid{grid-template-columns:1fr;} }
+    .puan-card { border-radius:11px; padding:16px 14px; }
+    .puan-card.say { background:var(--say-light); border:1.5px solid #c4b5fd; }
+    .puan-card.ea  { background:var(--ea-light);  border:1.5px solid #a5f3fc; }
+    .puan-card.soz { background:var(--soz-light); border:1.5px solid #6ee7b7; }
+    .puan-card.dil { background:var(--dil-light); border:1.5px solid #fca5a5; }
+    .puan-card .pc-label { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.4px; margin-bottom:4px; }
+    .puan-card.say .pc-label { color:var(--say); }
+    .puan-card.ea  .pc-label { color:var(--ea); }
+    .puan-card.soz .pc-label { color:var(--soz); }
+    .puan-card.dil .pc-label { color:var(--dil); }
+    .puan-card .pc-name { font-size:.78rem; font-weight:600; color:var(--muted); margin-bottom:8px; }
+    .puan-card .pc-val { font-size:1.6rem; font-weight:900; letter-spacing:-.5px; }
+    .puan-card.say .pc-val { color:var(--say); }
+    .puan-card.ea  .pc-val { color:var(--ea); }
+    .puan-card.soz .pc-val { color:var(--soz); }
+    .puan-card.dil .pc-val { color:var(--dil); }
+    .puan-card .pc-yp { font-size:.78rem; font-weight:600; margin-top:6px; padding-top:6px; border-top:1px solid rgba(0,0,0,.08); }
+    .puan-card .pc-not { font-size:.68rem; color:var(--muted); margin-top:3px; }
+
+    /* NET ÖZET */
+    .net-ozet { background:var(--bg); border-radius:10px; border:1px solid var(--border); padding:14px; margin-bottom:14px; }
+    .net-ozet-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    @media(max-width:400px){ .net-ozet-grid{grid-template-columns:repeat(2,1fr);} }
+    .no-item { text-align:center; }
+    .no-item .nl { font-size:.68rem; color:var(--muted); font-weight:500; }
+    .no-item .nv { font-size:.95rem; font-weight:800; color:var(--brand); }
+
+    /* UYARI KUTU */
+    .warn-result { background:#fffbeb; border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:11px 13px; font-size:.8rem; color:#78350f; margin-bottom:12px; line-height:1.6; }
+
+    /* EXPORT */
+    .export-btns { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; }
+    .btn-exp { flex:1; min-width:80px; padding:9px 8px; border-radius:8px; font-size:.8rem; font-weight:600; cursor:pointer; border:1.5px solid var(--border); background:#fff; color:var(--text); display:flex; align-items:center; justify-content:center; gap:5px; transition:all .15s; -webkit-tap-highlight-color:transparent; }
+    .btn-exp:hover { border-color:var(--brand); color:var(--brand); background:var(--brand-light); }
+
+    /* SIDEBAR */
+    .sidebar { display:flex; flex-direction:column; gap:18px; }
+    .kat-table { width:100%; border-collapse:collapse; font-size:.78rem; }
+    .kat-table th { background:var(--bg); padding:6px 9px; text-align:left; font-weight:700; color:var(--muted); border-bottom:1px solid var(--border); font-size:.72rem; }
+    .kat-table td { padding:7px 9px; border-bottom:1px solid var(--border); }
+    .kat-table tr:last-child td { border-bottom:none; }
+    .kb { font-size:.7rem; font-weight:700; padding:2px 7px; border-radius:10px; }
+    .kb-say { background:var(--say-light); color:var(--say); }
+    .kb-ea  { background:var(--ea-light);  color:var(--ea); }
+    .kb-soz { background:var(--soz-light); color:var(--soz); }
+    .source-note { font-size:.71rem; color:var(--muted); line-height:1.55; margin-top:8px; }
+    .source-note a { color:var(--brand); }
+    .info-box { background:var(--brand-light); border-left:3px solid var(--brand); border-radius:0 8px 8px 0; padding:12px 14px; font-size:.82rem; color:#1e3a5f; line-height:1.65; }
+    .ql-link { display:flex; align-items:center; gap:10px; padding:9px 11px; border-radius:8px; text-decoration:none; color:var(--text); font-size:.83rem; font-weight:500; transition:background .15s; border:1px solid transparent; }
+    .ql-link:hover { background:var(--brand-light); color:var(--brand); border-color:var(--brand-light); }
+    .ql-icon { width:30px; height:30px; border-radius:7px; background:var(--bg); display:flex; align-items:center; justify-content:center; font-size:.95rem; flex-shrink:0; }
+    .ad-slot { background:#f8fafc; border:1px dashed var(--border); border-radius:10px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.75rem; text-align:center; }
+
+    /* ARTICLE */
+    .article { max-width:1140px; margin:0 auto; padding:0 16px 60px; }
+    .article h2 { font-size:clamp(1.1rem,3vw,1.3rem); font-weight:800; margin:36px 0 12px; }
+    .article h3 { font-size:1rem; font-weight:700; margin:22px 0 8px; color:#1e3a5f; }
+    .article p { color:#374151; line-height:1.82; margin-bottom:12px; font-size:.93rem; }
+    .article ul,.article ol { margin:8px 0 14px 18px; }
+    .article ul li,.article ol li { color:#374151; font-size:.92rem; line-height:1.75; margin-bottom:8px; }
+    .formula-box { background:#1e293b; color:#e2e8f0; border-radius:10px; padding:16px 18px; font-family:'Courier New',monospace; font-size:.86rem; line-height:2; margin:14px 0; overflow-x:auto; }
+    .formula-box .v { color:#93c5fd; }
+    .formula-box .e { color:#86efac; }
+    .formula-box .c { color:#fbbf24; }
+    .cite-box { background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:12px 16px; margin:14px 0; font-size:.79rem; color:var(--muted); line-height:1.65; }
+    .cite-box strong { color:var(--text); font-size:.82rem; }
+    .cite-box a { color:var(--brand); }
+    .puan-aciklama-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px; margin:14px 0; }
+    .pa-box { border-radius:10px; padding:14px 12px; }
+    .pa-box.say { background:var(--say-light); border:1px solid #c4b5fd; }
+    .pa-box.ea  { background:var(--ea-light);  border:1px solid #a5f3fc; }
+    .pa-box.soz { background:var(--soz-light); border:1px solid #6ee7b7; }
+    .pa-box.dil { background:var(--dil-light); border:1px solid #fca5a5; }
+    .pa-box .pb-title { font-size:.82rem; font-weight:800; margin-bottom:4px; }
+    .pa-box.say .pb-title { color:var(--say); }
+    .pa-box.ea  .pb-title { color:var(--ea); }
+    .pa-box.soz .pb-title { color:var(--soz); }
+    .pa-box.dil .pb-title { color:var(--dil); }
+    .pa-box .pb-desc { font-size:.76rem; color:#374151; line-height:1.55; }
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-q { width:100%; text-align:left; background:none; border:none; padding:14px 0; font-size:.9rem; font-weight:600; cursor:pointer; color:var(--text); display:flex; justify-content:space-between; align-items:center; gap:12px; -webkit-tap-highlight-color:transparent; }
+    .faq-q .ico { width:22px; height:22px; border-radius:50%; background:var(--bg); border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0; transition:all .2s; }
+    .faq-q.open .ico { background:var(--brand); border-color:var(--brand); color:#fff; transform:rotate(45deg); }
+    .faq-a { display:none; padding:0 0 14px; color:#374151; font-size:.88rem; line-height:1.78; }
+    .faq-a.open { display:block; }
+    .related-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px; }
+    @media(max-width:420px){ .related-grid{grid-template-columns:1fr 1fr;} }
+    .rc { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:13px 11px; text-decoration:none; color:var(--text); display:flex; flex-direction:column; gap:5px; transition:all .15s; }
+    .rc:hover { border-color:var(--brand); box-shadow:0 4px 14px rgba(26,86,219,.1); transform:translateY(-2px); }
+    .rc .ri { font-size:1.3rem; }
+    .rc .rt { font-size:.82rem; font-weight:700; }
+    .rc .rd { font-size:.73rem; color:var(--muted); }
+
+    footer { background:#111827; color:#9ca3af; padding:36px 16px 20px; }
+    .footer-inner { max-width:1140px; margin:0 auto; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:28px; margin-bottom:28px; }
+    @media(max-width:640px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:360px){ .footer-grid{grid-template-columns:1fr;} }
+    .footer-brand { font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:8px; }
+    .fdesc { font-size:.8rem; line-height:1.65; }
+    .footer-col h4 { font-size:.82rem; font-weight:700; color:#fff; margin-bottom:10px; }
+    .footer-col a { display:block; font-size:.8rem; color:#9ca3af; text-decoration:none; margin-bottom:7px; transition:color .15s; }
+    .footer-col a:hover { color:#fff; }
+    .footer-bottom { border-top:1px solid #1f2937; padding-top:16px; font-size:.76rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+    .footer-bottom a { color:#9ca3af; text-decoration:none; }
+
+    .toast { position:fixed; bottom:20px; right:16px; background:#1e293b; color:#fff; padding:10px 16px; border-radius:10px; font-size:.83rem; font-weight:500; box-shadow:0 4px 20px rgba(0,0,0,.2); z-index:9999; display:none; max-width:calc(100vw - 32px); animation:slideUp .3s ease; }
+    @keyframes slideUp { from{transform:translateY(12px);opacity:0} to{transform:translateY(0);opacity:1} }
+    #topBtn { position:fixed; bottom:20px; right:16px; background:var(--brand); color:#fff; border:none; border-radius:50%; width:40px; height:40px; font-size:1.1rem; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(26,86,219,.35); z-index:9998; }
+    #topBtn.show { display:flex; }
+    @media print { nav.topnav,.sidebar,footer,#topBtn,.toast,.btn-calc,.btn-reset,.export-btns { display:none!important; } .main-grid{grid-template-columns:1fr!important;} }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="nav-inner">
+    <a class="logo" href="https://hesaplarsin.com">Hesaplarsın</a>
+    <button class="ham" id="hamBtn" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://hesaplarsin.com/tyt-net-hesaplama.html">📝 TYT Net</a>
+      <a href="https://hesaplarsin.com/ayt-net-hesaplama.html" class="active">📊 AYT Net</a>
+      <a href="https://hesaplarsin.com/not-ortalamasi-hesaplama.html">📚 Not Ort.</a>
+      <a href="https://hesaplarsin.com/kpss-net-hesaplama.html">🏛️ KPSS Net</a>
+      <a href="https://hesaplarsin.com/yuzde-hesaplama.html">📐 Yüzde</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://hesaplarsin.com">Ana Sayfa</a><span>›</span>
+  <a href="https://hesaplarsin.com/#egitim">Eğitim</a><span>›</span>
+  <span aria-current="page">AYT Net Hesaplama</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">📊 2026 ÖSYM Katsayıları</span>
+    <h1>AYT Net Hesaplama 2026</h1>
+    <p>TYT ve AYT doğru-yanlış sayılarınızı girin; SAY, EA, SÖZ ve DİL ham puanınızı ve OBP dahil yerleştirme puanınızı anında hesaplayın.</p>
+    <div class="hero-badges">
+      <span class="hbadge">✓ Ücretsiz</span>
+      <span class="hbadge">SAY · EA · SÖZ · DİL</span>
+      <span class="hbadge">OBP Dahil</span>
+      <span class="hbadge">AYT 21 Haziran 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- REKLAM -->
+<div style="max-width:1140px;margin:16px auto 0;padding:0 16px;">
+  <div class="ad-slot" style="min-height:90px;"><span>Reklam Alanı</span></div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+
+  <!-- SOL -->
+  <main>
+    <div class="card">
+      <div class="card-title">📊 TYT + AYT Net Girişi</div>
+
+      <!-- TYT -->
+      <div class="sec-header">
+        <span>📝</span>
+        <span class="sh-title">TYT — Temel Yeterlilik Testi</span>
+        <span class="sh-sub">Tüm puan türleri için gerekli</span>
+      </div>
+      <div class="ders-grid">
+        <div class="ders-item">
+          <div class="di-name">Türkçe <span>40 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="tyt-tr-d" min="0" max="40" placeholder="0" inputmode="numeric" oninput="updateNet('tyt-tr')" /></div>
+            <div><label>Yanlış</label><input type="number" id="tyt-tr-y" min="0" max="40" placeholder="0" inputmode="numeric" oninput="updateNet('tyt-tr')" /></div>
+          </div>
+          <div class="net-display" id="tyt-tr-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Sosyal Bilimler <span>20 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="tyt-sb-d" min="0" max="20" placeholder="0" inputmode="numeric" oninput="updateNet('tyt-sb')" /></div>
+            <div><label>Yanlış</label><input type="number" id="tyt-sb-y" min="0" max="20" placeholder="0" inputmode="numeric" oninput="updateNet('tyt-sb')" /></div>
+          </div>
+          <div class="net-display" id="tyt-sb-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Temel Matematik <span>40 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="tyt-tm-d" min="0" max="40" placeholder="0" inputmode="numeric" oninput="updateNet('tyt-tm')" /></div>
+            <div><label>Yanlış</label><input type="number" id="tyt-tm-y" min="0" max="40" placeholder="0" inputmode="numeric" oninput="updateNet('tyt-tm')" /></div>
+          </div>
+          <div class="net-display" id="tyt-tm-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Fen Bilimleri <span>20 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="tyt-fb-d" min="0" max="20" placeholder="0" inputmode="numeric" oninput="updateNet('tyt-fb')" /></div>
+            <div><label>Yanlış</label><input type="number" id="tyt-fb-y" min="0" max="20" placeholder="0" inputmode="numeric" oninput="updateNet('tyt-fb')" /></div>
+          </div>
+          <div class="net-display" id="tyt-fb-net"></div>
+        </div>
+      </div>
+
+      <!-- AYT SAY -->
+      <div class="sec-header" style="background:var(--say-light);border:1px solid #c4b5fd;">
+        <span>🔢</span>
+        <span class="sh-title" style="color:var(--say);">AYT Sayısal (SAY)</span>
+        <span class="sh-sub" style="color:var(--say);">Mat + Fen</span>
+      </div>
+      <div class="ders-grid">
+        <div class="ders-item">
+          <div class="di-name">Matematik <span>40 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-mat-d" min="0" max="40" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-mat')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-mat-y" min="0" max="40" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-mat')" /></div>
+          </div>
+          <div class="net-display" id="ayt-mat-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Fizik <span>14 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-fiz-d" min="0" max="14" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-fiz')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-fiz-y" min="0" max="14" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-fiz')" /></div>
+          </div>
+          <div class="net-display" id="ayt-fiz-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Kimya <span>13 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-kim-d" min="0" max="13" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-kim')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-kim-y" min="0" max="13" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-kim')" /></div>
+          </div>
+          <div class="net-display" id="ayt-kim-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Biyoloji <span>13 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-bio-d" min="0" max="13" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-bio')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-bio-y" min="0" max="13" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-bio')" /></div>
+          </div>
+          <div class="net-display" id="ayt-bio-net"></div>
+        </div>
+      </div>
+
+      <!-- AYT EA/SÖZ -->
+      <div class="sec-header" style="background:var(--ea-light);border:1px solid #a5f3fc;">
+        <span>📖</span>
+        <span class="sh-title" style="color:var(--ea);">AYT Sözel (EA + SÖZ)</span>
+        <span class="sh-sub" style="color:var(--ea);">Edebiyat + Sosyal</span>
+      </div>
+      <div class="ders-grid">
+        <div class="ders-item">
+          <div class="di-name">Türk Dili ve Edebiyatı <span>24 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-ede-d" min="0" max="24" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-ede')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-ede-y" min="0" max="24" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-ede')" /></div>
+          </div>
+          <div class="net-display" id="ayt-ede-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Tarih-1 <span>10 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-tar1-d" min="0" max="10" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-tar1')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-tar1-y" min="0" max="10" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-tar1')" /></div>
+          </div>
+          <div class="net-display" id="ayt-tar1-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Coğrafya-1 <span>6 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-cog1-d" min="0" max="6" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-cog1')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-cog1-y" min="0" max="6" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-cog1')" /></div>
+          </div>
+          <div class="net-display" id="ayt-cog1-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Tarih-2 <span>11 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-tar2-d" min="0" max="11" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-tar2')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-tar2-y" min="0" max="11" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-tar2')" /></div>
+          </div>
+          <div class="net-display" id="ayt-tar2-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Coğrafya-2 <span>11 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-cog2-d" min="0" max="11" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-cog2')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-cog2-y" min="0" max="11" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-cog2')" /></div>
+          </div>
+          <div class="net-display" id="ayt-cog2-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Felsefe Grubu <span>12 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-fel-d" min="0" max="12" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-fel')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-fel-y" min="0" max="12" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-fel')" /></div>
+          </div>
+          <div class="net-display" id="ayt-fel-net"></div>
+        </div>
+        <div class="ders-item">
+          <div class="di-name">Din Kültürü (DKAB) <span>6 soru</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ayt-dkab-d" min="0" max="6" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-dkab')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ayt-dkab-y" min="0" max="6" placeholder="0" inputmode="numeric" oninput="updateNet('ayt-dkab')" /></div>
+          </div>
+          <div class="net-display" id="ayt-dkab-net"></div>
+        </div>
+      </div>
+
+      <!-- YDT DİL -->
+      <div class="sec-header" style="background:var(--dil-light);border:1px solid #fca5a5;">
+        <span>🌍</span>
+        <span class="sh-title" style="color:var(--dil);">YDT — Yabancı Dil Testi (DİL)</span>
+        <span class="sh-sub" style="color:var(--dil);">80 soru</span>
+      </div>
+      <div class="ders-grid">
+        <div class="ders-item" style="grid-column:1/-1;">
+          <div class="di-name">Yabancı Dil <span>80 soru — İngilizce, Almanca, Fransızca, Arapça, Rusça</span></div>
+          <div class="di-row">
+            <div><label>Doğru</label><input type="number" id="ydt-d" min="0" max="80" placeholder="0" inputmode="numeric" oninput="updateNet('ydt')" /></div>
+            <div><label>Yanlış</label><input type="number" id="ydt-y" min="0" max="80" placeholder="0" inputmode="numeric" oninput="updateNet('ydt')" /></div>
+          </div>
+          <div class="net-display" id="ydt-net"></div>
+        </div>
+      </div>
+
+      <!-- OBP -->
+      <div class="sec-header" style="background:#f0fdf4;border:1px solid #bbf7d0;">
+        <span>🎓</span>
+        <span class="sh-title" style="color:#166534;">OBP — Ortaöğretim Başarı Puanı</span>
+        <span class="sh-sub" style="color:#22c55e;">İsteğe bağlı</span>
+      </div>
+      <div class="obp-row">
+        <div class="obp-item">
+          <label for="diploma-not">Diploma Notu <small>(50–100 arası)</small></label>
+          <input type="number" id="diploma-not" min="50" max="100" placeholder="örn: 85" inputmode="decimal" oninput="calcOBP()" />
+          <div style="font-size:.72rem;color:var(--success);margin-top:3px;" id="obp-display"></div>
+        </div>
+        <div class="obp-item">
+          <label>Önceki Yıl Yerleştiyseniz</label>
+          <label class="check-item">
+            <input type="checkbox" id="yerlesme-check" />
+            <div>
+              <span>OBP katsayısı yarıya indir</span>
+              <small>0,12 → 0,06 (daha önce kayıt yaptırdıysanız)</small>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <button class="btn-calc" onclick="hesapla()">📊 Puan Hesapla</button>
+      <button class="btn-reset" onclick="sifirla()">↺ Tümünü Temizle</button>
+    </div>
+
+    <!-- SONUÇ -->
+    <div class="result-section card" id="resultSection">
+
+      <!-- NET ÖZET -->
+      <div class="net-ozet">
+        <p style="font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:10px;">📋 Net Özeti</p>
+        <div class="net-ozet-grid">
+          <div class="no-item"><div class="nl">TYT Toplam Net</div><div class="nv" id="r-tyt-net">—</div></div>
+          <div class="no-item"><div class="nl">AYT Mat Net</div><div class="nv" id="r-ayt-mat">—</div></div>
+          <div class="no-item"><div class="nl">AYT Fen Net</div><div class="nv" id="r-ayt-fen">—</div></div>
+          <div class="no-item"><div class="nl">AYT Edebiyat Net</div><div class="nv" id="r-ayt-ede">—</div></div>
+          <div class="no-item"><div class="nl">AYT Sözel Net</div><div class="nv" id="r-ayt-soz">—</div></div>
+          <div class="no-item"><div class="nl">OBP Katkısı</div><div class="nv" id="r-obp-katki">—</div></div>
+        </div>
+      </div>
+
+      <div class="warn-result">
+        ⚠️ Bu hesaplama <strong>tahmini</strong>dir. ÖSYM katsayıları her yıl yeniden güncellenir; kesin puan sonuçlar açıklandığında ÖSYM AİS üzerinden görüntülenir (22 Temmuz 2026).
+      </div>
+
+      <!-- PUAN TÜRLERİ -->
+      <p style="font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:10px;">🎯 Puan Türlerine Göre Sonuçlar</p>
+      <div class="puan-grid">
+        <div class="puan-card say" id="card-say">
+          <div class="pc-label">SAY</div>
+          <div class="pc-name">Sayısal — Mat+Fen</div>
+          <div class="pc-val" id="r-say-ham">—</div>
+          <div class="pc-yp">Yerleştirme: <strong id="r-say-yp">—</strong></div>
+          <div class="pc-not" id="r-say-not">—</div>
+        </div>
+        <div class="puan-card ea" id="card-ea">
+          <div class="pc-label">EA</div>
+          <div class="pc-name">Eşit Ağırlık — Mat+Sözel</div>
+          <div class="pc-val" id="r-ea-ham">—</div>
+          <div class="pc-yp">Yerleştirme: <strong id="r-ea-yp">—</strong></div>
+          <div class="pc-not" id="r-ea-not">—</div>
+        </div>
+        <div class="puan-card soz" id="card-soz">
+          <div class="pc-label">SÖZ</div>
+          <div class="pc-name">Sözel — Edebiyat+Sosyal</div>
+          <div class="pc-val" id="r-soz-ham">—</div>
+          <div class="pc-yp">Yerleştirme: <strong id="r-soz-yp">—</strong></div>
+          <div class="pc-not" id="r-soz-not">—</div>
+        </div>
+        <div class="puan-card dil" id="card-dil">
+          <div class="pc-label">DİL</div>
+          <div class="pc-name">Yabancı Dil — YDT</div>
+          <div class="pc-val" id="r-dil-ham">—</div>
+          <div class="pc-yp">Yerleştirme: <strong id="r-dil-yp">—</strong></div>
+          <div class="pc-not" id="r-dil-not">—</div>
+        </div>
+      </div>
+
+      <div class="export-btns">
+        <button class="btn-exp" onclick="copyResult()">📋 Kopyala</button>
+        <button class="btn-exp" onclick="window.print()">🖨️ Yazdır</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- KATSAYILAR -->
+    <div class="card">
+      <div class="card-title" style="font-size:.9rem;">📐 2026 Tahmini Katsayılar</div>
+      <p style="font-size:.74rem;color:var(--muted);margin-bottom:10px;line-height:1.5;">ÖSYM katsayıları her yıl istatistiksel veriye göre güncellenir. Aşağıdakiler 2024–2026 referans değerleridir.</p>
+
+      <p style="font-size:.75rem;font-weight:700;color:var(--muted);margin-bottom:6px;">TYT Katsayıları</p>
+      <table class="kat-table" style="margin-bottom:12px;">
+        <thead><tr><th>Ders</th><th>SAY</th><th>EA</th><th>SÖZ</th></tr></thead>
+        <tbody>
+          <tr><td>Türkçe</td><td>1,11</td><td>1,11</td><td>1,11</td></tr>
+          <tr><td>Sosyal Bil.</td><td>1,12</td><td>1,12</td><td>1,12</td></tr>
+          <tr><td>Temel Mat.</td><td>1,11</td><td>1,11</td><td>1,11</td></tr>
+          <tr><td>Fen Bil.</td><td>1,20</td><td>1,20</td><td>1,20</td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size:.75rem;font-weight:700;color:var(--muted);margin-bottom:6px;">AYT Katsayıları</p>
+      <table class="kat-table">
+        <thead><tr><th>Ders</th><th>Tur</th><th>Katsayı</th></tr></thead>
+        <tbody>
+          <tr><td>Matematik</td><td><span class="kb kb-say">SAY</span></td><td>3,19</td></tr>
+          <tr><td>Fizik</td><td><span class="kb kb-say">SAY</span></td><td>2,43</td></tr>
+          <tr><td>Kimya</td><td><span class="kb kb-say">SAY</span></td><td>3,07</td></tr>
+          <tr><td>Biyoloji</td><td><span class="kb kb-say">SAY</span></td><td>2,51</td></tr>
+          <tr><td>Matematik</td><td><span class="kb kb-ea">EA</span></td><td>3,00</td></tr>
+          <tr><td>Edebiyat</td><td><span class="kb kb-ea">EA</span></td><td>3,00</td></tr>
+          <tr><td>Tarih-1</td><td><span class="kb kb-ea">EA</span></td><td>2,80</td></tr>
+          <tr><td>Coğrafya-1</td><td><span class="kb kb-ea">EA</span></td><td>3,33</td></tr>
+          <tr><td>Edebiyat</td><td><span class="kb kb-soz">SÖZ</span></td><td>3,00</td></tr>
+          <tr><td>Tarih-1</td><td><span class="kb kb-soz">SÖZ</span></td><td>2,80</td></tr>
+          <tr><td>Coğrafya-1</td><td><span class="kb kb-soz">SÖZ</span></td><td>3,33</td></tr>
+          <tr><td>Tarih-2</td><td><span class="kb kb-soz">SÖZ</span></td><td>2,91</td></tr>
+          <tr><td>Coğrafya-2</td><td><span class="kb kb-soz">SÖZ</span></td><td>2,91</td></tr>
+          <tr><td>Felsefe Gr.</td><td><span class="kb kb-soz">SÖZ</span></td><td>3,00</td></tr>
+          <tr><td>DKAB</td><td><span class="kb kb-soz">SÖZ</span></td><td>3,33</td></tr>
+        </tbody>
+      </table>
+      <p class="source-note">📌 Kaynak: <a href="https://liderrehberin.com/puan-hesaplama" target="_blank" rel="noopener noreferrer">liderrehberin.com</a> · <a href="https://www.kariyer.net/yks-tyt-ayt-puan-hesaplama" target="_blank" rel="noopener noreferrer">kariyer.net</a> · ÖSYM 2026 YKS Kılavuzu referans alınmıştır.</p>
+    </div>
+
+    <!-- ÖNEMLİ BİLGİLER -->
+    <div class="info-box">
+      <strong>📅 2026 YKS Takvimi</strong><br/>
+      • TYT: 20 Haziran 2026 Cumartesi<br/>
+      • AYT + YDT: 21 Haziran 2026 Pazar<br/>
+      • Sonuçlar: 22 Temmuz 2026 (tahmini)<br/>
+      <span style="font-size:.72rem;margin-top:4px;display:block;">Kaynak: raunt.com (Haziran 2026)</span>
+    </div>
+
+    <!-- İLGİLİ ARAÇLAR -->
+    <div class="card">
+      <div class="card-title" style="font-size:.9rem;">🔗 İlgili Araçlar</div>
+      <a class="ql-link" href="https://hesaplarsin.com/tyt-net-hesaplama.html"><div class="ql-icon">📝</div><div><div style="font-weight:700;font-size:.82rem;">TYT Net Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">TYT puan hesabı</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/kpss-net-hesaplama.html"><div class="ql-icon">🏛️</div><div><div style="font-weight:700;font-size:.82rem;">KPSS Net Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">KPSS puan hesabı</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/not-ortalamasi-hesaplama.html"><div class="ql-icon">📚</div><div><div style="font-weight:700;font-size:.82rem;">Not Ortalaması</div><div style="font-size:.72rem;color:var(--muted)">GPA hesabı</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/yuzde-hesaplama.html"><div class="ql-icon">📐</div><div><div style="font-weight:700;font-size:.82rem;">Yüzde Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Artış / azalış / oran</div></div></a>
+    </div>
+
+    <div class="ad-slot" style="min-height:250px;"><span>Reklam Alanı<br/>250×250</span></div>
+
+  </aside>
+</div>
+
+<!-- MAKALE -->
+<div class="article">
+
+  <div class="ad-slot" style="min-height:90px;margin-bottom:32px;"><span>Reklam Alanı</span></div>
+
+  <h2>AYT Net Hesaplama Nedir? 2026 Güncel Bilgi</h2>
+  <p>
+    AYT (Alan Yeterlilik Testi), YKS'nin (Yükseköğretim Kurumları Sınavı) ikinci oturumdur ve <strong>21 Haziran 2026 Pazar</strong> günü yapılacaktır. 180 dakika süren bu oturumda adaylar; Matematik, Fen Bilimleri (Fizik, Kimya, Biyoloji), Türk Dili ve Edebiyatı ile Sosyal Bilimler testlerine girerler. Aynı gün YDT (Yabancı Dil Testi) de gerçekleştirilir.
+  </p>
+  <p>
+    AYT'den elde edilen puan, yerleştirme puanının <strong>%60'ını</strong> oluşturur; geri kalan %40 ise TYT'den alınır. Bu nedenle AYT performansı, üniversite sıralamasında belirleyici rol oynar.
+  </p>
+
+  <div class="cite-box">
+    <strong>📌 2026 YKS Genel Bilgiler</strong><br/>
+    • TYT: 20 Haziran 2026 Cumartesi — 165 dakika<br/>
+    • AYT: 21 Haziran 2026 Pazar — 180 dakika<br/>
+    • YDT: 21 Haziran 2026 Pazar — 120 dakika<br/>
+    • Sonuçlar: ~22 Temmuz 2026<br/>
+    • YKS Yerleştirme Puanı: %40 TYT + %60 AYT/YDT<br/>
+    • Baraj puanı: 2022'den itibaren kaldırıldı; ancak 0,5 net şartı geçerli<br/>
+    Kaynak: <a href="https://www.raunt.com/yks-puan-hesaplama" target="_blank" rel="noopener noreferrer">raunt.com</a> (Haziran 2026) · <a href="https://unikazan.com/yks-tyt-ayt-puan-hesaplama-ve-siralama-hesaplama/" target="_blank" rel="noopener noreferrer">unikazan.com</a> (Haziran 2026)
+  </div>
+
+  <h2>Net Hesaplama Formülü</h2>
+  <div class="formula-box">
+    <span class="v">Net</span> <span class="e">=</span> Doğru − (Yanlış ÷ 4)<br/>
+    <span class="c">Örnek:</span> 36 doğru, 8 yanlış → Net = 36 − (8÷4) = 36 − 2 = <span class="e">34 net</span><br/><br/>
+    <span style="color:#f87171">⚠️ Boş sorular nete dahil edilmez; ne doğru ne yanlış sayılır.</span>
+  </div>
+
+  <h2>Puan Türleri: SAY, EA, SÖZ, DİL</h2>
+  <div class="puan-aciklama-grid">
+    <div class="pa-box say">
+      <div class="pb-title">🔢 SAY — Sayısal</div>
+      <div class="pb-desc">TYT + AYT Matematik, Fizik, Kimya, Biyoloji. Tıp, mühendislik, fen fakülteleri. En az 0,5 net şartı: Matematik ve Fen'den birinden.</div>
+    </div>
+    <div class="pa-box ea">
+      <div class="pb-title">⚖️ EA — Eşit Ağırlık</div>
+      <div class="pb-desc">TYT + AYT Matematik, Edebiyat, Tarih-1, Coğrafya-1. Hukuk, iktisat, psikoloji, mimarlık. En az 0,5 net şartı.</div>
+    </div>
+    <div class="pa-box soz">
+      <div class="pb-title">📖 SÖZ — Sözel</div>
+      <div class="pb-desc">TYT + AYT Edebiyat, Tarih-1, Coğrafya-1, Tarih-2, Coğrafya-2, Felsefe, DKAB. Filoloji, ilahiyat, tarih bölümleri.</div>
+    </div>
+    <div class="pa-box dil">
+      <div class="pb-title">🌍 DİL — Yabancı Dil</div>
+      <div class="pb-desc">YDT (80 soru). İngilizce, Almanca, Fransızca, Arapça, Rusça. Öğretmenlik, mütercim, dil bölümleri.</div>
+    </div>
+  </div>
+
+  <h2>OBP (Ortaöğretim Başarı Puanı) Nasıl Hesaplanır?</h2>
+  <div class="formula-box">
+    <span class="v">OBP</span> <span class="e">=</span> Diploma Notu × 5  (min 250, max 500)<br/>
+    <span class="v">OBP Katkısı</span> <span class="e">=</span> OBP × 0,12  (ilk kez sınava giriyorsa)<br/>
+    <span class="v">OBP Katkısı</span> <span class="e">=</span> OBP × 0,06  (daha önce yerleştiyse)<br/><br/>
+    <span class="c">Örnek:</span> Diploma notu 85 → OBP = 425 → Katkı = 425 × 0,12 = <span class="e">51 puan</span><br/>
+    <span class="v">Yerleştirme Puanı</span> <span class="e">=</span> Ham Puan + OBP Katkısı
+  </div>
+  <div class="cite-box">
+    <strong>📌 Kaynak:</strong> <a href="https://blog.youthall.com/yks-2026-puan-hesaplama-tercih-rehberi/" target="_blank" rel="noopener noreferrer">youthall.com</a> (Haziran 2026) · <a href="https://unikazan.com" target="_blank" rel="noopener noreferrer">unikazan.com</a> · <a href="https://www.sabah.com.tr/galeri/yasam/yks-puan-hesaplama-2026-tyt-ve-aytde-kac-net-kac-puan-getirir-yks-net-hesaplama-formulu" target="_blank" rel="noopener noreferrer">sabah.com.tr</a> (Haziran 2026)
+  </div>
+
+  <div class="ad-slot" style="min-height:90px;margin:24px 0;"><span>Reklam Alanı</span></div>
+
+  <h2>Sık Sorulan Sorular</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">AYT'de kaç yanlış 1 doğruyu götürür? <span class="ico">+</span></button>
+    <div class="faq-a"><strong>4 yanlış 1 doğruyu götürür.</strong> Net = Doğru − (Yanlış ÷ 4) formülü uygulanır. Boş sorular bu hesaba dahil edilmez; neti ne artırır ne de azaltır.<br/><small style="color:var(--muted)">Kaynak: ÖSYM 2026 YKS Kılavuzu</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">AYT puanı TYT olmadan hesaplanabilir mi? <span class="ico">+</span></button>
+    <div class="faq-a">Hayır. TYT puanı hesaplanamayan (TYT'de 0,5 net yapamayan) adayların AYT ve YDT puanları da hesaplanamaz. TYT yerleştirme puanının %40'ını oluşturur; AYT ise %60'ını.<br/><small style="color:var(--muted)">Kaynak: yks-puan.hesaplama.net</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">SAY puanı için hangi dersler gerekli? <span class="ico">+</span></button>
+    <div class="faq-a">SAY puanı için TYT'nin tüm testleri (Türkçe, Sosyal Bilimler, Temel Matematik, Fen Bilimleri) ve AYT'den <strong>Matematik, Fizik, Kimya, Biyoloji</strong> testleri kullanılır. SAY puanı tıp, mühendislik ve fen fakültelerine başvuruda gereklidir.<br/><small style="color:var(--muted)">Kaynak: kariyer.net (Haziran 2026)</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">0,5 net şartı ne anlama geliyor? <span class="ico">+</span></button>
+    <div class="faq-a">Bir puan türünün hesaplanabilmesi için o alana ait testlerden en az <strong>0,5 net</strong> yapılması zorunludur. Örneğin SAY puanının hesaplanabilmesi için AYT Matematik veya Fen'den en az 0,5 net yapılmalıdır. Bu şart 2022'de baraj puanı kaldırıldıktan sonra da devam etmektedir.<br/><small style="color:var(--muted)">Kaynak: yks-puan.hesaplama.net, sabah.com.tr</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Katsayılar her yıl değişiyor mu? <span class="ico">+</span></button>
+    <div class="faq-a">Evet. ÖSYM, her yıl o yılki sınavın istatistiksel verilerine (standart sapma, ortalama vb.) göre katsayıları günceller. Bu nedenle hesaplama araçlarındaki değerler <strong>tahmini</strong> olup gerçek sonuçlar ÖSYM'nin açıkladığı resmi katsayılarla farklılık gösterebilir (±5–10 puan).<br/><small style="color:var(--muted)">Kaynak: liderrehberin.com · multibem.com.tr (Haziran 2026)</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">2026 AYT sonuçları ne zaman açıklanacak? <span class="ico">+</span></button>
+    <div class="faq-a">ÖSYM'nin 2026 YKS takvimine göre sonuçlar <strong>22 Temmuz 2026 Çarşamba</strong> günü açıklanması beklenmektedir. Adaylar T.C. kimlik numarası ve şifreleriyle ÖSYM AİS (Aday İşlemleri Sistemi) üzerinden görüntüleyebilecek.<br/><small style="color:var(--muted)">Kaynak: blog.youthall.com (Haziran 2026)</small></div>
+  </div>
+
+  <h2>İlgili Hesaplama Araçları</h2>
+  <div class="related-grid">
+    <a class="rc" href="https://hesaplarsin.com/tyt-net-hesaplama.html"><span class="ri">📝</span><span class="rt">TYT Net Hesaplama</span><span class="rd">TYT puan hesabı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/kpss-net-hesaplama.html"><span class="ri">🏛️</span><span class="rt">KPSS Net Hesaplama</span><span class="rd">KPSS puan hesabı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/not-ortalamasi-hesaplama.html"><span class="ri">📚</span><span class="rt">Not Ortalaması</span><span class="rd">Ağırlıklı GPA</span></a>
+    <a class="rc" href="https://hesaplarsin.com/yuzde-hesaplama.html"><span class="ri">📐</span><span class="rt">Yüzde Hesaplama</span><span class="rd">Artış / azalış / oran</span></a>
+    <a class="rc" href="https://hesaplarsin.com/kredi-hesaplama.html"><span class="ri">💳</span><span class="rt">Kredi Hesaplama</span><span class="rd">Taksit ve faiz</span></a>
+    <a class="rc" href="https://hesaplarsin.com/enflasyon-hesaplama.html"><span class="ri">📈</span><span class="rt">Enflasyon</span><span class="rd">Paranın reel değeri</span></a>
+  </div>
+
+  <div style="margin-top:24px;background:#fef2f2;border-left:3px solid var(--danger);border-radius:0 8px 8px 0;padding:13px 15px;font-size:.84rem;color:#7f1d1d;line-height:1.7;">
+    <strong>⚠️ Önemli Uyarı:</strong> Bu araç tahmini değerler sunar. ÖSYM katsayıları sınav yılına göre değişir; kesin puan için ÖSYM'nin resmi sonuç sistemini (<a href="https://ais.osym.gov.tr" target="_blank" rel="noopener noreferrer" style="color:#991b1b;">ais.osym.gov.tr</a>) kullanınız.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Hesaplarsın</div>
+        <p class="fdesc">Türkiye'nin en kapsamlı ücretsiz hesaplama platformu. 70+ araç, 2026 güncel verileri.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Eğitim</h4>
+        <a href="https://hesaplarsin.com/ayt-net-hesaplama.html">AYT Net Hesaplama</a>
+        <a href="https://hesaplarsin.com/tyt-net-hesaplama.html">TYT Net Hesaplama</a>
+        <a href="https://hesaplarsin.com/kpss-net-hesaplama.html">KPSS Net Hesaplama</a>
+        <a href="https://hesaplarsin.com/not-ortalamasi-hesaplama.html">Not Ortalaması</a>
+      </div>
+      <div class="footer-col">
+        <h4>Finans</h4>
+        <a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a>
+        <a href="https://hesaplarsin.com/kov-hesaplama.html">KDV Hesaplama</a>
+        <a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş</a>
+        <a href="https://hesaplarsin.com/enflasyon-hesaplama.html">Enflasyon</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hesaplarsın</h4>
+        <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
+        <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+        <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
+        <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hesaplarsın. Bilgiler tahmini ve bilgilendirme amaçlıdır.</span>
+      <span><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a> · <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım</a> · <a href="https://hesaplarsin.com/iletisim.html">İletişim</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Başa git">↑</button>
+
+<script>
+// ─── KATSAYILAR (2026 referans) ────────────────────────────────────
+const KAT = {
+  // TYT
+  tyt_tr:  { say:1.11, ea:1.11, soz:1.11 },
+  tyt_sb:  { say:1.12, ea:1.12, soz:1.12 },
+  tyt_tm:  { say:1.11, ea:1.11, soz:1.11 },
+  tyt_fb:  { say:1.20, ea:1.20, soz:1.20 },
+  // AYT SAY
+  ayt_mat: { say:3.19, ea:3.00 },
+  ayt_fiz: { say:2.43 },
+  ayt_kim: { say:3.07 },
+  ayt_bio: { say:2.51 },
+  // AYT EA/SÖZ
+  ayt_ede:  { ea:3.00, soz:3.00 },
+  ayt_tar1: { ea:2.80, soz:2.80 },
+  ayt_cog1: { ea:3.33, soz:3.33 },
+  ayt_tar2: { soz:2.91 },
+  ayt_cog2: { soz:2.91 },
+  ayt_fel:  { soz:3.00 },
+  ayt_dkab: { soz:3.33 },
+};
+// Sabit başlangıç puanları (yaklaşık)
+const SABIT = { say:133.28, ea:133.28, soz:133.28, dil:133.28 };
+
+// ─── YARDIMCI ────────────────────────────────────────────────────────
+let toastTimer;
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.style.display='block'; clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.style.display='none',2800); }
+const fmtN = n => Math.max(0, Math.round(n * 100) / 100).toFixed(2);
+const getVal = id => parseFloat(document.getElementById(id)?.value) || 0;
+
+// NAV
+const hamBtn=document.getElementById('hamBtn'), navLinks=document.getElementById('navLinks');
+hamBtn.addEventListener('click',()=>{ const o=navLinks.classList.toggle('open'); hamBtn.setAttribute('aria-expanded',o); });
+document.addEventListener('click',e=>{ if(!hamBtn.contains(e.target)&&!navLinks.contains(e.target)) navLinks.classList.remove('open'); });
+window.addEventListener('scroll',()=>document.getElementById('topBtn').classList.toggle('show',scrollY>400),{passive:true});
+
+// ─── NET GÜNCELLE ─────────────────────────────────────────────────────
+function updateNet(key) {
+  const d = getVal(key+'-d');
+  const y = getVal(key+'-y');
+  const net = Math.max(0, d - y/4);
+  const el = document.getElementById(key+'-net');
+  if(el) el.textContent = (d>0||y>0) ? `Net: ${fmtN(net)}` : '';
+}
+
+// OBP hesapla
+function calcOBP() {
+  const nota = getVal('diploma-not');
+  const el = document.getElementById('obp-display');
+  if(nota >= 50 && nota <= 100) {
+    const obp = nota * 5;
+    el.textContent = `OBP: ${obp} → Katkı: ${(obp * 0.12).toFixed(2)} puan`;
+  } else {
+    el.textContent = '';
+  }
+}
+
+// ─── NET HESAPLA ──────────────────────────────────────────────────────
+function getNet(key) {
+  return Math.max(0, getVal(key+'-d') - getVal(key+'-y') / 4);
+}
+
+// ─── ANA HESAPLAMA ────────────────────────────────────────────────────
+function hesapla() {
+  // TYT netleri
+  const tyt = {
+    tr: getNet('tyt-tr'),
+    sb: getNet('tyt-sb'),
+    tm: getNet('tyt-tm'),
+    fb: getNet('tyt-fb'),
+  };
+  const tytToplam = tyt.tr + tyt.sb + tyt.tm + tyt.fb;
+
+  // AYT netleri
+  const ayt = {
+    mat:  getNet('ayt-mat'),
+    fiz:  getNet('ayt-fiz'),
+    kim:  getNet('ayt-kim'),
+    bio:  getNet('ayt-bio'),
+    ede:  getNet('ayt-ede'),
+    tar1: getNet('ayt-tar1'),
+    cog1: getNet('ayt-cog1'),
+    tar2: getNet('ayt-tar2'),
+    cog2: getNet('ayt-cog2'),
+    fel:  getNet('ayt-fel'),
+    dkab: getNet('ayt-dkab'),
+  };
+  const aytFenToplam = ayt.fiz + ayt.kim + ayt.bio;
+  const ydt = getNet('ydt');
+
+  // OBP
+  const diplomaNot = getVal('diploma-not');
+  const obp = (diplomaNot >= 50 && diplomaNot <= 100) ? diplomaNot * 5 : 0;
+  const yerlesmis = document.getElementById('yerlesme-check').checked;
+  const obpKat = yerlesmis ? 0.06 : 0.12;
+  const obpKatki = obp * obpKat;
+
+  // ─── SAY ───────────────────────────────────────────────────────────
+  const sayAytFenOk = ayt.mat + aytFenToplam >= 0.5;
+  let sayHam = 0, sayOk = sayAytFenOk && tytToplam >= 0;
+  if(sayOk) {
+    sayHam = SABIT.say
+      + tyt.tr  * KAT.tyt_tr.say
+      + tyt.sb  * KAT.tyt_sb.say
+      + tyt.tm  * KAT.tyt_tm.say
+      + tyt.fb  * KAT.tyt_fb.say
+      + ayt.mat * KAT.ayt_mat.say
+      + ayt.fiz * KAT.ayt_fiz.say
+      + ayt.kim * KAT.ayt_kim.say
+      + ayt.bio * KAT.ayt_bio.say;
+  }
+
+  // ─── EA ────────────────────────────────────────────────────────────
+  const eaAytOk = (ayt.mat + ayt.ede + ayt.tar1 + ayt.cog1) >= 0.5;
+  let eaHam = 0;
+  if(eaAytOk) {
+    eaHam = SABIT.ea
+      + tyt.tr  * KAT.tyt_tr.ea
+      + tyt.sb  * KAT.tyt_sb.ea
+      + tyt.tm  * KAT.tyt_tm.ea
+      + tyt.fb  * KAT.tyt_fb.ea
+      + ayt.mat  * KAT.ayt_mat.ea
+      + ayt.ede  * KAT.ayt_ede.ea
+      + ayt.tar1 * KAT.ayt_tar1.ea
+      + ayt.cog1 * KAT.ayt_cog1.ea;
+  }
+
+  // ─── SÖZ ───────────────────────────────────────────────────────────
+  const sozAytOk = (ayt.ede + ayt.tar1 + ayt.cog1 + ayt.tar2 + ayt.cog2 + ayt.fel + ayt.dkab) >= 0.5;
+  let sozHam = 0;
+  if(sozAytOk) {
+    sozHam = SABIT.soz
+      + tyt.tr  * KAT.tyt_tr.soz
+      + tyt.sb  * KAT.tyt_sb.soz
+      + tyt.tm  * KAT.tyt_tm.soz
+      + tyt.fb  * KAT.tyt_fb.soz
+      + ayt.ede  * KAT.ayt_ede.soz
+      + ayt.tar1 * KAT.ayt_tar1.soz
+      + ayt.cog1 * KAT.ayt_cog1.soz
+      + ayt.tar2 * KAT.ayt_tar2.soz
+      + ayt.cog2 * KAT.ayt_cog2.soz
+      + ayt.fel  * KAT.ayt_fel.soz
+      + ayt.dkab * KAT.ayt_dkab.soz;
+  }
+
+  // ─── DİL ───────────────────────────────────────────────────────────
+  const dilOk = ydt >= 0.5;
+  let dilHam = 0;
+  if(dilOk) {
+    dilHam = SABIT.dil + ydt * 6.25; // YDT 80 soru, yaklaşık katsayı
+  }
+
+  // Puanları sınırla [100, 500]
+  const clamp = n => Math.min(500, Math.max(100, n));
+
+  const sayHamC = sayOk ? clamp(sayHam) : 0;
+  const eaHamC  = eaAytOk ? clamp(eaHam) : 0;
+  const sozHamC = sozAytOk ? clamp(sozHam) : 0;
+  const dilHamC = dilOk ? clamp(dilHam) : 0;
+
+  // YP = Ham + OBP Katkısı (clamped)
+  const sayYP = sayOk ? clamp(sayHamC + obpKatki) : 0;
+  const eaYP  = eaAytOk ? clamp(eaHamC + obpKatki) : 0;
+  const sozYP = sozAytOk ? clamp(sozHamC + obpKatki) : 0;
+  const dilYP = dilOk ? clamp(dilHamC + obpKatki) : 0;
+
+  // ─── GÖSTER ──────────────────────────────────────────────────────────
+  document.getElementById('r-tyt-net').textContent = fmtN(tytToplam);
+  document.getElementById('r-ayt-mat').textContent = fmtN(ayt.mat);
+  document.getElementById('r-ayt-fen').textContent = fmtN(aytFenToplam);
+  document.getElementById('r-ayt-ede').textContent = fmtN(ayt.ede);
+  document.getElementById('r-ayt-soz').textContent = fmtN(ayt.ede+ayt.tar1+ayt.cog1+ayt.tar2+ayt.cog2+ayt.fel+ayt.dkab);
+  document.getElementById('r-obp-katki').textContent = obp > 0 ? `+${obpKatki.toFixed(2)}` : '0,00';
+
+  // SAY
+  document.getElementById('r-say-ham').textContent = sayOk ? fmtN(sayHamC) : '—';
+  document.getElementById('r-say-yp').textContent  = sayOk ? fmtN(sayYP) : '—';
+  document.getElementById('r-say-not').textContent = !sayOk ? '⚠️ 0,5 net şartı sağlanamadı' : '';
+
+  // EA
+  document.getElementById('r-ea-ham').textContent = eaAytOk ? fmtN(eaHamC) : '—';
+  document.getElementById('r-ea-yp').textContent  = eaAytOk ? fmtN(eaYP) : '—';
+  document.getElementById('r-ea-not').textContent = !eaAytOk ? '⚠️ 0,5 net şartı sağlanamadı' : '';
+
+  // SÖZ
+  document.getElementById('r-soz-ham').textContent = sozAytOk ? fmtN(sozHamC) : '—';
+  document.getElementById('r-soz-yp').textContent  = sozAytOk ? fmtN(sozYP) : '—';
+  document.getElementById('r-soz-not').textContent = !sozAytOk ? '⚠️ 0,5 net şartı sağlanamadı' : '';
+
+  // DİL
+  document.getElementById('r-dil-ham').textContent = dilOk ? fmtN(dilHamC) : '—';
+  document.getElementById('r-dil-yp').textContent  = dilOk ? fmtN(dilYP) : '—';
+  document.getElementById('r-dil-not').textContent = !dilOk ? 'YDT girilmedi' : '';
+
+  document.getElementById('resultSection').style.display='block';
+  setTimeout(()=>document.getElementById('resultSection').scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+// ─── SIFIRLA ──────────────────────────────────────────────────────────
+function sifirla() {
+  document.querySelectorAll('input[type="number"]').forEach(i=>i.value='');
+  document.getElementById('yerlesme-check').checked=false;
+  document.getElementById('obp-display').textContent='';
+  document.querySelectorAll('.net-display').forEach(d=>d.textContent='');
+  document.getElementById('resultSection').style.display='none';
+  toast('Tüm alanlar temizlendi.');
+}
+
+// ─── KOPYALA ─────────────────────────────────────────────────────────
+function copyResult() {
+  const lines = [
+    'AYT NET HESAPLAMA SONUCU — Hesaplarsın',
+    '─────────────────────────────────────',
+    'TYT Toplam Net: '+document.getElementById('r-tyt-net').textContent,
+    '─────────────────────────────────────',
+    'SAY Ham Puan: '+document.getElementById('r-say-ham').textContent,
+    'SAY Yerleştirme: '+document.getElementById('r-say-yp').textContent,
+    'EA Ham Puan: '+document.getElementById('r-ea-ham').textContent,
+    'EA Yerleştirme: '+document.getElementById('r-ea-yp').textContent,
+    'SÖZ Ham Puan: '+document.getElementById('r-soz-ham').textContent,
+    'SÖZ Yerleştirme: '+document.getElementById('r-soz-yp').textContent,
+    'DİL Ham Puan: '+document.getElementById('r-dil-ham').textContent,
+    'DİL Yerleştirme: '+document.getElementById('r-dil-yp').textContent,
+    'OBP Katkısı: '+document.getElementById('r-obp-katki').textContent,
+    '─────────────────────────────────────',
+    '⚠️ Tahmini değerler. Kesin sonuç için: ais.osym.gov.tr',
+    'hesaplarsin.com/ayt-net-hesaplama.html'
+  ].join('\n');
+  navigator.clipboard.writeText(lines).then(()=>toast('📋 Sonuç kopyalandı!'));
+}
+
+// ─── FAQ ─────────────────────────────────────────────────────────────
+function toggleFaq(btn){
+  const ans=btn.nextElementSibling, isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('open');b.setAttribute('aria-expanded','false');b.nextElementSibling.classList.remove('open');});
+  if(!isOpen){btn.classList.add('open');btn.setAttribute('aria-expanded','true');ans.classList.add('open');}
+}
+</script>
+</body>
+</html>
