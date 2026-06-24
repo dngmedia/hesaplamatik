@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Yüzde Hesaplama 2026 | Artış, Azalış, Oran, İndirim | Hesaplarsın</title>
+  <meta name="description" content="Online yüzde hesaplama aracı 2026. Bir sayının yüzdesi, yüzde artış, yüzde azalış, iki sayı arasındaki oran, tersine yüzde ve ardışık yüzde hesaplamalarını anında yapın." />
+  <meta name="keywords" content="yüzde hesaplama, yüzde artış hesaplama, yüzde azalış hesaplama, yüzde bulma, oran hesaplama, indirim hesaplama, yüzde hesaplama 2026, online yüzde hesabı" />
+  <link rel="canonical" href="https://hesaplarsin.com/yuzde-hesaplama.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hesaplarsın" />
+  <meta property="og:title" content="Yüzde Hesaplama 2026 | Hesaplarsın" />
+  <meta property="og:description" content="Yüzde artış, azalış, oran ve indirim hesaplamalarını anında yapın. 6 farklı hesaplama modu." />
+  <meta property="og:url" content="https://hesaplarsin.com/yuzde-hesaplama.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Yüzde Hesaplama 2026","url":"https://hesaplarsin.com/yuzde-hesaplama.html","description":"Yüzde artış, azalış, oran, tersine yüzde ve ardışık yüzde hesaplama aracı. 6 farklı hesaplama modu.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","inLanguage":"tr","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"publisher":{"@type":"Organization","name":"Hesaplarsın","url":"https://hesaplarsin.com"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Yüzde hesaplama formülü nedir?","acceptedAnswer":{"@type":"Answer","text":"Temel yüzde formülü: Sonuç = Sayı × Yüzde ÷ 100. Örneğin 500'ün %20'si = 500 × 20 ÷ 100 = 100. Yüzde artış: ((Yeni − Eski) ÷ Eski) × 100. Yüzde azalış: ((Eski − Yeni) ÷ Eski) × 100. Oran bulma: (Parça ÷ Bütün) × 100."}},{"@type":"Question","name":"Yüzde artış ve azalış simetrik midir?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Yüzde artış ve azalış asimetrik işlemlerdir. Örneğin 100 sayısına %50 artış uygulanırsa 150 olur; ardından %50 azalış uygulanırsa 75 olur. Başlangıç değerine dönmek için %50 değil %33,3 artış gerekir. Bu nedenle oran hesaplamalarında baz değere dikkat etmek önemlidir."}},{"@type":"Question","name":"Ardışık yüzde hesabı nasıl yapılır?","acceptedAnswer":{"@type":"Answer","text":"Ardışık yüzdeler toplanmaz. %10 + %10 = %20 değil, %21'dir. Hesaplama: 100 × 1,10 × 1,10 = 121. Formül: Son Değer = Başlangıç × (1 + %1/100) × (1 + %2/100). Çarpanlar çarpılarak toplam değişim oranı bulunur."}},{"@type":"Question","name":"Yüzde ile yüzde puanı arasındaki fark nedir?","acceptedAnswer":{"@type":"Answer","text":"Faiz oranı %10'dan %15'e çıkıyorsa '5 yüzde puanı' artmıştır. Ancak '(%15 − %10) / %10 × 100 = %50 artmıştır' demek doğrudur. İki kavramı karıştırmamak önemlidir: yüzde puanı mutlak fark, yüzde ise oransal değişimdir."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://hesaplarsin.com"},{"@type":"ListItem","position":2,"name":"Matematik","item":"https://hesaplarsin.com/#diger"},{"@type":"ListItem","position":3,"name":"Yüzde Hesaplama","item":"https://hesaplarsin.com/yuzde-hesaplama.html"}]}
+  </script>
+
+  <!-- AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand:#1a56db; --brand-dark:#1341b0; --brand-light:#e8f0fe;
+      --accent:#f59e0b; --success:#10b981; --danger:#ef4444;
+      --text:#111827; --muted:#6b7280; --border:#e5e7eb;
+      --bg:#f9fafb; --card:#ffffff; --r:12px;
+      --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.05);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; font-size:16px; -webkit-text-size-adjust:100%; }
+
+    /* NAV */
+    nav.topnav { background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:200; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .nav-inner { max-width:1140px; margin:0 auto; padding:0 16px; height:56px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .logo { font-size:1.2rem; font-weight:800; color:var(--brand); text-decoration:none; white-space:nowrap; }
+    .nav-links { display:flex; gap:2px; flex-wrap:wrap; }
+    .nav-links a { font-size:.8rem; font-weight:500; color:var(--muted); text-decoration:none; padding:5px 9px; border-radius:6px; transition:background .15s,color .15s; white-space:nowrap; }
+    .nav-links a:hover,.nav-links a.active { background:var(--brand-light); color:var(--brand); }
+    .ham { display:none; background:none; border:none; cursor:pointer; padding:6px; }
+    .ham span { display:block; width:22px; height:2px; background:var(--text); margin:5px 0; border-radius:2px; }
+    @media(max-width:640px){ .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 16px 16px;border-bottom:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08);gap:4px;z-index:201;} .nav-links.open{display:flex;} .nav-links a{padding:10px 12px;border-radius:8px;font-size:.9rem;} .ham{display:block;} }
+
+    /* BREADCRUMB */
+    .breadcrumb { max-width:1140px; margin:0 auto; padding:12px 16px 0; font-size:.8rem; color:var(--muted); }
+    .breadcrumb a { color:var(--brand); text-decoration:none; }
+    .breadcrumb span { margin:0 5px; }
+
+    /* HERO */
+    .hero { background:linear-gradient(135deg,#0f307a 0%,#1341b0 50%,#1a56db 100%); color:#fff; padding:44px 16px 40px; }
+    .hero-inner { max-width:1140px; margin:0 auto; }
+    .hero-tag { display:inline-block; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); border-radius:20px; font-size:.76rem; font-weight:600; padding:4px 12px; margin-bottom:14px; }
+    .hero h1 { font-size:clamp(1.5rem,4vw,2.1rem); font-weight:900; line-height:1.2; margin-bottom:10px; letter-spacing:-.4px; }
+    .hero p { font-size:.93rem; opacity:.88; max-width:580px; line-height:1.7; margin-bottom:16px; }
+    .hero-badges { display:flex; gap:8px; flex-wrap:wrap; }
+    .hbadge { font-size:.73rem; font-weight:600; padding:4px 10px; border-radius:20px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); }
+
+    /* LAYOUT */
+    .main-grid { max-width:1140px; margin:24px auto 0; padding:0 16px 60px; display:grid; grid-template-columns:1fr 300px; gap:22px; }
+    @media(max-width:840px){ .main-grid{grid-template-columns:1fr;} }
+
+    /* MOD SEÇİCİ */
+    .mod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:22px; }
+    @media(max-width:520px){ .mod-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:360px){ .mod-grid{grid-template-columns:1fr;} }
+    .mod-btn { padding:11px 8px; border:1.5px solid var(--border); border-radius:10px; cursor:pointer; text-align:center; background:var(--bg); transition:all .15s; -webkit-tap-highlight-color:transparent; }
+    .mod-btn .mb-ico { font-size:1.3rem; display:block; margin-bottom:4px; }
+    .mod-btn .mb-name { font-size:.75rem; font-weight:700; display:block; color:var(--text); }
+    .mod-btn.active { border-color:var(--brand); background:var(--brand-light); }
+    .mod-btn.active .mb-name { color:var(--brand); }
+    .mod-btn:hover { border-color:var(--brand); }
+
+    /* FORM */
+    .card { background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); border:1px solid var(--border); padding:24px; }
+    @media(max-width:480px){ .card{padding:16px;} }
+    .card-title { font-size:1rem; font-weight:800; margin-bottom:18px; display:flex; align-items:center; gap:8px; padding-bottom:12px; border-bottom:2px solid var(--brand-light); }
+    .calc-panel { display:none; }
+    .calc-panel.active { display:block; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media(max-width:520px){ .form-grid{grid-template-columns:1fr;} }
+    .field { display:flex; flex-direction:column; gap:5px; margin-bottom:14px; }
+    .field:last-child { margin-bottom:0; }
+    .field.full { grid-column:1/-1; }
+    label { font-size:.82rem; font-weight:600; color:var(--text); }
+    label small { font-weight:400; color:var(--muted); margin-left:3px; }
+    input[type="number"] { width:100%; padding:11px 14px; border:1.5px solid var(--border); border-radius:8px; font-size:.97rem; color:var(--text); background:#fff; outline:none; -webkit-appearance:none; -moz-appearance:textfield; transition:border .15s,box-shadow .15s; }
+    input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { -webkit-appearance:none; }
+    input::placeholder { color:#c4c9d4; }
+    input:focus { border-color:var(--brand); box-shadow:0 0 0 3px rgba(26,86,219,.1); }
+
+    /* ÖRNEK BUTONLAR */
+    .quick-tags { display:flex; gap:7px; flex-wrap:wrap; margin-top:6px; }
+    .qtag { font-size:.73rem; padding:4px 10px; border:1px solid var(--border); border-radius:20px; cursor:pointer; background:#fff; color:var(--muted); transition:all .15s; white-space:nowrap; -webkit-tap-highlight-color:transparent; }
+    .qtag:hover { border-color:var(--brand); color:var(--brand); background:var(--brand-light); }
+
+    /* HESAPLA BUTONU */
+    .btn-calc { width:100%; padding:13px; background:var(--brand); color:#fff; font-size:.96rem; font-weight:700; border:none; border-radius:10px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:background .15s,transform .1s; margin-top:18px; -webkit-tap-highlight-color:transparent; }
+    .btn-calc:hover { background:var(--brand-dark); }
+    .btn-calc:active { transform:scale(.98); }
+    .btn-reset-sm { width:100%; padding:9px; background:transparent; color:var(--muted); font-size:.83rem; font-weight:500; border:1.5px solid var(--border); border-radius:8px; cursor:pointer; transition:all .15s; margin-top:8px; }
+    .btn-reset-sm:hover { border-color:var(--danger); color:var(--danger); }
+
+    /* SONUÇ KARTI */
+    .result-card { display:none; margin-top:16px; border-radius:12px; padding:22px; text-align:center; color:#fff; }
+    .result-card.positive { background:linear-gradient(135deg,var(--success) 0%,#059669 100%); }
+    .result-card.negative { background:linear-gradient(135deg,var(--danger) 0%,#b91c1c 100%); }
+    .result-card.neutral { background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dark) 100%); }
+    .rc-label { font-size:.8rem; opacity:.85; margin-bottom:6px; font-weight:500; }
+    .rc-val { font-size:2.8rem; font-weight:900; letter-spacing:-.5px; line-height:1.1; }
+    .rc-sub { font-size:.84rem; opacity:.82; margin-top:8px; line-height:1.5; }
+    .rc-formula { font-size:.78rem; opacity:.7; margin-top:8px; font-family:'Courier New',monospace; }
+
+    /* KOPYALA BUTONU */
+    .btn-copy { margin-top:12px; padding:8px 20px; background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.35); border-radius:8px; color:#fff; font-size:.82rem; font-weight:600; cursor:pointer; transition:background .15s; -webkit-tap-highlight-color:transparent; }
+    .btn-copy:hover { background:rgba(255,255,255,.3); }
+
+    /* ÖRNEK TABLOLAR */
+    .ex-table { width:100%; border-collapse:collapse; font-size:.82rem; margin:12px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); }
+    .ex-table th { background:var(--brand); color:#fff; padding:8px 11px; text-align:left; font-weight:600; font-size:.77rem; }
+    .ex-table td { padding:8px 11px; border-bottom:1px solid var(--border); }
+    .ex-table tr:last-child td { border-bottom:none; }
+    .ex-table tr:nth-child(even) td { background:var(--bg); }
+
+    /* SIDEBAR */
+    .sidebar { display:flex; flex-direction:column; gap:18px; }
+    .formula-sidebar { background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); border:1px solid var(--border); padding:20px; }
+    .fs-title { font-size:.9rem; font-weight:800; margin-bottom:14px; padding-bottom:10px; border-bottom:2px solid var(--brand-light); }
+    .fs-item { margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid var(--border); }
+    .fs-item:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+    .fs-name { font-size:.8rem; font-weight:700; color:var(--text); margin-bottom:4px; }
+    .fs-formula { font-size:.75rem; color:var(--brand-dark); background:var(--brand-light); padding:5px 9px; border-radius:6px; font-family:'Courier New',monospace; margin-bottom:4px; display:block; }
+    .fs-example { font-size:.73rem; color:var(--muted); line-height:1.5; }
+    .info-box { background:var(--brand-light); border-left:3px solid var(--brand); border-radius:0 8px 8px 0; padding:12px 14px; font-size:.82rem; color:#1e3a5f; line-height:1.65; }
+    .warn-box { background:#fffbeb; border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:12px 14px; font-size:.82rem; color:#78350f; line-height:1.65; }
+    .ql-link { display:flex; align-items:center; gap:10px; padding:9px 11px; border-radius:8px; text-decoration:none; color:var(--text); font-size:.83rem; font-weight:500; transition:background .15s; border:1px solid transparent; }
+    .ql-link:hover { background:var(--brand-light); color:var(--brand); border-color:var(--brand-light); }
+    .ql-icon { width:30px; height:30px; border-radius:7px; background:var(--bg); display:flex; align-items:center; justify-content:center; font-size:.95rem; flex-shrink:0; }
+    .ad-slot { background:#f8fafc; border:1px dashed var(--border); border-radius:10px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.75rem; text-align:center; }
+
+    /* ARTICLE */
+    .article { max-width:1140px; margin:0 auto; padding:0 16px 60px; }
+    .article h2 { font-size:clamp(1.1rem,3vw,1.3rem); font-weight:800; margin:36px 0 12px; }
+    .article h3 { font-size:1rem; font-weight:700; margin:22px 0 8px; color:#1e3a5f; }
+    .article p { color:#374151; line-height:1.82; margin-bottom:12px; font-size:.93rem; }
+    .article ul,.article ol { margin:8px 0 14px 18px; }
+    .article ul li,.article ol li { color:#374151; font-size:.92rem; line-height:1.75; margin-bottom:8px; }
+    .formula-box { background:#1e293b; color:#e2e8f0; border-radius:10px; padding:16px 18px; font-family:'Courier New',monospace; font-size:.86rem; line-height:2; margin:14px 0; overflow-x:auto; }
+    .formula-box .v { color:#93c5fd; }
+    .formula-box .e { color:#86efac; }
+    .formula-box .c { color:#fbbf24; }
+    .tip-box { background:#f0fdf4; border-left:3px solid var(--success); border-radius:0 8px 8px 0; padding:12px 14px; font-size:.85rem; color:#166534; margin:14px 0; line-height:1.7; }
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-q { width:100%; text-align:left; background:none; border:none; padding:14px 0; font-size:.9rem; font-weight:600; cursor:pointer; color:var(--text); display:flex; justify-content:space-between; align-items:center; gap:12px; -webkit-tap-highlight-color:transparent; }
+    .faq-q .ico { width:22px; height:22px; border-radius:50%; background:var(--bg); border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0; transition:all .2s; }
+    .faq-q.open .ico { background:var(--brand); border-color:var(--brand); color:#fff; transform:rotate(45deg); }
+    .faq-a { display:none; padding:0 0 14px; color:#374151; font-size:.88rem; line-height:1.78; }
+    .faq-a.open { display:block; }
+    .related-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px; }
+    @media(max-width:420px){ .related-grid{grid-template-columns:1fr 1fr;} }
+    .rc { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:13px 11px; text-decoration:none; color:var(--text); display:flex; flex-direction:column; gap:5px; transition:all .15s; }
+    .rc:hover { border-color:var(--brand); box-shadow:0 4px 14px rgba(26,86,219,.1); transform:translateY(-2px); }
+    .rc .ri { font-size:1.3rem; }
+    .rc .rt { font-size:.82rem; font-weight:700; }
+    .rc .rd { font-size:.73rem; color:var(--muted); }
+
+    footer { background:#111827; color:#9ca3af; padding:36px 16px 20px; }
+    .footer-inner { max-width:1140px; margin:0 auto; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:28px; margin-bottom:28px; }
+    @media(max-width:640px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:360px){ .footer-grid{grid-template-columns:1fr;} }
+    .footer-brand { font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:8px; }
+    .fdesc { font-size:.8rem; line-height:1.65; }
+    .footer-col h4 { font-size:.82rem; font-weight:700; color:#fff; margin-bottom:10px; }
+    .footer-col a { display:block; font-size:.8rem; color:#9ca3af; text-decoration:none; margin-bottom:7px; transition:color .15s; }
+    .footer-col a:hover { color:#fff; }
+    .footer-bottom { border-top:1px solid #1f2937; padding-top:16px; font-size:.76rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+    .footer-bottom a { color:#9ca3af; text-decoration:none; }
+
+    .toast { position:fixed; bottom:20px; right:16px; background:#1e293b; color:#fff; padding:10px 16px; border-radius:10px; font-size:.83rem; font-weight:500; box-shadow:0 4px 20px rgba(0,0,0,.2); z-index:9999; display:none; max-width:calc(100vw - 32px); animation:slideUp .3s ease; }
+    @keyframes slideUp { from{transform:translateY(12px);opacity:0} to{transform:translateY(0);opacity:1} }
+    #topBtn { position:fixed; bottom:20px; right:16px; background:var(--brand); color:#fff; border:none; border-radius:50%; width:40px; height:40px; font-size:1.1rem; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(26,86,219,.35); z-index:9998; }
+    #topBtn.show { display:flex; }
+    @media print { nav.topnav,.sidebar,footer,#topBtn,.toast { display:none!important; } .main-grid{grid-template-columns:1fr!important;} }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="nav-inner">
+    <a class="logo" href="https://hesaplarsin.com">Hesaplarsın</a>
+    <button class="ham" id="hamBtn" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://hesaplarsin.com/kredi-hesaplama.html">💳 Kredi</a>
+      <a href="https://hesaplarsin.com/net-maas-hesaplama.html">💼 Maaş</a>
+      <a href="https://hesaplarsin.com/kov-hesaplama.html">🧾 KDV</a>
+      <a href="https://hesaplarsin.com/indirim-hesaplama.html">🏷️ İndirim</a>
+      <a href="https://hesaplarsin.com/yuzde-hesaplama.html" class="active">📐 Yüzde</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://hesaplarsin.com">Ana Sayfa</a><span>›</span>
+  <a href="https://hesaplarsin.com/#diger">Günlük Hesap</a><span>›</span>
+  <span aria-current="page">Yüzde Hesaplama</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">📐 6 Hesaplama Modu</span>
+    <h1>Yüzde Hesaplama</h1>
+    <p>Bir sayının yüzdesi, yüzde artış, azalış, iki sayı arasındaki oran, tersine yüzde ve ardışık yüzde hesaplamalarını anında yapın.</p>
+    <div class="hero-badges">
+      <span class="hbadge">✓ Ücretsiz</span>
+      <span class="hbadge">6 Farklı Mod</span>
+      <span class="hbadge">Anlık Sonuç</span>
+      <span class="hbadge">Formül Gösterimi</span>
+    </div>
+  </div>
+</header>
+
+<!-- REKLAM -->
+<div style="max-width:1140px;margin:16px auto 0;padding:0 16px;">
+  <div class="ad-slot" style="min-height:90px;"><span>Reklam Alanı</span></div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+
+  <!-- SOL -->
+  <main>
+    <div class="card">
+      <div class="card-title">📐 Hesaplama Modunu Seçin</div>
+
+      <!-- MOD SEÇİCİ -->
+      <div class="mod-grid" role="tablist" id="modGrid">
+        <div class="mod-btn active" role="tab" aria-selected="true" onclick="switchMod('yuzde',this)">
+          <span class="mb-ico">🔢</span>
+          <span class="mb-name">X'in Y%'si</span>
+        </div>
+        <div class="mod-btn" role="tab" onclick="switchMod('oran',this)">
+          <span class="mb-ico">⚖️</span>
+          <span class="mb-name">Oran Bulma</span>
+        </div>
+        <div class="mod-btn" role="tab" onclick="switchMod('artis',this)">
+          <span class="mb-ico">📈</span>
+          <span class="mb-name">Yüzde Artış</span>
+        </div>
+        <div class="mod-btn" role="tab" onclick="switchMod('azalis',this)">
+          <span class="mb-ico">📉</span>
+          <span class="mb-name">Yüzde Azalış</span>
+        </div>
+        <div class="mod-btn" role="tab" onclick="switchMod('ters',this)">
+          <span class="mb-ico">🔄</span>
+          <span class="mb-name">Tersine Yüzde</span>
+        </div>
+        <div class="mod-btn" role="tab" onclick="switchMod('ardisik',this)">
+          <span class="mb-ico">🔗</span>
+          <span class="mb-name">Ardışık Yüzde</span>
+        </div>
+      </div>
+
+      <!-- MOD 1: X'in Y%'si -->
+      <div class="calc-panel active" id="panel-yuzde">
+        <div class="form-grid">
+          <div class="field">
+            <label for="y1-sayi">Sayı (X)</label>
+            <input type="number" id="y1-sayi" placeholder="örn: 500" inputmode="decimal" />
+          </div>
+          <div class="field">
+            <label for="y1-yuzde">Yüzde (Y%)</label>
+            <input type="number" id="y1-yuzde" placeholder="örn: 20" inputmode="decimal" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Hızlı Örnekler</label>
+          <div class="quick-tags">
+            <span class="qtag" onclick="fill('y1-sayi',500,'y1-yuzde',20)">500'ün %20'si</span>
+            <span class="qtag" onclick="fill('y1-sayi',1200,'y1-yuzde',18)">1200'ün %18'i (KDV)</span>
+            <span class="qtag" onclick="fill('y1-sayi',28000,'y1-yuzde',25)">28.000'in %25'i (zam)</span>
+            <span class="qtag" onclick="fill('y1-sayi',3500,'y1-yuzde',30)">3.500'ün %30'u (indirim)</span>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="calcYuzde()">🔢 Hesapla</button>
+        <button class="btn-reset-sm" onclick="resetPanel('y1')">↺ Temizle</button>
+        <div class="result-card neutral" id="res-yuzde">
+          <div class="rc-label" id="ry-label">—</div>
+          <div class="rc-val" id="ry-val">—</div>
+          <div class="rc-sub" id="ry-sub">—</div>
+          <div class="rc-formula" id="ry-formula">—</div>
+          <button class="btn-copy" onclick="copyRes('ry-val')">📋 Kopyala</button>
+        </div>
+      </div>
+
+      <!-- MOD 2: ORAN BULMA -->
+      <div class="calc-panel" id="panel-oran">
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:14px;">X, Y'nin yüzde kaçıdır?</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="o1-parca">Parça (X)</label>
+            <input type="number" id="o1-parca" placeholder="örn: 75" inputmode="decimal" />
+          </div>
+          <div class="field">
+            <label for="o1-butun">Bütün (Y)</label>
+            <input type="number" id="o1-butun" placeholder="örn: 300" inputmode="decimal" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Hızlı Örnekler</label>
+          <div class="quick-tags">
+            <span class="qtag" onclick="fill('o1-parca',56,'o1-butun',80)">56 doğru / 80 soru</span>
+            <span class="qtag" onclick="fill('o1-parca',20,'o1-butun',200)">20, 200'ün kaçı?</span>
+            <span class="qtag" onclick="fill('o1-parca',45000,'o1-butun',180000)">45K/180K ciro payı</span>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="calcOran()">⚖️ Hesapla</button>
+        <button class="btn-reset-sm" onclick="resetPanel('o1')">↺ Temizle</button>
+        <div class="result-card neutral" id="res-oran">
+          <div class="rc-label">Oran (%)</div>
+          <div class="rc-val" id="ro-val">—</div>
+          <div class="rc-sub" id="ro-sub">—</div>
+          <div class="rc-formula" id="ro-formula">—</div>
+          <button class="btn-copy" onclick="copyRes('ro-val')">📋 Kopyala</button>
+        </div>
+      </div>
+
+      <!-- MOD 3: YÜZDE ARTIŞ -->
+      <div class="calc-panel" id="panel-artis">
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:14px;">Eski değerden yeni değere yüzde kaç artış olmuş? Veya artış oranını biliyorsanız yeni değeri bulun.</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="a1-eski">Eski Değer</label>
+            <input type="number" id="a1-eski" placeholder="örn: 800" inputmode="decimal" />
+          </div>
+          <div class="field">
+            <label for="a1-yeni">Yeni Değer <small>ya da boş bırak</small></label>
+            <input type="number" id="a1-yeni" placeholder="örn: 1.000" inputmode="decimal" />
+          </div>
+          <div class="field full">
+            <label for="a1-oran">Artış Oranı (%) <small>ya da boş bırak</small></label>
+            <input type="number" id="a1-oran" placeholder="örn: 25" inputmode="decimal" />
+            <small style="color:var(--muted);font-size:.72rem;margin-top:3px;">Yeni değeri biliyorsanız oran boş bırakın; oranı biliyorsanız yeni değer boş bırakın.</small>
+          </div>
+        </div>
+        <div class="field">
+          <div class="quick-tags">
+            <span class="qtag" onclick="fill3('a1-eski',800,'a1-yeni',1000,'a1-oran','')">800→1000 artış %</span>
+            <span class="qtag" onclick="fill3('a1-eski',20000,'a1-yeni','','a1-oran',30)">20.000'e %30 zam</span>
+            <span class="qtag" onclick="fill3('a1-eski',50000,'a1-yeni',65000,'a1-oran','')">50K→65K ciro artış</span>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="calcArtis()">📈 Hesapla</button>
+        <button class="btn-reset-sm" onclick="resetPanel('a1')">↺ Temizle</button>
+        <div class="result-card positive" id="res-artis">
+          <div class="rc-label" id="ra-label">—</div>
+          <div class="rc-val" id="ra-val">—</div>
+          <div class="rc-sub" id="ra-sub">—</div>
+          <div class="rc-formula" id="ra-formula">—</div>
+          <button class="btn-copy" onclick="copyRes('ra-val')">📋 Kopyala</button>
+        </div>
+      </div>
+
+      <!-- MOD 4: YÜZDE AZALIŞ -->
+      <div class="calc-panel" id="panel-azalis">
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:14px;">Eski değerden yeni değere yüzde kaç düşüş olmuş? Veya indirim oranını biliyorsanız indirimli fiyatı bulun.</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="az1-eski">Eski / Orijinal Değer</label>
+            <input type="number" id="az1-eski" placeholder="örn: 1.200" inputmode="decimal" />
+          </div>
+          <div class="field">
+            <label for="az1-yeni">Yeni Değer <small>ya da boş bırak</small></label>
+            <input type="number" id="az1-yeni" placeholder="örn: 960" inputmode="decimal" />
+          </div>
+          <div class="field full">
+            <label for="az1-oran">İndirim / Azalış Oranı (%) <small>ya da boş bırak</small></label>
+            <input type="number" id="az1-oran" placeholder="örn: 20" inputmode="decimal" />
+          </div>
+        </div>
+        <div class="field">
+          <div class="quick-tags">
+            <span class="qtag" onclick="fill3('az1-eski',500,'az1-yeni',350,'az1-oran','')">500→350 azalış %</span>
+            <span class="qtag" onclick="fill3('az1-eski',2500,'az1-yeni','','az1-oran',30)">2500'de %30 indirim</span>
+            <span class="qtag" onclick="fill3('az1-eski',100,'az1-yeni',80,'az1-oran','')">100→80 düşüş %</span>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="calcAzalis()">📉 Hesapla</button>
+        <button class="btn-reset-sm" onclick="resetPanel('az1')">↺ Temizle</button>
+        <div class="result-card negative" id="res-azalis">
+          <div class="rc-label" id="rz-label">—</div>
+          <div class="rc-val" id="rz-val">—</div>
+          <div class="rc-sub" id="rz-sub">—</div>
+          <div class="rc-formula" id="rz-formula">—</div>
+          <button class="btn-copy" onclick="copyRes('rz-val')">📋 Kopyala</button>
+        </div>
+      </div>
+
+      <!-- MOD 5: TERSİNE YÜZDE -->
+      <div class="calc-panel" id="panel-ters">
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:14px;">Yüzde dahil sonuç değerini biliyorsunuz — orijinal değeri bulun. (KDV hariç fiyat, indirim öncesi fiyat vb.)</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="t1-sonuc">Yüzde Dahil Sonuç</label>
+            <input type="number" id="t1-sonuc" placeholder="örn: 1.200" inputmode="decimal" />
+          </div>
+          <div class="field">
+            <label for="t1-oran">Yüzde Oranı (%)</label>
+            <input type="number" id="t1-oran" placeholder="örn: 20" inputmode="decimal" />
+          </div>
+          <div class="field full">
+            <label for="t1-tip">İşlem Tipi</label>
+            <div style="display:flex;gap:8px;margin-top:4px;">
+              <label style="display:flex;align-items:center;gap:7px;font-weight:400;cursor:pointer;">
+                <input type="radio" name="t1-tip" value="ekli" checked /> % eklendi (KDV, zam)
+              </label>
+              <label style="display:flex;align-items:center;gap:7px;font-weight:400;cursor:pointer;">
+                <input type="radio" name="t1-tip" value="cikili" /> % çıkarıldı (indirim)
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="quick-tags">
+            <span class="qtag" onclick="fillTers(1200,20,'ekli')">1.200 ₺ (KDV%20 dahil)</span>
+            <span class="qtag" onclick="fillTers(700,30,'cikili')">700 ₺ (%30 indirimli)</span>
+            <span class="qtag" onclick="fillTers(3748,14,'ekli')">Muayene (KDV%14)</span>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="calcTers()">🔄 Hesapla</button>
+        <button class="btn-reset-sm" onclick="resetPanel('t1')">↺ Temizle</button>
+        <div class="result-card neutral" id="res-ters">
+          <div class="rc-label" id="rt-label">Orijinal Değer</div>
+          <div class="rc-val" id="rt-val">—</div>
+          <div class="rc-sub" id="rt-sub">—</div>
+          <div class="rc-formula" id="rt-formula">—</div>
+          <button class="btn-copy" onclick="copyRes('rt-val')">📋 Kopyala</button>
+        </div>
+      </div>
+
+      <!-- MOD 6: ARDIŞIK YÜZDE -->
+      <div class="calc-panel" id="panel-ardisik">
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:14px;">Birden fazla yüzde değişikliği ard arda uygulandığında toplam etki nedir?</p>
+        <div class="field">
+          <label for="ar1-baslangic">Başlangıç Değeri</label>
+          <input type="number" id="ar1-baslangic" placeholder="örn: 1.000" inputmode="decimal" />
+        </div>
+        <div id="ar-rows">
+          <div class="form-grid" style="margin-bottom:8px;">
+            <div class="field"><label>1. Yüzde (%)</label><input type="number" class="ar-input" placeholder="örn: 10 (artış) veya -10 (azalış)" inputmode="decimal" /></div>
+            <div class="field"><label>2. Yüzde (%)</label><input type="number" class="ar-input" placeholder="örn: 10" inputmode="decimal" /></div>
+          </div>
+          <div class="form-grid" style="margin-bottom:8px;">
+            <div class="field"><label>3. Yüzde (%) <small>isteğe bağlı</small></label><input type="number" class="ar-input" placeholder="örn: -5" inputmode="decimal" /></div>
+            <div class="field"><label>4. Yüzde (%) <small>isteğe bağlı</small></label><input type="number" class="ar-input" placeholder="örn: 20" inputmode="decimal" /></div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="quick-tags">
+            <span class="qtag" onclick="fillArdisik(1000,[10,10])">%10 + %10</span>
+            <span class="qtag" onclick="fillArdisik(1000,[50,-50])">%50 artış→%50 azalış</span>
+            <span class="qtag" onclick="fillArdisik(20000,[25,15])">Maaş: %25+%15 zam</span>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="calcArdisik()">🔗 Hesapla</button>
+        <button class="btn-reset-sm" onclick="resetArdisik()">↺ Temizle</button>
+        <div class="result-card neutral" id="res-ardisik">
+          <div class="rc-label" id="rar-label">Son Değer</div>
+          <div class="rc-val" id="rar-val">—</div>
+          <div class="rc-sub" id="rar-sub">—</div>
+          <div class="rc-formula" id="rar-formula">—</div>
+          <button class="btn-copy" onclick="copyRes('rar-val')">📋 Kopyala</button>
+        </div>
+      </div>
+
+    </div><!-- /card -->
+
+    <!-- ÖRNEKLER -->
+    <div class="card" style="margin-top:20px;">
+      <div class="card-title">📚 Yaygın Yüzde Hesaplama Örnekleri</div>
+      <table class="ex-table" aria-label="Yüzde hesaplama örnekleri">
+        <thead><tr><th>Senaryo</th><th>Formül</th><th>Örnek Sonuç</th></tr></thead>
+        <tbody>
+          <tr><td>Mağazada %30 indirim</td><td>500 × (1 − 0,30)</td><td><strong>350 ₺</strong></td></tr>
+          <tr><td>KDV (%20) ekleme</td><td>1.000 × 1,20</td><td><strong>1.200 ₺</strong></td></tr>
+          <tr><td>KDV hariç fiyat bulma</td><td>1.200 ÷ 1,20</td><td><strong>1.000 ₺</strong></td></tr>
+          <tr><td>Maaşa %25 zam</td><td>20.000 × 1,25</td><td><strong>25.000 ₺</strong></td></tr>
+          <tr><td>Sınavda başarı oranı</td><td>(70 ÷ 100) × 100</td><td><strong>%70</strong></td></tr>
+          <tr><td>Fiyat artış oranı</td><td>((1.200 − 1.000) ÷ 1.000) × 100</td><td><strong>%20 artış</strong></td></tr>
+          <tr><td>Ardışık %10 + %10</td><td>100 × 1,10 × 1,10</td><td><strong>121 (%21 artış)</strong></td></tr>
+          <tr><td>%50 artıp %50 azalma</td><td>100 × 1,50 × 0,50</td><td><strong>75 (başlangıca dönmez)</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- FORMÜL KARTI -->
+    <div class="formula-sidebar">
+      <div class="fs-title">📐 Temel Formüller</div>
+
+      <div class="fs-item">
+        <div class="fs-name">🔢 X'in Y%'si</div>
+        <code class="fs-formula">Sonuç = X × Y ÷ 100</code>
+        <div class="fs-example">500'ün %20'si = 500 × 20 ÷ 100 = <strong>100</strong></div>
+      </div>
+
+      <div class="fs-item">
+        <div class="fs-name">⚖️ Oran Bulma</div>
+        <code class="fs-formula">Oran = (X ÷ Y) × 100</code>
+        <div class="fs-example">75, 300'ün kaçı? = (75÷300)×100 = <strong>%25</strong></div>
+      </div>
+
+      <div class="fs-item">
+        <div class="fs-name">📈 Yüzde Artış</div>
+        <code class="fs-formula">% = ((Yeni−Eski) ÷ Eski) × 100</code>
+        <div class="fs-example">800→1000: ((1000−800)÷800)×100 = <strong>%25 artış</strong></div>
+      </div>
+
+      <div class="fs-item">
+        <div class="fs-name">📉 Yüzde Azalış</div>
+        <code class="fs-formula">% = ((Eski−Yeni) ÷ Eski) × 100</code>
+        <div class="fs-example">1000→800: ((1000−800)÷1000)×100 = <strong>%20 azalış</strong></div>
+      </div>
+
+      <div class="fs-item">
+        <div class="fs-name">🔄 Tersine (% ekli)</div>
+        <code class="fs-formula">Orijinal = Sonuç ÷ (1 + %÷100)</code>
+        <div class="fs-example">1200 ÷ 1,20 = <strong>1.000 ₺</strong> (KDV hariç)</div>
+      </div>
+
+      <div class="fs-item">
+        <div class="fs-name">🔗 Ardışık Yüzde</div>
+        <code class="fs-formula">Son = Başlangıç × (1+%₁/100) × (1+%₂/100)</code>
+        <div class="fs-example">100 × 1,10 × 1,10 = <strong>121</strong> (%21 toplam artış)</div>
+      </div>
+    </div>
+
+    <!-- UYARI -->
+    <div class="warn-box">
+      <strong>⚠️ Dikkat: Asimetri!</strong><br/>
+      %50 artış sonrası %50 azalış = başlangıca dönmez!<br/>
+      100 → 150 → <strong>75</strong><br/>
+      Baz değer her işlemde değişir.
+    </div>
+
+    <!-- İLGİLİ ARAÇLAR -->
+    <div class="card">
+      <div class="card-title" style="font-size:.9rem;">🔗 İlgili Araçlar</div>
+      <a class="ql-link" href="https://hesaplarsin.com/indirim-hesaplama.html"><div class="ql-icon">🏷️</div><div><div style="font-weight:700;font-size:.82rem;">İndirim Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">İndirimli fiyat bul</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/kov-hesaplama.html"><div class="ql-icon">🧾</div><div><div style="font-weight:700;font-size:.82rem;">KDV Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Dahil / hariç KDV</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/kar-marji-hesaplama.html"><div class="ql-icon">💯</div><div><div style="font-weight:700;font-size:.82rem;">Kâr Marjı</div><div style="font-size:.72rem;color:var(--muted)">Satış kâr oranı</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/enflasyon-hesaplama.html"><div class="ql-icon">📈</div><div><div style="font-weight:700;font-size:.82rem;">Enflasyon</div><div style="font-size:.72rem;color:var(--muted)">Fiyat artış oranı</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/maas-zam-hesaplama.html"><div class="ql-icon">💼</div><div><div style="font-weight:700;font-size:.82rem;">Maaş Zam Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Zam sonrası maaş</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/kira-artis-hesaplama.html"><div class="ql-icon">🏠</div><div><div style="font-weight:700;font-size:.82rem;">Kira Artış</div><div style="font-size:.72rem;color:var(--muted)">TÜFE kira zammı</div></div></a>
+    </div>
+
+    <div class="ad-slot" style="min-height:250px;"><span>Reklam Alanı<br/>250×250</span></div>
+
+  </aside>
+</div>
+
+<!-- MAKALE -->
+<div class="article">
+
+  <div class="ad-slot" style="min-height:90px;margin-bottom:32px;"><span>Reklam Alanı</span></div>
+
+  <h2>Yüzde Nedir? Temel Kavramlar</h2>
+  <p>
+    <strong>Yüzde (%)</strong>, Latince <em>per centum</em> — "yüzde biri" — ifadesinden gelen ve herhangi bir büyüklüğün yüzlük ölçek üzerinden ifade edildiği matematiksel bir kavramdır. Örneğin %25, bir bütünün 100 parçasından 25'ini temsil eder.
+  </p>
+  <p>
+    Günlük hayatta mağaza indirimleri, maaş zamları, KDV oranları, sınav başarı puanları, enflasyon verileri ve banka faiz oranları gibi onlarca farklı alanda yüzde hesaplaması kullanılır.
+  </p>
+
+  <h2>Yüzde Hesaplama Formülleri</h2>
+
+  <h3>1. Bir Sayının Belirli Yüzdesi (X'in Y%'si)</h3>
+  <div class="formula-box">
+    <span class="v">Sonuç</span> <span class="e">=</span> Sayı × Yüzde ÷ 100<br/>
+    <span class="c">Örnek:</span> 500'ün %20'si = 500 × 20 ÷ 100 = <span class="e">100</span>
+  </div>
+
+  <h3>2. Yüzde Artış Hesaplama</h3>
+  <p>Maaş zamlarından fiyat artışlarına, satış büyümesine kadar pek çok alanda kullanılır. Referans değer her zaman eski (önceki) değerdir.</p>
+  <div class="formula-box">
+    <span class="v">Artış (%)</span> <span class="e">=</span> ((Yeni − Eski) ÷ Eski) × 100<br/>
+    <span class="c">Örnek:</span> 800 ₺'den 1.000 ₺'ye: ((1.000−800) ÷ 800) × 100 = <span class="e">%25 artış</span>
+  </div>
+
+  <h3>3. Yüzde Azalış Hesaplama</h3>
+  <p>İndirim oranları, maliyet düşüşleri ve kayıp hesaplamalarında kullanılır. Referans değer yine eski (orijinal) değerdir.</p>
+  <div class="formula-box">
+    <span class="v">Azalış (%)</span> <span class="e">=</span> ((Eski − Yeni) ÷ Eski) × 100<br/>
+    <span class="c">Örnek:</span> 1.000 ₺'den 800 ₺'ye: ((1.000−800) ÷ 1.000) × 100 = <span class="e">%20 azalış</span>
+  </div>
+
+  <h3>4. Tersine Yüzde (Yüzdeden Orijinal Değer Bulma)</h3>
+  <p>KDV dahil fiyattan KDV hariç fiyat, indirimli fiyattan orijinal fiyat hesaplamak için kullanılır.</p>
+  <div class="formula-box">
+    <span class="v">Orijinal (% ekli)</span> <span class="e">=</span> Sonuç ÷ (1 + Oran/100)<br/>
+    <span class="c">Örnek:</span> 1.200 ₺ KDV dahil (%20): 1.200 ÷ 1,20 = <span class="e">1.000 ₺</span><br/><br/>
+    <span class="v">Orijinal (% çıkarıldı)</span> <span class="e">=</span> Sonuç ÷ (1 − Oran/100)<br/>
+    <span class="c">Örnek:</span> 700 ₺ (%30 indirimli): 700 ÷ 0,70 = <span class="e">1.000 ₺</span>
+  </div>
+
+  <h3>5. Ardışık Yüzde Hesaplama</h3>
+  <p>Birden fazla yüzde değişikliği ard arda uygulandığında yüzdeler toplanmaz — çarpılır.</p>
+  <div class="formula-box">
+    <span class="v">Son Değer</span> <span class="e">=</span> Başlangıç × (1+%₁/100) × (1+%₂/100) × ...<br/>
+    <span class="c">Örnek:</span> %10 + %10 ≠ %20 → 100 × 1,10 × 1,10 = <span class="e">121 (%21 toplam artış)</span>
+  </div>
+
+  <div class="tip-box">
+    ✅ <strong>Pratik İpuçları:</strong><br/>
+    • %10'unu bulmak için sayıyı 10'a bölün<br/>
+    • %5'ini bulmak için %10'un yarısını alın<br/>
+    • %1'ini bulmak için sayıyı 100'e bölün<br/>
+    • KDV (%20) eklemek için 1,20 ile çarpın; çıkarmak için 1,20'ye bölün<br/>
+    • Ardışık yüzdeler <strong>toplanmaz, çarpılır!</strong>
+  </div>
+
+  <h2>Yüzde Artış ve Azalış Neden Simetrik Değildir?</h2>
+  <p>
+    Bu, en sık yapılan yüzde hatalarından biridir. %50 artış ardından %50 azalış sizi başlangıç noktasına götürmez:
+  </p>
+  <ul>
+    <li>100 → %50 artış → <strong>150</strong></li>
+    <li>150 → %50 azalış → <strong>75</strong> (başlangıçtan %25 düşük!)</li>
+  </ul>
+  <p>
+    Bunun nedeni, yüzdenin her seferinde farklı bir baz değer üzerinden hesaplanmasıdır. Başlangıca dönmek için 75'in %33,3 artması gerekir.
+  </p>
+
+  <h2>Yüzde Puanı ile Yüzde Farkı</h2>
+  <p>
+    Bu iki kavram sıkça karıştırılır. Faiz oranı %10'dan %15'e çıkıyorsa:
+  </p>
+  <ul>
+    <li><strong>Yüzde puanı farkı:</strong> 15 − 10 = <strong>5 yüzde puanı</strong> artış</li>
+    <li><strong>Yüzde artış:</strong> ((15−10)/10) × 100 = <strong>%50 artış</strong></li>
+  </ul>
+  <p>
+    Medya haberlerinde "faiz 5 puan arttı" ifadesi yüzde puanı anlamındadır, "%5 arttı" değil.
+  </p>
+
+  <div class="ad-slot" style="min-height:90px;margin:24px 0;"><span>Reklam Alanı</span></div>
+
+  <h2>Sık Sorulan Sorular</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">500'ün yüzde kaçı 75'tir? <span class="ico">+</span></button>
+    <div class="faq-a">(75 ÷ 500) × 100 = <strong>%15</strong>. Formül: Parça ÷ Bütün × 100. Yukarıdaki "Oran Bulma" modunda 75 ve 500 girerek anında hesaplayabilirsiniz.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">KDV dahil fiyattan KDV hariç fiyat nasıl bulunur? <span class="ico">+</span></button>
+    <div class="faq-a">KDV hariç fiyat = KDV dahil fiyat ÷ (1 + KDV oranı / 100). Örneğin %20 KDV dahil 1.200 ₺: 1.200 ÷ 1,20 = <strong>1.000 ₺</strong>. "Tersine Yüzde" modunda "% eklendi" seçerek hesaplayabilirsiniz. Ayrıca <a href="https://hesaplarsin.com/kov-hesaplama.html" style="color:var(--brand);">KDV hesaplama aracımız</a>ı kullanabilirsiniz.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">%30 indirimli ürünün orijinal fiyatını nasıl bulurum? <span class="ico">+</span></button>
+    <div class="faq-a">Orijinal fiyat = İndirimli fiyat ÷ (1 − 0,30) = İndirimli fiyat ÷ 0,70. Örneğin 700 ₺'ye düşmüş bir ürün: 700 ÷ 0,70 = <strong>1.000 ₺</strong>. "Tersine Yüzde" modunda "% çıkarıldı" seçerek anında hesaplayabilirsiniz.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Sınavda 80 sorudan 64'ünü doğru yaptım. Başarı yüzdem nedir? <span class="ico">+</span></button>
+    <div class="faq-a">(64 ÷ 80) × 100 = <strong>%80</strong>. "Oran Bulma" modunda parça: 64, bütün: 80 girerek saniyeler içinde hesaplayabilirsiniz.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Maaşıma önce %25 sonra %15 zam yapıldı. Toplam artış ne kadar? <span class="ico">+</span></button>
+    <div class="faq-a">%25 + %15 = %40 DEĞİL. Doğru hesap: 1,25 × 1,15 = 1,4375 → toplam <strong>%43,75 artış</strong>. Ardışık yüzdeler toplanmaz, çarpılır. "Ardışık Yüzde" moduyla bu hesabı kolayca yapabilirsiniz.</div>
+  </div>
+
+  <h2>İlgili Hesaplama Araçları</h2>
+  <div class="related-grid">
+    <a class="rc" href="https://hesaplarsin.com/indirim-hesaplama.html"><span class="ri">🏷️</span><span class="rt">İndirim Hesaplama</span><span class="rd">İndirimli fiyat bul</span></a>
+    <a class="rc" href="https://hesaplarsin.com/kov-hesaplama.html"><span class="ri">🧾</span><span class="rt">KDV Hesaplama</span><span class="rd">Dahil / hariç KDV</span></a>
+    <a class="rc" href="https://hesaplarsin.com/kar-marji-hesaplama.html"><span class="ri">💯</span><span class="rt">Kâr Marjı</span><span class="rd">Satış kâr oranı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/enflasyon-hesaplama.html"><span class="ri">📈</span><span class="rt">Enflasyon</span><span class="rd">Fiyat artış oranı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/maas-zam-hesaplama.html"><span class="ri">💼</span><span class="rt">Maaş Zam</span><span class="rd">Zam sonrası maaş</span></a>
+    <a class="rc" href="https://hesaplarsin.com/kira-artis-hesaplama.html"><span class="ri">🏠</span><span class="rt">Kira Artış</span><span class="rd">TÜFE kira zammı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/iskonto-hesaplama.html"><span class="ri">📉</span><span class="rt">İskonto Hesaplama</span><span class="rd">Ticari iskonto oranı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/ortalama-hesaplama.html"><span class="ri">➗</span><span class="rt">Ortalama Hesaplama</span><span class="rd">Sayı ortalaması</span></a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Hesaplarsın</div>
+        <p class="fdesc">Türkiye'nin en kapsamlı ücretsiz hesaplama platformu. 70+ araç, 2026 güncel verileri.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Günlük Hesap</h4>
+        <a href="https://hesaplarsin.com/yuzde-hesaplama.html">Yüzde Hesaplama</a>
+        <a href="https://hesaplarsin.com/indirim-hesaplama.html">İndirim Hesaplama</a>
+        <a href="https://hesaplarsin.com/ortalama-hesaplama.html">Ortalama Hesaplama</a>
+        <a href="https://hesaplarsin.com/yas-hesaplama.html">Yaş Hesaplama</a>
+      </div>
+      <div class="footer-col">
+        <h4>Vergi & Finans</h4>
+        <a href="https://hesaplarsin.com/kov-hesaplama.html">KDV Hesaplama</a>
+        <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">Gelir Vergisi</a>
+        <a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a>
+        <a href="https://hesaplarsin.com/enflasyon-hesaplama.html">Enflasyon</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hesaplarsın</h4>
+        <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
+        <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+        <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
+        <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hesaplarsın. Tüm hakları saklıdır.</span>
+      <span><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a> · <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım</a> · <a href="https://hesaplarsin.com/iletisim.html">İletişim</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Başa git">↑</button>
+
+<script>
+// ─── YARDIMCI ─────────────────────────────────────────────────
+let toastTimer;
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.style.display='block'; clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.style.display='none',2800); }
+const fmt = n => {
+  if(n === Math.round(n)) return new Intl.NumberFormat('tr-TR').format(n);
+  return new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:4}).format(n);
+};
+const fmtP = n => new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+
+// ─── NAV ─────────────────────────────────────────────────────
+const hamBtn=document.getElementById('hamBtn'), navLinks=document.getElementById('navLinks');
+hamBtn.addEventListener('click',()=>{ const o=navLinks.classList.toggle('open'); hamBtn.setAttribute('aria-expanded',o); });
+document.addEventListener('click',e=>{ if(!hamBtn.contains(e.target)&&!navLinks.contains(e.target)) navLinks.classList.remove('open'); });
+window.addEventListener('scroll',()=>document.getElementById('topBtn').classList.toggle('show',scrollY>400),{passive:true});
+
+// ─── MOD SEÇİCİ ──────────────────────────────────────────────
+function switchMod(id, el) {
+  document.querySelectorAll('.mod-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.calc-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+}
+
+// ─── FILL HELPERS ─────────────────────────────────────────────
+function fill(id1, v1, id2, v2){ document.getElementById(id1).value=v1; document.getElementById(id2).value=v2; }
+function fill3(id1,v1,id2,v2,id3,v3){ document.getElementById(id1).value=v1; document.getElementById(id2).value=v2||''; document.getElementById(id3).value=v3||''; }
+function fillTers(sonuc, oran, tip){ document.getElementById('t1-sonuc').value=sonuc; document.getElementById('t1-oran').value=oran; document.querySelector(`input[name="t1-tip"][value="${tip}"]`).checked=true; }
+function fillArdisik(baslangic, oranlар){
+  document.getElementById('ar1-baslangic').value=baslangic;
+  const inputs=[...document.querySelectorAll('.ar-input')];
+  inputs.forEach((inp,i)=>inp.value=oranlар[i]!==undefined?oranlар[i]:'');
+}
+
+// ─── RESET ────────────────────────────────────────────────────
+function resetPanel(prefix){
+  document.querySelectorAll(`[id^="${prefix}-"]`).forEach(el=>{if(el.tagName==='INPUT') el.value='';});
+  ['res-yuzde','res-oran','res-artis','res-azalis','res-ters','res-ardisik'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.style.display='none';
+  });
+}
+function resetArdisik(){
+  document.getElementById('ar1-baslangic').value='';
+  document.querySelectorAll('.ar-input').forEach(i=>i.value='');
+  document.getElementById('res-ardisik').style.display='none';
+}
+
+// ─── SHOW RESULT ──────────────────────────────────────────────
+function showResult(cardId, vals) {
+  const card=document.getElementById(cardId);
+  card.style.display='block';
+  Object.entries(vals).forEach(([k,v])=>{ const el=document.getElementById(k); if(el) el.textContent=v; });
+  card.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ─── KOPYALA ─────────────────────────────────────────────────
+function copyRes(id){ navigator.clipboard.writeText(document.getElementById(id).textContent).then(()=>toast('📋 Kopyalandı!')); }
+
+// ─── MOD 1: YÜZDE ─────────────────────────────────────────────
+function calcYuzde(){
+  const x=parseFloat(document.getElementById('y1-sayi').value);
+  const y=parseFloat(document.getElementById('y1-yuzde').value);
+  if(isNaN(x)||isNaN(y)){ toast('❌ Lütfen her iki alanı doldurun.'); return; }
+  const sonuc = x * y / 100;
+  showResult('res-yuzde',{
+    'ry-label': `${fmt(x)}'in %${fmtP(y)}'i`,
+    'ry-val': fmt(sonuc),
+    'ry-sub': `${fmt(x)} × ${fmtP(y)} ÷ 100 = ${fmt(sonuc)}`,
+    'ry-formula': `Formül: Sayı × Yüzde ÷ 100`
+  });
+}
+
+// ─── MOD 2: ORAN ─────────────────────────────────────────────
+function calcOran(){
+  const x=parseFloat(document.getElementById('o1-parca').value);
+  const y=parseFloat(document.getElementById('o1-butun').value);
+  if(isNaN(x)||isNaN(y)||y===0){ toast('❌ Geçerli değerler girin. Bütün 0 olamaz.'); return; }
+  const oran=(x/y)*100;
+  showResult('res-oran',{
+    'ro-val': '%'+fmtP(oran),
+    'ro-sub': `${fmt(x)}, ${fmt(y)}'nin %${fmtP(oran)}'idir`,
+    'ro-formula': `Formül: (${fmt(x)} ÷ ${fmt(y)}) × 100`
+  });
+}
+
+// ─── MOD 3: ARTIŞ ─────────────────────────────────────────────
+function calcArtis(){
+  const eski=parseFloat(document.getElementById('a1-eski').value);
+  const yeni=parseFloat(document.getElementById('a1-yeni').value);
+  const oran=parseFloat(document.getElementById('a1-oran').value);
+  if(isNaN(eski)||eski===0){ toast('❌ Eski değeri girin.'); return; }
+
+  if(!isNaN(yeni)) {
+    // yeni değer → oranı bul
+    const artis=((yeni-eski)/eski)*100;
+    const dir = artis>=0?'artış':'azalış';
+    showResult('res-artis',{
+      'ra-label': artis>=0?'Yüzde Artış':'Yüzde Azalış',
+      'ra-val': (artis>=0?'+':'')+fmtP(artis)+'%',
+      'ra-sub': `${fmt(eski)} → ${fmt(yeni)}: ${fmtP(Math.abs(artis))}% ${dir}\nFark: ${fmt(yeni-eski)}`,
+      'ra-formula': `Formül: ((${fmt(yeni)} − ${fmt(eski)}) ÷ ${fmt(eski)}) × 100`
+    });
+    const card=document.getElementById('res-artis');
+    card.className='result-card '+(artis>=0?'positive':'negative');
+  } else if(!isNaN(oran)) {
+    // oran → yeni değeri bul
+    const yeniVal = eski*(1+oran/100);
+    showResult('res-artis',{
+      'ra-label': `%${fmtP(oran)} artış sonrası yeni değer`,
+      'ra-val': fmt(yeniVal),
+      'ra-sub': `${fmt(eski)} × (1 + ${oran}/100) = ${fmt(yeniVal)}\nFark: +${fmt(yeniVal-eski)}`,
+      'ra-formula': `Formül: ${fmt(eski)} × (1 + ${oran}/100)`
+    });
+    document.getElementById('res-artis').className='result-card positive';
+  } else { toast('❌ Yeni değeri veya artış oranını girin.'); return; }
+}
+
+// ─── MOD 4: AZALIŞ ────────────────────────────────────────────
+function calcAzalis(){
+  const eski=parseFloat(document.getElementById('az1-eski').value);
+  const yeni=parseFloat(document.getElementById('az1-yeni').value);
+  const oran=parseFloat(document.getElementById('az1-oran').value);
+  if(isNaN(eski)||eski===0){ toast('❌ Eski değeri girin.'); return; }
+
+  if(!isNaN(yeni)) {
+    const azalis=((eski-yeni)/eski)*100;
+    showResult('res-azalis',{
+      'rz-label': azalis>=0?'Yüzde Azalış':'Yüzde Artış (azalış değil)',
+      'rz-val': (azalis>=0?'-':'+')+fmtP(Math.abs(azalis))+'%',
+      'rz-sub': `${fmt(eski)} → ${fmt(yeni)}: ${fmtP(Math.abs(azalis))}% ${azalis>=0?'azalış':'artış'}\nFark: ${fmt(yeni-eski)}`,
+      'rz-formula': `Formül: ((${fmt(eski)} − ${fmt(yeni)}) ÷ ${fmt(eski)}) × 100`
+    });
+    document.getElementById('res-azalis').className='result-card '+(azalis>=0?'negative':'positive');
+  } else if(!isNaN(oran)) {
+    const yeniVal=eski*(1-oran/100);
+    const indirimTutari=eski-yeniVal;
+    showResult('res-azalis',{
+      'rz-label': `%${fmtP(oran)} indirim / azalış sonrası yeni değer`,
+      'rz-val': fmt(yeniVal),
+      'rz-sub': `${fmt(eski)} × (1 − ${oran}/100) = ${fmt(yeniVal)}\nİndirim tutarı: −${fmt(indirimTutari)}`,
+      'rz-formula': `Formül: ${fmt(eski)} × (1 − ${oran}/100)`
+    });
+    document.getElementById('res-azalis').className='result-card negative';
+  } else { toast('❌ Yeni değeri veya azalış oranını girin.'); return; }
+}
+
+// ─── MOD 5: TERSİNE ───────────────────────────────────────────
+function calcTers(){
+  const sonuc=parseFloat(document.getElementById('t1-sonuc').value);
+  const oran=parseFloat(document.getElementById('t1-oran').value);
+  const tip=document.querySelector('input[name="t1-tip"]:checked').value;
+  if(isNaN(sonuc)||isNaN(oran)||oran<=0){ toast('❌ Sonuç ve oran değerlerini girin.'); return; }
+
+  let orijinal, fark, formulLabel;
+  if(tip==='ekli'){
+    orijinal=sonuc/(1+oran/100);
+    fark=sonuc-orijinal;
+    formulLabel=`${fmt(sonuc)} ÷ (1 + ${oran}/100)`;
+  } else {
+    orijinal=sonuc/(1-oran/100);
+    fark=orijinal-sonuc;
+    formulLabel=`${fmt(sonuc)} ÷ (1 − ${oran}/100)`;
+  }
+  showResult('res-ters',{
+    'rt-label': tip==='ekli' ? `%${oran} eklenmeden önceki değer` : `%${oran} çıkarılmadan önceki değer`,
+    'rt-val': fmt(orijinal),
+    'rt-sub': `${tip==='ekli'?'Eklenen':'Çıkarılan'} %${oran} tutarı: ${fmt(fark)}\n${fmt(orijinal)} ${tip==='ekli'?'+':`−`} ${fmt(fark)} = ${fmt(sonuc)}`,
+    'rt-formula': `Formül: ${formulLabel}`
+  });
+}
+
+// ─── MOD 6: ARDIŞIK ───────────────────────────────────────────
+function calcArdisik(){
+  const baslangic=parseFloat(document.getElementById('ar1-baslangic').value);
+  if(isNaN(baslangic)){ toast('❌ Başlangıç değerini girin.'); return; }
+  const inputs=[...document.querySelectorAll('.ar-input')];
+  const oranlар=inputs.map(i=>parseFloat(i.value)).filter(v=>!isNaN(v));
+  if(oranlар.length===0){ toast('❌ En az bir yüzde girin.'); return; }
+
+  let sonuc=baslangic;
+  const steps=[];
+  oranlар.forEach((o,i)=>{
+    const prev=sonuc;
+    sonuc*=(1+o/100);
+    steps.push(`× (1${o>=0?'+':''}${o}/100) = ${fmt(sonuc)}`);
+  });
+  const toplamDegisim=((sonuc-baslangic)/baslangic)*100;
+
+  showResult('res-ardisik',{
+    'rar-label': 'Ardışık Yüzde Sonrası Değer',
+    'rar-val': fmt(sonuc),
+    'rar-sub': `Başlangıç: ${fmt(baslangic)} → Sonuç: ${fmt(sonuc)}\nToplam değişim: ${toplamDegisim>=0?'+':''}${fmtP(toplamDegisim)}%`,
+    'rar-formula': `${fmt(baslangic)} ${steps.join(' ')}`
+  });
+  document.getElementById('res-ardisik').className='result-card '+(toplamDegisim>=0?'positive':'negative');
+}
+
+// ─── FAQ ─────────────────────────────────────────────────────
+function toggleFaq(btn){
+  const ans=btn.nextElementSibling, isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('open');b.setAttribute('aria-expanded','false');b.nextElementSibling.classList.remove('open');});
+  if(!isOpen){btn.classList.add('open');btn.setAttribute('aria-expanded','true');ans.classList.add('open');}
+}
+
+// ─── ENTER TUŞU ──────────────────────────────────────────────
+document.addEventListener('keydown', e=>{
+  if(e.key!=='Enter'||['BUTTON'].includes(document.activeElement.tagName)) return;
+  const active=document.querySelector('.calc-panel.active').id.replace('panel-','');
+  const map={yuzde:calcYuzde,oran:calcOran,artis:calcArtis,azalis:calcAzalis,ters:calcTers,ardisik:calcArdisik};
+  if(map[active]) map[active]();
+});
+</script>
+</body>
+</html>
