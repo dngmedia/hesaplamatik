@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Brüt Kar Hesaplama 2026 | Brüt Kar Marjı | Markup | Satış Fiyatı Bulma | Hesaplarsın</title>
+  <meta name="description" content="Brüt kar hesaplama aracı 2026. Maliyet ve satış fiyatı girerek brüt kar, brüt kar marjı (%), markup oranı ve hedef satış fiyatını anında hesaplayın. Tek ürün ve toplu hesaplama desteği." />
+  <meta name="keywords" content="brüt kar hesaplama 2026, brüt kar marjı hesaplama, kar marjı hesaplama, markup hesaplama, satış fiyatı hesaplama, brüt kar nedir, kar hesaplama, net kar hesaplama, kar marjı formülü, brüt kar marjı nedir" />
+  <link rel="canonical" href="https://hesaplarsin.com/brut-kar-hesaplama.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hesaplarsın" />
+  <meta property="og:title" content="Brüt Kar Hesaplama 2026 | Kar Marjı | Markup | Hesaplarsın" />
+  <meta property="og:description" content="Maliyet ve satış fiyatından brüt kar, kar marjı ve markup oranını anında hesaplayın. Hedef marjdan satış fiyatı bulun." />
+  <meta property="og:url" content="https://hesaplarsin.com/brut-kar-hesaplama.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FT582GF9N9');
+  </script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Brüt Kar Hesaplama 2026","url":"https://hesaplarsin.com/brut-kar-hesaplama.html","description":"Maliyet ve satış fiyatından brüt kar, brüt kar marjı ve markup oranı hesaplama. Hedef marjdan satış fiyatı bulma. Toplu ürün hesaplama desteği.","applicationCategory":"FinanceApplication","operatingSystem":"All","inLanguage":"tr","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"publisher":{"@type":"Organization","name":"Hesaplarsın","url":"https://hesaplarsin.com"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Brüt kar nedir?","acceptedAnswer":{"@type":"Answer","text":"Brüt kar, bir işletmenin satış gelirlerinden satışların maliyetini (SMM — Satılan Malların Maliyeti) düşmesi sonucunda elde ettiği temel kârlılık tutarıdır. Formül: Brüt Kar = Net Satışlar − Satılan Malın Maliyeti. Üretim giderleri, pazarlama masrafları ve genel yönetim giderleri bu hesaplamaya dahil edilmez; yalnızca ürün/hizmetin doğrudan maliyeti dikkate alınır."}},{"@type":"Question","name":"Brüt kar marjı nasıl hesaplanır?","acceptedAnswer":{"@type":"Answer","text":"Brüt Kar Marjı (%) = (Brüt Kar / Net Satışlar) × 100. Örnek: Satış geliri 100.000 ₺, Satılan malın maliyeti 60.000 ₺ → Brüt Kar = 40.000 ₺ → Brüt Kar Marjı = (40.000 / 100.000) × 100 = %40."}},{"@type":"Question","name":"Kar marjı ile markup arasındaki fark nedir?","acceptedAnswer":{"@type":"Answer","text":"Kar marjı satış fiyatı üzerinden, markup ise maliyet üzerinden hesaplanır. Kar Marjı = (Satış − Maliyet) ÷ Satış × 100. Markup = (Satış − Maliyet) ÷ Maliyet × 100. Örnek: 100 ₺ maliyetli ürün 150 ₺'ye satılıyorsa → Kar Marjı = %33,33, Markup = %50. Aynı işlem için markup her zaman kar marjından yüksektir."}},{"@type":"Question","name":"Hedef kar marjından satış fiyatı nasıl bulunur?","acceptedAnswer":{"@type":"Answer","text":"Satış Fiyatı = Maliyet ÷ (1 − Kar Marjı / 100). Örnek: 200 ₺ maliyet, hedef %40 kar marjı → Satış Fiyatı = 200 ÷ (1 − 0,40) = 200 ÷ 0,60 = 333,33 ₺."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://hesaplarsin.com"},{"@type":"ListItem","position":2,"name":"İşletme","item":"https://hesaplarsin.com/#isletme"},{"@type":"ListItem","position":3,"name":"Brüt Kar Hesaplama","item":"https://hesaplarsin.com/brut-kar-hesaplama.html"}]}
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand:#1a56db; --brand-dark:#1341b0; --brand-light:#e8f0fe;
+      --accent:#f59e0b; --success:#10b981; --danger:#ef4444;
+      --text:#111827; --muted:#6b7280; --border:#e5e7eb;
+      --bg:#f9fafb; --card:#ffffff; --r:12px;
+      --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.05);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; font-size:16px; -webkit-text-size-adjust:100%; }
+
+    nav.topnav { background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:200; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .nav-inner { max-width:1140px; margin:0 auto; padding:0 16px; height:56px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .logo { font-size:1.2rem; font-weight:800; color:var(--brand); text-decoration:none; white-space:nowrap; }
+    .nav-links { display:flex; gap:2px; flex-wrap:wrap; }
+    .nav-links a { font-size:.8rem; font-weight:500; color:var(--muted); text-decoration:none; padding:5px 9px; border-radius:6px; transition:background .15s,color .15s; white-space:nowrap; }
+    .nav-links a:hover,.nav-links a.active { background:var(--brand-light); color:var(--brand); }
+    .ham { display:none; background:none; border:none; cursor:pointer; padding:6px; }
+    .ham span { display:block; width:22px; height:2px; background:var(--text); margin:5px 0; border-radius:2px; }
+    @media(max-width:640px){ .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 16px 16px;border-bottom:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08);gap:4px;z-index:201;} .nav-links.open{display:flex;} .nav-links a{padding:10px 12px;border-radius:8px;font-size:.9rem;} .ham{display:block;} }
+
+    .breadcrumb { max-width:1140px; margin:0 auto; padding:12px 16px 0; font-size:.8rem; color:var(--muted); }
+    .breadcrumb a { color:var(--brand); text-decoration:none; }
+    .breadcrumb span { margin:0 5px; }
+
+    .hero { background:linear-gradient(135deg,#0f307a 0%,#1341b0 50%,#1a56db 100%); color:#fff; padding:44px 16px 40px; }
+    .hero-inner { max-width:1140px; margin:0 auto; }
+    .hero-tag { display:inline-block; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); border-radius:20px; font-size:.76rem; font-weight:600; padding:4px 12px; margin-bottom:14px; }
+    .hero h1 { font-size:clamp(1.5rem,4vw,2.1rem); font-weight:900; line-height:1.2; margin-bottom:10px; letter-spacing:-.4px; }
+    .hero p { font-size:.93rem; opacity:.88; max-width:580px; line-height:1.7; margin-bottom:16px; }
+    .hero-badges { display:flex; gap:8px; flex-wrap:wrap; }
+    .hbadge { font-size:.73rem; font-weight:600; padding:4px 10px; border-radius:20px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); }
+
+    .main-grid { max-width:1140px; margin:24px auto 0; padding:0 16px 60px; display:grid; grid-template-columns:1fr 300px; gap:22px; }
+    @media(max-width:840px){ .main-grid{grid-template-columns:1fr;} }
+
+    .card { background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); border:1px solid var(--border); padding:24px; }
+    @media(max-width:480px){ .card{padding:16px;} }
+    .card-title { font-size:1rem; font-weight:800; margin-bottom:18px; display:flex; align-items:center; gap:8px; padding-bottom:12px; border-bottom:2px solid var(--brand-light); }
+
+    /* MOD SEÇİCİ */
+    .mod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:20px; }
+    @media(max-width:420px){ .mod-grid{grid-template-columns:1fr;} }
+    .mod-btn { padding:10px 8px; border:1.5px solid var(--border); border-radius:9px; cursor:pointer; text-align:center; background:var(--bg); transition:all .15s; -webkit-tap-highlight-color:transparent; }
+    .mod-btn .mb-ico { font-size:1.3rem; display:block; margin-bottom:3px; }
+    .mod-btn .mb-name { font-size:.75rem; font-weight:700; display:block; color:var(--text); }
+    .mod-btn .mb-desc { font-size:.67rem; color:var(--muted); display:block; margin-top:1px; }
+    .mod-btn.active { border-color:var(--brand); background:var(--brand-light); }
+    .mod-btn.active .mb-name { color:var(--brand); }
+
+    /* FORM */
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media(max-width:520px){ .form-grid{grid-template-columns:1fr;} }
+    .field { display:flex; flex-direction:column; gap:5px; margin-bottom:14px; }
+    .field.full { grid-column:1/-1; }
+    label { font-size:.82rem; font-weight:600; }
+    label small { font-weight:400; color:var(--muted); margin-left:3px; }
+    input[type="number"],input[type="text"],select { width:100%; padding:11px 13px; border:1.5px solid var(--border); border-radius:8px; font-size:.95rem; color:var(--text); background:#fff; outline:none; -webkit-appearance:none; -moz-appearance:textfield; transition:border .15s,box-shadow .15s; }
+    input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { -webkit-appearance:none; }
+    input::placeholder { color:#c4c9d4; }
+    input:focus,select:focus { border-color:var(--brand); box-shadow:0 0 0 3px rgba(26,86,219,.1); }
+
+    /* PANEL */
+    .calc-panel { display:none; }
+    .calc-panel.active { display:block; }
+
+    /* QUICK TAGS */
+    .quick-tags { display:flex; gap:7px; flex-wrap:wrap; margin-top:6px; }
+    .qtag { font-size:.73rem; padding:5px 11px; border:1px solid var(--border); border-radius:20px; cursor:pointer; background:#fff; color:var(--muted); transition:all .15s; white-space:nowrap; -webkit-tap-highlight-color:transparent; display:inline-flex; align-items:center; }
+    .qtag:hover { border-color:var(--brand); color:var(--brand); background:var(--brand-light); }
+
+    .btn-calc { width:100%; padding:14px; background:var(--brand); color:#fff; font-size:.96rem; font-weight:700; border:none; border-radius:10px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:background .15s,transform .1s; margin-top:4px; -webkit-tap-highlight-color:transparent; }
+    .btn-calc:hover { background:var(--brand-dark); }
+    .btn-calc:active { transform:scale(.98); }
+    .btn-reset { width:100%; padding:9px; background:transparent; color:var(--muted); font-size:.84rem; font-weight:500; border:1.5px solid var(--border); border-radius:8px; cursor:pointer; transition:all .15s; margin-top:8px; }
+    .btn-reset:hover { border-color:var(--danger); color:var(--danger); }
+
+    /* SONUÇ */
+    .result-section { display:none; margin-top:20px; }
+
+    /* SONUÇ BANNER */
+    .result-banner { background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dark) 100%); border-radius:12px; padding:22px; color:#fff; margin-bottom:14px; }
+    .rb-top { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:12px; }
+    @media(max-width:380px){ .rb-top{grid-template-columns:1fr;} }
+    .rb-item { text-align:center; }
+    .rb-item .rl { font-size:.7rem; opacity:.8; font-weight:500; margin-bottom:2px; }
+    .rb-item .rv { font-size:1.5rem; font-weight:900; letter-spacing:-.3px; }
+    .rb-item .rv.big { font-size:2rem; }
+    .rb-divider { border:none; border-top:1px solid rgba(255,255,255,.2); margin:10px 0; }
+    .rb-bottom { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    @media(max-width:380px){ .rb-bottom{grid-template-columns:repeat(2,1fr);} }
+
+    /* ÖZET KUTULAR */
+    .summary-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+    @media(max-width:480px){ .summary-grid{grid-template-columns:repeat(2,1fr);} }
+    .sbox { background:var(--bg); border:1.5px solid var(--border); border-radius:10px; padding:12px 10px; text-align:center; }
+    .sbox .sl { font-size:.69rem; color:var(--muted); font-weight:500; margin-bottom:3px; line-height:1.3; }
+    .sbox .sv { font-size:.95rem; font-weight:800; color:var(--brand); word-break:break-word; }
+    .sbox .sv.g { color:var(--success); }
+    .sbox .sv.o { color:var(--accent); }
+    .sbox .sv.r { color:var(--danger); }
+
+    /* RENK GÖSTERGESI */
+    .marj-indicator { border-radius:10px; padding:13px 15px; margin-bottom:14px; font-size:.84rem; font-weight:600; display:flex; align-items:center; gap:10px; }
+    .marj-indicator.yuksek { background:#f0fdf4; border:1px solid #bbf7d0; color:#166534; }
+    .marj-indicator.orta   { background:#fffbeb; border:1px solid #fde68a; color:#78350f; }
+    .marj-indicator.dusuk  { background:#fef2f2; border:1px solid #fecaca; color:#7f1d1d; }
+    .marj-indicator .mi-ico { font-size:1.4rem; flex-shrink:0; }
+
+    /* SENARYO TABLOSİ */
+    .senaryo-section { margin-bottom:14px; }
+    .senaryo-title { font-size:.82rem; font-weight:700; color:var(--muted); margin-bottom:8px; }
+    .tbl-wrap { overflow-x:auto; border-radius:8px; border:1px solid var(--border); -webkit-overflow-scrolling:touch; }
+    table { width:100%; border-collapse:collapse; font-size:.82rem; min-width:400px; }
+    thead { background:var(--brand); color:#fff; }
+    thead th { padding:9px 11px; text-align:right; font-weight:600; font-size:.77rem; white-space:nowrap; }
+    thead th:first-child { text-align:left; }
+    tbody tr:nth-child(even) { background:var(--bg); }
+    tbody td { padding:8px 11px; text-align:right; border-bottom:1px solid var(--border); white-space:nowrap; }
+    tbody td:first-child { text-align:left; font-weight:600; }
+    tbody tr.active-row td { background:#dbeafe !important; font-weight:700; }
+    tbody tr:last-child td { border-bottom:none; }
+
+    /* TOPLU TABLO */
+    .toplu-row { display:grid; grid-template-columns:2fr 1fr 1fr 36px; gap:8px; align-items:end; margin-bottom:8px; }
+    @media(max-width:480px){ .toplu-row{grid-template-columns:1fr 1fr;gap:6px;} .toplu-row .del-btn{grid-column:2;justify-self:end;} }
+    .toplu-row input { width:100%; padding:9px 11px; border:1.5px solid var(--border); border-radius:8px; font-size:.88rem; color:var(--text); background:#fff; outline:none; -webkit-appearance:none; -moz-appearance:textfield; transition:border .15s; }
+    .toplu-row input:focus { border-color:var(--brand); }
+    .del-btn { width:36px; height:40px; border:1.5px solid var(--border); border-radius:8px; background:#fff; cursor:pointer; color:var(--danger); font-size:1rem; display:flex; align-items:center; justify-content:center; transition:all .15s; -webkit-tap-highlight-color:transparent; flex-shrink:0; }
+    .del-btn:hover { background:#fef2f2; border-color:var(--danger); }
+    .add-row-btn { width:100%; padding:10px; border:1.5px dashed var(--border); border-radius:8px; background:transparent; color:var(--muted); font-size:.84rem; font-weight:600; cursor:pointer; transition:all .15s; margin-top:4px; -webkit-tap-highlight-color:transparent; }
+    .add-row-btn:hover { border-color:var(--brand); color:var(--brand); }
+
+    /* EXPORT */
+    .export-btns { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; }
+    .btn-exp { flex:1; min-width:80px; padding:9px 8px; border-radius:8px; font-size:.8rem; font-weight:600; cursor:pointer; border:1.5px solid var(--border); background:#fff; color:var(--text); display:flex; align-items:center; justify-content:center; gap:5px; transition:all .15s; -webkit-tap-highlight-color:transparent; }
+    .btn-exp:hover { border-color:var(--brand); color:var(--brand); background:var(--brand-light); }
+
+    /* SIDEBAR */
+    .sidebar { display:flex; flex-direction:column; gap:18px; }
+    .sektor-table { width:100%; border-collapse:collapse; font-size:.79rem; }
+    .sektor-table th { background:var(--bg); padding:7px 9px; text-align:left; font-weight:700; color:var(--muted); border-bottom:1px solid var(--border); font-size:.73rem; }
+    .sektor-table td { padding:7px 9px; border-bottom:1px solid var(--border); }
+    .sektor-table tr:last-child td { border-bottom:none; }
+    .sbadge { font-size:.7rem; font-weight:700; padding:2px 7px; border-radius:10px; }
+    .sb-high { background:#dcfce7; color:#166534; }
+    .sb-mid  { background:#fef9c3; color:#854d0e; }
+    .sb-low  { background:#fee2e2; color:#991b1b; }
+    .info-box { background:var(--brand-light); border-left:3px solid var(--brand); border-radius:0 8px 8px 0; padding:12px 14px; font-size:.82rem; color:#1e3a5f; line-height:1.65; }
+    .info-box strong { color:var(--brand-dark); }
+    .source-note { font-size:.71rem; color:var(--muted); line-height:1.55; margin-top:8px; }
+    .source-note a { color:var(--brand); }
+    .ql-link { display:flex; align-items:center; gap:10px; padding:9px 11px; border-radius:8px; text-decoration:none; color:var(--text); font-size:.83rem; font-weight:500; transition:background .15s; border:1px solid transparent; }
+    .ql-link:hover { background:var(--brand-light); color:var(--brand); border-color:var(--brand-light); }
+    .ql-icon { width:30px; height:30px; border-radius:7px; background:var(--bg); display:flex; align-items:center; justify-content:center; font-size:.95rem; flex-shrink:0; }
+
+    /* ARTICLE */
+    .article { max-width:1140px; margin:0 auto; padding:0 16px 60px; }
+    .article h2 { font-size:clamp(1.1rem,3vw,1.3rem); font-weight:800; margin:36px 0 12px; }
+    .article h3 { font-size:1rem; font-weight:700; margin:22px 0 8px; color:#1e3a5f; }
+    .article p { color:#374151; line-height:1.82; margin-bottom:12px; font-size:.93rem; }
+    .article ul,.article ol { margin:8px 0 14px 18px; }
+    .article ul li,.article ol li { color:#374151; font-size:.92rem; line-height:1.75; margin-bottom:8px; }
+    .formula-box { background:#1e293b; color:#e2e8f0; border-radius:10px; padding:16px 18px; font-family:'Courier New',monospace; font-size:.86rem; line-height:2; margin:14px 0; overflow-x:auto; }
+    .formula-box .v { color:#93c5fd; }
+    .formula-box .e { color:#86efac; }
+    .formula-box .c { color:#fbbf24; }
+    .cite-box { background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:12px 16px; margin:14px 0; font-size:.79rem; color:var(--muted); line-height:1.65; }
+    .cite-box strong { color:var(--text); font-size:.82rem; }
+    .cite-box a { color:var(--brand); }
+    .karsilastirma-table { width:100%; border-collapse:collapse; font-size:.84rem; margin:14px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); }
+    .karsilastirma-table th { background:var(--brand); color:#fff; padding:10px 12px; text-align:left; font-weight:600; }
+    .karsilastirma-table td { padding:10px 12px; border-bottom:1px solid var(--border); }
+    .karsilastirma-table tr:last-child td { border-bottom:none; }
+    .karsilastirma-table tr:nth-child(even) td { background:var(--bg); }
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-q { width:100%; text-align:left; background:none; border:none; padding:14px 0; font-size:.9rem; font-weight:600; cursor:pointer; color:var(--text); display:flex; justify-content:space-between; align-items:center; gap:12px; -webkit-tap-highlight-color:transparent; }
+    .faq-q .ico { width:22px; height:22px; border-radius:50%; background:var(--bg); border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0; transition:all .2s; }
+    .faq-q.open .ico { background:var(--brand); border-color:var(--brand); color:#fff; transform:rotate(45deg); }
+    .faq-a { display:none; padding:0 0 14px; color:#374151; font-size:.88rem; line-height:1.78; }
+    .faq-a.open { display:block; }
+    .related-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px; }
+    @media(max-width:420px){ .related-grid{grid-template-columns:1fr 1fr;} }
+    .rc { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:13px 11px; text-decoration:none; color:var(--text); display:flex; flex-direction:column; gap:5px; transition:all .15s; }
+    .rc:hover { border-color:var(--brand); box-shadow:0 4px 14px rgba(26,86,219,.1); transform:translateY(-2px); }
+    .rc .ri { font-size:1.3rem; }
+    .rc .rt { font-size:.82rem; font-weight:700; }
+    .rc .rd { font-size:.73rem; color:var(--muted); }
+
+    footer { background:#111827; color:#9ca3af; padding:36px 16px 20px; }
+    .footer-inner { max-width:1140px; margin:0 auto; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:28px; margin-bottom:28px; }
+    @media(max-width:640px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:360px){ .footer-grid{grid-template-columns:1fr;} }
+    .footer-brand { font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:8px; }
+    .fdesc { font-size:.8rem; line-height:1.65; }
+    .footer-col h4 { font-size:.82rem; font-weight:700; color:#fff; margin-bottom:10px; }
+    .footer-col a { display:block; font-size:.8rem; color:#9ca3af; text-decoration:none; margin-bottom:7px; transition:color .15s; }
+    .footer-col a:hover { color:#fff; }
+    .footer-bottom { border-top:1px solid #1f2937; padding-top:16px; font-size:.76rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+    .footer-bottom a { color:#9ca3af; text-decoration:none; }
+
+    .toast { position:fixed; bottom:20px; right:16px; background:#1e293b; color:#fff; padding:10px 16px; border-radius:10px; font-size:.83rem; font-weight:500; box-shadow:0 4px 20px rgba(0,0,0,.2); z-index:9999; display:none; max-width:calc(100vw - 32px); animation:slideUp .3s ease; }
+    @keyframes slideUp { from{transform:translateY(12px);opacity:0} to{transform:translateY(0);opacity:1} }
+    #topBtn { position:fixed; bottom:20px; right:16px; background:var(--brand); color:#fff; border:none; border-radius:50%; width:40px; height:40px; font-size:1.1rem; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(26,86,219,.35); z-index:9998; }
+    #topBtn.show { display:flex; }
+    @media print { nav.topnav,.sidebar,footer,#topBtn,.toast,.btn-calc,.btn-reset,.export-btns { display:none!important; } .main-grid{grid-template-columns:1fr!important;} }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="nav-inner">
+    <a class="logo" href="https://hesaplarsin.com">Hesaplarsın</a>
+    <button class="ham" id="hamBtn" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://hesaplarsin.com/net-kar-hesaplama.html">✅ Net Kâr</a>
+      <a href="https://hesaplarsin.com/basa-bas-noktasi-hesaplama.html">🎯 Başa Baş</a>
+      <a href="https://hesaplarsin.com/roi-hesaplama.html">📈 ROI</a>
+      <a href="https://hesaplarsin.com/kov-hesaplama.html">🧾 KDV</a>
+      <a href="https://hesaplarsin.com/brut-kar-hesaplama.html" class="active">💹 Brüt Kâr</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://hesaplarsin.com">Ana Sayfa</a><span>›</span>
+  <a href="https://hesaplarsin.com/#isletme">İşletme</a><span>›</span>
+  <span aria-current="page">Brüt Kar Hesaplama</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">💹 Brüt Kâr & Marj Analizi</span>
+    <h1>Brüt Kar Hesaplama</h1>
+    <p>Maliyet ve satış fiyatından brüt kar, brüt kar marjı ve markup oranını anında hesaplayın. Hedef marjdan satış fiyatı bulun, toplu ürün analizi yapın.</p>
+    <div class="hero-badges">
+      <span class="hbadge">✓ Ücretsiz</span>
+      <span class="hbadge">Brüt Kâr + Marj + Markup</span>
+      <span class="hbadge">Hedef Fiyat Bulma</span>
+      <span class="hbadge">Toplu Ürün Analizi</span>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+  <main>
+    <div class="card">
+      <div class="card-title">💹 Hesaplama Modunu Seçin</div>
+
+      <!-- MOD SEÇİCİ -->
+      <div class="mod-grid" id="modGrid">
+        <div class="mod-btn active" onclick="switchMod('temel',this)">
+          <span class="mb-ico">📊</span>
+          <span class="mb-name">Temel Hesap</span>
+          <span class="mb-desc">Maliyet → Kar Marjı</span>
+        </div>
+        <div class="mod-btn" onclick="switchMod('hedef',this)">
+          <span class="mb-ico">🎯</span>
+          <span class="mb-name">Hedef Fiyat</span>
+          <span class="mb-desc">Marjdan fiyat bul</span>
+        </div>
+        <div class="mod-btn" onclick="switchMod('toplu',this)">
+          <span class="mb-ico">📋</span>
+          <span class="mb-name">Toplu Ürün</span>
+          <span class="mb-desc">Çok ürün analizi</span>
+        </div>
+      </div>
+
+      <!-- PANEL 1: TEMEL HESAP -->
+      <div class="calc-panel active" id="panel-temel">
+        <div class="form-grid">
+          <div class="field">
+            <label for="t-maliyet">Birim Maliyet (₺) <small>satılan malın maliyeti</small></label>
+            <input type="number" id="t-maliyet" placeholder="örn: 100" min="0" inputmode="decimal" />
+          </div>
+          <div class="field">
+            <label for="t-satis">Satış Fiyatı (₺)</label>
+            <input type="number" id="t-satis" placeholder="örn: 150" min="0" inputmode="decimal" />
+          </div>
+          <div class="field">
+            <label for="t-adet">Satış Adedi <small>isteğe bağlı</small></label>
+            <input type="number" id="t-adet" placeholder="örn: 100" min="0" inputmode="numeric" />
+          </div>
+          <div class="field">
+            <label for="t-kdv">KDV Oranı (%) <small>fiyat KDV dahilse</small></label>
+            <select id="t-kdv">
+              <option value="0" selected>KDV Dahil Değil</option>
+              <option value="20">%20 KDV Dahil</option>
+              <option value="10">%10 KDV Dahil</option>
+              <option value="1">%1 KDV Dahil</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Hızlı Örnek</label>
+          <div class="quick-tags">
+            <span class="qtag" onclick="fillTemel(100,150,0)">🛍️ 100→150 ₺</span>
+            <span class="qtag" onclick="fillTemel(500,750,0)">📦 500→750 ₺</span>
+            <span class="qtag" onclick="fillTemel(1000,1500,100)">🏭 1.000→1.500 × 100 adet</span>
+            <span class="qtag" onclick="fillTemel(60000,100000,0)">💼 60K→100K ₺</span>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="hesaplaTemel()">💹 Brüt Karı Hesapla</button>
+        <button class="btn-reset" onclick="sifirlaTemel()">↺ Temizle</button>
+      </div>
+
+      <!-- PANEL 2: HEDEF FİYAT -->
+      <div class="calc-panel" id="panel-hedef">
+        <p style="font-size:.83rem;color:var(--muted);margin-bottom:14px;">Hedef brüt kar marjınızı belirleyin, gereken satış fiyatını otomatik hesaplayın.</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="h-maliyet">Birim Maliyet (₺)</label>
+            <input type="number" id="h-maliyet" placeholder="örn: 200" min="0" inputmode="decimal" />
+          </div>
+          <div class="field">
+            <label for="h-marj">Hedef Brüt Kar Marjı (%)</label>
+            <input type="number" id="h-marj" placeholder="örn: 40" min="0" max="99" inputmode="decimal" />
+          </div>
+          <div class="field">
+            <label for="h-adet">Satış Adedi <small>isteğe bağlı</small></label>
+            <input type="number" id="h-adet" placeholder="örn: 50" min="0" inputmode="numeric" />
+          </div>
+        </div>
+        <div class="field">
+          <div class="quick-tags">
+            <span class="qtag" onclick="fillHedef(200,30)">%30 marj hedefi</span>
+            <span class="qtag" onclick="fillHedef(200,40)">%40 marj hedefi</span>
+            <span class="qtag" onclick="fillHedef(200,50)">%50 marj hedefi</span>
+            <span class="qtag" onclick="fillHedef(1000,25)">%25 marj — Perakende</span>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="hesaplaHedef()">🎯 Satış Fiyatını Bul</button>
+        <button class="btn-reset" onclick="sifirlaPanel('h')">↺ Temizle</button>
+      </div>
+
+      <!-- PANEL 3: TOPLU ÜRÜN -->
+      <div class="calc-panel" id="panel-toplu">
+        <p style="font-size:.83rem;color:var(--muted);margin-bottom:12px;">Birden fazla ürün için brüt kar ve marj analizini karşılaştırmalı görün.</p>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 36px;gap:8px;margin-bottom:6px;" class="toplu-baslik">
+          <span style="font-size:.73rem;font-weight:700;color:var(--muted);">Ürün Adı</span>
+          <span style="font-size:.73rem;font-weight:700;color:var(--muted);">Maliyet (₺)</span>
+          <span style="font-size:.73rem;font-weight:700;color:var(--muted);">Satış Fiyatı (₺)</span>
+          <span></span>
+        </div>
+        <div id="topluRows"></div>
+        <button class="add-row-btn" onclick="addTopluRow()">+ Ürün Ekle</button>
+        <button class="btn-calc" onclick="hesaplaToplu()" style="margin-top:12px;">📋 Tümünü Analiz Et</button>
+        <button class="btn-reset" onclick="sifirlaToplu()">↺ Temizle</button>
+      </div>
+    </div>
+
+    <!-- SONUÇ -->
+    <div class="result-section card" id="resultSection">
+
+      <!-- BANNER -->
+      <div class="result-banner" id="resultBanner">
+        <div class="rb-top">
+          <div class="rb-item">
+            <div class="rl">💹 Brüt Kâr Marjı</div>
+            <div class="rv big" id="r-marj">—</div>
+          </div>
+          <div class="rb-item">
+            <div class="rl">💰 Brüt Kâr Tutarı</div>
+            <div class="rv big" id="r-kar">—</div>
+          </div>
+        </div>
+        <hr class="rb-divider" />
+        <div class="rb-bottom">
+          <div class="rb-item"><div class="rl">Maliyet</div><div class="rv" id="r-maliyet">—</div></div>
+          <div class="rb-item"><div class="rl">Satış Fiyatı</div><div class="rv" id="r-satis">—</div></div>
+          <div class="rb-item"><div class="rl">Markup Oranı</div><div class="rv" id="r-markup">—</div></div>
+        </div>
+      </div>
+
+      <!-- MARJ GÖSTERGESİ -->
+      <div class="marj-indicator" id="marjIndicator">
+        <span class="mi-ico" id="marj-ico">—</span>
+        <div id="marj-metin">—</div>
+      </div>
+
+      <!-- ÖZET KUTULAR -->
+      <div class="summary-grid" id="summaryGrid">
+        <div class="sbox"><div class="sl">Adet Bazlı Kâr</div><div class="sv g" id="r-adet-kar">—</div></div>
+        <div class="sbox"><div class="sl">Toplam Satış Geliri</div><div class="sv" id="r-toplam-gelir">—</div></div>
+        <div class="sbox"><div class="sl">Toplam Maliyet</div><div class="sv r" id="r-toplam-maliyet">—</div></div>
+        <div class="sbox"><div class="sl">KDV Hariç Satış</div><div class="sv o" id="r-kdvsiz">—</div></div>
+        <div class="sbox"><div class="sl">KDV Tutarı</div><div class="sv" id="r-kdv-tutar">—</div></div>
+        <div class="sbox"><div class="sl">Maliyet / Satış Oranı</div><div class="sv" id="r-maliyet-oran">—</div></div>
+      </div>
+
+      <!-- SENARYO ANALİZİ (temel mod) -->
+      <div class="senaryo-section" id="senaryoSection">
+        <div class="senaryo-title">📊 Farklı Satış Fiyatı Senaryoları</div>
+        <div class="tbl-wrap">
+          <table aria-label="Satış fiyatı senaryo analizi">
+            <thead>
+              <tr>
+                <th>Satış Fiyatı (₺)</th>
+                <th>Brüt Kâr (₺)</th>
+                <th>Kâr Marjı (%)</th>
+                <th>Markup (%)</th>
+              </tr>
+            </thead>
+            <tbody id="senaryoTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TOPLU SONUÇ TABLOSU -->
+      <div class="senaryo-section" id="topluSonucSection" style="display:none;">
+        <div class="senaryo-title">📋 Ürün Bazlı Kâr Analizi</div>
+        <div class="tbl-wrap">
+          <table aria-label="Toplu ürün brüt kar analizi">
+            <thead>
+              <tr>
+                <th>Ürün</th>
+                <th>Maliyet (₺)</th>
+                <th>Satış (₺)</th>
+                <th>Brüt Kâr (₺)</th>
+                <th>Marj (%)</th>
+                <th>Markup (%)</th>
+              </tr>
+            </thead>
+            <tbody id="topluTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="export-btns">
+        <button class="btn-exp" onclick="copyResult()">📋 Kopyala</button>
+        <button class="btn-exp" onclick="downloadCSV()">⬇️ CSV</button>
+        <button class="btn-exp" onclick="window.print()">🖨️ Yazdır</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- SEKTÖR KARŞILAŞTIRMA -->
+    <div class="card">
+      <div class="card-title" style="font-size:.9rem;">📊 Sektöre Göre Tipik Brüt Kâr Marjları</div>
+      <table class="sektor-table" aria-label="Sektör bazlı brüt kar marjı karşılaştırması">
+        <thead><tr><th>Sektör</th><th>Tipik Marj</th></tr></thead>
+        <tbody>
+          <tr><td>Yazılım / SaaS</td><td><span class="sbadge sb-high">%60–90</span></td></tr>
+          <tr><td>Hizmet Sektörü</td><td><span class="sbadge sb-high">%50–80</span></td></tr>
+          <tr><td>E-Ticaret (genel)</span></td><td><span class="sbadge sb-mid">%20–40</span></td></tr>
+          <tr><td>Perakende</td><td><span class="sbadge sb-mid">%25–50</span></td></tr>
+          <tr><td>Toptan Satış</td><td><span class="sbadge sb-mid">%15–30</span></td></tr>
+          <tr><td>Üretim</td><td><span class="sbadge sb-mid">%20–40</span></td></tr>
+          <tr><td>Gıda / Restoran</td><td><span class="sbadge sb-low">%60–70</span></td></tr>
+          <tr><td>İnşaat</td><td><span class="sbadge sb-low">%10–20</span></td></tr>
+        </tbody>
+      </table>
+      <p class="source-note">📌 Kaynak: <a href="https://hesapmatik.com/hesapla/kar-marji-hesaplama/" target="_blank" rel="noopener noreferrer">hesapmatik.com</a> · <a href="https://hesapyapan.com/kar-marji-hesaplama/" target="_blank" rel="noopener noreferrer">hesapyapan.com</a> (2026). Sektör ortalamalarıdır; işletmeye göre değişir.</p>
+    </div>
+
+    <!-- FORMÜLLER -->
+    <div class="info-box">
+      <strong>📐 Temel Formüller</strong><br/>
+      <strong>Brüt Kâr</strong> = Satış − Maliyet<br/>
+      <strong>Kâr Marjı (%)</strong> = Kâr ÷ Satış × 100<br/>
+      <strong>Markup (%)</strong> = Kâr ÷ Maliyet × 100<br/>
+      <strong>Hedef Fiyat</strong> = Maliyet ÷ (1 − Marj%/100)<br/>
+      <span class="source-note">Kaynak: <a href="https://www.kolaybi.com/blog/brut-kar-nedir-brut-kar-marji-nasil-hesaplanir" target="_blank" rel="noopener noreferrer">KolayBi</a> · <a href="https://www.parasut.com/blog/brut-kar-nedir-nasil-hesaplanir" target="_blank" rel="noopener noreferrer">Paraşüt</a></span>
+    </div>
+
+    <!-- KAR MARJI VS MARKUP -->
+    <div class="card">
+      <div class="card-title" style="font-size:.9rem;">⚖️ Kâr Marjı ≠ Markup</div>
+      <p style="font-size:.79rem;color:#374151;line-height:1.6;margin-bottom:10px;">Aynı işlem için markup her zaman kar marjından yüksektir. Fiyatlama yaparken markup, analiz yaparken kar marjı kullanılır.</p>
+      <table class="sektor-table">
+        <thead><tr><th>Markup</th><th>Kar Marjı</th></tr></thead>
+        <tbody>
+          <tr><td>%10</td><td>%9,09</td></tr>
+          <tr><td>%20</td><td>%16,67</td></tr>
+          <tr><td>%25</td><td>%20,00</td></tr>
+          <tr><td>%50</td><td>%33,33</td></tr>
+          <tr><td>%100</td><td>%50,00</td></tr>
+        </tbody>
+      </table>
+      <p class="source-note">Kaynak: <a href="https://hesapyapan.com/kar-marji-hesaplama/" target="_blank" rel="noopener noreferrer">hesapyapan.com</a> (Aralık 2025)</p>
+    </div>
+
+    <!-- İLGİLİ ARAÇLAR -->
+    <div class="card">
+      <div class="card-title" style="font-size:.9rem;">🔗 İlgili Araçlar</div>
+      <a class="ql-link" href="https://hesaplarsin.com/net-kar-hesaplama.html"><div class="ql-icon">✅</div><div><div style="font-weight:700;font-size:.82rem;">Net Kâr Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Tüm giderleri dahil et</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/basa-bas-noktasi-hesaplama.html"><div class="ql-icon">🎯</div><div><div style="font-weight:700;font-size:.82rem;">Başa Baş Noktası</div><div style="font-size:.72rem;color:var(--muted)">Break even analizi</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/roi-hesaplama.html"><div class="ql-icon">📈</div><div><div style="font-weight:700;font-size:.82rem;">ROI Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Yatırım getirisi</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/kov-hesaplama.html"><div class="ql-icon">🧾</div><div><div style="font-weight:700;font-size:.82rem;">KDV Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Dahil / hariç KDV</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/amortisman-hesaplama.html"><div class="ql-icon">📦</div><div><div style="font-weight:700;font-size:.82rem;">Amortisman</div><div style="font-size:.72rem;color:var(--muted)">VUK amortisman</div></div></a>
+    </div>
+
+  </aside>
+</div>
+
+<!-- MAKALE -->
+<div class="article">
+
+  <h2>Brüt Kar Nedir? 2026 Güncel Rehber</h2>
+  <p>
+    <strong>Brüt kâr</strong>, bir işletmenin satış gelirlerinden <strong>Satılan Malların Maliyeti (SMM)</strong>'ni düşmesi sonucunda elde ettiği temel kârlılık tutarıdır. Bu değer, işletmenin ana faaliyetlerinden ne kadar kazanç sağladığını gösteren ilk ve en temel finansal göstergedir.
+  </p>
+  <p>
+    Brüt kâr hesaplamasında <strong>yalnızca doğrudan maliyetler</strong> dikkate alınır: üretim, hammadde, nakliye ve doğrudan işçilik gibi. Pazarlama masrafları, genel yönetim giderleri, kira ve faiz gibi dolaylı giderler bu hesaplamaya <strong>dahil edilmez</strong> — bunlar net kâr hesaplamasında yer alır.
+  </p>
+
+  <div class="cite-box">
+    <strong>📌 Kaynaklar</strong><br/>
+    • <a href="https://www.kolaybi.com/blog/brut-kar-nedir-brut-kar-marji-nasil-hesaplanir" target="_blank" rel="noopener noreferrer">KolayBi</a> — Brüt kâr ve brüt kâr marjı nedir, nasıl hesaplanır? (Nisan 2026)<br/>
+    • <a href="https://www.parasut.com/blog/brut-kar-nedir-nasil-hesaplanir" target="_blank" rel="noopener noreferrer">Paraşüt</a> — Brüt kar nedir, nasıl hesaplanır? Ön muhasebe rehberi<br/>
+    • <a href="https://isbasi.com/blog/brut-kar-nasil-hesaplanir" target="_blank" rel="noopener noreferrer">İşbaşı</a> — Brüt kar hesaplama formülü ve örnekler (Ocak 2025)<br/>
+    • <a href="https://hesapmatik.com/hesapla/kar-marji-hesaplama/" target="_blank" rel="noopener noreferrer">hesapmatik.com</a> — Kar marjı ve markup farkı (Nisan 2026)<br/>
+    • <a href="https://www.hangikredikobi.com/kobi-asistan/kar-marji-nedir-nasil-hesaplanir/" target="_blank" rel="noopener noreferrer">KOBİ Asistan</a> — Kar marjı rehberi (Mart 2026)
+  </div>
+
+  <h2>Brüt Kar Hesaplama Formülleri</h2>
+
+  <div class="formula-box">
+    <span class="v">Brüt Kâr</span> <span class="e">=</span> Net Satışlar − Satılan Malın Maliyeti (SMM)<br/>
+    <span class="v">Brüt Kâr Marjı (%)</span> <span class="e">=</span> (Brüt Kâr ÷ Net Satışlar) × 100<br/>
+    <span class="v">Markup (%)</span> <span class="e">=</span> (Brüt Kâr ÷ Maliyet) × 100<br/>
+    <span class="v">Hedef Satış Fiyatı</span> <span class="e">=</span> Maliyet ÷ (1 − Marj%/100)<br/><br/>
+    <span class="c">Örnek:</span> Maliyet 60.000 ₺ · Satış 100.000 ₺<br/>
+    Brüt Kâr = 100.000 − 60.000 = <span class="e">40.000 ₺</span><br/>
+    Kâr Marjı = (40.000 ÷ 100.000) × 100 = <span class="e">%40</span><br/>
+    Markup = (40.000 ÷ 60.000) × 100 = <span class="e">%66,67</span>
+  </div>
+
+  <div class="cite-box">
+    <strong>📌 Kaynak:</strong> <a href="https://www.kolaybi.com/blog/brut-kar-nedir-brut-kar-marji-nasil-hesaplanir" target="_blank" rel="noopener noreferrer">KolayBi</a> — "Brüt Kâr Marjı = (Brüt Kâr / Net Satışlar) × 100. Bu oran ne kadar yüksekse işletme satışlarından maliyetlere göre o kadar güçlü kazanç elde ediyor demektir." · <a href="https://isbasi.com/blog/brut-kar-nasil-hesaplanir" target="_blank" rel="noopener noreferrer">İşbaşı</a> — Örnek: 100.000 ₺ gelir − 60.000 ₺ maliyet = 40.000 ₺ brüt kâr.
+  </div>
+
+  <h2>Kâr Marjı ile Markup Farkı Nedir?</h2>
+  <p>
+    Bu iki kavram sıkça karıştırılır. <strong>Kâr marjı</strong> satış fiyatı üzerinden, <strong>markup</strong> ise maliyet üzerinden hesaplanır. Aynı işlem için markup her zaman kâr marjından yüksektir.
+  </p>
+  <div style="overflow-x:auto;border-radius:8px;border:1px solid var(--border);">
+    <table class="karsilastirma-table" aria-label="Kar marjı ve markup karşılaştırması">
+      <thead><tr><th>Özellik</th><th>Kâr Marjı (Margin)</th><th>Markup (Kâr Artışı)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Hesaplama Tabanı</strong></td><td>Satış Fiyatı</td><td>Maliyet</td></tr>
+        <tr><td><strong>Formül</strong></td><td>(Satış−Maliyet) ÷ Satış × 100</td><td>(Satış−Maliyet) ÷ Maliyet × 100</td></tr>
+        <tr><td><strong>100 ₺ maliyet, 150 ₺ satış</strong></td><td>%33,33</td><td>%50,00</td></tr>
+        <tr><td><strong>Kullanım Amacı</strong></td><td>Finansal analiz, yatırımcı sunumu</td><td>Fiyatlandırma, tedarikçi müzakere</td></tr>
+        <tr><td><strong>Hangisi Yüksek?</strong></td><td>Her zaman daha düşük</td><td>Her zaman daha yüksek</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cite-box">
+    <strong>📌 Kaynak:</strong> <a href="https://hesapyapan.com/kar-marji-hesaplama/" target="_blank" rel="noopener noreferrer">hesapyapan.com</a> — "Kar marjı satış fiyatı üzerinden, markup ise maliyet üzerinden hesaplanır. 100 ₺ maliyetli 150 ₺ satışlı üründe kar marjı %33,33 iken markup %50'dir." (Aralık 2025) · <a href="https://hesapmatik.com/hesapla/kar-marji-hesaplama/" target="_blank" rel="noopener noreferrer">hesapmatik.com</a>
+  </div>
+
+  <h2>Brüt Kâr Marjı Neden Önemlidir?</h2>
+  <ul>
+    <li><strong>Fiyatlandırma stratejisi:</strong> Maliyetlere göre doğru fiyat belirlemenizi sağlar.</li>
+    <li><strong>Maliyet kontrolü:</strong> Marjın düşmesi maliyet baskısını veya verimsizliği erken işaret eder.</li>
+    <li><strong>Sektör karşılaştırması:</strong> Rakipler ve sektör ortalamasıyla kârlılığınızı karşılaştırın.</li>
+    <li><strong>Yatırımcı kararları:</strong> Yüksek brüt kâr marjı, borç ödeme ve büyüme kapasitesini artırır.</li>
+    <li><strong>Ürün analizi:</strong> Hangi ürünlerin daha kârlı olduğunu belirlemenizi sağlar.</li>
+  </ul>
+  <div class="cite-box">
+    <strong>📌 Kaynak:</strong> <a href="https://isbasi.com/blog/brut-kar-nasil-hesaplanir" target="_blank" rel="noopener noreferrer">İşbaşı</a> — "Brüt kar marjı yüksek olan şirketin borçlarını ödemesi kolaylaşır, daha fazla istihdam yaratır ve büyüme için daha fazla yatırım yapabilir." · <a href="https://www.hangikredikobi.com/kobi-asistan/kar-marji-nedir-nasil-hesaplanir/" target="_blank" rel="noopener noreferrer">KOBİ Asistan (Mart 2026)</a>
+  </div>
+
+  <h2>Sık Sorulan Sorular</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Brüt kâr ile net kâr arasındaki fark nedir? <span class="ico">+</span></button>
+    <div class="faq-a"><strong>Brüt kâr</strong>, satış gelirinden yalnızca doğrudan maliyetler (hammadde, üretim, nakliye) düşüldükten sonra kalan tutardır. <strong>Net kâr</strong> ise brüt kârdan faaliyet giderleri (kira, personel, pazarlama), finansman giderleri (faiz) ve vergiler de düşüldükten sonra kalan son kârdır. Brüt kâr > Net kâr.<br/><small style="color:var(--muted)">Kaynak: KolayBi (Nisan 2026), hesapmatik.com</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">İyi bir brüt kâr marjı yüzdesi nedir? <span class="ico">+</span></button>
+    <div class="faq-a">Sektöre göre değişir. Genel kılavuz: <strong>Yazılım/SaaS:</strong> %60–90 | <strong>Hizmet:</strong> %50–80 | <strong>E-ticaret:</strong> %20–40 | <strong>Perakende:</strong> %25–50 | <strong>Üretim:</strong> %20–40 | <strong>İnşaat:</strong> %10–20. Kendi sektörünüzün ortalamasını geçmek hedeflenir.<br/><small style="color:var(--muted)">Kaynak: hesapyapan.com (Aralık 2025)</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Brüt kâr marjını nasıl artırabilirim? <span class="ico">+</span></button>
+    <div class="faq-a">İki temel yol vardır: (1) <strong>Satış fiyatını artırmak:</strong> Psikolojik fiyatlandırma, değer algısını artıran paketler, premium segment. (2) <strong>Maliyetleri düşürmek:</strong> Tedarikçi müzakeresi, toplu alım indirimleri, fire ve kayıp minimizasyonu, süreç verimliliği. Yüksek marjlı ürünlerin satışını teşvik etmek de etkilidir.<br/><small style="color:var(--muted)">Kaynak: hesapyapan.com, KOBİ Asistan (Mart 2026)</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">E-ticarette brüt kâr hesaplarken neleri dahil etmeliyim? <span class="ico">+</span></button>
+    <div class="faq-a">E-ticarette maliyete şunları ekleyin: ürün alış maliyeti + kargo maliyeti + pazar yeri komisyonu (Trendyol, Hepsiburada vb.) + iade/değişim kayıpları + ambalaj maliyeti. Bu kalemler dahil edilmeden yapılan hesaplama gerçek marjı abartır ve zarar riski yaratır.<br/><small style="color:var(--muted)">Kaynak: hesapyapan.com (Aralık 2025), hesapmatik.com (Nisan 2026)</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Net satış ile brüt satış farkı nedir? <span class="ico">+</span></button>
+    <div class="faq-a"><strong>Brüt satış</strong>, iade ve indirimler dahil toplam satış tutarıdır. <strong>Net satış</strong>, bu tutardan iadeler, iskontolar ve satış iadeleri düşüldükten sonra kalan tutardır. Brüt kâr marjı hesaplarken brüt satış değil, <strong>net satış tutarı kullanılmalıdır</strong>; aksi hâlde marj gerçekten daha yüksek görünür.<br/><small style="color:var(--muted)">Kaynak: Paraşüt — "Brüt kar marjınızı hesaplarken brüt satış karınızı kullanmanız sağlıklı olmayacaktır."</small></div>
+  </div>
+
+  <h2>İlgili Hesaplama Araçları</h2>
+  <div class="related-grid">
+    <a class="rc" href="https://hesaplarsin.com/net-kar-hesaplama.html"><span class="ri">✅</span><span class="rt">Net Kâr Hesaplama</span><span class="rd">Tüm giderler dahil</span></a>
+    <a class="rc" href="https://hesaplarsin.com/basa-bas-noktasi-hesaplama.html"><span class="ri">🎯</span><span class="rt">Başa Baş Noktası</span><span class="rd">Break even analizi</span></a>
+    <a class="rc" href="https://hesaplarsin.com/roi-hesaplama.html"><span class="ri">📈</span><span class="rt">ROI Hesaplama</span><span class="rd">Yatırım getirisi</span></a>
+    <a class="rc" href="https://hesaplarsin.com/kov-hesaplama.html"><span class="ri">🧾</span><span class="rt">KDV Hesaplama</span><span class="rd">Dahil / hariç KDV</span></a>
+    <a class="rc" href="https://hesaplarsin.com/amortisman-hesaplama.html"><span class="ri">📦</span><span class="rt">Amortisman</span><span class="rd">VUK amortisman</span></a>
+    <a class="rc" href="https://hesaplarsin.com/yuzde-hesaplama.html"><span class="ri">📐</span><span class="rt">Yüzde Hesaplama</span><span class="rd">Artış / azalış / oran</span></a>
+    <a class="rc" href="https://hesaplarsin.com/bilesik-faiz.html"><span class="ri">💰</span><span class="rt">Bileşik Faiz</span><span class="rd">Yatırım büyümesi</span></a>
+    <a class="rc" href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html"><span class="ri">📋</span><span class="rt">Gelir Vergisi</span><span class="rd">Vergi dilimi hesabı</span></a>
+  </div>
+
+  <div style="margin-top:24px;background:#fef2f2;border-left:3px solid var(--danger);border-radius:0 8px 8px 0;padding:13px 15px;font-size:.84rem;color:#7f1d1d;line-height:1.7;">
+    <strong>⚠️ Yasal Uyarı:</strong> Bu araç bilgilendirme amaçlıdır. Kesin finansal tablo hazırlama ve muhasebe işlemleri için bir <strong>Serbest Muhasebeci Mali Müşavir (SMMM)</strong>'e danışınız.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Hesaplarsın</div>
+        <p class="fdesc">Türkiye'nin en kapsamlı ücretsiz hesaplama platformu. 70+ araç, 2026 güncel verileri.</p>
+      </div>
+      <div class="footer-col">
+        <h4>İşletme</h4>
+        <a href="https://hesaplarsin.com/brut-kar-hesaplama.html">Brüt Kâr Hesaplama</a>
+        <a href="https://hesaplarsin.com/net-kar-hesaplama.html">Net Kâr Hesaplama</a>
+        <a href="https://hesaplarsin.com/basa-bas-noktasi-hesaplama.html">Başa Baş Noktası</a>
+        <a href="https://hesaplarsin.com/roi-hesaplama.html">ROI Hesaplama</a>
+      </div>
+      <div class="footer-col">
+        <h4>Vergi</h4>
+        <a href="https://hesaplarsin.com/kov-hesaplama.html">KDV Hesaplama</a>
+        <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">Gelir Vergisi</a>
+        <a href="https://hesaplarsin.com/amortisman-hesaplama.html">Amortisman</a>
+        <a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hesaplarsın</h4>
+        <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
+        <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+        <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
+        <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hesaplarsın. Bilgiler bilgilendirme amaçlıdır.</span>
+      <span><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a> · <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım</a> · <a href="https://hesaplarsin.com/iletisim.html">İletişim</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Başa git">↑</button>
+
+<script>
+const fmtTR = n => new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+const fmtInt = n => new Intl.NumberFormat('tr-TR',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Math.round(n));
+let toastTimer, currentMod='temel', topluRowCount=0, lastResultData=[], lastTopluData=[];
+
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.style.display='block'; clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.style.display='none',2800); }
+
+// NAV
+const hamBtn=document.getElementById('hamBtn'), navLinks=document.getElementById('navLinks');
+hamBtn.addEventListener('click',()=>{ const o=navLinks.classList.toggle('open'); hamBtn.setAttribute('aria-expanded',o); });
+document.addEventListener('click',e=>{ if(!hamBtn.contains(e.target)&&!navLinks.contains(e.target)) navLinks.classList.remove('open'); });
+window.addEventListener('scroll',()=>document.getElementById('topBtn').classList.toggle('show',scrollY>400),{passive:true});
+
+// MOD SEÇİCİ
+function switchMod(id, el){
+  document.querySelectorAll('.mod-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.calc-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  currentMod=id;
+  document.getElementById('resultSection').style.display='none';
+}
+
+// FILL HELPERS
+function fillTemel(m,s,a){ document.getElementById('t-maliyet').value=m; document.getElementById('t-satis').value=s; document.getElementById('t-adet').value=a||''; }
+function fillHedef(m,marj){ document.getElementById('h-maliyet').value=m; document.getElementById('h-marj').value=marj; }
+
+// MARJ GÖSTERGESİ
+function setMarjIndicator(marj){
+  const el=document.getElementById('marjIndicator');
+  const ico=document.getElementById('marj-ico');
+  const metin=document.getElementById('marj-metin');
+  if(marj>=40){ el.className='marj-indicator yuksek'; ico.textContent='🟢'; metin.innerHTML=`<strong>Yüksek Kâr Marjı (%${fmtTR(marj)})</strong> — Maliyet yönetimi güçlü ve fiyatlandırma etkili.`; }
+  else if(marj>=20){ el.className='marj-indicator orta'; ico.textContent='🟡'; metin.innerHTML=`<strong>Orta Kâr Marjı (%${fmtTR(marj)})</strong> — Sektör ortalamasında. Maliyet optimizasyonu incelenebilir.`; }
+  else { el.className='marj-indicator dusuk'; ico.textContent='🔴'; metin.innerHTML=`<strong>Düşük Kâr Marjı (%${fmtTR(marj)})</strong> — Maliyet baskısı veya düşük fiyatlandırma sinyali. Gözden geçirin.`; }
+}
+
+// SONUÇ GÖSTER (temel)
+function showResult(maliyet, satis, adet, kdvOran){
+  const brutKar=satis-maliyet;
+  const marj=(brutKar/satis)*100;
+  const markup=maliyet>0?(brutKar/maliyet)*100:0;
+  const kdvSiz=kdvOran>0?satis/(1+kdvOran/100):satis;
+  const kdvTutar=satis-kdvSiz;
+
+  document.getElementById('r-marj').textContent='%'+fmtTR(marj);
+  document.getElementById('r-kar').textContent=fmtTR(brutKar)+' ₺';
+  document.getElementById('r-maliyet').textContent=fmtTR(maliyet)+' ₺';
+  document.getElementById('r-satis').textContent=fmtTR(satis)+' ₺';
+  document.getElementById('r-markup').textContent='%'+fmtTR(markup);
+
+  const adetVal=adet>0?adet:1;
+  document.getElementById('r-adet-kar').textContent=adet>0?fmtTR(brutKar*adetVal)+' ₺':'—';
+  document.getElementById('r-toplam-gelir').textContent=adet>0?fmtTR(satis*adetVal)+' ₺':'—';
+  document.getElementById('r-toplam-maliyet').textContent=adet>0?fmtTR(maliyet*adetVal)+' ₺':'—';
+  document.getElementById('r-kdvsiz').textContent=kdvOran>0?fmtTR(kdvSiz)+' ₺':'—';
+  document.getElementById('r-kdv-tutar').textContent=kdvOran>0?fmtTR(kdvTutar)+' ₺':'—';
+  document.getElementById('r-maliyet-oran').textContent='%'+fmtTR((maliyet/satis)*100);
+
+  setMarjIndicator(marj);
+
+  // SENARYO TABLOSU
+  document.getElementById('senaryoSection').style.display='block';
+  document.getElementById('topluSonucSection').style.display='none';
+  const tbody=document.getElementById('senaryoTbody');
+  tbody.innerHTML='';
+  const senaryolar=[-20,-10,-5,0,5,10,20,30,50].map(d=>satis*(1+d/100));
+  lastResultData=[];
+  senaryolar.forEach(sp=>{
+    const sk=sp-maliyet;
+    const sm=(sk/sp)*100;
+    const smkp=maliyet>0?(sk/maliyet)*100:0;
+    lastResultData.push({fiyat:sp,kar:sk,marj:sm,markup:smkp});
+    const tr=document.createElement('tr');
+    if(Math.abs(sp-satis)<0.01) tr.className='active-row';
+    tr.innerHTML=`<td>${fmtTR(sp)} ₺</td><td style="color:${sk>=0?'var(--success)':'var(--danger)'}">${sk>=0?'+':''}${fmtTR(sk)} ₺</td><td style="color:${sm>=0?'var(--success)':'var(--danger)'}">${fmtTR(sm)}%</td><td>${fmtTR(smkp)}%</td>`;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('resultSection').style.display='block';
+  setTimeout(()=>document.getElementById('resultSection').scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+// TEMEL HESAP
+function hesaplaTemel(){
+  const m=parseFloat(document.getElementById('t-maliyet').value);
+  const s=parseFloat(document.getElementById('t-satis').value);
+  const a=parseInt(document.getElementById('t-adet').value)||0;
+  const kdv=parseFloat(document.getElementById('t-kdv').value)||0;
+  if(!m||m<=0){ toast('❌ Maliyet değerini girin.'); return; }
+  if(!s||s<=0){ toast('❌ Satış fiyatını girin.'); return; }
+  if(s<=m){ toast('⚠️ Satış fiyatı maliyetten düşük — zarar söz konusu!'); }
+  showResult(m,s,a,kdv);
+}
+
+function sifirlaTemel(){
+  ['t-maliyet','t-satis','t-adet'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
+  document.getElementById('t-kdv').value='0';
+  document.getElementById('resultSection').style.display='none';
+  toast('Temizlendi.');
+}
+
+// HEDEF FİYAT
+function hesaplaHedef(){
+  const m=parseFloat(document.getElementById('h-maliyet').value);
+  const marj=parseFloat(document.getElementById('h-marj').value);
+  const a=parseInt(document.getElementById('h-adet').value)||0;
+  if(!m||m<=0){ toast('❌ Maliyet değerini girin.'); return; }
+  if(!marj||marj<=0||marj>=100){ toast('❌ Hedef marjı 0–100 arası girin.'); return; }
+  const satis=m/(1-marj/100);
+  showResult(m,satis,a,0);
+}
+
+function sifirlaPanel(p){
+  document.querySelectorAll(`[id^="${p}-"]`).forEach(el=>{ if(el.tagName==='INPUT') el.value=''; });
+  document.getElementById('resultSection').style.display='none';
+  toast('Temizlendi.');
+}
+
+// TOPLU HESAP
+function addTopluRow(ad='',m='',s=''){
+  topluRowCount++;
+  const id=topluRowCount;
+  const div=document.createElement('div');
+  div.className='toplu-row';
+  div.id='trow-'+id;
+  div.innerHTML=`
+    <input type="text" placeholder="Ürün adı" value="${ad}" style="width:100%;padding:9px 11px;border:1.5px solid var(--border);border-radius:8px;font-size:.88rem;outline:none;" />
+    <input type="number" placeholder="Maliyet" value="${m}" min="0" inputmode="decimal" style="width:100%;padding:9px 11px;border:1.5px solid var(--border);border-radius:8px;font-size:.88rem;outline:none;-moz-appearance:textfield;" />
+    <input type="number" placeholder="Satış" value="${s}" min="0" inputmode="decimal" style="width:100%;padding:9px 11px;border:1.5px solid var(--border);border-radius:8px;font-size:.88rem;outline:none;-moz-appearance:textfield;" />
+    <button class="del-btn" onclick="removeTopluRow(${id})">🗑</button>
+  `;
+  document.getElementById('topluRows').appendChild(div);
+}
+
+function removeTopluRow(id){ const el=document.getElementById('trow-'+id); if(el) el.remove(); }
+
+function hesaplaToplu(){
+  const rows=document.querySelectorAll('#topluRows .toplu-row');
+  if(rows.length===0){ toast('❌ En az bir ürün ekleyin.'); return; }
+  lastTopluData=[];
+  let topMaliyet=0,topSatis=0,topKar=0;
+  const tbody=document.getElementById('topluTbody');
+  tbody.innerHTML='';
+  let gecersiz=false;
+  rows.forEach(row=>{
+    const inputs=row.querySelectorAll('input');
+    const ad=inputs[0].value.trim()||'Ürün';
+    const m=parseFloat(inputs[1].value)||0;
+    const s=parseFloat(inputs[2].value)||0;
+    if(!m||!s){ gecersiz=true; return; }
+    const kar=s-m;
+    const marj=(kar/s)*100;
+    const markup=m>0?(kar/m)*100:0;
+    lastTopluData.push({ad,m,s,kar,marj,markup});
+    topMaliyet+=m; topSatis+=s; topKar+=kar;
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${ad}</td><td>${fmtTR(m)} ₺</td><td>${fmtTR(s)} ₺</td><td style="color:${kar>=0?'var(--success)':'var(--danger)'}">${kar>=0?'+':''}${fmtTR(kar)} ₺</td><td style="color:${marj>=30?'var(--success)':marj>=15?'var(--accent)':'var(--danger)'}">${fmtTR(marj)}%</td><td>${fmtTR(markup)}%</td>`;
+    tbody.appendChild(tr);
+  });
+  if(gecersiz){ toast('⚠️ Bazı ürünlerde maliyet veya satış fiyatı eksik, atlandı.'); }
+  if(lastTopluData.length===0){ toast('❌ Geçerli ürün bulunamadı.'); return; }
+
+  // Toplam satırı
+  const topMarj=(topKar/topSatis)*100;
+  const topMarkup=topMaliyet>0?(topKar/topMaliyet)*100:0;
+  const tr=document.createElement('tr');
+  tr.style.cssText='background:#f0fdf4;font-weight:700;color:var(--success);';
+  tr.innerHTML=`<td>TOPLAM</td><td>${fmtTR(topMaliyet)} ₺</td><td>${fmtTR(topSatis)} ₺</td><td>+${fmtTR(topKar)} ₺</td><td>${fmtTR(topMarj)}%</td><td>${fmtTR(topMarkup)}%</td>`;
+  tbody.appendChild(tr);
+
+  // Banner (toplu özet)
+  document.getElementById('r-marj').textContent='%'+fmtTR(topMarj);
+  document.getElementById('r-kar').textContent=fmtTR(topKar)+' ₺';
+  document.getElementById('r-maliyet').textContent=fmtTR(topMaliyet)+' ₺';
+  document.getElementById('r-satis').textContent=fmtTR(topSatis)+' ₺';
+  document.getElementById('r-markup').textContent='%'+fmtTR(topMarkup);
+  document.getElementById('r-adet-kar').textContent=lastTopluData.length+' ürün';
+  document.getElementById('r-toplam-gelir').textContent=fmtTR(topSatis)+' ₺';
+  document.getElementById('r-toplam-maliyet').textContent=fmtTR(topMaliyet)+' ₺';
+  document.getElementById('r-kdvsiz').textContent='—';
+  document.getElementById('r-kdv-tutar').textContent='—';
+  document.getElementById('r-maliyet-oran').textContent='%'+fmtTR((topMaliyet/topSatis)*100);
+  setMarjIndicator(topMarj);
+
+  document.getElementById('senaryoSection').style.display='none';
+  document.getElementById('topluSonucSection').style.display='block';
+  document.getElementById('resultSection').style.display='block';
+  setTimeout(()=>document.getElementById('resultSection').scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+function sifirlaToplu(){
+  document.getElementById('topluRows').innerHTML=''; topluRowCount=0;
+  document.getElementById('resultSection').style.display='none';
+  addTopluRow('Ürün A','',''); addTopluRow('Ürün B','',''); addTopluRow('Ürün C','','');
+  toast('Temizlendi.');
+}
+
+// EXPORT
+function copyResult(){
+  const lines=[
+    'BRÜT KAR HESAPLAMA — Hesaplarsın',
+    '───────────────────────────────',
+    'Brüt Kâr Marjı: '+document.getElementById('r-marj').textContent,
+    'Brüt Kâr Tutarı: '+document.getElementById('r-kar').textContent,
+    'Maliyet: '+document.getElementById('r-maliyet').textContent,
+    'Satış Fiyatı: '+document.getElementById('r-satis').textContent,
+    'Markup Oranı: '+document.getElementById('r-markup').textContent,
+    '───────────────────────────────',
+    '⚠️ Bilgilendirme amaçlıdır. SMMM\'e danışın.',
+    'hesaplarsin.com/brut-kar-hesaplama.html'
+  ].join('\n');
+  navigator.clipboard.writeText(lines).then(()=>toast('📋 Kopyalandı!'));
+}
+
+function downloadCSV(){
+  let header,rows;
+  if(currentMod==='toplu'&&lastTopluData.length>0){
+    header='Ürün,Maliyet (₺),Satış (₺),Brüt Kâr (₺),Kâr Marjı (%),Markup (%)';
+    rows=lastTopluData.map(r=>`${r.ad},${r.m.toFixed(2)},${r.s.toFixed(2)},${r.kar.toFixed(2)},${r.marj.toFixed(2)},${r.markup.toFixed(2)}`);
+  } else {
+    header='Satış Fiyatı (₺),Brüt Kâr (₺),Kâr Marjı (%),Markup (%)';
+    rows=lastResultData.map(r=>`${r.fiyat.toFixed(2)},${r.kar.toFixed(2)},${r.marj.toFixed(2)},${r.markup.toFixed(2)}`);
+  }
+  const blob=new Blob(['\uFEFF'+[header,...rows].join('\n')],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='brut-kar-hesaplama.csv';
+  a.click(); URL.revokeObjectURL(url);
+  toast('⬇️ CSV indirildi!');
+}
+
+function toggleFaq(btn){
+  const ans=btn.nextElementSibling, isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('open');b.setAttribute('aria-expanded','false');b.nextElementSibling.classList.remove('open');});
+  if(!isOpen){btn.classList.add('open');btn.setAttribute('aria-expanded','true');ans.classList.add('open');}
+}
+
+// Enter tuşu
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Enter'||document.activeElement.tagName==='BUTTON') return;
+  if(currentMod==='temel') hesaplaTemel();
+  else if(currentMod==='hedef') hesaplaHedef();
+});
+
+// Toplu başlangıç
+addTopluRow('Ürün A','','');
+addTopluRow('Ürün B','','');
+addTopluRow('Ürün C','','');
+</script>
+</body>
+</html>
