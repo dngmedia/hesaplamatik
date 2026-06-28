@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Bazal Metabolizma Hesaplama 2026 | BMH / BMR | Mifflin & Harris-Benedict | Hesaplarsın</title>
+  <meta name="description" content="2026 bazal metabolizma hızı (BMH/BMR) hesaplama aracı. Mifflin-St Jeor ve Harris-Benedict formülleriyle BMH, TDEE ve günlük kalori ihtiyacını anında hesaplayın. Cinsiyet, yaş, boy, kilo." />
+  <meta name="keywords" content="bazal metabolizma hesaplama 2026, BMH hesaplama, BMR hesaplama, bazal metabolizma hızı, Mifflin St Jeor formülü, Harris Benedict formülü, günlük kalori ihtiyacı, TDEE hesaplama" />
+  <link rel="canonical" href="https://hesaplarsin.com/bazal-metabolizma-hesaplama.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hesaplarsın" />
+  <meta property="og:title" content="Bazal Metabolizma Hesaplama 2026 | BMH BMR | Hesaplarsın" />
+  <meta property="og:description" content="Mifflin-St Jeor ve Harris-Benedict formülleriyle BMH ve günlük kalori ihtiyacınızı hesaplayın." />
+  <meta property="og:url" content="https://hesaplarsin.com/bazal-metabolizma-hesaplama.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FT582GF9N9');
+  </script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Bazal Metabolizma Hesaplama 2026","url":"https://hesaplarsin.com/bazal-metabolizma-hesaplama.html","description":"Mifflin-St Jeor ve Harris-Benedict formülleriyle bazal metabolizma hızı (BMH/BMR) ve günlük kalori ihtiyacı hesaplama aracı.","applicationCategory":"HealthApplication","operatingSystem":"All","inLanguage":"tr","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"publisher":{"@type":"Organization","name":"Hesaplarsın","url":"https://hesaplarsin.com"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Bazal metabolizma hızı (BMH) nedir?","acceptedAnswer":{"@type":"Answer","text":"Bazal metabolizma hızı (BMH veya BMR), vücudun tam dinlenme halindeyken yalnızca hayati fonksiyonlarını sürdürmek için harcadığı enerji miktarıdır. Nefes alma, kalp atışı, vücut ısısını koruma ve hücresel işlevler bu enerji ile karşılanır. BMH, yaşa, cinsiyete, boya ve kiloya göre değişir."}},{"@type":"Question","name":"Mifflin-St Jeor ve Harris-Benedict formülleri arasındaki fark nedir?","acceptedAnswer":{"@type":"Answer","text":"Harris-Benedict formülü 1919'da geliştirilmiş köklü bir yöntemdir. Mifflin-St Jeor formülü ise 1990'da geliştirilmiş olup Amerikan Diyetetik Derneği (ADA) tarafından daha doğru kabul edilmektedir. Genel olarak Mifflin-St Jeor formülü günümüzde tercih edilmektedir."}},{"@type":"Question","name":"TDEE nedir ve nasıl hesaplanır?","acceptedAnswer":{"@type":"Answer","text":"TDEE (Total Daily Energy Expenditure — Toplam Günlük Enerji Harcaması), BMH değerinin aktivite çarpanıyla çarpılmasıyla elde edilir. Hareketsiz yaşam için BMH × 1,2; hafif aktif için × 1,375; orta aktif için × 1,55; çok aktif için × 1,725; ekstra aktif için × 1,9."}},{"@type":"Question","name":"Bazal metabolizma hızı nasıl artırılır?","acceptedAnswer":{"@type":"Answer","text":"BMH artırmak için: kas kütlesini artırmak (ağırlık antrenmanı), düzenli ve yeterli uyku, yeterli protein tüketimi, yeşil çay tüketimi ve yoğun interval antrenmanları (HIIT) etkili yöntemler arasındadır. Yaşla birlikte her 10 yılda metabolizma yaklaşık %2-3 yavaşlar."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://hesaplarsin.com"},{"@type":"ListItem","position":2,"name":"Sağlık","item":"https://hesaplarsin.com/#saglik"},{"@type":"ListItem","position":3,"name":"Bazal Metabolizma Hesaplama","item":"https://hesaplarsin.com/bazal-metabolizma-hesaplama.html"}]}
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand:#1a56db; --brand-dark:#1341b0; --brand-light:#e8f0fe;
+      --accent:#f59e0b; --success:#10b981; --danger:#ef4444;
+      
+      --text:#111827; --muted:#6b7280; --border:#e5e7eb;
+      --bg:#f9fafb; --card:#ffffff; --r:12px;
+      --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.05);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; font-size:16px; -webkit-text-size-adjust:100%; }
+
+    /* NAV */
+    nav.topnav { background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:200; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .nav-inner { max-width:1140px; margin:0 auto; padding:0 16px; height:56px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .logo { font-size:1.2rem; font-weight:800; color:var(--brand); text-decoration:none; white-space:nowrap; }
+    .nav-links { display:flex; gap:2px; flex-wrap:wrap; }
+    .nav-links a { font-size:.8rem; font-weight:500; color:var(--muted); text-decoration:none; padding:5px 9px; border-radius:6px; transition:background .15s,color .15s; white-space:nowrap; }
+    .nav-links a:hover,.nav-links a.active { background:var(--brand-light); color:var(--brand); }
+    .ham { display:none; background:none; border:none; cursor:pointer; padding:6px; }
+    .ham span { display:block; width:22px; height:2px; background:var(--text); margin:5px 0; border-radius:2px; }
+    @media(max-width:640px){ .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 16px 16px;border-bottom:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08);gap:4px;z-index:201;} .nav-links.open{display:flex;} .nav-links a{padding:10px 12px;border-radius:8px;font-size:.9rem;} .ham{display:block;} }
+
+    /* BREADCRUMB */
+    .breadcrumb { max-width:1140px; margin:0 auto; padding:12px 16px 0; font-size:.8rem; color:var(--muted); }
+    .breadcrumb a { color:var(--brand); text-decoration:none; }
+    .breadcrumb span { margin:0 5px; }
+
+    /* HERO */
+    .hero { background:linear-gradient(135deg,#0f307a 0%,#1341b0 50%,#1a56db 100%); color:#fff; padding:44px 16px 40px; }
+    .hero-inner { max-width:1140px; margin:0 auto; }
+    .hero-tag { display:inline-block; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); border-radius:20px; font-size:.76rem; font-weight:600; padding:4px 12px; margin-bottom:14px; }
+    .hero h1 { font-size:clamp(1.5rem,4vw,2.1rem); font-weight:900; line-height:1.2; margin-bottom:10px; letter-spacing:-.4px; }
+    .hero p { font-size:.93rem; opacity:.88; max-width:580px; line-height:1.7; margin-bottom:16px; }
+    .hero-badges { display:flex; gap:8px; flex-wrap:wrap; }
+    .hbadge { font-size:.73rem; font-weight:600; padding:4px 10px; border-radius:20px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); }
+
+    /* LAYOUT */
+    .main-grid { max-width:1140px; margin:24px auto 0; padding:0 16px 60px; display:grid; grid-template-columns:1fr 300px; gap:22px; }
+    @media(max-width:840px){ .main-grid{grid-template-columns:1fr;} }
+
+    /* CARD */
+    .card { background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); border:1px solid var(--border); padding:24px; }
+    @media(max-width:480px){ .card{padding:16px;} }
+    .card-title { font-size:1rem; font-weight:800; margin-bottom:18px; display:flex; align-items:center; gap:8px; padding-bottom:12px; border-bottom:2px solid var(--brand-light); }
+
+    /* CİNSİYET SEÇİCİ */
+    .gender-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
+    .gender-btn { padding:14px 10px; border:1.5px solid var(--border); border-radius:10px; cursor:pointer; text-align:center; background:var(--bg); transition:all .15s; -webkit-tap-highlight-color:transparent; }
+    .gender-btn .gb-ico { font-size:1.8rem; display:block; margin-bottom:4px; }
+    .gender-btn .gb-name { font-size:.86rem; font-weight:700; }
+    .gender-btn.selected { border-color:var(--brand); background:var(--brand-light); }
+    .gender-btn.selected .gb-name { color:var(--brand); }
+
+    /* FORM */
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media(max-width:520px){ .form-grid{grid-template-columns:1fr;} }
+    .field { display:flex; flex-direction:column; gap:5px; margin-bottom:14px; }
+    label { font-size:.82rem; font-weight:600; }
+    label small { font-weight:400; color:var(--muted); margin-left:3px; }
+    input[type="number"],select { width:100%; padding:11px 13px; border:1.5px solid var(--border); border-radius:8px; font-size:.95rem; color:var(--text); background:#fff; outline:none; -webkit-appearance:none; -moz-appearance:textfield; transition:border .15s,box-shadow .15s; }
+    input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { -webkit-appearance:none; }
+    input::placeholder { color:#c4c9d4; }
+    input:focus,select:focus { border-color:var(--brand); box-shadow:0 0 0 3px rgba(26,86,219,.1); }
+
+    /* FORMÜL SEÇİCİ */
+    .formula-tabs { display:flex; gap:0; border-radius:10px; overflow:hidden; border:1.5px solid var(--border); margin-bottom:18px; }
+    .ftab { flex:1; padding:10px 8px; font-size:.83rem; font-weight:700; border:none; background:var(--bg); color:var(--muted); cursor:pointer; transition:all .15s; text-align:center; -webkit-tap-highlight-color:transparent; }
+    .ftab.active { background:var(--brand); color:#fff; }
+    .ftab:first-child { border-right:1px solid var(--border); }
+
+    /* AKTİVİTE SEÇİCİ */
+    .aktivite-list { display:flex; flex-direction:column; gap:6px; margin-top:4px; }
+    .akt-btn { display:flex; align-items:center; gap:10px; padding:10px 13px; border:1.5px solid var(--border); border-radius:8px; cursor:pointer; background:var(--bg); transition:all .15s; -webkit-tap-highlight-color:transparent; }
+    .akt-btn.selected { border-color:var(--brand); background:var(--brand-light); }
+    .akt-btn .ak-ico { font-size:1.1rem; flex-shrink:0; }
+    .akt-btn .ak-info .ak-name { font-size:.83rem; font-weight:700; display:block; }
+    .akt-btn .ak-info .ak-desc { font-size:.72rem; color:var(--muted); }
+    .akt-btn.selected .ak-info .ak-name { color:var(--brand); }
+    .akt-btn .ak-kat { margin-left:auto; font-size:.74rem; font-weight:700; color:var(--muted); flex-shrink:0; }
+
+    /* BUTONLAR */
+    .btn-calc { width:100%; padding:14px; background:var(--brand); color:#fff; font-size:.96rem; font-weight:700; border:none; border-radius:10px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:background .15s,transform .1s; margin-top:18px; -webkit-tap-highlight-color:transparent; }
+    .btn-calc:hover { background:var(--brand-dark); }
+    .btn-calc:active { transform:scale(.98); }
+    .btn-reset { width:100%; padding:9px; background:transparent; color:var(--muted); font-size:.84rem; font-weight:500; border:1.5px solid var(--border); border-radius:8px; cursor:pointer; transition:all .15s; margin-top:8px; }
+    .btn-reset:hover { border-color:var(--danger); color:var(--danger); }
+
+    /* SONUÇ */
+    .result-section { display:none; margin-top:20px; }
+
+    /* ANA SONUÇ */
+    .result-hero { background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dark) 100%); border-radius:12px; padding:22px; color:#fff; margin-bottom:16px; text-align:center; }
+    .rh-label { font-size:.78rem; opacity:.85; margin-bottom:4px; font-weight:500; }
+    .rh-val { font-size:2.6rem; font-weight:900; letter-spacing:-.5px; }
+    .rh-unit { font-size:1rem; font-weight:500; opacity:.8; margin-left:4px; }
+    .rh-sub { font-size:.82rem; opacity:.82; margin-top:6px; }
+
+    /* ÖZET GRID */
+    .summary-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px; }
+    @media(max-width:480px){ .summary-grid{grid-template-columns:repeat(2,1fr);} }
+    .sbox { background:var(--bg); border:1.5px solid var(--border); border-radius:10px; padding:12px 10px; text-align:center; }
+    .sbox .sl { font-size:.69rem; color:var(--muted); font-weight:500; margin-bottom:3px; line-height:1.3; }
+    .sbox .sv { font-size:.95rem; font-weight:800; color:var(--brand); word-break:break-word; }
+    .sbox .sv.b { color:var(--brand); }
+    .sbox .sv.o { color:var(--accent); }
+
+    /* KALORİ HEDEF BÖLÜMÜ */
+    .hedef-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px; }
+    @media(max-width:480px){ .hedef-grid{grid-template-columns:1fr;} }
+    .hedef-card { border-radius:10px; padding:14px 12px; border:1.5px solid; text-align:center; }
+    .hedef-card.vermek { background:#fef2f2; border-color:#fecaca; }
+    .hedef-card.korumak { background:#f0fdf4; border-color:#bbf7d0; }
+    .hedef-card.almak { background:#fffbeb; border-color:#fde68a; }
+    .hedef-card .hc-title { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.4px; margin-bottom:4px; }
+    .hedef-card.vermek .hc-title { color:var(--danger); }
+    .hedef-card.korumak .hc-title { color:var(--brand); }
+    .hedef-card.almak .hc-title { color:#b45309; }
+    .hedef-card .hc-val { font-size:1.3rem; font-weight:900; margin-bottom:2px; }
+    .hedef-card .hc-desc { font-size:.72rem; color:var(--muted); }
+
+    /* FORMÜL KARŞILAŞTIRMA */
+    .formula-compare { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+    @media(max-width:380px){ .formula-compare{grid-template-columns:1fr;} }
+    .fc-card { background:var(--bg); border:1.5px solid var(--border); border-radius:10px; padding:14px 12px; text-align:center; }
+    .fc-card .fc-name { font-size:.74rem; font-weight:700; color:var(--muted); margin-bottom:4px; }
+    .fc-card .fc-val { font-size:1.4rem; font-weight:900; color:var(--brand); }
+    .fc-card .fc-unit { font-size:.76rem; color:var(--muted); }
+
+    /* EXPORT */
+    .export-btns { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; }
+    .btn-exp { flex:1; min-width:80px; padding:9px 8px; border-radius:8px; font-size:.8rem; font-weight:600; cursor:pointer; border:1.5px solid var(--border); background:#fff; color:var(--text); display:flex; align-items:center; justify-content:center; gap:5px; transition:all .15s; -webkit-tap-highlight-color:transparent; }
+    .btn-exp:hover { border-color:var(--brand); color:var(--brand); background:var(--brand-light); }
+
+    /* SIDEBAR */
+    .sidebar { display:flex; flex-direction:column; gap:18px; }
+    .formula-sidebar { background:#1e293b; color:#e2e8f0; border-radius:10px; padding:14px 16px; font-family:'Courier New',monospace; font-size:.78rem; line-height:1.9; }
+    .formula-sidebar .v { color:#93c5fd; }
+    .formula-sidebar .e { color:#86efac; }
+    .formula-sidebar .c { color:#fbbf24; }
+    .info-box { background:var(--brand-light); border-left:3px solid var(--brand); border-radius:0 8px 8px 0; padding:12px 14px; font-size:.82rem; color:#1e3a5f; line-height:1.65; }
+    .info-box strong { color:#1341b0; }
+    .source-note { font-size:.71rem; color:var(--muted); line-height:1.55; margin-top:8px; }
+    .source-note a { color:var(--brand); }
+    .ql-link { display:flex; align-items:center; gap:10px; padding:9px 11px; border-radius:8px; text-decoration:none; color:var(--text); font-size:.83rem; font-weight:500; transition:background .15s; border:1px solid transparent; }
+    .ql-link:hover { background:var(--brand-light); color:var(--brand); border-color:var(--brand-light); }
+    .ql-icon { width:30px; height:30px; border-radius:7px; background:var(--bg); display:flex; align-items:center; justify-content:center; font-size:.95rem; flex-shrink:0; }
+
+    /* ARTICLE */
+    .article { max-width:1140px; margin:0 auto; padding:0 16px 60px; }
+    .article h2 { font-size:clamp(1.1rem,3vw,1.3rem); font-weight:800; margin:36px 0 12px; }
+    .article h3 { font-size:1rem; font-weight:700; margin:22px 0 8px; color:#1341b0; }
+    .article p { color:#374151; line-height:1.82; margin-bottom:12px; font-size:.93rem; }
+    .article ul,.article ol { margin:8px 0 14px 18px; }
+    .article ul li,.article ol li { color:#374151; font-size:.92rem; line-height:1.75; margin-bottom:8px; }
+    .formula-box { background:#1e293b; color:#e2e8f0; border-radius:10px; padding:16px 18px; font-family:'Courier New',monospace; font-size:.86rem; line-height:2; margin:14px 0; overflow-x:auto; }
+    .formula-box .v { color:#93c5fd; }
+    .formula-box .e { color:#86efac; }
+    .formula-box .c { color:#fbbf24; }
+    .cite-box { background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:12px 16px; margin:14px 0; font-size:.79rem; color:var(--muted); line-height:1.65; }
+    .cite-box strong { color:var(--text); font-size:.82rem; }
+    .cite-box a { color:var(--brand); }
+    .aktivite-table { width:100%; border-collapse:collapse; font-size:.84rem; margin:14px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); }
+    .aktivite-table th { background:var(--brand); color:#fff; padding:10px 12px; text-align:left; font-weight:600; }
+    .aktivite-table td { padding:10px 12px; border-bottom:1px solid var(--border); }
+    .aktivite-table tr:last-child td { border-bottom:none; }
+    .aktivite-table tr:nth-child(even) td { background:var(--bg); }
+    .warn-box { background:#fffbeb; border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:12px 14px; font-size:.84rem; color:#78350f; margin:14px 0; line-height:1.7; }
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-q { width:100%; text-align:left; background:none; border:none; padding:14px 0; font-size:.9rem; font-weight:600; cursor:pointer; color:var(--text); display:flex; justify-content:space-between; align-items:center; gap:12px; -webkit-tap-highlight-color:transparent; }
+    .faq-q .ico { width:22px; height:22px; border-radius:50%; background:var(--bg); border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0; transition:all .2s; }
+    .faq-q.open .ico { background:var(--brand); border-color:var(--brand); color:#fff; transform:rotate(45deg); }
+    .faq-a { display:none; padding:0 0 14px; color:#374151; font-size:.88rem; line-height:1.78; }
+    .faq-a.open { display:block; }
+    .related-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px; }
+    @media(max-width:420px){ .related-grid{grid-template-columns:1fr 1fr;} }
+    .rc { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:13px 11px; text-decoration:none; color:var(--text); display:flex; flex-direction:column; gap:5px; transition:all .15s; }
+    .rc:hover { border-color:var(--brand); box-shadow:0 4px 14px rgba(26,86,219,.1); transform:translateY(-2px); }
+    .rc .ri { font-size:1.3rem; }
+    .rc .rt { font-size:.82rem; font-weight:700; }
+    .rc .rd { font-size:.73rem; color:var(--muted); }
+
+    footer { background:#111827; color:#9ca3af; padding:36px 16px 20px; }
+    .footer-inner { max-width:1140px; margin:0 auto; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:28px; margin-bottom:28px; }
+    @media(max-width:640px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:360px){ .footer-grid{grid-template-columns:1fr;} }
+    .footer-brand { font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:8px; }
+    .fdesc { font-size:.8rem; line-height:1.65; }
+    .footer-col h4 { font-size:.82rem; font-weight:700; color:#fff; margin-bottom:10px; }
+    .footer-col a { display:block; font-size:.8rem; color:#9ca3af; text-decoration:none; margin-bottom:7px; transition:color .15s; }
+    .footer-col a:hover { color:#fff; }
+    .footer-bottom { border-top:1px solid #1f2937; padding-top:16px; font-size:.76rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+    .footer-bottom a { color:#9ca3af; text-decoration:none; }
+
+    .toast { position:fixed; bottom:20px; right:16px; background:#1e293b; color:#fff; padding:10px 16px; border-radius:10px; font-size:.83rem; font-weight:500; box-shadow:0 4px 20px rgba(0,0,0,.2); z-index:9999; display:none; max-width:calc(100vw - 32px); animation:slideUp .3s ease; }
+    @keyframes slideUp { from{transform:translateY(12px);opacity:0} to{transform:translateY(0);opacity:1} }
+    #topBtn { position:fixed; bottom:20px; right:16px; background:var(--brand); color:#fff; border:none; border-radius:50%; width:40px; height:40px; font-size:1.1rem; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(26,86,219,.35); z-index:9998; }
+    #topBtn.show { display:flex; }
+    @media print { nav.topnav,.sidebar,footer,#topBtn,.toast,.btn-calc,.btn-reset,.export-btns { display:none!important; } .main-grid{grid-template-columns:1fr!important;} }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="nav-inner">
+    <a class="logo" href="https://hesaplarsin.com">Hesaplarsın</a>
+    <button class="ham" id="hamBtn" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://hesaplarsin.com/vucut-kitle-indeksi.html">⚖️ BMI</a>
+      <a href="https://hesaplarsin.com/gunluk-kalori-ihtiyaci-hesaplama.html">🔥 Kalori</a>
+      <a href="https://hesaplarsin.com/ideal-kilo-hesaplama.html">🎯 İdeal Kilo</a>
+      <a href="https://hesaplarsin.com/protein-ihtiyaci-hesaplama.html">🥩 Protein</a>
+      <a href="https://hesaplarsin.com/bazal-metabolizma-hesaplama.html" class="active">💪 BMH</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://hesaplarsin.com">Ana Sayfa</a><span>›</span>
+  <a href="https://hesaplarsin.com/#saglik">Sağlık</a><span>›</span>
+  <span aria-current="page">Bazal Metabolizma Hesaplama</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">💪 BMH / BMR Hesaplama</span>
+    <h1>Bazal Metabolizma Hesaplama</h1>
+    <p>Mifflin-St Jeor ve Harris-Benedict formülleriyle bazal metabolizma hızınızı (BMH/BMR) ve günlük kalori ihtiyacınızı anında hesaplayın.</p>
+    <div class="hero-badges">
+      <span class="hbadge">✓ Ücretsiz</span>
+      <span class="hbadge">2 Formül Karşılaştırma</span>
+      <span class="hbadge">TDEE Dahil</span>
+      <span class="hbadge">Kilo Hedefi Analizi</span>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+
+  <!-- SOL -->
+  <main>
+    <div class="card">
+      <div class="card-title">💪 Bazal Metabolizma Hesaplama</div>
+
+      <!-- CİNSİYET -->
+      <p style="font-size:.82rem;font-weight:600;margin-bottom:10px;">Cinsiyet</p>
+      <div class="gender-grid">
+        <div class="gender-btn selected" id="btn-erkek" onclick="selectGender('erkek')">
+          <span class="gb-ico">👨</span>
+          <span class="gb-name">Erkek</span>
+        </div>
+        <div class="gender-btn" id="btn-kadin" onclick="selectGender('kadin')">
+          <span class="gb-ico">👩</span>
+          <span class="gb-name">Kadın</span>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-grid">
+        <div class="field">
+          <label for="yas">Yaş <small>(yıl)</small></label>
+          <input type="number" id="yas" placeholder="örn: 28" min="10" max="100" inputmode="numeric" />
+        </div>
+        <div class="field">
+          <label for="boy">Boy <small>(cm)</small></label>
+          <input type="number" id="boy" placeholder="örn: 175" min="100" max="250" inputmode="decimal" />
+        </div>
+        <div class="field">
+          <label for="kilo">Kilo <small>(kg)</small></label>
+          <input type="number" id="kilo" placeholder="örn: 75" min="20" max="300" inputmode="decimal" />
+        </div>
+        <div class="field">
+          <label for="formul">Hesaplama Formülü</label>
+          <select id="formul">
+            <option value="mifflin" selected>Mifflin-St Jeor (Önerilen)</option>
+            <option value="harris">Harris-Benedict (Klasik)</option>
+            <option value="her ikisi">Her İkisini Karşılaştır</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- AKTİVİTE -->
+      <p style="font-size:.82rem;font-weight:600;margin-bottom:8px;">Aktivite Seviyesi <small style="font-weight:400;color:var(--muted);">(TDEE hesabı için)</small></p>
+      <div class="aktivite-list" id="aktiviteList">
+        <div class="akt-btn selected" data-kat="1.2" onclick="selectAktivite(this)">
+          <span class="ak-ico">🛋️</span>
+          <div class="ak-info"><span class="ak-name">Hareketsiz</span><span class="ak-desc">Masa başı iş, egzersiz yok</span></div>
+          <span class="ak-kat">× 1,20</span>
+        </div>
+        <div class="akt-btn" data-kat="1.375" onclick="selectAktivite(this)">
+          <span class="ak-ico">🚶</span>
+          <div class="ak-info"><span class="ak-name">Hafif Aktif</span><span class="ak-desc">Haftada 1–3 gün hafif egzersiz</span></div>
+          <span class="ak-kat">× 1,375</span>
+        </div>
+        <div class="akt-btn" data-kat="1.55" onclick="selectAktivite(this)">
+          <span class="ak-ico">🏃</span>
+          <div class="ak-info"><span class="ak-name">Orta Aktif</span><span class="ak-desc">Haftada 3–5 gün orta egzersiz</span></div>
+          <span class="ak-kat">× 1,55</span>
+        </div>
+        <div class="akt-btn" data-kat="1.725" onclick="selectAktivite(this)">
+          <span class="ak-ico">🏋️</span>
+          <div class="ak-info"><span class="ak-name">Çok Aktif</span><span class="ak-desc">Haftada 6–7 gün yoğun antrenman</span></div>
+          <span class="ak-kat">× 1,725</span>
+        </div>
+        <div class="akt-btn" data-kat="1.9" onclick="selectAktivite(this)">
+          <span class="ak-ico">⚡</span>
+          <div class="ak-info"><span class="ak-name">Ekstra Aktif</span><span class="ak-desc">Günde 2 antrenman veya ağır iş</span></div>
+          <span class="ak-kat">× 1,90</span>
+        </div>
+      </div>
+
+      <button class="btn-calc" onclick="hesapla()">💪 BMH Hesapla</button>
+      <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+    </div>
+
+    <!-- SONUÇ -->
+    <div class="result-section card" id="resultSection">
+
+      <!-- BANNER -->
+      <div class="result-hero">
+        <div class="rh-label" id="r-formul-label">Mifflin-St Jeor — Bazal Metabolizma Hızı</div>
+        <div><span class="rh-val" id="r-bmh">—</span><span class="rh-unit">kcal/gün</span></div>
+        <div class="rh-sub" id="r-bmh-sub">—</div>
+      </div>
+
+      <!-- FORMÜL KARŞILAŞTIRMA (her ikisi seçilince gösterilir) -->
+      <div class="formula-compare" id="formulCompare" style="display:none;">
+        <div class="fc-card">
+          <div class="fc-name">Mifflin-St Jeor</div>
+          <div class="fc-val" id="r-mifflin-val">—</div>
+          <div class="fc-unit">kcal/gün · Önerilen</div>
+        </div>
+        <div class="fc-card">
+          <div class="fc-name">Harris-Benedict</div>
+          <div class="fc-val" id="r-harris-val">—</div>
+          <div class="fc-unit">kcal/gün · Klasik</div>
+        </div>
+      </div>
+
+      <!-- ÖZET -->
+      <div class="summary-grid">
+        <div class="sbox"><div class="sl">Bazal Metabolizma (BMH)</div><div class="sv" id="r-bmh2">—</div></div>
+        <div class="sbox"><div class="sl">Günlük Kalori (TDEE)</div><div class="sv b" id="r-tdee">—</div></div>
+        <div class="sbox"><div class="sl">Aktivite Katsayısı</div><div class="sv o" id="r-kat">—</div></div>
+      </div>
+
+      <!-- KİLO HEDEFİ -->
+      <p style="font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:10px;">🎯 Kilo Hedefine Göre Günlük Kalori</p>
+      <div class="hedef-grid">
+        <div class="hedef-card vermek">
+          <div class="hc-title">⬇️ Kilo Vermek</div>
+          <div class="hc-val" id="r-vermek">—</div>
+          <div class="hc-desc">kcal/gün (−500 kalori)</div>
+        </div>
+        <div class="hedef-card korumak">
+          <div class="hc-title">✅ Kiloyu Korumak</div>
+          <div class="hc-val" id="r-korumak">—</div>
+          <div class="hc-desc">kcal/gün (TDEE)</div>
+        </div>
+        <div class="hedef-card almak">
+          <div class="hc-title">⬆️ Kilo Almak</div>
+          <div class="hc-val" id="r-almak">—</div>
+          <div class="hc-desc">kcal/gün (+500 kalori)</div>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        ⚠️ Bu değerler formül tabanlı <strong>tahmindir.</strong> Kesin kalori ihtiyacınız için bir diyetisyen veya beslenme uzmanına danışmanız önerilir. Günlük kalori alımınızı <strong>BMH'nin altına düşürmeyin</strong> — bu metabolizmayı yavaşlatır.
+      </div>
+
+      <div class="export-btns">
+        <button class="btn-exp" onclick="copyResult()">📋 Kopyala</button>
+        <button class="btn-exp" onclick="window.print()">🖨️ Yazdır</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- FORMÜLLER -->
+    <div class="card">
+      <div class="card-title" style="font-size:.9rem;border-bottom-color:var(--brand-light);">📐 Formüller</div>
+      <p style="font-size:.76rem;font-weight:700;color:var(--brand);margin-bottom:6px;">Mifflin-St Jeor (Önerilen)</p>
+      <div class="formula-sidebar">
+        <span class="c">Erkek:</span> <span class="v">BMH</span> <span class="e">=</span><br/>
+        (10×kg) + (6,25×cm) − (5×yaş) + 5<br/><br/>
+        <span class="c">Kadın:</span> <span class="v">BMH</span> <span class="e">=</span><br/>
+        (10×kg) + (6,25×cm) − (5×yaş) − 161
+      </div>
+      <p style="font-size:.76rem;font-weight:700;color:var(--muted);margin-top:12px;margin-bottom:6px;">Harris-Benedict (Klasik)</p>
+      <div class="formula-sidebar">
+        <span class="c">Erkek:</span> <span class="v">BMH</span> <span class="e">=</span><br/>
+        88,362 + (13,397×kg) + (4,799×cm) − (5,677×yaş)<br/><br/>
+        <span class="c">Kadın:</span> <span class="v">BMH</span> <span class="e">=</span><br/>
+        447,593 + (9,247×kg) + (3,098×cm) − (4,330×yaş)
+      </div>
+      <p class="source-note">📌 Kaynak: <a href="https://bilirhesap.com/saglik/bmh-hesaplama.php" target="_blank" rel="noopener noreferrer">BilirHesap</a> · <a href="https://busradinc.com/bazal-metabolizma-hizi-hesaplama-araci/" target="_blank" rel="noopener noreferrer">Dyt. Büşra Dinç</a> · Amerikan Diyetetik Derneği (ADA)</p>
+    </div>
+
+    <!-- BİLGİ -->
+    <div class="info-box">
+      <strong>💡 Hangi Formülü Kullanmalıyım?</strong><br/>
+      <strong>Mifflin-St Jeor</strong> — 1990'da geliştirildi, Amerikan Diyetetik Derneği tarafından önerilen daha güncel ve doğru formül.<br/><br/>
+      <strong>Harris-Benedict</strong> — 1919'da geliştirildi, yüzyıllık köklü formül. Ağırlıklı nüfus ortalamaları için hâlâ geçerli.
+      <p class="source-note">Kaynak: <a href="https://hesapmatik.com/hesapla/bazal-metabolizma-hesaplama/" target="_blank" rel="noopener noreferrer">hesapmatik.com</a> (2026)</p>
+    </div>
+
+    <!-- İLGİLİ ARAÇLAR -->
+    <div class="card">
+      <div class="card-title" style="font-size:.9rem;border-bottom-color:var(--brand-light);">🔗 İlgili Sağlık Araçları</div>
+      <a class="ql-link" href="https://hesaplarsin.com/vucut-kitle-indeksi.html"><div class="ql-icon">⚖️</div><div><div style="font-weight:700;font-size:.82rem;">Vücut Kitle İndeksi</div><div style="font-size:.72rem;color:var(--muted)">BMI hesabı</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/gunluk-kalori-ihtiyaci-hesaplama.html"><div class="ql-icon">🔥</div><div><div style="font-weight:700;font-size:.82rem;">Kalori İhtiyacı</div><div style="font-size:.72rem;color:var(--muted)">Günlük kalori hesabı</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/ideal-kilo-hesaplama.html"><div class="ql-icon">🎯</div><div><div style="font-weight:700;font-size:.82rem;">İdeal Kilo</div><div style="font-size:.72rem;color:var(--muted)">Boy-kilo oranı</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/protein-ihtiyaci-hesaplama.html"><div class="ql-icon">🥩</div><div><div style="font-weight:700;font-size:.82rem;">Protein İhtiyacı</div><div style="font-size:.72rem;color:var(--muted)">Günlük protein gram</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/vucut-yag-orani-hesaplama.html"><div class="ql-icon">💪</div><div><div style="font-weight:700;font-size:.82rem;">Vücut Yağ Oranı</div><div style="font-size:.72rem;color:var(--muted)">Yağ % tahmini</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/kalori-yakma-hesaplama.html"><div class="ql-icon">🏃</div><div><div style="font-weight:700;font-size:.82rem;">Kalori Yakma</div><div style="font-size:.72rem;color:var(--muted)">Egzersizde yakılan kalori</div></div></a>
+    </div>
+
+  </aside>
+</div>
+
+<!-- MAKALE -->
+<div class="article">
+
+  <h2>Bazal Metabolizma Hızı (BMH/BMR) Nedir?</h2>
+  <p>
+    <strong>Bazal metabolizma hızı (BMH)</strong> — İngilizce Basal Metabolic Rate (BMR) — vücudun tam dinlenme halindeyken yalnızca hayati fonksiyonlarını sürdürmek için harcadığı enerji miktarıdır. Bu enerji; nefes alma, kalp atışı, kan dolaşımı, vücut ısısını koruma, sinir sistemi ve hücresel işlevler gibi temel hayati aktiviteler için kullanılır.
+  </p>
+  <p>
+    BMH, vücudunuzun 24 saat boyunca hiç hareket etmese bile zorunlu olarak harcayacağı minimum kalori miktarını gösterir. Bu değer; yaşa, cinsiyete, boya ve kiloya göre kişiden kişiye önemli ölçüde farklılık gösterir. Ortalama olarak <strong>1.000 ile 2.500 kalori arasında</strong> değişebilir.
+  </p>
+
+  <div class="cite-box">
+    <strong>📌 Kaynaklar</strong><br/>
+    • <a href="https://www.medicana.com.tr/saglik-rehberi-detay/12204/bazal-metabolizma" target="_blank" rel="noopener noreferrer">Medicana Hastanesi</a> — Bazal metabolizma nedir, nasıl hesaplanır?<br/>
+    • <a href="https://bilirhesap.com/saglik/bmh-hesaplama.php" target="_blank" rel="noopener noreferrer">BilirHesap.com</a> — Mifflin-St Jeor ve ADA açıklaması (2026)<br/>
+    • <a href="https://busradinc.com/bazal-metabolizma-hizi-hesaplama-araci/" target="_blank" rel="noopener noreferrer">Diyetisyen Büşra Dinç</a> — BMH formülleri karşılaştırması<br/>
+    • <a href="https://www.acilameliyat.com/bmr-hesaplama" target="_blank" rel="noopener noreferrer">acilameliyat.com</a> — Mifflin-St Jeor uygulama örnekleri
+  </div>
+
+  <h2>BMH Hesaplama Formülleri</h2>
+
+  <h3>1. Mifflin-St Jeor Formülü (Önerilen)</h3>
+  <p>
+    1990 yılında geliştirilen bu formül, <strong>Amerikan Diyetetik Derneği (ADA)</strong> tarafından günümüzde en doğru BMH hesaplama yöntemi olarak önerilmektedir. Harris-Benedict formülünden daha güncel ve hassas kabul edilir.
+  </p>
+  <div class="formula-box">
+    <span class="c">Erkek:</span> <span class="v">BMH</span> <span class="e">=</span> (10 × kg) + (6,25 × cm) − (5 × yaş) + 5<br/>
+    <span class="c">Kadın:</span> <span class="v">BMH</span> <span class="e">=</span> (10 × kg) + (6,25 × cm) − (5 × yaş) − 161<br/><br/>
+    <span style="color:#fbbf24">Örnek (30 yaş, 65 kg, 165 cm, Kadın):</span><br/>
+    BMH = (10×65) + (6,25×165) − (5×30) − 161 = 650 + 1031,25 − 150 − 161 = <span class="e">1.370 kcal/gün</span>
+  </div>
+
+  <h3>2. Harris-Benedict Formülü (Klasik)</h3>
+  <p>
+    1919 yılında geliştirilip 1984'te revize edilen bu formül, yıllarca altın standart olarak kullanılmıştır. Günümüzde Mifflin-St Jeor kadar doğru kabul edilmese de hâlâ yaygın olarak referans alınmaktadır.
+  </p>
+  <div class="formula-box">
+    <span class="c">Erkek:</span> <span class="v">BMH</span> <span class="e">=</span> 88,362 + (13,397×kg) + (4,799×cm) − (5,677×yaş)<br/>
+    <span class="c">Kadın:</span> <span class="v">BMH</span> <span class="e">=</span> 447,593 + (9,247×kg) + (3,098×cm) − (4,330×yaş)
+  </div>
+
+  <div class="cite-box">
+    <strong>📌 Kaynak:</strong> <a href="https://hesapmatik.com/hesapla/bazal-metabolizma-hesaplama/" target="_blank" rel="noopener noreferrer">hesapmatik.com</a> (Nisan 2026) · <a href="https://www.uzmandoktor.net/bazal-metabolizma-hesaplama" target="_blank" rel="noopener noreferrer">uzmandoktor.net</a> — Her iki formülün karşılaştırmalı açıklaması
+  </div>
+
+  <h2>TDEE Nedir? (Toplam Günlük Enerji Harcaması)</h2>
+  <p>
+    <strong>TDEE (Total Daily Energy Expenditure)</strong>, günlük toplam enerji harcamanızdır. BMH yalnızca dinlenme halindeki tüketimi gösterirken TDEE, günlük aktivitelerinizi de içerir. BMH değerinizi aşağıdaki aktivite katsayısıyla çarparak TDEE'nizi bulabilirsiniz:
+  </p>
+  <div style="overflow-x:auto;border-radius:8px;border:1px solid var(--border);">
+    <table class="aktivite-table" aria-label="Aktivite katsayıları tablosu">
+      <thead><tr><th>Aktivite Seviyesi</th><th>Tanım</th><th>Katsayı</th></tr></thead>
+      <tbody>
+        <tr><td>🛋️ Hareketsiz</td><td>Masa başı iş, egzersiz yok</td><td><strong>× 1,20</strong></td></tr>
+        <tr><td>🚶 Hafif Aktif</td><td>Haftada 1–3 gün hafif egzersiz</td><td><strong>× 1,375</strong></td></tr>
+        <tr><td>🏃 Orta Aktif</td><td>Haftada 3–5 gün orta egzersiz</td><td><strong>× 1,55</strong></td></tr>
+        <tr><td>🏋️ Çok Aktif</td><td>Haftada 6–7 gün yoğun antrenman</td><td><strong>× 1,725</strong></td></tr>
+        <tr><td>⚡ Ekstra Aktif</td><td>Günde 2 antrenman veya ağır fiziksel iş</td><td><strong>× 1,90</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cite-box">
+    <strong>📌 Kaynak:</strong> <a href="https://busradinc.com/bazal-metabolizma-hizi-hesaplama-araci/" target="_blank" rel="noopener noreferrer">Diyetisyen Büşra Dinç</a> — Aktivite katsayıları ve TDEE hesaplaması · <a href="https://diyetisyenhilalyilmaz.com.tr/Hesaplamalar/BazalMetabolizmaHizi" target="_blank" rel="noopener noreferrer">Diyetisyen Hilal Yılmaz</a>
+  </div>
+
+  <h2>Sık Sorulan Sorular</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Bazal metabolizma hızım neden düşük? <span class="ico">+</span></button>
+    <div class="faq-a">BMH'yi etkileyen başlıca faktörler: <strong>yaş</strong> (her 10 yılda %2–3 düşer), <strong>cinsiyet</strong> (erkeklerde genelde daha yüksektir çünkü kas kütlesi fazladır), <strong>vücut kompozisyonu</strong> (kas kütlesi yüksekse BMH yüksektir) ve <strong>tiroid fonksiyonu</strong> (hipotiroidide BMH düşer). Ayrıca düşük kalorili diyetler uzun süre uygulandığında metabolizma yavaşlayabilir.<br/><small style="color:var(--muted)">Kaynak: Medicana, uzmandoktor.net</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Günlük kalori alımım BMH'nin altına düşebilir mi? <span class="ico">+</span></button>
+    <div class="faq-a"><strong>Hayır, düşürülmemeli.</strong> Kalori alımını BMH'nin altına düşürmek metabolizmayı yavaşlatır, kas kaybına yol açar ve vitamin-mineral eksikliklerine neden olur. Sağlıklı kilo vermek için önerilen günlük kalori açığı <strong>500 kcal</strong>'dir; bu da haftada yaklaşık 0,5 kg kilo kaybı anlamına gelir.<br/><small style="color:var(--muted)">Kaynak: hesapmatik.com (2026)</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">BMH ve TDEE arasındaki fark nedir? <span class="ico">+</span></button>
+    <div class="faq-a"><strong>BMH</strong>, vücudunuzun tamamen dinlenme halinde harcadığı kaloridir. <strong>TDEE</strong> ise günlük tüm aktiviteleriniz dahil toplam enerji harcamanızdır. Kilo vermek için TDEE'den az, kilo almak için daha fazla kalori tüketmelisiniz. Kiloyu korumak için TDEE kadar kalori almanız yeterlidir.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Hangi formül daha doğru, Mifflin mi Harris-Benedict mi? <span class="ico">+</span></button>
+    <div class="faq-a"><strong>Mifflin-St Jeor</strong> daha güncel ve genel olarak daha doğru kabul edilmektedir. Amerikan Diyetetik Derneği (ADA) bu formülü önermektedir. Harris-Benedict köklü ve köklü bir formül olmakla birlikte özellikle obez veya aşırı zayıf bireylerde sapma oranı daha yüksek olabilir. Gerçek BMH değeri ancak laboratuvar koşullarında (kalorimetri) tam olarak ölçülebilir.<br/><small style="color:var(--muted)">Kaynak: BilirHesap (2026), Medicana</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Bazal metabolizma nasıl artırılır? <span class="ico">+</span></button>
+    <div class="faq-a">BMH artırmak için kanıta dayalı yöntemler: <strong>ağırlık antrenmanı</strong> ile kas kütlesi kazanmak (kas, yağa göre daha fazla enerji harcar), <strong>yeterli protein tüketimi</strong> (sindirimi yüksek termojeniktir), <strong>düzenli ve yeterli uyku</strong>, <strong>HIIT antrenmanları</strong> ve <strong>yeşil çay</strong> tüketimi sayılabilir. Aynı zamanda çok düşük kalorili diyetlerden kaçınmak önemlidir.<br/><small style="color:var(--muted)">Kaynak: hesapmatik.com, diyetisyenhilalyilmaz.com.tr</small></div>
+  </div>
+
+  <h2>İlgili Sağlık Hesaplama Araçları</h2>
+  <div class="related-grid">
+    <a class="rc" href="https://hesaplarsin.com/vucut-kitle-indeksi.html"><span class="ri">⚖️</span><span class="rt">Vücut Kitle İndeksi</span><span class="rd">BMI hesabı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/gunluk-kalori-ihtiyaci-hesaplama.html"><span class="ri">🔥</span><span class="rt">Kalori İhtiyacı</span><span class="rd">Günlük kalori hesabı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/ideal-kilo-hesaplama.html"><span class="ri">🎯</span><span class="rt">İdeal Kilo</span><span class="rd">Boy-kilo oranı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/protein-ihtiyaci-hesaplama.html"><span class="ri">🥩</span><span class="rt">Protein İhtiyacı</span><span class="rd">Günlük protein gram</span></a>
+    <a class="rc" href="https://hesaplarsin.com/kalori-yakma-hesaplama.html"><span class="ri">🏃</span><span class="rt">Kalori Yakma</span><span class="rd">Egzersizde yakılan</span></a>
+    <a class="rc" href="https://hesaplarsin.com/vucut-yag-orani-hesaplama.html"><span class="ri">💪</span><span class="rt">Vücut Yağ Oranı</span><span class="rd">Tahmini yağ %</span></a>
+    <a class="rc" href="https://hesaplarsin.com/su-ihtiyaci-hesaplama.html"><span class="ri">💧</span><span class="rt">Su İhtiyacı</span><span class="rd">Günlük su miktarı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/bel-kalca-orani-hesaplama.html"><span class="ri">📏</span><span class="rt">Bel Kalça Oranı</span><span class="rd">Vücut şekli analizi</span></a>
+  </div>
+
+  <div style="margin-top:24px;background:#fef2f2;border-left:3px solid var(--danger);border-radius:0 8px 8px 0;padding:13px 15px;font-size:.84rem;color:#7f1d1d;line-height:1.7;">
+    <strong>⚠️ Sağlık Uyarısı:</strong> Bu araç bilgilendirme amaçlıdır ve tıbbi tavsiye niteliği taşımaz. Kilo yönetimi veya diyet planı için lütfen bir <strong>diyetisyen veya beslenme uzmanına</strong> danışınız. Formül sonuçları kişisel farklılıklar nedeniyle gerçek değerden sapabilir.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Hesaplarsın</div>
+        <p class="fdesc">Türkiye'nin en kapsamlı ücretsiz hesaplama platformu. 70+ araç, 2026 güncel verileri.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sağlık</h4>
+        <a href="https://hesaplarsin.com/bazal-metabolizma-hesaplama.html">Bazal Metabolizma</a>
+        <a href="https://hesaplarsin.com/vucut-kitle-indeksi.html">Vücut Kitle İndeksi</a>
+        <a href="https://hesaplarsin.com/gunluk-kalori-ihtiyaci-hesaplama.html">Kalori İhtiyacı</a>
+        <a href="https://hesaplarsin.com/ideal-kilo-hesaplama.html">İdeal Kilo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Finans</h4>
+        <a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a>
+        <a href="https://hesaplarsin.com/kov-hesaplama.html">KDV Hesaplama</a>
+        <a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş</a>
+        <a href="https://hesaplarsin.com/amortisman-hesaplama.html">Amortisman</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hesaplarsın</h4>
+        <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
+        <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+        <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
+        <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hesaplarsın. Bilgiler bilgilendirme amaçlıdır.</span>
+      <span><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a> · <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım</a> · <a href="https://hesaplarsin.com/iletisim.html">İletişim</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Başa git">↑</button>
+
+<script>
+let toastTimer, selectedGender = 'erkek', selectedAktKat = 1.2;
+
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.style.display='block'; clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.style.display='none',2800); }
+const fmtK = n => Math.round(n).toLocaleString('tr-TR');
+
+// NAV
+const hamBtn=document.getElementById('hamBtn'), navLinks=document.getElementById('navLinks');
+hamBtn.addEventListener('click',()=>{ const o=navLinks.classList.toggle('open'); hamBtn.setAttribute('aria-expanded',o); });
+document.addEventListener('click',e=>{ if(!hamBtn.contains(e.target)&&!navLinks.contains(e.target)) navLinks.classList.remove('open'); });
+window.addEventListener('scroll',()=>document.getElementById('topBtn').classList.toggle('show',scrollY>400),{passive:true});
+
+// CİNSİYET
+function selectGender(g) {
+  selectedGender = g;
+  document.getElementById('btn-erkek').classList.toggle('selected', g==='erkek');
+  document.getElementById('btn-kadin').classList.toggle('selected', g==='kadin');
+}
+
+// AKTİVİTE
+function selectAktivite(el) {
+  document.querySelectorAll('.akt-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedAktKat = parseFloat(el.dataset.kat);
+}
+
+// BMH HESAPLA
+function calcBMH(kilo, boy, yas, cinsiyet, formul) {
+  if (formul === 'mifflin') {
+    return cinsiyet === 'erkek'
+      ? (10 * kilo) + (6.25 * boy) - (5 * yas) + 5
+      : (10 * kilo) + (6.25 * boy) - (5 * yas) - 161;
+  } else {
+    return cinsiyet === 'erkek'
+      ? 88.362 + (13.397 * kilo) + (4.799 * boy) - (5.677 * yas)
+      : 447.593 + (9.247 * kilo) + (3.098 * boy) - (4.330 * yas);
+  }
+}
+
+function hesapla() {
+  const yas    = parseFloat(document.getElementById('yas').value);
+  const boy    = parseFloat(document.getElementById('boy').value);
+  const kilo   = parseFloat(document.getElementById('kilo').value);
+  const formul = document.getElementById('formul').value;
+
+  if (!yas||yas<10||yas>100) { toast('❌ Geçerli bir yaş girin (10–100).'); return; }
+  if (!boy||boy<100||boy>250) { toast('❌ Geçerli bir boy girin (100–250 cm).'); return; }
+  if (!kilo||kilo<20||kilo>300) { toast('❌ Geçerli bir kilo girin.'); return; }
+
+  const mifflin = calcBMH(kilo, boy, yas, selectedGender, 'mifflin');
+  const harris  = calcBMH(kilo, boy, yas, selectedGender, 'harris');
+
+  let bmh;
+  if (formul === 'mifflin') bmh = mifflin;
+  else if (formul === 'harris') bmh = harris;
+  else bmh = mifflin; // her ikisi için de mifflin'i ana göster
+
+  const tdee = bmh * selectedAktKat;
+
+  // FORMÜL KARŞILAŞTIRMA
+  const showCompare = formul === 'her ikisi';
+  document.getElementById('formulCompare').style.display = showCompare ? 'grid' : 'none';
+  document.getElementById('r-mifflin-val').textContent = fmtK(mifflin);
+  document.getElementById('r-harris-val').textContent  = fmtK(harris);
+
+  // BANNER
+  const formulLabel = formul === 'mifflin' ? 'Mifflin-St Jeor' : formul === 'harris' ? 'Harris-Benedict' : 'Mifflin-St Jeor (Önerilen)';
+  document.getElementById('r-formul-label').textContent = `${formulLabel} — Bazal Metabolizma Hızı`;
+  document.getElementById('r-bmh').textContent  = fmtK(bmh);
+  document.getElementById('r-bmh-sub').textContent = `${selectedGender==='erkek'?'Erkek':'Kadın'} · ${yas} yaş · ${kilo} kg · ${boy} cm`;
+
+  // ÖZET
+  document.getElementById('r-bmh2').textContent = fmtK(bmh) + ' kcal';
+  document.getElementById('r-tdee').textContent  = fmtK(tdee) + ' kcal';
+  document.getElementById('r-kat').textContent   = '× ' + selectedAktKat.toFixed(2).replace('.',',');
+
+  // HEDEFLER
+  document.getElementById('r-vermek').textContent  = fmtK(tdee - 500) + ' kcal';
+  document.getElementById('r-korumak').textContent = fmtK(tdee) + ' kcal';
+  document.getElementById('r-almak').textContent   = fmtK(tdee + 500) + ' kcal';
+
+  document.getElementById('resultSection').style.display = 'block';
+  setTimeout(()=>document.getElementById('resultSection').scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+function sifirla() {
+  ['yas','boy','kilo'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
+  document.getElementById('resultSection').style.display='none';
+  toast('Form temizlendi.');
+}
+
+function copyResult() {
+  const lines = [
+    'BAZAL METABOLİZMA HESAPLAMA — Hesaplarsın',
+    '──────────────────────────────────────',
+    'BMH (Bazal Metabolizma): ' + document.getElementById('r-bmh2').textContent,
+    'TDEE (Günlük Kalori): '    + document.getElementById('r-tdee').textContent,
+    'Aktivite Katsayısı: '      + document.getElementById('r-kat').textContent,
+    '──────────────────────────────────────',
+    'Kilo Vermek İçin: '  + document.getElementById('r-vermek').textContent,
+    'Kiloyu Korumak İçin: '+ document.getElementById('r-korumak').textContent,
+    'Kilo Almak İçin: '   + document.getElementById('r-almak').textContent,
+    '──────────────────────────────────────',
+    '⚠️ Tahmini değerler. Kesin sonuç için diyetisyene danışınız.',
+    'hesaplarsin.com/bazal-metabolizma-hesaplama.html'
+  ].join('\n');
+  navigator.clipboard.writeText(lines).then(()=>toast('📋 Kopyalandı!'));
+}
+
+function toggleFaq(btn){
+  const ans=btn.nextElementSibling, isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('open');b.setAttribute('aria-expanded','false');b.nextElementSibling.classList.remove('open');});
+  if(!isOpen){btn.classList.add('open');btn.setAttribute('aria-expanded','true');ans.classList.add('open');}
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&document.activeElement.tagName!=='BUTTON') hesapla();
+});
+</script>
+</body>
+</html>
