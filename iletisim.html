@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>İletişim | Hesaplarsın – Soru, Öneri ve Geri Bildirim</title>
+  <meta name="description" content="Hesaplarsın ile iletişime geçin. Hata bildirimi, yeni araç önerisi, iş birliği ve reklam talepleriniz için bize ulaşın. E-posta: info@hesaplarsin.com" />
+  <meta name="keywords" content="hesaplarsın iletişim, hesaplarsın e-posta, hesaplarsın destek, geri bildirim, hata bildirimi" />
+  <link rel="canonical" href="https://hesaplarsin.com/iletisim.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hesaplarsın" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="İletişim | Hesaplarsın" />
+  <meta property="og:description" content="Soru, öneri ve geri bildirimleriniz için bize ulaşın." />
+  <meta property="og:url" content="https://hesaplarsin.com/iletisim.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="İletişim | Hesaplarsın" />
+  <meta name="twitter:description" content="Soru, öneri ve geri bildirimleriniz için bize ulaşın." />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "İletişim – Hesaplarsın",
+    "url": "https://hesaplarsin.com/iletisim.html",
+    "description": "Hesaplarsın ile iletişim kurma sayfası. Hata bildirimi, öneri ve iş birliği talepleri.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Hesaplarsın",
+      "url": "https://hesaplarsin.com",
+      "email": "info@hesaplarsin.com",
+      "sameAs": [
+        "https://www.instagram.com/dngmedia.social",
+        "https://www.facebook.com/dngmedia.social"
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://hesaplarsin.com" },
+      { "@type": "ListItem", "position": 2, "name": "İletişim", "item": "https://hesaplarsin.com/iletisim.html" }
+    ]
+  }
+  </script>
+
+  <!-- AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand:       #1a56db;
+      --brand-dark:  #1341b0;
+      --brand-light: #e8f0fe;
+      --accent:      #f59e0b;
+      --success:     #10b981;
+      --danger:      #ef4444;
+      --text:        #111827;
+      --muted:       #6b7280;
+      --border:      #e5e7eb;
+      --bg:          #f9fafb;
+      --card:        #ffffff;
+      --r:           14px;
+      --shadow:      0 1px 3px rgba(0,0,0,.07), 0 4px 18px rgba(0,0,0,.05);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.6; font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* ── NAV ── */
+    nav.topnav {
+      background: #fff; border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 200;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .nav-inner {
+      max-width: 1140px; margin: 0 auto;
+      padding: 0 16px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .logo { font-size: 1.2rem; font-weight: 800; color: var(--brand); text-decoration: none; white-space: nowrap; }
+    .nav-links { display: flex; gap: 2px; flex-wrap: wrap; }
+    .nav-links a {
+      font-size: .8rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; padding: 5px 9px; border-radius: 6px;
+      transition: background .15s, color .15s; white-space: nowrap;
+    }
+    .nav-links a:hover, .nav-links a.active { background: var(--brand-light); color: var(--brand); }
+    .ham { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+    .ham span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; }
+    @media(max-width:640px){
+      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: #fff; flex-direction: column; padding: 12px 16px 16px; border-bottom: 1px solid var(--border); box-shadow: 0 4px 16px rgba(0,0,0,.08); gap: 4px; z-index: 201; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 12px; border-radius: 8px; font-size: .9rem; }
+      .ham { display: block; }
+    }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { max-width: 1140px; margin: 0 auto; padding: 12px 16px 0; font-size: .8rem; color: var(--muted); }
+    .breadcrumb a { color: var(--brand); text-decoration: none; }
+    .breadcrumb span { margin: 0 5px; }
+
+    /* ── HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, #1a56db 0%, #1341b0 60%, #0f307a 100%);
+      color: #fff; padding: 52px 16px 48px; text-align: center; position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .page-hero .inner { position: relative; max-width: 600px; margin: 0 auto; }
+    .page-hero .tag { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 20px; font-size: .78rem; font-weight: 600; padding: 5px 14px; margin-bottom: 16px; }
+    .page-hero h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; line-height: 1.2; margin-bottom: 12px; letter-spacing: -.4px; }
+    .page-hero p { font-size: .96rem; opacity: .88; max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+    /* ── LAYOUT ── */
+    .wrapper { max-width: 1000px; margin: 0 auto; padding: 40px 16px 64px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media(max-width:680px){ .two-col { grid-template-columns: 1fr; } }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card); border-radius: var(--r);
+      box-shadow: var(--shadow); border: 1px solid var(--border); padding: 28px;
+    }
+    @media(max-width:480px){ .card { padding: 18px 16px; } }
+    .card h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: 18px; display: flex; align-items: center; gap: 9px; padding-bottom: 12px; border-bottom: 2px solid var(--brand-light); }
+    .card h2 .hico { width: 34px; height: 34px; border-radius: 9px; background: var(--brand-light); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+
+    /* ── İLETİŞİM KARTI ── */
+    .contact-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--bg);
+      margin-bottom: 10px; text-decoration: none; color: var(--text);
+      transition: all .15s; -webkit-tap-highlight-color: transparent;
+    }
+    .contact-item:last-child { margin-bottom: 0; }
+    .contact-item:hover { border-color: var(--brand); background: var(--brand-light); }
+    .contact-item .cico {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .contact-item .cico.mail   { background: #dbeafe; }
+    .contact-item .cico.phone  { background: #dcfce7; }
+    .contact-item .cico.ig     { background: #fce7f3; }
+    .contact-item .cico.fb     { background: #dbeafe; }
+    .contact-item .clabel { font-size: .75rem; color: var(--muted); font-weight: 500; }
+    .contact-item .cval   { font-size: .9rem; font-weight: 700; color: var(--text); margin-top: 1px; }
+
+    /* ── FORM ── */
+    .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+    .form-group:last-of-type { margin-bottom: 0; }
+    .form-group label { font-size: .83rem; font-weight: 600; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 10px 13px;
+      border: 1.5px solid var(--border); border-radius: 8px;
+      font-size: .92rem; color: var(--text); background: #fff;
+      outline: none; font-family: inherit;
+      transition: border .15s, box-shadow .15s;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #c4c9d4; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--brand); box-shadow: 0 0 0 3px rgba(26,86,219,.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .char-count { font-size: .73rem; color: var(--muted); text-align: right; margin-top: 3px; }
+
+    .btn-send {
+      width: 100%; padding: 13px; margin-top: 16px;
+      background: var(--brand); color: #fff;
+      font-size: .95rem; font-weight: 700; border: none; border-radius: 10px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: background .15s, transform .1s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-send:hover { background: var(--brand-dark); }
+    .btn-send:active { transform: scale(.98); }
+    .btn-send:disabled { background: #9ca3af; cursor: not-allowed; }
+
+    /* Gönderim sonucu */
+    #form-success {
+      display: none; text-align: center; padding: 24px;
+      background: #f0fdf4; border: 1.5px solid #bbf7d0;
+      border-radius: 10px; margin-top: 14px;
+    }
+    #form-success .fs-ico { font-size: 2.5rem; margin-bottom: 10px; }
+    #form-success h3 { font-size: 1rem; font-weight: 700; color: #166534; margin-bottom: 6px; }
+    #form-success p { font-size: .85rem; color: #15803d; }
+
+    /* ── KONU KARTLARI ── */
+    .topic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media(max-width:380px){ .topic-grid { grid-template-columns: 1fr; } }
+    .topic-box {
+      border: 1.5px solid var(--border); border-radius: 10px;
+      padding: 14px 12px; display: flex; flex-direction: column; gap: 6px;
+      cursor: pointer; transition: all .15s; background: var(--bg);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .topic-box:hover { border-color: var(--brand); background: var(--brand-light); }
+    .topic-box .tbi { font-size: 1.3rem; }
+    .topic-box .tbt { font-size: .84rem; font-weight: 700; }
+    .topic-box .tbd { font-size: .76rem; color: var(--muted); }
+
+    /* ── SSS ── */
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; text-align: left; background: none; border: none;
+      padding: 14px 0; font-size: .88rem; font-weight: 600; cursor: pointer;
+      color: var(--text); display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .faq-q .ico { width: 20px; height: 20px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: .76rem; flex-shrink: 0; transition: all .2s; }
+    .faq-q.open .ico { background: var(--brand); border-color: var(--brand); color: #fff; transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 0 14px; color: #374151; font-size: .86rem; line-height: 1.75; }
+    .faq-a.open { display: block; }
+
+    /* ── AD SLOT ── */
+    .ad-slot {
+      background: #f8fafc; border: 1px dashed var(--border);
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; color: var(--muted);
+      font-size: .75rem; text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer { background: #111827; color: #9ca3af; padding: 36px 16px 20px; }
+    .footer-inner { max-width: 1140px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 28px; margin-bottom: 28px; }
+    @media(max-width:640px){ .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:360px){ .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .fdesc { font-size: .8rem; line-height: 1.65; }
+    .footer-col h4 { font-size: .82rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .footer-col a { display: block; font-size: .8rem; color: #9ca3af; text-decoration: none; margin-bottom: 7px; transition: color .15s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid #1f2937; padding-top: 16px; font-size: .76rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .footer-bottom a { color: #9ca3af; text-decoration: none; }
+    .footer-bottom a:hover { color: #fff; }
+
+    /* ── BACK TO TOP ── */
+    #topBtn {
+      position: fixed; bottom: 20px; right: 16px;
+      background: var(--brand); color: #fff; border: none;
+      border-radius: 50%; width: 40px; height: 40px; font-size: 1.1rem;
+      cursor: pointer; display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 14px rgba(26,86,219,.35); z-index: 9998;
+    }
+    #topBtn.show { display: flex; }
+
+    @media print {
+      nav.topnav, footer, #topBtn, .ad-slot { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav" aria-label="Ana navigasyon">
+  <div class="nav-inner">
+    <a class="logo" href="https://hesaplarsin.com">Hesaplarsın</a>
+    <button class="ham" id="hamBtn" aria-label="Menüyü aç" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://hesaplarsin.com/kredi-hesaplama.html">💳 Kredi</a>
+      <a href="https://hesaplarsin.com/net-maas-hesaplama.html">💼 Maaş</a>
+      <a href="https://hesaplarsin.com/kov-hesaplama.html">🧾 KDV</a>
+      <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">📋 Gelir Vergisi</a>
+      <a href="https://hesaplarsin.com/amortisman-hesaplama.html">📦 Amortisman</a>
+      <a href="https://hesaplarsin.com/iletisim.html" class="active">✉️ İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://hesaplarsin.com">Ana Sayfa</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">İletişim</span>
+</nav>
+
+<!-- HERO -->
+<header class="page-hero">
+  <div class="inner">
+    <span class="tag">✉️ Bize Ulaşın</span>
+    <h1>İletişim</h1>
+    <p>Soru, öneri, hata bildirimi veya iş birliği talepleriniz için buradayız. En kısa sürede geri döneceğiz.</p>
+  </div>
+</header>
+
+<!-- REKLAM - üst -->
+<div style="max-width:1000px;margin:20px auto 0;padding:0 16px;">
+
+</div>
+
+<!-- İÇERİK -->
+<div class="wrapper">
+
+  <!-- KONU SEÇİCİ -->
+  <div class="card" style="margin-bottom:20px;">
+    <h2><span class="hico">💬</span> Size Nasıl Yardımcı Olabiliriz?</h2>
+    <div class="topic-grid">
+      <div class="topic-box" onclick="setKonu('Hata Bildirimi')">
+        <span class="tbi">🐛</span>
+        <span class="tbt">Hata Bildirimi</span>
+        <span class="tbd">Hesaplama aracında sorun mu var?</span>
+      </div>
+      <div class="topic-box" onclick="setKonu('Yeni Araç Önerisi')">
+        <span class="tbi">💡</span>
+        <span class="tbt">Yeni Araç Önerisi</span>
+        <span class="tbd">Görmek istediğiniz bir araç mı var?</span>
+      </div>
+      <div class="topic-box" onclick="setKonu('İş Birliği & Reklam')">
+        <span class="tbi">🤝</span>
+        <span class="tbt">İş Birliği & Reklam</span>
+        <span class="tbd">Sponsorluk ve marka iş birliği</span>
+      </div>
+      <div class="topic-box" onclick="setKonu('Genel Soru')">
+        <span class="tbi">❓</span>
+        <span class="tbt">Genel Soru</span>
+        <span class="tbd">Aklınızdaki her türlü soru</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANA İKİ KOLON -->
+  <div class="two-col" style="margin-bottom:20px;">
+
+    <!-- İLETİŞİM FORMU -->
+    <div class="card">
+      <h2><span class="hico">📝</span> Mesaj Gönderin</h2>
+
+      <div id="contact-form">
+        <div class="form-group">
+          <label for="ad">Adınız <span style="color:var(--danger)">*</span></label>
+          <input type="text" id="ad" placeholder="Adınız Soyadınız" autocomplete="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-posta Adresiniz <span style="color:var(--danger)">*</span></label>
+          <input type="email" id="email" placeholder="ornek@email.com" autocomplete="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="konu">Konu <span style="color:var(--danger)">*</span></label>
+          <select id="konu" required>
+            <option value="" disabled selected>Konu seçin...</option>
+            <option value="Hata Bildirimi">🐛 Hata Bildirimi</option>
+            <option value="Yeni Araç Önerisi">💡 Yeni Araç Önerisi</option>
+            <option value="İş Birliği & Reklam">🤝 İş Birliği & Reklam</option>
+            <option value="Genel Soru">❓ Genel Soru</option>
+            <option value="Diğer">📌 Diğer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mesaj">Mesajınız <span style="color:var(--danger)">*</span></label>
+          <textarea id="mesaj" placeholder="Mesajınızı buraya yazın... (en az 20 karakter)" required oninput="updateChar()"></textarea>
+          <div class="char-count"><span id="charCount">0</span> / 1000 karakter</div>
+        </div>
+
+        <div style="font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.6;">
+          📌 Bu form gönderildiğinde mesajınız <strong>info@hesaplarsin.com</strong> adresine iletilir. <a href="https://hesaplarsin.com/gizlilik-politikasi.html" style="color:var(--brand);">Gizlilik Politikası</a>'nı kabul etmiş sayılırsınız.
+        </div>
+
+        <button class="btn-send" id="sendBtn" onclick="sendForm()">
+          ✉️ Mesajı Gönder
+        </button>
+      </div>
+
+      <div id="form-success">
+        <div class="fs-ico">✅</div>
+        <h3>Mesajınız İletildi!</h3>
+        <p>En kısa sürede size geri döneceğiz. Teşekkür ederiz.</p>
+      </div>
+    </div>
+
+    <!-- İLETİŞİM BİLGİLERİ -->
+    <div style="display:flex;flex-direction:column;gap:18px;">
+
+      <div class="card">
+        <h2><span class="hico">📞</span> İletişim Bilgileri</h2>
+
+        <a class="contact-item" href="mailto:info@hesaplarsin.com" aria-label="E-posta gönder">
+          <div class="cico mail">📧</div>
+          <div>
+            <div class="clabel">E-Posta</div>
+            <div class="cval">info@hesaplarsin.com</div>
+          </div>
+        </a>
+
+
+
+        <a class="contact-item" href="https://www.instagram.com/dngmedia.social" target="_blank" rel="noopener noreferrer" aria-label="Instagram sayfamız">
+          <div class="cico ig">📷</div>
+          <div>
+            <div class="clabel">Instagram</div>
+            <div class="cval">@dngmedia.social</div>
+          </div>
+        </a>
+
+        <a class="contact-item" href="https://www.facebook.com/dngmedia.social" target="_blank" rel="noopener noreferrer" aria-label="Facebook sayfamız">
+          <div class="cico fb">📘</div>
+          <div>
+            <div class="clabel">Facebook</div>
+            <div class="cval">dngmedia.social</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="card">
+        <h2><span class="hico">⏱️</span> Yanıt Süreleri</h2>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+            <span style="font-size:.85rem;font-weight:600;">🐛 Hata Bildirimi</span>
+            <span style="font-size:.78rem;color:var(--success);font-weight:700;">1–2 iş günü</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+            <span style="font-size:.85rem;font-weight:600;">💡 Araç Önerisi</span>
+            <span style="font-size:.78rem;color:var(--brand);font-weight:700;">3–5 iş günü</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+            <span style="font-size:.85rem;font-weight:600;">🤝 İş Birliği</span>
+            <span style="font-size:.78rem;color:var(--accent);font-weight:700;">2–3 iş günü</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+            <span style="font-size:.85rem;font-weight:600;">❓ Genel Soru</span>
+            <span style="font-size:.78rem;color:var(--muted);font-weight:700;">3–5 iş günü</span>
+          </div>
+        </div>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:12px;line-height:1.6;">
+          Yanıt süreleri hafta içi iş günleri için geçerlidir. Hafta sonları ve resmi tatillerde yanıt süreleri uzayabilir.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- REKLAM - orta -->
+
+
+  <!-- SSS -->
+  <div class="card" style="margin-bottom:20px;">
+    <h2><span class="hico">❓</span> Sık Sorulan Sorular</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Hesaplama araçlarınız tamamen ücretsiz mi?
+        <span class="ico">+</span>
+      </button>
+      <div class="faq-a">
+        Evet, Hesaplarsın'daki tüm hesaplama araçları tamamen <strong>ücretsiz</strong>. Herhangi bir üyelik, abonelik veya ödeme gerektirmez. Tüm araçlara kayıt olmadan anında erişebilirsiniz.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Girdiğim veriler kaydediliyor mu?
+        <span class="ico">+</span>
+      </button>
+      <div class="faq-a">
+        Hayır. Hesaplama araçlarımıza girdiğiniz veriler sunucularımıza <strong>kaydedilmez</strong>. Tüm hesaplamalar tamamen tarayıcınızda, cihazınızda gerçekleşir. Kişisel verileriniz bizimle paylaşılmaz.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Bir hesaplama aracında hata buldum, ne yapmalıyım?
+        <span class="ico">+</span>
+      </button>
+      <div class="faq-a">
+        Yukarıdaki formu kullanarak <strong>"Hata Bildirimi"</strong> konusuyla bize ulaşabilirsiniz. Hangi araçta, ne tür bir hata gördüğünüzü mümkün olduğunca ayrıntılı aktarırsanız en kısa sürede düzeltiriz. Geri bildirimleriniz platformumuzu geliştirmemize büyük katkı sağlar.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Görmek istediğim bir hesaplama aracı yok, ekleyebilir misiniz?
+        <span class="ico">+</span>
+      </button>
+      <div class="faq-a">
+        Elbette! <strong>"Yeni Araç Önerisi"</strong> konusuyla bize yazın. Kullanıcılarımızdan gelen talepleri değerlendiriyor, en çok istenen araçları öncelikli olarak geliştiriyoruz. Öneriniz için şimdiden teşekkürler.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Reklam veya sponsorluk için nasıl iletişime geçebilirim?
+        <span class="ico">+</span>
+      </button>
+      <div class="faq-a">
+        <strong>"İş Birliği & Reklam"</strong> konusuyla formu doldurabilir ya da doğrudan <a href="mailto:info@hesaplarsin.com" style="color:var(--brand);">info@hesaplarsin.com</a> adresine e-posta gönderebilirsiniz. Marka iş birlikleri, sponsorluk ve dijital reklam taleplerini değerlendiriyoruz.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Hesaplama sonuçları resmi işlemlerde kullanılabilir mi?
+        <span class="ico">+</span>
+      </button>
+      <div class="faq-a">
+        Araçlarımız <strong>bilgilendirme amaçlıdır</strong>. Vergisel, hukuki veya finansal işlemlerinizde kesin sonuçlar için Serbest Muhasebeci Mali Müşavir (SMMM), Yeminli Mali Müşavir (YMM) veya ilgili kurumların güncel açıklamalarını referans almanızı tavsiye ederiz.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- İLGİLİ SAYFALAR -->
+  <div class="card">
+    <h2><span class="hico">🔗</span> Faydalı Bağlantılar</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;">
+      <a href="https://hesaplarsin.com/hakkimizda.html" style="display:flex;align-items:center;gap:9px;padding:11px 13px;border:1px solid var(--border);border-radius:9px;text-decoration:none;color:var(--text);font-size:.84rem;font-weight:600;transition:all .15s;background:var(--bg);" onmouseover="this.style.borderColor='var(--brand)';this.style.background='var(--brand-light)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg)';this.style.color='var(--text)';">
+        <span>👋</span> Hakkımızda
+      </a>
+      <a href="https://hesaplarsin.com/gizlilik-politikasi.html" style="display:flex;align-items:center;gap:9px;padding:11px 13px;border:1px solid var(--border);border-radius:9px;text-decoration:none;color:var(--text);font-size:.84rem;font-weight:600;transition:all .15s;background:var(--bg);" onmouseover="this.style.borderColor='var(--brand)';this.style.background='var(--brand-light)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg)';this.style.color='var(--text)';">
+        <span>🔒</span> Gizlilik Politikası
+      </a>
+      <a href="https://hesaplarsin.com/kullanim-sartlari.html" style="display:flex;align-items:center;gap:9px;padding:11px 13px;border:1px solid var(--border);border-radius:9px;text-decoration:none;color:var(--text);font-size:.84rem;font-weight:600;transition:all .15s;background:var(--bg);" onmouseover="this.style.borderColor='var(--brand)';this.style.background='var(--brand-light)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg)';this.style.color='var(--text)';">
+        <span>📄</span> Kullanım Şartları
+      </a>
+      <a href="https://hesaplarsin.com" style="display:flex;align-items:center;gap:9px;padding:11px 13px;border:1px solid var(--border);border-radius:9px;text-decoration:none;color:var(--text);font-size:.84rem;font-weight:600;transition:all .15s;background:var(--bg);" onmouseover="this.style.borderColor='var(--brand)';this.style.background='var(--brand-light)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg)';this.style.color='var(--text)';">
+        <span>🏠</span> Ana Sayfa
+      </a>
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Hesaplarsın</div>
+        <p class="fdesc">Türkiye'nin en kapsamlı ücretsiz hesaplama platformu. KDV'den krediye, maaştan amortisman hesaplamaya — her hesap bir tık uzakta.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Finans</h4>
+        <a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a>
+        <a href="https://hesaplarsin.com/bilesik-faiz.html">Bileşik Faiz</a>
+        <a href="https://hesaplarsin.com/roi-hesaplama.html">ROI Hesaplama</a>
+        <a href="https://hesaplarsin.com/enflasyon-hesaplama.html">Enflasyon</a>
+      </div>
+      <div class="footer-col">
+        <h4>Vergi</h4>
+        <a href="https://hesaplarsin.com/kov-hesaplama.html">KDV Hesaplama</a>
+        <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">Gelir Vergisi</a>
+        <a href="https://hesaplarsin.com/amortisman-hesaplama.html">Amortisman</a>
+        <a href="https://hesaplarsin.com/otv-hesaplama.html">ÖTV Hesaplama</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hesaplarsın</h4>
+        <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
+        <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+        <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
+        <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hesaplarsın. Tüm hakları saklıdır.</span>
+      <span>
+        <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a> ·
+        <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a> ·
+        <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Sayfanın başına git">↑</button>
+
+<script>
+  // Hamburger
+  const hamBtn = document.getElementById('hamBtn');
+  const navLinks = document.getElementById('navLinks');
+  hamBtn.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    hamBtn.setAttribute('aria-expanded', open);
+  });
+  document.addEventListener('click', e => {
+    if (!hamBtn.contains(e.target) && !navLinks.contains(e.target))
+      navLinks.classList.remove('open');
+  });
+
+  // Back to top
+  const topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', () => topBtn.classList.toggle('show', window.scrollY > 400), { passive: true });
+
+  // Konu kartlarından seç
+  function setKonu(konu) {
+    document.getElementById('konu').value = konu;
+    document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Karakter sayacı
+  function updateChar() {
+    const len = document.getElementById('mesaj').value.length;
+    document.getElementById('charCount').textContent = len;
+  }
+
+  // Form gönder
+  function sendForm() {
+    const ad    = document.getElementById('ad').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const konu  = document.getElementById('konu').value;
+    const mesaj = document.getElementById('mesaj').value.trim();
+
+    if (!ad)    { alert('Lütfen adınızı girin.'); return; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Lütfen geçerli bir e-posta girin.'); return; }
+    if (!konu)  { alert('Lütfen bir konu seçin.'); return; }
+    if (mesaj.length < 20) { alert('Mesajınız en az 20 karakter olmalıdır.'); return; }
+    if (mesaj.length > 1000) { alert('Mesajınız 1000 karakteri aşamaz.'); return; }
+
+    // mailto fallback — backend yoksa kullanıcı mail uygulamasıyla gönderir
+    const mailtoLink = `mailto:info@hesaplarsin.com?subject=${encodeURIComponent('[Hesaplarsın] ' + konu + ' - ' + ad)}&body=${encodeURIComponent('Ad: ' + ad + '\nE-posta: ' + email + '\nKonu: ' + konu + '\n\nMesaj:\n' + mesaj)}`;
+    window.location.href = mailtoLink;
+
+    // Başarı göster
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  // FAQ
+  function toggleFaq(btn) {
+    const ans = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(b => {
+      b.classList.remove('open');
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      ans.classList.add('open');
+    }
+  }
+</script>
+
+</body>
+</html>
