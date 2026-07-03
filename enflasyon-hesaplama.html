@@ -1,90 +1,792 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Enflasyon Hesaplama - Hesapmatik</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Para Değer Kaybı Hesaplama 2026 | Enflasyon Alım Gücü Kaybı | TÜFE | Hesaplarsın</title>
+  <meta name="description" content="Para değer kaybı hesaplama 2026. Enflasyon nedeniyle paranızın ne kadar eridiğini, alım gücü kaybınızı ve bugünkü değer karşılığını anında hesaplayın. TÜİK TÜFE verileri, kira artışı, maaş reel değeri dahil." />
+  <meta name="keywords" content="para değer kaybı hesaplama, enflasyon hesaplama 2026, paranın değeri hesaplama, alım gücü kaybı hesaplama, TÜFE hesaplama, para eriyor hesaplama, enflasyon etkisi hesaplama, paranın bugünkü değeri, kira artış hesaplama 2026, maaş reel değer kaybı" />
+  <link rel="canonical" href="https://hesaplarsin.com/enflasyon-hesaplama.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hesaplarsın" />
+  <meta property="og:title" content="Para Değer Kaybı Hesaplama 2026 | Enflasyon Alım Gücü | Hesaplarsın" />
+  <meta property="og:description" content="Enflasyon nedeniyle paranızın ne kadar eridiğini hesaplayın. TÜİK TÜFE verileri, kira artışı ve maaş reel değer kaybı dahil." />
+  <meta property="og:url" content="https://hesaplarsin.com/enflasyon-hesaplama.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-<style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#07142c;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FT582GF9N9');</script>
 
-.card{
-background:#102348;
-padding:30px;
-border-radius:20px;
-width:90%;
-max-width:500px;
-}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Para Değer Kaybı Hesaplama 2026","url":"https://hesaplarsin.com/enflasyon-hesaplama.html","description":"TÜİK TÜFE verileriyle para değer kaybı, alım gücü kaybı, kira artışı ve maaş reel değer hesaplama aracı.","applicationCategory":"FinanceApplication","operatingSystem":"All","inLanguage":"tr","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"publisher":{"@type":"Organization","name":"Hesaplarsın","url":"https://hesaplarsin.com"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Para değer kaybı nasıl hesaplanır?","acceptedAnswer":{"@type":"Answer","text":"Formül: Bugünkü Değer = Başlangıç Tutarı × (1 + Enflasyon Oranı)^Yıl Sayısı. Alım Gücü Kaybı = Başlangıç Tutarı - (Başlangıç Tutarı ÷ (1 + Enflasyon)^Yıl). Örnek: 10.000 TL'yi yıllık %50 enflasyon ortamında 3 yıl vadesiz hesapta tutarsanız, reel alım gücünüz yaklaşık 2.963 TL'ye eşdeğer düşer; yaklaşık %70 değer kaybı yaşarsınız."}},{"@type":"Question","name":"2026 Türkiye enflasyon oranı ne kadar?","acceptedAnswer":{"@type":"Answer","text":"TÜİK verilerine göre Mayıs 2026 itibarıyla Türkiye yıllık TÜFE enflasyonu yaklaşık %35-38 aralığındadır. Kira artışı için kullanılan 12 aylık TÜFE ortalaması Mart 2026 itibarıyla %33,39 olarak açıklanmıştır. Güncel veriler için TÜİK'in resmi sitesini takip ediniz."}},{"@type":"Question","name":"Kira artış oranı 2026 ne kadar?","acceptedAnswer":{"@type":"Answer","text":"Türk Borçlar Kanunu'nun 344. maddesi uyarınca kira artışında TÜFE'nin 12 aylık ortalaması esas alınır. Mart 2026 itibarıyla bu oran %33,39'dur. Yeni kira = Mevcut kira × (1 + 33,39 / 100) formülüyle hesaplanır."}},{"@type":"Question","name":"Enflasyon ile reel maaş kaybı nasıl hesaplanır?","acceptedAnswer":{"@type":"Answer","text":"Reel maaş değişimi = ((1 + Nominal Zam Oranı) ÷ (1 + Enflasyon Oranı) - 1) × 100. Örnek: %20 zam aldınız, enflasyon %38 ise reel ücret değişimi = (1,20 / 1,38 - 1) × 100 = yaklaşık -%13. Yani nominal zama rağmen alım gücünüz %13 gerilemiş demektir."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://hesaplarsin.com"},{"@type":"ListItem","position":2,"name":"Finans","item":"https://hesaplarsin.com/#finans"},{"@type":"ListItem","position":3,"name":"Para Değer Kaybı Hesaplama","item":"https://hesaplarsin.com/enflasyon-hesaplama.html"}]}
+  </script>
 
-input{
-width:100%;
-padding:15px;
-border:none;
-border-radius:10px;
-margin-bottom:15px;
-box-sizing:border-box;
-}
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --brand:#1a56db;--brand-dark:#1341b0;--brand-light:#e8f0fe;
+      --accent:#f59e0b;--success:#10b981;--danger:#ef4444;
+      --text:#111827;--muted:#6b7280;--border:#e5e7eb;
+      --bg:#f9fafb;--card:#fff;--r:12px;
+      --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.05);
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;-webkit-text-size-adjust:100%;}
 
-button{
-width:100%;
-padding:15px;
-background:#8b5cf6;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-}
+    .info-bar{background:#1e3a5f;color:#fff;padding:10px 16px;text-align:center;font-size:.83rem;}
+    .info-bar strong{color:#93c5fd;}
+    .info-bar a{color:#fbbf24;text-decoration:none;}
 
-.result{
-margin-top:20px;
-padding:15px;
-background:#1b3568;
-border-radius:10px;
-}
-</style>
+    nav.topnav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+    .nav-inner{max-width:1140px;margin:0 auto;padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--brand);text-decoration:none;white-space:nowrap;}
+    .nav-links{display:flex;gap:2px;flex-wrap:wrap;}
+    .nav-links a{font-size:.8rem;font-weight:500;color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:6px;transition:background .15s,color .15s;white-space:nowrap;}
+    .nav-links a:hover,.nav-links a.active{background:var(--brand-light);color:var(--brand);}
+    .ham{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+    .ham span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0;border-radius:2px;}
+    @media(max-width:640px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 16px 16px;border-bottom:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08);gap:4px;z-index:201;}.nav-links.open{display:flex;}.nav-links a{padding:10px 12px;border-radius:8px;font-size:.9rem;}.ham{display:block;}}
+
+    .breadcrumb{max-width:1140px;margin:0 auto;padding:12px 16px 0;font-size:.8rem;color:var(--muted);}
+    .breadcrumb a{color:var(--brand);text-decoration:none;}
+    .breadcrumb span{margin:0 5px;}
+
+    .hero{background:linear-gradient(135deg,#0f307a 0%,#1341b0 50%,#1a56db 100%);color:#fff;padding:44px 16px 40px;}
+    .hero-inner{max-width:1140px;margin:0 auto;}
+    .hero-tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;font-size:.76rem;font-weight:600;padding:4px 12px;margin-bottom:14px;}
+    .hero h1{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:900;line-height:1.2;margin-bottom:10px;letter-spacing:-.4px;}
+    .hero p{font-size:.93rem;opacity:.88;max-width:580px;line-height:1.7;margin-bottom:16px;}
+    .hero-badges{display:flex;gap:8px;flex-wrap:wrap;}
+    .hbadge{font-size:.73rem;font-weight:600;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);}
+
+    .main-grid{max-width:1140px;margin:24px auto 0;padding:0 16px 60px;display:grid;grid-template-columns:1fr 300px;gap:22px;}
+    @media(max-width:840px){.main-grid{grid-template-columns:1fr;}}
+
+    .card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);padding:24px;}
+    @media(max-width:480px){.card{padding:16px;}}
+    .card-title{font-size:1rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px;padding-bottom:12px;border-bottom:2px solid var(--brand-light);}
+
+    /* MOD TABS */
+    .mod-tabs{display:flex;border-radius:10px;overflow:hidden;border:1.5px solid var(--border);margin-bottom:20px;}
+    .modtab{flex:1;padding:11px 4px;font-size:.77rem;font-weight:700;border:none;background:var(--bg);color:var(--muted);cursor:pointer;transition:all .15s;text-align:center;-webkit-tap-highlight-color:transparent;line-height:1.3;}
+    .modtab.active{background:var(--brand);color:#fff;}
+    .modtab:not(:last-child){border-right:1px solid var(--border);}
+
+    .field{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    @media(max-width:520px){.form-grid{grid-template-columns:1fr;}}
+    label{font-size:.82rem;font-weight:600;}
+    label small{font-weight:400;color:var(--muted);margin-left:3px;}
+    .input-wrap{position:relative;}
+    .input-wrap .currency{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:.78rem;font-weight:700;color:var(--muted);pointer-events:none;}
+    input[type="number"]{width:100%;padding:11px 40px 11px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:.95rem;color:var(--text);background:#fff;outline:none;-webkit-appearance:none;-moz-appearance:textfield;transition:border .15s,box-shadow .15s;}
+    input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;}
+    input::placeholder{color:#c4c9d4;}
+    input:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(26,86,219,.1);}
+
+    /* HIZLI SENARYO */
+    .quick-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px;}
+    .qtag{font-size:.73rem;padding:5px 11px;border:1px solid var(--border);border-radius:20px;cursor:pointer;background:#fff;color:var(--muted);transition:all .15s;white-space:nowrap;-webkit-tap-highlight-color:transparent;}
+    .qtag:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-light);}
+
+    .btn-calc{width:100%;padding:14px;background:var(--brand);color:#fff;font-size:.96rem;font-weight:700;border:none;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .15s,transform .1s;-webkit-tap-highlight-color:transparent;}
+    .btn-calc:hover{background:var(--brand-dark);}
+    .btn-calc:active{transform:scale(.98);}
+    .btn-reset{width:100%;padding:9px;background:transparent;color:var(--muted);font-size:.84rem;font-weight:500;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s;margin-top:8px;}
+    .btn-reset:hover{border-color:var(--danger);color:var(--danger);}
+
+    /* SONUÇ */
+    .result-section{display:none;margin-top:20px;}
+
+    .result-hero{border-radius:12px;padding:22px;color:#fff;margin-bottom:14px;background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 40%,var(--danger) 100%);}
+    .rh-top{text-align:center;margin-bottom:12px;}
+    .rh-emoji{font-size:2rem;margin-bottom:4px;}
+    .rh-label{font-size:.78rem;opacity:.85;margin-bottom:4px;font-weight:500;}
+    .rh-val{font-size:2.2rem;font-weight:900;letter-spacing:-.5px;}
+    .rh-sub{font-size:.83rem;opacity:.83;margin-top:4px;}
+    .rh-divider{border:none;border-top:1px solid rgba(255,255,255,.2);margin:10px 0;}
+    .rh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+    @media(max-width:380px){.rh-grid{grid-template-columns:repeat(2,1fr);}}
+    .rh-item{text-align:center;}
+    .rh-item .rl{font-size:.68rem;opacity:.8;margin-bottom:2px;font-weight:500;}
+    .rh-item .rv{font-size:.9rem;font-weight:800;}
+
+    .detay-section{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;}
+    .ds-title{font-size:.82rem;font-weight:700;margin-bottom:10px;color:var(--muted);}
+    .detay-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:.84rem;}
+    .detay-row:last-child{border-bottom:none;}
+    .detay-row.vurgu{font-weight:700;border-top:2px solid var(--border);margin-top:4px;padding-top:10px;}
+    .detay-row .dr-label{color:var(--muted);}
+    .detay-row.vurgu .dr-label{color:var(--brand);font-weight:700;}
+
+    /* SENARYO TABLOSU */
+    .tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--border);-webkit-overflow-scrolling:touch;}
+    .sen-table{width:100%;border-collapse:collapse;font-size:.8rem;min-width:400px;}
+    .sen-table thead{background:var(--brand);color:#fff;}
+    .sen-table th{padding:9px 11px;text-align:right;font-weight:600;font-size:.76rem;white-space:nowrap;}
+    .sen-table th:first-child{text-align:left;}
+    .sen-table td{padding:7px 11px;border-bottom:1px solid var(--border);text-align:right;font-size:.79rem;}
+    .sen-table td:first-child{text-align:left;font-weight:600;}
+    .sen-table tr:nth-child(even) td{background:var(--bg);}
+    .sen-table tr:last-child td{border-bottom:none;}
+
+    .export-btns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+    .btn-exp{flex:1;min-width:80px;padding:9px 8px;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:#fff;color:var(--text);display:flex;align-items:center;justify-content:center;gap:5px;transition:all .15s;-webkit-tap-highlight-color:transparent;}
+    .btn-exp:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-light);}
+
+    /* SIDEBAR */
+    .sidebar{display:flex;flex-direction:column;gap:18px;}
+    .tufe-table{width:100%;border-collapse:collapse;font-size:.79rem;}
+    .tufe-table th{background:var(--bg);padding:7px 9px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border);font-size:.72rem;}
+    .tufe-table td{padding:7px 9px;border-bottom:1px solid var(--border);}
+    .tufe-table tr:last-child td{border-bottom:none;}
+    .tufe-table .aktif{background:#dbeafe;font-weight:700;color:var(--brand-dark);}
+    .info-box{background:var(--brand-light);border-left:3px solid var(--brand);border-radius:0 8px 8px 0;padding:12px 14px;font-size:.82rem;color:#1e3a5f;line-height:1.65;}
+    .info-box strong{color:var(--brand-dark);}
+    .warn-box2{background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 14px;font-size:.82rem;color:#78350f;line-height:1.65;}
+    .source-note{font-size:.71rem;color:var(--muted);line-height:1.55;margin-top:8px;}
+    .source-note a{color:var(--brand);}
+    .ql-link{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:8px;text-decoration:none;color:var(--text);font-size:.83rem;font-weight:500;transition:background .15s;border:1px solid transparent;}
+    .ql-link:hover{background:var(--brand-light);color:var(--brand);border-color:var(--brand-light);}
+    .ql-icon{width:30px;height:30px;border-radius:7px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;}
+
+    /* ARTICLE */
+    .article{max-width:1140px;margin:0 auto;padding:0 16px 60px;}
+    .article h2{font-size:clamp(1.1rem,3vw,1.3rem);font-weight:800;margin:36px 0 12px;}
+    .article h3{font-size:1rem;font-weight:700;margin:22px 0 8px;color:#1e3a5f;}
+    .article p{color:#374151;line-height:1.82;margin-bottom:12px;font-size:.93rem;}
+    .article ul{margin:8px 0 14px 18px;}
+    .article ul li{color:#374151;font-size:.92rem;line-height:1.75;margin-bottom:8px;}
+    .formula-box{background:#1e293b;color:#e2e8f0;border-radius:10px;padding:16px 18px;font-family:'Courier New',monospace;font-size:.86rem;line-height:2;margin:14px 0;overflow-x:auto;}
+    .formula-box .v{color:#93c5fd;}
+    .formula-box .e{color:#86efac;}
+    .formula-box .c{color:#fbbf24;}
+    .cite-box{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin:14px 0;font-size:.79rem;color:var(--muted);line-height:1.65;}
+    .cite-box strong{color:var(--text);font-size:.82rem;}
+    .cite-box a{color:var(--brand);}
+    .tablo-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--border);margin:14px 0;}
+    .veri-tablo{width:100%;border-collapse:collapse;font-size:.83rem;min-width:360px;}
+    .veri-tablo thead{background:var(--brand);color:#fff;}
+    .veri-tablo th{padding:10px 12px;text-align:left;font-weight:600;font-size:.77rem;}
+    .veri-tablo td{padding:9px 12px;border-bottom:1px solid var(--border);}
+    .veri-tablo tr:last-child td{border-bottom:none;}
+    .veri-tablo tr:nth-child(even) td{background:var(--bg);}
+    .faq-item{border-bottom:1px solid var(--border);}
+    .faq-q{width:100%;text-align:left;background:none;border:none;padding:14px 0;font-size:.9rem;font-weight:600;cursor:pointer;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:12px;-webkit-tap-highlight-color:transparent;}
+    .faq-q .ico{width:22px;height:22px;border-radius:50%;background:var(--bg);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;transition:all .2s;}
+    .faq-q.open .ico{background:var(--brand);border-color:var(--brand);color:#fff;transform:rotate(45deg);}
+    .faq-a{display:none;padding:0 0 14px;color:#374151;font-size:.88rem;line-height:1.78;}
+    .faq-a.open{display:block;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;}
+    .rc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:13px 11px;text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:5px;transition:all .15s;}
+    .rc:hover{border-color:var(--brand);box-shadow:0 4px 14px rgba(26,86,219,.1);transform:translateY(-2px);}
+    .rc .ri{font-size:1.3rem;}
+    .rc .rt{font-size:.82rem;font-weight:700;}
+    .rc .rd{font-size:.73rem;color:var(--muted);}
+
+    footer{background:#111827;color:#9ca3af;padding:36px 16px 20px;}
+    .footer-inner{max-width:1140px;margin:0 auto;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px;margin-bottom:28px;}
+    @media(max-width:640px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:360px){.footer-grid{grid-template-columns:1fr;}}
+    .footer-brand{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:8px;}
+    .fdesc{font-size:.8rem;line-height:1.65;}
+    .footer-col h4{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:10px;}
+    .footer-col a{display:block;font-size:.8rem;color:#9ca3af;text-decoration:none;margin-bottom:7px;transition:color .15s;}
+    .footer-col a:hover{color:#fff;}
+    .footer-bottom{border-top:1px solid #1f2937;padding-top:16px;font-size:.76rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+    .footer-bottom a{color:#9ca3af;text-decoration:none;}
+
+    .toast{position:fixed;bottom:20px;right:16px;background:#1e293b;color:#fff;padding:10px 16px;border-radius:10px;font-size:.83rem;font-weight:500;box-shadow:0 4px 20px rgba(0,0,0,.2);z-index:9999;display:none;max-width:calc(100vw - 32px);animation:slideUp .3s ease;}
+    @keyframes slideUp{from{transform:translateY(12px);opacity:0}to{transform:translateY(0);opacity:1}}
+    #topBtn{position:fixed;bottom:20px;right:16px;background:var(--brand);color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:1.1rem;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,86,219,.35);z-index:9998;}
+    #topBtn.show{display:flex;}
+    @media print{.info-bar,nav.topnav,.sidebar,footer,#topBtn,.toast,.btn-calc,.btn-reset,.export-btns,.mod-tabs,.quick-tags{display:none!important;}.main-grid{grid-template-columns:1fr!important;}}
+  </style>
 </head>
-
 <body>
 
-<div class="card">
-
-<h1>Enflasyon Hesaplama</h1>
-
-<input type="number" id="tutar" placeholder="Tutar (TL)">
-<input type="number" id="enflasyon" placeholder="Enflasyon Oranı (%)">
-
-<button onclick="hesapla()">Hesapla</button>
-
-<div id="sonuc" class="result" style="display:none;"></div>
-
+<!-- BİLGİ BARI -->
+<div class="info-bar">
+  📊 <strong>Mart 2026 Kira Artış Oranı (12 ay TÜFE ort.):</strong> %33,39 · <strong>Yıllık TÜFE (Mayıs 2026):</strong> ~%36 · Kaynak: <a href="https://www.tuik.gov.tr" target="_blank" rel="noopener noreferrer">TÜİK</a>
 </div>
 
+<!-- NAV -->
+<nav class="topnav">
+  <div class="nav-inner">
+    <a class="logo" href="https://hesaplarsin.com">Hesaplarsın</a>
+    <button class="ham" id="hamBtn" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://hesaplarsin.com/mevduat-faizi-hesaplama.html">🏦 Mevduat Faizi</a>
+      <a href="https://hesaplarsin.com/bilesik-faiz.html">💰 Bileşik Faiz</a>
+      <a href="https://hesaplarsin.com/doviz-cevirici.html">💱 Döviz</a>
+      <a href="https://hesaplarsin.com/net-maas-hesaplama.html">💼 Net Maaş</a>
+      <a href="https://hesaplarsin.com/enflasyon-hesaplama.html" class="active">📈 Enflasyon</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://hesaplarsin.com">Ana Sayfa</a><span>›</span>
+  <a href="https://hesaplarsin.com/#finans">Finans</a><span>›</span>
+  <span aria-current="page">Para Değer Kaybı Hesaplama</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">📈 TÜİK TÜFE Verisiyle</span>
+    <h1>Para Değer Kaybı Hesaplama 2026</h1>
+    <p>Enflasyon nedeniyle paranızın ne kadar eridiğini, alım gücü kaybınızı, kira artış oranınızı ve maaşınızın reel değerini anında hesaplayın. 2026 güncel TÜİK verileriyle.</p>
+    <div class="hero-badges">
+      <span class="hbadge">✓ Ücretsiz</span>
+      <span class="hbadge">TÜFE Bazlı</span>
+      <span class="hbadge">Kira Artışı</span>
+      <span class="hbadge">Maaş Reel Değeri</span>
+      <span class="hbadge">Senaryo Tablosu</span>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+  <main>
+    <div class="card">
+      <div class="card-title">📈 Para Değer Kaybı / Enflasyon Hesaplama</div>
+
+      <!-- MOD TABS -->
+      <div class="mod-tabs">
+        <button class="modtab active" id="tab-deger" onclick="setMod('deger',this)">📉 Para Değer Kaybı</button>
+        <button class="modtab" id="tab-kira" onclick="setMod('kira',this)">🏠 Kira Artışı</button>
+        <button class="modtab" id="tab-maas" onclick="setMod('maas',this)">💼 Maaş Reel Değeri</button>
+      </div>
+
+      <!-- DEĞER KAYBI MODU -->
+      <div id="panel-deger">
+        <div class="form-grid">
+          <div class="field">
+            <label for="d-tutar">Para Tutarı (₺)</label>
+            <div class="input-wrap">
+              <input type="number" id="d-tutar" placeholder="örn: 100.000" min="0" inputmode="decimal" />
+              <span class="currency">₺</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="d-sure">Süre <small>(yıl)</small></label>
+            <div class="input-wrap">
+              <input type="number" id="d-sure" placeholder="örn: 3" min="0" max="50" step="0.5" inputmode="decimal" />
+              <span class="currency">yıl</span>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="d-enflasyon">Yıllık Ortalama Enflasyon Oranı (%) <small>TÜFE bazlı</small></label>
+          <div class="input-wrap">
+            <input type="number" id="d-enflasyon" placeholder="örn: 36" min="0" max="500" step="0.1" inputmode="decimal" value="36" />
+            <span class="currency">%</span>
+          </div>
+        </div>
+        <p style="font-size:.8rem;font-weight:600;margin-bottom:8px;">Hızlı Senaryo</p>
+        <div class="quick-tags">
+          <span class="qtag" onclick="fillDeger(100000,1,36)">100K · 1 yıl · %36</span>
+          <span class="qtag" onclick="fillDeger(100000,3,38)">100K · 3 yıl · %38</span>
+          <span class="qtag" onclick="fillDeger(500000,5,35)">500K · 5 yıl · %35</span>
+          <span class="qtag" onclick="fillDeger(1000000,10,40)">1M · 10 yıl · %40</span>
+        </div>
+        <button class="btn-calc" onclick="degerHesapla()">📉 Değer Kaybını Hesapla</button>
+        <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+      </div>
+
+      <!-- KİRA ARTIŞI MODU -->
+      <div id="panel-kira" style="display:none;">
+        <div class="form-grid">
+          <div class="field">
+            <label for="k-kira">Mevcut Kira Bedeli (₺)</label>
+            <div class="input-wrap">
+              <input type="number" id="k-kira" placeholder="örn: 15.000" min="0" inputmode="decimal" />
+              <span class="currency">₺</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="k-tufe">12 Aylık TÜFE Ortalaması (%) <small>Mart 2026: %33,39</small></label>
+            <div class="input-wrap">
+              <input type="number" id="k-tufe" placeholder="33.39" min="0" max="200" step="0.01" inputmode="decimal" value="33.39" />
+              <span class="currency">%</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.8rem;color:#78350f;margin-bottom:14px;line-height:1.65;">
+          📌 Türk Borçlar Kanunu m.344: Konut kira artışı TÜFE'nin 12 aylık ortalamasını aşamaz. Mart 2026 için bu oran <strong>%33,39</strong>'dur.
+        </div>
+        <button class="btn-calc" onclick="kiraHesapla()">🏠 Kira Artışını Hesapla</button>
+        <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+      </div>
+
+      <!-- MAAŞ REEL DEĞERİ MODU -->
+      <div id="panel-maas" style="display:none;">
+        <div class="form-grid">
+          <div class="field">
+            <label for="m-maas">Mevcut / Yeni Maaşınız (₺)</label>
+            <div class="input-wrap">
+              <input type="number" id="m-maas" placeholder="örn: 40.000" min="0" inputmode="decimal" />
+              <span class="currency">₺</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="m-eski">Önceki Maaşınız (₺)</label>
+            <div class="input-wrap">
+              <input type="number" id="m-eski" placeholder="örn: 30.000" min="0" inputmode="decimal" />
+              <span class="currency">₺</span>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="m-enflasyon">Bu Dönemde Gerçekleşen Yıllık Enflasyon (%) <small>TÜFE</small></label>
+          <div class="input-wrap">
+            <input type="number" id="m-enflasyon" placeholder="örn: 36" min="0" max="500" step="0.1" inputmode="decimal" value="36" />
+            <span class="currency">%</span>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="maasHesapla()">💼 Reel Değeri Hesapla</button>
+        <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+      </div>
+    </div>
+
+    <!-- SONUÇ -->
+    <div class="result-section card" id="resultSection">
+
+      <!-- HERO -->
+      <div class="result-hero" id="resultHero">
+        <div class="rh-top">
+          <div class="rh-emoji" id="r-emoji">📉</div>
+          <div class="rh-label" id="r-label">Alım Gücü Kaybı</div>
+          <div class="rh-val" id="r-val">—</div>
+          <div class="rh-sub" id="r-sub">—</div>
+        </div>
+        <hr class="rh-divider" />
+        <div class="rh-grid">
+          <div class="rh-item"><div class="rl" id="r1-label">Başlangıç Değeri</div><div class="rv" id="r1-val">—</div></div>
+          <div class="rh-item"><div class="rl" id="r2-label">Bugünkü Reel Değer</div><div class="rv" id="r2-val">—</div></div>
+          <div class="rh-item"><div class="rl" id="r3-label">Kayıp Oran</div><div class="rv" id="r3-val">—</div></div>
+        </div>
+      </div>
+
+      <!-- DETAY -->
+      <div class="detay-section">
+        <div class="ds-title" id="detayTitle">🧾 Hesaplama Detayı</div>
+        <div id="detayRows"></div>
+      </div>
+
+      <!-- SENARYO TABLOSU (sadece değer kaybı modunda) -->
+      <div id="senaryoSection" style="display:none;">
+        <p style="font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:8px;">📊 Farklı Enflasyon Senaryolarında Değer Kaybı</p>
+        <div class="tbl-wrap">
+          <table class="sen-table" aria-label="Enflasyon senaryo tablosu">
+            <thead><tr><th>Enflasyon</th><th>1 Yıl</th><th>3 Yıl</th><th>5 Yıl</th><th>10 Yıl</th></tr></thead>
+            <tbody id="senaryoBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style="background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.8rem;color:#78350f;margin:14px 0;line-height:1.65;">
+        ⚠️ Bu hesaplama sabit enflasyon oranı varsayımıyla yapılmaktadır. Gerçek TÜFE verileri için <a href="https://www.tuik.gov.tr" target="_blank" rel="noopener noreferrer" style="color:var(--brand);">TÜİK</a>'i takip edin.
+      </div>
+
+      <div class="export-btns">
+        <button class="btn-exp" onclick="copyResult()">📋 Kopyala</button>
+        <button class="btn-exp" onclick="window.print()">🖨️ Yazdır</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- TÜFE TABLOSU -->
+    <div class="card">
+      <div class="card-title" style="font-size:.9rem;">📊 Türkiye Yıllık Enflasyon (TÜFE)</div>
+      <table class="tufe-table" aria-label="Türkiye yıllık TÜFE enflasyon tablosu">
+        <thead><tr><th>Yıl</th><th>Yıllık TÜFE</th></tr></thead>
+        <tbody>
+          <tr><td>2019</td><td>%11,8</td></tr>
+          <tr><td>2020</td><td>%14,6</td></tr>
+          <tr><td>2021</td><td>%19,6</td></tr>
+          <tr><td>2022</td><td>%64,3 (zirve: %85)</td></tr>
+          <tr><td>2023</td><td>%64,8 (zirve: %85)</td></tr>
+          <tr><td>2024</td><td>%44,4</td></tr>
+          <tr><td>2025</td><td>%44,4→%38</td></tr>
+          <tr class="aktif"><td><strong>2026 (Mayıs)</strong></td><td><strong>~%36</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="source-note">📌 Kaynak: <a href="https://www.tuik.gov.tr" target="_blank" rel="noopener noreferrer">TÜİK</a> · <a href="https://enflasyonhesaplama.com" target="_blank" rel="noopener noreferrer">enflasyonhesaplama.com</a> (2026)</p>
+    </div>
+
+    <!-- KİRA BİLGİSİ -->
+    <div class="info-box">
+      <strong>🏠 Kira Artış Sınırı 2026</strong><br/>
+      Türk Borçlar Kanunu m.344'e göre konut kira artışı 12 aylık TÜFE ortalamasını aşamaz.<br/><br/>
+      <strong>Mart 2026:</strong> %33,39<br/>
+      <strong>Formül:</strong> Yeni kira = Mevcut × 1,3339<br/><br/>
+      Örnek: 10.000 ₺ kira → yeni kira = <strong>13.339 ₺</strong>
+      <div class="source-note">Kaynak: <a href="https://www.hesapmod.com/finansal-hesaplamalar/enflasyon-hesaplama" target="_blank" rel="noopener noreferrer">hesapmod.com</a> (Nisan 2026)</div>
+    </div>
+
+    <!-- UYARI -->
+    <div class="warn-box2">
+      <strong>⚠️ Paranızı Koruma Yolları</strong><br/>
+      Vadesiz hesapta tutulan para enflasyona karşı korumasızdır. Seçenekler:<br/>
+      • Vadeli mevduat (faiz &gt; enflasyon ise)<br/>
+      • Altın (tarihsel güvenli liman)<br/>
+      • Döviz hesabı<br/>
+      • BIST 100 hisse senetleri<br/>
+      • Enflasyona endeksli devlet tahvili (TÜFE+)
+      <div class="source-note">Kaynak: <a href="https://hesapyapan.com/paranin-degeri-hesaplama/" target="_blank" rel="noopener noreferrer">hesapyapan.com</a> (2026)</div>
+    </div>
+
+    <!-- İLGİLİ ARAÇLAR -->
+    <div class="card">
+      <div class="card-title" style="font-size:.9rem;">🔗 İlgili Araçlar</div>
+      <a class="ql-link" href="https://hesaplarsin.com/mevduat-faizi-hesaplama.html"><div class="ql-icon">🏦</div><div><div style="font-weight:700;font-size:.82rem;">Mevduat Faizi</div><div style="font-size:.72rem;color:var(--muted)">Enflasyonu yeniyor mu?</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/bilesik-faiz.html"><div class="ql-icon">💰</div><div><div style="font-weight:700;font-size:.82rem;">Bileşik Faiz</div><div style="font-size:.72rem;color:var(--muted)">Reel getiri hesabı</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/doviz-cevirici.html"><div class="ql-icon">💱</div><div><div style="font-weight:700;font-size:.82rem;">Döviz Çevirici</div><div style="font-size:.72rem;color:var(--muted)">Canlı USD/TRY</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/net-maas-hesaplama.html"><div class="ql-icon">💼</div><div><div style="font-weight:700;font-size:.82rem;">Net Maaş Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">SGK ve vergi kesintisi</div></div></a>
+    </div>
+  </aside>
+</div>
+
+<!-- MAKALE -->
+<div class="article">
+
+  <h2>Para Değer Kaybı Nedir? Enflasyon Nasıl Etkiler?</h2>
+  <p>
+    <strong>Para değer kaybı</strong>, enflasyon nedeniyle belirli bir miktarın zaman içinde daha az mal ve hizmet satın alabilmesidir. TÜİK tarafından aylık açıklanan TÜFE (Tüketici Fiyat Endeksi), bu değer kaybını ölçmek için kullanılan resmi göstergedir. Türkiye ekonomisi, özellikle 2021 sonrasında yüksek enflasyon oranlarıyla karşı karşıya kalmıştır.
+  </p>
+
+  <div class="cite-box">
+    <strong>📌 Kaynaklar</strong><br/>
+    • <a href="https://enflasyonhesaplama.com" target="_blank" rel="noopener noreferrer">enflasyonhesaplama.com</a> — 2005'ten 2026'ya kümülatif enflasyon: %3.388; 1.000 TL → 34.878 TL değeri (2026)<br/>
+    • <a href="https://www.hesapmod.com/finansal-hesaplamalar/enflasyon-hesaplama" target="_blank" rel="noopener noreferrer">hesapmod.com</a> — Mart 2026 kira artış oranı %33,39; TÜFE baz yılı güncelleme (Nisan 2026)<br/>
+    • <a href="https://hesapyapan.com/paranin-degeri-hesaplama/" target="_blank" rel="noopener noreferrer">hesapyapan.com</a> — Alım gücü kaybı formülü ve senaryo analizi (Ocak 2026)<br/>
+    • <a href="https://hesaplala.com/parasal-deger-hesaplama" target="_blank" rel="noopener noreferrer">hesaplala.com</a> — TÜİK TÜFE endeksiyle parasal değer hesaplama rehberi (2026)<br/>
+    • <a href="https://www.tuik.gov.tr" target="_blank" rel="noopener noreferrer">TÜİK</a> — Resmi TÜFE ve TÜFE endeks verileri
+  </div>
+
+  <h2>Para Değer Kaybı Hesaplama Formülü</h2>
+  <div class="formula-box">
+    <span class="c">Gelecekte ne kadar alım gücü gerekir?</span><br/>
+    <span class="v">Gerekli Tutar</span> <span class="e">=</span> Bugünkü Tutar × (1 + Enflasyon)^Yıl<br/><br/>
+    <span class="c">Paranın reel alım gücü ne kadar kaldı?</span><br/>
+    <span class="v">Reel Alım Gücü</span> <span class="e">=</span> Tutar ÷ (1 + Enflasyon)^Yıl<br/><br/>
+    <span class="c">Kayıp yüzdesi:</span><br/>
+    <span class="v">Değer Kaybı %</span> <span class="e">=</span> (1 − 1÷(1+Enflasyon)^Yıl) × 100<br/><br/>
+    <span class="c">Örnek:</span> 100.000 TL, yıllık %36 enflasyon, 3 yıl<br/>
+    Reel alım gücü = 100.000 ÷ (1,36)^3 = <span class="e">39.847 TL</span><br/>
+    Kayıp = 60.153 TL (%60,2)
+  </div>
+
+  <h2>2026 Yılında 100.000 TL Ne Kadar Eriyor?</h2>
+  <p>
+    Türkiye'de yıllık enflasyonun yaklaşık %36 seyrettiği 2026 yılında, vadesiz hesapta tutulan 100.000 TL'nin reel alım gücü şu şekilde erimektedir:
+  </p>
+  <div class="tablo-wrap">
+    <table class="veri-tablo" aria-label="100.000 TL enflasyon değer kaybı tablosu">
+      <thead><tr><th>Süre</th><th>Nominal Tutar</th><th>Reel Alım Gücü (%36 enflasyon)</th><th>Kayıp</th></tr></thead>
+      <tbody>
+        <tr><td>1 Yıl</td><td>100.000 ₺</td><td>73.529 ₺</td><td>%26,5</td></tr>
+        <tr><td>2 Yıl</td><td>100.000 ₺</td><td>54.066 ₺</td><td>%45,9</td></tr>
+        <tr><td>3 Yıl</td><td>100.000 ₺</td><td>39.754 ₺</td><td>%60,2</td></tr>
+        <tr><td>5 Yıl</td><td>100.000 ₺</td><td>21.488 ₺</td><td>%78,5</td></tr>
+        <tr><td>10 Yıl</td><td>100.000 ₺</td><td>4.617 ₺</td><td>%95,4</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cite-box">
+    <strong>📌 Kaynak:</strong> <a href="https://hesapyapan.com/paranin-degeri-hesaplama/" target="_blank" rel="noopener noreferrer">hesapyapan.com</a> — "Formül: Alım Gücü = Başlangıç Tutarı ÷ (1 + Enflasyon Oranı)^Yıl Sayısı. Bu formülle, 10.000 TL'nin %50 enflasyonla 3 yıl sonraki alım gücü yaklaşık 2.963 TL'ye düşer." (Ocak 2026)
+  </div>
+
+  <h2>Kira Artışı 2026 — TBK Madde 344</h2>
+  <p>
+    Türk Borçlar Kanunu'nun 344. maddesi uyarınca konut kira sözleşmelerinde yıllık artış oranı, TÜFE'nin 12 aylık ortalamasını aşamaz. Mart 2026 itibarıyla bu oran <strong>%33,39</strong> olarak açıklanmıştır.
+  </p>
+  <div class="cite-box">
+    <strong>📌 Kaynak:</strong> <a href="https://www.hesapmod.com/finansal-hesaplamalar/enflasyon-hesaplama" target="_blank" rel="noopener noreferrer">hesapmod.com</a> — "Türk Borçlar Kanunu'nun 344. maddesine göre kira artışında TÜFE'nin 12 aylık ortalaması esas alınır. Mart 2026 itibarıyla bu oran 33,39'dur. Yeni kira = Mevcut kira × (1 + 33,39 / 100) formülüyle hesaplanır." (Nisan 2026)
+  </div>
+
+  <h2>Sık Sorulan Sorular</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Enflasyona karşı paramı nasıl koruyabilirim? <span class="ico">+</span></button>
+    <div class="faq-a">Enflasyonun üzerinde getiri sağlayan araçlar tercih edilmelidir. Tarihsel olarak altın, döviz ve hisse senetleri uzun vadede Türkiye'de enflasyona karşı koruma sağlamıştır. Vadeli mevduat faizi enflasyonu aşıyorsa avantajlıdır; 2026'da %36+ faiz sunan vadeli mevduat tercih edilebilir. Enflasyona endeksli devlet tahvilleri (TÜFE+) de güvenli bir seçenektir.<br/><small style="color:var(--muted)">Kaynak: hesapyapan.com, enflasyonhesaplama.com (2026)</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">TÜFE ile ÜFE arasındaki fark nedir? <span class="ico">+</span></button>
+    <div class="faq-a">TÜFE (Tüketici Fiyat Endeksi), tüketicilerin satın aldığı mal ve hizmet sepetinin fiyat değişimini ölçer; günlük yaşam maliyetini yansıtır. ÜFE (Üretici Fiyat Endeksi), üretici düzeyindeki fiyat değişimlerini ölçer; genellikle TÜFE'den önce hareket eder. Kira artışı ve alım gücü hesapları için TÜFE kullanılır; ticari maliyet analizleri için ÜFE'ye de bakılması önerilir.<br/><small style="color:var(--muted)">Kaynak: hesapmod.com, yenibirhesap.com (2026)</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">TÜİK enflasyon verilerine güvenilir mi? <span class="ico">+</span></button>
+    <div class="faq-a">TÜİK, Türkiye'nin resmi istatistik kurumu olup uluslararası metodolojiye göre TÜFE hesaplamaktadır. Resmi enflasyon ile "hissedilen enflasyon" farklılık gösterebilir; her bireyin tüketim sepeti farklı olduğundan kişisel enflasyon deneyimi resmi rakamdan sapabilir. Özellikle kira, gıda ve yakıt ağırlıklı harcama yapan bireyler daha yüksek enflasyon yaşayabilir.<br/><small style="color:var(--muted)">Kaynak: TCMB, TÜİK</small></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-ended="false">TÜİK'in 2026'da baz yılı neden değişti? <span class="ico">+</span></button>
+    <div class="faq-a">TÜİK, Ocak 2026'dan itibaren baz yılını "2003=100"den "2025=100"e güncelledi. Bu değişiklik aylık ve yıllık enflasyon oranlarını etkilemedi; yalnızca endeks seviyesi normalize edildi. Yani enflasyon rakamları aynı kalmaya devam etmektedir; sadece endeks sayısının büyüklüğü değişti.<br/><small style="color:var(--muted)">Kaynak: hesapmod.com (Nisan 2026)</small></div>
+  </div>
+
+  <h2>İlgili Hesaplama Araçları</h2>
+  <div class="related-grid">
+    <a class="rc" href="https://hesaplarsin.com/mevduat-faizi-hesaplama.html"><span class="ri">🏦</span><span class="rt">Mevduat Faizi</span><span class="rd">Enflasyonu yeniyor mu?</span></a>
+    <a class="rc" href="https://hesaplarsin.com/bilesik-faiz.html"><span class="ri">💰</span><span class="rt">Bileşik Faiz</span><span class="rd">Reel getiri hesabı</span></a>
+    <a class="rc" href="https://hesaplarsin.com/doviz-cevirici.html"><span class="ri">💱</span><span class="rt">Döviz Çevirici</span><span class="rd">Canlı kur</span></a>
+    <a class="rc" href="https://hesaplarsin.com/net-maas-hesaplama.html"><span class="ri">💼</span><span class="rt">Net Maaş Hesaplama</span><span class="rd">SGK ve vergi kesintisi</span></a>
+    <a class="rc" href="https://hesaplarsin.com/kripto-kar-zarar-hesaplama.html"><span class="ri">₿</span><span class="rt">Kripto Kar/Zarar</span><span class="rd">Enflasyona karşı kripto</span></a>
+    <a class="rc" href="https://hesaplarsin.com/yuzde-hesaplama.html"><span class="ri">📐</span><span class="rt">Yüzde Hesaplama</span><span class="rd">Artış / azalış</span></a>
+    <a class="rc" href="https://hesaplarsin.com/asgari-ucret-hesaplama.html"><span class="ri">💰</span><span class="rt">Asgari Ücret 2026</span><span class="rd">Net 28.075,50 ₺</span></a>
+    <a class="rc" href="https://hesaplarsin.com/kidem-tazminati-hesaplama.html"><span class="ri">🏆</span><span class="rt">Kıdem Tazminatı</span><span class="rd">Tavan: 64.948,77 ₺</span></a>
+  </div>
+
+  <div style="margin-top:24px;background:#fef2f2;border-left:3px solid var(--danger);border-radius:0 8px 8px 0;padding:13px 15px;font-size:.84rem;color:#7f1d1d;line-height:1.7;">
+    <strong>⚠️ Uyarı:</strong> Bu araç sabit enflasyon oranı varsayımıyla tahmini sonuçlar üretmektedir. Gerçek TÜFE verileri için <a href="https://www.tuik.gov.tr" target="_blank" rel="noopener noreferrer" style="color:var(--brand)">TÜİK</a> ve <a href="https://evds2.tcmb.gov.tr" target="_blank" rel="noopener noreferrer" style="color:var(--brand)">TCMB EVDS</a>'yi takip edin. Bu içerik yatırım tavsiyesi niteliği taşımaz.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Hesaplarsın</div>
+        <p class="fdesc">Türkiye'nin en kapsamlı ücretsiz hesaplama platformu. 70+ araç, 2026 güncel verileri.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Finans</h4>
+        <a href="https://hesaplarsin.com/enflasyon-hesaplama.html">Para Değer Kaybı</a>
+        <a href="https://hesaplarsin.com/mevduat-faizi-hesaplama.html">Mevduat Faizi</a>
+        <a href="https://hesaplarsin.com/bilesik-faiz.html">Bileşik Faiz</a>
+        <a href="https://hesaplarsin.com/doviz-cevirici.html">Döviz Çevirici</a>
+      </div>
+      <div class="footer-col">
+        <h4>İşçi Hakları</h4>
+        <a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş</a>
+        <a href="https://hesaplarsin.com/asgari-ucret-hesaplama.html">Asgari Ücret</a>
+        <a href="https://hesaplarsin.com/kidem-tazminati-hesaplama.html">Kıdem Tazminatı</a>
+        <a href="https://hesaplarsin.com/ihbar-tazminati-hesaplama.html">İhbar Tazminatı</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hesaplarsın</h4>
+        <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
+        <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+        <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
+        <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hesaplarsın. Bilgiler bilgilendirme amaçlıdır.</span>
+      <span><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a> · <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Başa git">↑</button>
+
 <script>
+const fmtTR = n => new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+const fmtInt = n => new Intl.NumberFormat('tr-TR',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Math.round(n));
+let toastTimer, currentMod='deger';
 
-function hesapla(){
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.style.display='none',2800);}
 
-let tutar=parseFloat(document.getElementById("tutar").value);
-let enflasyon=parseFloat(document.getElementById("enflasyon").value);
+const hamBtn=document.getElementById('hamBtn'),navLinks=document.getElementById('navLinks');
+hamBtn.addEventListener('click',()=>{const o=navLinks.classList.toggle('open');hamBtn.setAttribute('aria-expanded',o);});
+document.addEventListener('click',e=>{if(!hamBtn.contains(e.target)&&!navLinks.contains(e.target))navLinks.classList.remove('open');});
+window.addEventListener('scroll',()=>document.getElementById('topBtn').classList.toggle('show',scrollY>400),{passive:true});
 
-let sonuc=tutar*(1+enflasyon/100);
-
-document.getElementById("sonuc").style.display="block";
-
-document.getElementById("sonuc").innerHTML=
-"Güncel Değer: <strong>"+sonuc.toFixed(2)+" TL</strong>";
-
+function setMod(mod,el){
+  currentMod=mod;
+  document.querySelectorAll('.modtab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  ['deger','kira','maas'].forEach(m=>{
+    const p=document.getElementById('panel-'+m);
+    if(p) p.style.display=m===mod?'block':'none';
+  });
+  document.getElementById('resultSection').style.display='none';
 }
 
-</script>
+function fillDeger(tutar,sure,enf){
+  document.getElementById('d-tutar').value=tutar;
+  document.getElementById('d-sure').value=sure;
+  document.getElementById('d-enflasyon').value=enf;
+}
 
+function showResult(){
+  document.getElementById('resultSection').style.display='block';
+  setTimeout(()=>document.getElementById('resultSection').scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+// ═══ DEĞER KAYBI ═══
+function degerHesapla(){
+  const tutar=parseFloat(document.getElementById('d-tutar').value)||0;
+  const sure=parseFloat(document.getElementById('d-sure').value)||0;
+  const enf=parseFloat(document.getElementById('d-enflasyon').value)||0;
+
+  if(!tutar||tutar<=0){toast('❌ Para tutarını girin.');return;}
+  if(!sure||sure<=0){toast('❌ Süreyi girin.');return;}
+  if(!enf||enf<=0){toast('❌ Enflasyon oranını girin.');return;}
+
+  const enfOran=enf/100;
+  const gelecekDeger=tutar*Math.pow(1+enfOran,sure);
+  const reelAlimGucu=tutar/Math.pow(1+enfOran,sure);
+  const kayipTutar=tutar-reelAlimGucu;
+  const kayipYuzde=(1-1/Math.pow(1+enfOran,sure))*100;
+  const kumulatifEnf=(Math.pow(1+enfOran,sure)-1)*100;
+
+  document.getElementById('r-emoji').textContent='📉';
+  document.getElementById('r-label').textContent='Alım Gücü Kaybı';
+  document.getElementById('r-val').textContent=fmtTR(kayipYuzde)+'%';
+  document.getElementById('r-sub').textContent=`${sure} yılda ${enf}% yıllık enflasyonla ${fmtInt(tutar)} ₺'nin reel değeri`;
+  document.getElementById('r1-label').textContent='Başlangıç Tutarı';
+  document.getElementById('r1-val').textContent=fmtInt(tutar)+' ₺';
+  document.getElementById('r2-label').textContent='Reel Alım Gücü Karşılığı';
+  document.getElementById('r2-val').textContent=fmtInt(reelAlimGucu)+' ₺';
+  document.getElementById('r3-label').textContent='Kümülatif Enflasyon';
+  document.getElementById('r3-val').textContent='%'+fmtTR(kumulatifEnf);
+
+  document.getElementById('detayTitle').textContent='🧾 Değer Kaybı Detayı';
+  document.getElementById('detayRows').innerHTML=`
+    <div class="detay-row"><span class="dr-label">Başlangıç Tutarı</span><span>${fmtInt(tutar)} ₺</span></div>
+    <div class="detay-row"><span class="dr-label">Yıllık Enflasyon Oranı</span><span>%${enf}</span></div>
+    <div class="detay-row"><span class="dr-label">Süre</span><span>${sure} yıl</span></div>
+    <div class="detay-row"><span class="dr-label">Kümülatif Enflasyon (${sure} yıl)</span><span style="color:var(--danger)">%${fmtTR(kumulatifEnf)}</span></div>
+    <div class="detay-row"><span class="dr-label">Aynı alım gücü için gereken tutar</span><span style="color:var(--accent);">${fmtInt(gelecekDeger)} ₺</span></div>
+    <div class="detay-row"><span class="dr-label">Alım Gücü Kaybı (₺)</span><span style="color:var(--danger)">−${fmtInt(kayipTutar)} ₺</span></div>
+    <div class="detay-row vurgu"><span class="dr-label">Günümüz Reel Alım Gücü Karşılığı</span><span style="color:var(--danger)">${fmtInt(reelAlimGucu)} ₺</span></div>
+  `;
+
+  // SENARYO TABLOSU
+  const senaryolar=[{label:'%25',oran:0.25},{label:'%35',oran:0.35},{label:'%50',oran:0.50},{label:'%75',oran:0.75}];
+  const yillar=[1,3,5,10];
+  const tbody=document.getElementById('senaryoBody');
+  tbody.innerHTML=senaryolar.map(s=>{
+    const cols=yillar.map(y=>{
+      const r=tutar/Math.pow(1+s.oran,y);
+      const k=((1-1/Math.pow(1+s.oran,y))*100).toFixed(1);
+      return `<td style="color:var(--danger)">${fmtInt(r)} ₺<br><span style="font-size:.7rem;color:var(--muted)">-%${k}</span></td>`;
+    }).join('');
+    return `<tr><td>${s.label}</td>${cols}</tr>`;
+  }).join('');
+  document.getElementById('senaryoSection').style.display='block';
+  showResult();
+}
+
+// ═══ KİRA ARTIŞI ═══
+function kiraHesapla(){
+  const kira=parseFloat(document.getElementById('k-kira').value)||0;
+  const tufe=parseFloat(document.getElementById('k-tufe').value)||33.39;
+
+  if(!kira||kira<=0){toast('❌ Mevcut kira bedelini girin.');return;}
+
+  const yeniKira=kira*(1+tufe/100);
+  const artis=yeniKira-kira;
+
+  document.getElementById('r-emoji').textContent='🏠';
+  document.getElementById('r-label').textContent='Yeni Kira Bedeli (Azami)';
+  document.getElementById('r-val').textContent=fmtInt(yeniKira)+' ₺';
+  document.getElementById('r-sub').textContent=`TBK m.344 — %${tufe} 12 ay TÜFE ortalamasıyla`;
+  document.getElementById('r1-label').textContent='Mevcut Kira';
+  document.getElementById('r1-val').textContent=fmtInt(kira)+' ₺';
+  document.getElementById('r2-label').textContent='Artış Tutarı';
+  document.getElementById('r2-val').textContent='+'+fmtInt(artis)+' ₺';
+  document.getElementById('r3-label').textContent='12 Ay TÜFE Ortalaması';
+  document.getElementById('r3-val').textContent='%'+tufe;
+  document.getElementById('senaryoSection').style.display='none';
+
+  document.getElementById('detayTitle').textContent='🧾 Kira Artış Detayı';
+  document.getElementById('detayRows').innerHTML=`
+    <div class="detay-row"><span class="dr-label">Mevcut Kira</span><span>${fmtInt(kira)} ₺</span></div>
+    <div class="detay-row"><span class="dr-label">12 Aylık TÜFE Ortalaması (Mart 2026)</span><span>%${tufe}</span></div>
+    <div class="detay-row"><span class="dr-label">Artış Tutarı</span><span style="color:var(--accent)">+${fmtInt(artis)} ₺</span></div>
+    <div class="detay-row vurgu"><span class="dr-label">✅ Azami Yeni Kira Bedeli</span><span>${fmtInt(yeniKira)} ₺</span></div>
+    <div class="detay-row"><span class="dr-label">📌 Yasal Dayanak</span><span>TBK m.344</span></div>
+  `;
+  showResult();
+}
+
+// ═══ MAAŞ REEL DEĞERİ ═══
+function maasHesapla(){
+  const yeni=parseFloat(document.getElementById('m-maas').value)||0;
+  const eski=parseFloat(document.getElementById('m-eski').value)||0;
+  const enf=parseFloat(document.getElementById('m-enflasyon').value)||36;
+
+  if(!yeni||yeni<=0){toast('❌ Yeni maaşınızı girin.');return;}
+  if(!eski||eski<=0){toast('❌ Önceki maaşınızı girin.');return;}
+
+  const nominalZam=((yeni-eski)/eski)*100;
+  const reelDegisim=((1+nominalZam/100)/(1+enf/100)-1)*100;
+  const reelKarsilik=eski*(1+enf/100); // Alım gücünü korumak için gereken
+  const isKayip=reelDegisim<0;
+
+  document.getElementById('r-emoji').textContent=isKayip?'📉':'📈';
+  document.getElementById('r-label').textContent=isKayip?'Reel Maaş Kaybı':'Reel Maaş Artışı';
+  document.getElementById('r-val').textContent=(isKayip?'':'+')+(reelDegisim.toFixed(2))+'%';
+  document.getElementById('r-sub').textContent=`%${nominalZam.toFixed(1)} nominal zam - %${enf} enflasyon`;
+  document.getElementById('r1-label').textContent='Önceki Maaş';
+  document.getElementById('r1-val').textContent=fmtInt(eski)+' ₺';
+  document.getElementById('r2-label').textContent='Yeni Maaş';
+  document.getElementById('r2-val').textContent=fmtInt(yeni)+' ₺';
+  document.getElementById('r3-label').textContent='Alım Gücünü Korumak İçin Gereken';
+  document.getElementById('r3-val').textContent=fmtInt(reelKarsilik)+' ₺';
+  document.getElementById('senaryoSection').style.display='none';
+
+  document.getElementById('detayTitle').textContent='🧾 Reel Maaş Analizi';
+  document.getElementById('detayRows').innerHTML=`
+    <div class="detay-row"><span class="dr-label">Önceki Maaş</span><span>${fmtInt(eski)} ₺</span></div>
+    <div class="detay-row"><span class="dr-label">Yeni Maaş</span><span>${fmtInt(yeni)} ₺</span></div>
+    <div class="detay-row"><span class="dr-label">Nominal Zam Oranı</span><span style="color:var(--success)">%${nominalZam.toFixed(2)}</span></div>
+    <div class="detay-row"><span class="dr-label">Yıllık Enflasyon (TÜFE)</span><span style="color:var(--danger)">%${enf}</span></div>
+    <div class="detay-row"><span class="dr-label">Alım gücünü korumak için gereken maaş</span><span style="color:var(--accent)">${fmtInt(reelKarsilik)} ₺</span></div>
+    <div class="detay-row vurgu"><span class="dr-label">${isKayip?'❌ Reel Maaş Kaybı':'✅ Reel Maaş Artışı'}</span><span style="color:${isKayip?'var(--danger)':'var(--success)'}">${reelDegisim.toFixed(2)}%</span></div>
+  `;
+  showResult();
+}
+
+function sifirla(){
+  ['d-tutar','d-sure','d-enflasyon','k-kira','k-tufe','m-maas','m-eski','m-enflasyon'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&!['d-enflasyon','k-tufe','m-enflasyon'].includes(id)) el.value='';
+  });
+  document.getElementById('resultSection').style.display='none';
+  toast('Temizlendi.');
+}
+
+function copyResult(){
+  const text=[
+    'PARA DEĞER KAYBI HESAPLAMA — Hesaplarsın',
+    '─────────────────────────────',
+    document.getElementById('r-label').textContent+': '+document.getElementById('r-val').textContent,
+    document.getElementById('r1-label').textContent+': '+document.getElementById('r1-val').textContent,
+    document.getElementById('r2-label').textContent+': '+document.getElementById('r2-val').textContent,
+    '─────────────────────────────',
+    'hesaplarsin.com/enflasyon-hesaplama.html'
+  ].join('\n');
+  navigator.clipboard.writeText(text).then(()=>toast('📋 Kopyalandı!'));
+}
+
+function toggleFaq(btn){
+  const ans=btn.nextElementSibling,isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('open');b.setAttribute('aria-expanded','false');b.nextElementSibling.classList.remove('open');});
+  if(!isOpen){btn.classList.add('open');btn.setAttribute('aria-expanded','true');ans.classList.add('open');}
+}
+</script>
 </body>
 </html>
