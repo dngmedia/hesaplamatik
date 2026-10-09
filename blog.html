@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Blog & Rehberler 2026 | Hesaplarsın — Finans, Hukuk ve Vergi Yazıları</title>
-  <meta name="description" content="Kira vergisi, tapu harcı, nafaka, ihbar tazminatı, DASK ve daha fazlası. Hesaplarsın blog — Türkiye'nin en kapsamlı hesaplama ve rehber içerikleri." />
+  <title>Blog & Rehberler 2026 | Hesaplarsın</title>
+  <meta name="description" content="Kira vergisi, tapu harcı, nafaka, ihbar tazminatı, asgari ücret, DASK ve daha fazlası. Hesaplarsın blog — Türkiye'nin en kapsamlı hesaplama rehberleri." />
   <link rel="canonical" href="https://hesaplarsin.com/blog.html" />
-  <meta name="robots" content="index, follow" />
   <meta property="og:title" content="Blog & Rehberler 2026 | Hesaplarsın" />
   <meta property="og:description" content="Finans, hukuk, vergi ve sigorta konularında güncel Türkçe rehberler." />
   <meta property="og:url" content="https://hesaplarsin.com/blog.html" />
@@ -20,8 +19,6 @@
     :root{--brand:#2563eb;--brand-dark:#1e3a8a;--brand-light:#eff6ff;--text:#111827;--muted:#6b7280;--border:#e5e7eb;--bg:#f9fafb;--card:#fff;}
     html{scroll-behavior:smooth;}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-
-    /* NAV */
     nav.topnav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;}
     .nav-inner{max-width:1140px;margin:0 auto;padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;}
     .logo{font-size:1.2rem;font-weight:800;color:var(--brand);text-decoration:none;}
@@ -31,27 +28,18 @@
     .ham{display:none;background:none;border:none;cursor:pointer;padding:6px;}
     .ham span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0;border-radius:2px;}
     @media(max-width:640px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 16px 16px;border-bottom:1px solid var(--border);gap:4px;z-index:201;}.nav-links.open{display:flex;}.nav-links a{padding:10px 12px;font-size:.9rem;}.ham{display:block;}}
-
-    /* HERO */
     .blog-hero{background:linear-gradient(135deg,#1e3a8a,#2563eb);color:#fff;padding:52px 16px 44px;text-align:center;}
     .blog-hero h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;margin-bottom:10px;}
     .blog-hero p{font-size:1rem;opacity:.85;max-width:520px;margin:0 auto 24px;}
     .hero-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
-    .hero-stat{text-align:center;}
     .hero-stat strong{display:block;font-size:1.6rem;font-weight:900;}
     .hero-stat span{font-size:.78rem;opacity:.75;}
-
-    /* CONTENT */
     .page-wrap{max-width:1140px;margin:0 auto;padding:36px 16px 60px;}
-
-    /* FİLTRE */
     .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;align-items:center;}
     .filter-bar span{font-size:.8rem;color:var(--muted);margin-right:4px;}
     .fil-btn{background:#fff;border:1.5px solid var(--border);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:600;cursor:pointer;color:var(--muted);transition:all .15s;}
     .fil-btn:hover,.fil-btn.active{background:var(--brand);border-color:var(--brand);color:#fff;}
-
-    /* ÖZEL KART (öne çıkan) */
-    .featured-post{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:28px;display:grid;grid-template-columns:1fr 1fr;gap:0;}
+    .featured-post{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:28px;display:grid;grid-template-columns:1fr 1fr;}
     @media(max-width:640px){.featured-post{grid-template-columns:1fr;}}
     .fp-visual{min-height:220px;display:flex;align-items:center;justify-content:center;padding:24px;}
     .fp-body{padding:28px 24px;}
@@ -60,44 +48,37 @@
     .fp-body p{font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:16px;}
     .fp-meta{display:flex;gap:12px;flex-wrap:wrap;font-size:.75rem;color:var(--muted);margin-bottom:18px;}
     .fp-btn{display:inline-block;background:var(--brand);color:#fff;padding:10px 22px;border-radius:9px;font-weight:700;font-size:.85rem;text-decoration:none;}
-
-    /* GRID */
-    .section-title{font-size:1.05rem;font-weight:800;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px;}
+    .two-col{display:grid;grid-template-columns:1fr 280px;gap:24px;}
+    @media(max-width:800px){.two-col{grid-template-columns:1fr;}}
+    .section-title{font-size:1.05rem;font-weight:800;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--border);}
     .posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;}
     @media(max-width:900px){.posts-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:520px){.posts-grid{grid-template-columns:1fr;}}
-
     .post-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--text);display:flex;flex-direction:column;transition:all .15s;}
     .post-card:hover{border-color:#93c5fd;box-shadow:0 4px 20px rgba(37,99,235,.1);transform:translateY(-2px);}
-    .pc-thumb{height:140px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-    .pc-thumb svg{width:100%;height:100%;}
-    .pc-badge{position:absolute;top:10px;left:10px;font-size:.65rem;font-weight:800;padding:3px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.05em;}
-    .pc-body{padding:14px;flex:1;display:flex;flex-direction:column;}
-    .pc-cat{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
-    .pc-body h3{font-size:.92rem;font-weight:800;line-height:1.35;margin-bottom:6px;}
-    .pc-body p{font-size:.78rem;color:var(--muted);line-height:1.6;flex:1;}
-    .pc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:10px;font-size:.72rem;color:var(--muted);}
+    .pc-thumb{height:130px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+    .pc-badge{position:absolute;top:8px;left:8px;font-size:.62rem;font-weight:800;padding:3px 7px;border-radius:10px;background:rgba(255,255,255,0.2);color:#fff;}
+    .pc-body{padding:12px;flex:1;display:flex;flex-direction:column;}
+    .pc-cat{font-size:.67rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
+    .pc-body h3{font-size:.88rem;font-weight:800;line-height:1.35;margin-bottom:5px;}
+    .pc-body p{font-size:.76rem;color:var(--muted);line-height:1.55;flex:1;}
+    .pc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px;font-size:.7rem;color:var(--muted);}
     .pc-foot .read-more{color:var(--brand);font-weight:700;}
-
-    /* KATEGORILER YAN */
-    .two-col{display:grid;grid-template-columns:1fr 280px;gap:24px;margin-bottom:36px;}
-    @media(max-width:800px){.two-col{grid-template-columns:1fr;}}
     .sidebar-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:16px;}
     .sidebar-card h4{font-size:.88rem;font-weight:800;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);}
-    .kat-list a{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f3f4f6;font-size:.84rem;text-decoration:none;color:var(--text);}
+    .kat-list a{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:.83rem;text-decoration:none;color:var(--text);}
     .kat-list a:last-child{border-bottom:none;}
     .kat-list a:hover{color:var(--brand);}
-    .kat-list .kc{background:var(--bg);border-radius:10px;padding:2px 8px;font-size:.72rem;font-weight:700;color:var(--muted);}
-    .popular-list a{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f3f4f6;text-decoration:none;color:var(--text);align-items:flex-start;}
+    .kat-list .kc{background:var(--bg);border-radius:10px;padding:2px 8px;font-size:.7rem;font-weight:700;color:var(--muted);}
+    .popular-list a{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #f3f4f6;text-decoration:none;color:var(--text);align-items:flex-start;}
     .popular-list a:last-child{border-bottom:none;}
-    .popular-list .pl-num{font-size:1.1rem;font-weight:900;color:#d1d5db;flex-shrink:0;width:22px;}
-    .popular-list h5{font-size:.8rem;font-weight:700;line-height:1.3;margin-bottom:2px;}
-    .popular-list span{font-size:.72rem;color:var(--muted);}
+    .popular-list .pl-num{font-size:1rem;font-weight:900;color:#d1d5db;flex-shrink:0;width:20px;}
+    .popular-list h5{font-size:.78rem;font-weight:700;line-height:1.3;margin-bottom:2px;}
+    .popular-list span{font-size:.7rem;color:var(--muted);}
     .tool-cta{background:linear-gradient(135deg,#1e3a8a,#2563eb);border-radius:12px;padding:18px;color:#fff;text-align:center;}
     .tool-cta h4{font-size:.95rem;font-weight:800;margin-bottom:6px;}
     .tool-cta p{font-size:.78rem;opacity:.85;margin-bottom:14px;}
     .tool-cta a{background:#fff;color:#1e3a8a;padding:9px 20px;border-radius:8px;font-weight:800;font-size:.82rem;text-decoration:none;display:inline-block;}
-
     footer{background:#111827;color:#9ca3af;padding:36px 16px 20px;}
     .footer-inner{max-width:1140px;margin:0 auto;}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:28px;margin-bottom:28px;}
@@ -126,12 +107,11 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="blog-hero">
   <h1>📰 Blog & Hesaplama Rehberleri</h1>
   <p>Finans, hukuk, vergi ve sigortada merak ettiğiniz her konuyu sade Türkçeyle açıklıyoruz.</p>
   <div class="hero-stats">
-    <div class="hero-stat"><strong>8+</strong><span>Güncel Makale</span></div>
+    <div class="hero-stat"><strong>18</strong><span>Güncel Makale</span></div>
     <div class="hero-stat"><strong>2026</strong><span>Tüm Veriler Güncel</span></div>
     <div class="hero-stat"><strong>%100</strong><span>Ücretsiz İçerik</span></div>
   </div>
@@ -139,165 +119,161 @@
 
 <div class="page-wrap">
 
-  <!-- FİLTRE -->
   <div class="filter-bar">
     <span>Filtrele:</span>
-    <button class="fil-btn active" onclick="filterPosts('hepsi',this)">Tümü</button>
-    <button class="fil-btn" onclick="filterPosts('vergi',this)">💰 Vergi</button>
+    <button class="fil-btn active" onclick="filterPosts('hepsi',this)">Tümü (18)</button>
     <button class="fil-btn" onclick="filterPosts('isci',this)">💼 İşçi Hakları</button>
+    <button class="fil-btn" onclick="filterPosts('vergi',this)">💰 Vergi</button>
+    <button class="fil-btn" onclick="filterPosts('gayrimenkul',this)">🏠 Gayrimenkul</button>
     <button class="fil-btn" onclick="filterPosts('hukuk',this)">⚖️ Hukuk</button>
     <button class="fil-btn" onclick="filterPosts('sigorta',this)">🛡️ Sigorta</button>
-    <button class="fil-btn" onclick="filterPosts('gayrimenkul',this)">🏠 Gayrimenkul</button>
+    <button class="fil-btn" onclick="filterPosts('ekonomi',this)">📈 Ekonomi</button>
   </div>
 
   <!-- ÖNE ÇIKAN -->
-  <div class="featured-post" data-cat="hukuk">
-    <div class="fp-visual" style="background:linear-gradient(135deg,#4c1d95,#7c3aed);">
-      <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" style="max-width:280px;">
-        <circle cx="100" cy="80" r="22" fill="rgba(255,255,255,0.15)"/>
-        <rect x="85" y="103" width="30" height="42" rx="8" fill="rgba(255,255,255,0.12)"/>
-        <circle cx="150" cy="90" r="15" fill="rgba(255,255,255,0.12)"/>
-        <rect x="138" y="106" width="22" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
-        <rect x="170" y="60" width="130" height="28" rx="7" fill="rgba(255,255,255,0.1)"/>
-        <text x="180" y="79" font-size="11" fill="rgba(255,255,255,0.7)" font-weight="700">1 Çocuk: %25–33</text>
-        <rect x="170" y="94" width="130" height="28" rx="7" fill="rgba(255,255,255,0.1)"/>
-        <text x="180" y="113" font-size="11" fill="rgba(255,255,255,0.7)" font-weight="700">2 Çocuk: %33–40</text>
-        <rect x="170" y="128" width="130" height="28" rx="7" fill="rgba(255,255,255,0.1)"/>
-        <text x="180" y="147" font-size="11" fill="rgba(255,255,255,0.7)" font-weight="700">Yoksulluk: %25'e k.</text>
-        <text x="160" y="185" text-anchor="middle" font-size="14" font-weight="900" fill="rgba(255,255,255,0.85)">NAFAKA REHBER 2026</text>
+  <div class="featured-post" data-cat="isci">
+    <div class="fp-visual" style="background:linear-gradient(135deg,#064e3b,#059669);">
+      <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg" style="max-width:300px;">
+        <rect x="20" y="30" width="280" height="55" rx="10" fill="rgba(255,255,255,0.1)"/>
+        <text x="160" y="55" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.6)">2026 Asgari Ücret</text>
+        <text x="160" y="78" text-anchor="middle" font-size="22" font-weight="900" fill="white">26.005,50 TL</text>
+        <rect x="20" y="100" width="280" height="55" rx="10" fill="rgba(255,255,255,0.15)"/>
+        <text x="160" y="123" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.65)">2027 Tahmini</text>
+        <text x="160" y="148" text-anchor="middle" font-size="22" font-weight="900" fill="#6ee7b7">~33.000 – 36.000 TL</text>
+        <text x="160" y="185" text-anchor="middle" font-size="13" font-weight="700" fill="rgba(255,255,255,0.7)">📅 Ocak 2027 Geçerli</text>
       </svg>
     </div>
     <div class="fp-body">
-      <div class="fp-cat" style="color:#7c3aed;">⭐ Öne Çıkan · Aile Hukuku</div>
-      <h2>Nafaka Hesaplama 2026: Çocuk ve İştirak Nafakası Rehberi</h2>
-      <p>Boşanmada nafaka miktarı nasıl belirlenir? İştirak nafakası, yoksulluk nafakası, yıllık artış oranları ve örnek hesaplamalar — tümü tek rehberde.</p>
+      <div class="fp-cat" style="color:#059669;">⭐ Öne Çıkan · İşçi Hakları</div>
+      <h2>Asgari Ücret 2027 Ne Kadar Olacak?</h2>
+      <p>2026 asgari ücreti 26.005,50 TL. Ocak 2027 için enflasyon tahminleri, AGİ kaldırma etkisi ve toplantı takvimini bu rehberde bulabilirsiniz.</p>
       <div class="fp-meta">
-        <span>📅 9 Ekim 2026</span>
-        <span>⏱️ 7 dk okuma</span>
-        <span>👁️ Yeni</span>
+        <span>📅 Ekim 2026</span><span>⏱️ 5 dk okuma</span><span>🔥 Gündem</span>
       </div>
-      <a class="fp-btn" href="https://hesaplarsin.com/blog/nafaka-hesaplama.html">Makaleyi Oku →</a>
+      <a class="fp-btn" style="background:#059669;" href="https://hesaplarsin.com/blog/asgari-ucret-2027.html">Makaleyi Oku →</a>
     </div>
   </div>
 
-  <!-- ANA İÇERİK + SIDEBAR -->
   <div class="two-col">
     <div>
-      <div class="section-title">📚 Tüm Makaleler</div>
+      <div class="section-title">📚 Tüm Makaleler (18)</div>
       <div class="posts-grid" id="postsGrid">
 
-        <!-- DASK -->
-        <a class="post-card" href="https://hesaplarsin.com/blog/dask-sigortasi-hesaplama.html" data-cat="sigorta">
-          <div class="pc-thumb" style="background:linear-gradient(135deg,#7c2d12,#ea580c);">
-            <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="60" cy="100" r="50" fill="rgba(0,0,0,0.15)"/>
-              <path d="M140 100 Q160 40 180 100" stroke="rgba(255,255,255,0.3)" stroke-width="3" fill="none"/>
-              <path d="M100 100 Q130 20 160 100" stroke="rgba(255,255,255,0.5)" stroke-width="4" fill="none"/>
-              <rect x="160" y="50" width="100" height="26" rx="6" fill="rgba(255,255,255,0.12)"/>
-              <text x="168" y="67" font-size="10" fill="rgba(255,255,255,0.8)" font-weight="700">Bölge 1: ‰2.20</text>
-              <rect x="160" y="82" width="100" height="26" rx="6" fill="rgba(255,255,255,0.12)"/>
-              <text x="168" y="99" font-size="10" fill="rgba(255,255,255,0.8)" font-weight="700">Bölge 5: ‰6.03</text>
-              <text x="140" y="130" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.6)" font-weight="700">DASK SİGORTA</text>
-            </svg>
-            <span class="pc-badge" style="background:rgba(255,255,255,0.2);color:#fff;">🛡️ Sigorta</span>
-          </div>
-          <div class="pc-body">
-            <div class="pc-cat">Zorunlu Sigorta</div>
-            <h3>DASK Sigortası Hesaplama 2026</h3>
-            <p>5 deprem bölgesi, prim oranları ve İstanbul için örnek hesaplama.</p>
-            <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
-          </div>
-        </a>
-
-        <!-- İHBAR TAZMİNATI -->
-        <a class="post-card" href="https://hesaplarsin.com/blog/ihbar-tazminati-hesaplama.html" data-cat="isci">
-          <div class="pc-thumb" style="background:linear-gradient(135deg,#7f1d1d,#dc2626);">
-            <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-              <rect x="20" y="90" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
-              <rect x="60" y="70" width="30" height="50" rx="4" fill="rgba(255,255,255,0.25)"/>
-              <rect x="100" y="50" width="30" height="70" rx="4" fill="rgba(255,255,255,0.3)"/>
-              <rect x="140" y="30" width="30" height="90" rx="4" fill="rgba(255,255,255,0.35)"/>
-              <text x="22" y="88" font-size="8" fill="white" font-weight="700">2h</text>
-              <text x="62" y="68" font-size="8" fill="white" font-weight="700">4h</text>
-              <text x="102" y="48" font-size="8" fill="white" font-weight="700">6h</text>
-              <text x="142" y="28" font-size="8" fill="white" font-weight="700">8h</text>
-              <rect x="185" y="40" width="80" height="22" rx="5" fill="rgba(255,255,255,0.1)"/>
-              <text x="192" y="55" font-size="9" fill="rgba(255,255,255,0.8)">5 yıl: 8 hafta</text>
-              <text x="140" y="130" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.6)" font-weight="700">İHBAR TAZMİNATI</text>
-            </svg>
-            <span class="pc-badge" style="background:rgba(255,255,255,0.2);color:#fff;">💼 İşçi Hakları</span>
-          </div>
-          <div class="pc-body">
-            <div class="pc-cat">İş Hukuku</div>
-            <h3>İhbar Tazminatı Hesaplama 2026</h3>
-            <p>4857 sayılı Kanun kapsamında ihbar süreleri ve tazminat formülü.</p>
-            <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
-          </div>
-        </a>
-
-        <!-- TAPU HARCI -->
-        <a class="post-card" href="https://hesaplarsin.com/blog/tapu-harci-hesaplama.html" data-cat="gayrimenkul">
-          <div class="pc-thumb" style="background:linear-gradient(135deg,#92400e,#d97706);">
-            <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="140,20 100,60 100,120 180,120 180,60" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-              <rect x="120" y="85" width="20" height="35" rx="3" fill="rgba(255,255,255,0.2)"/>
-              <rect x="40" y="55" width="50" height="55" rx="6" fill="rgba(255,255,255,0.1)"/>
-              <text x="65" y="78" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.7)" font-weight="700">Alıcı</text>
-              <text x="65" y="92" text-anchor="middle" font-size="11" fill="white" font-weight="900">%2</text>
-              <rect x="190" y="55" width="50" height="55" rx="6" fill="rgba(255,255,255,0.1)"/>
-              <text x="215" y="78" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.7)" font-weight="700">Satıcı</text>
-              <text x="215" y="92" text-anchor="middle" font-size="11" fill="white" font-weight="900">%2</text>
-              <text x="140" y="130" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.6)" font-weight="700">TAPU HARCI %4 TOPLAM</text>
-            </svg>
-            <span class="pc-badge" style="background:rgba(255,255,255,0.2);color:#fff;">🏠 Gayrimenkul</span>
-          </div>
-          <div class="pc-body">
-            <div class="pc-cat">Tapu İşlemleri</div>
-            <h3>Tapu Harcı Hesaplama 2026</h3>
-            <p>Alıcı ve satıcıdan alınan %4 tapu harcı, döner sermaye dahil tam hesap.</p>
-            <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
-          </div>
-        </a>
-
-        <!-- KİRA VERGİSİ -->
+        <!-- 1 -->
         <a class="post-card" href="https://hesaplarsin.com/blog/kira-geliri-vergisi-hesaplama.html" data-cat="vergi">
           <div class="pc-thumb" style="background:linear-gradient(135deg,#0e4f6b,#0891b2);">
-            <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="140,15 105,50 105,115 175,115 175,50" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
-              <rect x="125" y="80" width="18" height="35" rx="3" fill="rgba(255,255,255,0.2)"/>
-              <rect x="155" y="65" width="105" height="26" rx="7" fill="rgba(255,255,255,0.1)"/>
-              <text x="163" y="82" font-size="10" fill="white" font-weight="900">İstisna: 58.000 TL</text>
-              <rect x="155" y="97" width="105" height="26" rx="7" fill="rgba(255,255,255,0.1)"/>
-              <text x="163" y="114" font-size="10" fill="rgba(255,255,255,0.75)">Beyan: Mart 2027</text>
-              <text x="140" y="132" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.6)" font-weight="700">KİRA GELİRİ VERGİSİ</text>
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <polygon points="130,12 95,48 95,112 165,112 165,48" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+              <rect x="115" y="78" width="16" height="34" rx="3" fill="rgba(255,255,255,0.18)"/>
+              <rect x="172" y="38" width="78" height="22" rx="6" fill="rgba(255,255,255,0.12)"/>
+              <text x="178" y="53" font-size="9.5" fill="white" font-weight="700">İstisna: 58.000 TL</text>
+              <rect x="172" y="66" width="78" height="22" rx="6" fill="rgba(255,255,255,0.1)"/>
+              <text x="178" y="81" font-size="9" fill="rgba(255,255,255,0.75)">Beyan: Mart 2027</text>
+              <text x="130" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-weight="700">KİRA GELİRİ VERGİSİ</text>
             </svg>
-            <span class="pc-badge" style="background:rgba(255,255,255,0.2);color:#fff;">💰 Vergi</span>
+            <span class="pc-badge">💰 Vergi</span>
           </div>
           <div class="pc-body">
             <div class="pc-cat">Gelir Vergisi</div>
             <h3>Kira Geliri Vergisi Hesaplama 2026</h3>
-            <p>58.000 TL konut istisnası, götürü/gerçek gider, vergi dilimleri ve örnek.</p>
+            <p>58.000 TL konut istisnası, götürü/gerçek gider ve vergi dilimleri.</p>
             <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
           </div>
         </a>
 
-        <!-- NAFAKA -->
+        <!-- 2 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/tapu-harci-hesaplama.html" data-cat="gayrimenkul">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#92400e,#d97706);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <polygon points="130,12 95,48 95,112 165,112 165,48" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+              <rect x="115" y="78" width="16" height="34" rx="3" fill="rgba(255,255,255,0.18)"/>
+              <rect x="20" y="48" width="66" height="56" rx="6" fill="rgba(255,255,255,0.1)"/>
+              <text x="53" y="72" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.65)">Alıcı</text>
+              <text x="53" y="90" text-anchor="middle" font-size="15" fill="white" font-weight="900">%2</text>
+              <rect x="174" y="48" width="66" height="56" rx="6" fill="rgba(255,255,255,0.1)"/>
+              <text x="207" y="72" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.65)">Satıcı</text>
+              <text x="207" y="90" text-anchor="middle" font-size="15" fill="white" font-weight="900">%2</text>
+              <text x="130" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-weight="700">TAPU HARCI %4 TOPLAM</text>
+            </svg>
+            <span class="pc-badge">🏠 Gayrimenkul</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">Tapu İşlemleri</div>
+            <h3>Tapu Harcı Hesaplama 2026</h3>
+            <p>Alıcı ve satıcıdan alınan %4 harç, döner sermaye dahil tam hesap.</p>
+            <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 3 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/ihbar-tazminati-hesaplama.html" data-cat="isci">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#7f1d1d,#dc2626);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <rect x="18" y="88" width="28" height="28" rx="3" fill="rgba(255,255,255,0.18)"/>
+              <rect x="54" y="70" width="28" height="46" rx="3" fill="rgba(255,255,255,0.22)"/>
+              <rect x="90" y="50" width="28" height="66" rx="3" fill="rgba(255,255,255,0.27)"/>
+              <rect x="126" y="28" width="28" height="88" rx="3" fill="rgba(255,255,255,0.32)"/>
+              <text x="19" y="86" font-size="7.5" fill="white" font-weight="700">2h</text>
+              <text x="55" y="68" font-size="7.5" fill="white" font-weight="700">4h</text>
+              <text x="91" y="48" font-size="7.5" fill="white" font-weight="700">6h</text>
+              <text x="127" y="26" font-size="7.5" fill="white" font-weight="700">8h</text>
+              <rect x="168" y="38" width="82" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="172" y="52" font-size="9" fill="rgba(255,255,255,0.8)">5 yıl üzeri: 8 hafta</text>
+              <rect x="168" y="64" width="82" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="172" y="78" font-size="9" fill="rgba(255,255,255,0.75)">4857 sayılı Kanun</text>
+              <text x="130" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-weight="700">İHBAR TAZMİNATI</text>
+            </svg>
+            <span class="pc-badge">💼 İşçi Hakları</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">İş Hukuku</div>
+            <h3>İhbar Tazminatı Hesaplama 2026</h3>
+            <p>İhbar süreleri, formül ve örnek hesaplamalar (4857 sayılı Kanun).</p>
+            <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 4 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/dask-sigortasi-hesaplama.html" data-cat="sigorta">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#7c2d12,#ea580c);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <rect x="158" y="32" width="96" height="22" rx="5" fill="rgba(255,255,255,0.12)"/>
+              <text x="164" y="47" font-size="9.5" fill="rgba(255,255,255,0.8)" font-weight="700">Bölge 1: ‰2.20</text>
+              <rect x="158" y="60" width="96" height="22" rx="5" fill="rgba(255,255,255,0.12)"/>
+              <text x="164" y="75" font-size="9.5" fill="rgba(255,255,255,0.8)" font-weight="700">Bölge 5: ‰6.03</text>
+              <rect x="158" y="88" width="96" height="22" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="164" y="103" font-size="9" fill="rgba(255,255,255,0.65)">587 sayılı KHK</text>
+              <polygon points="70,110 30,110 50,55 90,55" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+              <polygon points="115,110 80,110 97,65 132,65" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+              <text x="70" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="700">DASK SİGORTA</text>
+            </svg>
+            <span class="pc-badge">🛡️ Sigorta</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">Zorunlu Sigorta</div>
+            <h3>DASK Sigortası Hesaplama 2026</h3>
+            <p>5 deprem bölgesi, prim oranları ve İstanbul örnek hesaplama.</p>
+            <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 5 -->
         <a class="post-card" href="https://hesaplarsin.com/blog/nafaka-hesaplama.html" data-cat="hukuk">
           <div class="pc-thumb" style="background:linear-gradient(135deg,#4c1d95,#7c3aed);">
-            <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="90" cy="65" r="18" fill="rgba(255,255,255,0.15)"/>
-              <rect x="76" y="84" width="28" height="38" rx="7" fill="rgba(255,255,255,0.12)"/>
-              <circle cx="135" cy="73" r="12" fill="rgba(255,255,255,0.12)"/>
-              <rect x="125" y="86" width="20" height="30" rx="5" fill="rgba(255,255,255,0.1)"/>
-              <rect x="165" y="42" width="100" height="24" rx="6" fill="rgba(255,255,255,0.1)"/>
-              <text x="173" y="58" font-size="10" fill="rgba(255,255,255,0.8)" font-weight="700">1 çocuk: %25–33</text>
-              <rect x="165" y="72" width="100" height="24" rx="6" fill="rgba(255,255,255,0.1)"/>
-              <text x="173" y="88" font-size="10" fill="rgba(255,255,255,0.8)" font-weight="700">2 çocuk: %33–40</text>
-              <rect x="165" y="102" width="100" height="24" rx="6" fill="rgba(255,255,255,0.1)"/>
-              <text x="173" y="118" font-size="10" fill="rgba(255,255,255,0.75)" font-weight="700">Artış: ÜFE/TÜFE</text>
-              <text x="140" y="132" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.6)" font-weight="700">NAFAKA HESAPLAMA</text>
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <circle cx="82" cy="55" r="17" fill="rgba(255,255,255,0.14)"/>
+              <rect x="69" y="73" width="26" height="36" rx="7" fill="rgba(255,255,255,0.11)"/>
+              <circle cx="128" cy="63" r="11" fill="rgba(255,255,255,0.11)"/>
+              <rect x="119" y="75" width="18" height="28" rx="5" fill="rgba(255,255,255,0.09)"/>
+              <rect x="155" y="30" width="97" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="161" y="44" font-size="9.5" fill="rgba(255,255,255,0.8)" font-weight="700">1 çocuk: %25–33</text>
+              <rect x="155" y="56" width="97" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="161" y="70" font-size="9.5" fill="rgba(255,255,255,0.8)" font-weight="700">2 çocuk: %33–40</text>
+              <rect x="155" y="82" width="97" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="161" y="96" font-size="9" fill="rgba(255,255,255,0.7)">Artış: ÜFE / TÜFE</text>
+              <text x="130" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-weight="700">NAFAKA HESAPLAMA</text>
             </svg>
-            <span class="pc-badge" style="background:rgba(255,255,255,0.2);color:#fff;">⭐ Yeni</span>
+            <span class="pc-badge">⭐ Yeni</span>
           </div>
           <div class="pc-body">
             <div class="pc-cat">Aile Hukuku</div>
@@ -307,20 +283,19 @@
           </div>
         </a>
 
-        <!-- EMEKLİLİK -->
+        <!-- 6 -->
         <a class="post-card" href="https://hesaplarsin.com/blog/emeklilik-hesaplama-2026.html" data-cat="isci">
-          <div class="pc-thumb" style="background:linear-gradient(135deg,#4a1772,#7c3aed);">
-            <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="140" cy="65" r="40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="8"/>
-              <path d="M140 65 L140 35" stroke="rgba(255,255,255,0.6)" stroke-width="3" stroke-linecap="round"/>
-              <path d="M140 65 L165 75" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
-              <rect x="10" y="95" width="110" height="24" rx="6" fill="rgba(255,255,255,0.1)"/>
-              <text x="65" y="111" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-weight="700">Kadın: 58 yaş</text>
-              <rect x="130" y="95" width="110" height="24" rx="6" fill="rgba(255,255,255,0.1)"/>
-              <text x="185" y="111" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-weight="700">Erkek: 60 yaş</text>
-              <text x="140" y="132" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.6)" font-weight="700">EMEKLİLİK HESAPLAMA</text>
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#312e81,#6366f1);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <circle cx="130" cy="58" r="38" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="7"/>
+              <path d="M130 58 L130 30" stroke="rgba(255,255,255,0.6)" stroke-width="3" stroke-linecap="round"/>
+              <path d="M130 58 L153 68" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="10" y="102" width="105" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="62" y="116" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.8)" font-weight="700">Kadın: 58 yaş</text>
+              <rect x="125" y="102" width="105" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="178" y="116" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.8)" font-weight="700">Erkek: 60 yaş</text>
             </svg>
-            <span class="pc-badge" style="background:rgba(255,255,255,0.2);color:#fff;">💼 SGK</span>
+            <span class="pc-badge">💼 SGK</span>
           </div>
           <div class="pc-body">
             <div class="pc-cat">Emeklilik & SGK</div>
@@ -330,78 +305,274 @@
           </div>
         </a>
 
-        <!-- VERGİ DİLİMLERİ -->
+        <!-- 7 -->
         <a class="post-card" href="https://hesaplarsin.com/blog/vergi-dilimleri-2027.html" data-cat="vergi">
           <div class="pc-thumb" style="background:linear-gradient(135deg,#3730a3,#6366f1);">
-            <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-              <rect x="20" y="105" width="35" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
-              <rect x="63" y="88" width="35" height="37" rx="3" fill="rgba(255,255,255,0.25)"/>
-              <rect x="106" y="70" width="35" height="55" rx="3" fill="rgba(255,255,255,0.3)"/>
-              <rect x="149" y="50" width="35" height="75" rx="3" fill="rgba(255,255,255,0.35)"/>
-              <rect x="192" y="25" width="35" height="100" rx="3" fill="rgba(255,255,255,0.4)"/>
-              <text x="37" y="103" text-anchor="middle" font-size="8" fill="white" font-weight="700">%15</text>
-              <text x="80" y="86" text-anchor="middle" font-size="8" fill="white" font-weight="700">%20</text>
-              <text x="123" y="68" text-anchor="middle" font-size="8" fill="white" font-weight="700">%27</text>
-              <text x="166" y="48" text-anchor="middle" font-size="8" fill="white" font-weight="700">%35</text>
-              <text x="209" y="23" text-anchor="middle" font-size="8" fill="white" font-weight="700">%40</text>
-              <text x="140" y="132" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.6)" font-weight="700">VERGİ DİLİMLERİ 2027</text>
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <rect x="14" y="100" width="32" height="18" rx="3" fill="rgba(255,255,255,0.18)"/>
+              <rect x="54" y="84" width="32" height="34" rx="3" fill="rgba(255,255,255,0.22)"/>
+              <rect x="94" y="66" width="32" height="52" rx="3" fill="rgba(255,255,255,0.27)"/>
+              <rect x="134" y="46" width="32" height="72" rx="3" fill="rgba(255,255,255,0.32)"/>
+              <rect x="174" y="22" width="32" height="96" rx="3" fill="rgba(255,255,255,0.37)"/>
+              <text x="30" y="98" text-anchor="middle" font-size="8" fill="white" font-weight="700">%15</text>
+              <text x="70" y="82" text-anchor="middle" font-size="8" fill="white" font-weight="700">%20</text>
+              <text x="110" y="64" text-anchor="middle" font-size="8" fill="white" font-weight="700">%27</text>
+              <text x="150" y="44" text-anchor="middle" font-size="8" fill="white" font-weight="700">%35</text>
+              <text x="190" y="20" text-anchor="middle" font-size="8" fill="white" font-weight="700">%40</text>
+              <text x="130" y="128" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-weight="700">VERGİ DİLİMLERİ 2027</text>
             </svg>
-            <span class="pc-badge" style="background:rgba(255,255,255,0.2);color:#fff;">💰 Vergi</span>
+            <span class="pc-badge">💰 Vergi</span>
           </div>
           <div class="pc-body">
             <div class="pc-cat">Gelir Vergisi</div>
             <h3>Vergi Dilimleri 2027: Güncel Oranlar</h3>
-            <p>%15'ten %40'a 5 vergi dilimi, matrah aralıkları ve hesaplama örnekleri.</p>
+            <p>%15'ten %40'a 5 vergi dilimi, matrah aralıkları ve örnekler.</p>
             <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
           </div>
         </a>
 
-        <!-- BANKA KREDİSİ -->
-        <a class="post-card" href="https://hesaplarsin.com/banka-kredisi-taksit-hesaplama.html" data-cat="vergi">
+        <!-- 8 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/banka-kredisi-taksit-hesaplama.html" data-cat="ekonomi">
           <div class="pc-thumb" style="background:linear-gradient(135deg,#1e3a8a,#2563eb);">
-            <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-              <rect x="30" y="35" width="220" height="70" rx="12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-              <rect x="30" y="35" width="220" height="28" rx="12" fill="rgba(255,255,255,0.12)"/>
-              <text x="140" y="54" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-weight="700">KREDİ TAKSİT HESAPLAMA</text>
-              <rect x="50" y="73" width="60" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
-              <text x="80" y="87" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.75)">500K TL</text>
-              <rect x="120" y="73" width="60" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
-              <text x="150" y="87" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.75)">120 ay</text>
-              <rect x="190" y="73" width="48" height="20" rx="5" fill="rgba(255,255,255,0.15)"/>
-              <text x="214" y="87" text-anchor="middle" font-size="9" fill="white" font-weight="700">Hesapla</text>
-              <text x="140" y="130" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.6)" font-weight="700">KONUT KREDİSİ</text>
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <rect x="20" y="28" width="220" height="68" rx="11" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+              <rect x="20" y="28" width="220" height="26" rx="11" fill="rgba(255,255,255,0.1)"/>
+              <text x="130" y="46" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)" font-weight="700">KREDİ TAKSİT HESAPLAMA</text>
+              <rect x="35" y="62" width="58" height="20" rx="4" fill="rgba(255,255,255,0.1)"/>
+              <text x="64" y="76" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.75)">500K TL</text>
+              <rect x="103" y="62" width="58" height="20" rx="4" fill="rgba(255,255,255,0.1)"/>
+              <text x="132" y="76" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.75)">120 ay</text>
+              <rect x="171" y="62" width="55" height="20" rx="4" fill="rgba(255,255,255,0.18)"/>
+              <text x="198" y="76" text-anchor="middle" font-size="9" fill="white" font-weight="700">Hesapla</text>
+              <text x="130" y="118" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="700">KONUT / İHTİYAÇ KREDİSİ</text>
             </svg>
-            <span class="pc-badge" style="background:rgba(255,255,255,0.2);color:#fff;">🏦 Kredi</span>
+            <span class="pc-badge">🏦 Kredi</span>
           </div>
           <div class="pc-body">
             <div class="pc-cat">Banka & Kredi</div>
             <h3>Banka Kredisi Taksit Hesaplama 2026</h3>
-            <p>Konut, taşıt ve ihtiyaç kredisi aylık taksit ve toplam maliyet hesabı.</p>
+            <p>Konut, taşıt ve ihtiyaç kredisi aylık taksit ve toplam maliyet.</p>
             <div class="pc-foot"><span>📅 2026</span><span class="read-more">Oku →</span></div>
           </div>
         </a>
 
-        <!-- GAYRİMENKUL KOMİSYON -->
-        <a class="post-card" href="https://hesaplarsin.com/blog/gayrimenkul-komisyon-hesaplama.html" data-cat="gayrimenkul">
-          <div class="pc-thumb" style="background:linear-gradient(135deg,#064e3b,#059669);">
-            <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="140,15 100,55 100,120 180,120 180,55" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-              <rect x="120" y="85" width="18" height="35" rx="3" fill="rgba(255,255,255,0.18)"/>
-              <rect x="18" y="55" width="75" height="60" rx="6" fill="rgba(255,255,255,0.08)"/>
-              <text x="55" y="82" text-anchor="middle" font-size="12" fill="white" font-weight="900">%2</text>
-              <text x="55" y="100" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.65)">Alıcı+Satıcı</text>
-              <rect x="188" y="55" width="75" height="60" rx="6" fill="rgba(255,255,255,0.08)"/>
-              <text x="225" y="82" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-weight="700">2M TL ev</text>
-              <text x="225" y="98" text-anchor="middle" font-size="11" fill="white" font-weight="900">40.000 TL</text>
-              <text x="140" y="132" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.6)" font-weight="700">EMLAK KOMİSYON</text>
+        <!-- 9 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/kidem-tazminati-2027.html" data-cat="isci">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#7f1d1d,#b91c1c);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <rect x="20" y="35" width="220" height="30" rx="6" fill="rgba(255,255,255,0.1)"/>
+              <text x="130" y="55" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.7)" font-weight="700">Kıdem Tazminatı Tavanı 2027</text>
+              <rect x="20" y="72" width="220" height="30" rx="6" fill="rgba(255,255,255,0.14)"/>
+              <text x="130" y="91" text-anchor="middle" font-size="16" fill="white" font-weight="900">~34.000 TL / yıl</text>
+              <text x="130" y="118" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.5)">Formül: Brüt aylık × çalışma yılı</text>
             </svg>
-            <span class="pc-badge" style="background:rgba(255,255,255,0.2);color:#fff;">🏠 Gayrimenkul</span>
+            <span class="pc-badge">💼 İşçi Hakları</span>
           </div>
           <div class="pc-body">
-            <div class="pc-cat">Emlak İşlemleri</div>
-            <h3>Gayrimenkul Komisyon Hesaplama 2026</h3>
-            <p>Alıcı ve satıcıdan alınan %2+%2 emlak komisyonu detaylı hesabı.</p>
+            <div class="pc-cat">İş Hukuku</div>
+            <h3>Kıdem Tazminatı 2027 Tavan ve Hesaplama</h3>
+            <p>2027 tavanı, formül ve farklı maaş senaryoları için örnekler.</p>
+            <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 10 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/net-maas-nasil-hesaplanir.html" data-cat="isci">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#1e3a8a,#1d4ed8);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <rect x="20" y="25" width="100" height="22" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="70" y="40" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.65)">Brüt Maaş</text>
+              <rect x="145" y="25" width="100" height="22" rx="5" fill="rgba(255,255,255,0.14)"/>
+              <text x="195" y="40" text-anchor="middle" font-size="9" fill="white" font-weight="700">Net Maaş</text>
+              <rect x="20" y="55" width="220" height="18" rx="4" fill="rgba(255,255,255,0.07)"/>
+              <text x="25" y="68" font-size="8.5" fill="rgba(255,255,255,0.6)">SGK %14 · Gelir Vergisi %15–35 · Damga %0.759</text>
+              <rect x="20" y="80" width="220" height="22" rx="5" fill="rgba(255,255,255,0.12)"/>
+              <text x="130" y="95" text-anchor="middle" font-size="11" fill="white" font-weight="900">40.000 TL → ~31.500 TL net</text>
+              <text x="130" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.45)" font-weight="700">NET MAAŞ FORMÜLÜ</text>
+            </svg>
+            <span class="pc-badge">💼 Maaş</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">Maaş Hesaplama</div>
+            <h3>Net Maaş Nasıl Hesaplanır? 2026</h3>
+            <p>SGK, gelir vergisi ve damga vergisi kesintileri adım adım açıklama.</p>
             <div class="pc-foot"><span>📅 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 11 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/sgk-primi-hesaplama-rehberi.html" data-cat="isci">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#0c4a6e,#0369a1);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <rect x="20" y="28" width="100" height="72" rx="8" fill="rgba(255,255,255,0.1)"/>
+              <text x="70" y="50" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">İşçi Payı</text>
+              <text x="70" y="72" text-anchor="middle" font-size="18" fill="white" font-weight="900">%15</text>
+              <text x="70" y="88" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.5)">SGK+İşsizlik</text>
+              <rect x="140" y="28" width="100" height="72" rx="8" fill="rgba(255,255,255,0.13)"/>
+              <text x="190" y="50" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">İşveren Payı</text>
+              <text x="190" y="72" text-anchor="middle" font-size="18" fill="white" font-weight="900">%22.5</text>
+              <text x="190" y="88" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.5)">SGK+İşsizlik</text>
+              <text x="130" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="700">SGK PRİM REHBER</text>
+            </svg>
+            <span class="pc-badge">🛡️ SGK</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">Sosyal Güvenlik</div>
+            <h3>SGK Primi Hesaplama Rehberi 2026</h3>
+            <p>İşçi ve işveren SGK payları, tavan/taban ve hesaplama örnekleri.</p>
+            <div class="pc-foot"><span>📅 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 12 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/kdv-oranlari-2026.html" data-cat="vergi">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#134e4a,#0f766e);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <rect x="15" y="100" width="48" height="20" rx="4" fill="rgba(255,255,255,0.2)"/>
+              <text x="39" y="114" text-anchor="middle" font-size="11" fill="white" font-weight="900">%1</text>
+              <rect x="73" y="78" width="48" height="42" rx="4" fill="rgba(255,255,255,0.22)"/>
+              <text x="97" y="92" text-anchor="middle" font-size="11" fill="white" font-weight="900">%10</text>
+              <rect x="131" y="42" width="48" height="78" rx="4" fill="rgba(255,255,255,0.28)"/>
+              <text x="155" y="56" text-anchor="middle" font-size="11" fill="white" font-weight="900">%20</text>
+              <text x="15" y="96" font-size="8" fill="rgba(255,255,255,0.5)">Gıda</text>
+              <text x="73" y="74" font-size="8" fill="rgba(255,255,255,0.5)">Bazı hizmet</text>
+              <text x="131" y="38" font-size="8" fill="rgba(255,255,255,0.5)">Genel</text>
+              <text x="130" y="126" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="700">KDV ORANLARI 2026</text>
+            </svg>
+            <span class="pc-badge">💰 Vergi</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">KDV & Vergi</div>
+            <h3>KDV Oranları 2026 — Hangi Üründe Yüzde Kaç?</h3>
+            <p>%1, %10 ve %20 KDV hangi ürün ve hizmetlere uygulanır?</p>
+            <div class="pc-foot"><span>📅 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 13 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/komisyon-hesaplama-rehberi.html" data-cat="ekonomi">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#064e3b,#059669);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <rect x="12" y="42" width="74" height="62" rx="6" fill="rgba(255,255,255,0.09)"/>
+              <text x="49" y="68" text-anchor="middle" font-size="14" fill="white" font-weight="900">%2</text>
+              <text x="49" y="86" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.6)">Satış komisyonu</text>
+              <rect x="174" y="42" width="74" height="62" rx="6" fill="rgba(255,255,255,0.09)"/>
+              <text x="211" y="68" text-anchor="middle" font-size="11" fill="white" font-weight="800">40.000 TL</text>
+              <text x="211" y="86" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.6)">2M TL × %2</text>
+              <text x="130" y="25" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.5)">KOMİSYON FORMÜLÜ</text>
+              <line x1="90" y1="73" x2="170" y2="73" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="5,4"/>
+              <text x="130" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="700">KOMİSYON HESAPLAMA</text>
+            </svg>
+            <span class="pc-badge">💹 Satış</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">Satış & Komisyon</div>
+            <h3>Komisyon Hesaplama Rehberi 2026</h3>
+            <p>Satış primi, emlak komisyonu ve oransal hesaplama formülleri.</p>
+            <div class="pc-foot"><span>📅 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 14 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/kira-artisi-2027.html" data-cat="gayrimenkul">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#0e4f6b,#0284c7);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <polyline points="20,105 60,88 100,70 140,52 180,38 220,28" stroke="rgba(255,255,255,0.6)" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <circle cx="220" cy="28" r="5" fill="white"/>
+              <rect x="130" y="70" width="110" height="22" rx="5" fill="rgba(255,255,255,0.12)"/>
+              <text x="185" y="85" text-anchor="middle" font-size="9.5" fill="white" font-weight="700">%25 artış tavanı</text>
+              <text x="130" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="700">KİRA ARTIŞI 2027</text>
+            </svg>
+            <span class="pc-badge">🏠 Kiracı</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">Kira Mevzuatı</div>
+            <h3>Kira Artış Oranı 2027 — TÜFE'ye Göre Hesap</h3>
+            <p>Yasal kira artış sınırı, TÜFE hesabı ve kiracı/kiraya veren hakları.</p>
+            <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 15 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/fazla-mesai-haklari-2026.html" data-cat="isci">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#7c2d12,#c2410c);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <circle cx="130" cy="58" r="38" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="7"/>
+              <path d="M130 58 L130 30" stroke="rgba(255,255,255,0.65)" stroke-width="3" stroke-linecap="round"/>
+              <path d="M130 58 L155 68" stroke="rgba(255,255,255,0.55)" stroke-width="2.5" stroke-linecap="round"/>
+              <text x="130" y="108" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.7)" font-weight="700">×1.5 Ücret</text>
+              <text x="130" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.45)" font-weight="700">FAZLA MESAİ HAKKI</text>
+            </svg>
+            <span class="pc-badge">💼 İşçi Hakları</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">İş Hukuku</div>
+            <h3>Fazla Mesai Hakları 2026 — Ücret ve Sınırlar</h3>
+            <p>Yasal fazla mesai sınırı, ×1.5 ücret hesabı ve izin kullanımı.</p>
+            <div class="pc-foot"><span>📅 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 16 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/enflasyon-etkisi-2026.html" data-cat="ekonomi">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#713f12,#ca8a04);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <polyline points="20,90 60,75 100,55 140,45 180,35 220,25" stroke="rgba(255,255,255,0.55)" stroke-width="2.5" fill="none"/>
+              <polyline points="20,90 60,92 100,94 140,96 180,100 220,105" stroke="rgba(255,255,255,0.25)" stroke-width="2" fill="none" stroke-dasharray="5,4"/>
+              <text x="225" y="22" font-size="9" fill="rgba(255,255,255,0.65)" font-weight="700">Fiyat</text>
+              <text x="225" y="108" font-size="9" fill="rgba(255,255,255,0.4)">Alım</text>
+              <text x="130" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="700">ENFLASYOn ETKİSİ 2026</text>
+            </svg>
+            <span class="pc-badge">📈 Ekonomi</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">Ekonomi</div>
+            <h3>Enflasyon Etkisi 2026 — Alım Gücü Nasıl Değişti?</h3>
+            <p>TÜFE verileri, sepet analizi ve maaşların reel değer kaybı.</p>
+            <div class="pc-foot"><span>📅 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 17 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/elektrik-faturasi-neden-yuksek.html" data-cat="ekonomi">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#1c1917,#44403c);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <polygon points="135,15 115,65 132,65 112,115 155,55 136,55" fill="rgba(255,220,0,0.7)"/>
+              <rect x="168" y="38" width="80" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="174" y="52" font-size="9" fill="rgba(255,255,255,0.75)" font-weight="700">Gündüz: 4,51 TL</text>
+              <rect x="168" y="64" width="80" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="174" y="78" font-size="9" fill="rgba(255,255,255,0.75)" font-weight="700">Gece: 2,30 TL</text>
+              <rect x="168" y="90" width="80" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+              <text x="174" y="104" font-size="9" fill="rgba(255,255,255,0.65)">Puant: 6,80 TL</text>
+              <text x="80" y="124" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.4)" font-weight="700">ELEKTRİK TARİFESİ 2026</text>
+            </svg>
+            <span class="pc-badge">⚡ Fatura</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">Enerji & Fatura</div>
+            <h3>Elektrik Faturası Neden Yüksek? 2026 Tarifeleri</h3>
+            <p>Güncel elektrik birim fiyatları, tarifeler ve tasarruf yolları.</p>
+            <div class="pc-foot"><span>📅 2026</span><span class="read-more">Oku →</span></div>
+          </div>
+        </a>
+
+        <!-- 18 -->
+        <a class="post-card" href="https://hesaplarsin.com/blog/asgari-ucret-2027.html" data-cat="isci">
+          <div class="pc-thumb" style="background:linear-gradient(135deg,#064e3b,#059669);">
+            <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" width="260" height="130">
+              <rect x="20" y="30" width="220" height="30" rx="6" fill="rgba(255,255,255,0.1)"/>
+              <text x="130" y="50" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.65)" font-weight="700">2026: 26.005,50 TL</text>
+              <rect x="20" y="68" width="220" height="30" rx="6" fill="rgba(255,255,255,0.16)"/>
+              <text x="130" y="88" text-anchor="middle" font-size="14" fill="#6ee7b7" font-weight="900">2027: ~33–36K TL?</text>
+              <text x="130" y="118" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">Kasım 2026 toplantısı</text>
+            </svg>
+            <span class="pc-badge">🔥 Gündem</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cat">Asgari Ücret</div>
+            <h3>Asgari Ücret 2027 Ne Kadar Olacak?</h3>
+            <p>Enflasyon tahminleri, toplantı takvimi ve beklenti analizi.</p>
+            <div class="pc-foot"><span>📅 Ekim 2026</span><span class="read-more">Oku →</span></div>
           </div>
         </a>
 
@@ -410,46 +581,48 @@
 
     <!-- SIDEBAR -->
     <div>
-      <!-- KATEGORİLER -->
       <div class="sidebar-card">
         <h4>📂 Kategoriler</h4>
         <div class="kat-list">
-          <a href="#" onclick="filterPosts('vergi',null);return false;">💰 Vergi <span class="kc">3</span></a>
+          <a href="#" onclick="filterPosts('isci',null);return false;">💼 İşçi Hakları <span class="kc">6</span></a>
+          <a href="#" onclick="filterPosts('vergi',null);return false;">💰 Vergi <span class="kc">4</span></a>
+          <a href="#" onclick="filterPosts('ekonomi',null);return false;">📈 Ekonomi <span class="kc">4</span></a>
           <a href="#" onclick="filterPosts('gayrimenkul',null);return false;">🏠 Gayrimenkul <span class="kc">3</span></a>
-          <a href="#" onclick="filterPosts('isci',null);return false;">💼 İşçi Hakları <span class="kc">2</span></a>
-          <a href="#" onclick="filterPosts('hukuk',null);return false;">⚖️ Hukuk <span class="kc">2</span></a>
+          <a href="#" onclick="filterPosts('hukuk',null);return false;">⚖️ Hukuk <span class="kc">1</span></a>
           <a href="#" onclick="filterPosts('sigorta',null);return false;">🛡️ Sigorta <span class="kc">1</span></a>
         </div>
       </div>
 
-      <!-- POPÜLER -->
       <div class="sidebar-card">
         <h4>🔥 En Çok Okunanlar</h4>
         <div class="popular-list">
-          <a href="https://hesaplarsin.com/blog/kira-geliri-vergisi-hesaplama.html">
+          <a href="https://hesaplarsin.com/blog/asgari-ucret-2027.html">
             <span class="pl-num">1</span>
-            <div><h5>Kira Geliri Vergisi 2026</h5><span>58.000 TL istisna rehberi</span></div>
+            <div><h5>Asgari Ücret 2027</h5><span>Kasım toplantısı beklentisi</span></div>
           </a>
-          <a href="https://hesaplarsin.com/blog/tapu-harci-hesaplama.html">
+          <a href="https://hesaplarsin.com/blog/kira-geliri-vergisi-hesaplama.html">
             <span class="pl-num">2</span>
-            <div><h5>Tapu Harcı Hesaplama</h5><span>%4 harç detaylı anlatım</span></div>
+            <div><h5>Kira Geliri Vergisi</h5><span>58.000 TL istisna rehberi</span></div>
           </a>
-          <a href="https://hesaplarsin.com/blog/ihbar-tazminati-hesaplama.html">
+          <a href="https://hesaplarsin.com/blog/kidem-tazminati-2027.html">
             <span class="pl-num">3</span>
-            <div><h5>İhbar Tazminatı</h5><span>4857 sayılı Kanun rehberi</span></div>
+            <div><h5>Kıdem Tazminatı 2027</h5><span>Tavan ve hesaplama</span></div>
           </a>
           <a href="https://hesaplarsin.com/blog/nafaka-hesaplama.html">
             <span class="pl-num">4</span>
-            <div><h5>Nafaka Hesaplama</h5><span>Çocuk nafakası örnekleri</span></div>
+            <div><h5>Nafaka Hesaplama</h5><span>Çocuk nafakası oranları</span></div>
           </a>
-          <a href="https://hesaplarsin.com/blog/dask-sigortasi-hesaplama.html">
+          <a href="https://hesaplarsin.com/blog/tapu-harci-hesaplama.html">
             <span class="pl-num">5</span>
-            <div><h5>DASK Sigortası</h5><span>5 deprem bölgesi prim tablosu</span></div>
+            <div><h5>Tapu Harcı Hesaplama</h5><span>%4 harç detaylı anlatım</span></div>
+          </a>
+          <a href="https://hesaplarsin.com/blog/vergi-dilimleri-2027.html">
+            <span class="pl-num">6</span>
+            <div><h5>Vergi Dilimleri 2027</h5><span>%15'ten %40'a oranlar</span></div>
           </a>
         </div>
       </div>
 
-      <!-- CTA -->
       <div class="tool-cta">
         <h4>🧮 Hızlı Hesaplama</h4>
         <p>80+ ücretsiz hesaplama aracı sizi bekliyor.</p>
@@ -458,7 +631,7 @@
     </div>
   </div>
 
-</div><!-- /page-wrap -->
+</div>
 
 <footer>
   <div class="footer-inner">
@@ -469,7 +642,7 @@
         <a href="#">🏠 Gayrimenkul</a>
         <a href="#">💼 İşçi Hakları</a>
         <a href="#">⚖️ Hukuk</a>
-        <a href="#">🛡️ Sigorta</a>
+        <a href="#">📈 Ekonomi</a>
       </div>
       <div class="footer-col"><h4>Hesaplarsın</h4>
         <a href="mailto:info@hesaplarsin.com">📧 info@hesaplarsin.com</a>
@@ -484,6 +657,7 @@
     </div>
   </div>
 </footer>
+
 <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
@@ -491,16 +665,14 @@ const hamBtn=document.getElementById('hamBtn'),navLinks=document.getElementById(
 hamBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
 document.addEventListener('click',e=>{if(!hamBtn.contains(e.target)&&!navLinks.contains(e.target))navLinks.classList.remove('open');});
 window.addEventListener('scroll',()=>document.getElementById('topBtn').classList.toggle('show',scrollY>400),{passive:true});
-
-function filterPosts(cat, btn){
-  // buton aktif state
+function filterPosts(cat,btn){
   document.querySelectorAll('.fil-btn').forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  // kartları filtrele
-  document.querySelectorAll('.post-card, .featured-post').forEach(card=>{
-    if(cat==='hepsi') card.style.display='';
-    else card.style.display = (card.dataset.cat===cat) ? '' : 'none';
+  if(btn)btn.classList.add('active');
+  document.querySelectorAll('#postsGrid .post-card').forEach(card=>{
+    card.style.display=(cat==='hepsi'||card.dataset.cat===cat)?'flex':'none';
   });
+  const fp=document.querySelector('.featured-post');
+  if(fp)fp.style.display=(cat==='hepsi'||fp.dataset.cat===cat)?'grid':'none';
 }
 </script>
 </body>
