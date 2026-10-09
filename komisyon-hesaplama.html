@@ -1,86 +1,713 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Komisyon Hesaplama - Hesapmatik</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Komisyon Hesaplama 2026 – Satış Primi Hesaplayıcı | Hesaplarsın</title>
+  <meta name="description" content="Komisyon hesaplama aracı: satış tutarı ve orana göre anında komisyon hesaplayın. Sabit oran, kademeli sistem ve hedef bazlı prim hesabı. Ücretsiz, kayıt gerekmez." />
+  <meta name="keywords" content="komisyon hesaplama, satış primi hesaplama, komisyon oranı hesaplama, kademeli komisyon, emlak komisyonu hesaplama, prim hesaplama" />
+  <link rel="canonical" href="https://hesaplarsin.com/komisyon-hesaplama.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Komisyon Hesaplama – Satış Primi Hesaplayıcı 2026" />
+  <meta property="og:description" content="Satış tutarı ve oranınızı girin, komisyonunuzu anında öğrenin. Sabit oran ve kademeli sistem desteklenir." />
+  <meta property="og:url" content="https://hesaplarsin.com/komisyon-hesaplama.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-<style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#07142c;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-}
-.card{
-background:#102348;
-padding:30px;
-border-radius:20px;
-width:90%;
-max-width:500px;
-}
-input{
-width:100%;
-padding:15px;
-border:none;
-border-radius:10px;
-margin-bottom:15px;
-box-sizing:border-box;
-}
-button{
-width:100%;
-padding:15px;
-background:#8b5cf6;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-}
-.result{
-margin-top:20px;
-padding:15px;
-background:#1b3568;
-border-radius:10px;
-}
-</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Komisyon Hesaplama","url":"https://hesaplarsin.com/komisyon-hesaplama.html","description":"Satış tutarı ve komisyon oranına göre anında komisyon hesaplayan ücretsiz araç.","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://hesaplarsin.com"},{"@type":"ListItem","position":2,"name":"Komisyon Hesaplama","item":"https://hesaplarsin.com/komisyon-hesaplama.html"}]}
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FT582GF9N9');</script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand:       #059669;
+      --brand-dark:  #064e3b;
+      --brand-light: #ecfdf5;
+      --accent:      #f59e0b;
+      --success:     #10b981;
+      --danger:      #ef4444;
+      --text:        #111827;
+      --muted:       #6b7280;
+      --border:      #e5e7eb;
+      --bg:          #f9fafb;
+      --card:        #ffffff;
+      --r:           12px;
+      --shadow:      0 1px 3px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.05);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 16px; }
+
+    /* NAV */
+    nav.topnav { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 300; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 16px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .logo { font-size: 1.2rem; font-weight: 800; color: var(--brand); text-decoration: none; white-space: nowrap; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2px; }
+    .nav-links a { font-size: .8rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 5px 10px; border-radius: 6px; transition: background .15s, color .15s; white-space: nowrap; }
+    .nav-links a:hover, .nav-links a.active { background: var(--brand-light); color: var(--brand); }
+    .ham { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+    .ham span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; }
+    @media(max-width:640px) {
+      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: #fff; flex-direction: column; padding: 12px 16px 16px; border-bottom: 1px solid var(--border); z-index: 301; gap: 4px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 12px; font-size: .9rem; }
+      .ham { display: block; }
+    }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #064e3b 0%, #059669 60%, #10b981 100%); color: #fff; padding: 44px 16px 40px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(245,158,11,.08) 0%, transparent 50%); pointer-events: none; }
+    .hero-dots { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px); background-size: 28px 28px; }
+    .hero-inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); border-radius: 20px; font-size: .78rem; font-weight: 600; padding: 5px 14px; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.2; margin-bottom: 10px; }
+    .hero p { font-size: .95rem; opacity: .88; max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+    /* BREADCRUMB */
+    .breadcrumb { max-width: 1140px; margin: 0 auto; padding: 12px 16px 0; font-size: .8rem; color: var(--muted); }
+    .breadcrumb a { color: var(--brand); text-decoration: none; }
+    .breadcrumb span { margin: 0 5px; }
+
+    /* LAYOUT */
+    .page-wrap { max-width: 1140px; margin: 0 auto; padding: 24px 16px 60px; display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+    @media(max-width:860px) { .page-wrap { grid-template-columns: 1fr; } }
+
+    /* HESAPLAYICI KARTI */
+    .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; box-shadow: var(--shadow); }
+    .calc-card h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+
+    /* SEKMELİ HESAPLAYICI */
+    .sekme-bar { display: flex; gap: 4px; margin-bottom: 20px; background: var(--bg); border-radius: 10px; padding: 4px; }
+    .sekme { flex: 1; padding: 9px 8px; border: none; border-radius: 8px; background: none; font-size: .8rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all .15s; text-align: center; }
+    .sekme.active { background: #fff; color: var(--brand); box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+    .sekme-panel { display: none; }
+    .sekme-panel.active { display: block; }
+
+    /* FORM */
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: .83rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .form-group .hint { font-size: .74rem; color: var(--muted); margin-top: 3px; }
+    .inp-wrap { position: relative; }
+    .inp-wrap input { width: 100%; padding: 11px 44px 11px 14px; border: 1.5px solid var(--border); border-radius: 9px; font-size: 1rem; background: #fff; color: var(--text); outline: none; transition: border .15s; }
+    .inp-wrap input:focus { border-color: var(--brand); }
+    .inp-suffix { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: .82rem; color: var(--muted); font-weight: 600; pointer-events: none; }
+    .btn-hesapla { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--brand-dark), var(--brand)); color: #fff; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 4px; transition: opacity .15s; }
+    .btn-hesapla:hover { opacity: .88; }
+    .btn-temizle { width: 100%; padding: 10px; background: var(--bg); color: var(--muted); border: 1px solid var(--border); border-radius: 9px; font-size: .85rem; font-weight: 600; cursor: pointer; margin-top: 8px; transition: all .15s; }
+    .btn-temizle:hover { border-color: var(--danger); color: var(--danger); }
+
+    /* SONUÇ KUTUSU */
+    .sonuc-wrap { display: none; margin-top: 20px; }
+    .sonuc-wrap.show { display: block; }
+    .sonuc-baslik { font-size: .78rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px; }
+    .sonuc-ana { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); border-radius: 12px; padding: 20px; text-align: center; color: #fff; margin-bottom: 12px; }
+    .sonuc-ana .label { font-size: .82rem; opacity: .82; margin-bottom: 4px; }
+    .sonuc-ana .tutar { font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; }
+    .sonuc-detay { display: grid; gap: 8px; }
+    .sonuc-satir { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: var(--bg); border-radius: 9px; font-size: .88rem; border: 1px solid var(--border); }
+    .sonuc-satir .slbl { color: var(--muted); }
+    .sonuc-satir .sdeg { font-weight: 700; }
+    .sonuc-satir.vurgu { background: var(--brand-light); border-color: #a7f3d0; }
+    .sonuc-satir.vurgu .sdeg { color: var(--brand-dark); }
+
+    /* KADEME TABLOSU */
+    .kademe-sinir { display: grid; grid-template-columns: 1fr 80px 80px 32px; gap: 8px; align-items: center; margin-bottom: 8px; }
+    .kademe-sinir input { padding: 9px 10px; border: 1.5px solid var(--border); border-radius: 8px; font-size: .88rem; width: 100%; outline: none; }
+    .kademe-sinir input:focus { border-color: var(--brand); }
+    .kademe-sinir .lbl-row { font-size: .75rem; font-weight: 600; color: var(--muted); padding: 0 4px; }
+    .btn-ekle { background: var(--brand-light); color: var(--brand); border: 1.5px dashed var(--brand); border-radius: 8px; padding: 9px; width: 100%; font-size: .83rem; font-weight: 600; cursor: pointer; margin-bottom: 12px; }
+    .btn-sil { background: none; border: none; color: var(--danger); cursor: pointer; font-size: 1rem; padding: 4px; border-radius: 6px; }
+    .btn-sil:hover { background: #fef2f2; }
+
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+    /* BİLGİ KUTUSU */
+    .bilgi-kutu { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .bilgi-kutu h3 { font-size: .9rem; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .bilgi-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: .83rem; }
+    .bilgi-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .bilgi-item .bi-ico { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+    .bilgi-item .bi-text { line-height: 1.55; }
+    .bilgi-item .bi-text strong { display: block; font-weight: 700; margin-bottom: 1px; }
+    .bilgi-item .bi-text span { color: var(--muted); font-size: .78rem; }
+
+    /* BLOG CTA */
+    .blog-cta { background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 100%); border-radius: 14px; padding: 20px; color: #fff; }
+    .blog-cta h3 { font-size: .95rem; font-weight: 800; margin-bottom: 8px; }
+    .blog-cta p { font-size: .82rem; opacity: .88; line-height: 1.6; margin-bottom: 14px; }
+    .blog-cta a { display: inline-flex; align-items: center; gap: 6px; background: #fff; color: var(--brand-dark); font-weight: 700; font-size: .85rem; padding: 10px 18px; border-radius: 8px; text-decoration: none; transition: background .15s; }
+    .blog-cta a:hover { background: #f0fdf4; }
+
+    /* İLGİLİ ARAÇLAR */
+    .ilgili-kart { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .ilgili-kart h3 { font-size: .9rem; font-weight: 800; margin-bottom: 12px; }
+    .ilgili-link { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--bg); border-radius: 9px; text-decoration: none; color: var(--text); font-size: .84rem; font-weight: 600; transition: all .15s; margin-bottom: 7px; border: 1px solid var(--border); }
+    .ilgili-link:last-child { margin-bottom: 0; }
+    .ilgili-link:hover { border-color: var(--brand); background: var(--brand-light); color: var(--brand); }
+    .ilgili-link .il-ico { font-size: 1.1rem; flex-shrink: 0; }
+    .ilgili-link small { display: block; font-size: .73rem; color: var(--muted); font-weight: 400; margin-top: 1px; }
+
+    /* SEO METIN */
+    .seo-wrap { max-width: 1140px; margin: 0 auto; padding: 0 16px 48px; }
+    .seo-wrap h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; }
+    .seo-wrap p, .seo-wrap li { font-size: .9rem; color: #374151; line-height: 1.85; margin-bottom: 10px; }
+    .seo-wrap ul { margin-left: 20px; }
+    .seo-wrap a { color: var(--brand); }
+
+    /* FOOTER */
+    footer { background: #111827; color: #9ca3af; padding: 40px 16px 20px; }
+    .footer-inner { max-width: 1140px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 28px; margin-bottom: 28px; }
+    @media(max-width:640px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    .footer-brand { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .fdesc { font-size: .8rem; line-height: 1.65; }
+    .footer-col h4 { font-size: .82rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .footer-col a { display: block; font-size: .8rem; color: #9ca3af; text-decoration: none; margin-bottom: 7px; transition: color .15s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid #1f2937; padding-top: 16px; font-size: .76rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .footer-bottom a { color: #9ca3af; text-decoration: none; }
+
+    /* BACK TO TOP */
+    #topBtn { position: fixed; bottom: 20px; right: 16px; background: var(--brand); color: #fff; border: none; border-radius: 50%; width: 42px; height: 42px; font-size: 1.1rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(5,150,105,.35); z-index: 9998; }
+    #topBtn.show { display: flex; }
+
+    @media print { nav.topnav, .hero, footer, #topBtn, .blog-cta { display: none !important; } }
+  </style>
 </head>
 <body>
 
-<div class="card">
+<!-- NAV -->
+<nav class="topnav" aria-label="Ana navigasyon">
+  <div class="nav-inner">
+    <a class="logo" href="https://hesaplarsin.com">Hesaplarsın</a>
+    <button class="ham" id="hamBtn" aria-label="Menü"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://hesaplarsin.com">🧮 Araçlar</a>
+      <a href="https://hesaplarsin.com/blog.html">📰 Blog</a>
+      <a href="https://hesaplarsin.com/net-maas-hesaplama.html">💼 Net Maaş</a>
+      <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">💰 Vergi</a>
+      <a href="https://hesaplarsin.com/komisyon-hesaplama.html" class="active">💰 Komisyon</a>
+    </div>
+  </div>
+</nav>
 
-<h1>Komisyon Hesaplama</h1>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-dots" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">💰 Komisyon & Satış Primi</div>
+    <h1>Komisyon Hesaplama</h1>
+    <p>Satış tutarı ve oranınızı girin — sabit oran veya kademeli sistemde komisyonunuzu anında hesaplayın.</p>
+  </div>
+</header>
 
-<input type="number" id="tutar" placeholder="Satış Tutarı (TL)">
-<input type="number" id="oran" placeholder="Komisyon Oranı (%)">
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Sayfa yolu">
+  <a href="https://hesaplarsin.com">Ana Sayfa</a><span>›</span>
+  <a href="https://hesaplarsin.com/#araclar">Hesaplama Araçları</a><span>›</span>
+  <span>Komisyon Hesaplama</span>
+</nav>
 
-<button onclick="hesapla()">Hesapla</button>
+<!-- SAYFA İÇERİĞİ -->
+<div class="page-wrap">
 
-<div id="sonuc" class="result" style="display:none;"></div>
+  <!-- SOL: HESAPLAYICI -->
+  <div>
+    <div class="calc-card">
+      <h2>💰 Komisyon Hesaplayıcı</h2>
 
+      <!-- SEKME BAR -->
+      <div class="sekme-bar" role="tablist">
+        <button class="sekme active" role="tab" onclick="switchSekme('sabit', this)">Sabit Oran</button>
+        <button class="sekme" role="tab" onclick="switchSekme('kademeli', this)">Kademeli</button>
+        <button class="sekme" role="tab" onclick="switchSekme('hedef', this)">Hedef Bazlı</button>
+      </div>
+
+      <!-- PANEL 1: SABİT ORAN -->
+      <div class="sekme-panel active" id="panel-sabit">
+        <div class="form-group">
+          <label for="sabitSatis">Satış Tutarı</label>
+          <div class="inp-wrap">
+            <input type="number" id="sabitSatis" placeholder="Örn: 150.000" min="0" step="any" />
+            <span class="inp-suffix">₺</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sabitOran">Komisyon Oranı</label>
+          <div class="inp-wrap">
+            <input type="number" id="sabitOran" placeholder="Örn: 5" min="0" max="100" step="0.01" />
+            <span class="inp-suffix">%</span>
+          </div>
+          <div class="hint">Emlak: %2 · Sigorta: %5–20 · E-ticaret: %3–15</div>
+        </div>
+        <div class="form-group">
+          <label for="sabitKdv">KDV Dahil mi?</label>
+          <div class="inp-wrap" style="display:flex;gap:12px;align-items:center;padding:2px 0;">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.88rem;font-weight:500;margin-bottom:0;">
+              <input type="radio" name="kdvOpt" value="haric" checked /> KDV Hariç tutar (önerilir)
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.88rem;font-weight:500;margin-bottom:0;">
+              <input type="radio" name="kdvOpt" value="dahil" /> KDV Dahil tutar
+            </label>
+          </div>
+          <div class="hint">Komisyon genellikle KDV hariç tutar üzerinden hesaplanır.</div>
+        </div>
+        <button class="btn-hesapla" onclick="hesaplaSabit()">Hesapla →</button>
+        <button class="btn-temizle" onclick="temizle('sabit')">Temizle</button>
+
+        <div class="sonuc-wrap" id="sonuc-sabit">
+          <div class="sonuc-baslik">Hesaplama Sonucu</div>
+          <div class="sonuc-ana">
+            <div class="label">Komisyon Tutarı</div>
+            <div class="tutar" id="sabit-komisyon">0 ₺</div>
+          </div>
+          <div class="sonuc-detay">
+            <div class="sonuc-satir"><span class="slbl">Satış Tutarı (KDV hariç)</span><span class="sdeg" id="sabit-satis-kdv-haric">–</span></div>
+            <div class="sonuc-satir"><span class="slbl">Komisyon Oranı</span><span class="sdeg" id="sabit-oran-goster">–</span></div>
+            <div class="sonuc-satir vurgu"><span class="slbl">💰 Komisyon</span><span class="sdeg" id="sabit-komisyon2">–</span></div>
+            <div class="sonuc-satir"><span class="slbl">Kalan Tutar (satışçıya ödenecek)</span><span class="sdeg" id="sabit-kalan">–</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 2: KADEMELİ -->
+      <div class="sekme-panel" id="panel-kademeli">
+        <div class="form-group">
+          <label for="kademeSatis">Toplam Satış Tutarı</label>
+          <div class="inp-wrap">
+            <input type="number" id="kademeSatis" placeholder="Örn: 200.000" min="0" step="any" />
+            <span class="inp-suffix">₺</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Komisyon Dilimleri</label>
+          <div style="display:grid;grid-template-columns:1fr 80px 80px 32px;gap:8px;margin-bottom:6px;">
+            <span class="lbl-row" style="font-size:.73rem;font-weight:700;color:var(--muted);padding:0 2px;">Üst Limit (₺)</span>
+            <span class="lbl-row" style="font-size:.73rem;font-weight:700;color:var(--muted);">Oran (%)</span>
+            <span class="lbl-row" style="font-size:.73rem;font-weight:700;color:var(--muted);grid-column:3/5;">–</span>
+          </div>
+          <div id="kademeler">
+            <!-- JS ile doldurulur -->
+          </div>
+          <button class="btn-ekle" onclick="kademeEkle()">+ Dilim Ekle</button>
+          <div class="hint">Son dilim için üst limit boş bırakın (sınırsız).</div>
+        </div>
+        <button class="btn-hesapla" onclick="hesaplaKademeli()">Hesapla →</button>
+        <button class="btn-temizle" onclick="temizle('kademeli')">Temizle</button>
+
+        <div class="sonuc-wrap" id="sonuc-kademeli">
+          <div class="sonuc-baslik">Hesaplama Sonucu</div>
+          <div class="sonuc-ana">
+            <div class="label">Toplam Komisyon</div>
+            <div class="tutar" id="kademeli-toplam">0 ₺</div>
+          </div>
+          <div class="sonuc-detay" id="kademeli-detay"></div>
+        </div>
+      </div>
+
+      <!-- PANEL 3: HEDEF BAZLI -->
+      <div class="sekme-panel" id="panel-hedef">
+        <div class="form-group">
+          <label for="hedefSatis">Gerçekleşen Satış</label>
+          <div class="inp-wrap">
+            <input type="number" id="hedefSatis" placeholder="Örn: 240.000" min="0" step="any" />
+            <span class="inp-suffix">₺</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hedefHedef">Satış Hedefi</label>
+          <div class="inp-wrap">
+            <input type="number" id="hedefHedef" placeholder="Örn: 200.000" min="0" step="any" />
+            <span class="inp-suffix">₺</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hedefTemelOran">Temel Komisyon Oranı</label>
+          <div class="inp-wrap">
+            <input type="number" id="hedefTemelOran" placeholder="Örn: 3" min="0" max="100" step="0.01" />
+            <span class="inp-suffix">%</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hedefBonusOran">Hedef Aşım Bonus Oranı</label>
+          <div class="inp-wrap">
+            <input type="number" id="hedefBonusOran" placeholder="Örn: 5" min="0" max="100" step="0.01" />
+            <span class="inp-suffix">%</span>
+          </div>
+          <div class="hint">Hedef aşılan kısım bu oranla hesaplanır.</div>
+        </div>
+        <button class="btn-hesapla" onclick="hesaplaHedef()">Hesapla →</button>
+        <button class="btn-temizle" onclick="temizle('hedef')">Temizle</button>
+
+        <div class="sonuc-wrap" id="sonuc-hedef">
+          <div class="sonuc-baslik">Hesaplama Sonucu</div>
+          <div class="sonuc-ana">
+            <div class="label">Toplam Komisyon</div>
+            <div class="tutar" id="hedef-toplam">0 ₺</div>
+          </div>
+          <div class="sonuc-detay" id="hedef-detay"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALT BİLGİ KUTUSU (mobilde sidebar yerine) -->
+    <div class="bilgi-kutu" style="margin-top:16px;">
+      <h3>📌 Bilmeniz Gerekenler</h3>
+      <div class="bilgi-item">
+        <span class="bi-ico">🏠</span>
+        <div class="bi-text">
+          <strong>Emlak Komisyonu</strong>
+          <span>Satışta alıcıdan ve satıcıdan ayrı ayrı en fazla <strong>%2</strong> (toplam %4). Kirada 1 aylık kira.</span>
+        </div>
+      </div>
+      <div class="bilgi-item">
+        <span class="bi-ico">🛡️</span>
+        <div class="bi-text">
+          <strong>Sigorta Acentesi</strong>
+          <span>Kasko %5–8, hayat sigortası %15–20, zorunlu trafik daha düşük.</span>
+        </div>
+      </div>
+      <div class="bilgi-item">
+        <span class="bi-ico">💻</span>
+        <div class="bi-text">
+          <strong>E-ticaret / Affiliate</strong>
+          <span>Fiziki ürünlerde %3–15, dijital ürünlerde %20–50'ye kadar çıkabilir.</span>
+        </div>
+      </div>
+      <div class="bilgi-item">
+        <span class="bi-ico">💡</span>
+        <div class="bi-text">
+          <strong>Vergi Notu</strong>
+          <span>Komisyon geliri ücretlilerde SGK'ya tabidir. Serbest çalışanlarda gelir vergisi beyannamesi gerekir. <a href="https://hesaplarsin.com/blog/komisyon-hesaplama-rehberi.html" style="color:var(--brand);">Detaylar →</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAĞ: SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- Blog CTA -->
+    <div class="blog-cta">
+      <h3>📰 Komisyon Rehberi</h3>
+      <p>Kademeli sistem, sektör oranları, vergilendirme ve sözleşme ipuçları hakkında kapsamlı rehber yazımızı okuyun.</p>
+      <a href="https://hesaplarsin.com/blog/komisyon-hesaplama-rehberi.html">Rehberi Oku →</a>
+    </div>
+
+    <!-- Formül Özeti -->
+    <div class="bilgi-kutu">
+      <h3>🧮 Hızlı Formüller</h3>
+      <div style="background:linear-gradient(135deg,#064e3b,#059669);border-radius:10px;padding:14px;color:#fff;margin-bottom:12px;text-align:center;font-size:.9rem;">
+        <div style="opacity:.75;font-size:.75rem;margin-bottom:4px;">Temel Formül</div>
+        <strong>Komisyon = Satış × Oran%</strong>
+      </div>
+      <div class="bilgi-item" style="padding:6px 0;">
+        <span class="bi-ico">📊</span>
+        <div class="bi-text">
+          <strong>Efektif Oran Formülü</strong>
+          <span>Efektif % = Toplam Komisyon ÷ Toplam Satış × 100</span>
+        </div>
+      </div>
+      <div class="bilgi-item" style="padding:6px 0;border-bottom:none;">
+        <span class="bi-ico">💰</span>
+        <div class="bi-text">
+          <strong>Kalan Tutar</strong>
+          <span>Kalan = Satış Tutarı − Komisyon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- İlgili araçlar -->
+    <div class="ilgili-kart">
+      <h3>🔗 İlgili Araçlar</h3>
+      <a class="ilgili-link" href="https://hesaplarsin.com/net-maas-hesaplama.html">
+        <span class="il-ico">💼</span>
+        <span>Net Maaş Hesaplama<small>Komisyon dahil net kazancınız</small></span>
+      </a>
+      <a class="ilgili-link" href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">
+        <span class="il-ico">📋</span>
+        <span>Gelir Vergisi Hesaplama<small>Serbest meslek vergi hesabı</small></span>
+      </a>
+      <a class="ilgili-link" href="https://hesaplarsin.com/prim-hesaplama.html">
+        <span class="il-ico">🏆</span>
+        <span>Prim Hesaplama<small>Satış hedefine göre prim</small></span>
+      </a>
+      <a class="ilgili-link" href="https://hesaplarsin.com/kar-zarar-hesaplama.html">
+        <span class="il-ico">⚖️</span>
+        <span>Kar / Zarar Hesaplama<small>Alış–satış kar hesabı</small></span>
+      </a>
+    </div>
+
+    <!-- İlgili blog yazıları -->
+    <div class="ilgili-kart">
+      <h3>📰 İlgili Rehberler</h3>
+      <a class="ilgili-link" href="https://hesaplarsin.com/blog/komisyon-hesaplama-rehberi.html">
+        <span class="il-ico">💰</span>
+        <span>Komisyon Rehberi 2026<small>Sektör oranları, vergi, sözleşme ipuçları</small></span>
+      </a>
+      <a class="ilgili-link" href="https://hesaplarsin.com/blog/net-maas-nasil-hesaplanir.html">
+        <span class="il-ico">💼</span>
+        <span>Net Maaş Nasıl Hesaplanır?<small>Adım adım kesinti rehberi</small></span>
+      </a>
+      <a class="ilgili-link" href="https://hesaplarsin.com/blog/vergi-dilimleri-2027.html">
+        <span class="il-ico">🧾</span>
+        <span>Vergi Dilimleri 2027<small>Hangi dilimde ne kadar ödersiniz?</small></span>
+      </a>
+      <a class="ilgili-link" href="https://hesaplarsin.com/blog/sgk-primi-hesaplama-rehberi.html">
+        <span class="il-ico">🔒</span>
+        <span>SGK Primi Rehberi<small>4/a ve 4/b prim hesabı</small></span>
+      </a>
+    </div>
+  </div>
 </div>
 
+<!-- SEO METİN -->
+<div class="seo-wrap">
+  <h2>Komisyon Nasıl Hesaplanır?</h2>
+  <p>
+    <strong>Komisyon hesaplama</strong>, satış tutarının belirli bir yüzdesi alınarak yapılır. Temel formül şudur: <strong>Komisyon = Satış Tutarı × Komisyon Oranı (÷ 100)</strong>. Örneğin 100.000 TL'lik bir satışta %5 komisyon oranı uygulanıyorsa kazanılacak komisyon 5.000 TL'dir.
+  </p>
+  <p>
+    Komisyon sistemleri üç ana türde incelenir: <strong>sabit oran</strong> (tüm satışa aynı yüzde), <strong>kademeli oran</strong> (satış arttıkça oran yükselir) ve <strong>hedef bazlı prim</strong> (kotayı aşınca ek bonus). Satış temsilcileri, <a href="https://hesaplarsin.com/komisyon-hesaplama.html">komisyon hesaplama aracımızı</a> kullanarak saniyeler içinde kazançlarını görebilir.
+  </p>
+  <p>
+    Komisyon gelirinin vergisi için <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">gelir vergisi hesaplama</a> aracımızı, komisyon dahil brüt–net maaş dönüşümü için ise <a href="https://hesaplarsin.com/net-maas-hesaplama.html">net maaş hesaplama</a> aracımızı kullanabilirsiniz.
+    Komisyon oranları ve sözleşme detayları hakkında daha fazla bilgi için <a href="https://hesaplarsin.com/blog/komisyon-hesaplama-rehberi.html">Komisyon Hesaplama Rehberi 2026</a> yazımızı okuyun.
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Hesaplarsın</div>
+        <p class="fdesc">Türkiye'nin en kapsamlı ücretsiz hesaplama platformu. 70+ araç, 2026 güncel verileri, kayıt gerekmez.</p>
+      </div>
+      <div class="footer-col">
+        <h4>💰 İşletme Araçları</h4>
+        <a href="https://hesaplarsin.com/komisyon-hesaplama.html">Komisyon Hesaplama</a>
+        <a href="https://hesaplarsin.com/kar-zarar-hesaplama.html">Kar / Zarar</a>
+        <a href="https://hesaplarsin.com/kar-marji-hesaplama.html">Kâr Marjı</a>
+        <a href="https://hesaplarsin.com/yuzde-hesaplama.html">Yüzde Hesaplama</a>
+        <a href="https://hesaplarsin.com/prim-hesaplama.html">Prim Hesaplama</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hesaplarsın</h4>
+        <a href="https://hesaplarsin.com/blog.html">Blog & Rehberler</a>
+        <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
+        <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+        <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hesaplarsın. Sonuçlar bilgilendirme amaçlıdır.</span>
+      <span><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a> · <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım</a></span>
+    </div>
+  </div>
+</footer>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Yukarı">↑</button>
+
 <script>
+// ─── YARDIMCI ─────────────────────────────────────────
+function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
 
-function hesapla(){
-
-let tutar=parseFloat(document.getElementById("tutar").value);
-let oran=parseFloat(document.getElementById("oran").value);
-
-let komisyon=tutar*oran/100;
-let kalan=tutar-komisyon;
-
-document.getElementById("sonuc").style.display="block";
-
-document.getElementById("sonuc").innerHTML=
-"Komisyon: <strong>"+komisyon.toFixed(2)+" TL</strong><br><br>Eline Geçen: <strong>"+kalan.toFixed(2)+" TL</strong>";
-
+// ─── SEKME ────────────────────────────────────────────
+function switchSekme(id, btn) {
+  document.querySelectorAll('.sekme').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.sekme-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + id).classList.add('active');
 }
 
-</script>
+// ─── TEMİZLE ─────────────────────────────────────────
+function temizle(tip) {
+  if (tip === 'sabit') {
+    document.getElementById('sabitSatis').value = '';
+    document.getElementById('sabitOran').value = '';
+    document.getElementById('sonuc-sabit').classList.remove('show');
+  } else if (tip === 'kademeli') {
+    document.getElementById('kademeSatis').value = '';
+    document.getElementById('sonuc-kademeli').classList.remove('show');
+    initKademeler();
+  } else {
+    ['hedefSatis','hedefHedef','hedefTemelOran','hedefBonusOran'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('sonuc-hedef').classList.remove('show');
+  }
+}
 
+// ─── SABİT ORAN ───────────────────────────────────────
+function hesaplaSabit() {
+  const satis = parseFloat(document.getElementById('sabitSatis').value);
+  const oran  = parseFloat(document.getElementById('sabitOran').value);
+  const kdvDahil = document.querySelector('input[name="kdvOpt"]:checked').value === 'dahil';
+
+  if (!satis || !oran || satis <= 0 || oran <= 0) { alert('Lütfen geçerli satış tutarı ve oran girin.'); return; }
+
+  const satisKdvHaric = kdvDahil ? satis / 1.20 : satis;
+  const komisyon = satisKdvHaric * (oran / 100);
+  const kalan = satis - komisyon;
+
+  document.getElementById('sabit-komisyon').textContent  = fmt(komisyon);
+  document.getElementById('sabit-komisyon2').textContent = fmt(komisyon);
+  document.getElementById('sabit-satis-kdv-haric').textContent = fmt(satisKdvHaric);
+  document.getElementById('sabit-oran-goster').textContent = '%' + oran.toLocaleString('tr-TR');
+  document.getElementById('sabit-kalan').textContent = fmt(kalan);
+  document.getElementById('sonuc-sabit').classList.add('show');
+
+  gtag('event', 'komisyon_sabit_hesapla', {satis: satis, oran: oran});
+}
+
+// ─── KADEMELİ ────────────────────────────────────────
+let kademeler = [];
+
+function initKademeler() {
+  kademeler = [
+    { limit: 50000, oran: 3 },
+    { limit: 100000, oran: 5 },
+    { limit: '', oran: 8 }
+  ];
+  renderKademeler();
+}
+
+function renderKademeler() {
+  const wrap = document.getElementById('kademeler');
+  wrap.innerHTML = '';
+  kademeler.forEach((k, i) => {
+    const div = document.createElement('div');
+    div.style.cssText = 'display:grid;grid-template-columns:1fr 80px 80px 32px;gap:8px;align-items:center;margin-bottom:8px;';
+    div.innerHTML = `
+      <div style="font-size:.78rem;color:var(--muted);padding:8px 10px;background:var(--bg);border-radius:8px;border:1.5px solid var(--border);">
+        ${i === 0 ? '0 ₺' : (fmt(kademeler[i-1].limit || 0))} – ${k.limit ? fmt(k.limit) : '∞'}
+      </div>
+      <div style="position:relative;">
+        <input type="number" value="${k.limit}" placeholder="Üst ₺" min="0" step="1000"
+          oninput="kademeler[${i}].limit=this.value?parseFloat(this.value):'';renderKademeler();"
+          style="width:100%;padding:9px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:.83rem;outline:none;"/>
+      </div>
+      <div style="position:relative;">
+        <input type="number" value="${k.oran}" placeholder="%" min="0" max="100" step="0.1"
+          oninput="kademeler[${i}].oran=parseFloat(this.value)||0;"
+          style="width:100%;padding:9px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:.83rem;outline:none;"/>
+      </div>
+      <button class="btn-sil" onclick="kademeSil(${i})" ${kademeler.length <= 1 ? 'disabled' : ''}>✕</button>
+    `;
+    wrap.appendChild(div);
+  });
+}
+
+function kademeEkle() {
+  kademeler.push({ limit: '', oran: 0 });
+  renderKademeler();
+}
+
+function kademeSil(i) {
+  kademeler.splice(i, 1);
+  renderKademeler();
+}
+
+function hesaplaKademeli() {
+  const satis = parseFloat(document.getElementById('kademeSatis').value);
+  if (!satis || satis <= 0) { alert('Geçerli satış tutarı girin.'); return; }
+
+  let toplam = 0;
+  let kalan = satis;
+  const satirlar = [];
+  let altSinir = 0;
+
+  for (let i = 0; i < kademeler.length; i++) {
+    const k = kademeler[i];
+    const ustsınır = k.limit ? parseFloat(k.limit) : Infinity;
+    const dilimTavan = ustsınır - altSinir;
+    const buDilim = Math.min(kalan, dilimTavan);
+    if (buDilim <= 0) break;
+
+    const komisyon = buDilim * (k.oran / 100);
+    toplam += komisyon;
+    satirlar.push({ alt: altSinir, ust: k.limit || '∞', tutar: buDilim, oran: k.oran, komisyon });
+    kalan -= buDilim;
+    altSinir = ustsınır;
+    if (kalan <= 0) break;
+  }
+
+  const efektif = (toplam / satis) * 100;
+
+  document.getElementById('kademeli-toplam').textContent = fmt(toplam);
+  const detay = document.getElementById('kademeli-detay');
+  detay.innerHTML = satirlar.map(s =>
+    `<div class="sonuc-satir"><span class="slbl">${fmt(s.alt)} – ${s.ust === '∞' ? '∞' : fmt(s.ust)} × %${s.oran}</span><span class="sdeg">${fmt(s.komisyon)}</span></div>`
+  ).join('') + `
+    <div class="sonuc-satir vurgu"><span class="slbl">💰 Toplam Komisyon</span><span class="sdeg">${fmt(toplam)}</span></div>
+    <div class="sonuc-satir"><span class="slbl">Efektif Oran</span><span class="sdeg">%${efektif.toLocaleString('tr-TR',{maximumFractionDigits:2})}</span></div>
+  `;
+  document.getElementById('sonuc-kademeli').classList.add('show');
+
+  gtag('event', 'komisyon_kademeli_hesapla', {satis: satis, toplam_komisyon: toplam});
+}
+
+// ─── HEDEF BAZLI ─────────────────────────────────────
+function hesaplaHedef() {
+  const satis  = parseFloat(document.getElementById('hedefSatis').value);
+  const hedef  = parseFloat(document.getElementById('hedefHedef').value);
+  const temel  = parseFloat(document.getElementById('hedefTemelOran').value);
+  const bonus  = parseFloat(document.getElementById('hedefBonusOran').value) || 0;
+
+  if (!satis || !hedef || !temel) { alert('Lütfen tüm alanları doldurun.'); return; }
+
+  const hedefKomisyon = Math.min(satis, hedef) * (temel / 100);
+  const asimTutar     = Math.max(0, satis - hedef);
+  const asimKomisyon  = asimTutar * (bonus / 100);
+  const toplam        = hedefKomisyon + asimKomisyon;
+  const basariOran    = (satis / hedef) * 100;
+
+  document.getElementById('hedef-toplam').textContent = fmt(toplam);
+  document.getElementById('hedef-detay').innerHTML = `
+    <div class="sonuc-satir"><span class="slbl">Gerçekleşen Satış</span><span class="sdeg">${fmt(satis)}</span></div>
+    <div class="sonuc-satir"><span class="slbl">Satış Hedefi</span><span class="sdeg">${fmt(hedef)}</span></div>
+    <div class="sonuc-satir"><span class="slbl">Hedef Başarı Oranı</span><span class="sdeg">%${basariOran.toLocaleString('tr-TR',{maximumFractionDigits:1})}</span></div>
+    <div class="sonuc-satir"><span class="slbl">Hedef Dahili Komisyon (%${temel})</span><span class="sdeg">${fmt(hedefKomisyon)}</span></div>
+    ${asimTutar > 0 ? `<div class="sonuc-satir"><span class="slbl">Hedef Aşım Bonusu (${fmt(asimTutar)} × %${bonus})</span><span class="sdeg">${fmt(asimKomisyon)}</span></div>` : ''}
+    <div class="sonuc-satir vurgu"><span class="slbl">💰 Toplam Komisyon</span><span class="sdeg">${fmt(toplam)}</span></div>
+  `;
+  document.getElementById('sonuc-hedef').classList.add('show');
+
+  gtag('event', 'komisyon_hedef_hesapla', {satis: satis, hedef: hedef, toplam: toplam});
+}
+
+// ─── ENTER KEY ───────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    const active = document.querySelector('.sekme-panel.active');
+    if (active.id === 'panel-sabit')    hesaplaSabit();
+    else if (active.id === 'panel-kademeli') hesaplaKademeli();
+    else hesaplaHedef();
+  }
+});
+
+// ─── HAMBURGer ───────────────────────────────────────
+const hamBtn = document.getElementById('hamBtn');
+const navLinks = document.getElementById('navLinks');
+hamBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+document.addEventListener('click', e => {
+  if (!hamBtn.contains(e.target) && !navLinks.contains(e.target)) navLinks.classList.remove('open');
+});
+
+// ─── BACK TO TOP ─────────────────────────────────────
+window.addEventListener('scroll', () => document.getElementById('topBtn').classList.toggle('show', scrollY > 400), { passive: true });
+
+// ─── INIT ────────────────────────────────────────────
+initKademeler();
+</script>
 </body>
 </html>
