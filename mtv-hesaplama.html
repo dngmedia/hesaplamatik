@@ -1,113 +1,346 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MTV Hesaplama - Hesapmatik</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<title>MTV Hesaplama 2026 – Motor Hacmi, Yaş ve Değere Göre MTV</title>
+<meta name="description" content="2026 motorlu taşıtlar vergisini (MTV) aracınızın motor hacmi, yaşı, tescil yılı ve taşıt değerine göre hesaplayın. Otomobil ve motosiklet tarifeleri, taksit tutarları." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://hesaplarsin.com/mtv-hesaplama.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:site_name" content="Hesaplarsın" />
+<meta property="og:title" content="MTV Hesaplama 2026 – Motor Hacmi, Yaş ve Değere Göre MTV" />
+<meta property="og:description" content="2026 motorlu taşıtlar vergisini (MTV) aracınızın motor hacmi, yaşı, tescil yılı ve taşıt değerine göre hesaplayın. Otomobil ve motosiklet tarifeleri, taksit tutarları." />
+<meta property="og:url" content="https://hesaplarsin.com/mtv-hesaplama.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#1a56db" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "MTV Hesaplama", "url": "https://hesaplarsin.com/mtv-hesaplama.html", "description": "2026 motorlu taşıtlar vergisini (MTV) aracınızın motor hacmi, yaşı, tescil yılı ve taşıt değerine göre hesaplayın. Otomobil ve motosiklet tarifeleri, taksit tutarları.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "tr-TR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"}, "dateModified": "2026-10-21", "publisher": {"@type": "Organization", "name": "Hesaplarsın", "url": "https://hesaplarsin.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://hesaplarsin.com/"}, {"@type": "ListItem", "position": 2, "name": "Vergi Araçları", "item": "https://hesaplarsin.com/#vergi"}, {"@type": "ListItem", "position": 3, "name": "MTV Hesaplama", "item": "https://hesaplarsin.com/mtv-hesaplama.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "2026 MTV ne zaman ödenir?", "acceptedAnswer": {"@type": "Answer", "text": "İlk taksit Ocak 2026, ikinci taksit Temmuz 2026 sonuna kadar ödenir. İki taksit eşittir."}}, {"@type": "Question", "name": "Araç yaşı MTV’de nasıl hesaplanır?", "acceptedAnswer": {"@type": "Answer", "text": "Model yılı 1. yaş kabul edilir. 2026 yılında 2026, 2025 ve 2024 model araçlar 1–3 yaş grubundadır."}}, {"@type": "Question", "name": "Taşıt değeri nedir, nereden öğrenirim?", "acceptedAnswer": {"@type": "Answer", "text": "2018 sonrası tescilli otomobillerde, aracın ilk satışındaki KDV ve ÖTV hariç bedelidir. Fatura veya GİB MTV sorgulama ekranında görülebilir; ikinci el araçlarda ilk tescildeki değer esas alınır."}}, {"@type": "Question", "name": "Elektrikli araçlar MTV öder mi?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Elektrikli otomobillerde motor gücüne (kW) göre ayrı kademeler bulunur ve genellikle benzinli muadillerinin belirli bir oranı uygulanır."}}, {"@type": "Question", "name": "MTV gecikme faizi ne kadar?", "acceptedAnswer": {"@type": "Answer", "text": "Vadesinde ödenmeyen MTV için her ay için gecikme zammı uygulanır. Güncel oranı GİB üzerinden kontrol edin."}}]}</script>
 <style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#07142c;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-}
-
-.card{
-background:#102348;
-padding:30px;
-border-radius:20px;
-width:90%;
-max-width:550px;
-}
-
-input{
-width:100%;
-padding:14px;
-border:none;
-border-radius:10px;
-margin-bottom:15px;
-box-sizing:border-box;
-}
-
-button{
-width:100%;
-padding:15px;
-background:#3b82f6;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-}
-
-.result{
-margin-top:20px;
-padding:15px;
-background:#1b3568;
-border-radius:10px;
-}
-
-.back{
-display:block;
-text-align:center;
-margin-top:20px;
-color:#9ec5ff;
-text-decoration:none;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--brand:#1a56db;--brand-dark:#1341b0;--brand-light:#e8f0fe;--accent:#f59e0b;--success:#10b981;--danger:#ef4444;
+--text:#111827;--muted:#6b7280;--border:#e5e7eb;--bg:#f9fafb;--card:#fff;--r:12px;
+--shadow:0 1px 3px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.05)}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;-webkit-text-size-adjust:100%}
+a{color:var(--brand)}
+nav.top{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--brand);text-decoration:none;white-space:nowrap}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{font-size:.8rem;font-weight:500;color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:6px;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{background:var(--brand-light);color:var(--brand)}
+.ham{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.ham span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0;border-radius:2px}
+@media(max-width:760px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 16px 16px;border-bottom:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08);gap:4px;z-index:201}
+.nav-links.open{display:flex}.nav-links a{padding:10px 12px;font-size:.92rem}.ham{display:block}}
+.breadcrumb{max-width:1140px;margin:0 auto;padding:12px 16px 0;font-size:.8rem;color:var(--muted)}
+.breadcrumb a{color:var(--brand);text-decoration:none}.breadcrumb span{margin:0 5px}
+.hero{max-width:1140px;margin:0 auto;padding:18px 16px 0}
+.hero h1{font-size:clamp(1.4rem,4vw,1.95rem);font-weight:800;line-height:1.25;letter-spacing:-.4px}
+.hero p{margin-top:7px;color:var(--muted);font-size:.95rem;max-width:680px}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.hbadge{font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--muted)}
+.hbadge.green{border-color:#bbf7d0;background:#f0fdf4;color:#166534}.hbadge.blue{border-color:#bfdbfe;background:var(--brand-light);color:var(--brand-dark)}
+.main-grid{max-width:1140px;margin:20px auto 0;padding:0 16px 40px;display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
+@media(max-width:860px){.main-grid{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);padding:20px}
+@media(max-width:480px){.card{padding:16px}}
+.card-title{font-size:1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.form-grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}
+label{font-size:.83rem;font-weight:600}label small,.hint{font-weight:400;color:var(--muted);font-size:.75rem}
+input[type=text],input[type=date],select,textarea{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:.95rem;color:var(--text);background:#fff;outline:none;font-family:inherit;-moz-appearance:textfield}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none}
+input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+input::placeholder,textarea::placeholder{color:#b8bfcc}
+.chk{display:flex;align-items:center;gap:8px;font-weight:500;font-size:.86rem;cursor:pointer}
+.chk input{width:18px;height:18px;accent-color:var(--brand)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg label{display:flex;align-items:center;gap:6px;padding:9px 13px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:500;background:#fff}
+.seg input{display:none}.seg label:has(input:checked){border-color:var(--brand);background:var(--brand-light);color:var(--brand)}
+.qtags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.qtag{font-size:.75rem;padding:4px 10px;border:1px solid var(--border);border-radius:20px;cursor:pointer;background:#fff;color:var(--muted)}
+.qtag:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-light)}
+.btn-calc{margin-top:18px;width:100%;padding:14px;background:var(--brand);color:#fff;font-size:1rem;font-weight:700;border:none;border-radius:10px;cursor:pointer}
+.btn-calc:hover{background:var(--brand-dark)}
+.btn-reset{margin-top:8px;width:100%;padding:10px;background:transparent;color:var(--muted);font-size:.85rem;border:1.5px solid var(--border);border-radius:8px;cursor:pointer}
+#result{display:none;margin-top:20px}
+.res-main{background:linear-gradient(135deg,#1a56db,#3b82f6);color:#fff;border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.res-main .l{font-size:.78rem;opacity:.85;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.res-main .v{font-size:clamp(1.6rem,6vw,2.2rem);font-weight:800;line-height:1.2;word-break:break-word}
+.res-main .s{font-size:.85rem;opacity:.9;margin-top:4px}
+.res-rows{border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.res-row{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;font-size:.88rem;border-bottom:1px solid var(--border)}
+.res-row:last-child{border-bottom:none}.res-row:nth-child(even){background:var(--bg)}
+.res-row b{font-variant-numeric:tabular-nums;text-align:right}
+.res-row.hl b{color:var(--success)}.res-row.neg b{color:var(--danger)}
+.res-note{margin-top:12px;font-size:.82rem;background:#fffbeb;border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 8px 8px 0;color:#78350f}
+.res-extra{margin-top:14px;overflow-x:auto}
+.res-extra table,.article table{width:100%;border-collapse:collapse;font-size:.84rem}
+.res-extra th,.article th{background:var(--brand);color:#fff;padding:9px 11px;text-align:left;font-weight:600;white-space:nowrap}
+.res-extra td,.article td{padding:9px 11px;border-bottom:1px solid var(--border)}
+.res-extra tr:nth-child(even) td,.article tr:nth-child(even) td{background:var(--bg)}
+.res-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.res-actions button{flex:1;min-width:130px;padding:10px;border-radius:8px;font-size:.84rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:#fff}
+.res-actions button:hover{border-color:var(--brand);color:var(--brand)}
+.sidebar{display:flex;flex-direction:column;gap:16px}
+.side-title{font-size:.92rem;font-weight:700;margin-bottom:10px}
+.ql{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;color:var(--text);font-size:.85rem}
+.ql:hover{background:var(--brand-light);color:var(--brand)}
+.ql i{font-style:normal;width:30px;height:30px;border-radius:7px;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ql small{display:block;color:var(--muted);font-size:.72rem}
+.info-box{background:var(--brand-light);border-left:3px solid var(--brand);border-radius:0 8px 8px 0;padding:12px 14px;font-size:.84rem}
+.article{max-width:1140px;margin:0 auto;padding:0 16px 50px}
+.article-inner{max-width:800px}
+.article h2{font-size:clamp(1.12rem,3vw,1.32rem);font-weight:800;margin:34px 0 12px}
+.article h3{font-size:1rem;font-weight:700;margin:22px 0 8px;color:#1e3a5f}
+.article p{color:#374151;line-height:1.8;margin-bottom:12px;font-size:.95rem}
+.article ul,.article ol{margin:8px 0 14px 20px}.article li{margin-bottom:7px;color:#374151;font-size:.95rem;line-height:1.7}
+.article .table-wrap{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--border);border-radius:8px}
+.formula{background:#1e293b;color:#e2e8f0;border-radius:10px;padding:14px 18px;font-family:'Courier New',monospace;font-size:.88rem;line-height:1.9;margin:14px 0;overflow-x:auto}
+.example{background:#fff;border:1px solid var(--border);border-left:3px solid var(--success);border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0}
+.example p{margin-bottom:4px}
+.toc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:8px 0 6px}
+.toc b{font-size:.85rem}.toc ol{margin:6px 0 0 18px}.toc li{margin:3px 0;font-size:.88rem}.toc a{text-decoration:none}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:15px 0;font-size:.93rem;font-weight:600;cursor:pointer;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:inherit}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--brand);flex-shrink:0;transition:transform .2s}
+.faq-q.open::after{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 15px;color:#374151;font-size:.9rem;line-height:1.8}.faq-a.open{display:block}
+.meta-box{display:flex;gap:14px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);margin:20px 0 0;padding-top:14px;border-top:1px solid var(--border)}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:10px}
+@media(max-width:480px){.related-grid{grid-template-columns:1fr 1fr}}
+.rc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:4px}
+.rc:hover{border-color:var(--brand);box-shadow:0 4px 14px rgba(26,86,219,.1)}
+.rc .ri{font-size:1.2rem}.rc .rt{font-size:.83rem;font-weight:700}.rc .rd{font-size:.73rem;color:var(--muted)}
+footer{background:#111827;color:#9ca3af;padding:36px 16px 20px}
+.footer-inner{max-width:1140px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px;margin-bottom:28px}
+@media(max-width:640px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:8px}.fdesc{font-size:.8rem;line-height:1.65}
+.footer-col h4{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:10px}
+.footer-col a{display:block;font-size:.8rem;color:#9ca3af;text-decoration:none;margin-bottom:7px}.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid #1f2937;padding-top:16px;font-size:.76rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom a{color:#9ca3af;text-decoration:none}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:11px 18px;border-radius:10px;font-size:.86rem;z-index:9999;display:none;max-width:calc(100vw - 32px)}
+@media print{nav.top,.sidebar,.btn-calc,.btn-reset,.res-actions,footer,.breadcrumb,.related-grid{display:none!important}.main-grid{grid-template-columns:1fr!important}}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FT582GF9N9');</script>
 </head>
+<body data-tool="mtv-hesaplama">
 
-<body>
+<nav class="top" aria-label="Ana menü">
+  <div class="nav-inner">
+    <a class="logo" href="https://hesaplarsin.com/">Hesaplarsın</a>
+    <button class="ham" id="hamBtn" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://hesaplarsin.com/kredi-hesaplama.html">💳 Kredi</a>
+      <a href="https://hesaplarsin.com/net-maas-hesaplama.html">💼 Net Maaş</a>
+      <a href="https://hesaplarsin.com/kdv-hesaplama.html">🧾 KDV</a>
+      <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">📋 Gelir Vergisi</a>
+      <a href="https://hesaplarsin.com/yuzde-hesaplama.html">💯 Yüzde</a>
+      <a href="https://hesaplarsin.com/#araclar">🧮 Tüm Araçlar</a>
+      <a href="https://hesaplarsin.com/blog.html">📰 Blog</a>
+    </div>
+  </div>
+</nav>
 
-<div class="card">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://hesaplarsin.com/">Ana Sayfa</a><span aria-hidden="true">›</span><a href="https://hesaplarsin.com/#vergi">Vergi Araçları</a><span aria-hidden="true">›</span><span aria-current="page">MTV Hesaplama</span>
+</nav>
 
-<h1>MTV Hesaplama</h1>
+<header class="hero">
+  <h1>🚗 MTV Hesaplama 2026</h1>
+  <p>Aracınızın motor silindir hacmini, yaşını ve ilk tescil yılını seçin; 2026 yılı motorlu taşıtlar vergisini ve Ocak–Temmuz taksit tutarlarını görün.</p>
+  <div class="hero-badges"><span class="hbadge green">✓ Ücretsiz</span><span class="hbadge blue">2026 Güncel</span><span class="hbadge">Kayıt Gerektirmez</span></div>
+</header>
 
-<input type="number" id="motor" placeholder="Motor Hacmi (cc)">
+<div class="main-grid">
+  <main>
+    <section class="card" aria-label="MTV Hesaplama aracı">
+      <div class="card-title">🧮 MTV Hesaplama</div>
+      <div class="form-grid">
+<div class="field"><label for="tip">Araç Tipi</label><select id="tip"><option value="oto">Otomobil, arazi taşıtı, kaptıkaçtı</option><option value="moto">Motosiklet</option></select></div>
+<div class="field" id="f-tescil"><label for="tescil">İlk Tescil Tarihi</label><select id="tescil"><option value="yeni">1 Ocak 2018 ve sonrası</option><option value="eski">31 Aralık 2017 ve öncesi</option></select></div>
+<div class="field"><label for="cc">Motor Silindir Hacmi</label><select id="cc"></select></div>
+<div class="field"><label for="yas">Araç Yaşı <small>(2026 − model yılı + 1)</small></label><select id="yas"><option value="0">1 – 3 yaş</option><option value="1">4 – 6 yaş</option><option value="2">7 – 11 yaş</option><option value="3">12 – 15 yaş</option><option value="4">16 yaş ve üzeri</option></select></div>
+<div class="field full" id="f-deger"><label for="deger">Taşıt Değeri (₺) <small>ilk tescildeki KDV hariç değer — fatura/ÖTV matrahı</small></label><input type="text" autocomplete="off" id="deger" placeholder="örn: 650.000" inputmode="decimal"></div>
+</div>
+      <button class="btn-calc" type="button" onclick="run()">Hesapla</button>
+      <button class="btn-reset" type="button" onclick="sifirla()">↺ Temizle</button>
+      <div id="result" aria-live="polite"></div>
+    </section>
+  </main>
 
-<button onclick="hesapla()">Hesapla</button>
-
-<div id="sonuc" class="result" style="display:none;"></div>
-
-<a href="index.html" class="back">← Ana Sayfaya Dön</a>
-
+  <aside class="sidebar">
+    
+    <div class="card">
+      <div class="side-title">🔗 İlgili Hesaplamalar</div>
+      <a class="ql" href="https://hesaplarsin.com/otv-hesaplama.html"><i>🏷️</i><span>ÖTV Hesaplama<small>Özel tüketim vergisini hesapla.</small></span></a><a class="ql" href="https://hesaplarsin.com/arac-kredisi-hesaplama.html"><i>🚘</i><span>Araç Kredisi Hesaplama<small>Araç kredisi taksitlerini hesapla.</small></span></a><a class="ql" href="https://hesaplarsin.com/yakit-maliyeti-hesaplama.html"><i>⛽</i><span>Yakıt Maliyeti<small>Yolculuğunun yakıt maliyetini hesapla.</small></span></a><a class="ql" href="https://hesaplarsin.com/arac-muayene-gecikme-hesaplama.html"><i>🔧</i><span>Araç Muayene Gecikme<small>Araç muayene gecikme bedelini hesapla.</small></span></a><a class="ql" href="https://hesaplarsin.com/arac-deger-kaybi-hesaplama.html"><i>📉</i><span>Araç Değer Kaybı<small>Aracın yıllara göre değer kaybını hesapla.</small></span></a>
+    </div>
+  </aside>
 </div>
 
+<article class="article">
+  <div class="article-inner">
+  <nav class="toc" aria-label="İçindekiler"><b>📑 İçindekiler</b><ol><li><a href="#b-nedir">MTV (motorlu taşıtlar vergisi) nedir?</a></li><li><a href="#b-nasil">MTV nasıl hesaplanır?</a></li><li><a href="#b-tarife-yeni">2026 MTV tablosu – 2018 ve sonrası tescilli otomobiller (özet)</a></li><li><a href="#b-tarife-eski">2026 MTV tablosu – 2017 ve öncesi tescilli otomobiller</a></li><li><a href="#b-odeme">MTV ne zaman ve nasıl ödenir?</a></li><li><a href="#sss">Sık Sorulan Sorular</a></li></ol></nav>
+  
+<h2 id="b-nedir">MTV (motorlu taşıtlar vergisi) nedir?</h2>
+<p>Motorlu taşıtlar vergisi, trafik siciline kayıtlı araçlar için her yıl ödenen bir servet vergisidir. 197 sayılı Motorlu Taşıtlar Vergisi Kanunu’na göre vergiyi, aracın trafik kaydında sahibi görünen kişi öder. MTV tutarları her yıl yeniden değerleme oranında güncellenir ve <b>Ocak</b> ile <b>Temmuz</b> aylarında iki eşit taksitle ödenir.</p>
+
+<h2 id="b-nasil">MTV nasıl hesaplanır?</h2>
+<p>Otomobiller için MTV dört bilgiye göre belirlenir:</p>
+<ul>
+<li><b>Motor silindir hacmi (cm³):</b> Ruhsatta yazar; motor büyüdükçe vergi artar.</li>
+<li><b>Araç yaşı:</b> Model yılından itibaren hesaplanır (model yılı 1. yaş kabul edilir). 2026’da 2024–2026 model araçlar 1–3 yaş grubundadır.</li>
+<li><b>İlk tescil tarihi:</b> 1 Ocak 2018 ve sonrası tescil edilen otomobillerde taşıt değeri de dikkate alınır.</li>
+<li><b>Taşıt değeri:</b> Aracın ilk iktisabındaki ÖTV matrahı (KDV ve ÖTV hariç bedel).</li>
+</ul>
+
+<h2 id="b-tarife-yeni">2026 MTV tablosu – 2018 ve sonrası tescilli otomobiller (özet)</h2>
+<div class="table-wrap"><table><thead><tr><th>Motor hacmi</th><th>Taşıt değeri</th><th>1–3 yaş</th><th>4–6 yaş</th><th>7–11 yaş</th><th>12–15 yaş</th><th>16+ yaş</th></tr></thead><tbody>
+<tr><td rowspan="3">1300 cm³ ve altı</td><td>309.100 ₺’ye kadar</td><td>5.750</td><td>4.010</td><td>2.238</td><td>1.689</td><td>593</td></tr>
+<tr><td>309.100 – 541.500 ₺</td><td>6.319</td><td>4.409</td><td>2.459</td><td>1.861</td><td>655</td></tr>
+<tr><td>541.500 ₺ üzeri</td><td>6.902</td><td>4.807</td><td>2.693</td><td>2.032</td><td>706</td></tr>
+<tr><td rowspan="3">1301 – 1600 cm³</td><td>309.100 ₺’ye kadar</td><td>10.016</td><td>7.510</td><td>4.354</td><td>3.077</td><td>1.181</td></tr>
+<tr><td>309.100 – 541.500 ₺</td><td>11.023</td><td>8.264</td><td>4.794</td><td>3.375</td><td>1.290</td></tr>
+<tr><td>541.500 ₺ üzeri</td><td>12.028</td><td>9.012</td><td>5.220</td><td>3.685</td><td>1.408</td></tr>
+<tr><td rowspan="2">1601 – 1800 cm³</td><td>775.100 ₺’ye kadar</td><td>19.472</td><td>15.226</td><td>8.948</td><td>5.458</td><td>2.113</td></tr>
+<tr><td>775.100 ₺ üzeri</td><td>21.251</td><td>16.600</td><td>9.775</td><td>5.964</td><td>2.307</td></tr>
+<tr><td rowspan="2">1801 – 2000 cm³</td><td>775.100 ₺’ye kadar</td><td>30.679</td><td>23.625</td><td>13.886</td><td>8.264</td><td>3.248</td></tr>
+<tr><td>775.100 ₺ üzeri</td><td>33.474</td><td>25.784</td><td>15.147</td><td>9.012</td><td>3.547</td></tr>
+</tbody></table></div>
+<p>2000 cm³ üzeri motorlar ve tüm kademeler hesaplayıcıda yer almaktadır. Tutarlar Türk lirası ve yıllıktır.</p>
+
+<h2 id="b-tarife-eski">2026 MTV tablosu – 2017 ve öncesi tescilli otomobiller</h2>
+<div class="table-wrap"><table><thead><tr><th>Motor hacmi</th><th>1–3 yaş</th><th>4–6 yaş</th><th>7–11 yaş</th><th>12–15 yaş</th><th>16+ yaş</th></tr></thead><tbody>
+<tr><td>1300 cm³ ve altı</td><td>5.750</td><td>4.010</td><td>2.238</td><td>1.689</td><td>593</td></tr>
+<tr><td>1301 – 1600 cm³</td><td>10.016</td><td>7.510</td><td>4.354</td><td>3.077</td><td>1.181</td></tr>
+<tr><td>1601 – 1800 cm³</td><td>17.705</td><td>13.829</td><td>8.145</td><td>4.957</td><td>1.917</td></tr>
+<tr><td>1801 – 2000 cm³</td><td>27.898</td><td>21.478</td><td>12.624</td><td>7.510</td><td>2.958</td></tr>
+<tr><td>2001 – 2500 cm³</td><td>41.840</td><td>30.372</td><td>18.977</td><td>11.333</td><td>4.479</td></tr>
+<tr><td>2501 – 3000 cm³</td><td>58.347</td><td>50.754</td><td>31.704</td><td>17.044</td><td>6.255</td></tr>
+</tbody></table></div>
+
+<h2 id="b-odeme">MTV ne zaman ve nasıl ödenir?</h2>
+<ul>
+<li>1. taksit: 1–31 Ocak 2026, 2. taksit: 1–31 Temmuz 2026.</li>
+<li>Ödeme; GİB İnternet Vergi Dairesi, e-Devlet, banka mobil uygulamaları ve vergi dairelerinden yapılabilir.</li>
+<li>Süresinde ödenmeyen MTV için aylık gecikme zammı uygulanır ve MTV borcu olan araçlar için muayene ve satış işlemleri yapılamaz.</li>
+<li>Engelli bireyler adına kayıtlı belirli araçlar MTV’den muaftır.</li>
+</ul>
+<p>Araç satın alırken ÖTV’yi <a href="/otv-hesaplama.html">ÖTV hesaplama</a>, yıllık yakıt giderini <a href="/yakit-maliyeti-hesaplama.html">yakıt maliyeti hesaplama</a>, kredi taksitlerini <a href="/arac-kredisi-hesaplama.html">araç kredisi hesaplama</a> ile planlayabilirsiniz.</p>
+
+  <h2 id="sss">Sık Sorulan Sorular</h2>
+  <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">2026 MTV ne zaman ödenir?</button><div class="faq-a">İlk taksit Ocak 2026, ikinci taksit Temmuz 2026 sonuna kadar ödenir. İki taksit eşittir.</div></div>
+<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Araç yaşı MTV’de nasıl hesaplanır?</button><div class="faq-a">Model yılı 1. yaş kabul edilir. 2026 yılında 2026, 2025 ve 2024 model araçlar 1–3 yaş grubundadır.</div></div>
+<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Taşıt değeri nedir, nereden öğrenirim?</button><div class="faq-a">2018 sonrası tescilli otomobillerde, aracın ilk satışındaki KDV ve ÖTV hariç bedelidir. Fatura veya GİB MTV sorgulama ekranında görülebilir; ikinci el araçlarda ilk tescildeki değer esas alınır.</div></div>
+<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Elektrikli araçlar MTV öder mi?</button><div class="faq-a">Evet. Elektrikli otomobillerde motor gücüne (kW) göre ayrı kademeler bulunur ve genellikle benzinli muadillerinin belirli bir oranı uygulanır.</div></div>
+<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">MTV gecikme faizi ne kadar?</button><div class="faq-a">Vadesinde ödenmeyen MTV için her ay için gecikme zammı uygulanır. Güncel oranı GİB üzerinden kontrol edin.</div></div>
+  <p style="font-size:.8rem;color:var(--muted)"><strong>Kaynaklar:</strong> <a href="https://ivd.gib.gov.tr/" target="_blank" rel="noopener">GİB İnternet Vergi Dairesi – MTV</a> · <a href="https://www.mevzuat.gov.tr/mevzuatmetin/1.4.197.pdf" target="_blank" rel="noopener">197 sayılı Motorlu Taşıtlar Vergisi Kanunu</a></p>
+  <div class="meta-box"><span>🗓️ Son güncelleme: <time datetime="2026-10-21">21 Ekim 2026</time></span><span>✍️ Hazırlayan: Hesaplarsın Editör Ekibi</span><span>⚠️ Sonuçlar bilgilendirme amaçlıdır.</span></div>
+  </div>
+  <h2>Diğer Hesaplama Araçları</h2>
+  <div class="related-grid"><a class="rc" href="https://hesaplarsin.com/otv-hesaplama.html"><span class="ri">🏷️</span><span class="rt">ÖTV Hesaplama</span><span class="rd">Özel tüketim vergisini hesapla.</span></a><a class="rc" href="https://hesaplarsin.com/arac-kredisi-hesaplama.html"><span class="ri">🚘</span><span class="rt">Araç Kredisi Hesaplama</span><span class="rd">Araç kredisi taksitlerini hesapla.</span></a><a class="rc" href="https://hesaplarsin.com/yakit-maliyeti-hesaplama.html"><span class="ri">⛽</span><span class="rt">Yakıt Maliyeti</span><span class="rd">Yolculuğunun yakıt maliyetini hesapla.</span></a><a class="rc" href="https://hesaplarsin.com/arac-muayene-gecikme-hesaplama.html"><span class="ri">🔧</span><span class="rt">Araç Muayene Gecikme</span><span class="rd">Araç muayene gecikme bedelini hesapla.</span></a><a class="rc" href="https://hesaplarsin.com/arac-deger-kaybi-hesaplama.html"><span class="ri">📉</span><span class="rt">Araç Değer Kaybı</span><span class="rd">Aracın yıllara göre değer kaybını hesapla.</span></a></div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-brand">Hesaplarsın</div><p class="fdesc">Türkiye'nin ücretsiz hesaplama platformu. Finans, vergi, maaş, sağlık ve eğitim hesaplamaları 2026 güncel verileriyle, kayıt gerektirmeden.</p></div>
+      <div class="footer-col"><h4>Popüler</h4><a href="https://hesaplarsin.com/kdv-hesaplama.html">KDV Hesaplama</a><a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş</a><a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a><a href="https://hesaplarsin.com/yuzde-hesaplama.html">Yüzde Hesaplama</a></div>
+      <div class="footer-col"><h4>Kategoriler</h4><a href="https://hesaplarsin.com/#finans">Finans</a><a href="https://hesaplarsin.com/#vergi">Vergi</a><a href="https://hesaplarsin.com/#saglik">Sağlık</a><a href="https://hesaplarsin.com/#egitim">Eğitim</a></div>
+      <div class="footer-col"><h4>Hesaplarsın</h4><a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a><a href="https://hesaplarsin.com/iletisim.html">İletişim</a><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a><a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Hesaplarsın. Bilgiler bilgilendirme amaçlıdır; resmi işlemler için yetkili kurumlara danışınız.</span><span><a href="mailto:info@hesaplarsin.com">info@hesaplarsin.com</a></span></div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
 <script>
+// ── ORTAK YARDIMCILAR ─────────────────────────────
+function el(id){return document.getElementById(id);}
+function raw(id){var e=el(id);return e?String(e.value).trim():'';}
+function v(id){var s=raw(id);if(s==='')return NaN;s=s.replace(/[\s₺%]/g,'');
+  if(s.indexOf(',')>-1){s=s.replace(/\./g,'').replace(',', '.');}
+  else if(/^-?\d{1,3}(\.\d{3})+$/.test(s)){s=s.replace(/\./g,'');}
+  return parseFloat(s);}
+function radio(name){var r=document.querySelector('input[name="'+name+'"]:checked');return r?r.value:'';}
+function checked(id){var e=el(id);return !!(e&&e.checked);}
+function num(n,d){d=(d===undefined)?2:d;return Number(n).toLocaleString('tr-TR',{minimumFractionDigits:d,maximumFractionDigits:d});}
+function tl(n,d){return num(n,d===undefined?2:d)+' ₺';}
+function pct(n,d){return '%'+num(n,d===undefined?2:d);}
+function dt(d){return d.toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric',weekday:'long'});}
+function parseDate(id){var s=raw(id);if(!s)return null;var p=s.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return isNaN(d)?null:d;}
+function toast(m){var t=el('toast');t.textContent=m;t.style.display='block';clearTimeout(window._tt);window._tt=setTimeout(function(){t.style.display='none';},2600);}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+var _last=null;
+function run(scroll){
+  var r;try{r=hesapla();}catch(e){console.error(e);r='Lütfen girdiğiniz değerleri kontrol edin.';}
+  if(r===undefined||r===null)return;
+  if(typeof r==='string'){if(scroll!==false)toast(r);return;}
+  var h='<div class="res-main"><div class="l">'+esc(r.main[0])+'</div><div class="v">'+r.main[1]+'</div>'+(r.sub?'<div class="s">'+r.sub+'</div>':'')+'</div>';
+  if(r.rows&&r.rows.length){h+='<div class="res-rows">'+r.rows.map(function(x){return '<div class="res-row'+(x[2]?' '+x[2]:'')+'"><span>'+x[0]+'</span><b>'+x[1]+'</b></div>';}).join('')+'</div>';}
+  if(r.extra)h+='<div class="res-extra">'+r.extra+'</div>';
+  if(r.note)h+='<div class="res-note">'+r.note+'</div>';
+  h+='<div class="res-actions"><button type="button" onclick="kopyala()">📋 Sonucu Kopyala</button><button type="button" onclick="paylas()">💬 WhatsApp’ta Paylaş</button></div>';
+  var box=el('result');box.innerHTML=h;box.style.display='block';_last=r;
+  if(scroll!==false)box.scrollIntoView({behavior:'smooth',block:'nearest'});
+  if(window.gtag)gtag('event','hesapla',{tool:document.body.dataset.tool});
+}
+function metin(){if(!_last)return '';var t=function(s){return String(s).replace(/<[^>]+>/g,'');};
+  var l=[document.title.split('|')[0].trim(),t(_last.main[0])+': '+t(_last.main[1])];
+  (_last.rows||[]).forEach(function(x){l.push(t(x[0])+': '+t(x[1]));});l.push(location.href.split('#')[0]);return l.join('\n');}
+function kopyala(){var m=metin();if(navigator.clipboard){navigator.clipboard.writeText(m).then(function(){toast('📋 Sonuç kopyalandı');});}}
+function paylas(){window.open('https://wa.me/?text='+encodeURIComponent(metin()),'_blank','noopener');}
+function sifirla(){document.querySelectorAll('.card input[type=text],.card input[type=date],.card textarea').forEach(function(i){i.value='';});el('result').style.display='none';_last=null;if(window.onReset)onReset();}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.card input, .card select, .card textarea').forEach(function(i){
+    i.addEventListener('keydown',function(e){if(e.key==='Enter'&&i.tagName!=='TEXTAREA'){e.preventDefault();run();}});
+    i.addEventListener(i.tagName==='SELECT'||i.type==='radio'||i.type==='checkbox'?'change':'input',function(){if(_last)run(false);});
+  });
+  document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){var a=b.nextElementSibling;var o=a.classList.toggle('open');b.classList.toggle('open',o);b.setAttribute('aria-expanded',o);});});
+  var hb=el('hamBtn'),nl=el('navLinks');
+  hb.addEventListener('click',function(){var o=nl.classList.toggle('open');hb.setAttribute('aria-expanded',o);});
+  document.addEventListener('click',function(e){if(!hb.contains(e.target)&&!nl.contains(e.target))nl.classList.remove('open');});
+  if(window.onReady)onReady();
+});
 
+// ── MTV HESAPLAMA ──
+
+// 2026 MTV tarifeleri (I sayılı tarife). Değerler: [1-3, 4-6, 7-11, 12-15, 16+]
+var CC=['1300 cm³ ve altı','1301 – 1600 cm³','1601 – 1800 cm³','1801 – 2000 cm³','2001 – 2500 cm³','2501 – 3000 cm³','3001 – 3500 cm³','3501 – 4000 cm³','4001 cm³ ve üzeri'];
+var YENI=[ // [değer üst sınırı, tutarlar]
+ [[309100,[5750,4010,2238,1689,593]],[541500,[6319,4409,2459,1861,655]],[Infinity,[6902,4807,2693,2032,706]]],
+ [[309100,[10016,7510,4354,3077,1181]],[541500,[11023,8264,4794,3375,1290]],[Infinity,[12028,9012,5220,3685,1408]]],
+ [[775100,[19472,15226,8948,5458,2113]],[Infinity,[21251,16600,9775,5964,2307]]],
+ [[775100,[30679,23625,13886,8264,3248]],[Infinity,[33474,25784,15147,9012,3547]]],
+ [[968100,[46027,33413,20874,12465,4930]],[Infinity,[50217,36448,22768,13606,5378]]],
+ [[1937500,[64175,55837,34878,18758,6875]],[Infinity,[70018,60905,38053,20466,7503]]],
+ [[1937500,[97744,87954,52976,26443,9684]],[Infinity,[106641,95940,57791,28839,10578]]],
+ [[3101800,[153684,132712,78152,34878,13886]],[Infinity,[167671,144770,85271,38053,15147]]],
+ [[3683200,[251554,188627,111714,50206,19472]],[Infinity,[274415,205781,121873,54769,21251]]]];
+var ESKI=[[5750,4010,2238,1689,593],[10016,7510,4354,3077,1181],[17705,13829,8145,4957,1917],[27898,21478,12624,7510,2958],[41840,30372,18977,11333,4479],[58347,50754,31704,17044,6255],[88859,79955,48158,24031,8813],[139721,120647,71048,31704,12624],[228681,171485,101555,45632,17705]];
+var MCC=['100 – 250 cm³','251 – 650 cm³','651 – 1200 cm³','1201 cm³ ve üzeri'];
+var MOTO=[[1069,799,589,362,136],[2214,1676,1069,589,362],[5719,3398,1676,1069,589],[13876,9167,5719,4540,2214]];
+function doldur(){var m=el('tip').value==='moto', s=el('cc'); s.innerHTML=(m?MCC:CC).map(function(t,i){return '<option value="'+i+'">'+t+'</option>';}).join('');
+  el('f-tescil').style.display=m?'none':''; degerGoster();}
+function degerGoster(){el('f-deger').style.display=(el('tip').value==='oto'&&el('tescil').value==='yeni')?'':'none';}
+function onReady(){doldur(); el('tip').addEventListener('change',doldur); el('tescil').addEventListener('change',degerGoster);}
 function hesapla(){
-
-let motor=parseInt(document.getElementById("motor").value);
-
-let mtv=0;
-
-if(motor<=1300){
-mtv=4000;
+  var m=el('tip').value==='moto', c=+el('cc').value, y=+el('yas').value, t, aciklama;
+  if(m){t=MOTO[c][y]; aciklama='Motosiklet · '+MCC[c];}
+  else if(el('tescil').value==='eski'){t=ESKI[c][y]; aciklama='2017 ve öncesi tescil · '+CC[c];}
+  else {var d=v('deger'); if(!(d>0)) return '2018 ve sonrası tescilli otomobillerde taşıt değerini girin.'; var k=YENI[c]; for(var i=0;i<k.length;i++){if(d<=k[i][0]){t=k[i][1][y];break;}} aciklama='2018 sonrası tescil · '+CC[c]+' · değer '+tl(d,0);}
+  return {main:['2026 yıllık MTV', tl(t,0)], sub:aciklama,
+    rows:[['1. taksit (Ocak 2026)',tl(t/2)],['2. taksit (Temmuz 2026)',tl(t/2)],['Araç yaşı grubu',el('yas').options[y].text],['Aylık ortalama maliyet',tl(t/12)]],
+    note:'Taksitler Ocak ve Temmuz ayları sonuna kadar ödenir. Geç ödemede aylık gecikme zammı uygulanır. Kesin tutarı GİB İnternet Vergi Dairesi’nden sorgulayın.'};
 }
-else if(motor<=1600){
-mtv=7000;
-}
-else if(motor<=2000){
-mtv=12000;
-}
-else{
-mtv=20000;
-}
-
-document.getElementById("sonuc").style.display="block";
-
-document.getElementById("sonuc").innerHTML=
-`
-Tahmini MTV: ${mtv.toLocaleString('tr-TR')} TL
-`;
-
-}
-
 </script>
-
 </body>
 </html>

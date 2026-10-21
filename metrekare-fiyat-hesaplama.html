@@ -1,93 +1,304 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Metrekare Fiyatı Hesaplama</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<title>Metrekare Fiyatı Hesaplama – Evin m² Birim Fiyatı ve Karşılaştırma</title>
+<meta name="description" content="Ev, arsa veya dükkânın satış fiyatı ve metrekaresine göre m² birim fiyatını hesaplayın; iki ilanı karşılaştırın. Brüt ve net metrekare farkı açıklamalı." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://hesaplarsin.com/metrekare-fiyat-hesaplama.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:site_name" content="Hesaplarsın" />
+<meta property="og:title" content="Metrekare Fiyatı Hesaplama – Evin m² Birim Fiyatı ve Karşılaştırma" />
+<meta property="og:description" content="Ev, arsa veya dükkânın satış fiyatı ve metrekaresine göre m² birim fiyatını hesaplayın; iki ilanı karşılaştırın. Brüt ve net metrekare farkı açıklamalı." />
+<meta property="og:url" content="https://hesaplarsin.com/metrekare-fiyat-hesaplama.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#1a56db" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Metrekare Fiyatı Hesaplama", "url": "https://hesaplarsin.com/metrekare-fiyat-hesaplama.html", "description": "Ev, arsa veya dükkânın satış fiyatı ve metrekaresine göre m² birim fiyatını hesaplayın; iki ilanı karşılaştırın. Brüt ve net metrekare farkı açıklamalı.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "tr-TR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"}, "dateModified": "2026-10-21", "publisher": {"@type": "Organization", "name": "Hesaplarsın", "url": "https://hesaplarsin.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://hesaplarsin.com/"}, {"@type": "ListItem", "position": 2, "name": "Gayrimenkul Araçları", "item": "https://hesaplarsin.com/#gayrimenkul"}, {"@type": "ListItem", "position": 3, "name": "Metrekare Fiyatı Hesaplama", "item": "https://hesaplarsin.com/metrekare-fiyat-hesaplama.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Evin metrekare fiyatı nasıl bulunur?", "acceptedAnswer": {"@type": "Answer", "text": "Satış fiyatını evin metrekaresine bölün. 2.400.000 ₺’lik 80 m² ev için m² fiyatı 30.000 ₺’dir."}}, {"@type": "Question", "name": "İlanlardaki metrekare brüt mü net mi?", "acceptedAnswer": {"@type": "Answer", "text": "Çoğu ilanda brüt metrekare yazılır. Tapu kaydında da genellikle brüt alan yer alır; net alanı ilan detayından veya ekspertiz raporundan kontrol edin."}}, {"@type": "Question", "name": "Net metrekare brütün yüzde kaçıdır?", "acceptedAnswer": {"@type": "Answer", "text": "Genellikle %75–85’i kadardır. Duvar kalınlığı, balkon sayısı ve ortak alan oranı bu oranı değiştirir."}}, {"@type": "Question", "name": "Arsa metrekare fiyatı nasıl hesaplanır?", "acceptedAnswer": {"@type": "Answer", "text": "Arsa fiyatı arsa alanına bölünür. Ancak arsalarda asıl belirleyici olan imar durumudur; aynı m²’de emsali yüksek arsa çok daha değerlidir."}}]}</script>
 <style>
-body{
-font-family:Arial,sans-serif;
-background:#111827;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-margin:0;
-}
-
-.container{
-background:#1f2937;
-padding:25px;
-border-radius:12px;
-width:420px;
-}
-
-input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:8px;
-}
-
-button{
-width:100%;
-padding:12px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-
-.result{
-margin-top:20px;
-font-size:20px;
-font-weight:bold;
-text-align:center;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--brand:#1a56db;--brand-dark:#1341b0;--brand-light:#e8f0fe;--accent:#f59e0b;--success:#10b981;--danger:#ef4444;
+--text:#111827;--muted:#6b7280;--border:#e5e7eb;--bg:#f9fafb;--card:#fff;--r:12px;
+--shadow:0 1px 3px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.05)}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;-webkit-text-size-adjust:100%}
+a{color:var(--brand)}
+nav.top{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:1.2rem;font-weight:800;color:var(--brand);text-decoration:none;white-space:nowrap}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{font-size:.8rem;font-weight:500;color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:6px;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{background:var(--brand-light);color:var(--brand)}
+.ham{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.ham span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0;border-radius:2px}
+@media(max-width:760px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 16px 16px;border-bottom:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08);gap:4px;z-index:201}
+.nav-links.open{display:flex}.nav-links a{padding:10px 12px;font-size:.92rem}.ham{display:block}}
+.breadcrumb{max-width:1140px;margin:0 auto;padding:12px 16px 0;font-size:.8rem;color:var(--muted)}
+.breadcrumb a{color:var(--brand);text-decoration:none}.breadcrumb span{margin:0 5px}
+.hero{max-width:1140px;margin:0 auto;padding:18px 16px 0}
+.hero h1{font-size:clamp(1.4rem,4vw,1.95rem);font-weight:800;line-height:1.25;letter-spacing:-.4px}
+.hero p{margin-top:7px;color:var(--muted);font-size:.95rem;max-width:680px}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.hbadge{font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--muted)}
+.hbadge.green{border-color:#bbf7d0;background:#f0fdf4;color:#166534}.hbadge.blue{border-color:#bfdbfe;background:var(--brand-light);color:var(--brand-dark)}
+.main-grid{max-width:1140px;margin:20px auto 0;padding:0 16px 40px;display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
+@media(max-width:860px){.main-grid{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);padding:20px}
+@media(max-width:480px){.card{padding:16px}}
+.card-title{font-size:1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.form-grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}
+label{font-size:.83rem;font-weight:600}label small,.hint{font-weight:400;color:var(--muted);font-size:.75rem}
+input[type=text],input[type=date],select,textarea{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:.95rem;color:var(--text);background:#fff;outline:none;font-family:inherit;-moz-appearance:textfield}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none}
+input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+input::placeholder,textarea::placeholder{color:#b8bfcc}
+.chk{display:flex;align-items:center;gap:8px;font-weight:500;font-size:.86rem;cursor:pointer}
+.chk input{width:18px;height:18px;accent-color:var(--brand)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg label{display:flex;align-items:center;gap:6px;padding:9px 13px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:500;background:#fff}
+.seg input{display:none}.seg label:has(input:checked){border-color:var(--brand);background:var(--brand-light);color:var(--brand)}
+.qtags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.qtag{font-size:.75rem;padding:4px 10px;border:1px solid var(--border);border-radius:20px;cursor:pointer;background:#fff;color:var(--muted)}
+.qtag:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-light)}
+.btn-calc{margin-top:18px;width:100%;padding:14px;background:var(--brand);color:#fff;font-size:1rem;font-weight:700;border:none;border-radius:10px;cursor:pointer}
+.btn-calc:hover{background:var(--brand-dark)}
+.btn-reset{margin-top:8px;width:100%;padding:10px;background:transparent;color:var(--muted);font-size:.85rem;border:1.5px solid var(--border);border-radius:8px;cursor:pointer}
+#result{display:none;margin-top:20px}
+.res-main{background:linear-gradient(135deg,#1a56db,#3b82f6);color:#fff;border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.res-main .l{font-size:.78rem;opacity:.85;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.res-main .v{font-size:clamp(1.6rem,6vw,2.2rem);font-weight:800;line-height:1.2;word-break:break-word}
+.res-main .s{font-size:.85rem;opacity:.9;margin-top:4px}
+.res-rows{border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.res-row{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;font-size:.88rem;border-bottom:1px solid var(--border)}
+.res-row:last-child{border-bottom:none}.res-row:nth-child(even){background:var(--bg)}
+.res-row b{font-variant-numeric:tabular-nums;text-align:right}
+.res-row.hl b{color:var(--success)}.res-row.neg b{color:var(--danger)}
+.res-note{margin-top:12px;font-size:.82rem;background:#fffbeb;border-left:3px solid var(--accent);padding:10px 12px;border-radius:0 8px 8px 0;color:#78350f}
+.res-extra{margin-top:14px;overflow-x:auto}
+.res-extra table,.article table{width:100%;border-collapse:collapse;font-size:.84rem}
+.res-extra th,.article th{background:var(--brand);color:#fff;padding:9px 11px;text-align:left;font-weight:600;white-space:nowrap}
+.res-extra td,.article td{padding:9px 11px;border-bottom:1px solid var(--border)}
+.res-extra tr:nth-child(even) td,.article tr:nth-child(even) td{background:var(--bg)}
+.res-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.res-actions button{flex:1;min-width:130px;padding:10px;border-radius:8px;font-size:.84rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:#fff}
+.res-actions button:hover{border-color:var(--brand);color:var(--brand)}
+.sidebar{display:flex;flex-direction:column;gap:16px}
+.side-title{font-size:.92rem;font-weight:700;margin-bottom:10px}
+.ql{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;color:var(--text);font-size:.85rem}
+.ql:hover{background:var(--brand-light);color:var(--brand)}
+.ql i{font-style:normal;width:30px;height:30px;border-radius:7px;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ql small{display:block;color:var(--muted);font-size:.72rem}
+.info-box{background:var(--brand-light);border-left:3px solid var(--brand);border-radius:0 8px 8px 0;padding:12px 14px;font-size:.84rem}
+.article{max-width:1140px;margin:0 auto;padding:0 16px 50px}
+.article-inner{max-width:800px}
+.article h2{font-size:clamp(1.12rem,3vw,1.32rem);font-weight:800;margin:34px 0 12px}
+.article h3{font-size:1rem;font-weight:700;margin:22px 0 8px;color:#1e3a5f}
+.article p{color:#374151;line-height:1.8;margin-bottom:12px;font-size:.95rem}
+.article ul,.article ol{margin:8px 0 14px 20px}.article li{margin-bottom:7px;color:#374151;font-size:.95rem;line-height:1.7}
+.article .table-wrap{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--border);border-radius:8px}
+.formula{background:#1e293b;color:#e2e8f0;border-radius:10px;padding:14px 18px;font-family:'Courier New',monospace;font-size:.88rem;line-height:1.9;margin:14px 0;overflow-x:auto}
+.example{background:#fff;border:1px solid var(--border);border-left:3px solid var(--success);border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0}
+.example p{margin-bottom:4px}
+.toc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:8px 0 6px}
+.toc b{font-size:.85rem}.toc ol{margin:6px 0 0 18px}.toc li{margin:3px 0;font-size:.88rem}.toc a{text-decoration:none}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:15px 0;font-size:.93rem;font-weight:600;cursor:pointer;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:inherit}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--brand);flex-shrink:0;transition:transform .2s}
+.faq-q.open::after{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 15px;color:#374151;font-size:.9rem;line-height:1.8}.faq-a.open{display:block}
+.meta-box{display:flex;gap:14px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);margin:20px 0 0;padding-top:14px;border-top:1px solid var(--border)}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:10px}
+@media(max-width:480px){.related-grid{grid-template-columns:1fr 1fr}}
+.rc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:4px}
+.rc:hover{border-color:var(--brand);box-shadow:0 4px 14px rgba(26,86,219,.1)}
+.rc .ri{font-size:1.2rem}.rc .rt{font-size:.83rem;font-weight:700}.rc .rd{font-size:.73rem;color:var(--muted)}
+footer{background:#111827;color:#9ca3af;padding:36px 16px 20px}
+.footer-inner{max-width:1140px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px;margin-bottom:28px}
+@media(max-width:640px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer-brand{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:8px}.fdesc{font-size:.8rem;line-height:1.65}
+.footer-col h4{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:10px}
+.footer-col a{display:block;font-size:.8rem;color:#9ca3af;text-decoration:none;margin-bottom:7px}.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid #1f2937;padding-top:16px;font-size:.76rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom a{color:#9ca3af;text-decoration:none}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:11px 18px;border-radius:10px;font-size:.86rem;z-index:9999;display:none;max-width:calc(100vw - 32px)}
+@media print{nav.top,.sidebar,.btn-calc,.btn-reset,.res-actions,footer,.breadcrumb,.related-grid{display:none!important}.main-grid{grid-template-columns:1fr!important}}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FT582GF9N9');</script>
 </head>
-<body>
+<body data-tool="metrekare-fiyat-hesaplama">
 
-<div class="container">
+<nav class="top" aria-label="Ana menü">
+  <div class="nav-inner">
+    <a class="logo" href="https://hesaplarsin.com/">Hesaplarsın</a>
+    <button class="ham" id="hamBtn" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://hesaplarsin.com/kredi-hesaplama.html">💳 Kredi</a>
+      <a href="https://hesaplarsin.com/net-maas-hesaplama.html">💼 Net Maaş</a>
+      <a href="https://hesaplarsin.com/kdv-hesaplama.html">🧾 KDV</a>
+      <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">📋 Gelir Vergisi</a>
+      <a href="https://hesaplarsin.com/yuzde-hesaplama.html">💯 Yüzde</a>
+      <a href="https://hesaplarsin.com/#araclar">🧮 Tüm Araçlar</a>
+      <a href="https://hesaplarsin.com/blog.html">📰 Blog</a>
+    </div>
+  </div>
+</nav>
 
-<h1>Metrekare Fiyatı Hesaplama</h1>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://hesaplarsin.com/">Ana Sayfa</a><span aria-hidden="true">›</span><a href="https://hesaplarsin.com/#gayrimenkul">Gayrimenkul Araçları</a><span aria-hidden="true">›</span><span aria-current="page">Metrekare Fiyatı Hesaplama</span>
+</nav>
 
-<input type="number" id="fiyat" placeholder="Toplam Fiyat (₺)">
+<header class="hero">
+  <h1>📐 Metrekare Fiyatı Hesaplama</h1>
+  <p>İlandaki fiyatı ve metrekareyi girin; metrekare başına fiyatı hesaplayın. İkinci bir ilan girerek hangisinin daha uygun olduğunu karşılaştırın.</p>
+  <div class="hero-badges"><span class="hbadge green">✓ Ücretsiz</span><span class="hbadge blue">2026 Güncel</span><span class="hbadge">Kayıt Gerektirmez</span></div>
+</header>
 
-<input type="number" id="metrekare" placeholder="Metrekare (m²)">
+<div class="main-grid">
+  <main>
+    <section class="card" aria-label="Metrekare Fiyatı Hesaplama aracı">
+      <div class="card-title">🧮 Metrekare Fiyatı Hesaplama</div>
+      <div class="form-grid">
+<div class="field"><label for="f1">1. Gayrimenkul Fiyatı (₺)</label><input type="text" autocomplete="off" id="f1" placeholder="örn: 3.850.000" inputmode="decimal"></div>
+<div class="field"><label for="m1">1. Alan (m²)</label><input type="text" autocomplete="off" id="m1" placeholder="örn: 110" inputmode="decimal"></div>
+<div class="field"><label for="f2">2. Gayrimenkul Fiyatı (₺) <small>karşılaştırma</small></label><input type="text" autocomplete="off" id="f2" placeholder="isteğe bağlı" inputmode="decimal"></div>
+<div class="field"><label for="m2">2. Alan (m²)</label><input type="text" autocomplete="off" id="m2" placeholder="isteğe bağlı" inputmode="decimal"></div>
+<div class="field full"><label for="hedefm">Hedef Alan (m²) <small>bu m² fiyatıyla kaç TL eder?</small></label><input type="text" autocomplete="off" id="hedefm" placeholder="örn: 125" inputmode="decimal"></div>
+</div>
+      <button class="btn-calc" type="button" onclick="run()">Hesapla</button>
+      <button class="btn-reset" type="button" onclick="sifirla()">↺ Temizle</button>
+      <div id="result" aria-live="polite"></div>
+    </section>
+  </main>
 
-<button onclick="hesapla()">Hesapla</button>
-
-<div id="sonuc" class="result"></div>
-
+  <aside class="sidebar">
+    
+    <div class="card">
+      <div class="side-title">🔗 İlgili Hesaplamalar</div>
+      <a class="ql" href="https://hesaplarsin.com/kira-getirisi-hesaplama.html"><i>🏠</i><span>Kira Getirisi Hesaplama<small>Evinizin yıllık kira getiri oranını hesapla.</small></span></a><a class="ql" href="https://hesaplarsin.com/tapu-harci-hesaplama.html"><i>🏡</i><span>Tapu Harcı Hesaplama<small>Ev veya arsa satışlarında ödenecek tapu harcını hesapla.</small></span></a><a class="ql" href="https://hesaplarsin.com/kira-artis-hesaplama.html"><i>📈</i><span>Kira Artış Hesaplama<small>TÜFE oranına göre yeni kira tutarını hesapla.</small></span></a><a class="ql" href="https://hesaplarsin.com/boya-hesaplama.html"><i>🎨</i><span>Boya Hesaplama<small>Oda veya duvar için gereken boya miktarını hesapla.</small></span></a><a class="ql" href="https://hesaplarsin.com/yuzde-hesaplama.html"><i>💯</i><span>Yüzde Hesaplama<small>Yüzde artış ve indirim hesapla.</small></span></a>
+    </div>
+  </aside>
 </div>
 
+<article class="article">
+  <div class="article-inner">
+  <nav class="toc" aria-label="İçindekiler"><b>📑 İçindekiler</b><ol><li><a href="#b-nasil">Metrekare fiyatı nasıl hesaplanır?</a></li><li><a href="#b-brut-net">Brüt ve net metrekare farkı</a></li><li><a href="#b-etkenler">Metrekare fiyatını etkileyen faktörler</a></li><li><a href="#b-maliyet">Satın alırken toplam maliyeti unutmayın</a></li><li><a href="#sss">Sık Sorulan Sorular</a></li></ol></nav>
+  
+<h2 id="b-nasil">Metrekare fiyatı nasıl hesaplanır?</h2>
+<p>Bir gayrimenkulün metrekare (m²) fiyatı, toplam satış fiyatının alanına bölünmesiyle bulunur. Farklı büyüklükteki daireleri, arsaları veya dükkânları adil şekilde karşılaştırmanın en pratik yoludur.</p>
+<div class="formula">m² fiyatı = Satış fiyatı ÷ Metrekare</div>
+<div class="example"><p><b>Örnek:</b> 110 m²’lik daire 3.850.000 ₺ ise: 3.850.000 ÷ 110 = <b>35.000 ₺/m²</b>. Aynı bölgedeki 125 m²’lik bir daire bu birim fiyatla yaklaşık 4.375.000 ₺ eder.</p></div>
+
+<h2 id="b-brut-net">Brüt ve net metrekare farkı</h2>
+<p>İlanlarda verilen metrekare çoğunlukla <b>brüt</b> alandır ve duvarları, balkonları, ortak alanlardan düşen payı (merdiven, asansör boşluğu, giriş holü) içerir. <b>Net</b> metrekare ise duvar içinden ölçülen, fiilen kullanılan alandır. Genellikle net alan, brüt alanın %75–85’i kadardır. İki ilanı karşılaştırırken her ikisinde de aynı ölçütün (brüt veya net) kullanıldığından emin olun.</p>
+<div class="table-wrap"><table><thead><tr><th>Terim</th><th>Kapsam</th></tr></thead><tbody>
+<tr><td>Net alan</td><td>Odaların, mutfağın, banyonun duvar içi alanları toplamı</td></tr>
+<tr><td>Brüt alan</td><td>Net alan + iç ve dış duvarlar + balkon</td></tr>
+<tr><td>Brüt (ortak alanlar dahil)</td><td>Brüt alan + bina ortak alanlarından düşen pay</td></tr>
+</tbody></table></div>
+
+<h2 id="b-etkenler">Metrekare fiyatını etkileyen faktörler</h2>
+<ul>
+<li><b>Konum:</b> Ulaşım, okul, hastane ve sosyal donatılara yakınlık.</li>
+<li><b>Bina yaşı ve deprem dayanıklılığı:</b> 2000 sonrası (özellikle 2018 yönetmeliği sonrası) yapılar daha değerlidir.</li>
+<li><b>Kat ve cephe:</b> Ara katlar, güney cephe ve manzara fiyatı artırır.</li>
+<li><b>Site özellikleri:</b> Otopark, güvenlik, havuz, asansör.</li>
+<li><b>İmar durumu (arsalarda):</b> TAKS, KAKS (emsal) ve kat izni arsa m² fiyatını doğrudan belirler.</li>
+</ul>
+
+<h2 id="b-maliyet">Satın alırken toplam maliyeti unutmayın</h2>
+<p>Metrekare fiyatı yalnızca başlangıçtır. Tapu harcı (%4), emlakçı komisyonu, döner sermaye, DASK ve taşınma masrafları toplam maliyeti %5–7 artırabilir. Bkz. <a href="/tapu-harci-hesaplama.html">tapu harcı hesaplama</a>. Yatırım amaçlı alımlarda <a href="/kira-getirisi-hesaplama.html">kira getirisi hesaplama</a> ile amortisman süresini de kontrol edin. Duvar boyası gibi tadilat işleri için <a href="/boya-hesaplama.html">boya hesaplama</a> aracı da işinize yarayabilir.</p>
+
+  <h2 id="sss">Sık Sorulan Sorular</h2>
+  <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Evin metrekare fiyatı nasıl bulunur?</button><div class="faq-a">Satış fiyatını evin metrekaresine bölün. 2.400.000 ₺’lik 80 m² ev için m² fiyatı 30.000 ₺’dir.</div></div>
+<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">İlanlardaki metrekare brüt mü net mi?</button><div class="faq-a">Çoğu ilanda brüt metrekare yazılır. Tapu kaydında da genellikle brüt alan yer alır; net alanı ilan detayından veya ekspertiz raporundan kontrol edin.</div></div>
+<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Net metrekare brütün yüzde kaçıdır?</button><div class="faq-a">Genellikle %75–85’i kadardır. Duvar kalınlığı, balkon sayısı ve ortak alan oranı bu oranı değiştirir.</div></div>
+<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Arsa metrekare fiyatı nasıl hesaplanır?</button><div class="faq-a">Arsa fiyatı arsa alanına bölünür. Ancak arsalarda asıl belirleyici olan imar durumudur; aynı m²’de emsali yüksek arsa çok daha değerlidir.</div></div>
+  
+  <div class="meta-box"><span>🗓️ Son güncelleme: <time datetime="2026-10-21">21 Ekim 2026</time></span><span>✍️ Hazırlayan: Hesaplarsın Editör Ekibi</span><span>⚠️ Sonuçlar bilgilendirme amaçlıdır.</span></div>
+  </div>
+  <h2>Diğer Hesaplama Araçları</h2>
+  <div class="related-grid"><a class="rc" href="https://hesaplarsin.com/kira-getirisi-hesaplama.html"><span class="ri">🏠</span><span class="rt">Kira Getirisi Hesaplama</span><span class="rd">Evinizin yıllık kira getiri oranını hesapla.</span></a><a class="rc" href="https://hesaplarsin.com/tapu-harci-hesaplama.html"><span class="ri">🏡</span><span class="rt">Tapu Harcı Hesaplama</span><span class="rd">Ev veya arsa satışlarında ödenecek tapu harcını hesapla.</span></a><a class="rc" href="https://hesaplarsin.com/kira-artis-hesaplama.html"><span class="ri">📈</span><span class="rt">Kira Artış Hesaplama</span><span class="rd">TÜFE oranına göre yeni kira tutarını hesapla.</span></a><a class="rc" href="https://hesaplarsin.com/boya-hesaplama.html"><span class="ri">🎨</span><span class="rt">Boya Hesaplama</span><span class="rd">Oda veya duvar için gereken boya miktarını hesapla.</span></a><a class="rc" href="https://hesaplarsin.com/yuzde-hesaplama.html"><span class="ri">💯</span><span class="rt">Yüzde Hesaplama</span><span class="rd">Yüzde artış ve indirim hesapla.</span></a></div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-brand">Hesaplarsın</div><p class="fdesc">Türkiye'nin ücretsiz hesaplama platformu. Finans, vergi, maaş, sağlık ve eğitim hesaplamaları 2026 güncel verileriyle, kayıt gerektirmeden.</p></div>
+      <div class="footer-col"><h4>Popüler</h4><a href="https://hesaplarsin.com/kdv-hesaplama.html">KDV Hesaplama</a><a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş</a><a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a><a href="https://hesaplarsin.com/yuzde-hesaplama.html">Yüzde Hesaplama</a></div>
+      <div class="footer-col"><h4>Kategoriler</h4><a href="https://hesaplarsin.com/#finans">Finans</a><a href="https://hesaplarsin.com/#vergi">Vergi</a><a href="https://hesaplarsin.com/#saglik">Sağlık</a><a href="https://hesaplarsin.com/#egitim">Eğitim</a></div>
+      <div class="footer-col"><h4>Hesaplarsın</h4><a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a><a href="https://hesaplarsin.com/iletisim.html">İletişim</a><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a><a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Hesaplarsın. Bilgiler bilgilendirme amaçlıdır; resmi işlemler için yetkili kurumlara danışınız.</span><span><a href="mailto:info@hesaplarsin.com">info@hesaplarsin.com</a></span></div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
 <script>
+// ── ORTAK YARDIMCILAR ─────────────────────────────
+function el(id){return document.getElementById(id);}
+function raw(id){var e=el(id);return e?String(e.value).trim():'';}
+function v(id){var s=raw(id);if(s==='')return NaN;s=s.replace(/[\s₺%]/g,'');
+  if(s.indexOf(',')>-1){s=s.replace(/\./g,'').replace(',', '.');}
+  else if(/^-?\d{1,3}(\.\d{3})+$/.test(s)){s=s.replace(/\./g,'');}
+  return parseFloat(s);}
+function radio(name){var r=document.querySelector('input[name="'+name+'"]:checked');return r?r.value:'';}
+function checked(id){var e=el(id);return !!(e&&e.checked);}
+function num(n,d){d=(d===undefined)?2:d;return Number(n).toLocaleString('tr-TR',{minimumFractionDigits:d,maximumFractionDigits:d});}
+function tl(n,d){return num(n,d===undefined?2:d)+' ₺';}
+function pct(n,d){return '%'+num(n,d===undefined?2:d);}
+function dt(d){return d.toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric',weekday:'long'});}
+function parseDate(id){var s=raw(id);if(!s)return null;var p=s.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return isNaN(d)?null:d;}
+function toast(m){var t=el('toast');t.textContent=m;t.style.display='block';clearTimeout(window._tt);window._tt=setTimeout(function(){t.style.display='none';},2600);}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+var _last=null;
+function run(scroll){
+  var r;try{r=hesapla();}catch(e){console.error(e);r='Lütfen girdiğiniz değerleri kontrol edin.';}
+  if(r===undefined||r===null)return;
+  if(typeof r==='string'){if(scroll!==false)toast(r);return;}
+  var h='<div class="res-main"><div class="l">'+esc(r.main[0])+'</div><div class="v">'+r.main[1]+'</div>'+(r.sub?'<div class="s">'+r.sub+'</div>':'')+'</div>';
+  if(r.rows&&r.rows.length){h+='<div class="res-rows">'+r.rows.map(function(x){return '<div class="res-row'+(x[2]?' '+x[2]:'')+'"><span>'+x[0]+'</span><b>'+x[1]+'</b></div>';}).join('')+'</div>';}
+  if(r.extra)h+='<div class="res-extra">'+r.extra+'</div>';
+  if(r.note)h+='<div class="res-note">'+r.note+'</div>';
+  h+='<div class="res-actions"><button type="button" onclick="kopyala()">📋 Sonucu Kopyala</button><button type="button" onclick="paylas()">💬 WhatsApp’ta Paylaş</button></div>';
+  var box=el('result');box.innerHTML=h;box.style.display='block';_last=r;
+  if(scroll!==false)box.scrollIntoView({behavior:'smooth',block:'nearest'});
+  if(window.gtag)gtag('event','hesapla',{tool:document.body.dataset.tool});
+}
+function metin(){if(!_last)return '';var t=function(s){return String(s).replace(/<[^>]+>/g,'');};
+  var l=[document.title.split('|')[0].trim(),t(_last.main[0])+': '+t(_last.main[1])];
+  (_last.rows||[]).forEach(function(x){l.push(t(x[0])+': '+t(x[1]));});l.push(location.href.split('#')[0]);return l.join('\n');}
+function kopyala(){var m=metin();if(navigator.clipboard){navigator.clipboard.writeText(m).then(function(){toast('📋 Sonuç kopyalandı');});}}
+function paylas(){window.open('https://wa.me/?text='+encodeURIComponent(metin()),'_blank','noopener');}
+function sifirla(){document.querySelectorAll('.card input[type=text],.card input[type=date],.card textarea').forEach(function(i){i.value='';});el('result').style.display='none';_last=null;if(window.onReset)onReset();}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.card input, .card select, .card textarea').forEach(function(i){
+    i.addEventListener('keydown',function(e){if(e.key==='Enter'&&i.tagName!=='TEXTAREA'){e.preventDefault();run();}});
+    i.addEventListener(i.tagName==='SELECT'||i.type==='radio'||i.type==='checkbox'?'change':'input',function(){if(_last)run(false);});
+  });
+  document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){var a=b.nextElementSibling;var o=a.classList.toggle('open');b.classList.toggle('open',o);b.setAttribute('aria-expanded',o);});});
+  var hb=el('hamBtn'),nl=el('navLinks');
+  hb.addEventListener('click',function(){var o=nl.classList.toggle('open');hb.setAttribute('aria-expanded',o);});
+  document.addEventListener('click',function(e){if(!hb.contains(e.target)&&!nl.contains(e.target))nl.classList.remove('open');});
+  if(window.onReady)onReady();
+});
+
+// ── METREKARE FIYATI HESAPLAMA ──
 
 function hesapla(){
-
-let fiyat=parseFloat(document.getElementById("fiyat").value);
-let metrekare=parseFloat(document.getElementById("metrekare").value);
-
-if(!fiyat || !metrekare){
-alert("Tüm alanları doldurun");
-return;
+  var f1=v('f1'), m1=v('m1'); if(!(f1>0)||!(m1>0)) return 'Fiyat ve metrekareyi girin.';
+  var b1=f1/m1, rows=[['1. ilan m² fiyatı',tl(b1,0)]], f2=v('f2'), m2=v('m2'), h=v('hedefm'), sub='';
+  if(f2>0&&m2>0){var b2=f2/m2; rows.push(['2. ilan m² fiyatı',tl(b2,0)]); var ucuz=b1<b2?1:2, fark=Math.abs(b1-b2)/Math.max(b1,b2)*100;
+    rows.push(['Daha uygun olan',ucuz+'. ilan (m² başına %'+num(fark,1)+' ucuz)','hl']); sub='Fark: m² başına '+tl(Math.abs(b1-b2),0);}
+  if(h>0) rows.push([num(h,0)+' m² için tahmini fiyat',tl(b1*h,0)]);
+  return {main:['Metrekare fiyatı', tl(b1,0)+' / m²'], sub:sub, rows:rows};
 }
-
-let sonuc=fiyat/metrekare;
-
-document.getElementById("sonuc").innerHTML=
-"m² Fiyatı: " +
-sonuc.toLocaleString("tr-TR",{maximumFractionDigits:2}) +
-" ₺";
-
-}
-
 </script>
-
 </body>
 </html>

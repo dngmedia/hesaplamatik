@@ -83,5 +83,150 @@
   "ico": "💪",
   "name": "Vücut Yağ Oranı Hesaplama",
   "cat": "saglik"
+ },
+ "kredi-erken-kapama-hesaplama": {
+  "ico": "🔓",
+  "name": "Kredi Erken Kapama Hesaplama",
+  "cat": "finans"
+ },
+ "roi-hesaplama": {
+  "ico": "🎯",
+  "name": "ROI Hesaplama",
+  "cat": "finans"
+ },
+ "yatirim-geri-donus-suresi-hesaplama": {
+  "ico": "⏳",
+  "name": "Yatırım Geri Dönüş Süresi Hesaplama",
+  "cat": "finans"
+ },
+ "iskonto-hesaplama": {
+  "ico": "📉",
+  "name": "İskonto Hesaplama",
+  "cat": "isletme"
+ },
+ "kira-getirisi-hesaplama": {
+  "ico": "🏠",
+  "name": "Kira Getirisi Hesaplama",
+  "cat": "gayrimenkul"
+ },
+ "kira-artis-hesaplama": {
+  "ico": "📈",
+  "name": "Kira Artış Hesaplama",
+  "cat": "gayrimenkul"
+ },
+ "metrekare-fiyat-hesaplama": {
+  "ico": "📐",
+  "name": "Metrekare Fiyatı Hesaplama",
+  "cat": "gayrimenkul"
+ },
+ "kar-zarar-hesaplama": {
+  "ico": "⚖️",
+  "name": "Kâr / Zarar Hesaplama",
+  "cat": "isletme"
+ },
+ "kar-marji-hesaplama": {
+  "ico": "📊",
+  "name": "Kâr Marjı Hesaplama",
+  "cat": "isletme"
+ },
+ "net-kar-hesaplama": {
+  "ico": "✅",
+  "name": "Net Kâr Hesaplama",
+  "cat": "isletme"
+ },
+ "stok-karliligi-hesaplama": {
+  "ico": "📦",
+  "name": "Stok Kârlılığı Hesaplama",
+  "cat": "isletme"
+ },
+ "prim-hesaplama": {
+  "ico": "🏆",
+  "name": "Satış Primi Hesaplama",
+  "cat": "maas"
+ },
+ "maas-zam-hesaplama": {
+  "ico": "📊",
+  "name": "Maaş Zam Hesaplama",
+  "cat": "maas"
+ },
+ "saatlik-ucret-hesaplama": {
+  "ico": "🕐",
+  "name": "Saatlik Ücret Hesaplama",
+  "cat": "maas"
+ },
+ "mtv-hesaplama": {
+  "ico": "🚗",
+  "name": "MTV Hesaplama",
+  "cat": "vergi"
+ },
+ "otv-hesaplama": {
+  "ico": "🏷️",
+  "name": "ÖTV Hesaplama",
+  "cat": "vergi"
+ },
+ "tapu-harci-hesaplama": {
+  "ico": "🏡",
+  "name": "Tapu Harcı Hesaplama",
+  "cat": "gayrimenkul"
+ },
+ "damga-vergisi-hesaplama": {
+  "ico": "📜",
+  "name": "Damga Vergisi Hesaplama",
+  "cat": "vergi"
+ },
+ "asgari-ucret-hesaplama": {
+  "ico": "💵",
+  "name": "Asgari Ücret Hesaplama",
+  "cat": "maas"
+ },
+ "yillik-izin-hesaplama": {
+  "ico": "🏖️",
+  "name": "Yıllık İzin Hesaplama",
+  "cat": "maas"
+ },
+ "emeklilik-yasi-hesaplama": {
+  "ico": "🎖️",
+  "name": "Emeklilik Yaşı Hesaplama",
+  "cat": "maas"
+ },
+ "enflasyon-hesaplama": {
+  "ico": "📊",
+  "name": "Enflasyon Hesaplama",
+  "cat": "finans"
+ },
+ "elektrik-faturasi-hesaplama": {
+  "ico": "⚡",
+  "name": "Elektrik Faturası Hesaplama",
+  "cat": "diger"
+ },
+ "dogalgaz-faturasi-hesaplama": {
+  "ico": "🔥",
+  "name": "Doğal Gaz Faturası Hesaplama",
+  "cat": "diger"
+ },
+ "su-faturasi-hesaplama": {
+  "ico": "🚰",
+  "name": "Su Faturası Hesaplama",
+  "cat": "diger"
+ },
+ "tyt-net-hesaplama": {
+  "ico": "📝",
+  "name": "TYT Net Hesaplama",
+  "cat": "egitim"
+ },
+ "kpss-net-hesaplama": {
+  "ico": "📝",
+  "name": "KPSS Net Hesaplama",
+  "cat": "egitim"
+ },
+ "not-ortalamasi-hesaplama": {
+  "ico": "📚",
+  "name": "Not Ortalaması Hesaplama",
+  "cat": "egitim"
+ },
+ "takdir-tesekkur-hesaplama": {
+  "ico": "🏆",
+  "name": "Takdir Teşekkür Hesaplama",
+  "cat": "egitim"
  }
 }
