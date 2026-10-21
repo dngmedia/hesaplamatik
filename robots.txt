@@ -1,8 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /_gen/
 
-# Sitemap konumu
 Sitemap: https://hesaplarsin.com/sitemap.xml
-
-# Gereksiz dosyaları engelle
-Disallow: /.github/
