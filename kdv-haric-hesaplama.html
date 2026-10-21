@@ -21,9 +21,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"KDV Hesaplama 2026","url":"https://hesaplarsin.com/kdv-hesaplama.html","description":"2026 güncel KDV oranlarıyla (%1, %10, %20) KDV dahil, KDV hariç ve matrah hesaplama. Toplu fatura hesaplama dahil.","applicationCategory":"FinanceApplication","operatingSystem":"All","inLanguage":"tr","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"publisher":{"@type":"Organization","name":"Hesaplarsın","url":"https://hesaplarsin.com"}}
   </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"KDV hariç hesaplama formülü nedir?","acceptedAnswer":{"@type":"Answer","text":"KDV hariç tutar = KDV dahil tutar ÷ (1 + KDV oranı/100). Örnek: 1.200 TL KDV dahil, %20 KDV → 1.200 ÷ 1,20 = 1.000 TL net. KDV = 200 TL. Sık hata: 1.200 × 0,20 = 240 TL yanlıştır."}},{"@type":"Question","name":"2026 KDV oranları nelerdir?","acceptedAnswer":{"@type":"Answer","text":"2026'da geçerli KDV oranları: %1 (temel gıda, kitap, gazete), %10 (işlenmiş gıda, tekstil, yeme-içme, konaklama), %20 (elektronik, mobilya, araç, genel hizmetler). 7 Temmuz 2023 kararıyla eski %8 ve %18 oranları güncellenmiştir."}},{"@type":"Question","name":"KDV beyannamesi ne zaman verilir?","acceptedAnswer":{"@type":"Answer","text":"KDV beyannamesi, vergilendirme dönemini takip eden ayın 28. günü sonuna kadar verilir ve vergi aynı sürede ödenir."}}]}
-  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "%8 ve %18 KDV oranları hâlâ geçerli mi?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. 7 Temmuz 2023 Cumhurbaşkanlığı Kararı ile %8 → %10, %18 → %20'ye yükseltilmiştir. 2026'da geçerli oranlar yalnızca %1, %10 ve %20'dir. Eski oranları gösteren siteler güncel değildir."}}, {"@type": "Question", "name": "KDV tevkifatı nedir?", "acceptedAnswer": {"@type": "Answer", "text": "KDV'nin tamamı ya da bir kısmının alıcı tarafından doğrudan vergi dairesine yatırılmasıdır. Tam tevkifat yurt dışı dijital hizmetlerde, kısmi tevkifat yapı işleri ve temizlik gibi alanlarda uygulanır. Kaynak: hesapcini.com"}}, {"@type": "Question", "name": "İhracatta KDV ödenir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır, ihracatta KDV istisnası uygulanır. İhracatçılar yüklendiği KDV'yi iade alabilir. 2026'da indirimli KDV iade alt sınırı 164.000 TL'dir. Kaynak: dopigo.com, hesapcini.com (2026)"}}, {"@type": "Question", "name": "Aynı faturada farklı KDV oranları olabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Farklı oranlara tabi ürünler aynı faturada yer alıyorsa her ürün kendi KDV oranıyla ayrı satırda hesaplanır. Toplu hesaplama modumuz bu senaryolar için idealdir. Kaynak: hesapcini.com, tahanci.av.tr (2026)"}}, {"@type": "Question", "name": "KDV hariç hesaplama formülü nedir?", "acceptedAnswer": {"@type": "Answer", "text": "KDV hariç tutar = KDV dahil tutar ÷ (1 + KDV oranı/100). Örnek: 1.200 TL KDV dahil, %20 KDV → 1.200 ÷ 1,20 = 1.000 TL net. KDV = 200 TL. Sık hata: 1.200 × 0,20 = 240 TL yanlıştır."}}, {"@type": "Question", "name": "2026 KDV oranları nelerdir?", "acceptedAnswer": {"@type": "Answer", "text": "2026'da geçerli KDV oranları: %1 (temel gıda, kitap, gazete), %10 (işlenmiş gıda, tekstil, yeme-içme, konaklama), %20 (elektronik, mobilya, araç, genel hizmetler). 7 Temmuz 2023 kararıyla eski %8 ve %18 oranları güncellenmiştir."}}, {"@type": "Question", "name": "KDV beyannamesi ne zaman verilir?", "acceptedAnswer": {"@type": "Answer", "text": "KDV beyannamesi, vergilendirme dönemini takip eden ayın 28. günü sonuna kadar verilir ve vergi aynı sürede ödenir."}}]}</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://hesaplarsin.com"},{"@type":"ListItem","position":2,"name":"Vergi","item":"https://hesaplarsin.com/#vergi"},{"@type":"ListItem","position":3,"name":"KDV Hesaplama","item":"https://hesaplarsin.com/kdv-hesaplama.html"}]}
   </script>
@@ -441,6 +439,18 @@
     <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Aynı faturada farklı KDV oranları olabilir mi? <span class="ico">+</span></button>
     <div class="faq-a">Evet. Farklı oranlara tabi ürünler aynı faturada yer alıyorsa her ürün kendi KDV oranıyla ayrı satırda hesaplanır. Toplu hesaplama modumuz bu senaryolar için idealdir.<br/><small style="color:var(--muted)">Kaynak: hesapcini.com, tahanci.av.tr (2026)</small></div>
   </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">KDV hariç hesaplama formülü nedir? <span class="ico">+</span></button>
+    <div class="faq-a">KDV hariç tutar = KDV dahil tutar ÷ (1 + KDV oranı/100). Örnek: 1.200 TL KDV dahil, %20 KDV → 1.200 ÷ 1,20 = 1.000 TL net. KDV = 200 TL. Sık hata: 1.200 × 0,20 = 240 TL yanlıştır.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">2026 KDV oranları nelerdir? <span class="ico">+</span></button>
+    <div class="faq-a">2026'da geçerli KDV oranları: %1 (temel gıda, kitap, gazete), %10 (işlenmiş gıda, tekstil, yeme-içme, konaklama), %20 (elektronik, mobilya, araç, genel hizmetler). 7 Temmuz 2023 kararıyla eski %8 ve %18 oranları güncellenmiştir.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">KDV beyannamesi ne zaman verilir? <span class="ico">+</span></button>
+    <div class="faq-a">KDV beyannamesi, vergilendirme dönemini takip eden ayın 28. günü sonuna kadar verilir ve vergi aynı sürede ödenir.</div>
+  </div>
 
   <h2>İlgili Araçlar</h2>
   <div class="related-grid">
@@ -477,6 +487,7 @@
       <div class="footer-col"><h4>Hesaplarsın</h4>
         <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
         <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+        <a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
         <a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a>
       </div>

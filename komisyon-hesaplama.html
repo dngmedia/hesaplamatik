@@ -191,6 +191,7 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:image" content="https://hesaplarsin.com/assets/og-image.png" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Komisyon nasıl hesaplanır?", "acceptedAnswer": {"@type": "Answer", "text": "Komisyon, satış tutarının komisyon oranıyla çarpılıp 100'e bölünmesiyle bulunur: Komisyon = Satış × Oran ÷ 100. Örneğin 80.000 TL'lik satışta %4 komisyon 3.200 TL eder."}}, {"@type": "Question", "name": "Komisyon KDV dahil tutar üzerinden mi hesaplanır?", "acceptedAnswer": {"@type": "Answer", "text": "Genellikle hayır. Komisyon çoğunlukla KDV hariç satış tutarı üzerinden hesaplanır. KDV dahil 120.000 TL'lik bir satışta (%20 KDV) KDV hariç tutar 100.000 TL'dir; %5 komisyon 5.000 TL olur. Sözleşmenizde hangi tutarın esas alındığını mutlaka kontrol edin."}}, {"@type": "Question", "name": "Kademeli komisyon nasıl hesaplanır?", "acceptedAnswer": {"@type": "Answer", "text": "Kademeli sistemde her oran yalnızca kendi dilimindeki satışa uygulanır. Örneğin 0–50.000 TL %3, 50.000–100.000 TL %5, üzeri %8 ise 200.000 TL satışta komisyon 1.500 + 2.500 + 8.000 = 12.000 TL olur; efektif oran %6'dır."}}, {"@type": "Question", "name": "Emlak komisyonu ne kadar?", "acceptedAnswer": {"@type": "Answer", "text": "Taşınmaz Ticareti Hakkında Yönetmelik'e göre satışta alıcı ve satıcıdan ayrı ayrı en fazla satış bedelinin %2'si artı KDV, kiralamada ise bir aylık kira bedeli artı KDV hizmet bedeli alınabilir."}}, {"@type": "Question", "name": "Komisyon geliri vergiye tabi mi?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Bordrolu çalışanlara ödenen komisyon ve primler ücret sayılır; SGK primi, gelir vergisi ve damga vergisi kesilir. Serbest çalışan veya şirket olarak komisyon alanlar fatura keser, KDV hesaplar ve gelirini beyan eder."}}, {"@type": "Question", "name": "Hedef bazlı komisyon nasıl çalışır?", "acceptedAnswer": {"@type": "Answer", "text": "Hedefe kadar olan satışa temel oran, hedefi aşan kısma daha yüksek bonus oranı uygulanır. 200.000 TL hedef, %3 temel ve %5 bonus oranıyla 240.000 TL satışta komisyon 6.000 + 2.000 = 8.000 TL olur."}}]}</script>
 </head>
 <body>
 
@@ -246,14 +247,14 @@
         <div class="form-group">
           <label for="sabitSatis">Satış Tutarı</label>
           <div class="inp-wrap">
-            <input type="number" id="sabitSatis" placeholder="Örn: 150.000" min="0" step="any" />
+            <input type="text" inputmode="decimal" id="sabitSatis" placeholder="Örn: 150.000" />
             <span class="inp-suffix">₺</span>
           </div>
         </div>
         <div class="form-group">
           <label for="sabitOran">Komisyon Oranı</label>
           <div class="inp-wrap">
-            <input type="number" id="sabitOran" placeholder="Örn: 5" min="0" max="100" step="0.01" />
+            <input type="text" inputmode="decimal" id="sabitOran" placeholder="Örn: 5" />
             <span class="inp-suffix">%</span>
           </div>
           <div class="hint">Emlak: %2 · Sigorta: %5–20 · E-ticaret: %3–15</div>
@@ -293,7 +294,7 @@
         <div class="form-group">
           <label for="kademeSatis">Toplam Satış Tutarı</label>
           <div class="inp-wrap">
-            <input type="number" id="kademeSatis" placeholder="Örn: 200.000" min="0" step="any" />
+            <input type="text" inputmode="decimal" id="kademeSatis" placeholder="Örn: 200.000" />
             <span class="inp-suffix">₺</span>
           </div>
         </div>
@@ -328,28 +329,28 @@
         <div class="form-group">
           <label for="hedefSatis">Gerçekleşen Satış</label>
           <div class="inp-wrap">
-            <input type="number" id="hedefSatis" placeholder="Örn: 240.000" min="0" step="any" />
+            <input type="text" inputmode="decimal" id="hedefSatis" placeholder="Örn: 240.000" />
             <span class="inp-suffix">₺</span>
           </div>
         </div>
         <div class="form-group">
           <label for="hedefHedef">Satış Hedefi</label>
           <div class="inp-wrap">
-            <input type="number" id="hedefHedef" placeholder="Örn: 200.000" min="0" step="any" />
+            <input type="text" inputmode="decimal" id="hedefHedef" placeholder="Örn: 200.000" />
             <span class="inp-suffix">₺</span>
           </div>
         </div>
         <div class="form-group">
           <label for="hedefTemelOran">Temel Komisyon Oranı</label>
           <div class="inp-wrap">
-            <input type="number" id="hedefTemelOran" placeholder="Örn: 3" min="0" max="100" step="0.01" />
+            <input type="text" inputmode="decimal" id="hedefTemelOran" placeholder="Örn: 3" />
             <span class="inp-suffix">%</span>
           </div>
         </div>
         <div class="form-group">
           <label for="hedefBonusOran">Hedef Aşım Bonus Oranı</label>
           <div class="inp-wrap">
-            <input type="number" id="hedefBonusOran" placeholder="Örn: 5" min="0" max="100" step="0.01" />
+            <input type="text" inputmode="decimal" id="hedefBonusOran" placeholder="Örn: 5" />
             <span class="inp-suffix">%</span>
           </div>
           <div class="hint">Hedef aşılan kısım bu oranla hesaplanır.</div>
@@ -492,6 +493,69 @@
     Komisyon gelirinin vergisi için <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">gelir vergisi hesaplama</a> aracımızı, komisyon dahil brüt–net maaş dönüşümü için ise <a href="https://hesaplarsin.com/net-maas-hesaplama.html">net maaş hesaplama</a> aracımızı kullanabilirsiniz.
     Komisyon oranları ve sözleşme detayları hakkında daha fazla bilgi için <a href="https://hesaplarsin.com/blog/komisyon-hesaplama-rehberi.html">Komisyon Hesaplama Rehberi 2026</a> yazımızı okuyun.
   </p>
+  <h2>Komisyon Hesaplama Formülleri</h2>
+  <ul>
+    <li><strong>Komisyon tutarı:</strong> Komisyon = Satış Tutarı × Oran ÷ 100</li>
+    <li><strong>KDV dahil satıştan:</strong> Komisyon = (KDV Dahil Tutar ÷ 1,20) × Oran ÷ 100</li>
+    <li><strong>Komisyon oranı:</strong> Oran = Komisyon ÷ Satış Tutarı × 100</li>
+    <li><strong>Satış tutarı:</strong> Satış = Komisyon ÷ Oran × 100</li>
+    <li><strong>Komisyon sonrası kalan:</strong> Kalan = Satış Tutarı − Komisyon</li>
+  </ul>
+
+  <h2>Örnek Komisyon Hesaplamaları</h2>
+  <p><strong>Sabit oran:</strong> 150.000 TL'lik (KDV hariç) satışta %4 komisyon: 150.000 × 4 ÷ 100 = <strong>6.000 TL</strong>. Satıcıya kalan tutar 144.000 TL'dir.</p>
+  <p><strong>KDV dahil tutardan:</strong> 120.000 TL KDV dahil satışta önce KDV ayrılır: 120.000 ÷ 1,20 = 100.000 TL. %5 komisyon <strong>5.000 TL</strong> olur. KDV'yi ayırmadan hesaplasaydınız 6.000 TL bulurdunuz; fark 1.000 TL.</p>
+  <p><strong>Kademeli sistem:</strong> 0–50.000 TL %3, 50.000–100.000 TL %5, 100.000 TL üzeri %8 dilimleriyle 200.000 TL satış:</p>
+  <ul>
+    <li>İlk 50.000 TL × %3 = 1.500 TL</li>
+    <li>Sonraki 50.000 TL × %5 = 2.500 TL</li>
+    <li>Kalan 100.000 TL × %8 = 8.000 TL</li>
+    <li><strong>Toplam: 12.000 TL</strong> (efektif oran %6)</li>
+  </ul>
+  <p><strong>Hedef bazlı:</strong> Hedef 200.000 TL, temel oran %3, aşım bonusu %5. 240.000 TL satışta: 200.000 × %3 = 6.000 TL + 40.000 × %5 = 2.000 TL → <strong>8.000 TL</strong>. Hedef başarı oranı %120.</p>
+
+  <h2>Sektörlere Göre Ortalama Komisyon Oranları</h2>
+  <div style="overflow-x:auto">
+  <table style="width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:14px">
+    <thead><tr style="background:#f3f6fb"><th style="text-align:left;padding:9px;border-bottom:1px solid #e5e7eb">Sektör</th><th style="text-align:left;padding:9px;border-bottom:1px solid #e5e7eb">Tipik Oran</th><th style="text-align:left;padding:9px;border-bottom:1px solid #e5e7eb">Not</th></tr></thead>
+    <tbody>
+      <tr><td style="padding:9px;border-bottom:1px solid #f0f0f0">Emlak (satış)</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">%2 + KDV (her taraftan)</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">Yönetmelikle belirlenen üst sınır</td></tr>
+      <tr><td style="padding:9px;border-bottom:1px solid #f0f0f0">Emlak (kiralama)</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">1 aylık kira + KDV</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">Yönetmelikle belirlenen üst sınır</td></tr>
+      <tr><td style="padding:9px;border-bottom:1px solid #f0f0f0">Sigorta acenteliği</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">%5 – %20</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">Branşa göre değişir; hayat ürünlerinde daha yüksek</td></tr>
+      <tr><td style="padding:9px;border-bottom:1px solid #f0f0f0">Pazaryeri satıcıları</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">%5 – %25</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">Kategoriye göre; KDV ayrıca eklenir</td></tr>
+      <tr><td style="padding:9px;border-bottom:1px solid #f0f0f0">Affiliate / ortaklık</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">%3 – %50</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">Fiziksel üründe düşük, dijital üründe yüksek</td></tr>
+      <tr><td style="padding:9px;border-bottom:1px solid #f0f0f0">Saha / B2B satış</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">%1 – %10</td><td style="padding:9px;border-bottom:1px solid #f0f0f0">Çoğunlukla sabit maaş + prim modeli</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Tablodaki aralıklar piyasa gözlemine dayalı ortalamalardır; bağlayıcı olan sizin sözleşmeniz veya platformun güncel komisyon listesidir.</p>
+
+  <h2>Komisyon Gelirinin Vergilendirilmesi</h2>
+  <p><strong>Bordrolu çalışanlar:</strong> Satış primi ve komisyon, maaşla birlikte ücret olarak bordroya eklenir. Bu tutardan %14 SGK işçi payı, %1 işsizlik sigortası, kümülatif matrahınıza göre %15–%40 gelir vergisi ve binde 7,59 damga vergisi kesilir. Net tutarı görmek için <a href="https://hesaplarsin.com/net-maas-hesaplama.html">net maaş hesaplama</a> aracına komisyon dahil brüt tutarı girin.</p>
+  <p><strong>Serbest çalışanlar ve şirketler:</strong> Komisyon karşılığında fatura veya serbest meslek makbuzu düzenlenir, genellikle %20 KDV hesaplanır ve gelir yıllık beyannameyle bildirilir. Gelir vergisi için <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">gelir vergisi hesaplama</a> aracını kullanabilirsiniz.</p>
+
+  <h2>Komisyon Sözleşmesinde Dikkat Edilecekler</h2>
+  <ul>
+    <li>Komisyonun <strong>KDV hariç mi dahil mi</strong> tutar üzerinden hesaplanacağı yazılı olmalı.</li>
+    <li>İade, iptal ve tahsil edilemeyen satışlarda komisyonun geri alınıp alınmayacağı belirtilmeli.</li>
+    <li>Kademeli sistemde oranın <strong>yalnızca dilime mi yoksa tüm satışa mı</strong> uygulanacağı netleşmeli.</li>
+    <li>Ödeme zamanı (satış anı, tahsilat anı veya ay sonu) açıkça yazılmalı.</li>
+    <li>Hedef dönemleri (aylık, çeyreklik, yıllık) ve hedefin revize edilme koşulları belirlenmeli.</li>
+  </ul>
+
+  <h2>Sık Sorulan Sorular</h2>
+  <h3 style="font-size:.98rem;font-weight:700;margin:14px 0 6px">Komisyon nasıl hesaplanır?</h3>
+  <p>Komisyon, satış tutarının komisyon oranıyla çarpılıp 100'e bölünmesiyle bulunur: Komisyon = Satış × Oran ÷ 100. Örneğin 80.000 TL'lik satışta %4 komisyon 3.200 TL eder.</p>
+  <h3 style="font-size:.98rem;font-weight:700;margin:14px 0 6px">Komisyon KDV dahil tutar üzerinden mi hesaplanır?</h3>
+  <p>Genellikle hayır. Komisyon çoğunlukla KDV hariç satış tutarı üzerinden hesaplanır. KDV dahil 120.000 TL'lik bir satışta (%20 KDV) KDV hariç tutar 100.000 TL'dir; %5 komisyon 5.000 TL olur. Sözleşmenizde hangi tutarın esas alındığını mutlaka kontrol edin.</p>
+  <h3 style="font-size:.98rem;font-weight:700;margin:14px 0 6px">Kademeli komisyon nasıl hesaplanır?</h3>
+  <p>Kademeli sistemde her oran yalnızca kendi dilimindeki satışa uygulanır. Örneğin 0–50.000 TL %3, 50.000–100.000 TL %5, üzeri %8 ise 200.000 TL satışta komisyon 1.500 + 2.500 + 8.000 = 12.000 TL olur; efektif oran %6'dır.</p>
+  <h3 style="font-size:.98rem;font-weight:700;margin:14px 0 6px">Emlak komisyonu ne kadar?</h3>
+  <p>Taşınmaz Ticareti Hakkında Yönetmelik'e göre satışta alıcı ve satıcıdan ayrı ayrı en fazla satış bedelinin %2'si artı KDV, kiralamada ise bir aylık kira bedeli artı KDV hizmet bedeli alınabilir.</p>
+  <h3 style="font-size:.98rem;font-weight:700;margin:14px 0 6px">Komisyon geliri vergiye tabi mi?</h3>
+  <p>Evet. Bordrolu çalışanlara ödenen komisyon ve primler ücret sayılır; SGK primi, gelir vergisi ve damga vergisi kesilir. Serbest çalışan veya şirket olarak komisyon alanlar fatura keser, KDV hesaplar ve gelirini beyan eder.</p>
+  <h3 style="font-size:.98rem;font-weight:700;margin:14px 0 6px">Hedef bazlı komisyon nasıl çalışır?</h3>
+  <p>Hedefe kadar olan satışa temel oran, hedefi aşan kısma daha yüksek bonus oranı uygulanır. 200.000 TL hedef, %3 temel ve %5 bonus oranıyla 240.000 TL satışta komisyon 6.000 + 2.000 = 8.000 TL olur.</p>
 </div>
 
 <!-- FOOTER -->
@@ -515,6 +579,7 @@
         <a href="https://hesaplarsin.com/blog.html">Blog & Rehberler</a>
         <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
         <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
+        <a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
       </div>
     </div>
@@ -529,6 +594,7 @@
 
 <script>
 // ─── YARDIMCI ─────────────────────────────────────────
+function trNum(v){v=String(v||'').trim().replace(/\s|₺|%/g,'');if(/,/.test(v))v=v.replace(/\./g,'').replace(',','.');else if(/^\d{1,3}(\.\d{3})+$/.test(v))v=v.replace(/\./g,'');return parseFloat(v);}
 function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
 
 // ─── SEKME ────────────────────────────────────────────
@@ -557,8 +623,8 @@ function temizle(tip) {
 
 // ─── SABİT ORAN ───────────────────────────────────────
 function hesaplaSabit() {
-  const satis = parseFloat(document.getElementById('sabitSatis').value);
-  const oran  = parseFloat(document.getElementById('sabitOran').value);
+  const satis = trNum(document.getElementById('sabitSatis').value);
+  const oran  = trNum(document.getElementById('sabitOran').value);
   const kdvDahil = document.querySelector('input[name="kdvOpt"]:checked').value === 'dahil';
 
   if (!satis || !oran || satis <= 0 || oran <= 0) { alert('Lütfen geçerli satış tutarı ve oran girin.'); return; }
@@ -574,7 +640,7 @@ function hesaplaSabit() {
   document.getElementById('sabit-kalan').textContent = fmt(kalan);
   document.getElementById('sonuc-sabit').classList.add('show');
 
-  gtag('event', 'komisyon_sabit_hesapla', {satis: satis, oran: oran});
+  window.gtag && gtag('event', 'komisyon_sabit_hesapla', {satis: satis, oran: oran});
 }
 
 // ─── KADEMELİ ────────────────────────────────────────
@@ -600,12 +666,12 @@ function renderKademeler() {
         ${i === 0 ? '0 ₺' : (fmt(kademeler[i-1].limit || 0))} – ${k.limit ? fmt(k.limit) : '∞'}
       </div>
       <div style="position:relative;">
-        <input type="number" value="${k.limit}" placeholder="Üst ₺" min="0" step="1000"
+        <input type="text" inputmode="decimal" value="${k.limit}" placeholder="Üst ₺"
           oninput="kademeler[${i}].limit=this.value?parseFloat(this.value):'';renderKademeler();"
           style="width:100%;padding:9px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:.83rem;outline:none;"/>
       </div>
       <div style="position:relative;">
-        <input type="number" value="${k.oran}" placeholder="%" min="0" max="100" step="0.1"
+        <input type="text" inputmode="decimal" value="${k.oran}" placeholder="%"
           oninput="kademeler[${i}].oran=parseFloat(this.value)||0;"
           style="width:100%;padding:9px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:.83rem;outline:none;"/>
       </div>
@@ -626,7 +692,7 @@ function kademeSil(i) {
 }
 
 function hesaplaKademeli() {
-  const satis = parseFloat(document.getElementById('kademeSatis').value);
+  const satis = trNum(document.getElementById('kademeSatis').value);
   if (!satis || satis <= 0) { alert('Geçerli satış tutarı girin.'); return; }
 
   let toplam = 0;
@@ -636,12 +702,12 @@ function hesaplaKademeli() {
 
   for (let i = 0; i < kademeler.length; i++) {
     const k = kademeler[i];
-    const ustsınır = k.limit ? parseFloat(k.limit) : Infinity;
+    const ustsınır = k.limit ? trNum(k.limit) : Infinity;
     const dilimTavan = ustsınır - altSinir;
     const buDilim = Math.min(kalan, dilimTavan);
     if (buDilim <= 0) break;
 
-    const komisyon = buDilim * (k.oran / 100);
+    const komisyon = buDilim * (trNum(k.oran) / 100);
     toplam += komisyon;
     satirlar.push({ alt: altSinir, ust: k.limit || '∞', tutar: buDilim, oran: k.oran, komisyon });
     kalan -= buDilim;
@@ -661,15 +727,15 @@ function hesaplaKademeli() {
   `;
   document.getElementById('sonuc-kademeli').classList.add('show');
 
-  gtag('event', 'komisyon_kademeli_hesapla', {satis: satis, toplam_komisyon: toplam});
+  window.gtag && gtag('event', 'komisyon_kademeli_hesapla', {satis: satis, toplam_komisyon: toplam});
 }
 
 // ─── HEDEF BAZLI ─────────────────────────────────────
 function hesaplaHedef() {
-  const satis  = parseFloat(document.getElementById('hedefSatis').value);
-  const hedef  = parseFloat(document.getElementById('hedefHedef').value);
-  const temel  = parseFloat(document.getElementById('hedefTemelOran').value);
-  const bonus  = parseFloat(document.getElementById('hedefBonusOran').value) || 0;
+  const satis  = trNum(document.getElementById('hedefSatis').value);
+  const hedef  = trNum(document.getElementById('hedefHedef').value);
+  const temel  = trNum(document.getElementById('hedefTemelOran').value);
+  const bonus  = trNum(document.getElementById('hedefBonusOran').value) || 0;
 
   if (!satis || !hedef || !temel) { alert('Lütfen tüm alanları doldurun.'); return; }
 
@@ -690,7 +756,7 @@ function hesaplaHedef() {
   `;
   document.getElementById('sonuc-hedef').classList.add('show');
 
-  gtag('event', 'komisyon_hedef_hesapla', {satis: satis, hedef: hedef, toplam: toplam});
+  window.gtag && gtag('event', 'komisyon_hedef_hesapla', {satis: satis, hedef: hedef, toplam: toplam});
 }
 
 // ─── ENTER KEY ───────────────────────────────────────

@@ -351,7 +351,7 @@ def render(spec, registry):
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
-      <div><div class="footer-brand">Hesaplarsın</div><p class="fdesc">Türkiye'nin ücretsiz hesaplama platformu. Finans, vergi, maaş, sağlık ve eğitim hesaplamaları 2026 güncel verileriyle, kayıt gerektirmeden.</p></div>
+      <div><div class="footer-brand">Hesaplarsın</div><p class="fdesc">Türkiye'nin ücretsiz hesaplama platformu. Finans, vergi, maaş, sağlık ve eğitim hesaplamaları 2026 güncel verileriyle, kayıt gerektirmeden.</p><p class="fdesc" style="margin-top:10px"><a href="mailto:info@hesaplarsin.com" style="color:inherit">📧 info@hesaplarsin.com</a><br/><a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer" style="color:inherit">📷 @hesaplarsin</a></p></div>
       <div class="footer-col"><h4>Popüler</h4><a href="{BASE}/kdv-hesaplama.html">KDV Hesaplama</a><a href="{BASE}/net-maas-hesaplama.html">Net Maaş</a><a href="{BASE}/kredi-hesaplama.html">Kredi Hesaplama</a><a href="{BASE}/yuzde-hesaplama.html">Yüzde Hesaplama</a></div>
       <div class="footer-col"><h4>Kategoriler</h4><a href="{BASE}/#finans">Finans</a><a href="{BASE}/#vergi">Vergi</a><a href="{BASE}/#saglik">Sağlık</a><a href="{BASE}/#egitim">Eğitim</a></div>
       <div class="footer-col"><h4>Hesaplarsın</h4><a href="{BASE}/hakkimizda.html">Hakkımızda</a><a href="{BASE}/iletisim.html">İletişim</a><a href="{BASE}/gizlilik-politikasi.html">Gizlilik</a><a href="{BASE}/kullanim-sartlari.html">Kullanım Şartları</a></div>
