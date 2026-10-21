@@ -147,7 +147,6 @@
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--text-primary); }
-    @media(max-width:600px){ .nav-links { display:none; } }
 
     /* ═══ BREADCRUMB ═══ */
     .breadcrumb {
@@ -483,6 +482,17 @@
 
     /* ═══ UTILITIES ═══ */
     .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+
+    /* ═══ MOBİL MENÜ ═══ */
+    .ham { display:none; background:none; border:none; cursor:pointer; padding:6px; }
+    .ham span { display:block; width:22px; height:2px; background:var(--text-primary); margin:5px 0; border-radius:2px; transition:.3s; }
+    @media(max-width:600px){
+      .ham { display:block; }
+      .nav-links { display:none; position:absolute; top:60px; left:0; right:0; flex-direction:column; gap:4px;
+        background:var(--bg-card); border-bottom:1px solid var(--border); padding:12px 16px 16px; box-shadow:0 8px 24px rgba(0,0,0,.4); z-index:201; }
+      .nav-links.open { display:flex; }
+      .nav-links a { padding:10px 12px; border-radius:8px; font-size:.95rem; }
+    }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FT582GF9N9');</script>
@@ -494,12 +504,14 @@
   <nav aria-label="Ana navigasyon">
     <div class="nav-inner">
       <a href="https://hesaplarsin.com/" class="nav-logo">Hesaplarsın</a>
-      <div class="nav-links">
-        <a href="https://hesaplarsin.com/#finans">Finans</a>
-        <a href="https://hesaplarsin.com/#vergi">Vergi</a>
-        <a href="https://hesaplarsin.com/#maas">Maaş</a>
-        <a href="https://hesaplarsin.com/#saglik">Sağlık</a>
-        <a href="https://hesaplarsin.com/#blog">Blog</a>
+      <button class="ham" id="hamBtn" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="navLinks">
+        <a href="https://hesaplarsin.com/kredi-hesaplama.html">💳 Kredi</a>
+        <a href="https://hesaplarsin.com/net-maas-hesaplama.html">💼 Net Maaş</a>
+        <a href="https://hesaplarsin.com/kdv-hesaplama.html">🧾 KDV</a>
+        <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">📋 Gelir Vergisi</a>
+        <a href="https://hesaplarsin.com/#araclar">🧮 Tüm Araçlar</a>
+        <a href="https://hesaplarsin.com/blog.html">📰 Blog</a>
       </div>
     </div>
   </nav>
@@ -984,5 +996,13 @@
     });
   </script>
 
+<script>
+  (function () {
+    var b = document.getElementById('hamBtn'), n = document.getElementById('navLinks');
+    if (!b || !n) return;
+    b.addEventListener('click', function () { var o = n.classList.toggle('open'); b.setAttribute('aria-expanded', o); });
+    document.addEventListener('click', function (e) { if (!b.contains(e.target) && !n.contains(e.target)) n.classList.remove('open'); });
+  })();
+</script>
 </body>
 </html>
