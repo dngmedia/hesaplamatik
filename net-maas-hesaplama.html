@@ -46,7 +46,7 @@
     {
       "@type": "Question",
       "name": "2026 yılı asgari ücret ne kadar?",
-      "acceptedAnswer": { "@type": "Answer", "text": "2026 yılı için brüt asgari ücret 22.104 TL, net asgari ücret ise yaklaşık 18.609 TL olarak belirlenmiştir." }
+      "acceptedAnswer": { "@type": "Answer", "text": "2026 yılı için brüt asgari ücret 33.030,00 TL, net asgari ücret ise 28.075,50 TL olarak belirlenmiştir." }
     },
     {
       "@type": "Question",
@@ -550,7 +550,7 @@ footer .footer-links a:hover { color: var(--blue); }
     <div class="hero-chip">SGK İşçi <strong>%14</strong></div>
     <div class="hero-chip">İşsizlik <strong>%1</strong></div>
     <div class="hero-chip">Damga <strong>‰7,59</strong></div>
-    <div class="hero-chip">Asgari Ücret Brüt <strong>22.104 ₺</strong></div>
+    <div class="hero-chip">Asgari Ücret Brüt <strong>33.030 ₺</strong></div>
   </div>
 </header>
 
@@ -602,32 +602,27 @@ footer .footer-links a:hover { color: var(--blue); }
           <label for="engelli-derece">Engellilik Derecesi</label>
           <div class="input-wrap">
             <select id="engelli-derece" class="has-suffix" onchange="calculate()">
-              <option value="1">1. Derece (%80+) — 4.300 ₺/ay indirim</option>
-              <option value="2">2. Derece (%60–79) — 2.600 ₺/ay indirim</option>
-              <option value="3">3. Derece (%40–59) — 900 ₺/ay indirim</option>
+              <option value="1">1. Derece (%80+) — 12.000 ₺/ay indirim</option>
+              <option value="2">2. Derece (%60–79) — 7.000 ₺/ay indirim</option>
+              <option value="3">3. Derece (%40–59) — 3.000 ₺/ay indirim</option>
             </select>
             <span class="suffix" aria-hidden="true">▾</span>
           </div>
         </div>
 
-        <!-- Kümülatif Matrah -->
-        <div class="toggle-row">
-          <div class="toggle-info">
-            <div class="toggle-label">Kümülatif Matrah</div>
-            <div class="toggle-desc">Yıl ortasında doğru vergi dilimi hesabı için</div>
-          </div>
-          <label class="toggle-switch" aria-label="Kümülatif matrah">
-            <input type="checkbox" id="kum-toggle" onchange="toggleKum()" />
-            <span class="toggle-track"></span>
-          </label>
-        </div>
-        <div id="kum-wrap" style="display:none;" class="field">
-          <label for="kum">Yıl Başından Bugüne Kümülatif Matrah</label>
+        <!-- Ay Seçimi (kümülatif vergi dilimi) -->
+        <div class="field">
+          <label for="ay">Hesaplanacak Ay</label>
           <div class="input-wrap">
-            <span class="prefix" aria-hidden="true">₺</span>
-            <input type="number" id="kum" class="has-prefix"
-              placeholder="Örn: 180.000" min="0" oninput="calculate()" />
+            <select id="ay" class="has-suffix" onchange="calculate()">
+              <option value="ort" selected>Yıllık ortalama (12 ay)</option>
+              <option value="0">Ocak</option><option value="1">Şubat</option><option value="2">Mart</option>
+              <option value="3">Nisan</option><option value="4">Mayıs</option><option value="5">Haziran</option>
+              <option value="6">Temmuz</option><option value="7">Ağustos</option><option value="8">Eylül</option>
+              <option value="9">Ekim</option><option value="10">Kasım</option><option value="11">Aralık</option>
+            </select>
           </div>
+          <p style="font-size:.75rem;color:var(--text-muted);margin-top:.4rem;">Maaşın yıl boyunca aynı kaldığı varsayılır. Vergi dilimi kayması nedeniyle net maaş aydan aya değişir.</p>
         </div>
 
         <!-- Hesapla Butonu -->
@@ -676,11 +671,11 @@ footer .footer-links a:hover { color: var(--blue); }
       <table class="rate-table" aria-label="Gelir vergisi dilimleri">
         <thead><tr><th>Yıllık Kümülatif Matrah</th><th>Oran</th></tr></thead>
         <tbody>
-          <tr><td>0 – 158.000 ₺</td><td><span class="rate-badge rb-green">%15</span></td></tr>
-          <tr><td>158.001 – 330.000 ₺</td><td><span class="rate-badge rb-blue">%20</span></td></tr>
-          <tr><td>330.001 – 800.000 ₺</td><td><span class="rate-badge rb-purple">%27</span></td></tr>
-          <tr><td>800.001 – 4.300.000 ₺</td><td><span class="rate-badge rb-amber">%35</span></td></tr>
-          <tr><td>4.300.001 ₺ ve üzeri</td><td><span class="rate-badge rb-red">%40</span></td></tr>
+          <tr><td>0 – 190.000 ₺</td><td><span class="rate-badge rb-green">%15</span></td></tr>
+          <tr><td>190.001 – 400.000 ₺</td><td><span class="rate-badge rb-blue">%20</span></td></tr>
+          <tr><td>400.001 – 1.500.000 ₺</td><td><span class="rate-badge rb-purple">%27</span></td></tr>
+          <tr><td>1.500.001 – 5.300.000 ₺</td><td><span class="rate-badge rb-amber">%35</span></td></tr>
+          <tr><td>5.300.001 ₺ ve üzeri</td><td><span class="rate-badge rb-red">%40</span></td></tr>
         </tbody>
       </table>
       <p style="font-size:.75rem;color:var(--text-muted);margin-top:.7rem;">Yıllık kümülatif matrah üzerinden uygulanır.</p>
@@ -759,21 +754,21 @@ footer .footer-links a:hover { color: var(--blue); }
       <div class="formula-box">
 SGK İşçi Payı   = Brüt Maaş × 0,14<br>
 İşsizlik Sig.   = Brüt Maaş × 0,01<br>
-Vergi Matrahı   = Brüt − SGK − İşsizlik − Asgari Ücret Muafiyeti<br>
-Gelir Vergisi   = Vergi Matrahı × Dilim Oranı<br>
+Vergi Matrahı   = Brüt − SGK − İşsizlik<br>
+Gelir Vergisi   = Tarife(Kümülatif Matrah) − Asgari Ücret GV İstisnası<br>
 Damga Vergisi   = (Brüt − Asgari Ücret) × 0,00759<br>
 Net Maaş        = Brüt − SGK − İşsizlik − Gelir Vergisi − Damga Vergisi
       </div>
 
       <div class="example-box">
-        <div class="ex-title">📌 Örnek — 50.000 ₺ Brüt Maaş (2026)</div>
+        <div class="ex-title">📌 Örnek — 50.000 ₺ Brüt Maaş (Ocak 2026)</div>
         <p>Brüt Maaş: <strong>50.000 ₺</strong></p>
         <p>SGK İşçi Payı (%14): <strong>7.000 ₺</strong></p>
         <p>İşsizlik Sigortası (%1): <strong>500 ₺</strong></p>
-        <p>Vergi Matrahı (asgari muafiyet sonrası): <strong>≈ 24.750 ₺</strong></p>
-        <p>Gelir Vergisi (%15 dilim): <strong>≈ 3.713 ₺</strong></p>
-        <p>Damga Vergisi (‰7,59): <strong>≈ 212 ₺</strong></p>
-        <p>Net Maaş: <strong>≈ 38.575 ₺</strong></p>
+        <p>Gelir Vergisi Matrahı: <strong>42.500 ₺</strong></p>
+        <p>Hesaplanan Gelir Vergisi (%15): 6.375 ₺ − Asgari ücret istisnası 4.211,33 ₺ = <strong>2.163,68 ₺</strong></p>
+        <p>Damga Vergisi: (50.000 − 33.030) × ‰7,59 = <strong>128,80 ₺</strong></p>
+        <p>Net Maaş: <strong>40.207,52 ₺</strong></p>
       </div>
 
       <h2>2026 Maaş Kesintileri</h2>
@@ -787,7 +782,7 @@ Net Maaş        = Brüt − SGK − İşsizlik − Gelir Vergisi − Damga Verg
 
       <h2>Asgari Ücret Vergi Muafiyeti</h2>
       <p>
-        2022 yılından itibaren tüm çalışanlar için maaşın asgari ücrete karşılık gelen kısmı <strong>gelir vergisi ve damga vergisinden muaf</strong> tutulmaktadır. 2026 brüt asgari ücret <strong>22.104 ₺</strong>, buna karşılık gelen net ise yaklaşık <strong>18.609 ₺</strong>'dir. Bu muafiyet, yüksek maaşlı çalışanlar için de kısmi avantaj sağlar.
+        2022 yılından itibaren tüm çalışanlar için maaşın asgari ücrete karşılık gelen kısmı <strong>gelir vergisi ve damga vergisinden muaf</strong> tutulmaktadır. 2026 brüt asgari ücret <strong>33.030 ₺</strong>, buna karşılık gelen net ise <strong>28.075,50 ₺</strong>'dir. Bu muafiyet, yüksek maaşlı çalışanlar için de kısmi avantaj sağlar.
       </p>
 
       <h2>2026 Gelir Vergisi Dilimleri</h2>
@@ -797,11 +792,11 @@ Net Maaş        = Brüt − SGK − İşsizlik − Gelir Vergisi − Damga Verg
           <tr><th>Yıllık Kümülatif Matrah</th><th>Vergi Oranı</th><th>Tahmini Aylık Brüt</th></tr>
         </thead>
         <tbody>
-          <tr><td>0 – 158.000 ₺</td><td><span class="rate-badge rb-green">%15</span></td><td>≈ 0 – 15.000 ₺</td></tr>
-          <tr><td>158.001 – 330.000 ₺</td><td><span class="rate-badge rb-blue">%20</span></td><td>≈ 15.000 – 30.000 ₺</td></tr>
-          <tr><td>330.001 – 800.000 ₺</td><td><span class="rate-badge rb-purple">%27</span></td><td>≈ 30.000 – 70.000 ₺</td></tr>
-          <tr><td>800.001 – 4.300.000 ₺</td><td><span class="rate-badge rb-amber">%35</span></td><td>≈ 70.000 – 358.000 ₺</td></tr>
-          <tr><td>4.300.001 ₺ ve üzeri</td><td><span class="rate-badge rb-red">%40</span></td><td>358.000 ₺ +</td></tr>
+          <tr><td>0 – 190.000 ₺</td><td><span class="rate-badge rb-green">%15</span></td><td>≈ 0 – 18.600 ₺</td></tr>
+          <tr><td>190.001 – 400.000 ₺</td><td><span class="rate-badge rb-blue">%20</span></td><td>≈ 18.600 – 39.200 ₺</td></tr>
+          <tr><td>400.001 – 1.500.000 ₺</td><td><span class="rate-badge rb-purple">%27</span></td><td>≈ 39.200 – 147.000 ₺</td></tr>
+          <tr><td>1.500.001 – 5.300.000 ₺</td><td><span class="rate-badge rb-amber">%35</span></td><td>≈ 147.000 – 520.000 ₺</td></tr>
+          <tr><td>5.300.001 ₺ ve üzeri</td><td><span class="rate-badge rb-red">%40</span></td><td>520.000 ₺ +</td></tr>
         </tbody>
       </table>
 
@@ -849,7 +844,7 @@ Net Maaş        = Brüt − SGK − İşsizlik − Gelir Vergisi − Damga Verg
           <span class="faq-arrow" aria-hidden="true">▾</span>
         </button>
         <div class="faq-a">
-          Engel derecesine göre aylık gelir vergisi matrahından indirim yapılır: 1. derece için 4.300 ₺, 2. derece için 2.600 ₺, 3. derece için 900 ₺. Bu sayede matrah düşer ve daha az gelir vergisi ödenir; net maaş artar. Araçta "Engellilik İndirimi" seçeneğini aktif ederek tutarı görün.
+          Engel derecesine göre aylık gelir vergisi matrahından indirim yapılır: 1. derece için 12.000 ₺, 2. derece için 7.000 ₺, 3. derece için 3.000 ₺ (2026). Bu sayede matrah düşer ve daha az gelir vergisi ödenir; net maaş artar. Araçta "Engellilik İndirimi" seçeneğini aktif ederek tutarı görün.
         </div>
       </div>
 
@@ -937,23 +932,24 @@ Net Maaş        = Brüt − SGK − İşsizlik − Gelir Vergisi − Damga Verg
 
 <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
 <script>
-  // ── SABITLER ──
+  // ── SABITLER (2026) ──
   const SGK         = 0.14;
   const ISSIZLIK    = 0.01;
   const DAMGA       = 0.00759;
-  const ASGARIBR    = 22104;   // 2026 brüt asgari ücret
-  const ASGARIMTR   = ASGARIBR * (1 - SGK - ISSIZLIK); // asgari vergi matrahı muafiyeti
+  const ASGARIBR    = 33030;              // 2026 brüt asgari ücret
+  const SGK_TAVAN   = ASGARIBR * 7.5;     // SGK prime esas kazanç üst sınırı
+  const ASGARIMTR   = ASGARIBR * (1 - SGK - ISSIZLIK); // 28.075,50 ₺ — asgari ücret GV matrahı
 
-  // 2026 yıllık vergi dilimleri
+  // 2026 ücret gelirleri gelir vergisi tarifesi (GVK m.103)
   const DILIMLER = [
-    { limit: 158000,   oran: 0.15 },
-    { limit: 330000,   oran: 0.20 },
-    { limit: 800000,   oran: 0.27 },
-    { limit: 4300000,  oran: 0.35 },
+    { limit: 190000,   oran: 0.15 },
+    { limit: 400000,   oran: 0.20 },
+    { limit: 1500000,  oran: 0.27 },
+    { limit: 5300000,  oran: 0.35 },
     { limit: Infinity, oran: 0.40 },
   ];
 
-  const ENGELLI_INDIRIM = { 1: 4300, 2: 2600, 3: 900 };
+  const ENGELLI_INDIRIM = { 1: 12000, 2: 7000, 3: 3000 };
 
   let currentMode = 'brut';
 
@@ -974,46 +970,47 @@ Net Maaş        = Brüt − SGK − İşsizlik − Gelir Vergisi − Damga Verg
     calculate();
   }
 
-  function toggleKum() {
-    const on = document.getElementById('kum-toggle').checked;
-    document.getElementById('kum-wrap').style.display = on ? 'block' : 'none';
-    calculate();
-  }
-
   // ── CORE CALC ──
-  function gelirVergisi(yillikMatrah, kumBase) {
-    const kumBitis = kumBase + yillikMatrah;
+  // Kümülatif matraha göre toplam gelir vergisi
+  function vergiTarife(kumMatrah) {
     let vergi = 0, prev = 0;
     for (const d of DILIMLER) {
-      if (kumBase >= d.limit) { prev = d.limit; continue; }
-      const bas = Math.max(kumBase, prev);
-      const bit = Math.min(kumBitis, d.limit);
-      if (bit > bas) vergi += (bit - bas) * d.oran;
+      if (kumMatrah > prev) vergi += (Math.min(kumMatrah, d.limit) - prev) * d.oran;
       prev = d.limit;
     }
-    return vergi / 12; // aylık
+    return vergi;
+  }
+
+  // Tek bir ay (ayIdx: 0 = Ocak) — maaşın yıl boyu sabit olduğu varsayımıyla
+  function ayHesapla(brut, ayIdx) {
+    const engelli = document.getElementById('engelli').checked;
+    const derece  = parseInt(document.getElementById('engelli-derece').value);
+
+    const sgkMatrah = Math.min(brut, SGK_TAVAN);
+    const sgk       = sgkMatrah * SGK;
+    const issizlik  = sgkMatrah * ISSIZLIK;
+
+    let matrah = Math.max(0, brut - sgk - issizlik);
+    if (engelli) matrah = Math.max(0, matrah - ENGELLI_INDIRIM[derece]);
+
+    const kum      = matrah * ayIdx;
+    const gvHam    = vergiTarife(kum + matrah) - vergiTarife(kum);
+    // Asgari ücret gelir vergisi istisnası (aynı ayın kümülatifiyle)
+    const istisna  = vergiTarife(ASGARIMTR * (ayIdx + 1)) - vergiTarife(ASGARIMTR * ayIdx);
+    const gv       = Math.max(0, gvHam - istisna);
+    const damga    = Math.max(0, brut - ASGARIBR) * DAMGA;
+
+    const toplam = sgk + issizlik + gv + damga;
+    return { brut, sgk, issizlik, matrah, gv, damga, toplam, net: brut - toplam, gvIstisna: Math.min(istisna, gvHam) };
   }
 
   function calcFromBrut(brut) {
-    const engelli  = document.getElementById('engelli').checked;
-    const derece   = parseInt(document.getElementById('engelli-derece').value);
-    const kumOn    = document.getElementById('kum-toggle').checked;
-    const kumBase  = parseFloat(document.getElementById('kum').value) || 0;
-
-    const sgk       = brut * SGK;
-    const issizlik  = brut * ISSIZLIK;
-
-    // Vergi matrahı
-    let matrah = Math.max(0, brut - sgk - issizlik - ASGARIMTR);
-    if (engelli) matrah = Math.max(0, matrah - ENGELLI_INDIRIM[derece]);
-
-    const gv   = gelirVergisi(matrah * 12, kumOn ? kumBase : 0);
-    const damga = Math.max(0, brut - ASGARIBR) * DAMGA;
-
-    const toplam = sgk + issizlik + gv + damga;
-    const net    = brut - toplam;
-
-    return { brut, sgk, issizlik, matrah, gv, damga, toplam, net };
+    const sec = document.getElementById('ay').value;
+    if (sec !== 'ort') return ayHesapla(brut, parseInt(sec));
+    const aylar = Array.from({ length: 12 }, (_, i) => ayHesapla(brut, i));
+    const ort = k => aylar.reduce((t, a) => t + a[k], 0) / 12;
+    return { brut, sgk: ort('sgk'), issizlik: ort('issizlik'), matrah: ort('matrah'), gv: ort('gv'),
+             damga: ort('damga'), toplam: ort('toplam'), net: ort('net'), gvIstisna: ort('gvIstisna'), aylar };
   }
 
   function calcFromNet(netHedef) {
@@ -1062,6 +1059,7 @@ Net Maaş        = Brüt − SGK − İşsizlik − Gelir Vergisi − Damga Verg
       { name: 'İşsizlik Sigortası (%1)',    val: '−' + fmt(r.issizlik), cls: 'red' },
       { divider: true },
       { name: 'Gelir Vergisi Matrahı',      val: fmt(r.matrah),  cls: 'muted' },
+      { name: 'Asgari Ücret GV İstisnası',  val: fmt(r.gvIstisna), cls: 'muted' },
       { name: 'Gelir Vergisi',              val: '−' + fmt(r.gv),       cls: 'red' },
       { name: 'Damga Vergisi (‰7,59)',       val: '−' + fmt(r.damga),   cls: 'red' },
       { divider: true },
