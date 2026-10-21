@@ -627,6 +627,7 @@
       <div class="footer-col">
         <h4>Hesaplarsın</h4>
         <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
+        <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a>
         <a href="https://hesaplarsin.com/iletisim.html">İletişim</a>
         <a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik</a>
@@ -643,6 +644,7 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Başa git">↑</button>
 
+<script src="/assets/trnum.js"></script>
 <script>
 const fmtUSD = n => { const mx = n>=1000?0:n>=1?2:6; return new Intl.NumberFormat('en-US',{minimumFractionDigits:Math.min(2,mx),maximumFractionDigits:mx}).format(n); };
 const fmtTR  = n => new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
