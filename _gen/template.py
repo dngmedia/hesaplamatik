@@ -261,7 +261,7 @@ def render(spec, registry):
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-<title>{e(spec['title'])}</title>
+<title>{e(spec['title'] if len(spec['title'])<=62 else spec['title'].replace(' | Hesaplarsın',''))}</title>
 <meta name="description" content="{e(spec['desc'])}" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="{url}" />

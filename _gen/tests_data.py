@@ -16,3 +16,13 @@ TESTS = {
  'yakit-tuketimi-hesaplama': [dict(fill={'km': '520', 'litre': '34,5', 'fiyat': '47,50', 'depo': '50'}, expect='6,63')],
  'yakit-maliyeti-hesaplama': [dict(fill={'km': '450', 'tuketim': '6,5', 'fiyat': '47,50', 'kisi': '3'}, check=['gd'], expect='2.778,75')],
 }
+TESTS.update({
+ 'vucut-kitle-indeksi': [dict(fill={'boy': '172', 'kilo': '74'}, expect='25,0')],
+ 'ideal-kilo-hesaplama': [dict(fill={'boy': '168', 'kilo': '70'})],
+ 'gunluk-kalori-ihtiyaci-hesaplama': [dict(radio={'cins': 'e'}, fill={'yas': '30', 'boy': '175', 'kilo': '75'}, expect='2.336')],
+ 'kalori-yakma-hesaplama': [dict(fill={'kilo': '70', 'sure': '45'}, expect='193')],
+ 'protein-ihtiyaci-hesaplama': [dict(fill={'kilo': '70'})],
+ 'su-ihtiyaci-hesaplama': [dict(fill={'kilo': '70', 'spor': '30', 'hava': '0.5'}, expect='3,2')],
+ 'hedef-kilo-suresi-hesaplama': [dict(fill={'boy': '170', 'kilo': '85', 'hedef': '75'}, expect='20 hafta'), dict(fill={'boy': '170', 'kilo': '60', 'hedef': '48'}, expect='VKİ')],
+ 'vucut-yag-orani-hesaplama': [dict(radio={'cins': 'e'}, fill={'boy': '175', 'kilo': '78', 'boyun': '38', 'bel': '86'}), dict(fill={'boy': '165', 'boyun': '33', 'bel': '75', 'kalca': '98'})],
+})

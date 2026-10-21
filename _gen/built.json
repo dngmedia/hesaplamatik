@@ -43,5 +43,45 @@
   "ico": "🛣️",
   "name": "Yakıt Maliyeti Hesaplama",
   "cat": "arac"
+ },
+ "vucut-kitle-indeksi": {
+  "ico": "⚖️",
+  "name": "Vücut Kitle İndeksi (VKİ) Hesaplama",
+  "cat": "saglik"
+ },
+ "ideal-kilo-hesaplama": {
+  "ico": "🎯",
+  "name": "İdeal Kilo Hesaplama",
+  "cat": "saglik"
+ },
+ "gunluk-kalori-ihtiyaci-hesaplama": {
+  "ico": "🥗",
+  "name": "Günlük Kalori İhtiyacı Hesaplama",
+  "cat": "saglik"
+ },
+ "kalori-yakma-hesaplama": {
+  "ico": "🏃",
+  "name": "Kalori Yakma Hesaplama",
+  "cat": "saglik"
+ },
+ "protein-ihtiyaci-hesaplama": {
+  "ico": "🥩",
+  "name": "Protein İhtiyacı Hesaplama",
+  "cat": "saglik"
+ },
+ "su-ihtiyaci-hesaplama": {
+  "ico": "💧",
+  "name": "Su İhtiyacı Hesaplama",
+  "cat": "saglik"
+ },
+ "hedef-kilo-suresi-hesaplama": {
+  "ico": "📅",
+  "name": "Hedef Kilo Süresi Hesaplama",
+  "cat": "saglik"
+ },
+ "vucut-yag-orani-hesaplama": {
+  "ico": "💪",
+  "name": "Vücut Yağ Oranı Hesaplama",
+  "cat": "saglik"
  }
 }
