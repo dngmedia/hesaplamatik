@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Araç Kredisi Hesaplama 2026 | Taşıt Kredisi Taksit Tablosu | Hesaplarsın</title>
-  <meta name="description" content="2026 güncel araç kredisi hesaplama aracı. Aylık taksit, toplam geri ödeme ve tam ödeme planı tablosu. Haziran 2026 banka faiz oranları: %2,85–%3,68. Sıfır ve ikinci el taşıt kredisi." />
+  <title>Taşıt Kredisi Hesaplama 2026 – Araç Kredisi Taksit Tablosu</title>
+  <meta name="description" content="Araç kredisinin aylık taksitini, toplam geri ödemesini ve ödeme planını hesaplayın. Sıfır ve ikinci el taşıt kredisi, BSMV-KKDF dahil." />
   <meta name="keywords" content="araç kredisi hesaplama 2026, taşıt kredisi hesaplama, araç kredisi taksit hesaplama, taşıt kredisi faiz oranları 2026, sıfır araç kredisi, ikinci el araç kredisi" />
   <link rel="sitemap" type="application/xml" href="https://hesaplarsin.com/sitemap.xml" />
   <link rel="canonical" href="https://hesaplarsin.com/arac-kredisi-hesaplama.html" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Hesaplarsın" />
-  <meta property="og:title" content="Araç Kredisi Hesaplama 2026 | Hesaplarsın" />
-  <meta property="og:description" content="Aylık taksit, toplam geri ödeme ve tam ödeme planı. 2026 güncel faiz oranlarıyla taşıt kredisi hesaplama." />
+  <meta property="og:title" content="Taşıt Kredisi Hesaplama 2026 – Araç Kredisi Taksit Tablosu" />
+  <meta property="og:description" content="Araç kredisinin aylık taksitini, toplam geri ödemesini ve ödeme planını hesaplayın. Sıfır ve ikinci el taşıt kredisi, BSMV-KKDF dahil." />
   <meta property="og:url" content="https://hesaplarsin.com/arac-kredisi-hesaplama.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="tr_TR" />
@@ -211,6 +211,14 @@
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FT582GF9N9');</script>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta property="og:image" content="https://hesaplarsin.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="https://hesaplarsin.com/assets/og-image.png" />
 </head>
 <body>
 <!-- NAV -->
@@ -706,7 +714,7 @@ function hesapla(){
   const labels = planData.filter((_,i)=>i%Math.max(1,Math.floor(n/8))===0 || i===n-1).map(r=>r.ay+'. ay');
   const anapaylar = planData.filter((_,i)=>i%Math.max(1,Math.floor(n/8))===0 || i===n-1).map(r=>r.anapay);
   const faizler = planData.filter((_,i)=>i%Math.max(1,Math.floor(n/8))===0 || i===n-1).map(r=>r.faizPay);
-  chartInstance = new Chart(ctx,{
+  chartInstance = !window.Chart ? null : new Chart(ctx,{
     type:'bar',
     data:{
       labels,

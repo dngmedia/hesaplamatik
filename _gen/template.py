@@ -2,6 +2,7 @@
 Her araç bir `spec` sözlüğünden tek dosyalık, SEO uyumlu HTML sayfasına dönüştürülür.
 """
 import html, json, re
+from head_extra import HEAD_EXTRA
 
 BASE = 'https://hesaplarsin.com'
 GA_ID = 'G-FT582GF9N9'
@@ -47,12 +48,13 @@ nav.top{background:#fff;border-bottom:1px solid var(--border);position:sticky;to
 .nav-links.open{display:flex}.nav-links a{padding:10px 12px;font-size:.92rem}.ham{display:block}}
 .breadcrumb{max-width:1140px;margin:0 auto;padding:12px 16px 0;font-size:.8rem;color:var(--muted)}
 .breadcrumb a{color:var(--brand);text-decoration:none}.breadcrumb span{margin:0 5px}
-.hero{max-width:1140px;margin:0 auto;padding:18px 16px 0}
-.hero h1{font-size:clamp(1.4rem,4vw,1.95rem);font-weight:800;line-height:1.25;letter-spacing:-.4px}
-.hero p{margin-top:7px;color:var(--muted);font-size:.95rem;max-width:680px}
-.hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.hbadge{font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--muted)}
-.hbadge.green{border-color:#bbf7d0;background:#f0fdf4;color:#166534}.hbadge.blue{border-color:#bfdbfe;background:var(--brand-light);color:var(--brand-dark)}
+.hero{background:linear-gradient(135deg,#0f307a 0%,#1341b0 50%,#1a56db 100%);color:#fff;padding:40px 16px 36px;margin-top:10px}
+.hero-inner{max-width:1140px;margin:0 auto}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;font-size:.76rem;font-weight:600;padding:4px 12px;margin-bottom:14px}
+.hero h1{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:900;line-height:1.2;margin-bottom:10px;letter-spacing:-.4px}
+.hero p{font-size:.93rem;opacity:.9;max-width:620px;line-height:1.7;margin-bottom:16px}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap}
+.hbadge{font-size:.73rem;font-weight:600;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
 .main-grid{max-width:1140px;margin:20px auto 0;padding:0 16px 40px;display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
 @media(max-width:860px){.main-grid{grid-template-columns:1fr}}
 .card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);padding:20px}
@@ -194,6 +196,15 @@ def _strip(s):
     return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', s)).strip()
 
 
+
+def short_desc(d, n=158):
+    if len(d) <= n: return d
+    cut = d[:n]
+    for sep in ('. ', '; ', ', '):
+        i = cut.rfind(sep)
+        if i > 100: return cut[:i+1].rstrip(',; ') if sep != '. ' else cut[:i+1]
+    return cut[:cut.rfind(' ')].rstrip(',;') + '…'
+
 def render(spec, registry):
     slug = spec['slug']
     url = f'{BASE}/{slug}.html'
@@ -248,7 +259,7 @@ def render(spec, registry):
         f'<a class="rc" href="{BASE}/{s}.html"><span class="ri">{rel_link(s)["ico"]}</span><span class="rt">{rel_link(s)["name"]}</span><span class="rd">{rel_link(s)["desc"]}</span></a>'
         for s in spec['related'])
 
-    badges = ''.join(f'<span class="hbadge{" green" if i == 0 else (" blue" if i == 1 else "")}">{b}</span>'
+    badges = ''.join(f'<span class="hbadge">{b}</span>'
                      for i, b in enumerate(spec.get('badges', ['✓ Ücretsiz', '2026 Güncel', 'Kayıt Gerektirmez'])))
 
     sources = ''
@@ -262,16 +273,17 @@ def render(spec, registry):
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 <title>{e(spec['title'] if len(spec['title'])<=62 else spec['title'].replace(' | Hesaplarsın',''))}</title>
-<meta name="description" content="{e(spec['desc'])}" />
+<meta name="description" content="{e(short_desc(spec['desc']))}" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="{url}" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="tr_TR" />
 <meta property="og:site_name" content="Hesaplarsın" />
 <meta property="og:title" content="{e(spec['title'].split(' | Hesaplarsın')[0])}" />
-<meta property="og:description" content="{e(spec['desc'])}" />
+<meta property="og:description" content="{e(short_desc(spec['desc']))}" />
 <meta property="og:url" content="{url}" />
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
+{HEAD_EXTRA}
 <meta name="theme-color" content="#1a56db" />
 {ld_html}
 <style>{CSS}</style>
@@ -295,9 +307,12 @@ def render(spec, registry):
 </nav>
 
 <header class="hero">
-  <h1>{spec['h1']}</h1>
-  <p>{spec['lead']}</p>
-  <div class="hero-badges">{badges}</div>
+  <div class="hero-inner">
+    <span class="hero-tag">{spec['ico']} {cat_label}</span>
+    <h1>{re.sub(r'^[^A-Za-zÇĞİÖŞÜçğıöşü0-9]+', '', spec['h1'])}</h1>
+    <p>{spec['lead']}</p>
+    <div class="hero-badges">{badges}</div>
+  </div>
 </header>
 
 <div class="main-grid">

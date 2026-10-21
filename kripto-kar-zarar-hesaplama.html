@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Kripto Kar Zarar Hesaplama 2026 | Bitcoin Ethereum Kâr Hesaplayıcı | Vergi Dahil | Hesaplarsın</title>
-  <meta name="description" content="Kripto kar zarar hesaplama 2026. Bitcoin, Ethereum ve tüm kripto paralarınızın alış-satış fiyatıyla net kâr/zarar, yüzde getiri ve vergi tutarını anında hesaplayın. Komisyon dahil, 2026 güncel kripto vergi oranları ile." />
+  <title>Kripto Kâr Zarar Hesaplama – Bitcoin, Ethereum | Hesaplarsın</title>
+  <meta name="description" content="Kripto paranızın alış-satış fiyatı ve komisyonla net kâr veya zararını, yüzde getirinizi ve hedef fiyatları hesaplayın." />
   <meta name="keywords" content="kripto kar zarar hesaplama, bitcoin kar hesaplama, kripto hesaplama, kripto zarar hesaplama, bitcoin kâr hesaplayıcı, ethereum kar hesaplama, kripto vergi hesaplama 2026, kripto yatırım hesaplama, btc kar hesaplama, kripto getiri hesaplama" />
   <link rel="canonical" href="https://hesaplarsin.com/kripto-kar-zarar-hesaplama.html" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Hesaplarsın" />
-  <meta property="og:title" content="Kripto Kar Zarar Hesaplama 2026 | Bitcoin Ethereum | Hesaplarsın" />
-  <meta property="og:description" content="Bitcoin, Ethereum ve tüm kripto paralarda alış-satış kâr/zarar, yüzde getiri ve 2026 vergi tutarını anında hesaplayın." />
+  <meta property="og:title" content="Kripto Kâr Zarar Hesaplama – Bitcoin, Ethereum" />
+  <meta property="og:description" content="Kripto paranızın alış-satış fiyatı ve komisyonla net kâr veya zararını, yüzde getirinizi ve hedef fiyatları hesaplayın." />
   <meta property="og:url" content="https://hesaplarsin.com/kripto-kar-zarar-hesaplama.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="tr_TR" />
@@ -248,6 +248,14 @@
     #topBtn.show { display:flex; }
     @media print { .ticker-bar,nav.topnav,.sidebar,footer,#topBtn,.toast,.btn-calc,.btn-reset,.export-btns,.coin-grid { display:none!important; } .main-grid{grid-template-columns:1fr!important;} }
   </style>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta property="og:image" content="https://hesaplarsin.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="https://hesaplarsin.com/assets/og-image.png" />
 </head>
 <body>
 
@@ -615,7 +623,7 @@
 <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Başa git">↑</button>
 
 <script>
-const fmtUSD = n => new Intl.NumberFormat('en-US',{minimumFractionDigits:2,maximumFractionDigits:n>=1000?0:n>=1?2:6}).format(n);
+const fmtUSD = n => { const mx = n>=1000?0:n>=1?2:6; return new Intl.NumberFormat('en-US',{minimumFractionDigits:Math.min(2,mx),maximumFractionDigits:mx}).format(n); };
 const fmtTR  = n => new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
 const fmtInt = n => new Intl.NumberFormat('tr-TR',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Math.round(n));
 let toastTimer, currentBorsa='yerel', currentCoin='bitcoin', liveData={};

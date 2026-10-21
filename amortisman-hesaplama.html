@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Amortisman Hesaplama 2026 | Normal, Azalan Bakiyeler Yöntemi | Hesaplarsın</title>
-  <meta name="description" content="2026 güncel VUK amortisman hesaplama aracı. Normal ve azalan bakiyeler yöntemiyle anında amortisman tablosu oluşturun. 2026 alt sınırı 12.000 ₺. Ücretsiz ve mobil uyumlu." />
+  <title>Amortisman Hesaplama 2026 – Normal ve Azalan Bakiyeler</title>
+  <meta name="description" content="VUK’a uygun amortisman tablosunu normal, azalan bakiyeler ve birim üretim yöntemiyle hesaplayın. 2026 alt sınırı 12.000 ₺. Ücretsiz ve anında." />
   <meta name="keywords" content="amortisman hesaplama 2026, amortisman tablosu, normal amortisman, azalan bakiyeler, VUK 315, amortisman oranları 2026, amortisman nedir, amortisman alt sınırı 2026" />
   <link rel="sitemap" type="application/xml" href="https://hesaplarsin.com/sitemap.xml" />
   <link rel="canonical" href="https://hesaplarsin.com/amortisman-hesaplama.html" />
-  <meta property="og:title" content="Amortisman Hesaplama 2026 | Hesaplarsın" />
-  <meta property="og:description" content="2026 güncel verilerle VUK'a uygun amortisman tablosu oluşturun. Normal ve azalan bakiyeler yöntemi desteklenir." />
+  <meta property="og:title" content="Amortisman Hesaplama 2026 – Normal ve Azalan Bakiyeler" />
+  <meta property="og:description" content="VUK’a uygun amortisman tablosunu normal, azalan bakiyeler ve birim üretim yöntemiyle hesaplayın. 2026 alt sınırı 12.000 ₺. Ücretsiz ve anında." />
   <meta property="og:url" content="https://hesaplarsin.com/amortisman-hesaplama.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="tr_TR" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Amortisman Hesaplama 2026 | Hesaplarsın" />
+  <meta name="twitter:title" content="Amortisman Hesaplama 2026 – Normal ve Azalan Bakiyeler" />
   <meta name="twitter:description" content="VUK'a uygun normal ve azalan bakiyeler yöntemiyle amortisman hesaplayın." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Hesaplarsın" />
@@ -356,6 +356,14 @@
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FT582GF9N9');</script>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta property="og:image" content="https://hesaplarsin.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="https://hesaplarsin.com/assets/og-image.png" />
 </head>
 <body>
 
@@ -964,7 +972,7 @@ function render(rows, maliyet, ilkYil, oran, omurStr, toplam, hurda, yontem) {
   // Grafik
   if (chartInstance) chartInstance.destroy();
   const ctx = document.getElementById('amorChart').getContext('2d');
-  chartInstance = new Chart(ctx, {
+  chartInstance = !window.Chart ? null : new Chart(ctx, {
     type: 'bar',
     data: {
       labels: rows.map(r => r.yil),

@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://hesaplarsin.com/iletisim.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="tr_TR" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="İletişim | Hesaplarsın" />
   <meta name="twitter:description" content="Soru, öneri ve geri bildirimleriniz için bize ulaşın." />
 
@@ -270,6 +270,14 @@
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FT582GF9N9');</script>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta property="og:image" content="https://hesaplarsin.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="https://hesaplarsin.com/assets/og-image.png" />
 </head>
 <body>
 
@@ -625,13 +633,25 @@
     if (mesaj.length < 20) { alert('Mesajınız en az 20 karakter olmalıdır.'); return; }
     if (mesaj.length > 1000) { alert('Mesajınız 1000 karakteri aşamaz.'); return; }
 
-    // mailto fallback — backend yoksa kullanıcı mail uygulamasıyla gönderir
-    const mailtoLink = `mailto:info@hesaplarsin.com?subject=${encodeURIComponent('[Hesaplarsın] ' + konu + ' - ' + ad)}&body=${encodeURIComponent('Ad: ' + ad + '\nE-posta: ' + email + '\nKonu: ' + konu + '\n\nMesaj:\n' + mesaj)}`;
-    window.location.href = mailtoLink;
-
-    // Başarı göster
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
+    const btn = document.getElementById('sendBtn');
+    btn.disabled = true; const eski = btn.innerHTML; btn.innerHTML = 'Gönderiliyor…';
+    // FormSubmit (statik site için form servisi) — başarısız olursa e-posta uygulamasına düşer
+    fetch('https://formsubmit.co/ajax/info@hesaplarsin.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name: ad, email: email, _replyto: email, konu: konu, message: mesaj,
+        _subject: '[Hesaplarsın] ' + konu + ' - ' + ad, _template: 'table', _captcha: 'false' })
+    }).then(r => r.json()).then(d => {
+      if (String(d.success) !== 'true') throw new Error(d.message || 'hata');
+      document.getElementById('contact-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      if (window.gtag) gtag('event', 'iletisim_formu', { konu: konu });
+    }).catch(() => {
+      btn.disabled = false; btn.innerHTML = eski;
+      if (confirm('Mesaj şu an gönderilemedi. E-posta uygulamanızla göndermek ister misiniz?')) {
+        window.location.href = `mailto:info@hesaplarsin.com?subject=${encodeURIComponent('[Hesaplarsın] ' + konu + ' - ' + ad)}&body=${encodeURIComponent('Ad: ' + ad + '\nE-posta: ' + email + '\nKonu: ' + konu + '\n\nMesaj:\n' + mesaj)}`;
+      }
+    });
   }
 
   // FAQ

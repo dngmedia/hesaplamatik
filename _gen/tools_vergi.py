@@ -305,7 +305,7 @@ sources=[('488 sayılı Damga Vergisi Kanunu','https://www.mevzuat.gov.tr/mevzua
 # ───────────────────────── ASGARİ ÜCRET ─────────────────────────
 TOOLS.append(dict(
 slug='asgari-ucret-hesaplama', name='Asgari Ücret Hesaplama', cat='maas', ico='💵',
-title='Asgari Ücret 2026 – Net 28.075,50 TL, Brüt 33.030 TL, İşveren Maliyeti | Hesaplarsın',
+title='Asgari Ücret 2026 – Net 28.075,50 TL, Brüt 33.030 TL | Hesaplarsın',
 desc='2026 asgari ücret net 28.075,50 TL, brüt 33.030 TL. Kesintiler, işverene maliyeti (teşvikli/teşviksiz), günlük ve saatlik asgari ücret ile kısmi çalışma hesabı.',
 h1='💵 Asgari Ücret 2026 Hesaplama',
 lead='2026 yılı asgari ücretin net, brüt, günlük ve saatlik tutarlarını, kesintileri ve işverene toplam maliyetini görün. Eksik gün çalışanlar için kısmi hesaplama yapın.',

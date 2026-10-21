@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Bileşik Faiz Hesaplama 2026 | Yatırım Getirisi CAGR | Aylık Yıllık Bileşik Faiz | Hesaplarsın</title>
-  <meta name="description" content="Bileşik faiz hesaplama 2026. Yıllık, aylık veya günlük bileşiklemeyle yatırımınızın ne kadar büyüyeceğini, CAGR ve reel getiriyi anında hesaplayın. Enflasyon düzeltmeli reel bileşik faiz dahil. Ücretsiz." /> />
+  <title>Bileşik Faiz Hesaplama 2026 – Yatırım Getirisi ve CAGR</title>
+  <meta name="description" content="Aylık, yıllık veya günlük bileşiklemeyle birikiminizin ne kadar büyüyeceğini, düzenli eklemeleri ve enflasyon sonrası reel getiriyi hesaplayın." /> />
   <meta name="keywords" content="bileşik faiz hesaplama 2026, bileşik faiz nedir, CAGR hesaplama, yatırım getirisi hesaplama, aylık bileşik faiz, yıllık bileşik faiz, faizin faizi hesaplama, reel getiri hesaplama, yatırım büyüme tablosu, bileşik faiz formülü" /> />
   <link rel="sitemap" type="application/xml" href="https://hesaplarsin.com/sitemap.xml" />
   <link rel="canonical" href="https://hesaplarsin.com/bilesik-faiz.html" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Hesaplarsın" />
-  <meta property="og:title" content="Bileşik Faiz Hesaplama 2026 | CAGR | Yatırım Getirisi | Hesaplarsın" /> />
-  <meta property="og:description" content="Yatırımınız kaç yılda kaç katına çıkar? Aylık, yıllık bileşikleme, reel getiri ve 72 Kuralı ile anında hesaplayın." />
+  <meta property="og:title" content="Bileşik Faiz Hesaplama 2026 – Yatırım Getirisi ve CAGR" /> />
+  <meta property="og:description" content="Aylık, yıllık veya günlük bileşiklemeyle birikiminizin ne kadar büyüyeceğini, düzenli eklemeleri ve enflasyon sonrası reel getiriyi hesaplayın." />
   <meta property="og:url" content="https://hesaplarsin.com/bilesik-faiz.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="tr_TR" />
@@ -234,6 +234,14 @@
     #topBtn.show { display:flex; }
     @media print { nav.topnav,.sidebar,footer,#topBtn,.toast,.btn-calc,.btn-reset,.export-btns { display:none!important; } .main-grid{grid-template-columns:1fr!important;} }
   </style>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta property="og:image" content="https://hesaplarsin.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="https://hesaplarsin.com/assets/og-image.png" />
 </head>
 <body>
 
@@ -765,7 +773,7 @@ function hesapla() {
     datasets.push({ label:'Reel Değer (₺)', data:reel_line, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.06)', borderWidth:2, pointRadius:2, tension:.4, borderDash:[3,3], fill:false });
   }
 
-  chartInstance = new Chart(ctx, {
+  chartInstance = !window.Chart ? null : new Chart(ctx, {
     type: 'line',
     data: { labels, datasets },
     options: {

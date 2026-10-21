@@ -13,7 +13,16 @@
 <meta property="og:title" content="Yaş Hesaplama – Kaç Yaşındayım? Yıl, Ay, Gün Olarak" />
 <meta property="og:description" content="Doğum tarihinizi girin; yaşınızı yıl, ay, gün, hafta ve saat olarak öğrenin. Doğum gününüze kaç gün kaldığını, doğduğunuz günü ve burcunuzu anında görün." />
 <meta property="og:url" content="https://hesaplarsin.com/yas-hesaplama.html" />
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta property="og:image" content="https://hesaplarsin.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="https://hesaplarsin.com/assets/og-image.png" />
+
 <meta name="theme-color" content="#1a56db" />
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Yaş Hesaplama", "url": "https://hesaplarsin.com/yas-hesaplama.html", "description": "Doğum tarihinizi girin; yaşınızı yıl, ay, gün, hafta ve saat olarak öğrenin. Doğum gününüze kaç gün kaldığını, doğduğunuz günü ve burcunuzu anında görün.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "inLanguage": "tr-TR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"}, "dateModified": "2026-10-21", "publisher": {"@type": "Organization", "name": "Hesaplarsın", "url": "https://hesaplarsin.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://hesaplarsin.com/"}, {"@type": "ListItem", "position": 2, "name": "Diğer Araçlar", "item": "https://hesaplarsin.com/#diger"}, {"@type": "ListItem", "position": 3, "name": "Yaş Hesaplama", "item": "https://hesaplarsin.com/yas-hesaplama.html"}]}</script>
@@ -39,12 +48,13 @@ nav.top{background:#fff;border-bottom:1px solid var(--border);position:sticky;to
 .nav-links.open{display:flex}.nav-links a{padding:10px 12px;font-size:.92rem}.ham{display:block}}
 .breadcrumb{max-width:1140px;margin:0 auto;padding:12px 16px 0;font-size:.8rem;color:var(--muted)}
 .breadcrumb a{color:var(--brand);text-decoration:none}.breadcrumb span{margin:0 5px}
-.hero{max-width:1140px;margin:0 auto;padding:18px 16px 0}
-.hero h1{font-size:clamp(1.4rem,4vw,1.95rem);font-weight:800;line-height:1.25;letter-spacing:-.4px}
-.hero p{margin-top:7px;color:var(--muted);font-size:.95rem;max-width:680px}
-.hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.hbadge{font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--muted)}
-.hbadge.green{border-color:#bbf7d0;background:#f0fdf4;color:#166534}.hbadge.blue{border-color:#bfdbfe;background:var(--brand-light);color:var(--brand-dark)}
+.hero{background:linear-gradient(135deg,#0f307a 0%,#1341b0 50%,#1a56db 100%);color:#fff;padding:40px 16px 36px;margin-top:10px}
+.hero-inner{max-width:1140px;margin:0 auto}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;font-size:.76rem;font-weight:600;padding:4px 12px;margin-bottom:14px}
+.hero h1{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:900;line-height:1.2;margin-bottom:10px;letter-spacing:-.4px}
+.hero p{font-size:.93rem;opacity:.9;max-width:620px;line-height:1.7;margin-bottom:16px}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap}
+.hbadge{font-size:.73rem;font-weight:600;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
 .main-grid{max-width:1140px;margin:20px auto 0;padding:0 16px 40px;display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
 @media(max-width:860px){.main-grid{grid-template-columns:1fr}}
 .card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);padding:20px}
@@ -156,9 +166,12 @@ footer{background:#111827;color:#9ca3af;padding:36px 16px 20px}
 </nav>
 
 <header class="hero">
-  <h1>🎂 Yaş Hesaplama – Kaç Yaşındayım?</h1>
-  <p>Doğum tarihinizi girin; tam yaşınızı yıl-ay-gün olarak, toplam yaşadığınız gün sayısını ve bir sonraki doğum gününüze kalan süreyi saniyeler içinde öğrenin.</p>
-  <div class="hero-badges"><span class="hbadge green">✓ Ücretsiz</span><span class="hbadge blue">2026 Güncel</span><span class="hbadge">Kayıt Gerektirmez</span></div>
+  <div class="hero-inner">
+    <span class="hero-tag">🎂 Diğer Araçlar</span>
+    <h1>Yaş Hesaplama – Kaç Yaşındayım?</h1>
+    <p>Doğum tarihinizi girin; tam yaşınızı yıl-ay-gün olarak, toplam yaşadığınız gün sayısını ve bir sonraki doğum gününüze kalan süreyi saniyeler içinde öğrenin.</p>
+    <div class="hero-badges"><span class="hbadge">✓ Ücretsiz</span><span class="hbadge">2026 Güncel</span><span class="hbadge">Kayıt Gerektirmez</span></div>
+  </div>
 </header>
 
 <div class="main-grid">
