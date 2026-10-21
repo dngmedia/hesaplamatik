@@ -27,7 +27,6 @@
   </script>
 
   <!-- AdSense -->
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -193,6 +192,8 @@
     #topBtn.show { display:flex; }
     @media print { nav.topnav,.sidebar,footer,#topBtn,.toast { display:none!important; } .main-grid{grid-template-columns:1fr!important;} }
   </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FT582GF9N9');</script>
 </head>
 <body>
 
@@ -204,7 +205,7 @@
     <div class="nav-links" id="navLinks">
       <a href="https://hesaplarsin.com/kredi-hesaplama.html">💳 Kredi</a>
       <a href="https://hesaplarsin.com/net-maas-hesaplama.html">💼 Maaş</a>
-      <a href="https://hesaplarsin.com/kov-hesaplama.html">🧾 KDV</a>
+      <a href="https://hesaplarsin.com/kdv-hesaplama.html">🧾 KDV</a>
       <a href="https://hesaplarsin.com/indirim-hesaplama.html">🏷️ İndirim</a>
       <a href="https://hesaplarsin.com/yuzde-hesaplama.html" class="active">📐 Yüzde</a>
     </div>
@@ -233,10 +234,6 @@
   </div>
 </header>
 
-<!-- REKLAM -->
-<div style="max-width:1140px;margin:16px auto 0;padding:0 16px;">
-  <div class="ad-slot" style="min-height:90px;"><span>Reklam Alanı</span></div>
-</div>
 
 <!-- MAIN GRID -->
 <div class="main-grid">
@@ -564,14 +561,13 @@
     <div class="card">
       <div class="card-title" style="font-size:.9rem;">🔗 İlgili Araçlar</div>
       <a class="ql-link" href="https://hesaplarsin.com/indirim-hesaplama.html"><div class="ql-icon">🏷️</div><div><div style="font-weight:700;font-size:.82rem;">İndirim Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">İndirimli fiyat bul</div></div></a>
-      <a class="ql-link" href="https://hesaplarsin.com/kov-hesaplama.html"><div class="ql-icon">🧾</div><div><div style="font-weight:700;font-size:.82rem;">KDV Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Dahil / hariç KDV</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/kdv-hesaplama.html"><div class="ql-icon">🧾</div><div><div style="font-weight:700;font-size:.82rem;">KDV Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Dahil / hariç KDV</div></div></a>
       <a class="ql-link" href="https://hesaplarsin.com/kar-marji-hesaplama.html"><div class="ql-icon">💯</div><div><div style="font-weight:700;font-size:.82rem;">Kâr Marjı</div><div style="font-size:.72rem;color:var(--muted)">Satış kâr oranı</div></div></a>
       <a class="ql-link" href="https://hesaplarsin.com/enflasyon-hesaplama.html"><div class="ql-icon">📈</div><div><div style="font-weight:700;font-size:.82rem;">Enflasyon</div><div style="font-size:.72rem;color:var(--muted)">Fiyat artış oranı</div></div></a>
       <a class="ql-link" href="https://hesaplarsin.com/maas-zam-hesaplama.html"><div class="ql-icon">💼</div><div><div style="font-weight:700;font-size:.82rem;">Maaş Zam Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Zam sonrası maaş</div></div></a>
       <a class="ql-link" href="https://hesaplarsin.com/kira-artis-hesaplama.html"><div class="ql-icon">🏠</div><div><div style="font-weight:700;font-size:.82rem;">Kira Artış</div><div style="font-size:.72rem;color:var(--muted)">TÜFE kira zammı</div></div></a>
     </div>
 
-    <div class="ad-slot" style="min-height:250px;"><span>Reklam Alanı<br/>250×250</span></div>
 
   </aside>
 </div>
@@ -579,7 +575,6 @@
 <!-- MAKALE -->
 <div class="article">
 
-  <div class="ad-slot" style="min-height:90px;margin-bottom:32px;"><span>Reklam Alanı</span></div>
 
   <h2>Yüzde Nedir? Temel Kavramlar</h2>
   <p>
@@ -660,7 +655,6 @@
     Medya haberlerinde "faiz 5 puan arttı" ifadesi yüzde puanı anlamındadır, "%5 arttı" değil.
   </p>
 
-  <div class="ad-slot" style="min-height:90px;margin:24px 0;"><span>Reklam Alanı</span></div>
 
   <h2>Sık Sorulan Sorular</h2>
 
@@ -671,7 +665,7 @@
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">KDV dahil fiyattan KDV hariç fiyat nasıl bulunur? <span class="ico">+</span></button>
-    <div class="faq-a">KDV hariç fiyat = KDV dahil fiyat ÷ (1 + KDV oranı / 100). Örneğin %20 KDV dahil 1.200 ₺: 1.200 ÷ 1,20 = <strong>1.000 ₺</strong>. "Tersine Yüzde" modunda "% eklendi" seçerek hesaplayabilirsiniz. Ayrıca <a href="https://hesaplarsin.com/kov-hesaplama.html" style="color:var(--brand);">KDV hesaplama aracımız</a>ı kullanabilirsiniz.</div>
+    <div class="faq-a">KDV hariç fiyat = KDV dahil fiyat ÷ (1 + KDV oranı / 100). Örneğin %20 KDV dahil 1.200 ₺: 1.200 ÷ 1,20 = <strong>1.000 ₺</strong>. "Tersine Yüzde" modunda "% eklendi" seçerek hesaplayabilirsiniz. Ayrıca <a href="https://hesaplarsin.com/kdv-hesaplama.html" style="color:var(--brand);">KDV hesaplama aracımız</a>ı kullanabilirsiniz.</div>
   </div>
 
   <div class="faq-item">
@@ -692,7 +686,7 @@
   <h2>İlgili Hesaplama Araçları</h2>
   <div class="related-grid">
     <a class="rc" href="https://hesaplarsin.com/indirim-hesaplama.html"><span class="ri">🏷️</span><span class="rt">İndirim Hesaplama</span><span class="rd">İndirimli fiyat bul</span></a>
-    <a class="rc" href="https://hesaplarsin.com/kov-hesaplama.html"><span class="ri">🧾</span><span class="rt">KDV Hesaplama</span><span class="rd">Dahil / hariç KDV</span></a>
+    <a class="rc" href="https://hesaplarsin.com/kdv-hesaplama.html"><span class="ri">🧾</span><span class="rt">KDV Hesaplama</span><span class="rd">Dahil / hariç KDV</span></a>
     <a class="rc" href="https://hesaplarsin.com/kar-marji-hesaplama.html"><span class="ri">💯</span><span class="rt">Kâr Marjı</span><span class="rd">Satış kâr oranı</span></a>
     <a class="rc" href="https://hesaplarsin.com/enflasyon-hesaplama.html"><span class="ri">📈</span><span class="rt">Enflasyon</span><span class="rd">Fiyat artış oranı</span></a>
     <a class="rc" href="https://hesaplarsin.com/maas-zam-hesaplama.html"><span class="ri">💼</span><span class="rt">Maaş Zam</span><span class="rd">Zam sonrası maaş</span></a>
@@ -720,7 +714,7 @@
       </div>
       <div class="footer-col">
         <h4>Vergi & Finans</h4>
-        <a href="https://hesaplarsin.com/kov-hesaplama.html">KDV Hesaplama</a>
+        <a href="https://hesaplarsin.com/kdv-hesaplama.html">KDV Hesaplama</a>
         <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">Gelir Vergisi</a>
         <a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a>
         <a href="https://hesaplarsin.com/enflasyon-hesaplama.html">Enflasyon</a>
