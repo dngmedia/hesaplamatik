@@ -1,0 +1,18 @@
+TESTS = {
+ 'yas-hesaplama': [dict(fill={'dogum': '1995-03-15', 'hedef': '2026-10-21'}, expect='31 yaş 7 ay 6 gün'), dict(fill={}, expect_toast='doğum')],
+ 'gun-hesaplama': [dict(fill={'t1': '2026-03-01', 't2': '2026-06-15'}, expect='106 gün'),
+                   dict(radio={'mod': 'ekle'}, fill={'t1': '2026-01-01', 'gun': '90'}, expect='1 Nisan 2026')],
+ 'is-gunu-hesaplama': [dict(fill={'t1': '2026-01-01', 't2': '2026-12-31'}, uncheck=['arife']),
+                       dict(fill={'t1': '2026-05-25', 't2': '2026-05-31'}),
+                       dict(radio={'mod': 'ekle'}, fill={'t1': '2026-05-22', 'n': '3'})],
+ 'ortalama-hesaplama': [dict(fill={'sayilar': '85 70 92 64 78'}, expect='77,8'),
+                        dict(radio={'mod': 'agirlikli'}, fill={'sayilar': '80 90 60', 'agirlik': '4 5 2'}, expect='80,9')],
+ 'indirim-hesaplama': [dict(fill={'normal': '1500', 'oran': '30'}, expect='1.050,00'),
+                       dict(fill={'normal': '100', 'oran': '20', 'oran2': '10'}, expect='72,00'),
+                       dict(radio={'mod': 'oran'}, fill={'normal': '1200', 'indirimli': '900'}, expect='%25'),
+                       dict(radio={'mod': 'eski'}, fill={'indirimli': '800', 'oran': '20'}, expect='1.000,00')],
+ 'veri-kullanim-hesaplama': [dict(fill={'video': '60', 'sosyal': '45', 'muzik': '30'})],
+ 'internet-hizi-donusturucu': [dict(fill={'deger': '100'}, expect='12,50')],
+ 'yakit-tuketimi-hesaplama': [dict(fill={'km': '520', 'litre': '34,5', 'fiyat': '47,50', 'depo': '50'}, expect='6,63')],
+ 'yakit-maliyeti-hesaplama': [dict(fill={'km': '450', 'tuketim': '6,5', 'fiyat': '47,50', 'kisi': '3'}, check=['gd'], expect='2.778,75')],
+}

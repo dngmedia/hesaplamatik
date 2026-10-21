@@ -1,0 +1,47 @@
+{
+ "yas-hesaplama": {
+  "ico": "🎂",
+  "name": "Yaş Hesaplama",
+  "cat": "diger"
+ },
+ "gun-hesaplama": {
+  "ico": "📅",
+  "name": "Gün Hesaplama",
+  "cat": "diger"
+ },
+ "is-gunu-hesaplama": {
+  "ico": "🗓️",
+  "name": "İş Günü Hesaplama",
+  "cat": "diger"
+ },
+ "ortalama-hesaplama": {
+  "ico": "➗",
+  "name": "Ortalama Hesaplama",
+  "cat": "diger"
+ },
+ "indirim-hesaplama": {
+  "ico": "🏷️",
+  "name": "İndirim Hesaplama",
+  "cat": "isletme"
+ },
+ "veri-kullanim-hesaplama": {
+  "ico": "📶",
+  "name": "Mobil Veri Kullanım Hesaplama",
+  "cat": "diger"
+ },
+ "internet-hizi-donusturucu": {
+  "ico": "🚀",
+  "name": "İnternet Hızı Dönüştürücü",
+  "cat": "diger"
+ },
+ "yakit-tuketimi-hesaplama": {
+  "ico": "⛽",
+  "name": "Yakıt Tüketimi Hesaplama",
+  "cat": "arac"
+ },
+ "yakit-maliyeti-hesaplama": {
+  "ico": "🛣️",
+  "name": "Yakıt Maliyeti Hesaplama",
+  "cat": "arac"
+ }
+}
