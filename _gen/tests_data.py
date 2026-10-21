@@ -57,3 +57,4 @@ TESTS.update({
  'not-ortalamasi-hesaplama': [dict(fill={}, expect_toast='En az bir ders')],
  'takdir-tesekkur-hesaplama': [dict(fill={}, expect_toast='Derslerinize')],
 })
+TESTS['takdir-tesekkur-hesaplama'].append(dict(fill={}, js="document.querySelectorAll('#dersler .ders').forEach(function(d,i){d.children[1].value=[80,90,85,75,88,95,100,90][i];});", expect='TAKDİR'))

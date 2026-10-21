@@ -35,6 +35,7 @@ with sync_playwright() as p:
                 tag = loc.evaluate('e=>e.tagName')
                 if tag == 'SELECT': loc.select_option(str(val))
                 else: loc.fill(str(val))
+            if case.get('js'): pg.evaluate(case['js'])
             for k in case.get('check', []):
                 pg.check('#' + k)
             for k in case.get('uncheck', []):

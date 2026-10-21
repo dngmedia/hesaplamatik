@@ -156,7 +156,7 @@ var HARF={'AA':4,'BA':3.5,'BB':3,'CB':2.5,'CC':2,'DC':1.5,'DD':1,'FD':0.5,'FF':0
 function satir(ad,not,saat){var uni=radio('mod')==='uni', d=document.createElement('div'); d.className='form-grid ders'; d.style.marginBottom='8px'; d.style.gridTemplateColumns='2fr 1fr 1fr';
   d.innerHTML='<input type="text" placeholder="Ders adı" value="'+(ad||'')+'">'+(uni?'<select>'+Object.keys(HARF).map(function(h){return '<option'+(h===not?' selected':'')+'>'+h+'</option>';}).join('')+'</select>':'<input type="text" inputmode="decimal" placeholder="Not" value="'+(not||'')+'">')+'<input type="text" inputmode="decimal" placeholder="'+(uni?'Kredi/AKTS':'Ders saati')+'" value="'+(saat||'')+'">';
   el('dersler').appendChild(d); d.querySelectorAll('input,select').forEach(function(i){i.addEventListener('input',function(){if(_last)run(false);});i.addEventListener('change',function(){if(_last)run(false);});});}
-function modSec(){el('dersler').innerHTML='';var uni=radio('mod')==='uni';
+function modSec(){var uni=radio('mod')==='uni';el('dersler').innerHTML='<div class="form-grid" style="grid-template-columns:2fr 1fr 1fr;margin-bottom:4px;font-size:.75rem;font-weight:700;color:var(--muted)"><span>Ders</span><span>'+(uni?'Harf notu':'Not (0–100)')+'</span><span>'+(uni?'Kredi / AKTS':'Haftalık saat')+'</span></div>';
   (uni?[['Matematik I','BA',6],['Fizik I','CB',5],['Türk Dili','AA',2],['Programlama','BB',5]]:[['Türk Dili ve Edebiyatı','',5],['Matematik','',6],['Fizik','',2],['Tarih','',2],['İngilizce','',4]]).forEach(function(x){satir(x[0],x[1],x[2]);});el('result').style.display='none';_last=null;}
 function onReady(){modSec();}
 function onReset(){modSec();}
@@ -225,8 +225,8 @@ var VARSAYILAN=[['Türkçe / Edebiyat',5],['Matematik',5],['Fen Bilimleri / Fizi
 function satir(ad,saat){var d=document.createElement('div');d.className='form-grid ders';d.style.marginBottom='8px';d.style.gridTemplateColumns='2fr 1fr 1fr';
  d.innerHTML='<input type="text" placeholder="Ders adı" value="'+(ad||'')+'"><input type="text" inputmode="decimal" placeholder="Not"><input type="text" inputmode="decimal" placeholder="Ders saati" value="'+(saat||'')+'">';el('dersler').appendChild(d);
  d.querySelectorAll('input').forEach(function(i){i.addEventListener('input',function(){if(_last)run(false);});});}
-function onReady(){VARSAYILAN.forEach(function(x){satir(x[0],x[1]);});}
-function onReset(){el('dersler').innerHTML='';onReady();}
+function onReady(){el('dersler').innerHTML='<div class="form-grid" style="grid-template-columns:2fr 1fr 1fr;margin-bottom:4px;font-size:.75rem;font-weight:700;color:var(--muted)"><span>Ders</span><span>Not (0–100)</span><span>Haftalık saat</span></div>';VARSAYILAN.forEach(function(x){satir(x[0],x[1]);});}
+function onReset(){onReady();}
 function n(s){s=String(s).trim().replace(',','.');return s===''?NaN:parseFloat(s);}
 function hesapla(){
   var top=0, ag=0, say=0, dusuk=false;

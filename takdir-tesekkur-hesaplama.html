@@ -293,8 +293,8 @@ var VARSAYILAN=[['Türkçe / Edebiyat',5],['Matematik',5],['Fen Bilimleri / Fizi
 function satir(ad,saat){var d=document.createElement('div');d.className='form-grid ders';d.style.marginBottom='8px';d.style.gridTemplateColumns='2fr 1fr 1fr';
  d.innerHTML='<input type="text" placeholder="Ders adı" value="'+(ad||'')+'"><input type="text" inputmode="decimal" placeholder="Not"><input type="text" inputmode="decimal" placeholder="Ders saati" value="'+(saat||'')+'">';el('dersler').appendChild(d);
  d.querySelectorAll('input').forEach(function(i){i.addEventListener('input',function(){if(_last)run(false);});});}
-function onReady(){VARSAYILAN.forEach(function(x){satir(x[0],x[1]);});}
-function onReset(){el('dersler').innerHTML='';onReady();}
+function onReady(){el('dersler').innerHTML='<div class="form-grid" style="grid-template-columns:2fr 1fr 1fr;margin-bottom:4px;font-size:.75rem;font-weight:700;color:var(--muted)"><span>Ders</span><span>Not (0–100)</span><span>Haftalık saat</span></div>';VARSAYILAN.forEach(function(x){satir(x[0],x[1]);});}
+function onReset(){onReady();}
 function n(s){s=String(s).trim().replace(',','.');return s===''?NaN:parseFloat(s);}
 function hesapla(){
   var top=0, ag=0, say=0, dusuk=false;

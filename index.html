@@ -792,7 +792,7 @@ function renderTools(list) {
     return;
   }
   grid.innerHTML = list.map(renderCard).join('');
-  updateCounts(list);
+  updateCounts(TOOLS);
 }
 
 // ─── KATEGORİ FİLTRE ─────────────────────────────
@@ -893,12 +893,6 @@ searchInput.addEventListener('keydown', e => {
 // URL query parametresi desteği (?q=kdv)
 const urlQ = new URLSearchParams(window.location.search).get('q');
 if (urlQ) { searchInput.value = urlQ; searchClear.classList.add('show'); buildDropdown(urlQ.toLowerCase()); applyFilter('all', urlQ.toLowerCase()); }
-// Kategori bağlantıları (örn. /#vergi) → ilgili filtreyi aç
-(function () {
-  var h = location.hash.slice(1), alias = { isci: 'maas', teknoloji: 'diger' }, cat = alias[h] || h;
-  var btn = cat && document.querySelector('.fcat[data-cat="' + cat + '"]');
-  if (btn) { filterCat(btn, cat); var a = document.getElementById('araclar'); if (a) a.scrollIntoView(); }
-})();
 
 // ─── HAMBurger ────────────────────────────────────
 const hamBtn = document.getElementById('hamBtn');
@@ -919,6 +913,12 @@ window.addEventListener('scroll', () => topBtn.classList.toggle('show', window.s
 // ─── BAŞLANGIÇ RENDER ────────────────────────────
 renderTools(TOOLS);
 updateCounts(TOOLS);
+// Kategori bağlantıları (örn. /#vergi) → ilgili filtreyi aç
+(function () {
+  var h = location.hash.slice(1), alias = { isci: 'maas', teknoloji: 'diger' }, cat = alias[h] || h;
+  var btn = cat && document.querySelector('.fcat[data-cat="' + cat + '"]');
+  if (btn) { filterCat(btn, cat); var a = document.getElementById('araclar'); if (a) a.scrollIntoView(); }
+})();
 </script>
 </body>
 </html>
