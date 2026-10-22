@@ -38,7 +38,7 @@ def enf_etki(veri):
 # (tarih, grup, başlık, açıklama, link)
 EVENTS = [(t, 'enflasyon', f'{v} enflasyonu', f'TÜİK, saat 10:00 · Belirler: {enf_etki(v)}', '/kira-artis-hesaplama.html') for t, v in ENF]
 EVENTS += [
-    ('2026-10-22', 'faiz', 'TCMB faiz kararı (PPK)', 'Para Politikası Kurulu toplantısı, saat 14:00', '/mevduat-faizi-hesaplama.html'),
+    ('2026-10-22', 'faiz', 'TCMB faiz kararı (PPK)', 'Politika faizi %37’den %36’ya indirildi (−100 baz puan)', '/mevduat-faizi-hesaplama.html'),
     ('2026-11-12', 'faiz', 'TCMB Enflasyon Raporu', 'Merkez Bankası enflasyon tahminlerini günceller', '/enflasyon-hesaplama.html'),
     ('2026-12-10', 'faiz', 'TCMB faiz kararı (PPK)', 'Para Politikası Kurulu toplantısı, saat 14:00', '/mevduat-faizi-hesaplama.html'),
     ('2027-01-21', 'faiz', 'TCMB faiz kararı (PPK)', 'Para Politikası Kurulu toplantısı', '/mevduat-faizi-hesaplama.html'),
@@ -135,7 +135,7 @@ article=f'''
 <p>2027 asgari ücreti için Asgari Ücret Tespit Komisyonu’nun Aralık 2026’nın ilk haftalarında toplanması ve kararın <b>Aralık sonunda</b> açıklanması bekleniyor. Yeni asgari ücret <b>1 Ocak 2027</b>’de yürürlüğe girecek. Tahminler için <a href="/blog/asgari-ucret-2027.html">Asgari Ücret 2027</a> yazımıza bakın.</p>
 
 <h2 id="faiz">Faiz kararı ne zaman? TCMB PPK toplantıları</h2>
-<p>Merkez Bankası Para Politikası Kurulu (PPK) faiz kararlarını toplantı günü saat 14:00’te açıklar. Faiz kararları mevduat ve kredi faizlerini doğrudan etkiler.</p>
+<p>Merkez Bankası Para Politikası Kurulu (PPK) faiz kararlarını toplantı günü saat 14:00’te açıklar. Faiz kararları mevduat ve kredi faizlerini doğrudan etkiler. <strong>Son karar (22 Ekim 2026):</strong> politika faizi %37’den %36’ya indirildi; gecelik borç verme faizi %39, gecelik borçlanma faizi %34,5 oldu.</p>
 {PPK_T}
 <p>Mevduat getirinizi <a href="/mevduat-faizi-hesaplama.html">mevduat faizi hesaplama</a>, kredi taksitlerinizi <a href="/kredi-hesaplama.html">kredi hesaplama</a> aracıyla görebilirsiniz.</p>
 
