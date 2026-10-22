@@ -3,6 +3,7 @@ Araç listesi index.html'deki TOOLS dizisinden okunur; yeni araç eklendiğinde 
 build.py sonunda çalışır. Kabuk (üst menü, CSS, footer) olarak oluşturulmuş bir araç sayfası kullanılır.
 """
 import os, re, json, html
+from kategori_rehber import R as REH
 
 BASE = 'https://hesaplarsin.com'
 E = lambda t: html.escape(t, quote=True)
@@ -144,6 +145,7 @@ CSS = '''<style>.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minma
 
 def render_cat(key, tools, head, foot):
     d = K[key]; slug = d['slug']; url = f'{BASE}/{slug}.html'
+    rh = REH.get(key, {}); faqs = d['faq'] + rh.get('faq', [])
     items = [(s, t) for s, t in tools.items() if t['cat'] == key]
     for x in d['extra']:
         if x in tools and all(x != s for s, _ in items):
@@ -158,7 +160,7 @@ def render_cat(key, tools, head, foot):
             {"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE + '/'},
             {"@type": "ListItem", "position": 2, "name": d['ad'], "item": url}]},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in d['faq']]},
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]},
     ]
     h = head
     h = re.sub(r'<title>.*?</title>', f'<title>{E(d["title"] if len(d["title"]) <= 62 else d["title"].replace(" | Hesaplarsın", ""))}</title>', h, 1, re.S)
@@ -176,7 +178,15 @@ def render_cat(key, tools, head, foot):
     h = re.sub(r'<body data-tool="[^"]*">', f'<body data-tool="kategori-{slug}">', h)
     others = ''.join(f'<a href="{BASE}/{K[k]["slug"]}.html">{K[k]["ico"]} {K[k]["ad"]}</a>' for k in ORDER if k != key)
     blog_html = ('<h2>İlgili Rehberler</h2><ul class="kblog">' + ''.join(f'<li><a href="{BASE}/blog/{b}.html">{E(t)}</a></li>' for b, t in blogs) + '</ul>') if blogs else ''
-    faq_html = ''.join(f'<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">{E(q)}</button><div class="faq-a"><p>{a}</p></div></div>' for q, a in d['faq'])
+    gl = [(t, x, ac) for t, x, ac in rh.get('rehber', []) if x in tools or os.path.exists(x + '.html')]
+    guide_html = ''
+    if gl:
+        guide_html += '<h2>Hangi durumda hangi araç?</h2><ul class="kblog">' + ''.join(
+            f'<li><strong>{E(t)}:</strong> <a href="{BASE}/{x}.html">{E(tools[x]["name"] if x in tools else x)}</a> — {E(ac)}</li>' for t, x, ac in gl) + '</ul>'
+    if rh.get('tablo'):
+        guide_html += ('<h2>2026 için temel rakamlar</h2><div style="overflow-x:auto"><table class="veri-tablo"><thead><tr><th>Kalem</th><th>Değer</th></tr></thead><tbody>'
+                       + ''.join(f'<tr><td>{E(k_)}</td><td>{E(v_)}</td></tr>' for k_, v_ in rh['tablo']) + '</tbody></table></div>')
+    faq_html = ''.join(f'<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">{E(q)}</button><div class="faq-a"><p>{a}</p></div></div>' for q, a in faqs)
     body = f'''<nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="{BASE}/">Ana Sayfa</a><span aria-hidden="true">›</span><span aria-current="page">{E(d["ad"])}</span>
 </nav>
@@ -191,6 +201,7 @@ def render_cat(key, tools, head, foot):
 <div class="article"><div class="article-inner" style="max-width:1100px">
   <h2>Tüm {E(d["ad"])}</h2>
   <div class="kgrid">{''.join(card(s, t) for s, t in items)}</div>
+  {guide_html}
   <h2>Bu kategorideki hesaplamalar hakkında</h2>
   <p>{d["intro"][1]}</p>
   <p style="font-size:.88rem;color:var(--muted)">Tüm oranların kaynakları ve güncellenme takvimi: <a href="{BASE}/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a>. Hazırlayan: <a href="{BASE}/hakkimizda.html#kurucu">Duran Gönülalan</a>, Hesaplarsın kurucusu.</p>
