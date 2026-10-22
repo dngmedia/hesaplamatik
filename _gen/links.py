@@ -107,7 +107,9 @@ M.update({
  'arac-deger-kaybi-hesaplama': ['yakit-tuketimi-hesaplama', 'arac-muayene-gecikme-hesaplama', 'mtv-hesaplama'],
  'otv-hesaplama': ['yakit-tuketimi-hesaplama', 'arac-kredisi-hesaplama', 'mtv-hesaplama'],
 })
-N['arac-kredisi-hesaplama'] = 'Taşıt kredisi hesaplama'; N['tyt-net-hesaplama'] = 'TYT net hesaplama'
+N['arac-kredisi-hesaplama'] = 'Taşıt kredisi hesaplama'; N['asgari-ucret-2027-hesaplama'] = 'Asgari ücret 2027 zam hesaplama'
+M['asgari-ucret-hesaplama'] = ['asgari-ucret-2027-hesaplama'] + M['asgari-ucret-hesaplama']
+M['blog/asgari-ucret-2027'] = ['asgari-ucret-2027-hesaplama', 'net-maas-hesaplama']; N['tyt-net-hesaplama'] = 'TYT net hesaplama'
 
 
 def block(src):

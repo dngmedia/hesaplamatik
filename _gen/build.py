@@ -13,7 +13,7 @@ def registry():
         reg[m.group(5)] = dict(ico=m.group(1), name=m.group(2), desc=m.group(4))
     return reg
 
-MODULES = [m for m in ['tools_diger', 'tools_saglik', 'tools_finans', 'tools_vergi', 'tools_egitim', 'tools_kamu', 'tools_takvim', 'tools_siralama', 'tools_pazaryeri', 'tools_para'] if os.path.exists(os.path.join(os.path.dirname(__file__), m + '.py'))]
+MODULES = [m for m in ['tools_diger', 'tools_saglik', 'tools_finans', 'tools_vergi', 'tools_egitim', 'tools_kamu', 'tools_takvim', 'tools_siralama', 'tools_pazaryeri', 'tools_para', 'tools_2027'] if os.path.exists(os.path.join(os.path.dirname(__file__), m + '.py'))]
 tools = []
 for m in MODULES:
     tools += importlib.import_module(m).TOOLS

@@ -303,5 +303,10 @@
   "ico": "💵",
   "name": "Para Sayma Hesaplama",
   "cat": "finans"
+ },
+ "asgari-ucret-2027-hesaplama": {
+  "ico": "📈",
+  "name": "Asgari Ücret 2027 Hesaplama",
+  "cat": "maas"
  }
 }
