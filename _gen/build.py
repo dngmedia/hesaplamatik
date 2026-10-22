@@ -63,3 +63,11 @@ for _f in glob.glob('assets/og/*.jpg'):
         _s = re.sub(r'<meta property="og:image" content="[^"]*"', f'<meta property="og:image" content="{_u}"', _s)
         _s = re.sub(r'<meta name="twitter:image" content="[^"]*"', f'<meta name="twitter:image" content="{_u}"', _s)
         open(_slug + '.html', 'w', encoding='utf-8').write(_s)
+
+
+# ── Bağlamsal iç bağlantı kutuları (links.py) ──
+try:
+    import links as _links
+    print('iç bağlantı:', _links.run(), 'sayfa')
+except Exception as _e:
+    print('iç bağlantı hatası:', _e)
