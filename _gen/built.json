@@ -149,6 +149,11 @@
   "name": "Maaş Zam Hesaplama",
   "cat": "maas"
  },
+ "memur-emekli-zammi-hesaplama": {
+  "ico": "👴",
+  "name": "Memur ve Emekli Zammı Hesaplama",
+  "cat": "maas"
+ },
  "saatlik-ucret-hesaplama": {
   "ico": "🕐",
   "name": "Saatlik Ücret Hesaplama",

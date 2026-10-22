@@ -193,16 +193,35 @@ article='''
 <div class="example"><p><b>Örnek:</b> 3.500.000 ₺’ye satılan bir daire için:</p>
 <p>Toplam harç: 3.500.000 × 0,04 = <b>140.000 ₺</b>. Alıcı 70.000 ₺, satıcı 70.000 ₺ öder. Buna döner sermaye ücreti eklenir.</p></div>
 
+<h2 id="tablo">2026 tapu harcı tablosu</h2>
+<p>Farklı satış bedellerinde tapu harcı ve alıcının başlıca masrafları (emlakçı komisyonu %2 + %20 KDV varsayımıyla):</p>
+<div class="table-wrap"><table><thead><tr><th>Satış bedeli</th><th>Toplam harç (%4)</th><th>Alıcı harç payı (%2)</th><th>Komisyon (alıcı)</th><th>Alıcı harç + komisyon</th></tr></thead><tbody>
+<tr><td>2.000.000 ₺</td><td>80.000 ₺</td><td>40.000 ₺</td><td>48.000 ₺</td><td>88.000 ₺</td></tr><tr><td>3.000.000 ₺</td><td>120.000 ₺</td><td>60.000 ₺</td><td>72.000 ₺</td><td>132.000 ₺</td></tr><tr><td>4.000.000 ₺</td><td>160.000 ₺</td><td>80.000 ₺</td><td>96.000 ₺</td><td>176.000 ₺</td></tr><tr><td>5.000.000 ₺</td><td>200.000 ₺</td><td>100.000 ₺</td><td>120.000 ₺</td><td>220.000 ₺</td></tr><tr><td>7.500.000 ₺</td><td>300.000 ₺</td><td>150.000 ₺</td><td>180.000 ₺</td><td>330.000 ₺</td></tr><tr><td>10.000.000 ₺</td><td>400.000 ₺</td><td>200.000 ₺</td><td>240.000 ₺</td><td>440.000 ₺</td></tr>
+</tbody></table></div>
+<p>Tabloya döner sermaye ücreti, sigorta ve kredi masrafları dahil değildir. Kendi tutarınız için yukarıdaki hesaplayıcıyı kullanın.</p>
+
+<h2 id="adimlar">Tapu devri adım adım</h2>
+<ol>
+<li><b>Başvuru:</b> Alıcı veya satıcı Web Tapu üzerinden ya da tapu müdürlüğünden satış başvurusu yapar; satış bedeli beyan edilir.</li>
+<li><b>Harç ve döner sermaye ödemesi:</b> Sistem harcı ve döner sermaye ücretini hesaplar; ödeme anlaşmalı bankalar veya internet bankacılığından yapılır.</li>
+<li><b>Randevu:</b> Taraflar kimlikleri ve gerekiyorsa vekâletnameyle randevu saatinde tapu müdürlüğünde hazır bulunur.</li>
+<li><b>İmza:</b> Resmî senet imzalanır, mülkiyet aynı gün alıcıya geçer.</li>
+</ol>
+<p>Satış bedelinin ödemesini tapu imzasıyla eş zamanlı yapmak için bankaların aracılık ettiği <b>güvenli ödeme</b> sistemlerinden yararlanabilirsiniz.</p>
+
+<h2 id="satis-sonrasi">Satıcı açısından vergi: değer artış kazancı</h2>
+<p>Konutu satın aldıktan sonraki <b>5 yıl içinde</b> satan kişi, alış ve satış bedeli arasındaki kazanç için değer artış kazancı vergisine tabi olabilir. 2026 yılında bu kazancın <b>150.000 ₺</b>’lik kısmı vergiden istisnadır. Alış bedeli, yeniden değerleme ile güncellenerek hesaplanır. Tapuda gerçek bedelin gösterilmesi bu hesapta hem alıcıyı hem satıcıyı korur. Miras yoluyla edinilen gayrimenkullerin satışında bu vergi doğmaz.</p>
+
 <h2 id="matrah">Tapuda gösterilecek bedel ne olmalı?</h2>
 <p>Tapu harcı, tapuda beyan edilen satış bedeli üzerinden alınır. Ancak beyan edilen bedel, gayrimenkulün belediyedeki <b>emlak vergisi değerinden</b> düşük olamaz. Gerçek satış bedelinin altında beyanda bulunmak vergi ziyaı cezasına yol açar; ayrıca konut kredisi kullanılan satışlarda ekspertiz değeri dikkate alınır. Gerçek bedelin tapuya yazılması hem yasal yükümlülük hem de ileride satışta değer artış kazancı vergisi açısından alıcının lehinedir.</p>
 
 <h2 id="doner">Döner sermaye ücreti 2026</h2>
-<p>Tapu işlemlerinde harca ek olarak Tapu ve Kadastro Genel Müdürlüğü döner sermaye ücreti alınır. Bu ücret ilden ile ve bağımsız bölüm sayısına göre değişir; 2026 yılında ortalama <b>6.681 ₺</b> civarındadır. Kesin tutar, Web Tapu üzerinden başvuru yaparken veya randevu sırasında bildirilir.</p>
+<p>Tapu işlemlerinde harca ek olarak Tapu ve Kadastro Genel Müdürlüğü döner sermaye ücreti alınır. Bu ücret ile, işlem türüne ve bağımsız bölüm sayısına göre değişir; 2026’da tek bağımsız bölümlü bir konut satışında genellikle <b>5.500–7.000 ₺</b> aralığındadır. Kesin tutar Web Tapu üzerinden başvuru yaparken gösterilir; hesaplayıcıdaki varsayılan değeri kendi tutarınızla değiştirebilirsiniz.</p>
 
 <h2 id="toplam">Ev alırken ödenen diğer masraflar</h2>
 <div class="table-wrap"><table><thead><tr><th>Masraf</th><th>Tutar / Oran</th></tr></thead><tbody>
 <tr><td>Tapu harcı (alıcı payı)</td><td>Satış bedelinin %2’si</td></tr>
-<tr><td>Döner sermaye ücreti</td><td>İle göre, ortalama ~6.681 ₺</td></tr>
+<tr><td>Döner sermaye ücreti</td><td>İle ve işleme göre, genellikle 5.500–7.000 ₺</td></tr>
 <tr><td>Emlakçı komisyonu</td><td>Genellikle %2 + KDV (alıcı ve satıcıdan ayrı ayrı)</td></tr>
 <tr><td>Zorunlu deprem sigortası (DASK)</td><td>Metrekare ve bölgeye göre</td></tr>
 <tr><td>Konut kredisi masrafları</td><td>Ekspertiz, ipotek tesis, dosya ücreti</td></tr>
@@ -211,7 +230,6 @@ article='''
 
 <h2 id="istisna">Tapu harcı istisnaları</h2>
 <ul>
-<li>Yeni yapılan konutların ilk satışında, belirli şartlarla 150 m²’ye kadar konutlar için harç indirimleri uygulanabilir (güncel düzenlemeyi kontrol edin).</li>
 <li>Kentsel dönüşüm kapsamındaki işlemler harçtan muaftır.</li>
 <li>Mirasın intikalinde satış harcı yerine veraset ve intikal vergisi söz konusudur.</li>
 </ul>
@@ -221,6 +239,7 @@ faq=[
 ('2026 tapu harcı yüzde kaç?','Satış bedelinin toplam %4’üdür: alıcı %2, satıcı %2 öder.'),
 ('Tapu harcını kim öder?','Kanuna göre alıcı ve satıcı %2’şer öder. Uygulamada tarafların anlaşmasıyla tamamı alıcı tarafından da ödenebilir; bu durumda devlet açısından her iki taraf da müteselsilen sorumludur.'),
 ('Tapu harcı emlak vergi değerinden düşük gösterilebilir mi?','Hayır. Beyan edilen bedel emlak vergisi değerinin altında olamaz ve gerçek satış bedelinin altında beyan vergi cezasına yol açar.'),
+('5 milyon TL’lik evin tapu harcı ne kadar?','Toplam tapu harcı 5.000.000 × %4 = 200.000 TL’dir. Alıcı ve satıcı ayrı ayrı ödüyorsa her biri 100.000 TL öder; buna döner sermaye ücreti eklenir.'),
 ('Tapu harcı nereden ödenir?','Web Tapu üzerinden başvuru yapıldıktan sonra harç ve döner sermaye ücreti anlaşmalı bankalar, internet bankacılığı veya e-Devlet aracılığıyla ödenebilir.'),
 ],
 related=['kira-getirisi-hesaplama','metrekare-fiyat-hesaplama','kira-artis-hesaplama','damga-vergisi-hesaplama','kredi-hesaplama'],
@@ -349,6 +368,39 @@ article='''
 
 <h2 id="kismi">Eksik gün çalışmada asgari ücret nasıl hesaplanır?</h2>
 <p>Ay içinde eksik çalışan işçinin ücreti, brüt asgari ücretin 30’a bölünüp çalışılan gün sayısıyla çarpılmasıyla bulunur. Hesaplayıcıdaki “Çalışılan Gün” alanına gün sayısını yazarak kısmi net ücreti görebilirsiniz. Saatlik çalışanlar için <a href="/saatlik-ucret-hesaplama.html">saatlik ücret hesaplama</a> aracını kullanabilirsiniz.</p>
+
+<h2 id="yillik">Asgari ücretin yıllık tutarları (2026)</h2>
+<div class="table-wrap"><table><thead><tr><th>Kalem</th><th>Aylık</th><th>Yıllık (12 ay)</th></tr></thead><tbody>
+<tr><td>Brüt ücret</td><td>33.030,00 ₺</td><td>396.360,00 ₺</td></tr>
+<tr><td>Net ücret (çalışanın eline geçen)</td><td>28.075,50 ₺</td><td>336.906,00 ₺</td></tr>
+<tr><td>İşverene maliyet (2 puan teşvikli)</td><td>40.214,03 ₺</td><td>482.568,36 ₺</td></tr>
+<tr><td>İşverene maliyet (teşviksiz)</td><td>40.874,63 ₺</td><td>490.495,56 ₺</td></tr>
+</tbody></table></div>
+<p>Net asgari ücret yıl boyunca değişmez; çünkü asgari ücretli çalışan gelir vergisi ödemediği için vergi dilimi geçişinden etkilenmez. Asgari ücretin üzerinde maaş alanların net ücreti ise yıl içinde vergi dilimi nedeniyle düşebilir; bunu <a href="/net-maas-hesaplama.html">net maaş hesaplama</a> aracında ay seçerek görebilirsiniz.</p>
+
+<h2 id="mesai">Asgari ücretle fazla mesai ve bayram çalışması</h2>
+<div class="table-wrap"><table><thead><tr><th>Çalışma türü</th><th>Hesap</th><th>Brüt tutar</th></tr></thead><tbody>
+<tr><td>Normal saat ücreti</td><td>33.030 ÷ 225 saat</td><td>146,80 ₺</td></tr>
+<tr><td>Fazla mesai (haftalık 45 saati aşan)</td><td>146,80 × 1,5</td><td>220,20 ₺ / saat</td></tr>
+<tr><td>Fazla sürelerle çalışma (sözleşmede 45 saatten az ise)</td><td>146,80 × 1,25</td><td>183,50 ₺ / saat</td></tr>
+<tr><td>Ulusal bayram ve genel tatilde çalışma</td><td>1 günlük ek ücret</td><td>1.101,00 ₺ / gün</td></tr>
+</tbody></table></div>
+<p>Fazla mesai ve bayram ücretleri asgari ücret istisnasının dışında kalan kısım olduğu için bu ödemelerden gelir vergisi ve damga vergisi kesilebilir. Ayrıntılı hesap için <a href="/fazla-mesai-hesaplama.html">fazla mesai hesaplama</a> aracını kullanın.</p>
+
+<h2 id="bes">Asgari ücretten BES kesintisi yapılır mı?</h2>
+<p>Otomatik katılım sistemi kapsamındaki çalışanların brüt ücretinin <b>%3</b>’ü bireysel emeklilik sistemine aktarılır. Asgari ücretli bir çalışan için bu tutar ayda 990,90 ₺’dir ve net ücretten düşülür. Çalışan, sisteme dahil edildikten sonraki 2 ay içinde cayma hakkını kullanabilir; cayarsa kesilen tutar iade edilir.</p>
+
+<h2 id="alti">Asgari ücretin altında maaş ödenebilir mi?</h2>
+<p>Hayır. Tam süreli çalışan bir işçiye asgari ücretin altında ücret ödenemez; bu durum İş Kanunu’na göre idari para cezası gerektirir ve işçiye haklı nedenle fesih hakkı verir. Kısmi süreli (part-time) çalışanlarda ise asgari ücret, çalışılan saat oranında uygulanır: haftada 22,5 saat çalışan bir işçinin brüt asgari ücreti 16.515 ₺ olur.</p>
+
+<h2 id="tarihce">Son yıllarda asgari ücret</h2>
+<div class="table-wrap"><table><thead><tr><th>Dönem</th><th>Brüt</th><th>Net</th></tr></thead><tbody>
+<tr><td>2026</td><td>33.030,00 ₺</td><td>28.075,50 ₺</td></tr>
+<tr><td>2025</td><td>26.005,50 ₺</td><td>22.104,67 ₺</td></tr>
+<tr><td>2024</td><td>20.002,50 ₺</td><td>17.002,12 ₺</td></tr>
+<tr><td>Temmuz 2023</td><td>13.414,50 ₺</td><td>11.402,32 ₺</td></tr>
+</tbody></table></div>
+<p>2027 asgari ücreti Aralık 2026’da açıklanacak. Kurum tahminleri ve senaryolar için <a href="/blog/asgari-ucret-2027.html">Asgari Ücret 2027 yazımıza</a> bakın.</p>
 
 <h2 id="etkiler">Asgari ücretin etkilediği diğer tutarlar</h2>
 <ul>

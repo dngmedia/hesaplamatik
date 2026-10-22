@@ -58,3 +58,4 @@ TESTS.update({
  'takdir-tesekkur-hesaplama': [dict(fill={}, expect_toast='Derslerinize')],
 })
 TESTS['takdir-tesekkur-hesaplama'].append(dict(fill={}, js="document.querySelectorAll('#dersler .ders').forEach(function(d,i){d.children[1].value=[80,90,85,75,88,95,100,90][i];});", expect='TAKDİR'))
+TESTS['memur-emekli-zammi-hesaplama']=[dict(fill={'tur':'emekli','maas':'50.000','aylik':'1'}, expect='54.384'), dict(fill={'tur':'memur','maas':'50000','aylik':'1'}, expect='53.367'), dict(fill={'tur':'memuremekli','maas':'30000','alti':'10'}, expect='32.383')]
