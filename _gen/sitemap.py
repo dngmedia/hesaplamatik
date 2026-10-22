@@ -11,7 +11,7 @@ def lastmod(f):
 urls=[]
 for f in sorted(glob.glob('*.html')+glob.glob('blog/*.html')):
     s=open(f,encoding='utf-8').read()
-    if 'http-equiv="refresh"' in s or 'noindex' in s: continue
+    if 'http-equiv="refresh"' in s or 'noindex' in s or f.startswith(('yandex_','google')): continue
     loc=BASE+('' if f=='index.html' else f)
     pr='1.0' if f=='index.html' else '0.9' if f in POP else '0.3' if f in LEGAL else '0.7' if f.startswith('blog') else '0.8'
     cf='weekly' if f in ('index.html','blog.html') or f in POP else 'monthly'

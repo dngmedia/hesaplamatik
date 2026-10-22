@@ -24,7 +24,7 @@ jobs:
           if [ "$TUM" = "true" ]; then
             URLS=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's/<[^>]*>//g')
           else
-            FILES=$(git diff --name-only HEAD~1 HEAD -- '*.html' | grep -v -E '^(_gen/|404\.html|blog-|kov-)' || true)
+            FILES=$(git diff --name-only HEAD~1 HEAD -- '*.html' | grep -v -E '^(_gen/|404\.html|blog-|kov-|yandex_|google)' || true)
             URLS=$(for f in $FILES; do [ -f "$f" ] || continue; grep -q 'noindex' "$f" && continue; if [ "$f" = "index.html" ]; then echo "https://hesaplarsin.com/"; else echo "https://hesaplarsin.com/$f"; fi; done)
           fi
           [ -z "$URLS" ] && { echo "Bildirilecek sayfa yok"; exit 0; }
