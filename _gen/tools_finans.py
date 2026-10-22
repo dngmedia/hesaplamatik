@@ -889,6 +889,89 @@ related=['memur-maaslari','ogretmen-maasi','maas-zam-hesaplama','kidem-tazminati
 sources=[('5510 sayılı Sosyal Sigortalar ve GSS Kanunu','https://www.mevzuat.gov.tr/mevzuatmetin/1.5.5510.pdf'),('TÜİK Tüketici Fiyat Endeksi','https://data.tuik.gov.tr/'),('ÇSGB – Kamu Görevlileri Toplu Sözleşmesi','https://www.csgb.gov.tr/')],
 ))
 
+# ───────────────────────── İŞSİZLİK MAAŞI ─────────────────────────
+TOOLS.append(dict(
+slug='issizlik-maasi-hesaplama', name='İşsizlik Maaşı Hesaplama', cat='maas', ico='🧾',
+title='İşsizlik Maaşı Hesaplama 2026 – Ne Kadar, Kaç Ay? | Hesaplarsın',
+desc='2026 işsizlik maaşı hesaplama: son 4 ay brüt maaşınızın %40’ı, en fazla 26.424 TL. Prim gününe göre 6, 8 veya 10 ay; net tutar ve başvuru şartları.',
+h1='🧾 İşsizlik Maaşı Hesaplama 2026',
+lead='Son 4 aylık brüt maaş ortalamanızı ve son 3 yıldaki prim gün sayınızı girin; alacağınız aylık işsizlik maaşını, kaç ay ödeneceğini ve toplam tutarı görün.',
+button='İşsizlik Maaşını Hesapla',
+form='''<div class="form-grid">
+<div class="field"><label for="brut">Son 4 Ayın Ortalama Brüt Maaşı (₺)</label><input type="number" id="brut" placeholder="örn: 45.000" inputmode="decimal"></div>
+<div class="field"><label for="gun">Son 3 Yılda Ödenen Prim Günü</label><select id="gun"><option value="0">600 günden az</option><option value="180" selected>600 – 899 gün</option><option value="240">900 – 1079 gün</option><option value="300">1080 gün ve üzeri</option></select></div>
+<div class="field full"><label class="chk"><input type="checkbox" id="kosul" checked> İşten kendi isteğim ve kusurum dışında çıkarıldım ve son 120 gün kesintisiz çalıştım</label></div>
+</div>''',
+js=r'''
+var BR=33030, TAVAN=BR*0.8, DAMGA=0.00759;
+function hesapla(){
+  var b=v('brut'), g=+el('gun').value; if(!(b>0)) return 'Son 4 ayın ortalama brüt maaşını girin.';
+  if(!el('kosul').checked) return 'İstifa eden, emekli olan veya kusurlu davranış nedeniyle işten çıkarılanlar işsizlik maaşı alamaz.';
+  if(g===0) return 'İşsizlik maaşı için son 3 yılda en az 600 gün işsizlik sigortası primi ödenmiş olmalı.';
+  var ham=b*0.40, brut=Math.min(ham,TAVAN), damga=brut*DAMGA, net=brut-damga, ay=g/30;
+  return {main:['Aylık net işsizlik maaşı', tl(net)], sub:g+' gün ('+ay+' ay) boyunca',
+    rows:[['Brüt maaşın %40’ı',tl(ham)],['Üst sınır (brüt asgari ücretin %80’i)',tl(TAVAN)],['Aylık brüt ödenek',tl(brut)],['Damga vergisi (binde 7,59)','−'+tl(damga),'neg'],['Aylık net ödenek',tl(net),'hl'],['Ödeme süresi',g+' gün ('+ay+' ay)'],['Toplam net ödeme',tl(net*ay)]],
+    note:(ham>TAVAN?'Hesaplanan tutar üst sınırı aştığı için 2026 üst sınırı (26.424 ₺ brüt) uygulandı. ':'')+'İŞKUR’a işten ayrıldıktan sonraki 30 gün içinde başvurun; geç başvuruda geciken gün sayısı kadar süre kısalır.'};
+}''',
+article='''
+<h2 id="ne-kadar">2026 işsizlik maaşı ne kadar?</h2>
+<p>İşsizlik maaşı (işsizlik ödeneği), son 4 aylık brüt kazancınızın ortalamasının <b>%40’ı</b> kadardır. Ancak bu tutar, brüt asgari ücretin <b>%80’ini</b> geçemez. 2026 brüt asgari ücreti 33.030 ₺ olduğundan:</p>
+<div class="table-wrap"><table><thead><tr><th></th><th>Brüt</th><th>Damga vergisi</th><th>Net</th></tr></thead><tbody>
+<tr><td>En düşük (asgari ücretli)</td><td>13.212,00 ₺</td><td>100,28 ₺</td><td><b>13.111,72 ₺</b></td></tr>
+<tr><td>En yüksek (üst sınır)</td><td>26.424,00 ₺</td><td>200,56 ₺</td><td><b>26.223,44 ₺</b></td></tr>
+</tbody></table></div>
+<p>İşsizlik maaşından gelir vergisi ve SGK primi kesilmez; yalnızca binde 7,59 damga vergisi kesilir. Ödenek alırken genel sağlık sigortanız devlet tarafından ödenir.</p>
+<div class="formula">Aylık brüt ödenek = min(Son 4 ay brüt ortalama × %40 ; Brüt asgari ücret × %80)<br>Net ödenek = Brüt ödenek × (1 − 0,00759)</div>
+
+<h2 id="tablo">Maaşa göre işsizlik maaşı tablosu</h2>
+<div class="table-wrap"><table><thead><tr><th>Son 4 ay brüt ortalama</th><th>Aylık net işsizlik maaşı</th><th>6 ay toplam</th><th>10 ay toplam</th></tr></thead><tbody>
+<tr><td>33.030 ₺ (asgari ücret)</td><td>13.111,72 ₺</td><td>78.670 ₺</td><td>131.117 ₺</td></tr>
+<tr><td>40.000 ₺</td><td>15.878,56 ₺</td><td>95.271 ₺</td><td>158.786 ₺</td></tr>
+<tr><td>50.000 ₺</td><td>19.848,20 ₺</td><td>119.089 ₺</td><td>198.482 ₺</td></tr>
+<tr><td>60.000 ₺</td><td>23.817,84 ₺</td><td>142.907 ₺</td><td>238.178 ₺</td></tr>
+<tr><td>66.060 ₺ ve üzeri</td><td>26.223,44 ₺ (tavan)</td><td>157.341 ₺</td><td>262.234 ₺</td></tr>
+</tbody></table></div>
+<p>66.060 ₺ ve üzerindeki brüt maaşlarda %40 oranı üst sınırı aştığı için herkes aynı tutarı alır.</p>
+
+<h2 id="sure">İşsizlik maaşı kaç ay verilir?</h2>
+<p>Ödeme süresi, işten ayrılmadan önceki son 3 yılda ödenen işsizlik sigortası prim gününe göre belirlenir:</p>
+<div class="table-wrap"><table><thead><tr><th>Son 3 yılda prim günü</th><th>Ödeme süresi</th></tr></thead><tbody>
+<tr><td>600 – 899 gün</td><td>180 gün (6 ay)</td></tr>
+<tr><td>900 – 1079 gün</td><td>240 gün (8 ay)</td></tr>
+<tr><td>1080 gün ve üzeri</td><td>300 gün (10 ay)</td></tr>
+</tbody></table></div>
+
+<h2 id="sartlar">İşsizlik maaşı alma şartları</h2>
+<ul>
+<li>İş sözleşmesinin <b>kendi isteğiniz ve kusurunuz dışında</b> sona ermesi (işveren feshi, iş yerinin kapanması, haklı nedenle fesih gibi).</li>
+<li>İşten ayrılmadan önceki <b>son 120 gün</b> boyunca hizmet akdiyle kesintisiz çalışmış olmak.</li>
+<li>Son 3 yılda en az <b>600 gün</b> işsizlik sigortası primi ödenmiş olmak.</li>
+<li>İşten ayrıldıktan sonraki <b>30 gün içinde</b> İŞKUR’a başvurmak.</li>
+</ul>
+<p>İstifa edenler, emekli olanlar, ahlak ve iyi niyet kurallarına aykırı davranış nedeniyle (İş Kanunu m.25/II) işten çıkarılanlar işsizlik maaşı alamaz. Haklı nedenle (örneğin ücretin ödenmemesi) iş sözleşmesini fesheden çalışan ise ödenek alabilir.</p>
+
+<h2 id="basvuru">Başvuru nasıl yapılır?</h2>
+<ol>
+<li>İşveren, işten çıkışınızı SGK’ya doğru kodla bildirmelidir; işten ayrılış bildirgesinin kodu ödenek hakkını doğrudan belirler.</li>
+<li>e-Devlet’te “İŞKUR İşsizlik Ödeneği Başvurusu” hizmetinden veya İŞKUR hizmet merkezinden başvurun.</li>
+<li>Başvurunuz onaylanırsa ödenek, hak kazandığınız tarihi izleyen ayın sonundan itibaren her ay banka hesabınıza yatırılır.</li>
+</ol>
+
+<h2 id="kesilme">İşsizlik maaşı ne zaman kesilir?</h2>
+<p>Yeni bir işe girdiğinizde, emekli olduğunuzda, İŞKUR’un önerdiği uygun bir işi veya eğitimi geçerli neden olmadan reddettiğinizde ya da kurumun çağrılarına uymadığınızda ödenek kesilir. Ödenek alırken kayıt dışı çalıştığınız tespit edilirse aldığınız tutar faiziyle geri istenir.</p>
+<p>İşten çıkarıldıysanız <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı</a> ve <a href="/ihbar-tazminati-hesaplama.html">ihbar tazminatı</a> haklarınızı da hesaplamayı unutmayın.</p>
+''',
+faq=[
+('2026 en yüksek işsizlik maaşı ne kadar?','2026’da en yüksek işsizlik maaşı brüt 26.424 ₺, damga vergisi kesildikten sonra net 26.223,44 ₺’dir. Bu, brüt asgari ücretin %80’idir.'),
+('Asgari ücretli ne kadar işsizlik maaşı alır?','Asgari ücretle çalışmış biri, brüt asgari ücretin %40’ı olan 13.212 ₺ brüt, yaklaşık 13.111,72 ₺ net işsizlik maaşı alır.'),
+('İstifa eden işsizlik maaşı alabilir mi?','Hayır. Kendi isteğiyle istifa edenler işsizlik maaşı alamaz. Ancak ücretin ödenmemesi gibi haklı nedenlerle iş sözleşmesini fesheden çalışanlar ödenek alabilir.'),
+('İşsizlik maaşı kaç ay verilir?','Son 3 yılda 600 gün prim için 6 ay, 900 gün için 8 ay, 1080 gün ve üzeri için 10 ay ödenir.'),
+('İşsizlik maaşı başvurusu ne zamana kadar yapılır?','İşten ayrıldıktan sonraki 30 gün içinde İŞKUR’a başvurulmalıdır. Geç başvuruda geciken gün sayısı kadar ödeme süresinden düşülür.'),
+],
+related=['kidem-tazminati-hesaplama','ihbar-tazminati-hesaplama','net-maas-hesaplama','asgari-ucret-hesaplama','yillik-izin-hesaplama'],
+sources=[('4447 sayılı İşsizlik Sigortası Kanunu m.50–51','https://www.mevzuat.gov.tr/mevzuatmetin/1.5.4447.pdf'),('İŞKUR – İşsizlik Ödeneği','https://www.iskur.gov.tr/')],
+))
+
 # ───────────────────────── SAATLİK ÜCRET ─────────────────────────
 TOOLS.append(dict(
 slug='saatlik-ucret-hesaplama', name='Saatlik Ücret Hesaplama', cat='maas', ico='🕐',

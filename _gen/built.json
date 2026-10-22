@@ -154,6 +154,11 @@
   "name": "Memur ve Emekli Zammı Hesaplama",
   "cat": "kamu"
  },
+ "issizlik-maasi-hesaplama": {
+  "ico": "🧾",
+  "name": "İşsizlik Maaşı Hesaplama",
+  "cat": "maas"
+ },
  "saatlik-ucret-hesaplama": {
   "ico": "🕐",
   "name": "Saatlik Ücret Hesaplama",
@@ -257,6 +262,11 @@
  "doktor-maasi": {
   "ico": "🩺",
   "name": "Doktor Maaşı 2027",
+  "cat": "kamu"
+ },
+ "muhendis-maasi": {
+  "ico": "👷",
+  "name": "Mühendis Maaşı 2027",
   "cat": "kamu"
  }
 }

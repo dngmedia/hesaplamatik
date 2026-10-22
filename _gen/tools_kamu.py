@@ -112,6 +112,7 @@ article=f'''
 <li><a href="/polis-maasi.html">Polis maaşı 2027</a> – polis memuru, başkomiser, rütbeler</li>
 <li><a href="/hemsire-maasi.html">Hemşire maaşı 2027</a> – döner sermaye ve nöbet ödemeleri</li>
 <li><a href="/doktor-maasi.html">Doktor maaşı 2027</a> – uzman doktor, profesör, araştırma görevlisi</li>
+<li><a href="/muhendis-maasi.html">Mühendis maaşı 2027</a> – teknik hizmetler sınıfı, teknisyen</li>
 </ul>
 ''',
 faq=[
@@ -121,7 +122,7 @@ faq=[
 ('Memur maaş katsayısı ne kadar?','Temmuz–Aralık 2026 döneminde aylık katsayı 1,575512, taban aylık katsayısı 25,794915, yan ödeme katsayısı 0,499649’dur. Ocak 2027 katsayıları zam oranı belli olduğunda yeniden belirlenecek.'),
 ('Memur emeklisi de aynı zammı alır mı?','Evet. Emekli Sandığı’na tabi memur emeklileri, memurlarla aynı oranda (toplu sözleşme zammı + enflasyon farkı) zam alır.'),
 ],
-related=['ogretmen-maasi','polis-maasi','hemsire-maasi','doktor-maasi','memur-emekli-zammi-hesaplama'],
+related=['ogretmen-maasi','polis-maasi','hemsire-maasi','doktor-maasi','muhendis-maasi','memur-emekli-zammi-hesaplama'],
 sources=SOURCES,
 ))
 
@@ -291,5 +292,51 @@ faq=[
 ('Doktor maaşına döner sermaye dahil mi?','Tablodaki tutarlara döner sermaye dahil değildir. Döner sermaye ek ödemesi hastanenin gelirine ve hekimin performansına göre her ay değişir.'),
 ],
 related=['memur-maaslari','hemsire-maasi','ogretmen-maasi','memur-emekli-zammi-hesaplama','net-maas-hesaplama'],
+sources=SOURCES,
+))
+
+# ───────────────────────── MÜHENDİS ─────────────────────────
+TOOLS.append(dict(
+slug='muhendis-maasi', name='Mühendis Maaşı 2027', cat='kamu', ico='👷',
+title='Mühendis Maaşı 2027: Kamuda Mühendis Ne Kadar Alır? | Hesaplarsın',
+desc='Kamuda mühendis maaşı 2027: Temmuz 2026’da 1/4 derecede 109.219 TL. Ocak 2027 zam tahmini, teknik hizmetler sınıfı, özel sektör farkı ve hesaplama.',
+h1='👷 Mühendis Maaşı 2026–2027',
+lead='Kamuda çalışan mühendislerin maaşını, Ocak 2027 zammıyla tahmini yeni maaşı ve teknik hizmetler sınıfındaki maaş kalemlerini görün.',
+button='Mühendis Maaşını Hesapla',
+form=form(['muhendis', 'teknisyen']), js=JS,
+article=f'''
+<p><b>Kısa cevap:</b> Temmuz–Aralık 2026 döneminde kamuda 1/4 derecedeki bir mühendisin maaşı <b>109.219 ₺</b>’dir. Ocak 2027’de memur zammıyla bu tutarın yaklaşık <b>115.200–118.000 ₺</b> aralığına çıkması bekleniyor. Aynı dönemde lise mezunu 11/1 teknisyenin maaşı 75.911 ₺’dir.</p>
+
+<h2 id="tablo">Mühendis ve teknisyen maaşı: Temmuz 2026 ve Ocak 2027 tahmini</h2>
+{ocak_table(['muhendis', 'teknisyen'])}
+{NOTE}
+
+<h2 id="neden">Kamuda mühendis maaşı neden yüksek?</h2>
+<p>Mühendisler, mimarlar ve şehir plancıları Teknik Hizmetler Sınıfı’nda yer alır. Bu kadrolarda <b>ek gösterge</b> ve <b>özel hizmet tazminatı</b> oranları genel idare hizmetlerindeki memurlara göre yüksektir. Bu yüzden 1/4 derecedeki bir mühendis, aynı derecedeki şube müdürüne yakın, üniversite mezunu 9/1 memurdan ise belirgin şekilde fazla maaş alır. Kıdem ilerledikçe ve derece yükseldikçe fark artar.</p>
+
+<h2 id="kalemler">Mühendis maaşını oluşturan kalemler</h2>
+<ul>
+<li><b>Aylık ve ek gösterge:</b> Derece ve kademeye göre gösterge puanı aylık katsayıyla çarpılır.</li>
+<li><b>Taban aylık ve kıdem aylığı:</b> Tüm memurlarda olduğu gibi hizmet yılına göre artar.</li>
+<li><b>Yan ödeme ve özel hizmet tazminatı:</b> Teknik hizmetler sınıfında oranlar daha yüksektir.</li>
+<li><b>Aile yardımı:</b> Evli ve çocuklu mühendislerin maaşına eklenir.</li>
+<li><b>Ek ödeme:</b> Bazı kurumlarda (belediyeler, döner sermayeli kurumlar) kurumun gelirine bağlı ek ödemeler yapılabilir.</li>
+</ul>
+
+<h2 id="kpss">Kamuda mühendis olmak</h2>
+<p>Bakanlıklara ve kamu kurumlarına mühendis alımı genellikle <b>KPSS puanı</b> ile yapılır; bazı kurumlar ayrıca sözlü veya uygulamalı sınav düzenler. Göreve başlayan mühendis genellikle 9. dereceden başlar ve her yıl kademe ilerler. Kurumların sözleşmeli mühendis alımlarında ise ücret, ilgili mevzuattaki sözleşme tavanlarına göre belirlenir.</p>
+
+<h2 id="ozel">Özel sektörde mühendis maaşı</h2>
+<p>Özel sektörde mühendis maaşları şirkete, sektöre, şehre ve deneyime göre serbestçe belirlenir. İş tekliflerinde konuşulan rakamın genellikle brüt olduğunu unutmayın. Teklif edilen brüt maaşın netini <a href="/net-maas-hesaplama.html">net maaş hesaplama</a> aracıyla, yıl içindeki değişimini <a href="/blog/brutten-nete-maas-tablosu-2026.html">brütten nete maaş tablosuyla</a> görebilirsiniz.</p>
+
+<p>Diğer unvanlarla karşılaştırma için <a href="/memur-maaslari.html">memur maaşları tablosuna</a> bakabilirsiniz.</p>
+''',
+faq=[
+('Kamuda mühendis maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 109.219 ₺ olan 1/4 derecedeki mühendis maaşı, Ocak 2027’de beklenen %5,5–%8 zamla yaklaşık 115.200–118.000 ₺ olur.'),
+('Yeni başlayan mühendis maaşı ne kadar?','Kamuda yeni başlayan mühendisler genellikle 9. dereceden başladığı için maaşları 1/4 derecedeki mühendisten daha düşüktür. Kendi bordronuzdaki net tutarla Ocak 2027 maaşınızı hesaplayabilirsiniz.'),
+('Teknisyen maaşı ne kadar?','Temmuz–Aralık 2026 döneminde lise mezunu 11/1 derecedeki teknisyenin maaşı 75.911 ₺’dir.'),
+('Mühendis maaşı memurdan neden yüksek?','Mühendisler Teknik Hizmetler Sınıfı’nda yer alır; bu sınıfta ek gösterge ve özel hizmet tazminatı oranları genel idare hizmetlerine göre yüksektir.'),
+],
+related=['memur-maaslari','ogretmen-maasi','polis-maasi','memur-emekli-zammi-hesaplama','net-maas-hesaplama'],
 sources=SOURCES,
 ))
