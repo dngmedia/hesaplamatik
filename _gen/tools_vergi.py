@@ -496,12 +496,13 @@ howto=('Yıllık izin hakkı nasıl hesaplanır?',['İşe giriş tarihinizi giri
 
 # ───────────────────────── EMEKLİLİK YAŞI ─────────────────────────
 TOOLS.append(dict(
-slug='emeklilik-yasi-hesaplama', name='Emeklilik Yaşı Hesaplama', cat='maas', ico='🎖️',
-title='Emeklilik Yaşı Hesaplama 2026 – Ne Zaman Emekli Olurum? (SSK, EYT) | Hesaplarsın',
-desc='İlk sigorta giriş tarihiniz, doğum tarihiniz ve cinsiyetinize göre SSK (4/a) emeklilik yaşınızı, gereken prim günü ve sigortalılık sürenizi hesaplayın. EYT ve kademeli yaş dahil.',
-h1='🎖️ Emeklilik Yaşı Hesaplama (SSK – 4/a)',
-lead='İlk sigortalı olduğunuz tarihi, doğum tarihinizi ve cinsiyetinizi girin; hangi emeklilik grubunda olduğunuzu, yaş şartınızı ve gereken prim gün sayısını öğrenin.',
-form='''<div class="form-grid">
+slug='emeklilik-yasi-hesaplama', name='Emeklilik Hesaplama', cat='maas', ico='🎖️',
+title='Emeklilik Hesaplama 2026 – Ne Zaman Emekli Olurum? SSK, Bağ-Kur, Memur | Hesaplarsın',
+desc='SSK, Bağ-Kur ve memurlar için emeklilik yaşınızı, eksik prim gününüzü ve tahmini emeklilik tarihinizi hesaplayın. EYT ve 2008 sonrası kademeli yaş dahil.',
+h1='🎖️ Emeklilik Hesaplama – Ne Zaman Emekli Olurum?',
+lead='Statünüzü (SSK, Bağ-Kur, memur), ilk sigorta giriş tarihinizi, doğum tarihinizi ve prim gününüzü girin; emeklilik grubunuzu, yaş şartınızı, eksik prim gününüzü ve tahmini emeklilik tarihinizi öğrenin.',
+form='''<div class="field full" style="margin-bottom:14px"><label>Sigorta Statüsü</label><div class="seg"><label><input type="radio" name="stat" value="a" checked>SSK (4/a)</label><label><input type="radio" name="stat" value="b">Bağ-Kur (4/b)</label><label><input type="radio" name="stat" value="c">Memur (4/c)</label></div></div>
+<div class="form-grid">
 <div class="field"><label>Cinsiyet</label><div class="seg"><label><input type="radio" name="cins" value="k" checked>Kadın</label><label><input type="radio" name="cins" value="e">Erkek</label></div></div>
 <div class="field"><label for="dogum">Doğum Tarihi</label><input type="date" id="dogum"></div>
 <div class="field"><label for="giris">İlk Sigorta Giriş Tarihi</label><input type="date" id="giris"></div>
@@ -517,24 +518,39 @@ function eytPrim(giris,k){ // 23.05.2002 itibarıyla sigortalılık süresine g�
   if(k){ if(yil>=17) return 5000; var s=Math.max(4,Math.floor(yil)); return Math.min(5975,5000+(17-s)*75); }
   if(yil>=21.5) return 5000; return Math.min(5975,5000+Math.ceil((21.5-yil)/1.5)*75);
 }
+function fmt(d){return d.toLocaleDateString('tr-TR');}
 function hesapla(){
-  var k=radio('cins')==='k', d=parseDate('dogum'), g=parseDate('giris'), p=v('prim');
+  var st=radio('stat')||'a', k=radio('cins')==='k', d=parseDate('dogum'), g=parseDate('giris'), p=v('prim');
   if(!d||!g) return 'Doğum tarihinizi ve ilk sigorta giriş tarihinizi seçin.'; if(g<=d) return 'Giriş tarihi doğum tarihinden sonra olmalı.';
-  var grup, yas=null, primGerek, sure=null, rows=[], not='';
+  var stAd={a:'SSK (4/a)',b:'Bağ-Kur (4/b)',c:'Memur (4/c)'}[st];
+  var grup, yas=null, primGerek, sure=null, rows=[], not='', yasTarih=null, sureTarih=null;
   if(g<=new Date(1999,8,8)){
-    grup='EYT – 08.09.1999 ve öncesi girişli'; primGerek=eytPrim(g,k); sure=k?20:25;
-    var sureTarih=addY(g,sure); rows.push(['Yaş şartı','Yok (EYT düzenlemesi)']); rows.push(['Sigortalılık süresi şartı',sure+' yıl → '+sureTarih.toLocaleDateString('tr-TR')]); rows.push(['Gereken prim günü (tahmini)',num(primGerek,0)+' gün']);
-    not='EYT grubunda prim günü, 23.05.2002 tarihindeki sigortalılık sürenize göre 5000–5975 gün arasında kademelidir. Kesin sayıyı e-Devlet “SGK Emeklilik Hesaplama” servisinden doğrulayın.';
+    grup='EYT – 08.09.1999 ve öncesi girişli';
+    if(st==='a'){ primGerek=eytPrim(g,k); sure=k?20:25; not='EYT grubunda SSK prim günü, 23.05.2002 tarihindeki sigortalılık sürenize göre 5000–5975 gün arasında kademelidir. '; }
+    else { primGerek=k?7200:9000; sure=k?20:25; not=(st==='b'?'Bağ-Kur’da EYT kapsamındakiler için genel kural kadın 20 yıl (7200 gün), erkek 25 yıl (9000 gün) prim ödemesidir; geçiş hükümleri nedeniyle bazı kişilerde daha düşük olabilir. ':'Memurlarda EYT kapsamında kadın 20, erkek 25 yıl fiili hizmet aranır. '); }
+    sureTarih=addY(g,sure);
+    rows.push(['Yaş şartı','Yok (EYT düzenlemesi)']); rows.push([(st==='c'?'Hizmet süresi':'Sigortalılık süresi')+' şartı',sure+' yıl → '+fmt(sureTarih)]); rows.push(['Gereken prim günü'+(st==='a'?' (tahmini)':''),num(primGerek,0)+' gün']);
   } else if(g<new Date(2008,4,1)){
-    grup='09.09.1999 – 30.04.2008 arası girişli'; yas=k?58:60; primGerek=7000;
-    rows.push(['Yaş şartı',yas+' yaş → '+addY(d,yas).toLocaleDateString('tr-TR')]); rows.push(['Gereken prim günü',num(7000,0)+' gün']); rows.push(['Alternatif','25 yıl sigortalılık + 4500 gün + yaş şartı']);
+    grup='09.09.1999 – 30.04.2008 arası girişli'; yas=k?58:60; primGerek=st==='a'?7000:9000; yasTarih=addY(d,yas);
+    rows.push(['Yaş şartı',yas+' yaş → '+fmt(yasTarih)]); rows.push(['Gereken prim günü',num(primGerek,0)+' gün'+(st==='c'?' (25 yıl hizmet)':'')]);
+    if(st==='a') rows.push(['Alternatif','25 yıl sigortalılık + 4500 gün + aynı yaş şartı']);
   } else {
-    grup='01.05.2008 ve sonrası girişli (5510 sayılı Kanun)'; primGerek=7200;
+    grup='01.05.2008 ve sonrası girişli (5510 sayılı Kanun)'; primGerek=st==='a'?7200:9000;
     for(var y=d.getFullYear()+40;y<=d.getFullYear()+70;y++){var gy=kademeYas(y,k); if(y-d.getFullYear()>=gy){yas=gy;break;}}
-    rows.push(['Yaş şartı (kademeli)',yas+' yaş → '+addY(d,yas).toLocaleDateString('tr-TR')]); rows.push(['Gereken prim günü',num(7200,0)+' gün']);
+    yasTarih=addY(d,yas);
+    rows.push(['Yaş şartı (kademeli)',yas+' yaş → '+fmt(yasTarih)]); rows.push(['Gereken prim günü',num(primGerek,0)+' gün']);
+    if(st==='b') not='Bağ-Kur için 9000 günün 7200’e indirilmesi gündemde olsa da Ekim 2026 itibarıyla yasalaşmamıştır; yasalaşırsa hesap güncellenecektir. ';
   }
-  if(p>=0&&!isNaN(p)){var eksik=Math.max(0,primGerek-p); rows.push(['Mevcut prim günü',num(p,0)+' gün']); rows.push(['Eksik prim günü',num(eksik,0)+' gün','hl']); if(eksik>0) rows.push(['Kesintisiz çalışırsanız tamamlanma (yaklaşık)',new Date(Date.now()+eksik/360*365.25*864e5).toLocaleDateString('tr-TR')]);}
-  return {main:['Emeklilik grubunuz', grup], sub:yas?'Emeklilik yaşınız: <b>'+yas+'</b>':'Yaş şartı yok; süre ve prim şartı aranır', rows:rows, note:not||'Sonuç SSK (4/a) kapsamı için genel kurallara göre hesaplanmıştır. Bağ-Kur (4/b), memur (4/c), borçlanma ve yıpranma payı gibi durumlarda kurallar farklıdır.'};
+  var primTarih=null;
+  if(p>=0&&!isNaN(p)&&raw('prim')!==''){var eksik=Math.max(0,primGerek-p); rows.push(['Mevcut prim günü',num(p,0)+' gün']); rows.push(['Eksik prim günü',num(eksik,0)+' gün','hl']);
+    primTarih=eksik>0?new Date(Date.now()+eksik/360*365.25*864e5):new Date(); if(eksik>0) rows.push(['Kesintisiz çalışırsanız prim tamamlanması',fmt(primTarih)]);}
+  var tarihler=[yasTarih,sureTarih,primTarih].filter(function(x){return x;}), son=null;
+  tarihler.forEach(function(x){if(!son||x>son)son=x;});
+  var main, sub;
+  if(son&&primTarih&&son<=new Date(Date.now()+864e5)){ main=['Emeklilik şartlarınız tamam görünüyor','Başvurabilirsiniz']; sub=stAd+' · '+grup+' · SGK’ya başvurmadan önce hizmet dökümünüzü kontrol edin'; rows.unshift(['Emeklilik grubunuz',grup]); }
+  else if(son&&primTarih){ main=['Tahmini emeklilik tarihiniz', fmt(son)]; var yasO=son.getFullYear()-d.getFullYear()-((son.getMonth()<d.getMonth()||(son.getMonth()===d.getMonth()&&son.getDate()<d.getDate()))?1:0); sub=stAd+' · '+grup+' · o tarihte '+yasO+' yaşında olacaksınız'; rows.unshift(['Emeklilik grubunuz',grup]); }
+  else { main=['Emeklilik grubunuz', grup]; sub=stAd+' · '+(yas?'emeklilik yaşınız: <b>'+yas+'</b>':'yaş şartı yok; süre ve prim şartı aranır')+' · tarih için prim gününüzü girin'; }
+  return {main:main, sub:sub, rows:rows, note:not+'Sonuç genel kurallara göre hesaplanmıştır. Borçlanma, yıpranma payı, engellilik ve birden fazla statüde çalışma gibi durumlarda kurallar farklıdır; kesin sonucu e-Devlet “SGK Emeklilik Hesaplama” hizmetinden doğrulayın. Prim tamamlanma tarihi, yılda 360 gün kesintisiz prim varsayımıyla hesaplanır.'};
 }''',
 article='''
 <h2 id="nasil">Emeklilik yaşı neye göre belirlenir?</h2>
@@ -546,6 +562,17 @@ article='''
 <tr><td>09.09.1999 – 30.04.2008</td><td>58 yaş</td><td>60 yaş</td><td>7000 gün (veya 25 yıl + 4500 gün + yaş)</td></tr>
 <tr><td>01.05.2008 ve sonrası</td><td>58 yaş → kademeli 65</td><td>60 yaş → kademeli 65</td><td>7200 gün</td></tr>
 </tbody></table></div>
+
+<h2 id="statu">Bağ-Kur ve memurlar için emeklilik şartları</h2>
+<div class="table-wrap"><table><thead><tr><th>İlk giriş</th><th>Bağ-Kur (4/b)</th><th>Memur (4/c)</th></tr></thead><tbody>
+<tr><td>08.09.1999 ve öncesi (EYT)</td><td>Yaş şartı yok; kadın 20 yıl (7200 gün), erkek 25 yıl (9000 gün) prim</td><td>Yaş şartı yok; kadın 20, erkek 25 yıl hizmet</td></tr>
+<tr><td>09.09.1999 – 30.04.2008</td><td>Kadın 58, erkek 60 yaş + 9000 gün</td><td>Kadın 58, erkek 60 yaş + 25 yıl (9000 gün) hizmet</td></tr>
+<tr><td>01.05.2008 ve sonrası</td><td>58/60 yaş (2036’dan itibaren kademeli 65) + 9000 gün</td><td>58/60 yaş (kademeli 65) + 9000 gün</td></tr>
+</tbody></table></div>
+<p>Bağ-Kur’lular için 9000 günün SSK ile eşitlenip 7200 güne indirilmesi uzun süredir gündemde olsa da Ekim 2026 itibarıyla bu düzenleme yasalaşmamıştır. Yasalaşması hâlinde hesaplayıcı güncellenecektir.</p>
+
+<h2 id="tarih">Emeklilik tarihim nasıl bulunur?</h2>
+<p>Emekli olabilmek için grubunuzdaki şartların <b>hepsini</b> tamamlamanız gerekir: yaş, prim günü ve (EYT’de) sigortalılık süresi. Bu yüzden emeklilik tarihiniz, bu şartlardan <b>en son tamamlanacak olanın</b> tarihidir. Örneğin 2005’te işe başlamış, 1985 doğumlu bir erkek 60 yaşını 2045’te doldurur; 7000 prim gününü 2030’da tamamlasa bile 2045’i bekler. Hesaplayıcıya mevcut prim gününüzü girerseniz, kesintisiz çalışma varsayımıyla prim tamamlanma tarihini de hesaplar ve üç tarihten en geç olanı tahmini emeklilik tarihiniz olarak gösterir.</p>
 
 <h2 id="eyt">EYT kapsamındakiler ne zaman emekli olur?</h2>
 <p>Mart 2023’te yürürlüğe giren düzenlemeyle 8 Eylül 1999 ve öncesinde sigortalı olanlar için yaş şartı kaldırılmıştır. Bu gruptakiler, kadınlarda 20, erkeklerde 25 yıllık sigortalılık süresini ve işe giriş tarihlerine göre 5000 ile 5975 gün arasında değişen prim gün sayısını tamamladıklarında emekli olabilir. Prim gün sayısı, 23 Mayıs 2002 tarihindeki sigortalılık sürenize göre kademeli olarak belirlenir: sigortalılık süreniz uzadıkça gereken prim günü azalır.</p>
@@ -565,13 +592,16 @@ article='''
 <p>Bağ-Kur’lular (4/b) ve memurlar (4/c) için prim gün sayıları ve geçiş hükümleri SSK’dan farklıdır. Hizmetiniz birden fazla statüde geçtiyse son 7 yıllık (2520 gün) çalışmanızda fazla prim ödediğiniz statüye göre emekli olursunuz. Bu hesaplayıcı yalnızca 4/a (SSK) kurallarını esas alır. Emeklilik planlamanıza yardımcı olması için <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı</a> ve <a href="/yas-hesaplama.html">yaş hesaplama</a> araçlarını da kullanabilirsiniz.</p>
 ''',
 faq=[
+('Ne zaman emekli olurum nasıl hesaplanır?','İlk sigorta giriş tarihiniz hangi gruba girdiğinizi belirler. Grubunuzun yaş, prim günü ve (EYT’de) sigortalılık süresi şartlarından en son tamamlanacak olanın tarihi emeklilik tarihinizdir. Yukarıdaki hesaplayıcıya statünüzü, doğum ve giriş tarihinizi ve prim gününüzü girerek tahmini tarihi görebilirsiniz.'),
+('Bağ-Kur’lular kaç günle emekli olur?','1999 sonrası girişli Bağ-Kur’lular için prim şartı 9000 gündür (kadın 58, erkek 60 yaş; 2008 sonrası girişlilerde yaş kademeli artar). EYT kapsamındaki kadınlarda 7200, erkeklerde 9000 gündür. 7200 gün eşitlemesi Ekim 2026 itibarıyla yasalaşmamıştır.'),
+('Memurlar kaç yılda emekli olur?','1999 öncesi girişli memurlar kadınsa 20, erkekse 25 yıl hizmetle yaş şartı olmadan emekli olur. 1999 sonrası girişlilerde 25 yıl (9000 gün) hizmetle birlikte kadın 58, erkek 60 yaş şartı aranır.'),
 ('EYT’liler kaç yaşında emekli olur?','08.09.1999 ve öncesi girişlilerde yaş şartı yoktur. Sigortalılık süresini (kadın 20, erkek 25 yıl) ve prim gün sayısını tamamladıklarında emekli olabilirler.'),
 ('2000 yılında işe giren kaç yaşında emekli olur?','09.09.1999 – 30.04.2008 arasında girişi olanlar kadınsa 58, erkekse 60 yaşında ve 7000 prim günüyle emekli olur.'),
 ('2008 sonrası girişliler kaç yaşında emekli olur?','Şartlarını 2035’e kadar tamamlayanlar kadın 58, erkek 60 yaşında emekli olur. 2036’dan itibaren yaş kademeli olarak 65’e yükselir. Prim şartı 7200 gündür.'),
 ('Prim günüm dolduysa yaşımı bekler miyim?','Evet. EYT kapsamı dışındaki gruplarda prim gün sayısını doldursanız bile yaş şartını beklemeniz gerekir.'),
 ('Askerlik borçlanması emekliliği öne çeker mi?','Prim gününüzü artırır. İşe girişten önceki askerlik süresinin borçlanılması, belirli durumlarda sigorta başlangıcını geriye çekebilir; SGK’dan teyit alınmalıdır.'),
 ],
-related=['kidem-tazminati-hesaplama','yas-hesaplama','net-maas-hesaplama','asgari-ucret-hesaplama','yillik-izin-hesaplama'],
+related=['memur-emekli-zammi-hesaplama','kidem-tazminati-hesaplama','yas-hesaplama','net-maas-hesaplama','asgari-ucret-hesaplama'],
 sources=[('5510 sayılı Sosyal Sigortalar ve GSS Kanunu','https://www.mevzuat.gov.tr/mevzuatmetin/1.5.5510.pdf'),('SGK – e-Devlet Emeklilik Hesaplama','https://www.turkiye.gov.tr/')],
 ))
 
