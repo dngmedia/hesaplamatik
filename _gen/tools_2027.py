@@ -79,3 +79,74 @@ sources=[('TÜİK – Tüketici Fiyat Endeksi', 'https://data.tuik.gov.tr/'), ('
          ('TCMB – Piyasa Katılımcıları Anketi', 'https://www.tcmb.gov.tr/')],
 badges=['✓ Ücretsiz', '2027 Senaryoları', 'Anında Sonuç'],
 ))
+
+
+# ───────────────────────── KÂR PAYI (katılım hesabı + temettü) ─────────────────────────
+def _kp(tutar, oran, gun):
+    brut = tutar * oran / 100 * gun / 365
+    st = 0.175 if gun <= 182 else 0.15 if gun <= 365 else 0.10
+    return brut, st, brut * (1 - st)
+
+_KP_ROWS = ''.join(f'<tr><td>{g} gün</td><td>{tr(_kp(100000, 40, g)[0])} ₺</td><td>%{tr(_kp(100000, 40, g)[1]*100,1)}</td><td>{tr(_kp(100000, 40, g)[2])} ₺</td></tr>' for g in (32, 92, 181, 365))
+KP_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Vade</th><th>Brüt kâr payı</th><th>Stopaj</th><th>Net kâr payı</th></tr></thead><tbody>'
+            + _KP_ROWS + '</tbody></table></div><p style="font-size:.82rem;color:var(--muted)">100.000 ₺, yıllık %40 tahmini kâr payı oranıyla. Oran örnek amaçlıdır; bankanızın güncel oranını hesaplayıcıya girin.</p>')
+
+KP_FORM = '''<div class="field full" style="margin-bottom:14px"><label>Hesaplama türü</label><div class="seg"><label><input type="radio" name="tur" value="katilim" checked onchange="kpMod()">Katılım hesabı kâr payı</label><label><input type="radio" name="tur" value="temettu" onchange="kpMod()">Hisse temettüsü (kâr payı)</label></div></div>
+<div class="form-grid" id="f-katilim">
+<div class="field"><label for="tutar">Yatırılan tutar (₺)</label><input type="number" id="tutar" placeholder="örn: 100.000" inputmode="decimal"></div>
+<div class="field"><label for="oran">Yıllık kâr payı oranı (%) <small>bankanın ilan ettiği tahmini oran</small></label><input type="number" id="oran" placeholder="örn: 40" inputmode="decimal"></div>
+<div class="field"><label for="gun">Vade (gün)</label><input type="number" id="gun" value="32" inputmode="numeric"></div>
+</div>
+<div class="form-grid" id="f-temettu" style="display:none">
+<div class="field"><label for="adet">Hisse adedi</label><input type="number" id="adet" placeholder="örn: 1.000" inputmode="numeric"></div>
+<div class="field"><label for="hbt">Hisse başı brüt temettü (₺)</label><input type="number" id="hbt" placeholder="örn: 2,50" inputmode="decimal"></div>
+</div>'''
+
+KP_JS = r'''
+function kpMod(){var t=radio('tur');el('f-katilim').style.display=t==='katilim'?'':'none';el('f-temettu').style.display=t==='temettu'?'':'none';}
+function hesapla(){
+  if(radio('tur')==='temettu'){
+    var a=v('adet'),h=v('hbt'); if(!(a>0)||!(h>0)) return 'Hisse adedini ve hisse başı brüt temettüyü girin.';
+    var br=a*h, st=br*0.15;
+    return {main:['Net temettü',tl(br-st)],sub:num(a,0)+' hisse × '+tl(h)+' brüt',rows:[['Brüt temettü',tl(br)],['Stopaj (%15)','−'+tl(st),'neg'],['Net temettü (hesaba geçen)',tl(br-st),'hl'],['Hisse başı net',tl(h*0.85)]],
+      note:'Gerçek kişilere dağıtılan kâr payından şirket %15 stopaj keser (22 Aralık 2024’ten itibaren). Brüt temettünün yarısı gelir vergisinden istisnadır; kalan yarısı yıllık beyan sınırını aşarsa Mart ayında beyan edilir ve kesilen stopaj hesaplanan vergiden düşülür.'};
+  }
+  var T=v('tutar'),o=v('oran'),g=v('gun'); if(!(T>0)) return 'Yatırılan tutarı girin.'; if(!(o>0)||o>200) return 'Yıllık kâr payı oranını girin.'; if(!(g>0)) return 'Vadeyi gün olarak girin.';
+  var br=T*o/100*g/365, s=g<=182?0.175:(g<=365?0.15:0.10), st=br*s, net=br-st, ef=net/T*365/g*100;
+  return {main:['Net kâr payı (tahmini)',tl(net)],sub:num(g,0)+' gün · %'+num(o,2)+' yıllık oran · vade sonu '+tl(T+net),
+    rows:[['Brüt kâr payı',tl(br)],['Stopaj (%'+num(s*100,1)+')','−'+tl(st),'neg'],['Net kâr payı',tl(net),'hl'],['Vade sonu toplam',tl(T+net)],['Günlük net getiri',tl(net/g)],['Yıllık net getiri oranı',('%'+num(ef,2))]],
+    note:'Katılım hesabında kâr payı vade başında kesin değildir: banka tahmini bir oran ilan eder, gerçek tutar havuzun vade sonundaki kârına göre belirlenir. Stopaj, 9 Temmuz 2025’ten itibaren açılan/yenilenen TL hesaplar için 6 aya kadar %17,5, 1 yıla kadar %15, 1 yıldan uzun vadede %10’dur.'};
+}
+'''
+
+TOOLS.append(dict(
+slug='kar-payi-hesaplama', name='Kâr Payı Hesaplama', cat='finans', ico='🌙',
+title='Kâr Payı Hesaplama 2026 – Katılım Hesabı ve Temettü | Hesaplarsın',
+desc='Katılım bankası kâr payını vade ve stopajla, hisse temettüsünü %15 stopajla hesaplayın. 100.000 ₺ 32 günde ne kadar kâr payı getirir? Net tutarı görün.',
+h1='🌙 Kâr Payı Hesaplama',
+lead='Katılım (faizsiz) hesabınızın vade sonunda getireceği kâr payını ya da hisse senetlerinizden alacağınız temettüyü hesaplayın. Stopaj kesintisi vadeye göre otomatik uygulanır, net tutarı ve vade sonu bakiyenizi görürsünüz.',
+card_title='Kâr Payı Hesaplayıcı', button='Hesapla',
+form=KP_FORM, js=KP_JS,
+article=f'''<h2 id="nasil">Kâr payı nasıl hesaplanır?</h2>
+<div class="kisa-cevap" style="border:2px solid #bfdbfe;background:#eff6ff;border-radius:14px;padding:16px 18px;margin:14px 0 22px;line-height:1.65;font-size:.95rem"><p style="margin:0 0 10px"><strong>Kısa cevap:</strong> Brüt kâr payı, yatırılan tutarın yıllık kâr payı oranıyla ve <strong>vade gününün 365’e oranıyla</strong> çarpılmasıyla bulunur. Net kâr payı için brüt tutardan vadeye göre %17,5, %15 veya %10 stopaj düşülür.</p>
+<p style="margin:0 0 8px;font-family:ui-monospace,Menlo,Consolas,monospace;background:#fff;border:1px solid #dbeafe;border-radius:8px;padding:8px 10px;font-size:.88rem">Brüt kâr payı = Tutar × Oran ÷ 100 × Gün ÷ 365 · Net = Brüt × (1 − Stopaj)</p>
+<p style="margin:0"><strong>Örnek:</strong> 100.000 ₺, %40, 32 gün: 100.000 × 0,40 × 32 ÷ 365 = <strong>{tr(_kp(100000,40,32)[0])} ₺</strong> brüt; %17,5 stopaj sonrası <strong>{tr(_kp(100000,40,32)[2])} ₺</strong> net</p></div>
+<h2 id="tablo">100.000 ₺ ne kadar kâr payı getirir?</h2>
+{KP_TABLO}
+<h2 id="katilim">Katılım hesabı nasıl çalışır?</h2>
+<p>Katılım bankaları faiz yerine <strong>kâr ve zarar ortaklığı</strong> esasıyla çalışır. Yatırdığınız para, bankanın ticari faaliyetlerde kullandığı bir havuza girer; vade sonunda havuzun kârı, hesap açılırken belirlenen <strong>kâr paylaşım oranına</strong> göre (örneğin %80 müşteri, %20 banka) dağıtılır. Banka hesap açılırken tahmini bir kâr payı oranı ilan eder, ancak kesin tutar vade sonunda belli olur. Bu yüzden hesaplayıcıdaki sonuç tahmindir.</p>
+<p>Katılım hesapları da mevduat gibi Tasarruf Mevduatı Sigorta Fonu (TMSF) güvencesindedir ve aynı stopaj oranlarına tabidir.</p>
+<h2 id="stopaj">Kâr payında stopaj oranları (2026)</h2>
+<div class="table-wrap"><table><thead><tr><th>Vade</th><th>Stopaj</th></tr></thead><tbody><tr><td>6 aya kadar</td><td>%17,5</td></tr><tr><td>6 ay – 1 yıl</td><td>%15</td></tr><tr><td>1 yıldan uzun</td><td>%10</td></tr></tbody></table></div>
+<p>Oranlar 9 Temmuz 2025’ten itibaren açılan veya yenilenen TL hesaplar için geçerlidir; hesabınıza açılış ya da yenileme tarihindeki oran uygulanır.</p>
+<h2 id="temettu">Hisse senedi kâr payı (temettü) nasıl hesaplanır?</h2>
+<p>Şirketlerin ortaklarına dağıttığı kâr payına <strong>temettü</strong> denir. Brüt temettü, hisse başı brüt tutarın hisse adedinizle çarpılmasıyla bulunur. 22 Aralık 2024’ten itibaren gerçek kişilere ödenen temettüden şirket <strong>%15 stopaj</strong> keser; örneğin 1.000 hisse × 2,50 ₺ = 2.500 ₺ brüt, 375 ₺ stopaj, <strong>2.125 ₺ net</strong>. Brüt temettünün yarısı gelir vergisinden istisnadır; kalan kısım yıllık beyan sınırını aşarsa beyan edilir.</p>
+<p>Klasik vadeli mevduatla karşılaştırmak için <a href="https://hesaplarsin.com/mevduat-faizi-hesaplama.html">mevduat faizi hesaplama</a>, birikiminizin enflasyon karşısındaki durumu için <a href="https://hesaplarsin.com/enflasyon-hesaplama.html">enflasyon hesaplama</a> aracını kullanabilirsiniz.</p>''',
+faq=[('100.000 TL 32 günde ne kadar kâr payı getirir?', f'Yıllık %40 kâr payı oranıyla brüt {tr(_kp(100000,40,32)[0])} ₺, %17,5 stopaj sonrası yaklaşık {tr(_kp(100000,40,32)[2])} ₺ net getirir. Kendi bankanızın ilan ettiği oranı hesaplayıcıya girerek güncel tutarı görebilirsiniz.'),
+     ('Kâr payı ile faiz arasındaki fark nedir?', 'Faiz, hesap açılırken kesinleşen sabit bir getiridir. Kâr payında ise banka tahmini bir oran ilan eder; gerçek getiri, paranın kullanıldığı havuzun vade sonundaki kârına göre belirlenir ve tahminden biraz farklı olabilir.'),
+     ('Kâr payından vergi kesilir mi?', 'Evet. Katılım hesabı kâr payından vadeye göre %17,5 (6 aya kadar), %15 (1 yıla kadar) veya %10 (1 yıldan uzun) stopaj kesilir. Hisse temettüsünden ise %15 stopaj kesilir.'),
+     ('Katılım hesabı devlet güvencesinde mi?', 'Evet. Katılım bankalarındaki hesaplar, mevduat gibi TMSF sigortası kapsamındadır.')],
+related=['mevduat-faizi-hesaplama', 'bilesik-faiz', 'enflasyon-hesaplama', 'para-deger-kaybi-hesaplama', 'kripto-kar-zarar-hesaplama'],
+sources=[('Gelir İdaresi Başkanlığı – Stopaj oranları', 'https://www.gib.gov.tr/'), ('Türkiye Katılım Bankaları Birliği', 'https://www.tkbb.org.tr/'), ('TMSF – Sigortalı mevduat ve katılım fonu', 'https://www.tmsf.org.tr/')],
+badges=['✓ Ücretsiz', '2026 Stopaj Oranları', 'Temettü Dahil'],
+))

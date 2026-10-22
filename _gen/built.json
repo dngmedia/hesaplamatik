@@ -308,5 +308,10 @@
   "ico": "📈",
   "name": "Asgari Ücret 2027 Hesaplama",
   "cat": "maas"
+ },
+ "kar-payi-hesaplama": {
+  "ico": "🌙",
+  "name": "Kâr Payı Hesaplama",
+  "cat": "finans"
  }
 }
