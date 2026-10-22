@@ -59,3 +59,8 @@ TESTS.update({
 })
 TESTS['takdir-tesekkur-hesaplama'].append(dict(fill={}, js="document.querySelectorAll('#dersler .ders').forEach(function(d,i){d.children[1].value=[80,90,85,75,88,95,100,90][i];});", expect='TAKDİR'))
 TESTS['memur-emekli-zammi-hesaplama']=[dict(fill={'tur':'emekli','maas':'50.000','aylik':'1'}, expect='54.384'), dict(fill={'tur':'memur','maas':'50000','aylik':'1'}, expect='53.367'), dict(fill={'tur':'memuremekli','maas':'30000','alti':'10'}, expect='32.383')]
+TESTS['memur-maaslari']=[dict(fill={'aylik':'1'}, expect='88.897'), dict(fill={'unvan':'0','maas':'100.000','aylik':'1'}, expect='106.73')]
+TESTS['ogretmen-maasi']=[dict(fill={'aylik':'1'}, expect='88.897')]
+TESTS['polis-maasi']=[dict(fill={'aylik':'1'}, expect='98.89')]
+TESTS['hemsire-maasi']=[dict(fill={'aylik':'1'}, expect='90.59')]
+TESTS['doktor-maasi']=[dict(fill={'aylik':'1'}, expect='182.266')]

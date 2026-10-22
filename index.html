@@ -359,6 +359,7 @@
       <a href="#finans">💰 Finans</a>
       <a href="#vergi">🧾 Vergi</a>
       <a href="#maas">💼 Maaş</a>
+      <a href="#kamu">🏛️ Memur</a>
       <a href="#gayrimenkul">🏠 Gayrimenkul</a>
       <a href="#saglik">💪 Sağlık</a>
       <a href="#arac">🚗 Araç</a>
@@ -449,6 +450,7 @@
     <button class="fcat" data-cat="finans" onclick="filterCat(this,'finans')">💰 Finans <span class="cnt" id="cnt-finans">12</span></button>
     <button class="fcat" data-cat="vergi" onclick="filterCat(this,'vergi')">🧾 Vergi <span class="cnt" id="cnt-vergi">8</span></button>
     <button class="fcat" data-cat="maas" onclick="filterCat(this,'maas')">💼 Maaş & SGK <span class="cnt" id="cnt-maas">8</span></button>
+    <button class="fcat" data-cat="kamu" onclick="filterCat(this,'kamu')">🏛️ Kamu & Memur <span class="cnt" id="cnt-kamu">0</span></button>
     <button class="fcat" data-cat="gayrimenkul" onclick="filterCat(this,'gayrimenkul')">🏠 Gayrimenkul <span class="cnt" id="cnt-gayrimenkul">3</span></button>
     <button class="fcat" data-cat="saglik" onclick="filterCat(this,'saglik')">💪 Sağlık <span class="cnt" id="cnt-saglik">10</span></button>
     <button class="fcat" data-cat="arac" onclick="filterCat(this,'arac')">🚗 Araç <span class="cnt" id="cnt-arac">5</span></button>
@@ -702,7 +704,12 @@ const TOOLS = [
   {ico:'📝',name:'İhbar Tazminatı',desc:'İhbar tazminatı tutarını hesapla.',url:'/ihbar-tazminati-hesaplama.html',cat:'maas',badge:'',tags:['ihbar','tazminat','işten çıkma']},
   {ico:'⏰',name:'Fazla Mesai Hesaplama',desc:'Mesai ücretini hızlıca hesapla.',url:'/fazla-mesai-hesaplama.html',cat:'maas',badge:'',tags:['fazla mesai','mesai','ücret']},
   {ico:'🕐',name:'Saatlik Ücret Hesaplama',desc:'Saat başına kazancını hesapla.',url:'/saatlik-ucret-hesaplama.html',cat:'maas',badge:'',tags:['saatlik','ücret','kazanç']},
-  {ico:'👴',name:'Memur ve Emekli Zammı',desc:'Ocak 2027 memur ve emekli zammını hesapla.',url:'/memur-emekli-zammi-hesaplama.html',cat:'maas',badge:'new',tags:['memur','emekli','zam','ocak 2027','enflasyon farkı','ssk','bağkur']},
+  {ico:'🏛️',name:'Memur Maaşları 2026–2027',desc:'14 unvanın maaşı ve Ocak 2027 tahmini.',url:'/memur-maaslari.html',cat:'kamu',badge:'new',tags:['memur maaşı','memur maaşları','ocak 2027','katsayı','zam']},
+  {ico:'👩‍🏫',name:'Öğretmen Maaşı',desc:'Öğretmen ve uzman öğretmen maaşı, ek ders ücreti.',url:'/ogretmen-maasi.html',cat:'kamu',badge:'new',tags:['öğretmen maaşı','uzman öğretmen','ek ders','öğretmen']},
+  {ico:'👮',name:'Polis Maaşı',desc:'Polis memuru ve başkomiser maaşı.',url:'/polis-maasi.html',cat:'kamu',badge:'',tags:['polis maaşı','polis','başkomiser','emniyet']},
+  {ico:'👩‍⚕️',name:'Hemşire Maaşı',desc:'Kamu hemşire maaşı ve Ocak 2027 tahmini.',url:'/hemsire-maasi.html',cat:'kamu',badge:'',tags:['hemşire maaşı','hemşire','sağlık','döner sermaye']},
+  {ico:'🩺',name:'Doktor Maaşı',desc:'Uzman doktor, profesör, asistan maaşı.',url:'/doktor-maasi.html',cat:'kamu',badge:'',tags:['doktor maaşı','uzman doktor','hekim','profesör']},
+  {ico:'👴',name:'Memur ve Emekli Zammı',desc:'Ocak 2027 memur ve emekli zammını hesapla.',url:'/memur-emekli-zammi-hesaplama.html',cat:'kamu',badge:'new',tags:['memur','emekli','zam','ocak 2027','enflasyon farkı','ssk','bağkur']},
   {ico:'📊',name:'Maaş Zam Hesaplama',desc:'Zam oranına göre yeni maaşını hesapla.',url:'/maas-zam-hesaplama.html',cat:'maas',badge:'',tags:['maaş','zam','artış','oran']},
   {ico:'🏆',name:'Prim Hesaplama',desc:'Satış tutarına göre kazanacağın primi hesapla.',url:'/prim-hesaplama.html',cat:'maas',badge:'',tags:['prim','satış','komisyon']},
   {ico:'🎖️',name:'Emeklilik Yaşı Hesaplama',desc:"SGK'ya göre emeklilik yaşını hesapla.",url:'/emeklilik-yasi-hesaplama.html',cat:'maas',badge:'',tags:['emeklilik','sgk','yaş','emekli']},
@@ -774,7 +781,7 @@ let currentCat = 'all';
 
 // ─── KATEGORİ SAYILARI ────────────────────────────
 function updateCounts(list) {
-  const cats = ['finans','vergi','maas','gayrimenkul','saglik','arac','isletme','egitim','diger'];
+  const cats = ['finans','vergi','maas','kamu','gayrimenkul','saglik','arac','isletme','egitim','diger'];
   document.getElementById('cnt-all').textContent = list.length;
   cats.forEach(c => {
     const el = document.getElementById('cnt-' + c);

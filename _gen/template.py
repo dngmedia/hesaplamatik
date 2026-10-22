@@ -13,6 +13,7 @@ CATS = {
     'finans':      ('Finans Araçları', 'finans'),
     'vergi':       ('Vergi Araçları', 'vergi'),
     'maas':        ('Maaş & SGK Araçları', 'maas'),
+    'kamu':        ('Kamu & Memur Araçları', 'kamu'),
     'gayrimenkul': ('Gayrimenkul Araçları', 'gayrimenkul'),
     'saglik':      ('Sağlık Araçları', 'saglik'),
     'arac':        ('Araç Hesaplamaları', 'arac'),
@@ -20,7 +21,7 @@ CATS = {
     'egitim':      ('Eğitim Araçları', 'egitim'),
     'diger':       ('Diğer Araçlar', 'diger'),
 }
-APP_CAT = {'finans': 'FinanceApplication', 'vergi': 'FinanceApplication', 'maas': 'FinanceApplication',
+APP_CAT = {'kamu': 'FinanceApplication', 'finans': 'FinanceApplication', 'vergi': 'FinanceApplication', 'maas': 'FinanceApplication',
            'gayrimenkul': 'FinanceApplication', 'isletme': 'BusinessApplication', 'saglik': 'HealthApplication',
            'egitim': 'EducationalApplication', 'arac': 'UtilitiesApplication', 'diger': 'UtilitiesApplication'}
 

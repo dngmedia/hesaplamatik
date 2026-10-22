@@ -152,7 +152,7 @@
  "memur-emekli-zammi-hesaplama": {
   "ico": "👴",
   "name": "Memur ve Emekli Zammı Hesaplama",
-  "cat": "maas"
+  "cat": "kamu"
  },
  "saatlik-ucret-hesaplama": {
   "ico": "🕐",
@@ -233,5 +233,30 @@
   "ico": "🏆",
   "name": "Takdir Teşekkür Hesaplama",
   "cat": "egitim"
+ },
+ "memur-maaslari": {
+  "ico": "🏛️",
+  "name": "Memur Maaşları 2026–2027",
+  "cat": "kamu"
+ },
+ "ogretmen-maasi": {
+  "ico": "👩‍🏫",
+  "name": "Öğretmen Maaşı 2027",
+  "cat": "kamu"
+ },
+ "polis-maasi": {
+  "ico": "👮",
+  "name": "Polis Maaşı 2027",
+  "cat": "kamu"
+ },
+ "hemsire-maasi": {
+  "ico": "👩‍⚕️",
+  "name": "Hemşire Maaşı 2027",
+  "cat": "kamu"
+ },
+ "doktor-maasi": {
+  "ico": "🩺",
+  "name": "Doktor Maaşı 2027",
+  "cat": "kamu"
  }
 }

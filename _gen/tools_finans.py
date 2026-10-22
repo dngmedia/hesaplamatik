@@ -826,7 +826,7 @@ related=['net-maas-hesaplama','enflasyon-hesaplama','saatlik-ucret-hesaplama','a
 
 # ───────────────────────── MEMUR & EMEKLİ ZAMMI ─────────────────────────
 TOOLS.append(dict(
-slug='memur-emekli-zammi-hesaplama', name='Memur ve Emekli Zammı Hesaplama', cat='maas', ico='👴',
+slug='memur-emekli-zammi-hesaplama', name='Memur ve Emekli Zammı Hesaplama', cat='kamu', ico='👴',
 title='Ocak 2027 Memur ve Emekli Zammı Hesaplama | Hesaplarsın',
 desc='Ocak 2027 SSK, Bağ-Kur emeklisi ve memur zammını hesaplayın: 6 aylık enflasyon, %5 toplu sözleşme, enflasyon farkı ve yeni maaşınız tek ekranda.',
 h1='👴 Memur ve Emekli Zammı Hesaplama (Ocak 2027)',
@@ -838,7 +838,7 @@ form='''<div class="form-grid">
 <div class="field"><label for="alti">6 aylık enflasyon (%) <small>biliyorsanız; boş bırakın</small></label><input type="number" id="alti" placeholder="örn: 8,77" inputmode="decimal"></div>
 </div>''',
 js=r'''
-var Q3=0.0557, TS=0.05, TS_ONCEKI=0.07, KIDEM=73729.84;
+var Q3=0.0557, TS=0.05, TS_ONCEKI=0.07, KIDEM=73729.87;
 function hesapla(){
   var m=v('maas'); if(!(m>0)) return 'Mevcut aylığınızı girin.';
   var a=v('aylik'); if(isNaN(a)) a=1; if(a<-2||a>10) return 'Aylık enflasyon tahmini −2 ile 10 arasında olmalı.';
@@ -874,7 +874,7 @@ article='''
 <p>Her veri açıklandığında hesaplayıcıdaki gerçekleşen enflasyon değerini güncelliyoruz.</p>
 
 <h2 id="kidem">Memur zammı kıdem tazminatı tavanını da belirler</h2>
-<p>Kıdem tazminatı tavanı memur maaş katsayısına bağlıdır. Temmuz–Aralık 2026 tavanı 73.729,84 ₺’dir ve Ocak 2027’de memur zammıyla aynı oranda artması beklenir. Memur seçeneğinde hesaplayıcı tahmini yeni tavanı da gösterir; tazminatınızı <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı hesaplama</a> aracıyla bulabilirsiniz.</p>
+<p>Kıdem tazminatı tavanı memur maaş katsayısına bağlıdır. Temmuz–Aralık 2026 tavanı 73.729,87 ₺’dir ve Ocak 2027’de memur zammıyla aynı oranda artması beklenir. Memur seçeneğinde hesaplayıcı tahmini yeni tavanı da gösterir; tazminatınızı <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı hesaplama</a> aracıyla bulabilirsiniz.</p>
 
 <h2 id="dusuk">En düşük emekli aylığı</h2>
 <p>Ekim 2026 itibarıyla en düşük emekli aylığı 23.552 ₺’dir. Bu tutar ayrıca kanunla belirlendiği için Ocak 2027’de yalnızca enflasyon oranında değil, yapılacak yasal düzenlemeye göre artırılabilir.</p>
@@ -885,7 +885,7 @@ faq=[
 ('Memur emeklisinin zammı memurla aynı mı?','Evet. Emekli Sandığı’na tabi memur emeklileri, memurlarla aynı oranda (toplu sözleşme zammı + enflasyon farkı) zam alır.'),
 ('Emekli zammı ne zaman yatar?','Kesin oran Ocak 2027’nin ilk iş günlerinde açıklanır; zamlı aylıklar Ocak ayındaki olağan ödeme günlerinde hesaplara yatırılır.'),
 ],
-related=['maas-zam-hesaplama','kidem-tazminati-hesaplama','enflasyon-hesaplama','net-maas-hesaplama','emeklilik-yasi-hesaplama'],
+related=['memur-maaslari','ogretmen-maasi','maas-zam-hesaplama','kidem-tazminati-hesaplama','emeklilik-yasi-hesaplama'],
 sources=[('5510 sayılı Sosyal Sigortalar ve GSS Kanunu','https://www.mevzuat.gov.tr/mevzuatmetin/1.5.5510.pdf'),('TÜİK Tüketici Fiyat Endeksi','https://data.tuik.gov.tr/'),('ÇSGB – Kamu Görevlileri Toplu Sözleşmesi','https://www.csgb.gov.tr/')],
 ))
 
