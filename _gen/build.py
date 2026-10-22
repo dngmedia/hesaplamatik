@@ -71,3 +71,12 @@ try:
     print('iç bağlantı:', _links.run(), 'sayfa')
 except Exception as _e:
     print('iç bağlantı hatası:', _e)
+
+
+# ── Kategori (hub) sayfaları + /#kategori bağlantılarının kategori sayfalarına çevrilmesi ──
+try:
+    import kategoriler as _kat
+    _r, _n = _kat.run()
+    print('kategori sayfaları:', len(_r), '· bağlantısı düzeltilen sayfa:', _n)
+except Exception as _e:
+    print('kategori hatası:', _e)
