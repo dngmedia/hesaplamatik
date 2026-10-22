@@ -233,8 +233,8 @@
     }
     .fcat:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-light); }
     .fcat.active { border-color: var(--brand); background: var(--brand); color: #fff; }
-    .fcat .cnt { font-size: .72rem; background: rgba(0,0,0,.08); padding: 1px 6px; border-radius: 10px; font-weight: 700; }
-    .fcat.active .cnt { background: rgba(255,255,255,.22); }
+    .fcat .cnt { font-size: .72rem; background: #e5e7eb; color: #374151; padding: 1px 6px; border-radius: 10px; font-weight: 700; }
+    .fcat.active .cnt { background: rgba(0,0,0,.25); color: #fff; }
 
     /* ─── ARAÇ GRID ───────────────────────────── */
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
@@ -322,7 +322,8 @@
     .highlight { color: var(--brand); }
 
     @media print { nav.topnav, .hero, footer, #topBtn, .ad-slot { display: none !important; } }
-  </style>
+  p a,td a,li p a{text-decoration:underline;text-underline-offset:2px}
+</style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
 <script>
@@ -391,6 +392,7 @@
         class="search-box"
         id="heroSearch"
         type="search"
+        role="combobox"
         placeholder="🔍  Araç arayın... örn: KDV, maaş, amortisman"
         autocomplete="off"
         aria-label="Hesaplama aracı ara"
@@ -628,7 +630,7 @@
         </div>
       </div>
       <div class="footer-col">
-        <h4>💰 Finans</h4>
+        <h4 role="heading" aria-level="3">💰 Finans</h4>
         <a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a>
         <a href="https://hesaplarsin.com/bilesik-faiz.html">Bileşik Faiz</a>
         <a href="https://hesaplarsin.com/enflasyon-hesaplama.html">Enflasyon</a>
@@ -636,7 +638,7 @@
         <a href="https://hesaplarsin.com/doviz-cevirici.html">Döviz Çevirici</a>
       </div>
       <div class="footer-col">
-        <h4>🧾 Vergi</h4>
+        <h4 role="heading" aria-level="3">🧾 Vergi</h4>
         <a href="https://hesaplarsin.com/kdv-hesaplama.html">KDV Hesaplama</a>
         <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">Gelir Vergisi</a>
         <a href="https://hesaplarsin.com/amortisman-hesaplama.html">Amortisman</a>
@@ -644,7 +646,7 @@
         <a href="https://hesaplarsin.com/mtv-hesaplama.html">MTV Hesaplama</a>
       </div>
       <div class="footer-col">
-        <h4>💼 Maaş</h4>
+        <h4 role="heading" aria-level="3">💼 Maaş</h4>
         <a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş</a>
         <a href="https://hesaplarsin.com/kidem-tazminati-hesaplama.html">Kıdem Tazminatı</a>
         <a href="https://hesaplarsin.com/ihbar-tazminati-hesaplama.html">İhbar Tazminatı</a>
@@ -652,7 +654,7 @@
         <a href="https://hesaplarsin.com/emeklilik-yasi-hesaplama.html">Emeklilik Yaşı</a>
       </div>
       <div class="footer-col">
-        <h4>Hesaplarsın</h4>
+        <h4 role="heading" aria-level="3">Hesaplarsın</h4>
         <a href="https://hesaplarsin.com/blog.html">Blog</a>
         <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
         <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a>
@@ -804,7 +806,7 @@ function renderCard(t) {
     ? `<span class="tc-badge ${t.badge}">${t.badge === 'popular' ? '🔥 Popüler' : t.badge === 'new' ? '🆕 Yeni' : '🔄 Güncel'}</span>`
     : '';
   return `
-    <a class="tool-card" href="${BASE}${t.url}" aria-label="${t.name}">
+    <a class="tool-card" href="${BASE}${t.url}">
       ${badgeHtml}
       <span class="tc-ico">${t.ico}</span>
       <span class="tc-name">${t.name}</span>

@@ -31,7 +31,7 @@
     if (f && !document.getElementById('cerez-link')) {
       var p = document.createElement('p');
       p.style.cssText = 'text-align:center;font-size:12px;margin:10px 0 0';
-      p.innerHTML = '<a href="#" id="cerez-link" style="color:inherit;opacity:.75">Çerez tercihleri</a>';
+      p.innerHTML = '<a href="#" id="cerez-link" style="color:inherit;text-decoration:underline">Çerez tercihleri</a>';
       f.appendChild(p);
       document.getElementById('cerez-link').onclick = function (e) { e.preventDefault(); ac(); };
     }

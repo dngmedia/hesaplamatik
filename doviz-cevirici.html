@@ -37,7 +37,7 @@
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     :root {
       --brand:#1a56db; --brand-dark:#1341b0; --brand-light:#e8f0fe;
-      --accent:#f59e0b; --success:#10b981; --danger:#ef4444;
+      --accent:#f59e0b; --success:#10b981; --danger:#dc2626;
       --text:#111827; --muted:#6b7280; --border:#e5e7eb;
       --bg:#f9fafb; --card:#ffffff; --r:12px;
       --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.05);
@@ -201,7 +201,8 @@
     #topBtn { position:fixed; bottom:20px; right:16px; background:var(--brand); color:#fff; border:none; border-radius:50%; width:40px; height:40px; font-size:1.1rem; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(26,86,219,.35); z-index:9998; }
     #topBtn.show { display:flex; }
     @media print { .ticker-bar,nav.topnav,.sidebar,footer,#topBtn,.toast,.quick-currencies,.amount-btns,.btn-calc { display:none!important; } .main-grid{grid-template-columns:1fr!important;} }
-  </style>
+  p a,td a,li p a{text-decoration:underline;text-underline-offset:2px}
+</style>
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -471,21 +472,21 @@
         <p class="fdesc">Türkiye'nin en kapsamlı ücretsiz hesaplama platformu. 70+ araç, 2026 güncel verileri.</p>
       </div>
       <div class="footer-col">
-        <h4>Döviz & Finans</h4>
+        <h4 role="heading" aria-level="3">Döviz & Finans</h4>
         <a href="https://hesaplarsin.com/doviz-cevirici.html">Döviz Çevirici</a>
         <a href="https://hesaplarsin.com/bilesik-faiz.html">Bileşik Faiz</a>
         <a href="https://hesaplarsin.com/enflasyon-hesaplama.html">Enflasyon</a>
         <a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a>
       </div>
       <div class="footer-col">
-        <h4>İşletme</h4>
+        <h4 role="heading" aria-level="3">İşletme</h4>
         <a href="https://hesaplarsin.com/ciro-hesaplama.html">Ciro Hesaplama</a>
         <a href="https://hesaplarsin.com/brut-kar-hesaplama.html">Brüt Kâr</a>
         <a href="https://hesaplarsin.com/basa-bas-noktasi-hesaplama.html">Başa Baş</a>
         <a href="https://hesaplarsin.com/kdv-hesaplama.html">KDV</a>
       </div>
       <div class="footer-col">
-        <h4>Hesaplarsın</h4>
+        <h4 role="heading" aria-level="3">Hesaplarsın</h4>
         <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
         <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a>
         <a href="https://hesaplarsin.com/ekonomi-takvimi.html">Ekonomi Takvimi</a>

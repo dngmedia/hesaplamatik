@@ -21,7 +21,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://hesaplarsin.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://hesaplarsin.com/blog.html"},{"@type":"ListItem","position":3,"name":"Emeklilik Hesaplama 2026","item":"https://hesaplarsin.com/blog/emeklilik-hesaplama-2026.html"}]}</script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--brand:#7c3aed;--brand-dark:#4c1d95;--brand-light:#f5f3ff;--accent:#f59e0b;--success:#10b981;--danger:#ef4444;--text:#111827;--muted:#6b7280;--border:#e5e7eb;--bg:#f9fafb;--card:#fff;}
+    :root{--brand:#7c3aed;--brand-dark:#4c1d95;--brand-light:#f5f3ff;--accent:#f59e0b;--success:#10b981;--danger:#dc2626;--text:#111827;--muted:#6b7280;--border:#e5e7eb;--bg:#f9fafb;--card:#fff;}
     html{scroll-behavior:smooth;}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;}
     nav.topnav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;}
@@ -123,7 +123,8 @@
     .footer-bottom a{color:#9ca3af;text-decoration:none;}
     #topBtn{position:fixed;bottom:20px;right:16px;background:var(--brand);color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:1.1rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:9998;}
     #topBtn.show{display:flex;}
-  </style>
+  p a,td a,li p a{text-decoration:underline;text-underline-offset:2px}
+</style>
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -375,13 +376,13 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div><div class="footer-brand">Hesaplarsın</div><p class="fdesc">Türkiye'nin en kapsamlı ücretsiz hesaplama platformu. 80+ araç, güncel blog yazıları.</p></div>
-      <div class="footer-col"><h4>Popüler Blog</h4>
+      <div class="footer-col"><h4 role="heading" aria-level="3">Popüler Blog</h4>
         <a href="https://hesaplarsin.com/blog/emeklilik-hesaplama-2026.html">Emeklilik Hesaplama</a>
         <a href="https://hesaplarsin.com/blog/banka-kredisi-taksit-hesaplama.html">Kredi Taksit Hesaplama</a>
         <a href="https://hesaplarsin.com/blog/komisyon-hesaplama-rehberi.html">Komisyon Hesaplama</a>
         <a href="https://hesaplarsin.com/blog/asgari-ucret-2027.html">Asgari Ücret 2027</a>
       </div>
-      <div class="footer-col"><h4>Hesaplarsın</h4>
+      <div class="footer-col"><h4 role="heading" aria-level="3">Hesaplarsın</h4>
         <a href="mailto:info@hesaplarsin.com">📧 info@hesaplarsin.com</a>
         <a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer">📷 @hesaplarsin</a>
         <a href="https://hesaplarsin.com/blog.html">Blog & Haberler</a>

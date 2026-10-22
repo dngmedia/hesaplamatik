@@ -29,7 +29,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --brand:#1a56db; --brand-dark:#1341b0; --brand-light:#e8f0fe;
-      --accent:#f59e0b; --success:#10b981; --danger:#ef4444;
+      --accent:#f59e0b; --success:#10b981; --danger:#dc2626;
       --text:#111827; --muted:#6b7280; --border:#e5e7eb;
       --bg:#f9fafb; --card:#ffffff; --r:12px;
       --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.05);
@@ -244,7 +244,8 @@
     .hero p{font-size:.93rem;opacity:.88;max-width:580px;line-height:1.7;margin-bottom:16px;}
     .hero-badges{display:flex;gap:8px;flex-wrap:wrap;}
     .hbadge{font-size:.73rem;font-weight:600;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);}
-  </style>
+  p a,td a,li p a{text-decoration:underline;text-underline-offset:2px}
+</style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT582GF9N9"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','GB','CH'],wait_for_update:500});gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});gtag('js',new Date());gtag('config','G-FT582GF9N9');</script>
 <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -639,21 +640,21 @@
         <p class="fdesc">Türkiye'nin en kapsamlı ücretsiz hesaplama platformu. 70+ araç, 2026 güncel verileri.</p>
       </div>
       <div class="footer-col">
-        <h4>Araç</h4>
+        <h4 role="heading" aria-level="3">Araç</h4>
         <a href="https://hesaplarsin.com/arac-muayene-gecikme-hesaplama.html">Muayene Gecikme</a>
         <a href="https://hesaplarsin.com/arac-kredisi-hesaplama.html">Araç Kredisi</a>
         <a href="https://hesaplarsin.com/arac-deger-kaybi-hesaplama.html">Araç Değer Kaybı</a>
         <a href="https://hesaplarsin.com/mtv-hesaplama.html">MTV Hesaplama</a>
       </div>
       <div class="footer-col">
-        <h4>Vergi</h4>
+        <h4 role="heading" aria-level="3">Vergi</h4>
         <a href="https://hesaplarsin.com/kdv-hesaplama.html">KDV Hesaplama</a>
         <a href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html">Gelir Vergisi</a>
         <a href="https://hesaplarsin.com/amortisman-hesaplama.html">Amortisman</a>
         <a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a>
       </div>
       <div class="footer-col">
-        <h4>Hesaplarsın</h4>
+        <h4 role="heading" aria-level="3">Hesaplarsın</h4>
         <a href="mailto:info@hesaplarsin.com">📧 info@hesaplarsin.com</a>
         <a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer">📷 @hesaplarsin</a>
         <a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a>
