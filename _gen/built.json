@@ -278,5 +278,30 @@
   "ico": "🏆",
   "name": "Maaş Sıralaması: Türkiye’de Kaçıncı Sıradasın?",
   "cat": "maas"
+ },
+ "pazaryeri-komisyon-hesaplama": {
+  "ico": "🛒",
+  "name": "Pazaryeri Komisyon Hesaplama",
+  "cat": "isletme"
+ },
+ "trendyol-komisyon-hesaplama": {
+  "ico": "🟠",
+  "name": "Trendyol Komisyon Hesaplama",
+  "cat": "isletme"
+ },
+ "hepsiburada-komisyon-hesaplama": {
+  "ico": "🟧",
+  "name": "Hepsiburada Komisyon Hesaplama",
+  "cat": "isletme"
+ },
+ "shopier-komisyon-hesaplama": {
+  "ico": "🛍️",
+  "name": "Shopier Komisyon Hesaplama",
+  "cat": "isletme"
+ },
+ "para-sayma-hesaplama": {
+  "ico": "💵",
+  "name": "Para Sayma Hesaplama",
+  "cat": "finans"
  }
 }

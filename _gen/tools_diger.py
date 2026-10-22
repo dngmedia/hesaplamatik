@@ -293,8 +293,8 @@ sources=[('Borsa İstanbul 2026 tatil tablosu','https://www.borsaistanbul.com/fi
 # ───────────────────────── ORTALAMA ─────────────────────────
 TOOLS.append(dict(
 slug='ortalama-hesaplama', name='Ortalama Hesaplama', cat='diger', ico='➗',
-title='Ortalama Hesaplama – Aritmetik, Ağırlıklı, Medyan, Mod | Hesaplarsın',
-desc='Sayıların aritmetik ortalamasını, ağırlıklı ortalamasını, medyanını, modunu ve standart sapmasını tek seferde hesaplayın. Sayıları virgül, boşluk veya alt alta yazın.',
+title='Ortalama Hesaplama – Sayıların Ortalaması Nasıl Bulunur? | Hesaplarsın',
+desc='70, 85 ve 90’ın ortalaması 81,67. Sayıları yapıştırın; aritmetik ve ağırlıklı ortalama, medyan, mod ve standart sapma tek seferde çıksın. Ücretsiz, kayıt gerektirmez.',
 h1='➗ Ortalama Hesaplama',
 lead='Sayılarınızı yapıştırın; aritmetik ortalama, medyan, mod, en büyük-en küçük değer, açıklık ve standart sapma tek tıkla hesaplansın. Ağırlıklı ortalama modu da mevcut.',
 form='''<div class="field full" style="margin-bottom:14px"><label>Ortalama Türü</label>
@@ -364,8 +364,8 @@ related=['not-ortalamasi-hesaplama','yuzde-hesaplama','tyt-net-hesaplama','gun-h
 # ───────────────────────── İNDİRİM ─────────────────────────
 TOOLS.append(dict(
 slug='indirim-hesaplama', name='İndirim Hesaplama', cat='isletme', ico='🏷️',
-title='İndirim Hesaplama – İndirimli Fiyat, İndirim Oranı Bulma | Hesaplarsın',
-desc='Yüzde indirimli fiyatı, iki fiyat arasındaki indirim oranını veya indirimli fiyattan eski fiyatı hesaplayın. Çift indirim (%20 + %10) hesabı dahil.',
+title='İndirim Hesaplama – Yüzde Kaç İndirim? İndirimli Fiyat Bulma | Hesaplarsın',
+desc='1.200 TL’ye %25 indirim = 900 TL. İndirimli fiyatı, indirim yüzdesini ve indirimden önceki fiyatı tek tıkla bulun; çift indirim (%20+%10) dahil.',
 h1='🏷️ İndirim Hesaplama',
 lead='%30 indirimli fiyat ne kadar? 1.500 ₺’lik ürün 1.050 ₺’ye düştüyse yüzde kaç indirim yapılmış? Üç farklı indirim hesabını ve çift indirimi tek araçta yapın.',
 form='''<div class="field full" style="margin-bottom:14px"><label>Ne hesaplamak istiyorsunuz?</label>

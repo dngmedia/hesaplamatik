@@ -134,8 +134,8 @@ related=['yatirim-geri-donus-suresi-hesaplama','bilesik-faiz','kar-marji-hesapla
 # ───────────────────────── YATIRIM GERİ DÖNÜŞ ─────────────────────────
 TOOLS.append(dict(
 slug='yatirim-geri-donus-suresi-hesaplama', name='Yatırım Geri Dönüş Süresi Hesaplama', cat='finans', ico='⏳',
-title='Yatırım Geri Dönüş Süresi Hesaplama – Kaç Yılda Amorti Eder? | Hesaplarsın',
-desc='Yatırım tutarı ve aylık/yıllık net nakit girişine göre yatırımın kendini kaç ayda ve kaç yılda amorti edeceğini (geri ödeme süresi) hesaplayın.',
+title='Yatırım Geri Dönüş Süresi Hesaplama – Kaç Yılda Kendini Öder? | Hesaplarsın',
+desc='1.000.000 TL’lik yatırım ayda 25.000 TL getiriyorsa 40 ayda (3,3 yıl) amorti eder. Dükkân, ev veya makine yatırımınızın geri dönüş süresini hesaplayın.',
 h1='⏳ Yatırım Geri Dönüş Süresi Hesaplama',
 lead='Bir dükkân, makine, güneş paneli ya da kiralık daire yatırımının kendini ne zaman amorti edeceğini hesaplayın. Yıllık artış oranı girerseniz büyüyen nakit akışı da hesaba katılır.',
 form='''<div class="form-grid">
@@ -408,8 +408,8 @@ sources=[('6098 sayılı Türk Borçlar Kanunu m.344','https://www.mevzuat.gov.t
 # ───────────────────────── METREKARE FİYAT ─────────────────────────
 TOOLS.append(dict(
 slug='metrekare-fiyat-hesaplama', name='Metrekare Fiyatı Hesaplama', cat='gayrimenkul', ico='📐',
-title='Metrekare Fiyatı Hesaplama – Evin m² Birim Fiyatı ve Karşılaştırma | Hesaplarsın',
-desc='Ev, arsa veya dükkânın satış fiyatı ve metrekaresine göre m² birim fiyatını hesaplayın; iki ilanı karşılaştırın. Brüt ve net metrekare farkı açıklamalı.',
+title='Metrekare Fiyatı Hesaplama – Evin m² Fiyatı Ne Kadar? | Hesaplarsın',
+desc='4.500.000 TL’lik 120 m² ev, m² başına 37.500 TL eder. Ev, arsa ya da dükkânın m² fiyatını hesaplayın, iki ilanı karşılaştırın.',
 h1='📐 Metrekare Fiyatı Hesaplama',
 lead='İlandaki fiyatı ve metrekareyi girin; metrekare başına fiyatı hesaplayın. İkinci bir ilan girerek hangisinin daha uygun olduğunu karşılaştırın.',
 form='''<div class="form-grid">
@@ -587,8 +587,8 @@ related=['kar-zarar-hesaplama','net-kar-hesaplama','brut-kar-hesaplama','iskonto
 # ───────────────────────── NET KAR ─────────────────────────
 TOOLS.append(dict(
 slug='net-kar-hesaplama', name='Net Kâr Hesaplama', cat='isletme', ico='✅',
-title='Net Kâr Hesaplama – Gelir, Gider ve Vergi Sonrası Kâr | Hesaplarsın',
-desc='İşletmenizin satış gelirleri, satılan malın maliyeti, faaliyet giderleri ve vergiyle brüt kârı, faaliyet kârını, vergi sonrası net kârı ve net kâr marjını hesaplayın.',
+title='Net Kâr Hesaplama 2026 – Vergi Sonrası Kârım Ne Kadar? | Hesaplarsın',
+desc='Satış geliri, maliyet, giderler ve vergiyle brüt kârı, faaliyet kârını, vergi sonrası net kârı ve net kâr marjını hesaplayın. İşletmeler ve şahıs şirketleri için.',
 h1='✅ Net Kâr Hesaplama',
 lead='Aylık veya yıllık gelir ve giderlerinizi girin; brüt kârdan başlayarak vergi sonrası net kârınızı ve net kâr marjınızı adım adım görün.',
 form='''<div class="form-grid">
@@ -975,8 +975,8 @@ sources=[('4447 sayılı İşsizlik Sigortası Kanunu m.50–51','https://www.me
 # ───────────────────────── SAATLİK ÜCRET ─────────────────────────
 TOOLS.append(dict(
 slug='saatlik-ucret-hesaplama', name='Saatlik Ücret Hesaplama', cat='maas', ico='🕐',
-title='Saatlik Ücret Hesaplama 2026 – Maaştan Saat ve Günlük Ücret | Hesaplarsın',
-desc='Aylık maaşınızdan saatlik ve günlük ücretinizi, saatlik ücretten aylık maaşı hesaplayın. 225 saat kuralı, 2026 asgari ücret saatlik ücreti ve fazla mesai karşılığı.',
+title='Saatlik Ücret Hesaplama 2026 – Maaşım Saatte Kaç TL? | Hesaplarsın',
+desc='Asgari ücretle saatlik brüt 146,80 TL, net 124,78 TL. Maaşınızı girin; saatlik, günlük ve mesai ücretinizi 2026 kurallarına (225 saat) göre anında görün.',
 h1='🕐 Saatlik Ücret Hesaplama',
 lead='Aylık maaşınızın saatlik ve günlük karşılığını, ya da saatlik ücretinizle ayda ne kazanacağınızı hesaplayın. Fazla mesai saat ücretiniz de otomatik gösterilir.',
 form='''<div class="field full" style="margin-bottom:14px"><label>Hesaplama Yönü</label>
