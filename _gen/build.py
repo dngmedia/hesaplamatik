@@ -13,7 +13,7 @@ def registry():
         reg[m.group(5)] = dict(ico=m.group(1), name=m.group(2), desc=m.group(4))
     return reg
 
-MODULES = [m for m in ['tools_diger', 'tools_saglik', 'tools_finans', 'tools_vergi', 'tools_egitim', 'tools_kamu'] if os.path.exists(os.path.join(os.path.dirname(__file__), m + '.py'))]
+MODULES = [m for m in ['tools_diger', 'tools_saglik', 'tools_finans', 'tools_vergi', 'tools_egitim', 'tools_kamu', 'tools_takvim'] if os.path.exists(os.path.join(os.path.dirname(__file__), m + '.py'))]
 tools = []
 for m in MODULES:
     tools += importlib.import_module(m).TOOLS
@@ -33,3 +33,22 @@ for t in tools:
     words = len(re.sub(r'<[^>]+>', ' ', re.sub(r'<script.*?</script>|<style.*?</style>', '', html, flags=re.S)).split())
     print(f"{t['slug']:45s} {words:5d} kelime  title={len(t['title'])} desc={len(t['desc'])}")
 json.dump({t['slug']: dict(ico=t['ico'], name=t['name'], cat=t['cat']) for t in tools}, open('_gen/built.json', 'w'), ensure_ascii=False, indent=1)
+
+
+# ── Ana sayfa: yaklaşan açıklamalar kutusu (ekonomi takvimi verisinden) ──
+try:
+    import tools_takvim as _tk, datetime as _dt
+    _up = [e for e in _tk.EVENTS if _dt.date.fromisoformat(e[0]) >= _dt.date.today()][:4]
+    _items = ''.join(
+        f'<a href="{BASE}{e[4]}" style="display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;text-decoration:none;color:#111827">'
+        f'<span style="min-width:62px;text-align:center;font-weight:800;color:#1a56db;font-size:.82rem;line-height:1.2">{_tk.tr(e[0]).rsplit(" ",2)[0]}</span>'
+        f'<span style="font-size:.86rem;font-weight:600">{e[2]}</span></a>' for e in _up)
+    _html = ('<!-- TAKVIM-KUTU --><div style="max-width:1200px;margin:36px auto 0;padding:0 16px">'
+             '<h2 class="section-title">📅 Yaklaşan Açıklamalar</h2>'
+             f'<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">{_items}</div>'
+             f'<p style="margin-top:10px;font-size:.85rem"><a href="{BASE}/ekonomi-takvimi.html">Tüm ekonomi takvimini gör →</a></p></div><!-- /TAKVIM-KUTU -->')
+    _s = open('index.html', encoding='utf-8').read()
+    _s = re.sub(r'<!-- TAKVIM-KUTU -->.*?<!-- /TAKVIM-KUTU -->', lambda m: _html, _s, flags=re.S)
+    open('index.html', 'w', encoding='utf-8').write(_s)
+except Exception as _e:
+    print('takvim kutusu hatası:', _e)

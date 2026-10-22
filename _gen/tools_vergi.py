@@ -645,7 +645,7 @@ faq=[
 ('Enflasyon oranı ne zaman açıklanır?','TÜİK her ayın 3’ünde saat 10.00’da bir önceki ayın enflasyon verilerini açıklar.'),
 ('Yıllık enflasyon ile 12 aylık ortalama enflasyon farkı nedir?','Yıllık enflasyon bir ayın geçen yılın aynı ayına göre değişimidir. 12 aylık ortalama ise son 12 ayın endeks ortalamasının bir önceki 12 aya göre değişimidir ve kira artışlarında kullanılır.'),
 ],
-related=['para-deger-kaybi-hesaplama','maas-zam-hesaplama','kira-artis-hesaplama','mevduat-faizi-hesaplama','bilesik-faiz','roi-hesaplama'],
+related=['ekonomi-takvimi','para-deger-kaybi-hesaplama','maas-zam-hesaplama','kira-artis-hesaplama','mevduat-faizi-hesaplama','bilesik-faiz','roi-hesaplama'],
 sources=[('TÜİK – Tüketici Fiyat Endeksi','https://data.tuik.gov.tr/'),('TCMB – Enflasyon Verileri','https://www.tcmb.gov.tr/')],
 ))
 

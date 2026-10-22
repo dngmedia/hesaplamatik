@@ -361,7 +361,7 @@ article='''
 <div class="table-wrap"><table><thead><tr><th>Kira yenileme ayı</th><th>Yasal üst sınır</th></tr></thead><tbody>
 <tr><td>Ekim 2026</td><td>%31,49</td></tr><tr><td>Eylül 2026</td><td>%31,79</td></tr>
 </tbody></table></div>
-<p>Oranlar her ayın 3’ünde (hafta sonuna denk gelirse sonraki iş günü) TÜİK tarafından açıklanan enflasyon verileriyle güncellenir. Diğer aylar için hesaplayıcıda “Diğer ay” seçeneğiyle oranı elle girebilirsiniz.</p>
+<p>Oranlar her ayın 3’ünde (hafta sonuna denk gelirse sonraki iş günü) TÜİK tarafından açıklanan enflasyon verileriyle güncellenir. Sonraki açıklama tarihleri için <a href="/ekonomi-takvimi.html#enflasyon">ekonomi takvimine</a> bakabilirsiniz. Diğer aylar için hesaplayıcıda “Diğer ay” seçeneğiyle oranı elle girebilirsiniz.</p>
 
 <h2 id="kira-tablosu">Ekim 2026 kira zammı tablosu</h2>
 <p>%31,49 yasal üst sınırla yeni kira tutarları:</p>
@@ -871,7 +871,7 @@ article='''
 <li><b>3 Aralık 2026:</b> Kasım enflasyonu</li>
 <li><b>Ocak 2027’nin ilk iş günleri:</b> Aralık enflasyonu ve kesin zam oranları</li>
 </ul>
-<p>Her veri açıklandığında hesaplayıcıdaki gerçekleşen enflasyon değerini güncelliyoruz.</p>
+<p>Her veri açıklandığında hesaplayıcıdaki gerçekleşen enflasyon değerini güncelliyoruz. Tüm tarihler için <a href="/ekonomi-takvimi.html">ekonomi takvimine</a> bakın.</p>
 
 <h2 id="kidem">Memur zammı kıdem tazminatı tavanını da belirler</h2>
 <p>Kıdem tazminatı tavanı memur maaş katsayısına bağlıdır. Temmuz–Aralık 2026 tavanı 73.729,87 ₺’dir ve Ocak 2027’de memur zammıyla aynı oranda artması beklenir. Memur seçeneğinde hesaplayıcı tahmini yeni tavanı da gösterir; tazminatınızı <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı hesaplama</a> aracıyla bulabilirsiniz.</p>

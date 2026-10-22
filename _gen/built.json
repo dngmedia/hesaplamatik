@@ -268,5 +268,10 @@
   "ico": "👷",
   "name": "Mühendis Maaşı 2027",
   "cat": "kamu"
+ },
+ "ekonomi-takvimi": {
+  "ico": "📅",
+  "name": "Ekonomi Takvimi 2026–2027",
+  "cat": "finans"
  }
 }

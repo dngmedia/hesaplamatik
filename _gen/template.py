@@ -27,7 +27,7 @@ APP_CAT = {'kamu': 'FinanceApplication', 'finans': 'FinanceApplication', 'vergi'
 
 NAV = [('kredi-hesaplama.html', '💳 Kredi'), ('net-maas-hesaplama.html', '💼 Net Maaş'),
        ('kdv-hesaplama.html', '🧾 KDV'), ('gelir-vergisi-hesaplama.html', '📋 Gelir Vergisi'),
-       ('yuzde-hesaplama.html', '💯 Yüzde'), ('#araclar', '🧮 Tüm Araçlar'), ('blog.html', '📰 Blog')]
+       ('yuzde-hesaplama.html', '💯 Yüzde'), ('ekonomi-takvimi.html', '📅 Takvim'), ('#araclar', '🧮 Tüm Araçlar'), ('blog.html', '📰 Blog')]
 
 CSS = r'''
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -355,7 +355,7 @@ def render(spec, registry):
       <div><div class="footer-brand">Hesaplarsın</div><p class="fdesc">Türkiye'nin ücretsiz hesaplama platformu. Finans, vergi, maaş, sağlık ve eğitim hesaplamaları 2026 güncel verileriyle, kayıt gerektirmeden.</p><p class="fdesc" style="margin-top:10px"><a href="mailto:info@hesaplarsin.com" style="color:inherit">📧 info@hesaplarsin.com</a><br/><a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer" style="color:inherit">📷 @hesaplarsin</a></p></div>
       <div class="footer-col"><h4>Popüler</h4><a href="{BASE}/kdv-hesaplama.html">KDV Hesaplama</a><a href="{BASE}/net-maas-hesaplama.html">Net Maaş</a><a href="{BASE}/kredi-hesaplama.html">Kredi Hesaplama</a><a href="{BASE}/yuzde-hesaplama.html">Yüzde Hesaplama</a></div>
       <div class="footer-col"><h4>Kategoriler</h4><a href="{BASE}/#finans">Finans</a><a href="{BASE}/#vergi">Vergi</a><a href="{BASE}/#saglik">Sağlık</a><a href="{BASE}/#egitim">Eğitim</a></div>
-      <div class="footer-col"><h4>Hesaplarsın</h4><a href="{BASE}/hakkimizda.html">Hakkımızda</a><a href="{BASE}/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a><a href="{BASE}/iletisim.html">İletişim</a><a href="{BASE}/gizlilik-politikasi.html">Gizlilik</a><a href="{BASE}/kullanim-sartlari.html">Kullanım Şartları</a></div>
+      <div class="footer-col"><h4>Hesaplarsın</h4><a href="{BASE}/hakkimizda.html">Hakkımızda</a><a href="{BASE}/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a><a href="{BASE}/ekonomi-takvimi.html">Ekonomi Takvimi</a><a href="{BASE}/iletisim.html">İletişim</a><a href="{BASE}/gizlilik-politikasi.html">Gizlilik</a><a href="{BASE}/kullanim-sartlari.html">Kullanım Şartları</a></div>
     </div>
     <div class="footer-bottom"><span>© 2026 Hesaplarsın. Bilgiler bilgilendirme amaçlıdır; resmi işlemler için yetkili kurumlara danışınız.</span><span><a href="mailto:info@hesaplarsin.com">info@hesaplarsin.com</a></span></div>
   </div>
