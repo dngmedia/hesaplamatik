@@ -13,7 +13,7 @@ def registry():
         reg[m.group(5)] = dict(ico=m.group(1), name=m.group(2), desc=m.group(4))
     return reg
 
-MODULES = [m for m in ['tools_diger', 'tools_saglik', 'tools_finans', 'tools_vergi', 'tools_egitim', 'tools_kamu', 'tools_takvim'] if os.path.exists(os.path.join(os.path.dirname(__file__), m + '.py'))]
+MODULES = [m for m in ['tools_diger', 'tools_saglik', 'tools_finans', 'tools_vergi', 'tools_egitim', 'tools_kamu', 'tools_takvim', 'tools_siralama'] if os.path.exists(os.path.join(os.path.dirname(__file__), m + '.py'))]
 tools = []
 for m in MODULES:
     tools += importlib.import_module(m).TOOLS
@@ -52,3 +52,14 @@ try:
     open('index.html', 'w', encoding='utf-8').write(_s)
 except Exception as _e:
     print('takvim kutusu hatası:', _e)
+
+
+# ── Sayfaya özel paylaşım görselleri: assets/og/<slug>.jpg varsa og/twitter görselini değiştir ──
+for _f in glob.glob('assets/og/*.jpg'):
+    _slug = os.path.basename(_f)[:-4]
+    if os.path.exists(_slug + '.html'):
+        _s = open(_slug + '.html', encoding='utf-8').read()
+        _u = f'{BASE}/assets/og/{_slug}.jpg'
+        _s = re.sub(r'<meta property="og:image" content="[^"]*"', f'<meta property="og:image" content="{_u}"', _s)
+        _s = re.sub(r'<meta name="twitter:image" content="[^"]*"', f'<meta name="twitter:image" content="{_u}"', _s)
+        open(_slug + '.html', 'w', encoding='utf-8').write(_s)
