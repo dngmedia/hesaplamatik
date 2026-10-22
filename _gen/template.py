@@ -343,7 +343,7 @@ def render(spec, registry):
   <h2 id="sss">Sık Sorulan Sorular</h2>
   {faq_html}
   {sources}
-  <div class="meta-box"><span>🗓️ Son güncelleme: <time datetime="{UPDATED}">{UPDATED_TR}</time></span><span>✍️ Hazırlayan: Hesaplarsın Editör Ekibi</span><span>⚠️ Sonuçlar bilgilendirme amaçlıdır.</span></div>
+  <div class="meta-box"><span>🗓️ Son güncelleme: <time datetime="{UPDATED}">{UPDATED_TR}</time></span><span>✍️ Hazırlayan: <a href="https://hesaplarsin.com/hakkimizda.html#kurucu">Duran Gönülalan</a> · Hesaplarsın kurucusu</span><span>⚠️ Sonuçlar bilgilendirme amaçlıdır.</span></div>
   </div>
   <h2>Diğer Hesaplama Araçları</h2>
   <div class="related-grid">{rel_cards}</div>
@@ -352,7 +352,7 @@ def render(spec, registry):
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
-      <div><div class="footer-brand">Hesaplarsın</div><p class="fdesc">Türkiye'nin ücretsiz hesaplama platformu. Finans, vergi, maaş, sağlık ve eğitim hesaplamaları 2026 güncel verileriyle, kayıt gerektirmeden.</p><p class="fdesc" style="margin-top:10px"><a href="mailto:info@hesaplarsin.com" style="color:inherit">📧 info@hesaplarsin.com</a><br/><a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer" style="color:inherit">📷 @hesaplarsin</a></p></div>
+      <div><div class="footer-brand">Hesaplarsın</div><p class="fdesc">Türkiye'nin ücretsiz hesaplama platformu. Finans, vergi, maaş, sağlık ve eğitim hesaplamaları 2026 güncel verileriyle, kayıt gerektirmeden.</p><p class="fdesc" style="margin-top:10px"><a href="mailto:info@hesaplarsin.com" style="color:inherit">📧 info@hesaplarsin.com</a><br/><a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer" style="color:inherit">📷 @hesaplarsin</a><br/><a href="https://x.com/hesaplarsin" target="_blank" rel="noopener noreferrer" style="color:inherit">𝕏 @hesaplarsin</a></p></div>
       <div class="footer-col"><h4 role="heading" aria-level="3">Popüler</h4><a href="{BASE}/kdv-hesaplama.html">KDV Hesaplama</a><a href="{BASE}/net-maas-hesaplama.html">Net Maaş</a><a href="{BASE}/kredi-hesaplama.html">Kredi Hesaplama</a><a href="{BASE}/yuzde-hesaplama.html">Yüzde Hesaplama</a></div>
       <div class="footer-col"><h4 role="heading" aria-level="3">Kategoriler</h4><a href="{BASE}/#finans">Finans</a><a href="{BASE}/#vergi">Vergi</a><a href="{BASE}/#saglik">Sağlık</a><a href="{BASE}/#egitim">Eğitim</a></div>
       <div class="footer-col"><h4 role="heading" aria-level="3">Hesaplarsın</h4><a href="{BASE}/hakkimizda.html">Hakkımızda</a><a href="{BASE}/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a><a href="{BASE}/ekonomi-takvimi.html">Ekonomi Takvimi</a><a href="{BASE}/iletisim.html">İletişim</a><a href="{BASE}/gizlilik-politikasi.html">Gizlilik</a><a href="{BASE}/kullanim-sartlari.html">Kullanım Şartları</a></div>
