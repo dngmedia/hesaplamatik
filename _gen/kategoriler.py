@@ -172,8 +172,9 @@ def render_cat(key, tools, head, foot):
         h = re.sub(pat, lambda m: m.group(1) + E(val), h, 1)
     h = re.sub(r'<meta property="og:type" content="[^"]*"', '<meta property="og:type" content="website"', h)
     h = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', '', h, flags=re.S)
-    h = re.sub(r'<meta property="og:image" content="[^"]*"', f'<meta property="og:image" content="{BASE}/assets/og-image.png"', h)
-    h = re.sub(r'<meta name="twitter:image" content="[^"]*"', f'<meta name="twitter:image" content="{BASE}/assets/og-image.png"', h)
+    _og = f'{BASE}/assets/og/{slug}.jpg' if os.path.exists(f'assets/og/{slug}.jpg') else f'{BASE}/assets/og-image.png'
+    h = re.sub(r'<meta property="og:image" content="[^"]*"', f'<meta property="og:image" content="{_og}"', h)
+    h = re.sub(r'<meta name="twitter:image" content="[^"]*"', f'<meta name="twitter:image" content="{_og}"', h)
     h = h.replace('</head>', ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n' for x in lds) + CSS + '\n</head>', 1)
     h = re.sub(r'<body data-tool="[^"]*">', f'<body data-tool="kategori-{slug}">', h)
     others = ''.join(f'<a href="{BASE}/{K[k]["slug"]}.html">{K[k]["ico"]} {K[k]["ad"]}</a>' for k in ORDER if k != key)

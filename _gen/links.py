@@ -98,6 +98,17 @@ N['kpss-net-hesaplama'] = 'KPSS net hesaplama'; N['takdir-tesekkur-hesaplama'] =
 N['hedef-kilo-suresi-hesaplama'] = 'Hedef kiloya kaç günde inerim?'; N['yatirim-geri-donus-suresi-hesaplama'] = 'Yatırım geri dönüş süresi'
 N['dosya-indirme-suresi-hesaplama'] = 'Dosya indirme süresi'; N['kira-getirisi-hesaplama'] = 'Kira getirisi hesaplama'
 
+M.update({
+ 'su-faturasi-hesaplama': ['dogalgaz-faturasi-hesaplama', 'elektrik-faturasi-hesaplama', 'blog/elektrik-faturasi-neden-yuksek'],
+ 'dogalgaz-faturasi-hesaplama': ['su-faturasi-hesaplama', 'elektrik-faturasi-hesaplama', 'blog/elektrik-faturasi-neden-yuksek'],
+ 'kira-getirisi-hesaplama': ['boya-hesaplama', 'tapu-harci-hesaplama', 'kira-artis-hesaplama'],
+ 'ayt-net-hesaplama': ['takdir-tesekkur-hesaplama', 'tyt-net-hesaplama', 'kpss-net-hesaplama'],
+ 'dosya-indirme-suresi-hesaplama': ['veri-kullanim-hesaplama', 'internet-hizi-donusturucu'],
+ 'arac-deger-kaybi-hesaplama': ['yakit-tuketimi-hesaplama', 'arac-muayene-gecikme-hesaplama', 'mtv-hesaplama'],
+ 'otv-hesaplama': ['yakit-tuketimi-hesaplama', 'arac-kredisi-hesaplama', 'mtv-hesaplama'],
+})
+N['arac-kredisi-hesaplama'] = 'Taşıt kredisi hesaplama'; N['tyt-net-hesaplama'] = 'TYT net hesaplama'
+
 
 def block(src):
     items = [t for t in M.get(src, []) if t != src and os.path.exists(t + '.html')]
