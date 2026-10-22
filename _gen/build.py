@@ -80,3 +80,11 @@ try:
     print('kategori sayfaları:', len(_r), '· bağlantısı düzeltilen sayfa:', _n)
 except Exception as _e:
     print('kategori hatası:', _e)
+
+
+# ── Kısa cevap kutuları (öne çıkan snippet hedefi) ──
+try:
+    import kisa_cevap as _kc
+    print('kısa cevap:', _kc.run())
+except Exception as _e:
+    print('kısa cevap hatası:', _e)
