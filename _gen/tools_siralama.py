@@ -50,10 +50,10 @@ function kartCiz(){
   g.fillStyle='rgba(255,255,255,.7)'; g.font='500 30px '+F; g.fillText('Özel sektör ücretli çalışanlar · TÜİK HİA 2024 verisiyle', 540, 1760);
   return c;
 }
-function kartIndir(){var c=kartCiz(); if(!c) return; var a=document.createElement('a'); a.download='maas-siralamam.png'; a.href=c.toDataURL('image/png'); a.click(); if(window.gtag)gtag('event','kart_indir');}
+function kartIndir(){var c=kartCiz(); if(!c) return; var a=document.createElement('a'); a.download='maas-siralamam.png'; a.href=c.toDataURL('image/png'); a.click();}
 function kartPaylas(){var c=kartCiz(); if(!c) return; c.toBlob(function(b){var f=new File([b],'maas-siralamam.png',{type:'image/png'});
   if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],text:'Maaşım Türkiye’de kaçıncı sırada? Sen de hesapla: https://hesaplarsin.com/maas-siralamasi.html'}).catch(function(){});}
-  else{kartIndir(); toast('Görsel indirildi; hikâyene ekleyebilirsin.');} if(window.gtag)gtag('event','kart_paylas');});}
+  else{kartIndir(); toast('Görsel indirildi; hikâyene ekleyebilirsin.');}});}
 '''
 
 FORM = '''<div class="form-grid"><div class="field full"><label for="maas">Aylık Net Maaşın (₺) <small>elinize geçen tutar; prim/ikramiye hariç</small></label>

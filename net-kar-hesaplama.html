@@ -284,7 +284,6 @@ function run(scroll){
   h+='<div class="res-actions"><button type="button" onclick="kopyala()">📋 Sonucu Kopyala</button><button type="button" onclick="paylas()">💬 WhatsApp’ta Paylaş</button></div>';
   var box=el('result');box.innerHTML=h;box.style.display='block';_last=r;
   if(scroll!==false)box.scrollIntoView({behavior:'smooth',block:'nearest'});
-  if(window.gtag)gtag('event','hesapla',{tool:document.body.dataset.tool});
 }
 function metin(){if(!_last)return '';var t=function(s){return String(s).replace(/<[^>]+>/g,'');};
   var l=[document.title.split('|')[0].trim(),t(_last.main[0])+': '+t(_last.main[1])];

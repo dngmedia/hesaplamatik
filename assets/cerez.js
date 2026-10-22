@@ -38,3 +38,48 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
+
+/* Hesaplarsın – GA4 olay takibi (hesapla, paylaş, kopyala, kart, araca geçiş, SSS) */
+(function () {
+  var slug = (location.pathname.replace(/^\/|\.html$/g, '') || 'anasayfa');
+  var son = {};
+  function ev(ad, p) {
+    if (typeof gtag !== 'function') return;
+    var k = ad + (p && p.tur || ''), t = Date.now();
+    if (son[k] && t - son[k] < 3000) return; son[k] = t;
+    p = p || {}; p.sayfa = slug;
+    gtag('event', ad, p);
+  }
+  window.hsOlay = ev;
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('button,a');
+    if (!b) return;
+    var oc = (b.getAttribute('onclick') || '').toLowerCase();
+    var tx = (b.textContent || '').trim().toLowerCase();
+    var cls = b.className || '';
+    if (b.tagName === 'BUTTON') {
+      if (/faq-q/.test(cls)) return ev('sss_ac', { tur: tx.slice(0, 80) });
+      if (/kart/.test(oc)) return ev('kart_paylas', { tur: /indir/.test(oc) ? 'indir' : 'paylas' });
+      if (/paylas|share|whatsapp/.test(oc + tx)) return ev('share', { method: /whatsapp/.test(oc + tx) ? 'whatsapp' : 'diger', content_type: 'sonuc', item_id: slug });
+      if (/kopyala/.test(oc + tx)) return ev('sonuc_kopyala');
+      if (/btn-calc/.test(cls) || /^run\(|hesapla\(/.test(oc) || /hesapla|göster|hesap/.test(tx)) return ev('hesapla', { arac: slug });
+      return;
+    }
+    var h = b.getAttribute('href') || '';
+    if (/^(https:\/\/hesaplarsin\.com)?\/?[a-z0-9-]+\.html/.test(h) && !/blog/.test(h) && slug !== h.replace(/^.*\/|\.html.*$/g, '')) {
+      var hedef = h.replace(/^.*\/|\.html.*$/g, '');
+      if (/hesapla|maas|takvim|siralama|faiz|tazminat|harc|ucret|zam/.test(hedef)) ev('araca_gecis', { tur: hedef, hedef: hedef });
+    }
+  }, true);
+  /* otomatik hesaplayan sayfalar için: ilk girişte bir kez */
+  var girdi = false;
+  document.addEventListener('input', function (e) {
+    if (girdi || !e.target.matches || !e.target.matches('main input, main select, .calc input, .calc select, input, select')) return;
+    if (e.target.id === 'heroSearch') return;
+    girdi = true; ev('arac_kullan', { arac: slug });
+  }, true);
+  document.addEventListener('DOMContentLoaded', function () {
+    var s = document.getElementById('heroSearch');
+    if (s) s.addEventListener('change', function () { if (s.value.trim()) ev('search', { search_term: s.value.trim().slice(0, 60) }); });
+  });
+})();
