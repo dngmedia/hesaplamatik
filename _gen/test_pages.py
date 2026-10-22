@@ -20,6 +20,7 @@ fails = 0
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome', args=['--no-sandbox'])
     pg = b.new_page(viewport={'width': 390, 'height': 900})
+    pg.add_init_script("try{localStorage.setItem('cerez','kabul')}catch(e){}")
     errors = []
     pg.on('pageerror', lambda e: errors.append(str(e)))
     pg.route('**/googletagmanager.com/**', lambda r: r.abort())
