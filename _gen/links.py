@@ -108,6 +108,8 @@ M.update({
  'otv-hesaplama': ['yakit-tuketimi-hesaplama', 'arac-kredisi-hesaplama', 'mtv-hesaplama'],
 })
 N['arac-kredisi-hesaplama'] = 'Taşıt kredisi hesaplama'; N['asgari-ucret-2027-hesaplama'] = 'Asgari ücret 2027 zam hesaplama'
+N['banka-komisyon-hesaplama'] = 'Banka komisyonu (EFT, havale, POS) hesaplama'
+M['komisyon-hesaplama'] = M['komisyon-hesaplama'][:2] + ['banka-komisyon-hesaplama'] + M['komisyon-hesaplama'][2:]
 N['kar-payi-hesaplama'] = 'Kâr payı hesaplama (katılım hesabı, temettü)'
 M['mevduat-faizi-hesaplama'] = ['kar-payi-hesaplama'] + M['mevduat-faizi-hesaplama']
 M['asgari-ucret-hesaplama'] = ['asgari-ucret-2027-hesaplama'] + M['asgari-ucret-hesaplama']

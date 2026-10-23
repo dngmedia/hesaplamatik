@@ -313,5 +313,10 @@
   "ico": "🌙",
   "name": "Kâr Payı Hesaplama",
   "cat": "finans"
+ },
+ "banka-komisyon-hesaplama": {
+  "ico": "🏦",
+  "name": "Banka Komisyon Hesaplama",
+  "cat": "finans"
  }
 }

@@ -49,6 +49,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://hesaplarsin.com/banka-komisyon-hesaplama.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://hesaplarsin.com/basa-bas-noktasi-hesaplama.html</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -278,7 +284,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/ekonomi-takvimi.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -314,7 +320,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/finans-hesaplamalari.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -392,7 +398,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -488,7 +494,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/komisyon-hesaplama.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
