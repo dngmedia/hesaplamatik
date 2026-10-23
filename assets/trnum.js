@@ -11,6 +11,7 @@
   function fix(el) {
     if (el.__trnum) return;
     el.__trnum = true;
+    el.setAttribute('data-trnum', '');
     el.type = 'text';
     el.setAttribute('inputmode', 'decimal');
     el.setAttribute('autocomplete', 'off');
@@ -20,7 +21,33 @@
       set: function (x) { d.set.call(el, x); }
     });
   }
-  function run() { document.querySelectorAll('input[type="number"]').forEach(fix); }
+  /* Sayfa CSS'indeki input[type=number] kurallarını text'e çevrilen alanlara da uygula (görünüm bozulmasın) */
+  var css = false;
+  function copyCss() {
+    if (css) return; css = true;
+    var re = /input\[type=["']?number["']?\]/g;
+    function walk(rules, target) {
+      for (var i = 0; i < rules.length; i++) {
+        var r = rules[i];
+        if (r.cssRules && r.media) { walk(r.cssRules, r); continue; }
+        if (r.selectorText && re.test(r.selectorText)) {
+          re.lastIndex = 0;
+          var sel = r.selectorText.replace(re, 'input[data-trnum]');
+          try { (target || sheetRef).insertRule(sel + '{' + r.style.cssText + '}', (target || sheetRef).cssRules.length); } catch (e) {}
+        }
+        re.lastIndex = 0;
+      }
+    }
+    for (var j = 0; j < document.styleSheets.length; j++) {
+      var sh = document.styleSheets[j], rules;
+      try { rules = sh.cssRules; } catch (e) { continue; }
+      if (!rules) continue;
+      var sheetRef = sh;
+      (function (sheet) { sheetRef = sheet; walk(Array.prototype.slice.call(sheet.cssRules), null); })(sh);
+    }
+  }
+  var sheetRef = null;
+  function run() { var l = document.querySelectorAll('input[type="number"]'); if (l.length) copyCss(); l.forEach(fix); }
   run();
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
 })();
