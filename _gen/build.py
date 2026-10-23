@@ -98,6 +98,13 @@ except Exception as _e:
     print('veri sayfası hatası:', _e)
 
 
+# ── Emoji arayüz ikonları → tek tip SVG (Lucide) ──
+try:
+    import icons as _ic
+    print('ikonlar:', _ic.run())
+except Exception as _e:
+    print('ikon hatası:', _e)
+
 # ── Site geneli tek menü + tek alt bilgi (EN SONDA kalmalı) ──
 try:
     import chrome as _ch
