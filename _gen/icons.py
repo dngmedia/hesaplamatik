@@ -123,6 +123,16 @@ def blog_clean(s):
     return ''.join(parts)
 
 
+def blog_say(s):
+    """Blog listesi: kategori sayaçlarını ve toplam makale sayısını kartlardan yeniden hesaplar."""
+    cats = re.findall(r'<a class="post-card"[^>]*data-cat="([^"]+)"', s)
+    s = re.sub(r'Tüm Makaleler \(\d+\)', f'Tüm Makaleler ({len(cats)})', s)
+    s = re.sub(r"Tümü \(\d+\)", f'Tümü ({len(cats)})', s)
+    s = re.sub(r"(filterPosts\('([a-z]+)',null\);return false;\">[^<]*<span class=\"kc\">)\d+(</span>)",
+               lambda m: m.group(1) + str(cats.count(m.group(2))) + m.group(3), s)
+    return s
+
+
 def run():
     n = 0
     for p in sorted(glob.glob('*.html') + glob.glob('blog/*.html')):
@@ -132,6 +142,8 @@ def run():
         s = process(p, s)
         if p == 'index.html':
             s = index_js(s)
+        if p == 'blog.html':
+            s = blog_say(s)
         if p == 'blog.html':
             s = blog_clean(s)
         if s != o:
