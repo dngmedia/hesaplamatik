@@ -47,7 +47,13 @@
     }
   }
   var sheetRef = null;
-  function run() { var l = document.querySelectorAll('input[type="number"]'); if (l.length) copyCss(); l.forEach(fix); }
+  function run() {
+    var l = document.querySelectorAll('input[type="number"]');
+    var t = document.querySelectorAll('input[type="text"][inputmode="decimal"],input[type="text"][inputmode="numeric"]');
+    if (l.length || t.length) copyCss();
+    l.forEach(fix);
+    t.forEach(function (e) { e.setAttribute('data-trnum', ''); });  /* sayfanın kendi metin alanlarına da aynı görünüm */
+  }
   run();
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
 })();
