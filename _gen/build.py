@@ -88,3 +88,11 @@ try:
     print('kısa cevap:', _kc.run())
 except Exception as _e:
     print('kısa cevap hatası:', _e)
+
+
+# ── Veri sayfası: Türkiye'de Maaşlar 2026 ──
+try:
+    import veri_sayfasi as _vs
+    print('veri sayfası:', _vs.run())
+except Exception as _e:
+    print('veri sayfası hatası:', _e)

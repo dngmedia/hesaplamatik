@@ -110,6 +110,8 @@ M.update({
 N['arac-kredisi-hesaplama'] = 'Taşıt kredisi hesaplama'; N['asgari-ucret-2027-hesaplama'] = 'Asgari ücret 2027 zam hesaplama'
 N['banka-komisyon-hesaplama'] = 'Banka komisyonu (EFT, havale, POS) hesaplama'
 M['komisyon-hesaplama'] = M['komisyon-hesaplama'][:2] + ['banka-komisyon-hesaplama'] + M['komisyon-hesaplama'][2:]
+N['turkiye-maaslari-2026'] = 'Türkiye’de maaşlar 2026 (dağılım ve istatistikler)'
+for _k in ('maas-siralamasi', 'net-maas-hesaplama', 'memur-maaslari'): M.setdefault(_k, []); M[_k] = ['turkiye-maaslari-2026'] + [x for x in M[_k] if x != 'turkiye-maaslari-2026']
 N['kar-payi-hesaplama'] = 'Kâr payı hesaplama (katılım hesabı, temettü)'
 M['mevduat-faizi-hesaplama'] = ['kar-payi-hesaplama'] + M['mevduat-faizi-hesaplama']
 M['asgari-ucret-hesaplama'] = ['asgari-ucret-2027-hesaplama'] + M['asgari-ucret-hesaplama']
