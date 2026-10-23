@@ -329,7 +329,7 @@ h1='📈 Kira Artış Hesaplama (Ekim 2026: %31,49)',
 lead='Kira sözleşmenizin yenilendiği ayı ve mevcut kiranızı seçin; Türk Borçlar Kanunu’na göre uygulanabilecek en yüksek yasal kira artışını ve yeni kiranızı görün.',
 form='''<div class="form-grid">
 <div class="field"><label for="kira">Mevcut Aylık Kira (₺)</label><input type="number" id="kira" placeholder="örn: 20.000" inputmode="decimal"></div>
-<div class="field"><label for="ay">Sözleşme Yenileme Ayı</label><select id="ay"><option value="31.49" selected>Ekim 2026 – %31,49</option><option value="31.79">Eylül 2026 – %31,79</option><option value="manuel">Diğer ay (oranı kendim gireceğim)</option></select></div>
+<div class="field"><label for="ay">Sözleşme Yenileme Ayı</label><select id="ay"><option value="31.49" selected>Ekim 2026 – %31,49</option><option value="31.79">Eylül 2026 – %31,79</option><option value="31.90">Ağustos 2026 – %31,90</option><option value="32.03">Temmuz 2026 – %32,03</option><option value="32.24">Haziran 2026 – %32,24</option><option value="32.43">Mayıs 2026 – %32,43</option><option value="32.82">Nisan 2026 – %32,82</option><option value="33.39">Mart 2026 – %33,39</option><option value="33.98">Şubat 2026 – %33,98</option><option value="34.88">Ocak 2026 – %34,88</option><option value="manuel">Diğer ay (oranı kendim gireceğim)</option></select></div>
 <div class="field" id="f-oran" style="display:none"><label for="oran">Kira Artış Oranı (%)</label><input type="number" id="oran" placeholder="örn: 32,5" inputmode="decimal"></div>
 <div class="field"><label for="anlasma">Sözleşmedeki Artış Oranı (%) <small>isteğe bağlı</small></label><input type="number" id="anlasma" placeholder="örn: 25" inputmode="decimal"></div>
 </div>''',
@@ -357,10 +357,13 @@ article='''
 <li>Sözleşmede artış hükmü yoksa da kiraya veren yasal sınıra kadar artış talep edebilir.</li>
 </ul>
 
-<h2 id="tablo">Son aylara ait kira artış oranları</h2>
-<div class="table-wrap"><table><thead><tr><th>Kira yenileme ayı</th><th>Yasal üst sınır</th></tr></thead><tbody>
-<tr><td>Ekim 2026</td><td>%31,49</td></tr><tr><td>Eylül 2026</td><td>%31,79</td></tr>
+<h2 id="tablo">2026 kira artış oranları (aylara göre)</h2>
+<p>Kira sözleşmenizin <b>yenilendiği aya</b> göre uygulanabilecek en yüksek artış oranları. Oran, bir önceki ayın TÜİK enflasyon verisindeki “12 aylık ortalamalara göre değişim”dir:</p>
+<div class="table-wrap"><table><thead><tr><th>Kira yenileme ayı</th><th>Dayandığı veri</th><th>Yasal üst sınır</th><th>20.000 ₺ kira olur</th></tr></thead><tbody>
+<tr><td>Kasım 2026</td><td>Ekim 2026 enflasyonu</td><td colspan="2">3 Kasım 2026’da açıklanacak</td></tr>
+<tr><td>Ekim 2026</td><td>Eylül 2026 enflasyonu</td><td><b>%31.49</b></td><td>26.298 ₺</td></tr><tr><td>Eylül 2026</td><td>Ağustos 2026 enflasyonu</td><td><b>%31.79</b></td><td>26.358 ₺</td></tr><tr><td>Ağustos 2026</td><td>Temmuz 2026 enflasyonu</td><td><b>%31.90</b></td><td>26.380 ₺</td></tr><tr><td>Temmuz 2026</td><td>Haziran 2026 enflasyonu</td><td><b>%32.03</b></td><td>26.406 ₺</td></tr><tr><td>Haziran 2026</td><td>Mayıs 2026 enflasyonu</td><td><b>%32.24</b></td><td>26.448 ₺</td></tr><tr><td>Mayıs 2026</td><td>Nisan 2026 enflasyonu</td><td><b>%32.43</b></td><td>26.486 ₺</td></tr><tr><td>Nisan 2026</td><td>Mart 2026 enflasyonu</td><td><b>%32.82</b></td><td>26.564 ₺</td></tr><tr><td>Mart 2026</td><td>Şubat 2026 enflasyonu</td><td><b>%33.39</b></td><td>26.678 ₺</td></tr><tr><td>Şubat 2026</td><td>Ocak 2026 enflasyonu</td><td><b>%33.98</b></td><td>26.796 ₺</td></tr><tr><td>Ocak 2026</td><td>Aralık 2025 enflasyonu</td><td><b>%34.88</b></td><td>26.976 ₺</td></tr>
 </tbody></table></div>
+<p>Tablo, enflasyonun 2026 boyunca yavaşladığını da gösteriyor: Ocak’ta %34,88 olan kira artış sınırı Ekim’de %31,49’a geriledi. Aynı 20.000 ₺’lik kira için bu, Ocak’ta yenilenen kiracıya göre Ekim’de yenilenen kiracının ayda yaklaşık 678 ₺ daha az zam ödemesi demek.</p>
 <p>Oranlar her ayın 3’ünde (hafta sonuna denk gelirse sonraki iş günü) TÜİK tarafından açıklanan enflasyon verileriyle güncellenir. Sonraki açıklama tarihleri için <a href="/ekonomi-takvimi.html#enflasyon">ekonomi takvimine</a> bakabilirsiniz. Diğer aylar için hesaplayıcıda “Diğer ay” seçeneğiyle oranı elle girebilirsiniz.</p>
 
 <h2 id="kira-tablosu">Ekim 2026 kira zammı tablosu</h2>
@@ -379,6 +382,15 @@ article='''
 <p>Şirket veya şahıs işletmesi olan kiracılar, işyeri kirasında brüt kira üzerinden <b>%20 stopaj</b> keserek vergi dairesine öder; ev sahibine net tutar yatırılır. Kira artışı brüt kira üzerinden hesaplanır.</p>
 <div class="example"><p><b>Örnek:</b> Ev sahibine net 20.000 ₺ ödenen bir dükkânın brüt kirası 20.000 ÷ 0,80 = <b>25.000 ₺</b>’dir. %31,49 artışla yeni brüt kira 32.872 ₺, ev sahibine ödenecek yeni net kira 26.298 ₺ olur; kiracı her ay 6.574 ₺ stopajı vergi dairesine yatırır.</p></div>
 
+<h2 id="bes-yil">5 yılı dolduran kiracılarda kira tespit davası</h2>
+<p>TÜFE sınırı her kira yılı için geçerlidir; ancak Türk Borçlar Kanunu’nun 344. maddesine göre <b>beş yıldan uzun süreli</b> veya beş yıldan sonra yenilenen kira sözleşmelerinde, bu tarihten sonraki her beş yıllık dönemin başında yeni kira bedeli <b>hâkim tarafından</b> belirlenebilir. Hâkim; TÜFE’deki değişimi, kiralananın durumunu ve çevredeki <b>emsal kira bedellerini</b> dikkate alarak hakkaniyete uygun bir kira belirler.</p>
+<ul>
+<li>Bu nedenle uzun süredir oturulan ve kirası piyasanın çok altında kalan evlerde, 5. yılın sonunda TÜFE sınırının üzerinde bir kira belirlenebilir.</li>
+<li>Kira tespit davasının yeni kira döneminden itibaren geçerli olması için, dönem başlangıcından en geç <b>30 gün önce</b> dava açılması ya da bu süre içinde kiracıya yazılı bildirimde bulunulması gerekir (TBK md. 345).</li>
+<li>5 yılı doldurmamış sözleşmelerde ev sahibi, sözleşmede ne yazarsa yazsın TÜFE’nin 12 aylık ortalamasının üzerinde artış isteyemez.</li>
+</ul>
+<p>Kira uyuşmazlıklarında dava açılmadan önce arabulucuya başvurmak zorunludur. Kesin durumunuz için bir avukata danışmanızı öneririz.</p>
+
 <h2 id="ara-artis">Kira yılı içinde zam yapılabilir mi?</h2>
 <p>Hayır. Kira artışı yalnızca yeni kira yılının başında yapılabilir. Altı ayda bir veya üç ayda bir artış öngören sözleşme hükümleri, yıllık TÜFE sınırını dolanmaya yönelik olduğu ölçüde geçersizdir. Kira bedelinin döviz cinsinden belirlenmesi de konut kiralarında kural olarak mümkün değildir.</p>
 
@@ -394,6 +406,9 @@ article='''
 <p>Kiraya verenler için yatırımın getirisini <a href="/kira-getirisi-hesaplama.html">kira getirisi hesaplama</a>, genel fiyat değişimini görmek için <a href="/enflasyon-hesaplama.html">enflasyon hesaplama</a> aracını kullanabilirsiniz.</p>
 ''',
 faq=[
+('2026’da aylara göre kira artış oranları nedir?','Yenileme ayına göre yasal üst sınırlar: Ocak %34,88, Şubat %33,98, Mart %33,39, Nisan %32,82, Mayıs %32,43, Haziran %32,24, Temmuz %32,03, Ağustos %31,90, Eylül %31,79, Ekim %31,49. Kasım oranı 3 Kasım 2026’da açıklanacak.'),
+('5 yıldan uzun oturan kiracıya ne kadar zam yapılabilir?','Beş yılı dolduran kira ilişkilerinde, her beş yıllık dönemin başında yeni kira bedeli kira tespit davasıyla hâkim tarafından emsal kiralar dikkate alınarak belirlenebilir; bu durumda artış TÜFE sınırının üzerinde olabilir. 5 yıl dolmadan TÜFE’nin 12 aylık ortalaması aşılamaz.'),
+
 ('Ekim 2026 kira zammı yüzde kaç?','Ekim 2026’da kira sözleşmesi yenilenenler için yasal kira artış üst sınırı %31,49’dur.'),
 ('Kira artışı TÜFE’den fazla olabilir mi?','Hayır. Yenilenen kira dönemlerinde artış, 12 aylık TÜFE ortalamasını geçemez. Yalnızca 5 yılı aşan kira ilişkilerinde hakim hakkaniyete göre yeni bedel belirleyebilir.'),
 ('İşyeri kiralarında da aynı oran mı uygulanır?','Evet. Konut ve çatılı işyeri kiralarında aynı TÜFE 12 aylık ortalama sınırı geçerlidir.'),
