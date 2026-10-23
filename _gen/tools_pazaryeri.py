@@ -197,15 +197,15 @@ article=f'''<h2 id="oranlar">Trendyol komisyon oranları 2026 (yaklaşık)</h2>
 <h2 id="hizmet">Platform hizmet bedeli ve kargo</h2>
 <p>Trendyol her siparişten komisyonun yanında sabit bir <strong>platform hizmet bedeli</strong> alır. 2026’da standart tutar yaklaşık 8,49 ₺ + KDV’dir; “Bugün Kargoda” etiketiyle aynı gün kargoya verilen siparişlerde daha düşük tutar uygulanır. Bu bedel satıcı seviyesine ve dönemsel kampanyalara göre değişebildiği için hesaplayıcıda alanı değiştirebilirsiniz.</p>
 <p>Kargo ücreti çoğunlukla satıcıya aittir. Düşük tutarlı siparişlerde Trendyol anlaşmalı kargoyla <strong>barem</strong> denen sabit ücretler uygulanır; daha yüksek tutarlı siparişlerde ücret ürünün desisine göre belirlenir. Güncel barem tutarlarını panelinizdeki kargo ekranından kontrol edin.</p>
-{STOPAJ_P}
-{KDV_P}
+<p><strong>Stopaj ve KDV:</strong> Trendyol, ödemenizden KDV hariç satış tutarının %1’i kadar e-ticaret stopajı keser; bu tutar yıl sonu vergisinden düşülür. Komisyon ve hizmet bedeli faturalarındaki KDV’yi, KDV mükellefiyseniz indirebilirsiniz. Ayrıntılı anlatım <a href="https://hesaplarsin.com/pazaryeri-komisyon-hesaplama.html#b-kesintiler">pazaryeri kesinti kalemleri</a> bölümünde.</p>
+
 <h2 id="odeme">Trendyol ödemeleri ne zaman yatar?</h2>
 <p>Trendyol, teslim edilen siparişlerin tutarını satıcının vade süresine göre haftalık ödeme günlerinde hesaba aktarır. Vade, satıcı puanına ve anlaşmaya göre değişir; cari hesap ekstrenizde her siparişin ödeme tarihi görünür.</p>
 <h2 id="fiyat">Trendyol’da fiyat nasıl belirlenir?</h2>
 <p>Hedef kârınızdan geriye doğru gidin: ürün maliyeti + kargo + hizmet bedeli + hedef kâr toplamını bulun, sonra komisyon ve KDV’yi ekleyerek satış fiyatını belirleyin. Hesaplayıcıda farklı satış fiyatları deneyerek net kârın sıfırın üzerinde kaldığı en düşük fiyatı bulabilirsiniz. Diğer platformlarla karşılaştırmak için <a href="https://hesaplarsin.com/pazaryeri-komisyon-hesaplama.html">pazaryeri komisyon hesaplama</a> sayfasını kullanın.</p>''',
 faq=[('Trendyol giyim komisyonu yüzde kaç?', 'Giyim, ayakkabı ve çanta kategorilerinde 2026’da Trendyol komisyonu genellikle %21,5 ile %22,5 arasındadır. Alt kategori ve marka anlaşmanıza göre farklı olabilir.'),
      ('Trendyol hizmet bedeli ne kadar?', '2026’da standart platform hizmet bedeli sipariş başına yaklaşık 8,49 ₺ + KDV’dir. Aynı gün kargoya verilen “Bugün Kargoda” siparişlerinde daha düşük tutar uygulanır. Güncel tutar satıcı panelinde yer alır.'),
-     ('Trendyol’da 100 ₺’lik üründen ne kadar kazanırım?', 'Düşük fiyatlı ürünlerde kargo ve sabit hizmet bedeli satış tutarının büyük kısmını alır. 100 ₺’lik bir üründe barem kargo, hizmet bedeli ve komisyon birlikte satışın yarısını geçebilir. Hesaplayıcıya kendi maliyetinizi girerek zarar edip etmediğinizi görün.')] + COMMON_FAQ,
+     ('Trendyol’da 100 ₺’lik üründen ne kadar kazanırım?', 'Düşük fiyatlı ürünlerde kargo ve sabit hizmet bedeli satış tutarının büyük kısmını alır. 100 ₺’lik bir üründe barem kargo, hizmet bedeli ve komisyon birlikte satışın yarısını geçebilir. Hesaplayıcıya kendi maliyetinizi girerek zarar edip etmediğinizi görün.')] + COMMON_FAQ[-1:],
 related=['pazaryeri-komisyon-hesaplama', 'hepsiburada-komisyon-hesaplama', 'shopier-komisyon-hesaplama', 'kar-marji-hesaplama', 'kdv-hesaplama'],
 sources=SOURCES[:1] + SOURCES[3:],
 badges=['✓ Ücretsiz', '2026 Oranları', 'Stopaj Dahil'],
@@ -229,13 +229,13 @@ article=f'''<h2 id="oranlar">Hepsiburada komisyon oranları 2026 (yaklaşık)</h
 <p>Bu satıştan hesabınıza <strong>{tr(hY)} ₺</strong> yatar, net kârınız yaklaşık <strong>{tr(hN)} ₺</strong> olur. Aynı ürün Trendyol’da (%21,5 komisyonla) yaklaşık {tr(tN)} ₺ net kâr bırakır.</p>
 <h2 id="hizmet">Hizmet bedeli ve kargo</h2>
 <p>Hepsiburada <strong>21 Eylül 2026</strong>’dan itibaren her teslimat için <strong>10,99 ₺ + KDV</strong> hizmet bedeli uygular (önceki tutar 10,50 ₺). Düşük tutarlı siparişlerde barem kargo uygulanır: 0–200 ₺ arası siparişlerde 43,99 ₺ + KDV, 200–400 ₺ arasında 75,99 ₺ + KDV. Daha yüksek tutarlı siparişlerde kargo ücreti desiye göre hesaplanır.</p>
-{STOPAJ_P}
-{KDV_P}
+<p><strong>Vergi kesintileri:</strong> Hepsiburada hakedişinizden %1 e-ticaret stopajını (KDV hariç tutar üzerinden) keserek öder; bu peşin ödenmiş vergidir ve yıllık beyannamede mahsup edilir. Komisyon faturasına eklenen %20 KDV ise KDV mükellefleri için indirilebilir. Tüm kalemlerin açıklaması için <a href="https://hesaplarsin.com/pazaryeri-komisyon-hesaplama.html#b-kesintiler">pazaryeri kesinti kalemleri</a> bölümüne bakın.</p>
+
 <h2 id="fiyat">Hepsiburada’da kârlı fiyat</h2>
 <p>200 ₺’nin altındaki siparişlerde barem kargo ve hizmet bedeli birlikte yaklaşık 66 ₺ eder (KDV dahil); bu, düşük fiyatlı ürünlerde kârın neredeyse tamamını alabilir. Ürünü set halinde satmak veya fiyatı barem sınırının üstüne taşımak çoğu zaman daha kârlıdır. Farklı fiyatları hesaplayıcıda deneyin; diğer platformlarla karşılaştırmak için <a href="https://hesaplarsin.com/pazaryeri-komisyon-hesaplama.html">pazaryeri komisyon hesaplama</a> sayfasını kullanın.</p>''',
 faq=[('Hepsiburada komisyon oranı yüzde kaç?', 'Kategoriye göre yaklaşık %6 ile %25 arasındadır. Giyim, çanta ve ev tekstilinde yaklaşık %18, ayakkabıda %19,49, cep telefonunda %7–8,5 civarındadır. Oranlara ayrıca KDV eklenir.'),
      ('Hepsiburada hizmet bedeli ne kadar?', '21 Eylül 2026’dan itibaren teslimat başına 10,99 ₺ + KDV’dir (KDV dahil yaklaşık 13,19 ₺). Barem kargo desteği olan gönderilerde de uygulanır.'),
-     ('Hepsiburada barem kargo ücretleri nedir?', '0–200 ₺ arası siparişlerde 43,99 ₺ + KDV, 200–400 ₺ arası siparişlerde 75,99 ₺ + KDV’dir. 400 ₺ ve üzerinde kargo ücreti ürünün desisine göre belirlenir.')] + COMMON_FAQ,
+     ('Hepsiburada barem kargo ücretleri nedir?', '0–200 ₺ arası siparişlerde 43,99 ₺ + KDV, 200–400 ₺ arası siparişlerde 75,99 ₺ + KDV’dir. 400 ₺ ve üzerinde kargo ücreti ürünün desisine göre belirlenir.')] + COMMON_FAQ[-1:],
 related=['pazaryeri-komisyon-hesaplama', 'trendyol-komisyon-hesaplama', 'shopier-komisyon-hesaplama', 'kar-marji-hesaplama', 'kdv-hesaplama'],
 sources=SOURCES[1:2] + SOURCES[3:],
 badges=['✓ Ücretsiz', 'Eylül 2026 Ücretleri', 'Stopaj Dahil'],
@@ -260,13 +260,13 @@ article=f'''<h2 id="oranlar">Shopier komisyon oranları 2026</h2>
 <p>Bu satıştan hesabınıza <strong>{tr(sY)} ₺</strong> yatar, net kârınız yaklaşık <strong>{tr(sN)} ₺</strong> olur. Aynı ürün Trendyol’da yaklaşık {tr(tN)} ₺, Hepsiburada’da {tr(hN)} ₺ net kâr bırakır. Fark büyük; ancak Shopier’de müşteriyi Instagram, WhatsApp veya reklamla sizin getirmeniz gerekir. Reklam maliyetinizi de hesaba katmayı unutmayın.</p>
 <h2 id="nasil">Shopier nasıl çalışır?</h2>
 <p>Shopier bir pazaryeri değil, sosyal medyadan satış yapanlar için ödeme ve mağaza altyapısıdır. Ürününüz için bir ödeme linki oluşturur, bunu Instagram profilinizde veya mesajlarda paylaşırsınız; müşteri kartla öder, Shopier komisyonu düşüp kalan tutarı bakiyenize aktarır. Bakiye, Shopier’in belirlediği ödeme dönemlerinde banka hesabınıza geçer.</p>
-{STOPAJ_P}
-{KDV_P}
+<p><strong>Shopier’de vergi:</strong> Shopier aracı ödeme kuruluşu olarak çalıştığı için o da ödemelerden %1 stopaj keser. Şahıs olarak, şirket kurmadan satış yapanlar için esnaf muaflığı koşullarını ve KDV durumunu bir mali müşavirle netleştirmek önemlidir; muaflıktaysanız hesaplayıcıda “KDV mükellefi değilim” kutusunu işaretleyin.</p>
+
 <h2 id="vergi">Shopier’de satış yapmak için şirket gerekir mi?</h2>
 <p>Düzenli satış yapıyorsanız vergi kaydınız olmalıdır. Evden el emeği ürün satanlar belirli şartlarla esnaf muaflığından yararlanabilir; bu durumda hesaplayıcıda “KDV mükellefi değilim” kutusunu işaretleyin. Şahıs şirketi ve vergi konusunda bir mali müşavirden görüş almanızı öneririz.</p>''',
 faq=[('Shopier komisyonu ne kadar?', '2026’da aylık toplam satışınıza göre %5,99 ile %2,99 arasında değişir; her işleme ayrıca 0,49 ₺ eklenir. Tutarlar KDV hariçtir. Yeni satıcılar %5,99 + 0,49 ₺ ile başlar.'),
      ('Shopier mi Trendyol mu daha kârlı?', 'Komisyon açısından Shopier çok daha ucuzdur (yaklaşık %6’ya karşı %20 ve üzeri). Ama Trendyol size hazır müşteri getirir, Shopier’de ise müşteriyi sosyal medya veya reklamla siz bulursunuz. Reklam maliyetiniz satış başına komisyon farkından düşükse Shopier daha kârlıdır.'),
-     ('Shopier’de stopaj kesiliyor mu?', 'Evet. Aracı ödeme kuruluşları da 2025’ten itibaren satıcıya yapılan ödemelerden KDV hariç tutarın %1’i oranında stopaj keser. Bu tutar yıllık gelir vergisinden mahsup edilir.')] + COMMON_FAQ[1:],
+     ('Shopier’de stopaj kesiliyor mu?', 'Evet. Aracı ödeme kuruluşları da 2025’ten itibaren satıcıya yapılan ödemelerden KDV hariç tutarın %1’i oranında stopaj keser. Bu tutar yıllık gelir vergisinden mahsup edilir.')] + COMMON_FAQ[-1:],
 related=['pazaryeri-komisyon-hesaplama', 'trendyol-komisyon-hesaplama', 'hepsiburada-komisyon-hesaplama', 'kar-marji-hesaplama', 'komisyon-hesaplama'],
 sources=SOURCES[2:],
 badges=['✓ Ücretsiz', '2026 Oranları', 'Stopaj Dahil'],

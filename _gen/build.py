@@ -18,6 +18,17 @@ tools = []
 for m in MODULES:
     tools += importlib.import_module(m).TOOLS
 
+# ── İnce sayfalara ek içerik (ek_icerik.py) ──
+try:
+    from ek_icerik import EK as _EK
+    for t in tools:
+        e = _EK.get(t['slug'])
+        if e:
+            t['article'] = t['article'] + e.get('article', '')
+            t['faq'] = list(t['faq']) + list(e.get('faq', []))
+except Exception as _e:
+    print('ek içerik hatası:', _e)
+
 reg = registry()
 reg.update({k:v for k,v in {
   'yillik-izin-hesaplama': dict(ico='🏖️', name='Yıllık İzin Hesaplama', desc='Kıdeme göre yıllık izin hakkını hesapla.'),
