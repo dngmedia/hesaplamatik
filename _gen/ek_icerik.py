@@ -592,3 +592,54 @@ EK['gun-hesaplama'] = dict(article='''
 </ul>
 <p>Bu genel kurallar usul kanunlarında yer alır; tebligat, itiraz ve dava süreleri gibi kritik durumlarda bir hukukçuya danışın. İş günü sayısını bulmak için <a href="/is-gunu-hesaplama.html">iş günü hesaplama</a> aracını kullanabilirsiniz.</p>
 ''', faq=[('1000 gün kaç yıl eder?', f'Yaklaşık {f(1000 / 365.2425, 2)} yıl, yani 2 yıl 9 ay civarıdır.')])
+
+# ═════════════ 3. PARTİ: arama verisine göre uzun kuyruk (OpenSEO, 23 Ekim 2026) ═════════════
+EK['yas-hesaplama']['article'] += '''
+<h2 id="okul-yasi">Okula başlama yaşı hesaplama (2026–2027)</h2>
+<p>MEB, okula başlama yaşını <b>30 Eylül itibarıyla doldurulan ay</b> üzerinden belirler. Hesaplayıcı, 3–7 yaş arası çocuklar için bu değeri sonuçta “Okul yaşı” satırında otomatik gösterir. 2026–2027 eğitim yılı kuralları:</p>
+''' + tablo(['Doğum tarihi', '30 Eylül 2026’da yaşı', 'İlkokul 1. sınıf'], [
+    ['Eylül 2020 ve öncesi', '72 ay ve üzeri', 'Kayıt zorunlu; erteleme yalnızca RAM kararıyla'],
+    ['Ekim – Aralık 2020', '69–71 ay', 'Kayıt zorunlu; veli dilekçesiyle ertelenebilir'],
+    ['Ocak – Mart 2021', '66–68 ay', 'Zorunlu değil; veli dilekçesiyle kayıt olabilir'],
+    ['Nisan – Aralık 2021', '57–65 ay', 'Kayıt olamaz; anaokuluna kayıt olabilir']]) + '''
+<p>Kurallar her yıl MEB’in kayıt duyurusuyla teyit edilir; kayıt döneminde e-Okul ve okulunuzun duyurularını kontrol edin.</p>
+
+<h2 id="ehliyet-yasi">Ehliyet yaşı: hangi sınıf kaç yaşında alınır?</h2>
+''' + tablo(['Ehliyet sınıfı', 'Araç', 'En küçük yaş'], [
+    ['M', 'Motorlu bisiklet (moped)', '16'], ['A1', '125 cm³’e kadar motosiklet', '16'], ['A2', '35 kW’a kadar motosiklet', '18'],
+    ['A', 'Tüm motosikletler', '20 (en az 2 yıllık A2 ile) veya 24'], ['B', 'Otomobil', '18'], ['C', 'Kamyon', '21'], ['D', 'Otobüs', '24']]) + '''
+<p>Sürücü kursuna yaş sınırını doldurmadan önce başlanabilir; ancak belge, yaş şartı tamamlandıktan sonra verilir. Doğum tarihinizi girerek 18. yaş gününüze kaç gün kaldığını hesaplayıcının “sonraki doğum günü” satırından görebilirsiniz.</p>
+
+<h2 id="askerlik-yasi">Askerlik yaşı ne zaman başlar?</h2>
+<p>Askeralma Kanunu’na göre askerlik yükümlülüğü, erkek vatandaşların <b>20 yaşına girdiği yılın 1 Ocak’ında</b> başlar. Örneğin 2007 doğumlular için yükümlülük 1 Ocak 2027’de başlar. Yükümlülük, kural olarak 41 yaşına girilen yılın başına kadar sürer.</p>
+
+<h2 id="duzeltilmis-yas">Prematüre bebeklerde düzeltilmiş yaş</h2>
+<p>Erken doğan bebeklerin gelişimi değerlendirilirken takvim yaşı yerine düzeltilmiş yaş kullanılır:</p>
+<div class="formula">Düzeltilmiş yaş = Takvim yaşı − (40 − Doğum haftası) hafta</div>
+<div class="example"><p><b>Örnek:</b> 32. haftada doğan ve şu an 6 aylık (yaklaşık 26 hafta) olan bebeğin düzeltilmiş yaşı 26 − (40 − 32) = <b>18 hafta</b>, yani yaklaşık 4 aydır. Düzeltme genellikle 2 yaşına kadar uygulanır; değerlendirmeyi çocuk doktorunuzla birlikte yapın.</p></div>
+
+<h2 id="yas-farki">İki kişi arasındaki yaş farkı nasıl hesaplanır?</h2>
+<p>Büyük olanın doğum tarihini “Doğum Tarihi”, küçük olanın doğum tarihini “Hesaplama Tarihi” alanına girin. Sonuç, aradaki farkı yıl, ay ve gün olarak verir. Yalnızca gün farkı için <a href="/gun-hesaplama.html">gün hesaplama</a> aracını kullanabilirsiniz.</p>
+'''
+EK['yas-hesaplama']['faq'] += [
+    ('Çocuğum okula kaç yaşında başlar?', '2026–2027 kurallarına göre 30 Eylül itibarıyla 72 ayını dolduran çocukların 1. sınıfa kaydı zorunludur; 69–71 aylık çocuklar veli dilekçesiyle ertelenebilir, 66–68 aylık çocuklar ise veli isterse 1. sınıfa başlayabilir.'),
+    ('B sınıfı ehliyet kaç yaşında alınır?', 'Otomobil kullanmayı sağlayan B sınıfı ehliyet 18 yaşında alınabilir. Motosiklet için A1 16, A2 18 yaşındadır.'),
+]
+
+EK['gun-hesaplama']['article'] += '''
+<h2 id="kac-gun-kaldi">Kaç gün kaldı, kaç gün oldu?</h2>
+<p>Bir tarihe <b>kaç gün kaldığını</b> bulmak için başlangıç tarihine bugünü, bitiş tarihine hedef tarihi girin. Bir olayın üzerinden <b>kaç gün geçtiğini</b> bulmak için ise başlangıç tarihine o günü yazıp bitiş tarihini boş bırakın; araç bugünü otomatik kullanır.</p>
+<ul>
+<li><b>Sevgilimle kaç gün oldu?</b> Tanıştığınız ya da birlikte olmaya başladığınız tarihi başlangıç olarak girin, bitişi boş bırakın. 100., 500. veya 1.000. gününüzün tarihini bulmak için “Tarihe gün ekle” sekmesini kullanın.</li>
+<li><b>Askere / tatile / sınava kaç gün kaldı?</b> Başlangıç olarak bugünü, bitiş olarak hedef günü girin. Hafta içi ve hafta sonu günleri sonuçta ayrı ayrı görünür.</li>
+<li><b>Hamilelikte kaç gün oldu?</b> Son adet tarihini başlangıç olarak girin; sonuç gün ve hafta olarak çıkar.</li>
+</ul>
+<h2 id="kilometre">Gün sayısıyla anlamlı tarihler</h2>
+''' + tablo(['Süre', 'Yaklaşık karşılığı', 'Nerede kullanılır?'], [
+    ['100 gün', '14 hafta 2 gün', 'İlişki yıl dönümü, bebeğin 100. günü'], ['180 gün', 'yaklaşık 6 ay', 'İşsizlik ödeneği süresi (600 gün primle)'],
+    ['365 gün', '1 yıl (artık yılda 366)', 'Sözleşme ve kira yılı'], ['500 gün', '1 yıl 4,5 ay', 'İlişki kilometre taşı'],
+    ['1.000 gün', 'yaklaşık 2 yıl 9 ay', 'Bebeğin ilk 1.000 günü']]) + '''
+'''
+EK['gun-hesaplama']['faq'] += [
+    ('Sevgilimle kaç gün olduğunu nasıl hesaplarım?', 'Başlangıç tarihine birlikte olmaya başladığınız günü girin ve bitiş tarihini boş bırakın; araç bugüne kadar geçen gün, hafta, ay ve yılı gösterir.'),
+]

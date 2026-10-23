@@ -27,7 +27,7 @@ TOOLS = []
 TOOLS.append(dict(
 slug='yas-hesaplama', name='Yaş Hesaplama', cat='diger', ico='🎂',
 title='Yaş Hesaplama – Kaç Yaşındayım? Yıl, Ay, Gün Olarak | Hesaplarsın',
-desc='Doğum tarihinizi girin; yaşınızı yıl, ay, gün, hafta ve saat olarak öğrenin. Doğum gününüze kaç gün kaldığını, doğduğunuz günü ve burcunuzu anında görün.',
+desc='Doğum tarihinizi girin; yaşınızı yıl, ay, gün olarak öğrenin. Doğum gününüze kalan gün, okula başlama yaşı (ay), ehliyet ve askerlik yaşı tek sayfada.',
 h1='🎂 Yaş Hesaplama – Kaç Yaşındayım?',
 lead='Doğum tarihinizi girin; tam yaşınızı yıl-ay-gün olarak, toplam yaşadığınız gün sayısını ve bir sonraki doğum gününüze kalan süreyi saniyeler içinde öğrenin.',
 form='''<div class="form-grid">
@@ -35,6 +35,13 @@ form='''<div class="form-grid">
   <div class="field"><label for="hedef">Hesaplama Tarihi <small>(boş = bugün)</small></label><input type="date" id="hedef"></div>
 </div>''',
 js=r'''
+function okulYasi(d,h){
+  var ry=(h.getMonth()>8)?h.getFullYear()+1:h.getFullYear(), ref=new Date(ry,8,30);
+  var ay=(ry-d.getFullYear())*12+(8-d.getMonth())-(d.getDate()>30?1:0);
+  if(ay<36||ay>84) return [];
+  var dn=ay<57?'1. sınıf için erken (66 ay gerekir)':ay<66?'Anaokulu yaşında; 1. sınıfa kayıt olamaz':ay<69?'1. sınıf zorunlu değil, veli dilekçesiyle kayıt olabilir':ay<72?'1. sınıf zorunlu, veli dilekçesiyle ertelenebilir':ay<78?'1. sınıf zorunlu (erteleme yalnızca RAM kararıyla)':'1. sınıf zorunlu, erteleme yok';
+  return [['Okul yaşı (30 Eylül '+ry+')', ay+' ay · '+dn,'hl']];
+}
 function hesapla(){
   var d=parseDate('dogum'); if(!d) return 'Lütfen doğum tarihinizi seçin.';
   var h=parseDate('hedef')||new Date(); h=new Date(h.getFullYear(),h.getMonth(),h.getDate());
@@ -59,7 +66,7 @@ function hesapla(){
       ['Doğduğunuz gün', d.toLocaleDateString('tr-TR',{weekday:'long'})],
       ['Sonraki doğum günü', dt(sonraki)],
       ['Burcunuz', burc]
-    ]};
+    ].concat(okulYasi(d,h))};
 }''',
 article='''
 <h2 id="nasil">Yaş nasıl hesaplanır?</h2>
@@ -108,7 +115,7 @@ howto=('Yaş nasıl hesaplanır?',['Doğum tarihinizi seçin.','İsterseniz fark
 # ───────────────────────── GÜN ─────────────────────────
 TOOLS.append(dict(
 slug='gun-hesaplama', name='Gün Hesaplama', cat='diger', ico='📅',
-title='Gün Hesaplama – İki Tarih Arası Kaç Gün? Tarih Ekle/Çıkar | Hesaplarsın',
+title='Gün Hesaplama – İki Tarih Arası Kaç Gün? Kaç Gün Kaldı, Kaç Gün Oldu | Hesaplarsın',
 desc='İki tarih arasındaki gün, hafta, ay ve yıl farkını hesaplayın ya da bir tarihe gün ekleyip çıkarın. Kaç gün kaldı, kaç gün geçti sorularına anında cevap.',
 h1='📅 Gün Hesaplama – İki Tarih Arası Kaç Gün?',
 lead='İki tarih arasındaki gün sayısını bulun veya bir tarihe gün ekleyip çıkararak hangi tarihe denk geldiğini öğrenin. Kaç gün kaldı, kaç gün oldu sorularının cevabı burada.',
