@@ -247,7 +247,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6409842641135945" crossorigin="anonymous"></script>
 <script src="/assets/cerez.js" defer></script>
 
-<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}</style>
+<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi,.ql-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}.main-grid>*{min-width:0}.sidebar table,aside table{min-width:0!important;width:100%!important}.sidebar td:first-child,aside td:first-child{white-space:normal!important}</style>
 <style id="hz-chrome">
 @media(max-width:640px){html body header.hero{padding-top:18px!important;padding-bottom:20px!important;margin-bottom:16px!important}
 html body header.hero h1{font-size:1.5rem!important;margin:8px 0 6px!important}
@@ -301,7 +301,7 @@ footer.hz-foot a:hover{color:#fff!important}
     <h1>Mevduat Faizi Hesaplama 2026</h1>
     <p>Anapara, faiz oranı ve vade süresini girin; brüt faiz getirinizi, stopaj kesintisini ve net kazancınızı anında hesaplayın. 2026 güncel stopaj oranları dahil.</p>
     <div class="hero-badges">
-      <span class="hbadge">✓ Ücretsiz</span>
+      <span class="hbadge">Ücretsiz</span>
       <span class="hbadge">Brüt & Net Getiri</span>
       <span class="hbadge">2026 Stopaj Oranları</span>
       <span class="hbadge">Reel Getiri Analizi</span>
@@ -357,15 +357,15 @@ footer.hz-foot a:hover{color:#fff!important}
       <div class="field">
         <label>Hızlı Senaryo</label>
         <div class="quick-tags">
-          <span class="qtag" onclick="fillScenario(100000,50,32,30)">💵 100K · %50 · 32 gün</span>
-          <span class="qtag" onclick="fillScenario(500000,45,182,28)">🏦 500K · %45 · 6 ay</span>
-          <span class="qtag" onclick="fillScenario(1000000,42,365,25)">💼 1M · %42 · 1 yıl</span>
-          <span class="qtag" onclick="fillScenario(50000,48,91,30)">📊 50K · %48 · 3 ay</span>
+          <span class="qtag" onclick="fillScenario(100000,50,32,30)">100K · %50 · 32 gün</span>
+          <span class="qtag" onclick="fillScenario(500000,45,182,28)">500K · %45 · 6 ay</span>
+          <span class="qtag" onclick="fillScenario(1000000,42,365,25)">1M · %42 · 1 yıl</span>
+          <span class="qtag" onclick="fillScenario(50000,48,91,30)">50K · %48 · 3 ay</span>
         </div>
       </div>
 
-      <button class="btn-calc" onclick="hesapla()">🏦 Mevduat Faizini Hesapla</button>
-      <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+      <button class="btn-calc" onclick="hesapla()">Mevduat Faizini Hesapla</button>
+      <button class="btn-reset" onclick="sifirla()">Temizle</button>
     </div>
 
     <!-- SONUÇ -->
@@ -374,7 +374,7 @@ footer.hz-foot a:hover{color:#fff!important}
       <!-- BANNER -->
       <div class="result-hero">
         <div class="rh-main">
-          <div class="rh-label">💰 Net Faiz Getirisi (Stopaj Dahil)</div>
+          <div class="rh-label">Net Faiz Getirisi (Stopaj Dahil)</div>
           <div class="rh-val" id="r-net">—</div>
           <div class="rh-sub" id="r-sub">—</div>
         </div>
@@ -398,10 +398,10 @@ footer.hz-foot a:hover{color:#fff!important}
 
       <!-- STOPAJ DETAY -->
       <div class="stopaj-section">
-        <div class="ss-title">🧾 Stopaj Detayı</div>
+        <div class="ss-title">Stopaj Detayı</div>
         <div class="stopaj-row"><span class="sr-label">Brüt Faiz Getirisi</span><span id="sd-brut">—</span></div>
         <div class="stopaj-row"><span class="sr-label">Stopaj Oranı (vade bazlı) <span id="sd-oran" style="font-size:.73rem;"></span></span><span id="sd-stopaj" style="color:var(--danger)">—</span></div>
-        <div class="stopaj-row net"><span class="sr-label">✅ Net Faiz Getirisi</span><span id="sd-net">—</span></div>
+        <div class="stopaj-row net"><span class="sr-label">Net Faiz Getirisi</span><span id="sd-net">—</span></div>
       </div>
 
       <!-- REEL GETİRİ -->
@@ -411,7 +411,7 @@ footer.hz-foot a:hover{color:#fff!important}
       </div>
 
       <!-- VADE KARŞILAŞTIRMA -->
-      <p style="font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:8px;">📊 Farklı Vadelerde Karşılaştırma (Aynı Faiz Oranı)</p>
+      <p style="font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:8px;">Farklı Vadelerde Karşılaştırma (Aynı Faiz Oranı)</p>
       <div class="tbl-wrap">
         <table aria-label="Vade karşılaştırma tablosu">
           <thead>
@@ -427,13 +427,12 @@ footer.hz-foot a:hover{color:#fff!important}
         </table>
       </div>
 
-      <div style="background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.8rem;color:#78350f;margin:14px 0;line-height:1.65;">
-        ⚠️ Bu hesaplama tahmini olup bilgilendirme amaçlıdır. Gerçek faiz oranları bankaya, tutara ve kampanyalara göre değişir. Güncel oranlar için bankanızla iletişime geçin.
+      <div style="background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.8rem;color:#78350f;margin:14px 0;line-height:1.65;">Bu hesaplama tahmini olup bilgilendirme amaçlıdır. Gerçek faiz oranları bankaya, tutara ve kampanyalara göre değişir. Güncel oranlar için bankanızla iletişime geçin.
       </div>
 
       <div class="export-btns">
         <button class="btn-exp" onclick="copyResult()"><svg class="hzi hzb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Kopyala</button>
-        <button class="btn-exp" onclick="window.print()">🖨️ Yazdır</button>
+        <button class="btn-exp" onclick="window.print()">Yazdır</button>
       </div>
     </div>
   </main>
@@ -443,7 +442,7 @@ footer.hz-foot a:hover{color:#fff!important}
 
     <!-- STOPAJ TABLOSU -->
     <div class="card">
-      <div class="card-title" style="font-size:.9rem;">📊 2026 TL Mevduat Stopaj Oranları</div>
+      <div class="card-title" style="font-size:.9rem;">2026 TL Mevduat Stopaj Oranları</div>
       <table class="stopaj-table" aria-label="2026 mevduat stopaj oranları tablosu">
         <thead><tr><th>Vade</th><th>Stopaj</th></tr></thead>
         <tbody>
@@ -452,12 +451,12 @@ footer.hz-foot a:hover{color:#fff!important}
           <tr><td>1 yıldan uzun</td><td><strong>%5</strong></td></tr>
         </tbody>
       </table>
-      <p class="source-note">📌 Kaynak: ilgili mevzuat ve resmî kurum verileri · <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></p>
+      <p class="source-note">Kaynak: ilgili mevzuat ve resmî kurum verileri · <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></p>
     </div>
 
     <!-- FORMÜL -->
     <div class="info-box">
-      <strong>📐 Hesaplama Formülü</strong><br/>
+      <strong>Hesaplama Formülü</strong><br/>
       <strong>Brüt Faiz</strong> = (Anapara × Oran × Gün) ÷ 36.500<br/>
       <strong>Stopaj</strong> = Brüt Faiz × Stopaj Oranı<br/>
       <strong>Net Faiz</strong> = Brüt Faiz − Stopaj<br/><br/>
@@ -467,18 +466,18 @@ footer.hz-foot a:hover{color:#fff!important}
 
     <!-- UYARI -->
     <div class="warn-box2">
-      <strong>⚠️ Erken Bozma Riski</strong><br/>
+      <strong>Erken Bozma Riski</strong><br/>
       Vade tamamlanmadan çekim yapılırsa banka genellikle <strong>vadesiz hesap faizi</strong> (%0-3) uygular. Beklenen faiz getirisinin büyük kısmı kaybedilir.
-      <div class="source-note">📌 Kaynak: ilgili mevzuat ve resmî kurum verileri · <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></div>
+      <div class="source-note">Kaynak: ilgili mevzuat ve resmî kurum verileri · <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></div>
     </div>
 
     <!-- İLGİLİ ARAÇLAR -->
     <div class="card">
-      <div class="card-title" style="font-size:.9rem;">🔗 İlgili Araçlar</div>
-      <a class="ql-link" href="https://hesaplarsin.com/bilesik-faiz.html"><div class="ql-icon">💰</div><div><div style="font-weight:700;font-size:.82rem;">Bileşik Faiz</div><div style="font-size:.72rem;color:var(--muted)">Faizin faizi</div></div></a>
-      <a class="ql-link" href="https://hesaplarsin.com/doviz-cevirici.html"><div class="ql-icon">💱</div><div><div style="font-weight:700;font-size:.82rem;">Döviz Çevirici</div><div style="font-size:.72rem;color:var(--muted)">Canlı kur</div></div></a>
-      <a class="ql-link" href="https://hesaplarsin.com/enflasyon-hesaplama.html"><div class="ql-icon">📈</div><div><div style="font-weight:700;font-size:.82rem;">Enflasyon Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Paranın reel değeri</div></div></a>
-      <a class="ql-link" href="https://hesaplarsin.com/kredi-hesaplama.html"><div class="ql-icon">💳</div><div><div style="font-weight:700;font-size:.82rem;">Kredi Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Taksit ve faiz</div></div></a>
+      <div class="card-title" style="font-size:.9rem;">İlgili Araçlar</div>
+      <a class="ql-link" href="https://hesaplarsin.com/bilesik-faiz.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="m19 9-5 5-4-4-3 3" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">Bileşik Faiz</div><div style="font-size:.72rem;color:var(--muted)">Faizin faizi</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/doviz-cevirici.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4" /><path d="M4 7h16" /><path d="m16 21 4-4-4-4" /><path d="M20 17H4" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">Döviz Çevirici</div><div style="font-size:.72rem;color:var(--muted)">Canlı kur</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/enflasyon-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">Enflasyon Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Paranın reel değeri</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/kredi-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">Kredi Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Taksit ve faiz</div></div></a>
     </div>
 
   </aside>
@@ -496,7 +495,7 @@ footer.hz-foot a:hover{color:#fff!important}
   </p>
 
   <div class="cite-box">
-    <strong>📌 Kaynaklar</strong><br/>
+    <strong>Kaynaklar</strong><br/>
 
 
 </div>
@@ -511,7 +510,7 @@ footer.hz-foot a:hover{color:#fff!important}
     Stopaj (%17,5) = 4.383,56 × 0,175 = <span class="e">767,12 ₺</span><br/>
     Net Getiri = 4.383,56 − 767,12 = <span class="e">3.616,44 ₺</span>
   </div>
-  <div class="cite-box">📌 Kaynak: ilgili mevzuat ve resmî kurum verileri · <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></div>
+  <div class="cite-box">Kaynak: ilgili mevzuat ve resmî kurum verileri · <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></div>
 
   <h2>2026 Mevduat Stopaj Oranları</h2>
   <p>
@@ -530,7 +529,7 @@ footer.hz-foot a:hover{color:#fff!important}
   <p>
     Uzun vadeli mevduatın daha düşük stopaja tabi tutulması, devletin uzun süreli birikimi teşvik etme amacının bir yansımasıdır. Ancak yüksek enflasyon ortamında birikim sahipleri parasını uzun vadeye kilitleme konusunda çekingen davranabilir.
   </p>
-  <div class="cite-box">📌 Kaynak: ilgili mevzuat ve resmî kurum verileri · <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></div>
+  <div class="cite-box">Kaynak: ilgili mevzuat ve resmî kurum verileri · <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></div>
 
   <h2>Brüt Faiz ile Net Faiz Arasındaki Fark</h2>
   <p>
@@ -593,12 +592,12 @@ footer.hz-foot a:hover{color:#fff!important}
   </div>
 
   <div style="margin-top:24px;background:#fef2f2;border-left:3px solid var(--danger);border-radius:0 8px 8px 0;padding:13px 15px;font-size:.84rem;color:#7f1d1d;line-height:1.7;">
-    <strong>⚠️ Yasal Uyarı:</strong> Bu araç bilgilendirme amaçlıdır ve yatırım tavsiyesi niteliği taşımaz. Gerçek faiz oranları bankaya, kampanyaya ve anlık piyasa koşullarına göre değişir. Yatırım kararları için bankanızdan güncel teklif alın veya lisanslı bir finansal danışmana başvurun.
+    <strong>Yasal Uyarı:</strong> Bu araç bilgilendirme amaçlıdır ve yatırım tavsiyesi niteliği taşımaz. Gerçek faiz oranları bankaya, kampanyaya ve anlık piyasa koşullarına göre değişir. Yatırım kararları için bankanızdan güncel teklif alın veya lisanslı bir finansal danışmana başvurun.
   </div>
 </div>
 
 <!-- FOOTER -->
-<p style="max-width:1100px;margin:18px auto 0;padding:0 16px;font-size:.82rem;color:var(--muted,#64748b)">✍️ Hazırlayan: <a href="https://hesaplarsin.com/hakkimizda.html#kurucu">Duran Gönülalan</a> · Hesaplarsın kurucusu · Kaynaklar: <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></p>
+<p style="max-width:1100px;margin:18px auto 0;padding:0 16px;font-size:.82rem;color:var(--muted,#64748b)">Hazırlayan: <a href="https://hesaplarsin.com/hakkimizda.html#kurucu">Duran Gönülalan</a> · Hesaplarsın kurucusu · Kaynaklar: <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></p>
 <!--HZ-FOOT--><footer class="hz-foot"><div class="hz-fin"><div class="hz-fgrid"><div class="hz-fbrand"><a class="hz-logo" href="https://hesaplarsin.com/"><svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="hzg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1341b0"/><stop offset="1" stop-color="#1a56db"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#hzg)"/><rect x="14" y="12" width="36" height="12" rx="3" fill="#fff" opacity=".95"/><g fill="#fff"><rect x="14" y="30" width="9" height="9" rx="2"/><rect x="27.5" y="30" width="9" height="9" rx="2"/><rect x="41" y="30" width="9" height="9" rx="2" fill="#fbbf24"/><rect x="14" y="43" width="9" height="9" rx="2"/><rect x="27.5" y="43" width="9" height="9" rx="2"/><rect x="41" y="43" width="9" height="9" rx="2" fill="#fbbf24"/></g></svg><span>Hesaplarsın</span></a><p>Türkiye’nin ücretsiz hesaplama platformu: maaş, vergi, kredi, emeklilik ve daha fazlası; 2026 güncel resmî verilerle, kayıt gerektirmeden.</p><div class="hz-soc"><a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/hesaplarsin" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:info@hesaplarsin.com">E-posta</a></div></div><div><div class="hz-ft">Popüler araçlar</div><a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş Hesaplama</a><a href="https://hesaplarsin.com/kdv-hesaplama.html">KDV Hesaplama</a><a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a><a href="https://hesaplarsin.com/emeklilik-yasi-hesaplama.html">Emeklilik Hesaplama</a><a href="https://hesaplarsin.com/asgari-ucret-2027-hesaplama.html">Asgari Ücret 2027</a></div><div><div class="hz-ft">Kategoriler</div><a href="https://hesaplarsin.com/maas-hesaplamalari.html">Maaş ve SGK</a><a href="https://hesaplarsin.com/memur-hesaplamalari.html">Kamu ve Memur</a><a href="https://hesaplarsin.com/vergi-hesaplamalari.html">Vergi</a><a href="https://hesaplarsin.com/finans-hesaplamalari.html">Finans ve Kredi</a><a href="https://hesaplarsin.com/isletme-hesaplamalari.html">İşletme</a><a href="https://hesaplarsin.com/emlak-hesaplamalari.html">Emlak ve Kira</a><a href="https://hesaplarsin.com/arac-hesaplamalari.html">Araç</a><a href="https://hesaplarsin.com/saglik-hesaplamalari.html">Sağlık</a><a href="https://hesaplarsin.com/egitim-hesaplamalari.html">Eğitim</a><a href="https://hesaplarsin.com/gunluk-hesaplamalar.html">Günlük</a></div><div><div class="hz-ft">Hesaplarsın</div><a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a><a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a><a href="https://hesaplarsin.com/turkiye-maaslari-2026.html">Türkiye’de Maaşlar 2026</a><a href="https://hesaplarsin.com/ekonomi-takvimi.html">Ekonomi Takvimi</a><a href="https://hesaplarsin.com/blog.html">Blog</a><a href="https://hesaplarsin.com/iletisim.html">İletişim</a><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik Politikası</a><a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a></div></div><div class="hz-fbot"><span>© 2026 Hesaplarsın · Sonuçlar bilgilendirme amaçlıdır; resmî işlemler için yetkili kurumlara danışın.</span><span><a href="mailto:info@hesaplarsin.com">info@hesaplarsin.com</a></span></div></div></footer><!--/HZ-FOOT-->
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

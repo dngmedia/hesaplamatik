@@ -202,7 +202,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6409842641135945" crossorigin="anonymous"></script>
 <script src="/assets/cerez.js" defer></script>
 
-<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}</style>
+<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi,.ql-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}.main-grid>*{min-width:0}.sidebar table,aside table{min-width:0!important;width:100%!important}.sidebar td:first-child,aside td:first-child{white-space:normal!important}</style>
 <style id="hz-chrome">
 @media(max-width:640px){html body header.hero{padding-top:18px!important;padding-bottom:20px!important;margin-bottom:16px!important}
 html body header.hero h1{font-size:1.5rem!important;margin:8px 0 6px!important}
@@ -253,7 +253,7 @@ footer.hz-foot a:hover{color:#fff!important}
     <h1>KDV Hariç Hesaplama 2026</h1>
     <p>KDV dahil ve KDV hariç hesaplama, matrah bulma, toplu fatura hesaplama. %1, %10 ve %20 güncel KDV oranlarıyla anında ve hatasız sonuç.</p>
     <div class="hero-badges">
-      <span class="hbadge">✓ Ücretsiz</span>
+      <span class="hbadge">Ücretsiz</span>
       <span class="hbadge">%1 / %10 / %20</span>
       <span class="hbadge">KDV Dahil & Hariç</span>
       <span class="hbadge">Matrah Bulma</span>
@@ -273,16 +273,16 @@ footer.hz-foot a:hover{color:#fff!important}
     <div class="card">
       <div class="card-title">KDV Hesaplama 2026</div>
       <div class="mod-tabs">
-        <button class="modtab active" id="tab-tekli" onclick="setMod('tekli',this)">🔢 Tekli Hesaplama</button>
-        <button class="modtab" id="tab-toplu" onclick="setMod('toplu',this)">📋 Toplu / Fatura</button>
-        <button class="modtab" id="tab-matrah" onclick="setMod('matrah',this)">🔍 KDV'den Matrah</button>
+        <button class="modtab active" id="tab-tekli" onclick="setMod('tekli',this)">Tekli Hesaplama</button>
+        <button class="modtab" id="tab-toplu" onclick="setMod('toplu',this)">Toplu / Fatura</button>
+        <button class="modtab" id="tab-matrah" onclick="setMod('matrah',this)">KDV'den Matrah</button>
       </div>
 
       <div id="panel-tekli">
         <p style="font-size:.82rem;font-weight:600;margin-bottom:8px;">Hesaplama Yönü</p>
         <div class="yon-tabs">
-          <button class="ytab active" id="yt-haric" onclick="setYon('haric',this)">➖ KDV Çıkar (Brüt → Net)</button>
-          <button class="ytab" id="yt-dahil" onclick="setYon('dahil',this)">➕ KDV Ekle (Net → Brüt)</button>
+          <button class="ytab active" id="yt-haric" onclick="setYon('haric',this)">KDV Çıkar (Brüt → Net)</button>
+          <button class="ytab" id="yt-dahil" onclick="setYon('dahil',this)">KDV Ekle (Net → Brüt)</button>
         </div>
         <p style="font-size:.82rem;font-weight:600;margin-bottom:8px;">KDV Oranı</p>
         <div class="oran-secici" id="tekliOranSec">
@@ -307,16 +307,16 @@ footer.hz-foot a:hover{color:#fff!important}
           <span class="qtag" onclick="fillTekli(550,'haric',10)">550 ₺'den %10 çıkar</span>
           <span class="qtag" onclick="fillTekli(101,'haric',1)">101 ₺'den %1 çıkar</span>
         </div>
-        <button class="btn-calc" onclick="tekliHesapla()">🧾 KDV Hesapla</button>
-        <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+        <button class="btn-calc" onclick="tekliHesapla()">KDV Hesapla</button>
+        <button class="btn-reset" onclick="sifirla()">Temizle</button>
       </div>
 
       <div id="panel-toplu" style="display:none;">
         <p style="font-size:.82rem;color:var(--muted);margin-bottom:12px;">Her satır için net tutar ve KDV oranını girin.</p>
         <div class="toplu-liste" id="topluListe"></div>
         <button class="ekle-btn" onclick="satirEkle()">+ Satır Ekle</button>
-        <button class="btn-calc" onclick="topluHesapla()">📋 Toplu Hesapla</button>
-        <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+        <button class="btn-calc" onclick="topluHesapla()">Toplu Hesapla</button>
+        <button class="btn-reset" onclick="sifirla()">Temizle</button>
       </div>
 
       <div id="panel-matrah" style="display:none;">
@@ -330,8 +330,8 @@ footer.hz-foot a:hover{color:#fff!important}
           <label for="m-kdv">KDV Tutarı (₺)</label>
           <div class="input-wrap"><input type="number" id="m-kdv" placeholder="örn: 200" min="0" step="0.01" inputmode="decimal" /><span class="currency">₺</span></div>
         </div>
-        <button class="btn-calc" onclick="matrahHesapla()">🔍 Matrah Bul</button>
-        <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+        <button class="btn-calc" onclick="matrahHesapla()">Matrah Bul</button>
+        <button class="btn-reset" onclick="sifirla()">Temizle</button>
       </div>
     </div>
 
@@ -349,11 +349,11 @@ footer.hz-foot a:hover{color:#fff!important}
         </div>
       </div>
       <div class="detay-section" id="detaySection" style="display:none;">
-        <div class="ds-title">🧾 Hesaplama Detayı</div>
+        <div class="ds-title">Hesaplama Detayı</div>
         <div id="detayRows"></div>
       </div>
       <div id="topluResultSection" style="display:none;">
-        <p style="font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:8px;">📋 Fatura Detayı</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:8px;">Fatura Detayı</p>
         <div style="overflow-x:auto;border-radius:8px;border:1px solid var(--border);">
           <table class="toplu-tablo" aria-label="Toplu KDV hesaplama tablosu">
             <thead><tr><th>#</th><th>Net Tutar</th><th>KDV Oranı</th><th>KDV Tutarı</th><th>Brüt Tutar</th></tr></thead>
@@ -361,17 +361,17 @@ footer.hz-foot a:hover{color:#fff!important}
           </table>
         </div>
       </div>
-      <div style="background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.8rem;color:#78350f;margin-top:14px;line-height:1.65;">⚠️ Sonuçlar bilgilendirme amaçlıdır. Resmi vergi beyanı için SMMM'ye danışın.</div>
+      <div style="background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.8rem;color:#78350f;margin-top:14px;line-height:1.65;">Sonuçlar bilgilendirme amaçlıdır. Resmi vergi beyanı için SMMM'ye danışın.</div>
       <div class="export-btns">
         <button class="btn-exp" onclick="copyResult()"><svg class="hzi hzb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Kopyala</button>
-        <button class="btn-exp" onclick="window.print()">🖨️ Yazdır</button>
+        <button class="btn-exp" onclick="window.print()">Yazdır</button>
       </div>
     </div>
   </main>
 
   <aside class="sidebar">
     <div class="card">
-      <div class="card-title" style="font-size:.9rem;">📊 2026 KDV Oranları</div>
+      <div class="card-title" style="font-size:.9rem;">2026 KDV Oranları</div>
       <table class="oran-tablo" aria-label="2026 KDV oranları">
         <thead><tr><th>Oran</th><th>Uygulama Alanı</th></tr></thead>
         <tbody>
@@ -380,29 +380,29 @@ footer.hz-foot a:hover{color:#fff!important}
           <tr><td><strong style="color:var(--danger)">%20</strong></td><td>Elektronik, mobilya, araç, inşaat, hizmetler, lüks ürünler</td></tr>
         </tbody>
       </table>
-      <p class="source-note">📌 Kaynak: <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">GİB.gov.tr</a></p>
+      <p class="source-note">Kaynak: <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">GİB.gov.tr</a></p>
     </div>
     <div class="info-box">
-      <strong>📐 KDV Formülleri</strong><br/>
+      <strong>KDV Formülleri</strong><br/>
       <strong>Net → Brüt:</strong> Net × (1 + Oran/100)<br/>
       <strong>Brüt → Net:</strong> Brüt ÷ (1 + Oran/100)<br/>
       <strong>KDV Tutarı:</strong> Brüt − Net<br/><br/>
-      <strong>⚠️ Sık Hata:</strong><br/>
+      <strong>Sık Hata:</strong><br/>
       1.200 × 0,20 = 240 ❌<br/>
       1.200 ÷ 1,20 = 1.000 → KDV = 200 ✅
           </div>
     <div class="warn-box2">
-      <strong>📅 Beyanname Tarihleri</strong><br/>
+      <strong>Beyanname Tarihleri</strong><br/>
       Beyanname + Ödeme: Dönem sonu takip eden ayın <strong>28. günü</strong><br/>
       İhracat: KDV istisnası<br/>
       2026 iade alt sınırı: <strong>164.000 TL</strong>
     </div>
     <div class="card">
-      <div class="card-title" style="font-size:.9rem;">🔗 İlgili Araçlar</div>
-      <a class="ql-link" href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html"><div class="ql-icon">📊</div><div><div style="font-weight:700;font-size:.82rem;">Gelir Vergisi</div><div style="font-size:.72rem;color:var(--muted)">2026 vergi dilimleri</div></div></a>
-      <a class="ql-link" href="https://hesaplarsin.com/brut-kar-hesaplama.html"><div class="ql-icon">💹</div><div><div style="font-weight:700;font-size:.82rem;">Brüt Kâr</div><div style="font-size:.72rem;color:var(--muted)">Kâr marjı analizi</div></div></a>
-      <a class="ql-link" href="https://hesaplarsin.com/yuzde-hesaplama.html"><div class="ql-icon">📐</div><div><div style="font-weight:700;font-size:.82rem;">Yüzde Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Artış / azalış</div></div></a>
-      <a class="ql-link" href="https://hesaplarsin.com/roi-hesaplama.html"><div class="ql-icon">🎯</div><div><div style="font-weight:700;font-size:.82rem;">ROI Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Yatırım getirisi</div></div></a>
+      <div class="card-title" style="font-size:.9rem;">İlgili Araçlar</div>
+      <a class="ql-link" href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">Gelir Vergisi</div><div style="font-size:.72rem;color:var(--muted)">2026 vergi dilimleri</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/brut-kar-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">Brüt Kâr</div><div style="font-size:.72rem;color:var(--muted)">Kâr marjı analizi</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/yuzde-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" x2="5" y1="5" y2="19" /><circle cx="6.5" cy="6.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">Yüzde Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Artış / azalış</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/roi-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" x2="5" y1="5" y2="19" /><circle cx="6.5" cy="6.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">ROI Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Yatırım getirisi</div></div></a>
     </div>
   </aside>
 </div>
@@ -411,7 +411,7 @@ footer.hz-foot a:hover{color:#fff!important}
   <h2>KDV Nedir? 2026 Güncel KDV Oranları Rehberi</h2>
   <p>KDV (Katma Değer Vergisi), mal ve hizmet satışlarında uygulanan dolaylı bir tüketim vergisidir. 3065 sayılı KDV Kanunu çerçevesinde GİB tarafından yönetilen KDV'nin gerçek yükü nihai tüketicinin üzerindedir; ancak vergiyi devlete beyan edip ödeme yükümlülüğü satıcıdadır.</p>
   <div class="cite-box">
-    <strong>📌 Kaynaklar</strong><br/>
+    <strong>Kaynaklar</strong><br/>
 
 
   </div>
@@ -431,7 +431,7 @@ footer.hz-foot a:hover{color:#fff!important}
     1.200 ₺ Brüt → Net = <span class="e">1.000 ₺</span> → KDV = 200 ₺
   </div>
   <div class="cite-box">
-    <strong>📌 Kaynak — Sık Hata:</strong>  Doğru: Brüt ÷ (1 + oran/100). 1.200 × 0,20 = 240 ❌ / 1.200 ÷ 1,20 = 1.000 → KDV = 200 ✅ (Nisan 2026)
+    <strong>Kaynak — Sık Hata:</strong>  Doğru: Brüt ÷ (1 + oran/100). 1.200 × 0,20 = 240 ❌ / 1.200 ÷ 1,20 = 1.000 → KDV = 200 ✅ (Nisan 2026)
   </div>
 
   <h2>2026 KDV Oranları ve Uygulama Alanları</h2>
@@ -488,11 +488,11 @@ footer.hz-foot a:hover{color:#fff!important}
     <a class="rc" href="https://hesaplarsin.com/basa-bas-noktasi-hesaplama.html"><span class="ri"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></svg></span><span class="rt">Başa Baş Noktası</span><span class="rd">Kâra geçiş</span></a>
   </div>
   <div style="margin-top:24px;background:#fef2f2;border-left:3px solid var(--danger);border-radius:0 8px 8px 0;padding:13px 15px;font-size:.84rem;color:#7f1d1d;line-height:1.7;">
-    <strong>⚠️ Yasal Uyarı:</strong> Bu araç bilgilendirme amaçlıdır. Resmi vergi beyanı için GİB'in güncel listesini ve bir <strong>SMMM</strong>'yi esas alın.
+    <strong>Yasal Uyarı:</strong> Bu araç bilgilendirme amaçlıdır. Resmi vergi beyanı için GİB'in güncel listesini ve bir <strong>SMMM</strong>'yi esas alın.
   </div>
 </div>
 
-<p style="max-width:1100px;margin:18px auto 0;padding:0 16px;font-size:.82rem;color:var(--muted,#64748b)">✍️ Hazırlayan: <a href="https://hesaplarsin.com/hakkimizda.html#kurucu">Duran Gönülalan</a> · Hesaplarsın kurucusu · Kaynaklar: <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></p>
+<p style="max-width:1100px;margin:18px auto 0;padding:0 16px;font-size:.82rem;color:var(--muted,#64748b)">Hazırlayan: <a href="https://hesaplarsin.com/hakkimizda.html#kurucu">Duran Gönülalan</a> · Hesaplarsın kurucusu · Kaynaklar: <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></p>
 <!--HZ-FOOT--><footer class="hz-foot"><div class="hz-fin"><div class="hz-fgrid"><div class="hz-fbrand"><a class="hz-logo" href="https://hesaplarsin.com/"><svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="hzg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1341b0"/><stop offset="1" stop-color="#1a56db"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#hzg)"/><rect x="14" y="12" width="36" height="12" rx="3" fill="#fff" opacity=".95"/><g fill="#fff"><rect x="14" y="30" width="9" height="9" rx="2"/><rect x="27.5" y="30" width="9" height="9" rx="2"/><rect x="41" y="30" width="9" height="9" rx="2" fill="#fbbf24"/><rect x="14" y="43" width="9" height="9" rx="2"/><rect x="27.5" y="43" width="9" height="9" rx="2"/><rect x="41" y="43" width="9" height="9" rx="2" fill="#fbbf24"/></g></svg><span>Hesaplarsın</span></a><p>Türkiye’nin ücretsiz hesaplama platformu: maaş, vergi, kredi, emeklilik ve daha fazlası; 2026 güncel resmî verilerle, kayıt gerektirmeden.</p><div class="hz-soc"><a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/hesaplarsin" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:info@hesaplarsin.com">E-posta</a></div></div><div><div class="hz-ft">Popüler araçlar</div><a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş Hesaplama</a><a href="https://hesaplarsin.com/kdv-hesaplama.html">KDV Hesaplama</a><a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a><a href="https://hesaplarsin.com/emeklilik-yasi-hesaplama.html">Emeklilik Hesaplama</a><a href="https://hesaplarsin.com/asgari-ucret-2027-hesaplama.html">Asgari Ücret 2027</a></div><div><div class="hz-ft">Kategoriler</div><a href="https://hesaplarsin.com/maas-hesaplamalari.html">Maaş ve SGK</a><a href="https://hesaplarsin.com/memur-hesaplamalari.html">Kamu ve Memur</a><a href="https://hesaplarsin.com/vergi-hesaplamalari.html">Vergi</a><a href="https://hesaplarsin.com/finans-hesaplamalari.html">Finans ve Kredi</a><a href="https://hesaplarsin.com/isletme-hesaplamalari.html">İşletme</a><a href="https://hesaplarsin.com/emlak-hesaplamalari.html">Emlak ve Kira</a><a href="https://hesaplarsin.com/arac-hesaplamalari.html">Araç</a><a href="https://hesaplarsin.com/saglik-hesaplamalari.html">Sağlık</a><a href="https://hesaplarsin.com/egitim-hesaplamalari.html">Eğitim</a><a href="https://hesaplarsin.com/gunluk-hesaplamalar.html">Günlük</a></div><div><div class="hz-ft">Hesaplarsın</div><a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a><a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a><a href="https://hesaplarsin.com/turkiye-maaslari-2026.html">Türkiye’de Maaşlar 2026</a><a href="https://hesaplarsin.com/ekonomi-takvimi.html">Ekonomi Takvimi</a><a href="https://hesaplarsin.com/blog.html">Blog</a><a href="https://hesaplarsin.com/iletisim.html">İletişim</a><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik Politikası</a><a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a></div></div><div class="hz-fbot"><span>© 2026 Hesaplarsın · Sonuçlar bilgilendirme amaçlıdır; resmî işlemler için yetkili kurumlara danışın.</span><span><a href="mailto:info@hesaplarsin.com">info@hesaplarsin.com</a></span></div></div></footer><!--/HZ-FOOT-->
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

@@ -241,7 +241,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6409842641135945" crossorigin="anonymous"></script>
 <script src="/assets/cerez.js" defer></script>
 
-<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}</style>
+<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi,.ql-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}.main-grid>*{min-width:0}.sidebar table,aside table{min-width:0!important;width:100%!important}.sidebar td:first-child,aside td:first-child{white-space:normal!important}</style>
 <style id="hz-chrome">
 @media(max-width:640px){html body header.hero{padding-top:18px!important;padding-bottom:20px!important;margin-bottom:16px!important}
 html body header.hero h1{font-size:1.5rem!important;margin:8px 0 6px!important}
@@ -279,8 +279,7 @@ footer.hz-foot a:hover{color:#fff!important}
 <body>
 
 <!-- BİLGİ BAR -->
-<div class="info-bar">
-  📋 <strong>2026 Vergi Dilimleri (GVK m.103):</strong> %15 (0–190K TL) · %20 (190K–400K) · %27 (400K–1,5M) · %35 (1,5M–5,3M) · %40 (5,3M+)
+<div class="info-bar"><strong>2026 Vergi Dilimleri (GVK m.103):</strong> %15 (0–190K TL) · %20 (190K–400K) · %27 (400K–1,5M) · %35 (1,5M–5,3M) · %40 (5,3M+)
 </div>
 
 <!-- NAV -->
@@ -300,7 +299,7 @@ footer.hz-foot a:hover{color:#fff!important}
     <h1>Gelir Vergisi Hesaplama 2026</h1>
     <p>2026 yılı güncel gelir vergisi dilimleriyle yıllık gelir vergisi, aylık kümülatif matrah ve dilim atlama simülasyonunu anında hesaplayın. Ücret, kira ve serbest meslek geliri dahil.</p>
     <div class="hero-badges">
-      <span class="hbadge">✓ Ücretsiz</span>
+      <span class="hbadge">Ücretsiz</span>
       <span class="hbadge">GVK 103 Güncel</span>
       <span class="hbadge">Dilimli Hesaplama</span>
       <span class="hbadge">Aylık Simülasyon</span>
@@ -326,15 +325,15 @@ footer.hz-foot a:hover{color:#fff!important}
 
       <!-- MOD TABS -->
       <div class="mod-tabs">
-        <button class="modtab active" id="tab-yillik" onclick="setMod('yillik',this)">📅 Yıllık Gelir Vergisi</button>
-        <button class="modtab" id="tab-aylik" onclick="setMod('aylik',this)">📆 Aylık Simülasyon</button>
+        <button class="modtab active" id="tab-yillik" onclick="setMod('yillik',this)">Yıllık Gelir Vergisi</button>
+        <button class="modtab" id="tab-aylik" onclick="setMod('aylik',this)">Aylık Simülasyon</button>
       </div>
 
       <!-- GELİR TİPİ -->
       <p style="font-size:.82rem;font-weight:600;margin-bottom:8px;">Gelir Türü</p>
       <div class="gelir-tabs">
-        <button class="gtab active" id="gt-ucret" onclick="setGelir('ucret',this)">👨‍💼 Ücret Geliri</button>
-        <button class="gtab" id="gt-disarisi" onclick="setGelir('disarisi',this)">🏢 Ücret Dışı (Kira / Serbest Meslek / Ticari)</button>
+        <button class="gtab active" id="gt-ucret" onclick="setGelir('ucret',this)">Ücret Geliri</button>
+        <button class="gtab" id="gt-disarisi" onclick="setGelir('disarisi',this)">Ücret Dışı (Kira / Serbest Meslek / Ticari)</button>
       </div>
 
       <!-- YILLIK MOD -->
@@ -355,8 +354,8 @@ footer.hz-foot a:hover{color:#fff!important}
           <span class="qtag" onclick="document.getElementById('y-gelir').value=3000000">3M ₺</span>
           <span class="qtag" onclick="document.getElementById('y-gelir').value=6000000">6M ₺</span>
         </div>
-        <button class="btn-calc" onclick="yillikHesapla()">📊 Gelir Vergisi Hesapla</button>
-        <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+        <button class="btn-calc" onclick="yillikHesapla()">Gelir Vergisi Hesapla</button>
+        <button class="btn-reset" onclick="sifirla()">Temizle</button>
       </div>
 
       <!-- AYLIK SİMÜLASYON MODU -->
@@ -377,11 +376,10 @@ footer.hz-foot a:hover{color:#fff!important}
             </div>
           </div>
         </div>
-        <div style="background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.8rem;color:#78350f;margin-bottom:14px;line-height:1.65;">
-          💡 Yeni işe başladıysanız "Yıl Başı Kümülatif Matrah"ı 0 bırakın. Yıl içinde iş değiştirdiyseniz önceki işyerinizden aldığınız kümülatif matrah yazısındaki tutarı girin.
+        <div style="background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.8rem;color:#78350f;margin-bottom:14px;line-height:1.65;">Yeni işe başladıysanız "Yıl Başı Kümülatif Matrah"ı 0 bırakın. Yıl içinde iş değiştirdiyseniz önceki işyerinizden aldığınız kümülatif matrah yazısındaki tutarı girin.
         </div>
-        <button class="btn-calc" onclick="aylikSimulasyon()">📆 Aylık Simülasyon Oluştur</button>
-        <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+        <button class="btn-calc" onclick="aylikSimulasyon()">Aylık Simülasyon Oluştur</button>
+        <button class="btn-reset" onclick="sifirla()">Temizle</button>
       </div>
     </div>
 
@@ -404,13 +402,13 @@ footer.hz-foot a:hover{color:#fff!important}
 
       <!-- DİLİM DETAY -->
       <div class="dilim-section" id="dilimSection" style="display:none;">
-        <div class="ds-title">🧾 Dilim Bazlı Vergi Hesabı</div>
+        <div class="ds-title">Dilim Bazlı Vergi Hesabı</div>
         <div id="dilimRows"></div>
       </div>
 
       <!-- AYLIK TABLO -->
       <div id="aylikTableSection" style="display:none;">
-        <p style="font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:8px;">📆 Aylık Vergi Simülasyonu (12 Ay)</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:8px;">Aylık Vergi Simülasyonu (12 Ay)</p>
         <div class="tbl-wrap">
           <table class="aylik-tablo" aria-label="Aylık gelir vergisi simülasyon tablosu">
             <thead><tr><th>Ay</th><th>Aylık Matrah</th><th>Kümülatif Matrah</th><th>Vergi Dilimi</th><th>Aylık Vergi</th><th>Net Maaş (Tahmini)</th></tr></thead>
@@ -420,13 +418,12 @@ footer.hz-foot a:hover{color:#fff!important}
         <p id="aylikOzet" style="font-size:.82rem;color:var(--muted);margin-top:8px;line-height:1.6;padding:10px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);"></p>
       </div>
 
-      <div style="background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.8rem;color:#78350f;margin-top:14px;line-height:1.65;">
-        ⚠️ Bu hesaplama bilgilendirme amaçlıdır. Gerçek vergi tutarı bireysel indirim, istisna ve kümülatif matrah durumuna göre farklılık gösterebilir. Kesin hesap için bir <strong>SMMM</strong>'ye danışın.
+      <div style="background:#fffbeb;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.8rem;color:#78350f;margin-top:14px;line-height:1.65;">Bu hesaplama bilgilendirme amaçlıdır. Gerçek vergi tutarı bireysel indirim, istisna ve kümülatif matrah durumuna göre farklılık gösterebilir. Kesin hesap için bir <strong>SMMM</strong>'ye danışın.
       </div>
 
       <div class="export-btns">
         <button class="btn-exp" onclick="copyResult()"><svg class="hzi hzb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Kopyala</button>
-        <button class="btn-exp" onclick="window.print()">🖨️ Yazdır</button>
+        <button class="btn-exp" onclick="window.print()">Yazdır</button>
       </div>
     </div>
   </main>
@@ -436,8 +433,8 @@ footer.hz-foot a:hover{color:#fff!important}
 
     <!-- VERGİ DİLİMLERİ — ÜCRET -->
     <div class="card">
-      <div class="card-title" style="font-size:.9rem;">📊 2026 Gelir Vergisi Dilimleri</div>
-      <p style="font-size:.74rem;font-weight:700;color:var(--muted);margin-bottom:6px;">👨‍💼 Ücret Geliri</p>
+      <div class="card-title" style="font-size:.9rem;">2026 Gelir Vergisi Dilimleri</div>
+      <p style="font-size:.74rem;font-weight:700;color:var(--muted);margin-bottom:6px;">Ücret Geliri</p>
       <table class="vergi-tablo" aria-label="2026 ücret geliri vergi dilimleri">
         <thead><tr><th>Matrah (₺)</th><th>Oran</th></tr></thead>
         <tbody>
@@ -448,7 +445,7 @@ footer.hz-foot a:hover{color:#fff!important}
           <tr><td>5.300.001+</td><td><strong>%40</strong></td></tr>
         </tbody>
       </table>
-      <p style="font-size:.74rem;font-weight:700;color:var(--muted);margin:10px 0 6px;">🏢 Ücret Dışı Gelir (Kira/SM/Ticari)</p>
+      <p style="font-size:.74rem;font-weight:700;color:var(--muted);margin:10px 0 6px;">Ücret Dışı Gelir (Kira/SM/Ticari)</p>
       <table class="vergi-tablo" aria-label="2026 ücret dışı gelir vergi dilimleri">
         <thead><tr><th>Matrah (₺)</th><th>Oran</th></tr></thead>
         <tbody>
@@ -459,12 +456,12 @@ footer.hz-foot a:hover{color:#fff!important}
           <tr><td>5.300.001+</td><td><strong>%40</strong></td></tr>
         </tbody>
       </table>
-      <p class="source-note">📌 Kaynak: <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">GİB.gov.tr</a> · GVK 103. Madde</p>
+      <p class="source-note">Kaynak: <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">GİB.gov.tr</a> · GVK 103. Madde</p>
     </div>
 
     <!-- BİLGİ -->
     <div class="info-box">
-      <strong>💡 2026 İstisnalar ve Muafiyetler</strong><br/>
+      <strong>2026 İstisnalar ve Muafiyetler</strong><br/>
       • Asgari ücrete isabet eden kısım → <strong>GV istisnası</strong><br/>
       • Mesken kira geliri → <strong>58.000 TL/yıl istisna</strong><br/>
       • Arızi kazanç → <strong>350.000 TL istisna</strong><br/>
@@ -475,7 +472,7 @@ footer.hz-foot a:hover{color:#fff!important}
 
     <!-- BEYAN TARİHLERİ -->
     <div class="warn-box2">
-      <strong>📅 Beyanname ve Ödeme Tarihleri</strong><br/>
+      <strong>Beyanname ve Ödeme Tarihleri</strong><br/>
       • Yıllık beyanname: <strong>Mart sonu</strong><br/>
       • 1. taksit: <strong>Mart sonu</strong><br/>
       • 2. taksit: <strong>Temmuz sonu</strong><br/>
@@ -485,11 +482,11 @@ footer.hz-foot a:hover{color:#fff!important}
 
     <!-- İLGİLİ ARAÇLAR -->
     <div class="card">
-      <div class="card-title" style="font-size:.9rem;">🔗 İlgili Araçlar</div>
-      <a class="ql-link" href="https://hesaplarsin.com/net-maas-hesaplama.html"><div class="ql-icon">💼</div><div><div style="font-weight:700;font-size:.82rem;">Net Maaş Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">SGK ve vergi kesintisi</div></div></a>
-      <a class="ql-link" href="https://hesaplarsin.com/kdv-hesaplama.html"><div class="ql-icon">🧾</div><div><div style="font-weight:700;font-size:.82rem;">KDV Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Dahil / Hariç KDV</div></div></a>
-      <a class="ql-link" href="https://hesaplarsin.com/ihbar-tazminati-hesaplama.html"><div class="ql-icon">📋</div><div><div style="font-weight:700;font-size:.82rem;">İhbar Tazminatı</div><div style="font-size:.72rem;color:var(--muted)">Vergi kesintisi dahil</div></div></a>
-      <a class="ql-link" href="https://hesaplarsin.com/kidem-tazminati-hesaplama.html"><div class="ql-icon">🏆</div><div><div style="font-weight:700;font-size:.82rem;">Kıdem Tazminatı</div><div style="font-size:.72rem;color:var(--muted)">Sadece damga vergisi kesilir</div></div></a>
+      <div class="card-title" style="font-size:.9rem;">İlgili Araçlar</div>
+      <a class="ql-link" href="https://hesaplarsin.com/net-maas-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">Net Maaş Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">SGK ve vergi kesintisi</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/kdv-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 17.5v-11" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">KDV Hesaplama</div><div style="font-size:.72rem;color:var(--muted)">Dahil / Hariç KDV</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/ihbar-tazminati-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">İhbar Tazminatı</div><div style="font-size:.72rem;color:var(--muted)">Vergi kesintisi dahil</div></div></a>
+      <a class="ql-link" href="https://hesaplarsin.com/kidem-tazminati-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg></div><div><div style="font-weight:700;font-size:.82rem;">Kıdem Tazminatı</div><div style="font-size:.72rem;color:var(--muted)">Sadece damga vergisi kesilir</div></div></a>
     </div>
   </aside>
 </div>
@@ -503,7 +500,7 @@ footer.hz-foot a:hover{color:#fff!important}
   </p>
 
   <div class="cite-box">
-    <strong>📌 Kaynaklar</strong><br/>
+    <strong>Kaynaklar</strong><br/>
   </div>
 
   <h2>2026 Gelir Vergisi Hesaplama Formülü</h2>
@@ -538,7 +535,7 @@ footer.hz-foot a:hover{color:#fff!important}
       </tbody>
     </table>
   </div>
-  <div class="cite-box">📌 Kaynak: ilgili mevzuat ve resmî kurum verileri · <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></div>
+  <div class="cite-box">Kaynak: ilgili mevzuat ve resmî kurum verileri · <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></div>
 
 
   <h2>2026 Gelir Vergisi Hesaplama Örnekleri</h2>
@@ -629,12 +626,12 @@ footer.hz-foot a:hover{color:#fff!important}
   </div>
 
   <div style="margin-top:24px;background:#fef2f2;border-left:3px solid var(--danger);border-radius:0 8px 8px 0;padding:13px 15px;font-size:.84rem;color:#7f1d1d;line-height:1.7;">
-    <strong>⚠️ Yasal Uyarı:</strong> Bu araç bilgilendirme amaçlıdır ve vergi danışmanlığı niteliği taşımaz. Bireysel indirim, istisna ve muafiyetler gerçek vergi tutarını değiştirebilir. Vergi beyannamesini doğru hazırlamak için bir <strong>SMMM veya YMM</strong>'ye danışmanız önerilir.
+    <strong>Yasal Uyarı:</strong> Bu araç bilgilendirme amaçlıdır ve vergi danışmanlığı niteliği taşımaz. Bireysel indirim, istisna ve muafiyetler gerçek vergi tutarını değiştirebilir. Vergi beyannamesini doğru hazırlamak için bir <strong>SMMM veya YMM</strong>'ye danışmanız önerilir.
   </div>
 </div>
 
 <!-- FOOTER -->
-<p style="max-width:1100px;margin:18px auto 0;padding:0 16px;font-size:.82rem;color:var(--muted,#64748b)">✍️ Hazırlayan: <a href="https://hesaplarsin.com/hakkimizda.html#kurucu">Duran Gönülalan</a> · Hesaplarsın kurucusu · Kaynaklar: <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></p>
+<p style="max-width:1100px;margin:18px auto 0;padding:0 16px;font-size:.82rem;color:var(--muted,#64748b)">Hazırlayan: <a href="https://hesaplarsin.com/hakkimizda.html#kurucu">Duran Gönülalan</a> · Hesaplarsın kurucusu · Kaynaklar: <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></p>
 <!--HZ-FOOT--><footer class="hz-foot"><div class="hz-fin"><div class="hz-fgrid"><div class="hz-fbrand"><a class="hz-logo" href="https://hesaplarsin.com/"><svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="hzg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1341b0"/><stop offset="1" stop-color="#1a56db"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#hzg)"/><rect x="14" y="12" width="36" height="12" rx="3" fill="#fff" opacity=".95"/><g fill="#fff"><rect x="14" y="30" width="9" height="9" rx="2"/><rect x="27.5" y="30" width="9" height="9" rx="2"/><rect x="41" y="30" width="9" height="9" rx="2" fill="#fbbf24"/><rect x="14" y="43" width="9" height="9" rx="2"/><rect x="27.5" y="43" width="9" height="9" rx="2"/><rect x="41" y="43" width="9" height="9" rx="2" fill="#fbbf24"/></g></svg><span>Hesaplarsın</span></a><p>Türkiye’nin ücretsiz hesaplama platformu: maaş, vergi, kredi, emeklilik ve daha fazlası; 2026 güncel resmî verilerle, kayıt gerektirmeden.</p><div class="hz-soc"><a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/hesaplarsin" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:info@hesaplarsin.com">E-posta</a></div></div><div><div class="hz-ft">Popüler araçlar</div><a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş Hesaplama</a><a href="https://hesaplarsin.com/kdv-hesaplama.html">KDV Hesaplama</a><a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a><a href="https://hesaplarsin.com/emeklilik-yasi-hesaplama.html">Emeklilik Hesaplama</a><a href="https://hesaplarsin.com/asgari-ucret-2027-hesaplama.html">Asgari Ücret 2027</a></div><div><div class="hz-ft">Kategoriler</div><a href="https://hesaplarsin.com/maas-hesaplamalari.html">Maaş ve SGK</a><a href="https://hesaplarsin.com/memur-hesaplamalari.html">Kamu ve Memur</a><a href="https://hesaplarsin.com/vergi-hesaplamalari.html">Vergi</a><a href="https://hesaplarsin.com/finans-hesaplamalari.html">Finans ve Kredi</a><a href="https://hesaplarsin.com/isletme-hesaplamalari.html">İşletme</a><a href="https://hesaplarsin.com/emlak-hesaplamalari.html">Emlak ve Kira</a><a href="https://hesaplarsin.com/arac-hesaplamalari.html">Araç</a><a href="https://hesaplarsin.com/saglik-hesaplamalari.html">Sağlık</a><a href="https://hesaplarsin.com/egitim-hesaplamalari.html">Eğitim</a><a href="https://hesaplarsin.com/gunluk-hesaplamalar.html">Günlük</a></div><div><div class="hz-ft">Hesaplarsın</div><a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a><a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a><a href="https://hesaplarsin.com/turkiye-maaslari-2026.html">Türkiye’de Maaşlar 2026</a><a href="https://hesaplarsin.com/ekonomi-takvimi.html">Ekonomi Takvimi</a><a href="https://hesaplarsin.com/blog.html">Blog</a><a href="https://hesaplarsin.com/iletisim.html">İletişim</a><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik Politikası</a><a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a></div></div><div class="hz-fbot"><span>© 2026 Hesaplarsın · Sonuçlar bilgilendirme amaçlıdır; resmî işlemler için yetkili kurumlara danışın.</span><span><a href="mailto:info@hesaplarsin.com">info@hesaplarsin.com</a></span></div></div></footer><!--/HZ-FOOT-->
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

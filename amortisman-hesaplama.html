@@ -223,7 +223,9 @@
     .sidebar { display: flex; flex-direction: column; gap: 18px; }
 
     /* Rates table */
-    .rtable { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    .rtable { width: 100%; border-collapse: collapse; font-size: .8rem; min-width: 0 !important; }
+.rtable td { white-space: normal !important; text-align: left !important; }
+.rtable td:not(:first-child) { white-space: nowrap !important; }
     .rtable th { background: var(--bg); padding: 7px 9px; text-align: left; font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--border); }
     .rtable td { padding: 8px 9px; border-bottom: 1px solid var(--border); }
     .rtable tr:last-child td { border-bottom: none; }
@@ -372,7 +374,7 @@ p a,td a,li p a{text-decoration:underline;text-underline-offset:2px}
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6409842641135945" crossorigin="anonymous"></script>
 <script src="/assets/cerez.js" defer></script>
 
-<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}</style>
+<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi,.ql-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}.main-grid>*{min-width:0}.sidebar table,aside table{min-width:0!important;width:100%!important}.sidebar td:first-child,aside td:first-child{white-space:normal!important}</style>
 <style id="hz-chrome">
 @media(max-width:640px){html body header.hero{padding-top:18px!important;padding-bottom:20px!important;margin-bottom:16px!important}
 html body header.hero h1{font-size:1.5rem!important;margin:8px 0 6px!important}
@@ -436,7 +438,7 @@ header.hero .hero-chips{background:none!important;border:0!important;padding:0!i
   <h1>Amortisman Hesaplama 2026</h1>
   <p>VUK Madde 315'e göre normal ve azalan bakiyeler yöntemiyle varlıklarınızın amortisman tablosunu saniyeler içinde oluşturun.</p>
   <div class="hero-badges">
-    <span class="hbadge green">✓ Ücretsiz</span>
+    <span class="hbadge green">Ücretsiz</span>
     <span class="hbadge blue">2026 Güncel</span>
     <span class="hbadge">Alt Sınır: 12.000 ₺</span>
     <span class="hbadge">VUK Uyumlu</span>
@@ -518,29 +520,28 @@ header.hero .hero-chips{background:none!important;border:0!important;padding:0!i
         <div class="field full">
           <label>Yaygın Varlık Türleri — Tıkla, Otomatik Doldur</label>
           <div class="quick-assets" role="list">
-            <span class="qtag" role="listitem" onclick="fillAsset('Betonarme Bina',50,'%2')">🏢 Bina (50 yıl)</span>
-            <span class="qtag" role="listitem" onclick="fillAsset('Taşıt / Araç',5,'%20')">🚗 Araç (5 yıl)</span>
-            <span class="qtag" role="listitem" onclick="fillAsset('Bilgisayar',4,'%25')">💻 Bilgisayar (4 yıl)</span>
-            <span class="qtag" role="listitem" onclick="fillAsset('Makine Teçhizat',10,'%10')">⚙️ Makine (10 yıl)</span>
-            <span class="qtag" role="listitem" onclick="fillAsset('Mobilya & Demirbaş',5,'%20')">🪑 Mobilya (5 yıl)</span>
-            <span class="qtag" role="listitem" onclick="fillAsset('Yazılım / Lisans',3,'%33')">💾 Yazılım (3 yıl)</span>
-            <span class="qtag" role="listitem" onclick="fillAsset('Patent & Haklar',4,'%25')">📜 Patent (4 yıl)</span>
-            <span class="qtag" role="listitem" onclick="fillAsset('Güneş Paneli',10,'%10')">☀️ GES (10 yıl)</span>
+            <span class="qtag" role="listitem" onclick="fillAsset('Betonarme Bina',50,'%2')">Bina (50 yıl)</span>
+            <span class="qtag" role="listitem" onclick="fillAsset('Taşıt / Araç',5,'%20')">Araç (5 yıl)</span>
+            <span class="qtag" role="listitem" onclick="fillAsset('Bilgisayar',4,'%25')">Bilgisayar (4 yıl)</span>
+            <span class="qtag" role="listitem" onclick="fillAsset('Makine Teçhizat',10,'%10')">Makine (10 yıl)</span>
+            <span class="qtag" role="listitem" onclick="fillAsset('Mobilya & Demirbaş',5,'%20')">Mobilya (5 yıl)</span>
+            <span class="qtag" role="listitem" onclick="fillAsset('Yazılım / Lisans',3,'%33')">Yazılım (3 yıl)</span>
+            <span class="qtag" role="listitem" onclick="fillAsset('Patent & Haklar',4,'%25')">Patent (4 yıl)</span>
+            <span class="qtag" role="listitem" onclick="fillAsset('Güneş Paneli',10,'%10')">GES (10 yıl)</span>
           </div>
         </div>
 
       </div><!-- /form-grid -->
 
-      <button class="btn-calc" onclick="hesapla()" aria-label="Amortisman tablosunu hesapla">
-        📊 Tabloyu Oluştur
+      <button class="btn-calc" onclick="hesapla()" aria-label="Amortisman tablosunu hesapla">Tabloyu Oluştur
       </button>
-      <button class="btn-reset" onclick="sifirla()">↺ Temizle</button>
+      <button class="btn-reset" onclick="sifirla()">Temizle</button>
     </div><!-- /card -->
 
     <!-- SONUÇ -->
     <section id="result-section" aria-live="polite" aria-label="Hesaplama sonuçları">
       <div class="card">
-        <div id="method-tag" class="method-tag">📊 Normal (Doğrusal) Yöntem</div>
+        <div id="method-tag" class="method-tag">Normal (Doğrusal) Yöntem</div>
 
         <div class="summary-grid">
           <div class="sbox"><div class="slabel">Maliyet Bedeli</div><div class="sval" id="r-maliyet">—</div></div>
@@ -571,9 +572,9 @@ header.hero .hero-chips{background:none!important;border:0!important;padding:0!i
         </div>
 
         <div class="export-btns">
-          <button class="btn-exp" onclick="printPage()">🖨️ Yazdır</button>
+          <button class="btn-exp" onclick="printPage()">Yazdır</button>
           <button class="btn-exp" onclick="copyTable()"><svg class="hzi hzb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Kopyala</button>
-          <button class="btn-exp" onclick="downloadCSV()">⬇️ CSV İndir</button>
+          <button class="btn-exp" onclick="downloadCSV()">CSV İndir</button>
         </div>
       </div>
     </section>
@@ -599,15 +600,14 @@ header.hero .hero-chips{background:none!important;border:0!important;padding:0!i
           <tr><td>Güneş Enerjisi Sis.</td><td><span class="rbadge">%10</span></td><td>10 yıl</td></tr>
         </tbody>
       </table>
-      <p class="source-note">
-        📌 Kaynak: <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">Gelir İdaresi Başkanlığı (gib.gov.tr)</a> — VUK 333, 365, 389, 458 No.lu Tebliğler ve GİB Faydalı Ömür Listesi.<br/>
+      <p class="source-note">Kaynak: <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">Gelir İdaresi Başkanlığı (gib.gov.tr)</a> — VUK 333, 365, 389, 458 No.lu Tebliğler ve GİB Faydalı Ömür Listesi.<br/>
         2025–2026 döneminde temel oranlar değişmemiştir. Sektörünüze özgü oranlar için GİB listesinin 7. bölümünden itibaren yer alan sektörel ayrımlara bakınız.
       </p>
     </div>
 
     <!-- 2026 UYARISI -->
     <div class="alert-box">
-      <strong>⚠️ 2026 Alt Sınırı: 12.000 ₺</strong><br/>
+      <strong>2026 Alt Sınırı: 12.000 ₺</strong><br/>
       Bu tutarın altındaki varlıklar aktifleştirilmeden doğrudan gider yazılabilir.
     </div>
 
@@ -615,13 +615,13 @@ header.hero .hero-chips{background:none!important;border:0!important;padding:0!i
     <div class="card">
       <div class="card-title">İlgili Araçlar</div>
       <nav aria-label="İlgili hesaplama araçları">
-        <a class="ql-link" href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html"><div class="ql-icon">📋</div><div><div style="font-weight:600;font-size:.84rem;">Gelir Vergisi</div><div style="font-size:.74rem;color:var(--muted);">Vergi dilim ve tutarı</div></div></a>
-        <a class="ql-link" href="https://hesaplarsin.com/kdv-hesaplama.html"><div class="ql-icon">🧾</div><div><div style="font-weight:600;font-size:.84rem;">KDV Hesaplama</div><div style="font-size:.74rem;color:var(--muted);">Dahil / hariç KDV</div></div></a>
-        <a class="ql-link" href="https://hesaplarsin.com/net-kar-hesaplama.html"><div class="ql-icon">✅</div><div><div style="font-weight:600;font-size:.84rem;">Net Kâr Hesaplama</div><div style="font-size:.74rem;color:var(--muted);">Gelir-gider analizi</div></div></a>
-        <a class="ql-link" href="https://hesaplarsin.com/roi-hesaplama.html"><div class="ql-icon">🎯</div><div><div style="font-weight:600;font-size:.84rem;">ROI Hesaplama</div><div style="font-size:.74rem;color:var(--muted);">Yatırım getiri oranı</div></div></a>
-        <a class="ql-link" href="https://hesaplarsin.com/arac-deger-kaybi-hesaplama.html"><div class="ql-icon">📉</div><div><div style="font-weight:600;font-size:.84rem;">Araç Değer Kaybı</div><div style="font-size:.74rem;color:var(--muted);">Yıllara göre değer</div></div></a>
-        <a class="ql-link" href="https://hesaplarsin.com/yatirim-geri-donus-suresi-hesaplama.html"><div class="ql-icon">⏳</div><div><div style="font-weight:600;font-size:.84rem;">Yatırım Geri Dönüş</div><div style="font-size:.74rem;color:var(--muted);">Kaç yılda amorti?</div></div></a>
-        <a class="ql-link" href="https://hesaplarsin.com/basa-bas-noktasi-hesaplama.html"><div class="ql-icon">🎯</div><div><div style="font-weight:600;font-size:.84rem;">Başa Baş Noktası</div><div style="font-size:.74rem;color:var(--muted);">Kâra geçiş miktarı</div></div></a>
+        <a class="ql-link" href="https://hesaplarsin.com/gelir-vergisi-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></div><div><div style="font-weight:600;font-size:.84rem;">Gelir Vergisi</div><div style="font-size:.74rem;color:var(--muted);">Vergi dilim ve tutarı</div></div></a>
+        <a class="ql-link" href="https://hesaplarsin.com/kdv-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 17.5v-11" /></svg></div><div><div style="font-weight:600;font-size:.84rem;">KDV Hesaplama</div><div style="font-size:.74rem;color:var(--muted);">Dahil / hariç KDV</div></div></a>
+        <a class="ql-link" href="https://hesaplarsin.com/net-kar-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" /></svg></div><div><div style="font-weight:600;font-size:.84rem;">Net Kâr Hesaplama</div><div style="font-size:.74rem;color:var(--muted);">Gelir-gider analizi</div></div></a>
+        <a class="ql-link" href="https://hesaplarsin.com/roi-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" x2="5" y1="5" y2="19" /><circle cx="6.5" cy="6.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" /></svg></div><div><div style="font-weight:600;font-size:.84rem;">ROI Hesaplama</div><div style="font-size:.74rem;color:var(--muted);">Yatırım getiri oranı</div></div></a>
+        <a class="ql-link" href="https://hesaplarsin.com/arac-deger-kaybi-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7" /><polyline points="16 17 22 17 22 11" /></svg></div><div><div style="font-weight:600;font-size:.84rem;">Araç Değer Kaybı</div><div style="font-size:.74rem;color:var(--muted);">Yıllara göre değer</div></div></a>
+        <a class="ql-link" href="https://hesaplarsin.com/yatirim-geri-donus-suresi-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14" /><path d="M5 2h14" /><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22" /><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2" /></svg></div><div><div style="font-weight:600;font-size:.84rem;">Yatırım Geri Dönüş</div><div style="font-size:.74rem;color:var(--muted);">Kaç yılda amorti?</div></div></a>
+        <a class="ql-link" href="https://hesaplarsin.com/basa-bas-noktasi-hesaplama.html"><div class="ql-icon"><svg class="hzi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></svg></div><div><div style="font-weight:600;font-size:.84rem;">Başa Baş Noktası</div><div style="font-size:.74rem;color:var(--muted);">Kâra geçiş miktarı</div></div></a>
       </nav>
     </div>
 </aside><!-- /aside -->
@@ -639,13 +639,13 @@ header.hero .hero-chips{background:none!important;border:0!important;padding:0!i
   </p>
 
   <div class="cite-box">
-    <strong>📌 Yasal Dayanak</strong>
+    <strong>Yasal Dayanak</strong>
     VUK Madde 313: Amortisman mevzuu ve tanımı<br/>
     VUK Madde 315: Normal amortisman yöntemi<br/>
     VUK Mükerrer Madde 315: Azalan bakiyeler yöntemi<br/>
     VUK Madde 317: Fevkalade amortisman<br/>
     GİB Tebliğleri: 333, 365, 389, 399, 406, 418, 439 ve 458 Sıra No.lu VUK Genel Tebliğleri (Faydalı ömür listeleri)<br/>
-    <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">→ gib.gov.tr resmi listeler</a> · <a href="https://www.mevzuat.gov.tr" target="_blank" rel="noopener noreferrer">→ mevzuat.gov.tr</a>
+    <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">gib.gov.tr resmi listeler</a> · <a href="https://www.mevzuat.gov.tr" target="_blank" rel="noopener noreferrer">mevzuat.gov.tr</a>
   </div>
 
   <h2>2026 Yılı Amortisman Kuralları</h2>
@@ -656,7 +656,7 @@ header.hero .hero-chips{background:none!important;border:0!important;padding:0!i
     2025–2026 döneminde <strong>GİB'in yayımladığı faydalı ömür oranları değişmemiştir</strong>; mevcut VUK hükümleri ve 458 No.lu Tebliğ eki liste geçerliliğini korumaktadır. Sektöre özgü oranlar (tarım, inşaat, enerji vb.) listenin 7. bölümünden itibaren yer almaktadır.
   </p>
   <div class="cite-box">
-    <strong>📌 Kaynaklar</strong>
+    <strong>Kaynaklar</strong>
     • VUK Madde 313 ve 2026 tutarları (GİB): Doğrudan gider yazılabilecek amortisman sınırı 12.000 TL<br/>
     • VUK Mükerrer Madde 315: Azalan bakiyeler oranı normal oranın 2 katı, max %50
   </div>
@@ -794,13 +794,13 @@ header.hero .hero-chips{background:none!important;border:0!important;padding:0!i
 
   <!-- Yasal uyarı -->
   <div class="info-box" style="margin-top:28px;">
-    <strong>⚠️ Önemli Not:</strong> Bu araç yalnızca bilgilendirme amaçlıdır. Vergisel işlemlerinizde kesin sonuçlar için lütfen bir <strong>Serbest Muhasebeci Mali Müşavir (SMMM)</strong> veya <strong>Yeminli Mali Müşavir (YMM)</strong> ile çalışınız. Güncel mevzuat değişikliklerini <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">gib.gov.tr</a> üzerinden takip ediniz.
+    <strong>Önemli Not:</strong> Bu araç yalnızca bilgilendirme amaçlıdır. Vergisel işlemlerinizde kesin sonuçlar için lütfen bir <strong>Serbest Muhasebeci Mali Müşavir (SMMM)</strong> veya <strong>Yeminli Mali Müşavir (YMM)</strong> ile çalışınız. Güncel mevzuat değişikliklerini <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">gib.gov.tr</a> üzerinden takip ediniz.
   </div>
 
 </div><!-- /article -->
 
 <!-- FOOTER -->
-<p style="max-width:1100px;margin:18px auto 0;padding:0 16px;font-size:.82rem;color:var(--muted,#64748b)">✍️ Hazırlayan: <a href="https://hesaplarsin.com/hakkimizda.html#kurucu">Duran Gönülalan</a> · Hesaplarsın kurucusu · Kaynaklar: <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></p>
+<p style="max-width:1100px;margin:18px auto 0;padding:0 16px;font-size:.82rem;color:var(--muted,#64748b)">Hazırlayan: <a href="https://hesaplarsin.com/hakkimizda.html#kurucu">Duran Gönülalan</a> · Hesaplarsın kurucusu · Kaynaklar: <a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a></p>
 <!--HZ-FOOT--><footer class="hz-foot"><div class="hz-fin"><div class="hz-fgrid"><div class="hz-fbrand"><a class="hz-logo" href="https://hesaplarsin.com/"><svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="hzg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1341b0"/><stop offset="1" stop-color="#1a56db"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#hzg)"/><rect x="14" y="12" width="36" height="12" rx="3" fill="#fff" opacity=".95"/><g fill="#fff"><rect x="14" y="30" width="9" height="9" rx="2"/><rect x="27.5" y="30" width="9" height="9" rx="2"/><rect x="41" y="30" width="9" height="9" rx="2" fill="#fbbf24"/><rect x="14" y="43" width="9" height="9" rx="2"/><rect x="27.5" y="43" width="9" height="9" rx="2"/><rect x="41" y="43" width="9" height="9" rx="2" fill="#fbbf24"/></g></svg><span>Hesaplarsın</span></a><p>Türkiye’nin ücretsiz hesaplama platformu: maaş, vergi, kredi, emeklilik ve daha fazlası; 2026 güncel resmî verilerle, kayıt gerektirmeden.</p><div class="hz-soc"><a href="https://www.instagram.com/hesaplarsin" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/hesaplarsin" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:info@hesaplarsin.com">E-posta</a></div></div><div><div class="hz-ft">Popüler araçlar</div><a href="https://hesaplarsin.com/net-maas-hesaplama.html">Net Maaş Hesaplama</a><a href="https://hesaplarsin.com/kdv-hesaplama.html">KDV Hesaplama</a><a href="https://hesaplarsin.com/kredi-hesaplama.html">Kredi Hesaplama</a><a href="https://hesaplarsin.com/emeklilik-yasi-hesaplama.html">Emeklilik Hesaplama</a><a href="https://hesaplarsin.com/asgari-ucret-2027-hesaplama.html">Asgari Ücret 2027</a></div><div><div class="hz-ft">Kategoriler</div><a href="https://hesaplarsin.com/maas-hesaplamalari.html">Maaş ve SGK</a><a href="https://hesaplarsin.com/memur-hesaplamalari.html">Kamu ve Memur</a><a href="https://hesaplarsin.com/vergi-hesaplamalari.html">Vergi</a><a href="https://hesaplarsin.com/finans-hesaplamalari.html">Finans ve Kredi</a><a href="https://hesaplarsin.com/isletme-hesaplamalari.html">İşletme</a><a href="https://hesaplarsin.com/emlak-hesaplamalari.html">Emlak ve Kira</a><a href="https://hesaplarsin.com/arac-hesaplamalari.html">Araç</a><a href="https://hesaplarsin.com/saglik-hesaplamalari.html">Sağlık</a><a href="https://hesaplarsin.com/egitim-hesaplamalari.html">Eğitim</a><a href="https://hesaplarsin.com/gunluk-hesaplamalar.html">Günlük</a></div><div><div class="hz-ft">Hesaplarsın</div><a href="https://hesaplarsin.com/hakkimizda.html">Hakkımızda</a><a href="https://hesaplarsin.com/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a><a href="https://hesaplarsin.com/turkiye-maaslari-2026.html">Türkiye’de Maaşlar 2026</a><a href="https://hesaplarsin.com/ekonomi-takvimi.html">Ekonomi Takvimi</a><a href="https://hesaplarsin.com/blog.html">Blog</a><a href="https://hesaplarsin.com/iletisim.html">İletişim</a><a href="https://hesaplarsin.com/gizlilik-politikasi.html">Gizlilik Politikası</a><a href="https://hesaplarsin.com/kullanim-sartlari.html">Kullanım Şartları</a></div></div><div class="hz-fbot"><span>© 2026 Hesaplarsın · Sonuçlar bilgilendirme amaçlıdır; resmî işlemler için yetkili kurumlara danışın.</span><span><a href="mailto:info@hesaplarsin.com">info@hesaplarsin.com</a></span></div></div></footer><!--/HZ-FOOT-->
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

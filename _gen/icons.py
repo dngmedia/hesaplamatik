@@ -47,10 +47,11 @@ def svg(name, cls='hzi'):
 # emoji (+ varyasyon seçici / ZWJ dizileri) ve ardından gelen boşluk
 EMO = r'(?:[\U0001F000-\U0001FAFF☀-➿⬀-⯿←-⇿⌀-⏿](?:️|‍[\U0001F000-\U0001FAFF☀-➿])*)+'
 CSS = ('<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}'
-       '.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}'
+       '.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi,.ql-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}'
        '.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}'
        '.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}'
-       '.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}</style>')
+       '.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}'
+       '.main-grid>*{min-width:0}.sidebar table,aside table{min-width:0!important;width:100%!important}.sidebar td:first-child,aside td:first-child{white-space:normal!important}</style>')
 
 
 def slug_of(href):
@@ -80,6 +81,14 @@ def process(p, s):
     BI = {'📋': 'copy', '💬': 'message-circle'}
     s = re.sub(r'(<button[^>]*onclick="(?:copy\w*|kopyala|paylas)\([^"]*\)"[^>]*>)\s*(📋|💬)\s*',
                lambda m: m.group(1) + svg(BI[m.group(2)], 'hzi hzb'), s)
+    # 3c) bağlantı içindeki tek başına emoji ikonları → SVG (hedef sayfaya göre)
+    s = re.sub(r'(<a\b[^>]*href="([^"]+)"[^>]*>\s*<(span|div|i)\b[^>]*>)\s*' + EMO + r'\s*(</\3>)', card, s)
+    # 3d) metin başındaki emojiler (etiket, buton, rozet, liste, tablo...) — svg/script/style hariç
+    parts = re.split(r'(<svg\b.*?</svg>|<script\b.*?</script>|<style\b.*?</style>)', s, flags=re.S)
+    for i in range(0, len(parts), 2):
+        parts[i] = re.sub(r'(<(?:a|span|strong|b|p|div|td|th|li|button|option|label|h[456]|small|em|summary|figcaption)\b[^>]*>)\s*'
+                          + EMO + r'\s*(?=[^\s<]|<(?!/))', r'\1', parts[i])
+    s = ''.join(parts)
     # 4) eski hesaplayıcılara WhatsApp paylaş
     s = re.sub(r'<script src="/assets/paylas.js" defer></script>\n?', '', s)
     if 'function paylas()' not in s and re.search(r'onclick="copy(?:Result|Res|KazaResult|All)\(', s):
