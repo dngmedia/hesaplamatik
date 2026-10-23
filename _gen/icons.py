@@ -48,7 +48,7 @@ def svg(name, cls='hzi'):
 EMO = r'(?:[\U0001F000-\U0001FAFF☀-➿⬀-⯿←-⇿⌀-⏿](?:️|‍[\U0001F000-\U0001FAFF☀-➿])*)+'
 CSS = ('<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}'
        '.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}'
-       '.calc-icon .hzi{color:#fff}.hero-tag .hzi{margin-right:4px}</style>')
+       '.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}</style>')
 
 
 def slug_of(href):
@@ -68,6 +68,7 @@ def process(p, s):
     s = re.sub(r'(<a class="pop-item"[^>]*href="([^"]+)"[^>]*>.*?<div class="pop-ico">)(.*?)(</div>)', card, s, flags=re.S)
     # 2) başlık etiketi ve hesaplayıcı başlığı
     s = re.sub(r'(<span class="hero-tag">)\s*' + EMO + r'\s*', lambda m: m.group(1) + svg(TOOL.get(slug, 'calculator')), s)
+    s = re.sub(r'(<(?:span|div) class="hero-badge">)\s*' + EMO + r'\s*', lambda m: m.group(1) + svg(TOOL.get(slug, 'calculator')), s)
     s = re.sub(r'(<div class="card-title">)\s*' + EMO + r'\s*', lambda m: m.group(1), s)
     s = re.sub(r'(<div class="calc-icon"[^>]*>)\s*' + EMO + r'\s*(</div>)', lambda m: m.group(1) + svg(TOOL.get(slug, 'calculator')) + m.group(2), s)
     # 3) h1/h2/h3 ve bölüm başlıklarının başındaki emojiler
