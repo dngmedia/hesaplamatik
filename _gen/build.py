@@ -96,3 +96,11 @@ try:
     print('veri sayfası:', _vs.run())
 except Exception as _e:
     print('veri sayfası hatası:', _e)
+
+
+# ── Site geneli tek menü + tek alt bilgi (EN SONDA kalmalı) ──
+try:
+    import chrome as _ch
+    print('menü/footer:', _ch.run())
+except Exception as _e:
+    print('menü/footer hatası:', _e)

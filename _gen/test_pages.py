@@ -54,7 +54,7 @@ with sync_playwright() as p:
             print(('✅' if ok else '❌'), slug, ci, '|', (main[0] if main else 'TOAST: ' + toast), '|', ' ; '.join(r.replace('\n', ': ') for r in rows[:4]), ('| ERR ' + '; '.join(errors) if errors else ''))
     # menü testi
     if not only:
-        pg.goto(f'http://127.0.0.1:{PORT}/yas-hesaplama.html'); pg.click('#hamBtn')
-        print('menü açılıyor:', pg.locator('#navLinks').is_visible())
+        pg.goto(f'http://127.0.0.1:{PORT}/yas-hesaplama.html'); pg.set_viewport_size({'width': 390, 'height': 800}); pg.click('#hzHam')
+        print('menü açılıyor:', pg.locator('#hzLinks').is_visible()); fails += 0 if pg.locator('#hzLinks').is_visible() else 1
     b.close()
 print('HATA SAYISI:', fails)
