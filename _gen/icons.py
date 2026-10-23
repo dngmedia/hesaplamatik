@@ -47,8 +47,10 @@ def svg(name, cls='hzi'):
 # emoji (+ varyasyon seçici / ZWJ dizileri) ve ardından gelen boşluk
 EMO = r'(?:[\U0001F000-\U0001FAFF☀-➿⬀-⯿←-⇿⌀-⏿](?:️|‍[\U0001F000-\U0001FAFF☀-➿])*)+'
 CSS = ('<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}'
-       '.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}'
-       '.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}</style>')
+       '.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}'
+       '.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}'
+       '.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}'
+       '.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}</style>')
 
 
 def slug_of(href):
@@ -63,6 +65,7 @@ def process(p, s):
         return m.group(1) + svg(TOOL.get(slug_of(m.group(2)), 'calculator')) + m.group(4)
     s = re.sub(r'(<a class="(?:rc|kcard|kat-kart|related-card)"[^>]*href="([^"]+)"[^>]*>\s*<span class="(?:ri|kico|kat-ico|rc-icon)">)(.*?)(</span>)',
                card, s, flags=re.S)
+    s = re.sub(r'(<a href="([^"]+)" class="related-item">\s*<span class="ri-icon">)(.*?)(</span>)', card, s, flags=re.S)
     s = re.sub(r'(<a class="ql"[^>]*href="([^"]+)"[^>]*>\s*<i>)(.*?)(</i>)', card, s, flags=re.S)
     s = re.sub(r'(<div class="side-title">)\s*' + EMO + r'\s*', lambda m: m.group(1), s)
     s = re.sub(r'(<a class="pop-item"[^>]*href="([^"]+)"[^>]*>.*?<div class="pop-ico">)(.*?)(</div>)', card, s, flags=re.S)
@@ -73,7 +76,15 @@ def process(p, s):
     s = re.sub(r'(<div class="calc-icon"[^>]*>)\s*' + EMO + r'\s*(</div>)', lambda m: m.group(1) + svg(TOOL.get(slug, 'calculator')) + m.group(2), s)
     # 3) h1/h2/h3 ve bölüm başlıklarının başındaki emojiler
     s = re.sub(r'(<h[123]\b[^>]*>(?:<span class="hico">)?)\s*' + EMO + r'\s*(?:</span>)?\s*', lambda m: m.group(1).replace('<span class="hico">', ''), s)
-    # 4) css
+    # 3b) kopyala / paylaş butonlarındaki emoji
+    BI = {'📋': 'copy', '💬': 'message-circle'}
+    s = re.sub(r'(<button[^>]*onclick="(?:copy\w*|kopyala|paylas)\([^"]*\)"[^>]*>)\s*(📋|💬)\s*',
+               lambda m: m.group(1) + svg(BI[m.group(2)], 'hzi hzb'), s)
+    # 4) eski hesaplayıcılara WhatsApp paylaş
+    s = re.sub(r'<script src="/assets/paylas.js" defer></script>\n?', '', s)
+    if 'function paylas()' not in s and re.search(r'onclick="copy(?:Result|Res|KazaResult|All)\(', s):
+        s = s.replace('</body>', '<script src="/assets/paylas.js" defer></script>\n</body>', 1)
+    # 5) css
     s = re.sub(r'<style id="hz-icons">.*?</style>\n?', '', s, flags=re.S)
     s = s.replace('</head>', CSS + '\n</head>', 1)
     return s

@@ -233,7 +233,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6409842641135945" crossorigin="anonymous"></script>
 <script src="/assets/cerez.js" defer></script>
 
-<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}</style>
+<style id="hz-icons">.hzi{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0}.ri .hzi,.kico .hzi,.kat-ico .hzi,.tc-ico .hzi,.sd-ico .hzi,.calc-icon .hzi,.rc-icon .hzi,.pop-ico .hzi,.ql i .hzi,.ri-icon .hzi{width:22px;height:22px;color:#1a56db;vertical-align:middle}.calc-icon .hzi{color:#fff}.hero-tag .hzi,.hero-badge .hzi{margin-right:4px}.res-actions button[onclick="paylas()"],button.hz-wa{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important;display:inline-flex;align-items:center;justify-content:center}.res-actions button[onclick="paylas()"]:hover,button.hz-wa:hover{background:#dcfce7!important}.hzb{margin-right:5px}.copy-btn.hz-wa{margin-top:-.4rem!important}.btn-copy.hz-wa{margin-left:6px}</style>
 <style id="hz-chrome">
 @media(max-width:640px){html body header.hero{padding-top:18px!important;padding-bottom:20px!important;margin-bottom:16px!important}
 html body header.hero h1{font-size:1.5rem!important;margin:8px 0 6px!important}
@@ -382,7 +382,7 @@ footer.hz-foot a:hover{color:#fff!important}
       </div>
 
       <div class="export-btns">
-        <button class="btn-exp" onclick="copyResult()">📋 Kopyala</button>
+        <button class="btn-exp" onclick="copyResult()"><svg class="hzi hzb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Kopyala</button>
         <button class="btn-exp" onclick="downloadCSV()">⬇️ CSV İndir</button>
         <button class="btn-exp" onclick="window.print()">🖨️ Yazdır</button>
       </div>
@@ -752,6 +752,7 @@ document.addEventListener('keydown',e=>{
 });
 </script>
 
+<script src="/assets/paylas.js" defer></script>
 <script id="hz-js">(function(){var b=document.getElementById('hzHam'),n=document.getElementById('hzLinks');if(!b||!n)return;
 b.addEventListener('click',function(e){e.stopPropagation();var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);});
 document.addEventListener('click',function(e){if(!n.contains(e.target)&&e.target!==b)n.classList.remove('open');});})();</script>
