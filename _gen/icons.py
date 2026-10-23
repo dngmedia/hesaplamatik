@@ -106,6 +106,14 @@ def index_js(s):
     return s
 
 
+def blog_clean(s):
+    """Blog listesi: etiket/başlık/menü metinlerinin başındaki emojileri kaldırır (SVG kapak görsellerine dokunmaz)."""
+    parts = re.split(r'(<svg\b.*?</svg>|<script\b.*?</script>|<style\b.*?</style>)', s, flags=re.S)
+    for i in range(0, len(parts), 2):
+        parts[i] = re.sub(r'>(\s*)' + EMO + r'\s*', r'>\1', parts[i])
+    return ''.join(parts)
+
+
 def run():
     n = 0
     for p in sorted(glob.glob('*.html') + glob.glob('blog/*.html')):
@@ -115,6 +123,8 @@ def run():
         s = process(p, s)
         if p == 'index.html':
             s = index_js(s)
+        if p == 'blog.html':
+            s = blog_clean(s)
         if s != o:
             open(p, 'w', encoding='utf-8').write(s); n += 1
     return n

@@ -131,7 +131,7 @@ def shell():
 
 
 def card(slug, t):
-    b = ' <span style="font-size:.68rem;background:#dcfce7;color:#047857;border-radius:6px;padding:1px 6px;margin-left:4px">Yeni</span>' if t['badge'] == 'new' else ''
+    b = ''
     return (f'<a class="kcard" href="{BASE}/{slug}.html"><span class="kico">{t["ico"]}</span><span><strong>{E(t["name"])}</strong>{b}'
             f'<small>{E(t["desc"])}</small></span></a>')
 
