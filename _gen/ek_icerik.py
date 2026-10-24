@@ -643,3 +643,169 @@ EK['gun-hesaplama']['article'] += '''
 EK['gun-hesaplama']['faq'] += [
     ('Sevgilimle kaç gün olduğunu nasıl hesaplarım?', 'Başlangıç tarihine birlikte olmaya başladığınız günü girin ve bitiş tarihini boş bırakın; araç bugüne kadar geçen gün, hafta, ay ve yılı gösterir.'),
 ]
+
+
+# ═════════════ 4. PARTİ (24 Ekim): metni ince kalan araçlara hesaplanmış tablolar ═════════════
+
+# ───────────── İNDİRİM ─────────────
+_ind = [5, 10, 15, 20, 25, 30, 40, 50, 60, 70]
+_tk_n, _tk_r = 6, 0.03   # 6 taksit, varsayılan aylık %3 alternatif getiri
+_tk_pv = sum((1 / _tk_n) / (1 + _tk_r) ** i for i in range(1, _tk_n + 1))
+EK['indirim-hesaplama'] = dict(article='''
+<h2 id="hazir-tablo">Hazır indirim tablosu: hangi oran kaç lira eder?</h2>
+<p>Aşağıdaki tabloda farklı fiyattaki ürünlerin en sık görülen indirim oranlarıyla ne kadara düştüğü hesaplanmıştır. Kendi fiyatınız tabloda yoksa en yakın satırı seçip yukarıdaki hesaplayıcıya girin.</p>
+''' + tablo(['İndirim', '500 ₺ ürün', '1.000 ₺ ürün', '2.500 ₺ ürün', '10.000 ₺ ürün'],
+            [[f'%{o}'] + [f(p * (1 - o / 100), 0) + ' ₺' for p in (500, 1000, 2500, 10000)] for o in _ind]) + f'''
+<p>Kısa yol: %10 indirimde fiyatın sonundaki sıfırı atıp çıkarın (2.500 → 250 → 2.250 ₺); %25 indirim fiyatın dörtte birini, %50 indirim yarısını düşer.</p>
+
+<h2 id="pesin-taksit">Peşin indirim mi, taksit mi?</h2>
+<p>Mağazalar çoğu zaman “peşine %5–10 indirim” ya da “vade farksız 6 taksit” seçeneği sunar. Hangisinin kârlı olduğu, peşin ödeyeceğiniz paranın taksit süresince size ne kazandıracağına bağlıdır. Paranızı ayda yaklaşık %{f(_tk_r * 100, 0)} net getiriyle değerlendirebildiğinizi varsayalım: vade farksız {_tk_n} taksitin bugünkü değeri, fiyatın yaklaşık <b>%{f(_tk_pv * 100, 1)}</b>’ine denk gelir.</p>
+<div class="example"><p>Yani bu varsayımda peşin indirim <b>%{f((1 - _tk_pv) * 100, 1)}</b>’ten yüksekse peşin ödemek, düşükse taksit kazançlıdır. Getiri oranı düştükçe taksitin avantajı da azalır. Güncel getirinizi mevduat faizi hesaplama ile kontrol edebilirsiniz.</p></div>
+<p>Taksitli alımda kredi kartı limitinizin bloke olacağını ve taksitlerin aylık bütçenizde yer kaplayacağını da hesaba katın.</p>
+''', faq=[('%15 indirim nasıl hesaplanır?', 'Fiyatı 0,85 ile çarpın. Örneğin 1.000 ₺’lik ürün %15 indirimle 850 ₺ olur; indirim tutarı 150 ₺’dir.'),
+          ('Peşin %10 indirim mi, 6 taksit mi daha avantajlı?', f'Paranızı ayda yaklaşık %3 net getiriyle değerlendirebiliyorsanız vade farksız 6 taksitin bugünkü değeri fiyatın yaklaşık %{f(_tk_pv * 100, 1)}’idir. Bu durumda %10 peşin indirim daha avantajlıdır.')])
+
+# ───────────── KÂR MARJI ─────────────
+EK['kar-marji-hesaplama'] = dict(article='''
+<h2 id="donusum">Kâr marjı ve kâr oranı (markup) dönüşüm tablosu</h2>
+<p>Tedarikçiniz “maliyete %50 ekliyorum”, muhasebeciniz “marjımız %33” diyorsa ikisi aynı şeyi söylüyordur. Dönüşüm formülleri: <b>Markup = Marj ÷ (1 − Marj)</b> ve <b>Marj = Markup ÷ (1 + Markup)</b>.</p>
+''' + tablo(['Kâr marjı (satışa göre)', 'Kâr oranı / markup (maliyete göre)', '100 ₺ maliyette satış fiyatı'],
+            [[f'%{m}', '%' + f(m / (100 - m) * 100, 1), f(100 / (1 - m / 100), 2) + ' ₺'] for m in (10, 15, 20, 25, 30, 35, 40, 50, 60)]) + '''
+
+<h2 id="indirim-hacim">İndirimden sonra aynı kârı korumak için ne kadar fazla satmalısınız?</h2>
+<p>İndirim, satış fiyatından doğrudan kârınızı keser. Toplam kârınızın değişmemesi için satış adedinin ne kadar artması gerektiği <b>Marj ÷ (Marj − İndirim) − 1</b> formülüyle bulunur:</p>
+''' + tablo(['Mevcut kâr marjı', '%5 indirim', '%10 indirim', '%15 indirim', '%20 indirim'],
+            [[f'%{m}'] + [('+%' + f((m / (m - d) - 1) * 100, 0)) if m > d else 'Zarar' for d in (5, 10, 15, 20)] for m in (20, 30, 40, 50)]) + '''
+<div class="example"><p>Örnek: %30 marjla çalışan bir mağaza %10 indirim yaptığında, aynı toplam kârı elde etmek için <b>%50 daha fazla</b> ürün satmak zorundadır. %20 marjlı bir üründe %20 indirim ise kârı tamamen sıfırlar.</p></div>
+<p>Bu yüzden düşük marjlı ürünlerde indirim yerine “2 al 1 öde”, kargo bedava veya hediye ürün gibi kampanyalar çoğu zaman daha az kâr kaybettirir.</p>
+''', faq=[('%50 markup kaç kâr marjı eder?', 'Maliyete %50 eklemek, satış fiyatına göre %33,3 kâr marjı demektir: 0,50 ÷ 1,50 = 0,333.'),
+          ('%10 indirim kârı ne kadar etkiler?', '%30 kâr marjlı bir üründe %10 indirim, birim kârın üçte birini götürür; aynı toplam kâr için satışların %50 artması gerekir.')])
+
+# ───────────── NET KÂR ─────────────
+_S, _M, _G, _V = 1_000_000, 600_000, 200_000, 0.25
+def _nk(s=_S, m=_M, g=_G):
+    return (s - m - g) * (1 - _V)
+_nk0 = _nk()
+_sen = [('Mevcut durum', _nk0),
+        ('Fiyatlar %5 artırılırsa (adet aynı)', _nk(s=_S * 1.05)),
+        ('Satılan malın maliyeti %5 düşürülürse', _nk(m=_M * 0.95)),
+        ('Faaliyet giderleri %10 azaltılırsa', _nk(g=_G * 0.90)),
+        ('Satış adedi %10 artarsa (maliyet de artar)', _nk(s=_S * 1.1, m=_M * 1.1)),
+        ('Fiyatlar %5 indirilirse (adet aynı)', _nk(s=_S * 0.95))]
+EK['net-kar-hesaplama'] = dict(article='''
+<h2 id="kar-artirma">Net kârı en çok ne artırır? Duyarlılık tablosu</h2>
+<p>Yukarıdaki örnek işletmeyi (1.000.000 ₺ satış, 600.000 ₺ satılan malın maliyeti, 200.000 ₺ faaliyet gideri, %25 kurumlar vergisi) baz alarak, tek bir kalemdeki değişimin net kâra etkisini hesapladık:</p>
+''' + tablo(['Senaryo', 'Net kâr', 'Değişim'],
+            [[a, f(b, 0) + ' ₺', '—' if i == 0 else ('+' if b >= _nk0 else '−') + '%' + f(abs(b / _nk0 - 1) * 100, 1)] for i, (a, b) in enumerate(_sen)]) + f'''
+<p>Tablo önemli bir gerçeği gösteriyor: düşük marjlı işletmelerde <b>fiyattaki %5’lik değişim net kârı %{f((_sen[1][1] / _nk0 - 1) * 100, 0)} oynatır</b>, çünkü fiyat artışının tamamı doğrudan kâra eklenir. Satış adedini artırmak ise maliyeti de büyüttüğü için daha az etkilidir. Fiyatlandırmanızı gözden geçirmek için kâr marjı hesaplama, sabit giderlerinizi karşılayan satış seviyesini görmek için başa baş noktası aracını kullanabilirsiniz.</p>
+
+<h2 id="aylik-takip">Net kârı aylık takip etmek</h2>
+<p>Yıllık hesap, sorunları geç fark etmenize neden olur. Her ay sonunda satışları, alışları ve giderleri ayrı ayrı toplayıp bu hesaplayıcıya girerek aylık net kârınızı ve marjınızı izleyin. Marj iki-üç ay üst üste düşüyorsa genellikle maliyet artışlarının fiyata yansıtılmadığı anlamına gelir.</p>
+<p>Vergi tahmini yaparken peşin ödenen geçici vergileri de unutmayın; kurumlar ve gelir vergisi mükellefleri üçer aylık dönemler halinde geçici vergi beyan eder.</p>
+''', faq=[('Fiyat artışı mı, maliyet düşürmek mi net kârı daha çok artırır?', f'Örnek işletmede fiyatları %5 artırmak net kârı %{f((_sen[1][1] / _nk0 - 1) * 100, 0)}, satılan malın maliyetini %5 düşürmek %{f((_sen[2][1] / _nk0 - 1) * 100, 0)} artırır. Fiyat artışının tamamı kâra eklendiği için etkisi daha büyüktür.')])
+
+# ───────────── KREDİ ERKEN KAPAMA ─────────────
+_P, _r, _n = 300_000, 0.0349 * 1.30, 36
+_tak = _P * _r * (1 + _r) ** _n / ((1 + _r) ** _n - 1)
+def _kalan(k, P=_P, r=_r, n=_n):
+    return P * ((1 + r) ** n - (1 + r) ** k) / ((1 + r) ** n - 1)
+_rows = []
+for k in (6, 12, 18, 24, 30):
+    ka = _kalan(k); kt = _tak * (_n - k)
+    _rows.append([f'{k}. taksitten sonra', f(ka, 0) + ' ₺', f(kt, 0) + ' ₺', f(kt - ka, 0) + ' ₺'])
+# kısmi ödeme: 12. taksitten sonra 100.000 ₺ ara ödeme
+_k0 = _kalan(12); _ara = 100_000; _yeni = _k0 - _ara
+_tak_b = _yeni * _r * (1 + _r) ** 24 / ((1 + _r) ** 24 - 1)              # vade aynı, taksit düşer
+_n_a = math.log(_tak / (_tak - _yeni * _r)) / math.log(1 + _r)           # taksit aynı, vade kısalır
+_bal = _yeni; _odenen_a = 0.0
+while _bal > 0.005:
+    faiz = _bal * _r; od = min(_tak, _bal + faiz); _odenen_a += od; _bal = _bal + faiz - od
+_faiz_a = _odenen_a - _yeni; _faiz_b = _tak_b * 24 - _yeni
+EK['kredi-erken-kapama-hesaplama'] = dict(article=f'''
+<h2 id="hangi-taksitte">Kaçıncı taksitte kapatırsanız ne kadar kazanırsınız?</h2>
+<p>Yukarıdaki örnek krediyle (300.000 ₺, aylık %3,49 faiz, 36 ay, BSMV ve KKDF dahil taksit ≈ {f(_tak, 0)} ₺) krediyi farklı zamanlarda kapatmanın sonucu:</p>
+''' + tablo(['Kapatma zamanı', 'Ödenecek kalan anapara', 'Kapatmazsanız ödeyeceğiniz', 'Kazancınız'], _rows) + f'''
+<p>Tablo, erken kapamanın kazancının vade ilerledikçe hızla azaldığını gösteriyor: ilk yılın sonunda kapatmak yaklaşık {f(_tak * 24 - _kalan(12), 0)} ₺ kazandırırken, son yarıyılda kazanç {f(_tak * 6 - _kalan(30), 0)} ₺’ye iner.</p>
+
+<h2 id="kismi-odeme">Kısmi ödeme: vadeyi mi kısaltmalı, taksiti mi düşürmeli?</h2>
+<p>Aynı krediye 12. taksitten sonra <b>100.000 ₺ ara ödeme</b> yaptığınızı düşünelim. Kalan borç {f(_k0, 0)} ₺’den {f(_yeni, 0)} ₺’ye iner ve banka size iki seçenek sunar:</p>
+''' + tablo(['Seçenek', 'Yeni taksit', 'Kalan vade', 'Kalan faiz + vergi'], [
+    ['Taksit aynı kalsın, vade kısalsın', f(_tak, 0) + ' ₺', f'yaklaşık {math.ceil(_n_a)} ay', f(_faiz_a, 0) + ' ₺'],
+    ['Vade aynı kalsın, taksit düşsün', f(_tak_b, 0) + ' ₺', '24 ay', f(_faiz_b, 0) + ' ₺']]) + f'''
+<div class="example"><p>Vadeyi kısaltmak bu örnekte yaklaşık <b>{f(_faiz_b - _faiz_a, 0)} ₺ daha az</b> faiz ödetir. Taksiti düşürmek ise aylık bütçenizi rahatlatır. Bütçeniz mevcut taksiti kaldırabiliyorsa vadeyi kısaltmak genellikle daha kazançlıdır.</p></div>
+''', faq=[('Kısmi erken ödemede vade mi kısaltılmalı, taksit mi düşürülmeli?', f'Toplam maliyet açısından vadeyi kısaltmak daha avantajlıdır. 300.000 ₺’lik örnek kredide 12. aydan sonra yapılan 100.000 ₺ ara ödemede vadeyi kısaltmak, taksiti düşürmeye göre yaklaşık {f(_faiz_b - _faiz_a, 0)} ₺ daha az faiz ödetir.')])
+
+# ───────────── YILLIK İZİN ─────────────
+def _izin(y, korumali=False):
+    g = 14 if y <= 5 else (20 if y < 15 else 26)
+    return max(g, 20) if korumali else g
+_iz = []
+for y in (1, 2, 3, 5, 6, 10, 14, 15, 20, 25):
+    _iz.append([f'{y}. yıl', f'{_izin(y)} gün', f'{sum(_izin(i) for i in range(1, y + 1))} gün', f'{_izin(y, True)} gün'])
+_BR = 33030
+EK['yillik-izin-hesaplama'] = dict(article='''
+<h2 id="kumulatif">Kıdeme göre toplam izin hakkı tablosu</h2>
+<p>Hiç izin kullanmamış bir çalışanın işten ayrılırken talep edebileceği toplam izin, her kıdem yılında kazanılan izinlerin toplamıdır. Aşağıdaki tablo İş Kanunu’ndaki asgari sürelerle hesaplanmıştır:</p>
+''' + tablo(['Kıdem yılı', 'O yıl kazanılan izin', 'Toplam birikmiş izin', '18 yaş altı / 50 yaş üstü (o yıl)'], _iz) + f'''
+<p>Not: 18 yaşından küçük veya 50 yaşından büyük çalışanlarda her yıl en az 20 gün izin verilir; birikmiş toplamı bu yaş aralığında geçen yıllara göre ayrıca hesaplamak gerekir.</p>
+
+<h2 id="izin-ucreti-tablo">Kullanılmayan izin ücreti örnekleri (brüt)</h2>
+<p>İzin ücreti son brüt maaşın 30’a bölünüp gün sayısıyla çarpılmasıyla bulunur. Farklı maaş seviyeleri için brüt izin ücreti:</p>
+''' + tablo(['Brüt aylık ücret', '14 gün', '20 gün', '26 gün', '60 gün (birikmiş)'],
+            [[f(b, 0) + ' ₺'] + [f(b / 30 * g, 0) + ' ₺' for g in (14, 20, 26, 60)] for b in (_BR, 45000, 60000, 80000, 100000)]) + f'''
+<p>İlk satır 2026 brüt asgari ücretidir ({f(_BR, 0)} ₺). İzin ücretinden gelir vergisi, damga vergisi ve SGK primi kesildiği için elinize geçecek net tutar daha düşük olur. Net tutarı görmek için brüt tutarı net maaş hesaplama aracına girebilirsiniz.</p>
+''', faq=[('10 yıl çalışan işçinin toplam kaç gün izin hakkı olur?', f'Hiç izin kullanılmadıysa 1–5. yıllarda 14’er, 6–10. yıllarda 20’şer gün olmak üzere toplam {sum(_izin(i) for i in range(1, 11))} gün yıllık izin birikir.'),
+          ('Asgari ücretlinin 14 günlük izin ücreti ne kadar?', f'2026 brüt asgari ücreti {f(_BR, 0)} ₺ üzerinden 14 günlük izin ücreti brüt {f(_BR / 30 * 14, 0)} ₺’dir; vergi ve SGK kesintisi sonrası net tutar daha düşüktür.')])
+
+# ───────────── ENFLASYON ─────────────
+TUFE = {2010: 6.40, 2011: 10.45, 2012: 6.16, 2013: 7.40, 2014: 8.17, 2015: 8.81, 2016: 8.53, 2017: 11.92, 2018: 20.30,
+        2019: 11.84, 2020: 14.60, 2021: 36.08, 2022: 64.27, 2023: 64.77, 2024: 44.38, 2025: 30.89}
+def _kum(y0, y1=2025):
+    x = 1.0
+    for y in range(y0 + 1, y1 + 1):
+        x *= 1 + TUFE[y] / 100
+    return x
+_en = [[f'{y} sonu', f(1000 * _kum(y), 0) + ' ₺', '%' + f((_kum(y) - 1) * 100, 0), '%' + f((1 - 1 / _kum(y)) * 100, 1)]
+       for y in (2010, 2012, 2015, 2018, 2020, 2021, 2022, 2023, 2024)]
+EK['enflasyon-hesaplama'] = dict(article='''
+<h2 id="bugunku-deger">1.000 ₺’nin 2025 sonundaki karşılığı (yıllara göre)</h2>
+<p>TÜİK’in yıllık (Aralık) TÜFE oranları bileşik olarak çarpılarak, geçmiş yıllardaki 1.000 ₺’nin 2025 sonu fiyatlarıyla neye karşılık geldiği ve paranın ne kadar alım gücü kaybettiği hesaplanmıştır:</p>
+''' + tablo(['Başlangıç', '2025 sonu karşılığı', 'Toplam fiyat artışı', 'Alım gücü kaybı'], _en) + f'''
+<p>Örneğin 2020 sonunda cebinizde duran 1.000 ₺, 2025 sonunda yalnızca yaklaşık {f(1000 / _kum(2020), 0)} ₺’lik alım gücüne sahiptir. Bu yüzden uzun süre nakit tutmak, yüksek enflasyon dönemlerinde en pahalı tercihlerden biridir.</p>
+
+<h2 id="maas-karsilastirma">Maaşım enflasyona yenildi mi?</h2>
+<p>Maaş artışınızı enflasyonla karşılaştırırken aynı dönemi kullanın. Geçen yıl 40.000 ₺ olan maaşınız bu yıl 50.000 ₺ olduysa artış %25’tir. Aynı dönemde yıllık enflasyon %30 ise reel maaşınız 1,25 ÷ 1,30 − 1 = <b>yaklaşık %3,8 düşmüştür</b>. Alım gücünüzü korumak için maaşınızın 40.000 × 1,30 = 52.000 ₺ olması gerekirdi.</p>
+<p>Kendi maaşınız için hesaplayıcıya eski maaşınızı ve yılını girin; çıkan tutar, alım gücünüzü korumak için gereken maaştır.</p>
+''', faq=[('2020’deki 1.000 TL bugün kaç TL eder?', f'TÜİK yıllık TÜFE verilerine göre 2020 sonundaki 1.000 ₺, 2025 sonu fiyatlarıyla yaklaşık {f(1000 * _kum(2020), 0)} ₺’ye karşılık gelir; fiyatlar beş yılda yaklaşık {f(_kum(2020), 1)} kat artmıştır.'),
+          ('Reel maaş artışı nasıl hesaplanır?', '(1 + maaş artış oranı) ÷ (1 + enflasyon oranı) − 1 formülü kullanılır. %25 zam ve %30 enflasyonda reel değişim yaklaşık −%3,8’dir.')])
+
+# ───────────── ÖTV ─────────────
+_KDV = 0.20
+_ot = []
+for o in (0, 10, 20, 25, 40, 50, 60, 80, 100, 150, 220):
+    c = (1 + o / 100) * (1 + _KDV)
+    _ot.append([f'%{o}', f(100 * c, 0) + ' ₺', '%' + f((c - 1) * 100, 0), '%' + f((1 - 1 / c) * 100, 1)])
+EK['otv-hesaplama'] = dict(article='''
+<h2 id="vergi-yuku">ÖTV oranına göre toplam vergi yükü tablosu</h2>
+<p>ÖTV ve KDV iç içe hesaplandığı için toplam vergi, iki oranın toplamından daha yüksektir. Aşağıdaki tabloda %20 KDV ile birlikte farklı ÖTV oranlarında vergisiz 100 ₺’lik bir ürünün satış fiyatı ve fiyatın ne kadarının vergi olduğu hesaplanmıştır:</p>
+''' + tablo(['ÖTV oranı', 'Vergisiz 100 ₺ → satış fiyatı', 'Vergisiz fiyata göre toplam vergi', 'Satış fiyatı içindeki vergi payı'], _ot) + '''
+<p>Tablodan bir otomobilin, telefonun veya başka bir ÖTV’li ürünün fiyatının ne kadarının vergi olduğunu kolayca görebilirsiniz. Örneğin %80 ÖTV’li bir otomobilde satış fiyatının yarısından fazlası vergidir.</p>
+
+<h2 id="otv-matrah-ornek">ÖTV dilimine yakın fiyatlarda dikkat</h2>
+<p>Otomobil gibi ürünlerde ÖTV oranı matrah dilimine göre değiştiği için vergisiz fiyatı dilim sınırını küçük bir farkla aşan bir araç, bir üst oranla vergilendirilir. Bu durumda satış fiyatındaki fark, vergisiz fiyat farkının çok üzerinde olabilir. Bu yüzden bazı modeller dilim sınırının hemen altında fiyatlandırılır.</p>
+<div class="example"><p>Örnek: Vergisiz fiyatı aynı olan iki araçtan biri %60, diğeri %80 ÖTV dilimine girerse 1.000.000 ₺ matrahta fark: 1.000.000 × (1,80 − 1,60) × 1,20 = <b>240.000 ₺</b>.</p></div>
+''', faq=[('%80 ÖTV’li bir ürünün fiyatının yüzde kaçı vergi?', '%80 ÖTV ve %20 KDV ile satış fiyatı vergisiz fiyatın 2,16 katıdır; satış fiyatının yaklaşık %53,7’si vergidir.')])
+
+# ───────────── KÂR PAYI ─────────────
+_kp_o, _kp_g, _kp_s = 0.40, 32, 0.175
+_kp_ay = _kp_o * _kp_g / 365 * (1 - _kp_s)          # 32 günlük net getiri oranı
+EK['kar-payi-hesaplama'] = dict(article=f'''
+<h2 id="aylik-gelir">Aylık belirli bir kâr payı için ne kadar para gerekir?</h2>
+<p>“Ayda 20.000 ₺ kâr payı almak için hesapta ne kadar para olmalı?” sorusunun cevabı, oran ve stopajla birlikte tersten hesaplanır: <b>Gereken tutar = Hedef net kâr payı ÷ (Oran × Gün ÷ 365 × (1 − Stopaj))</b>. Yıllık %{f(_kp_o * 100, 0)} tahmini oran, {_kp_g} günlük vade ve %17,5 stopajla:</p>
+''' + tablo(['Hedef aylık net kâr payı', 'Gereken anapara', 'Brüt kâr payı', 'Stopaj'],
+            [[f(h, 0) + ' ₺', f(h / _kp_ay, 0) + ' ₺', f(h / (1 - _kp_s), 0) + ' ₺', f(h / (1 - _kp_s) * _kp_s, 0) + ' ₺'] for h in (5000, 10000, 20000, 30000, 50000, 100000)]) + f'''
+<p>Oran yükselirse gereken tutar düşer, oran düşerse artar. Bankanızın ilan ettiği güncel oranı yukarıdaki hesaplayıcıya girerek kendi sonucunuzu görebilirsiniz.</p>
+
+<h2 id="reel-getiri">Kâr payı enflasyonu karşılıyor mu?</h2>
+<p>Kâr payı getirisini değerlendirirken stopaj sonrası net oranı enflasyonla karşılaştırın. Yıllık %{f(_kp_o * 100, 0)} brüt oran, %17,5 stopajla yaklaşık %{f(_kp_o * (1 - _kp_s) * 100, 0)} net getiriye iner. Kâr payını her ay anaparaya ekleyip vadeyi yenilerseniz bileşik etkiyle yıllık net getiri yaklaşık %{f(((1 + _kp_ay) ** (365 / _kp_g) - 1) * 100, 1)} olur. Yıllık enflasyon bu oranın üzerindeyse paranızın alım gücü azalıyor demektir; hesap için enflasyon hesaplama aracını kullanabilirsiniz.</p>
+''', faq=[('Ayda 20.000 TL kâr payı için ne kadar para gerekir?', f'Yıllık %40 tahmini oran, 32 günlük vade ve %17,5 stopajla yaklaşık {f(20000 / _kp_ay, 0)} ₺ gerekir. Oran değiştikçe gereken tutar da değişir.')])
