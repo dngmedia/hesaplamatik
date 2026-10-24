@@ -858,7 +858,7 @@ Net Maaş        = Brüt − SGK − İşsizlik − Gelir Vergisi − Damga Verg
       <h2>Bordronuzu Kontrol Ederken Dikkat Edilecekler</h2>
       <ul>
         <li><strong>Kümülatif matrah:</strong> Yıl içinde iş değiştirdiyseniz yeni işvereniniz eski kümülatif matrahınızı devralır; bu yüzden yeni işte net maaşınız beklediğinizden düşük olabilir.</li>
-        <li><strong>SGK tavanı:</strong> Brüt maaşınız 247.725 ₺'yi aşıyorsa SGK ve işsizlik primi yalnızca bu tavan üzerinden kesilir.</li>
+        <li><strong>SGK tavanı:</strong> Brüt maaşınız 297.270 ₺'yi aşıyorsa SGK ve işsizlik primi yalnızca bu tavan üzerinden kesilir.</li>
         <li><strong>Engellilik indirimi:</strong> Engellilik derecenize göre aylık 3.000–12.000 ₺ vergi matrahınızdan düşülür.</li>
         <li><strong>Ek ödemeler:</strong> Prim, ikramiye ve fazla mesai o ayın brütüne eklenir ve aynı kesintilere tabidir; kümülatif matrahı hızlandırarak sonraki ayların netini de etkiler.</li>
       </ul>
@@ -995,7 +995,7 @@ Net Maaş        = Brüt − SGK − İşsizlik − Gelir Vergisi − Damga Verg
   const ISSIZLIK    = 0.01;
   const DAMGA       = 0.00759;
   const ASGARIBR    = 33030;              // 2026 brüt asgari ücret
-  const SGK_TAVAN   = ASGARIBR * 7.5;     // SGK prime esas kazanç üst sınırı
+  const SGK_TAVAN   = ASGARIBR * 9;       // SGK prime esas kazanç üst sınırı
   const ASGARIMTR   = ASGARIBR * (1 - SGK - ISSIZLIK); // 28.075,50 ₺ — asgari ücret GV matrahı
 
   // 2026 ücret gelirleri gelir vergisi tarifesi (GVK m.103)
