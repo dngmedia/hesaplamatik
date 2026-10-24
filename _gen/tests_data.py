@@ -70,3 +70,8 @@ TESTS['ekonomi-takvimi']=[dict(fill={'grup':'enflasyon'}, expect='gün'), dict(f
 TESTS['maas-siralamasi']=[dict(fill={'maas':'42.000'}, expect='En üst'), dict(fill={'maas':'28075,50'}, expect='46,7'), dict(fill={'maas':'20000'}, expect='Alt %25'), dict(fill={'maas':'150000'}, expect='≈')]
 TESTS['emekli-maasi-hesaplama']=[dict(fill={'tur':'ssk','maas':'30000','aylik':'1'}, expect='32.630,66'), dict(fill={'tur':'memur','maas':'30000','aylik':'1'}, expect='32.020,74'), dict(fill={'tur':'bagkur','maas':'20000','aylik':'1'}, expect='23.552')]
 TESTS['obp-hesaplama']=[dict(fill={'dip':'85','ham':'380'}, expect='425'), dict(fill={'dip':'40'}, expect='250'), dict(fill={'dip':'80'}, check=['once'], expect='400,00')]
+
+TESTS['lgs-puan-hesaplama']=[dict(fill={'trd':'17','matd':'15','fend':'16','inkd':'9','dind':'9','ingd':'8'}, expect='442,31'),
+  dict(fill={'trd':'20','matd':'20','fend':'20','inkd':'10','dind':'10','ingd':'10'}, expect='499,96')]
+TESTS['kpss-puan-hesaplama']=[dict(fill={'gyd':'45','gyy':'12','gkd':'40','gky':'16'}, expect='82,09'),
+  dict(radio={'duz':'onlisans'}, fill={'gyd':'45','gyy':'12','gkd':'40','gky':'16'}, expect='85,33')]

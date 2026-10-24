@@ -13,7 +13,7 @@ CATPAGE = {'maas-hesaplamalari': 'wallet', 'memur-hesaplamalari': 'landmark', 'v
 TOOL = {
  'net-maas-hesaplama': 'wallet', 'kidem-tazminati-hesaplama': 'briefcase', 'ihbar-tazminati-hesaplama': 'file-text', 'fazla-mesai-hesaplama': 'clock',
  'saatlik-ucret-hesaplama': 'timer', 'maas-siralamasi': 'chart-bar', 'issizlik-maasi-hesaplama': 'shield-check', 'maas-zam-hesaplama': 'trending-up',
- 'prim-hesaplama': 'badge-percent', 'emeklilik-yasi-hesaplama': 'hourglass', 'asgari-ucret-hesaplama': 'banknote', 'asgari-ucret-2027-hesaplama': 'trending-up', 'emekli-maasi-hesaplama': 'hand-coins', 'obp-hesaplama': 'graduation-cap',
+ 'prim-hesaplama': 'badge-percent', 'emeklilik-yasi-hesaplama': 'hourglass', 'asgari-ucret-hesaplama': 'banknote', 'asgari-ucret-2027-hesaplama': 'trending-up', 'emekli-maasi-hesaplama': 'hand-coins', 'obp-hesaplama': 'graduation-cap', 'lgs-puan-hesaplama': 'graduation-cap', 'kpss-puan-hesaplama': 'landmark',
  'yillik-izin-hesaplama': 'sun', 'turkiye-maaslari-2026': 'chart-column', 'memur-maaslari': 'landmark', 'ogretmen-maasi': 'graduation-cap',
  'polis-maasi': 'shield-check', 'hemsire-maasi': 'heart-pulse', 'doktor-maasi': 'activity', 'muhendis-maasi': 'ruler', 'memur-emekli-zammi-hesaplama': 'trending-up',
  'kdv-hesaplama': 'receipt', 'kdv-haric-hesaplama': 'receipt', 'gelir-vergisi-hesaplama': 'file-text', 'otv-hesaplama': 'car', 'amortisman-hesaplama': 'chart-line',

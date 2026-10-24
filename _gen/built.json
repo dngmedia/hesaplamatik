@@ -244,6 +244,16 @@
   "name": "OBP Hesaplama",
   "cat": "egitim"
  },
+ "lgs-puan-hesaplama": {
+  "ico": "🎒",
+  "name": "LGS Puan Hesaplama",
+  "cat": "egitim"
+ },
+ "kpss-puan-hesaplama": {
+  "ico": "🏛️",
+  "name": "KPSS Puan Hesaplama",
+  "cat": "egitim"
+ },
  "memur-maaslari": {
   "ico": "🏛️",
   "name": "Memur Maaşları 2026–2027",

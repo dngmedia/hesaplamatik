@@ -39,6 +39,8 @@ def enf_etki(veri):
 EVENTS = [(t, 'enflasyon', f'{v} enflasyonu', f'TÜİK, saat 10:00 · Belirler: {enf_etki(v)}', '/kira-artis-hesaplama.html') for t, v in ENF]
 EVENTS += [
     ('2026-10-22', 'faiz', 'TCMB faiz kararı (PPK)', 'Politika faizi %37’den %36’ya indirildi (−100 baz puan)', '/mevduat-faizi-hesaplama.html'),
+    ('2026-10-30', 'sinav', 'KPSS Önlisans sonuçları', 'ÖSYM 4 Ekim sınavının sonuçlarını açıklar (P93)', '/kpss-puan-hesaplama.html'),
+    ('2026-11-19', 'sinav', 'KPSS Ortaöğretim sonuçları', 'ÖSYM 25 Ekim sınavının sonuçlarını açıklar (P94)', '/kpss-puan-hesaplama.html'),
     ('2026-11-12', 'faiz', 'TCMB Enflasyon Raporu', 'Merkez Bankası enflasyon tahminlerini günceller', '/enflasyon-hesaplama.html'),
     ('2026-12-10', 'faiz', 'TCMB faiz kararı (PPK)', 'Para Politikası Kurulu toplantısı, saat 14:00', '/mevduat-faizi-hesaplama.html'),
     ('2027-01-21', 'faiz', 'TCMB faiz kararı (PPK)', 'Para Politikası Kurulu toplantısı', '/mevduat-faizi-hesaplama.html'),
@@ -60,7 +62,7 @@ EVENTS += [
     ('2027-08-02', 'vergi', 'MTV 2. taksit ve gelir vergisi 2. taksit son gün', '31 Temmuz Cumartesi olduğu için süre 2 Ağustos’a uzar', '/mtv-hesaplama.html'),
 ]
 EVENTS.sort()
-GRUP = {'enflasyon': '📈 Enflasyon', 'faiz': '🏦 Faiz', 'maas': '💼 Maaş & Zam', 'vergi': '🧾 Vergi', 'tatil': '🗓️ Tatil'}
+GRUP = {'enflasyon': '📈 Enflasyon', 'faiz': '🏦 Faiz', 'maas': '💼 Maaş & Zam', 'vergi': '🧾 Vergi', 'sinav': '🎓 Sınav', 'tatil': '🗓️ Tatil'}
 
 JS = '''
 var EV=''' + _j.dumps(EVENTS, ensure_ascii=False) + r''';
@@ -80,7 +82,7 @@ function hesapla(){
 
 FORM = '''<div class="form-grid"><div class="field full"><label for="grup">Hangi tarihler?</label><select id="grup">
 <option value="hepsi">Tümü</option><option value="enflasyon">📈 Enflasyon ve kira artış oranı</option><option value="maas">💼 Maaş, zam ve asgari ücret</option>
-<option value="faiz">🏦 Merkez Bankası faiz kararları</option><option value="vergi">🧾 Vergi ve ödeme son günleri</option><option value="tatil">🗓️ Bayram ve tatiller</option></select></div></div>'''
+<option value="faiz">🏦 Merkez Bankası faiz kararları</option><option value="vergi">🧾 Vergi ve ödeme son günleri</option><option value="sinav">🎓 Sınav sonuçları</option><option value="tatil">🗓️ Bayram ve tatiller</option></select></div></div>'''
 
 
 def _row(e):

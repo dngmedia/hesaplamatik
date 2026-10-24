@@ -126,6 +126,16 @@ for _k in ('tyt-net-hesaplama', 'ayt-net-hesaplama', 'not-ortalamasi-hesaplama')
     M.setdefault(_k, []); M[_k] = ['obp-hesaplama'] + [x for x in M[_k] if x != 'obp-hesaplama']
 M['obp-hesaplama'] = ['tyt-net-hesaplama', 'ayt-net-hesaplama', 'not-ortalamasi-hesaplama']
 
+N['lgs-puan-hesaplama'] = 'LGS puan hesaplama (netten tahmini puan)'; N['kpss-puan-hesaplama'] = 'KPSS puan hesaplama (P3, P93, P94)'
+N['kpss-net-hesaplama'] = N.get('kpss-net-hesaplama', 'KPSS net hesaplama')
+for _k in ('obp-hesaplama', 'not-ortalamasi-hesaplama', 'takdir-tesekkur-hesaplama'):
+    M.setdefault(_k, []); M[_k] = ['lgs-puan-hesaplama'] + [x for x in M[_k] if x != 'lgs-puan-hesaplama']
+M.setdefault('kpss-net-hesaplama', []); M['kpss-net-hesaplama'] = ['kpss-puan-hesaplama'] + [x for x in M['kpss-net-hesaplama'] if x != 'kpss-puan-hesaplama']
+for _k in ('memur-maaslari',):
+    M.setdefault(_k, []); M[_k] = M[_k] + ['kpss-puan-hesaplama'] if 'kpss-puan-hesaplama' not in M[_k] else M[_k]
+M['lgs-puan-hesaplama'] = ['obp-hesaplama', 'not-ortalamasi-hesaplama', 'takdir-tesekkur-hesaplama']
+M['kpss-puan-hesaplama'] = ['kpss-net-hesaplama', 'memur-maaslari', 'yas-hesaplama']
+
 def block(src):
     items = [t for t in M.get(src, []) if t != src and os.path.exists(t + '.html')]
     if not items:

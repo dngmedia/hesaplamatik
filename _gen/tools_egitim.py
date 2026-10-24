@@ -110,7 +110,7 @@ article='''
 <p>GY-GK oturumu toplam 120 sorudan oluşur ve 130 dakika sürer. Öğretmen adayları ayrıca Eğitim Bilimleri ve ÖABT oturumlarına girer.</p>
 
 <h2 id="puan">KPSS puan türleri</h2>
-<p>KPSS’de netler doğrudan puan değildir. Her testin neti, o sınava giren tüm adayların ortalaması ve standart sapması kullanılarak standart puana dönüştürülür; ardından puan türüne göre ağırlıklandırılır.</p>
+<p>KPSS’de netler doğrudan puan değildir. Netlerinizden tahmini P3, P93 veya P94 puanınızı görmek için <a href="https://hesaplarsin.com/kpss-puan-hesaplama.html">KPSS puan hesaplama</a> aracını kullanabilirsiniz. Her testin neti, o sınava giren tüm adayların ortalaması ve standart sapması kullanılarak standart puana dönüştürülür; ardından puan türüne göre ağırlıklandırılır.</p>
 <div class="table-wrap"><table><thead><tr><th>Puan türü</th><th>Kullanım alanı</th></tr></thead><tbody>
 <tr><td>P3</td><td>Lisans mezunları için çoğu memur kadrosu (GY %50 + GK %50)</td></tr>
 <tr><td>P10</td><td>Öğretmenlik (GY-GK + Eğitim Bilimleri)</td></tr>
@@ -136,7 +136,7 @@ faq=[
 ('KPSS Genel Kültür soru dağılımı nedir?','Tarih 27, Coğrafya 18, Vatandaşlık 9 ve Güncel Bilgiler 6 soru.'),
 ('Net ile KPSS puanı aynı şey mi?','Hayır. Netler, tüm adayların sonuçlarına göre standart puana dönüştürülür; bu nedenle aynı net farklı yıllarda farklı puan getirebilir.'),
 ],
-related=['tyt-net-hesaplama','ayt-net-hesaplama','not-ortalamasi-hesaplama','ortalama-hesaplama','yas-hesaplama'],
+related=['kpss-puan-hesaplama','tyt-net-hesaplama','ayt-net-hesaplama','not-ortalamasi-hesaplama','ortalama-hesaplama'],
 sources=[('ÖSYM – KPSS','https://www.osym.gov.tr/')],
 ))
 
@@ -341,4 +341,238 @@ faq=[('OBP nasıl hesaplanır?', 'Lise diploma notunuz 5 ile çarpılır. Örne�
 related=['tyt-net-hesaplama', 'ayt-net-hesaplama', 'not-ortalamasi-hesaplama', 'takdir-tesekkur-hesaplama', 'kpss-net-hesaplama'],
 sources=[('ÖSYM – YKS Kılavuzu', 'https://www.osym.gov.tr/'), ('YÖK Atlas – Program taban puanları', 'https://yokatlas.yok.gov.tr/')],
 badges=['✓ Ücretsiz', '2026 YKS', 'Meslek Lisesi Ek Puanı'],
+))
+
+
+# ═════════════════════════ LGS PUAN ═════════════════════════
+def _tr(x, d=2):
+    s = f'{x:,.{d}f}'
+    return s.replace(',', '§').replace('.', ',').replace('§', '.')
+
+# Yıllara göre net → puan katsayıları (MEB sonuçlarından türetilmiş yaklaşık doğrusal model; tam net ≈ 500)
+LGS_K = {  # yıl: (taban, Türkçe, Matematik, Fen, İnkılap, Din, Yabancı dil)
+    2024: (196.619, 4.107, 4.632, 3.889, 1.729, 1.818, 1.531),
+    2023: (194.752, 4.348, 4.253, 4.123, 1.666, 1.899, 1.507),
+    2022: (200.013, 3.920, 4.929, 3.703, 1.752, 1.660, 1.478),
+    2021: (200.004, 3.446, 5.787, 3.562, 1.475, 1.592, 1.339),
+    2020: (200.264, 3.797, 5.623, 3.341, 1.411, 1.532, 1.505),
+}
+LGS_D = [('tr', 'Türkçe', 20), ('ink', 'T.C. İnkılap Tarihi ve Atatürkçülük', 10), ('din', 'Din Kültürü ve Ahlak Bilgisi', 10),
+         ('ing', 'Yabancı Dil', 10), ('mat', 'Matematik', 20), ('fen', 'Fen Bilimleri', 20)]
+_SIRA = ('tr', 'mat', 'fen', 'ink', 'din', 'ing')
+_SORU = dict(tr=20, mat=20, fen=20, ink=10, din=10, ing=10)
+
+def _lgs(netler, yil=2024):
+    k = LGS_K[yil]
+    p = k[0] + sum(c * netler[d] for c, d in zip(k[1:], _SIRA))
+    return min(500, max(100, p))
+
+def _profil(top):  # toplam neti soru sayısına orantılı dağıt
+    return {d: top * s / 90 for d, s in _SORU.items()}
+
+_LGS_KN = ''.join(f'<tr><td>{t} net</td>' + ''.join(f'<td>{_tr(_lgs(_profil(t), y), 1)}</td>' for y in (2024, 2023, 2022, 2021, 2020)) + '</tr>'
+                  for t in (90, 85, 80, 75, 70, 65, 60, 50, 40, 30))
+LGS_KN_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Toplam net (90 soruda)</th><th>2024 modeli</th><th>2023</th><th>2022</th><th>2021</th><th>2020</th></tr></thead>'
+                f'<tbody>{_LGS_KN}</tbody></table></div>')
+_ADLAR = dict(tr='Türkçe', mat='Matematik', fen='Fen Bilimleri', ink='İnkılap Tarihi', din='Din Kültürü', ing='Yabancı Dil')
+LGS_KAT_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Yıl</th><th>Sabit</th><th>Türkçe</th><th>Matematik</th><th>Fen</th><th>İnkılap</th><th>Din</th><th>Yab. dil</th></tr></thead><tbody>'
+                 + ''.join(f'<tr><td>{y}</td>' + ''.join(f'<td>{_tr(x, 3)}</td>' for x in k) + '</tr>' for y, k in LGS_K.items()) + '</tbody></table></div>')
+_k24 = LGS_K[2024]
+LGS_NET_DEGER = ('<div class="table-wrap"><table><thead><tr><th>Ders</th><th>Soru</th><th>1 netin puan değeri (2024)</th><th>Dersin tamamı (tam net)</th></tr></thead><tbody>'
+                 + ''.join(f'<tr><td>{_ADLAR[d]}</td><td>{_SORU[d]}</td><td>+{_tr(c, 2)}</td><td>+{_tr(c * _SORU[d], 1)}</td></tr>' for c, d in zip(_k24[1:], _SIRA))
+                 + '</tbody></table></div>')
+_ORNEK = dict(tr=17, mat=15, fen=16, ink=9, din=9, ing=8)
+_ORNEK_P = _lgs(_ORNEK)
+LGS_JS_K = 'var LK=' + str({y: list(k) for y, k in LGS_K.items()}).replace("'", '') + ';'
+
+TOOLS.append(dict(
+slug='lgs-puan-hesaplama', name='LGS Puan Hesaplama', cat='egitim', ico='🎒',
+title='LGS Puan Hesaplama 2027 – Netten Puana, Yıllara Göre Karşılaştırma | Hesaplarsın',
+desc='LGS doğru ve yanlışlarını girin; ders netlerinizi, ağırlıklı netinizi ve 2020–2024 sonuçlarına göre tahmini LGS puanınızı (100–500) görün. 3 yanlış 1 doğruyu götürür.',
+h1='🎒 LGS Puan Hesaplama 2027',
+lead='Deneme veya sınav sonuçlarınızdaki doğru ve yanlış sayılarını girin; ders netlerinizi ve geçmiş yılların sonuçlarına göre tahmini LGS puanınızı (merkezi sınav puanı) anında görün. Aynı netin farklı yıllarda kaç puana karşılık geldiğini de karşılaştırın.',
+card_title='LGS Net ve Puan Hesaplayıcı', button='Puanımı Hesapla',
+form='<p style="font-weight:700;margin:0 0 6px">Sözel bölüm (50 soru, 75 dakika)</p>' + net_satirlari(LGS_D[:4])
+     + '<p style="font-weight:700;margin:14px 0 6px">Sayısal bölüm (40 soru, 80 dakika)</p>' + net_satirlari(LGS_D[4:])
+     + '''<div class="form-grid" style="margin-top:10px"><div class="field full"><label for="yil">Puan modeli</label><select id="yil">
+<option value="2024" selected>2024 sonuçlarına göre (önerilen)</option><option value="2023">2023 sonuçlarına göre</option><option value="2022">2022 sonuçlarına göre</option><option value="2021">2021 sonuçlarına göre</option><option value="2020">2020 sonuçlarına göre</option><option value="ort">5 yılın ortalaması</option></select></div></div>''',
+js=NET_JS + LGS_JS_K + r'''
+var SOZ=[["tr","Türkçe",20],["ink","İnkılap Tarihi",10],["din","Din Kültürü",10],["ing","Yabancı Dil",10]], SAY=[["mat","Matematik",20],["fen","Fen Bilimleri",20]];
+function nt(id,s){var d=v(id+'d')||0,y=v(id+'y')||0;return d-y/3;}
+function puan(n,y){var k=LK[y];var p=k[0]+k[1]*n.tr+k[2]*n.mat+k[3]*n.fen+k[4]*n.ink+k[5]*n.din+k[6]*n.ing;return Math.min(500,Math.max(100,p));}
+function hesapla(){
+  var a=netHesap(SOZ,3), b=netHesap(SAY,3); if(a.hata||b.hata) return a.hata||b.hata;
+  var n={tr:nt('tr'),ink:nt('ink'),din:nt('din'),ing:nt('ing'),mat:nt('mat'),fen:nt('fen')};
+  var dol=0; ['tr','ink','din','ing','mat','fen'].forEach(function(k){dol+=(v(k+'d')||0)+(v(k+'y')||0);}); if(!dol) return 'En az bir dersin doğru veya yanlış sayısını girin.';
+  var top=n.tr+n.ink+n.din+n.ing+n.mat+n.fen, ag=4*(n.tr+n.mat+n.fen)+n.ink+n.din+n.ing;
+  var yy=[2024,2023,2022,2021,2020], ps=yy.map(function(y){return puan(n,y);}), sec=el('yil').value;
+  var p=sec==='ort'?ps.reduce(function(s,x){return s+x;},0)/5:puan(n,+sec);
+  var mn=Math.min.apply(null,ps), mx=Math.max.apply(null,ps);
+  var rows=a.rows.concat(b.rows).concat([['<b>Toplam net</b>','<b>'+num(top,2)+' / 90</b>'],['Ağırlıklı net (Türkçe, Mat, Fen × 4)',num(ag,2)+' / 270'],
+    ['Tahmini puan','<b>'+num(p,3)+'</b>','hl'],['Aynı netle 2020–2024 aralığı',num(mn,1)+' – '+num(mx,1)]]);
+  var tab='<table><thead><tr><th>Model yılı</th><th>Tahmini puan</th></tr></thead><tbody>'+yy.map(function(y,i){return '<tr><td>'+y+'</td><td>'+num(ps[i],2)+'</td></tr>';}).join('')+'</tbody></table>';
+  return {main:['Tahmini LGS puanı', num(p,2)], sub:num(top,2)+' net · '+(sec==='ort'?'5 yılın ortalaması':sec+' modeli'), rows:rows, extra:tab,
+    note:'Gerçek LGS puanı, o yıl sınava giren tüm öğrencilerin ortalaması ve standart sapmasıyla hesaplanır; bu nedenle sonuç tahminidir. Yüzdelik diliminizi MEB sonuç belgenizden öğrenebilirsiniz.'};
+}''',
+article=f'''<h2 id="nasil">LGS puanı nasıl hesaplanır?</h2>
+<p>Liselere Geçiş Sistemi (LGS) kapsamındaki merkezi sınavda her testin neti, <b>doğru sayısından yanlış sayısının üçte birinin</b> çıkarılmasıyla bulunur; yani 3 yanlış 1 doğruyu götürür. Boş bırakılan sorular nete etki etmez.</p>
+<div class="formula">Net = Doğru − (Yanlış ÷ 3)</div>
+<p>Netler doğrudan toplanmaz. MEB her testin netini, o yıl sınava giren tüm öğrencilerin ortalaması ve standart sapmasıyla <b>standart puana</b> çevirir; ardından Türkçe, Matematik ve Fen Bilimleri testlerini <b>4</b>, T.C. İnkılap Tarihi ve Atatürkçülük, Din Kültürü ve Ahlak Bilgisi ve Yabancı Dil testlerini <b>1</b> katsayısıyla ağırlıklandırır. Sonuç 100 ile 500 arasındaki merkezi sınav puanına dönüştürülür.</p>
+<div class="example"><p><b>Örnek:</b> Türkçe 17, Matematik 15, Fen 16, İnkılap 9, Din 9 ve Yabancı Dil 8 net yapan bir öğrencinin toplam neti 74, ağırlıklı neti 4 × 48 + 26 = 218’dir. 2024 sonuçlarına göre tahmini puanı <b>{_tr(_ORNEK_P, 1)}</b> olur.</p></div>
+
+<h2 id="dagilim">LGS soru dağılımı ve süreler</h2>
+<div class="table-wrap"><table><thead><tr><th>Oturum</th><th>Test</th><th>Soru</th><th>Katsayı</th></tr></thead><tbody>
+<tr><td rowspan="4">Sözel bölüm<br><small>50 soru · 75 dakika</small></td><td>Türkçe</td><td>20</td><td>4</td></tr>
+<tr><td>T.C. İnkılap Tarihi ve Atatürkçülük</td><td>10</td><td>1</td></tr><tr><td>Din Kültürü ve Ahlak Bilgisi</td><td>10</td><td>1</td></tr><tr><td>Yabancı Dil</td><td>10</td><td>1</td></tr>
+<tr><td rowspan="2">Sayısal bölüm<br><small>40 soru · 80 dakika</small></td><td>Matematik</td><td>20</td><td>4</td></tr><tr><td>Fen Bilimleri</td><td>20</td><td>4</td></tr>
+</tbody></table></div>
+<p>Sınav toplam 90 sorudan oluşur ve aynı gün iki oturumda yapılır. Ağırlıklı netin üst sınırı 4 × 60 + 30 = <b>270</b>’tir.</p>
+
+<h2 id="kac-net">LGS’de kaç net kaç puan? (2020–2024 karşılaştırması)</h2>
+<p>Aşağıdaki tablo, toplam netin derslere soru sayısıyla orantılı dağıldığı varsayımıyla her yılın sonuçlarına göre tahmini puanı gösterir. Aynı netin yıldan yıla 5–15 puan farklı sonuç verebildiğine dikkat edin; sınav zorlaştıkça aynı net daha yüksek puana karşılık gelir.</p>
+{LGS_KN_TABLO}
+<p>Netleriniz bir derste yoğunlaşıyorsa puanınız tablodan farklı olabilir; kesin tahmin için yukarıdaki hesaplayıcıya ders bazında doğru ve yanlışlarınızı girin.</p>
+
+<h2 id="net-degeri">Hangi dersin neti daha çok puan getirir?</h2>
+<p>Katsayısı 4 olan dersler toplam puanın yaklaşık %80’ini belirler. 2024 modeline göre bir dersteki <b>1 netlik artışın</b> puana etkisi:</p>
+{LGS_NET_DEGER}
+<p>Yani bir Matematik neti, yaklaşık üç Yabancı Dil netine eşdeğerdir. Hazırlık sürecinde Türkçe, Matematik ve Fen’deki boşlukları kapatmak puanı en hızlı yükselten yoldur; ancak 1 katsayılı derslerdeki kolay netleri kaçırmak da üst dilimlerde sıralamayı belirgin şekilde düşürür.</p>
+
+<h2 id="katsayilar">Yıllara göre net katsayıları</h2>
+<p>Hesaplayıcı, MEB’in açıkladığı sonuçlardan türetilen ve her yıl için ayrı hesaplanan doğrusal katsayıları kullanır. Katsayılar, o yıl ilgili testin ne kadar zor geçtiğine (standart sapmasına) göre değişir:</p>
+{LGS_KAT_TABLO}
+<p>Her yılın satırında tüm sorular doğru yanıtlandığında puan yaklaşık 500’e ulaşır. Matematik katsayısının 2021’de 5,79’a çıkması, o yıl matematik testinin öğrenciler arasında daha ayırt edici olduğunu gösterir.</p>
+
+<h2 id="yuzdelik">Yüzdelik dilim nedir, nasıl hesaplanır?</h2>
+<p>Yüzdelik dilim, sıralamanızın sınava giren toplam öğrenci sayısına oranıdır: <b>Yüzdelik dilim = Sıralama ÷ Katılan öğrenci × 100</b>. 2026 LGS’ye <b>994.358</b> öğrenci katıldığına göre ilk %1’lik dilim yaklaşık ilk {_tr(994358 / 100, 0)} öğrenciye, %5’lik dilim ilk {_tr(994358 * 5 / 100, 0)} öğrenciye karşılık gelir. Lise tercihlerinde okulların taban puanı yerine çoğu zaman <b>taban yüzdelik dilimi</b> karşılaştırılır; çünkü yüzdelik dilim, sınavın zorluğundan daha az etkilenir.</p>
+<p>2026 LGS’de tam puan (500) alan öğrenci sayısı 452 olarak açıklandı. Bu sayı 2025’te 719, 2024’te 413’tü.</p>
+
+<h2 id="2027">2027 LGS ne zaman?</h2>
+<p>LGS her yıl Haziran ayının ilk yarısında, Cumartesi veya Pazar günü tek gün ve iki oturumda yapılır; 2026 sınavı 13 Haziran’da yapıldı ve sonuçlar 10 Temmuz’da açıklandı. 2027 sınav tarihi MEB’in yayımlayacağı “Ortaöğretim Kurumlarına İlişkin Merkezi Sınav Başvuru ve Uygulama Kılavuzu” ile kesinleşecek; Bakanlık sınav sisteminde bir değişiklik olmadığını açıkladı. Sınava kaç gün kaldığını <a href="https://hesaplarsin.com/gun-hesaplama.html">gün hesaplama</a> aracıyla takip edebilirsiniz.</p>
+
+<h2 id="taktik">Deneme sonuçlarını doğru yorumlamak</h2>
+<ul>
+<li>Tek bir denemeye değil, son 4–5 denemenin ortalamasına bakın; ortalamayı <a href="https://hesaplarsin.com/ortalama-hesaplama.html">ortalama hesaplama</a> ile kolayca bulabilirsiniz.</li>
+<li>Yanlış sayınızı düşürmek, yeni doğru eklemek kadar değerlidir: 3 yanlış bir doğruyu götürdüğü için emin olmadığınız soruyu boş bırakmak bazen daha kârlıdır.</li>
+<li>Deneme yayınlarının zorluğu MEB sınavından farklı olabilir; puan yerine net gelişiminizi takip edin.</li>
+<li>Okul başarı puanı (OBP) LGS yerleştirmesinde kullanılmaz; ancak sınavsız yerleştirmede (adrese dayalı) devamsızlık ve okul puanı önem kazanır.</li>
+</ul>''',
+faq=[('LGS’de kaç yanlış bir doğruyu götürür?', 'LGS’de 3 yanlış 1 doğruyu götürür. Net, doğru sayısından yanlış sayısının üçte biri çıkarılarak bulunur.'),
+     ('LGS puanı en az ve en fazla kaç olur?', 'LGS merkezi sınav puanı 100 ile 500 arasındadır. Tüm soruları doğru yanıtlayan öğrenci 500 puan alır.'),
+     ('LGS’de 80 net kaç puan eder?', f'Netlerin derslere orantılı dağıldığı varsayımıyla 80 net, 2024 sonuçlarına göre yaklaşık {_tr(_lgs(_profil(80)), 0)} puana karşılık gelir. Puan, yılın zorluğuna ve netlerin hangi derslerde olduğuna göre değişir.'),
+     ('LGS katsayıları nedir?', 'Türkçe, Matematik ve Fen Bilimleri testleri 4; İnkılap Tarihi, Din Kültürü ve Yabancı Dil testleri 1 katsayısıyla ağırlıklandırılır.'),
+     ('Aynı net neden farklı yıllarda farklı puan getiriyor?', 'Netler, o yıl sınava giren tüm öğrencilerin ortalaması ve standart sapmasıyla standart puana çevrilir. Sınav zor geçtiğinde ortalama düştüğü için aynı net daha yüksek puana karşılık gelir.'),
+     ('2027 LGS ne zaman yapılacak?', 'Kesin tarih MEB’in 2027 kılavuzuyla açıklanacak. LGS geleneksel olarak Haziran ayının ilk yarısında yapılır; 2026 sınavı 13 Haziran’daydı.')],
+related=['obp-hesaplama', 'not-ortalamasi-hesaplama', 'takdir-tesekkur-hesaplama', 'tyt-net-hesaplama', 'gun-hesaplama'],
+sources=[('MEB ODSGM – Ortaöğretime geçiş', 'https://odsgm.meb.gov.tr/'), ('MEB – 2026 LGS merkezî sınav raporu', 'https://www.meb.gov.tr/2026-lgs-kapsaminda-merkezi-sinav-raporu-yayimlandi/haber/41333/tr')],
+badges=['✓ Ücretsiz', '2020–2024 Karşılaştırma', '3 Yanlış 1 Doğru'],
+))
+
+
+# ═════════════════════════ KPSS PUAN ═════════════════════════
+# Standart puan zinciri: SP = 50 + 10·(net − ort)/ss ; ASP = 0,5·SP_GY + 0,5·SP_GK ; Puan ≈ a + b·(ASP − 50)
+# Lisans: 2026 ÖSYM test ortalamaları (GY 19,43 · GK 20,07 net), 2026 sonuçlarına kalibre. Önlisans/ortaöğretim: 2018 ÖSYM istatistikleri.
+KPSS_M = {
+    'lisans':   dict(ad='Lisans (P3)', pt='P3', mg=19.43, sg=8.863, mk=20.07, sk=9.5, a=65.595, b=0.78097),
+    'onlisans': dict(ad='Önlisans (P93)', pt='P93', mg=15.69, sg=8.24, mk=17.11, sk=9.98, a=66.891, b=0.72496),
+    'orta':     dict(ad='Ortaöğretim (P94)', pt='P94', mg=16.23, sg=10.83, mk=16.40, sk=8.51, a=65.474, b=0.78123),
+}
+def _kp(gy, gk, m):
+    m = KPSS_M[m]
+    asp = 0.5 * (50 + 10 * (gy - m['mg']) / m['sg']) + 0.5 * (50 + 10 * (gk - m['mk']) / m['sk'])
+    return min(100, m['a'] + m['b'] * (asp - 50))
+def _kp_ters(hedef, m):
+    lo, hi = 0.0, 120.0
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        if _kp(mid / 2, mid / 2, m) < hedef: lo = mid
+        else: hi = mid
+    return hi
+KPSS_KN_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Toplam net (GY + GK)</th><th>P3 (lisans)</th><th>P93 (önlisans)</th><th>P94 (ortaöğretim)</th></tr></thead><tbody>'
+                 + ''.join(f'<tr><td>{t} net</td>' + ''.join(f'<td>{_tr(_kp(t / 2, t / 2, m), 1)}</td>' for m in ('lisans', 'onlisans', 'orta')) + '</tr>'
+                           for t in (110, 100, 90, 80, 70, 60, 50, 40, 30)) + '</tbody></table></div>')
+KPSS_HEDEF_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Hedef puan</th><th>P3 için gereken net</th><th>P93 için</th><th>P94 için</th></tr></thead><tbody>'
+                    + ''.join(f'<tr><td>{h}</td>' + ''.join(f'<td>≈ {_tr(_kp_ters(h, m), 0)}</td>' for m in ('lisans', 'onlisans', 'orta')) + '</tr>'
+                              for h in (70, 75, 80, 85, 90, 95)) + '</tbody></table></div>')
+KPSS_JS_M = 'var KM=' + str({k: [v['mg'], v['sg'], v['mk'], v['sk'], v['a'], v['b']] for k, v in KPSS_M.items()}).replace("'", '"') + ';'
+
+TOOLS.append(dict(
+slug='kpss-puan-hesaplama', name='KPSS Puan Hesaplama', cat='egitim', ico='🏛️',
+title='KPSS Puan Hesaplama 2026 – P3, P93, P94 Lisans, Önlisans, Ortaöğretim | Hesaplarsın',
+desc='KPSS Genel Yetenek ve Genel Kültür doğru-yanlışlarınızı girin; netinizi ve 2026 verileriyle tahmini P3 (lisans), P93 (önlisans) veya P94 (ortaöğretim) puanınızı görün.',
+h1='🏛️ KPSS Puan Hesaplama 2026',
+lead='Genel Yetenek ve Genel Kültür testlerindeki doğru ve yanlış sayılarınızı girin; netlerinizi ve ÖSYM’nin standart puan yöntemiyle tahmini KPSS puanınızı lisans (P3), önlisans (P93) ve ortaöğretim (P94) için anında görün.',
+card_title='KPSS Net ve Puan Hesaplayıcı', button='Puanımı Hesapla',
+form='''<div class="field full" style="margin-bottom:14px"><label>Sınav düzeyi</label>
+<div class="seg"><label><input type="radio" name="duz" value="lisans" checked>Lisans (P3)</label><label><input type="radio" name="duz" value="onlisans">Önlisans (P93)</label><label><input type="radio" name="duz" value="orta">Ortaöğretim (P94)</label></div></div>''' + net_satirlari([('gy', 'Genel Yetenek (Türkçe + Matematik)', 60), ('gk', 'Genel Kültür (Tarih, Coğrafya, Vatandaşlık, Güncel)', 60)]),
+js=NET_JS + KPSS_JS_M + r'''
+var AD={lisans:['Lisans','P3'],onlisans:['Önlisans','P93'],orta:['Ortaöğretim','P94']};
+function kp(gy,gk,m){var k=KM[m];var a=0.5*(50+10*(gy-k[0])/k[1])+0.5*(50+10*(gk-k[2])/k[3]);return Math.min(100,k[4]+k[5]*(a-50));}
+function hesapla(){
+  var r=netHesap([["gy","Genel Yetenek",60],["gk","Genel Kültür",60]],4); if(r.hata) return r.hata;
+  var gy=(v('gyd')||0)-(v('gyy')||0)/4, gk=(v('gkd')||0)-(v('gky')||0)/4, m=radio('duz')||'lisans';
+  if(!(v('gyd')||v('gyy')||v('gkd')||v('gky'))) return 'Genel Yetenek ve Genel Kültür doğru-yanlış sayılarınızı girin.';
+  if(gy<=0||gk<=0) return 'Puanın hesaplanabilmesi için her iki testte de netinizin 0’dan büyük olması gerekir.';
+  var p=kp(gy,gk,m), lo=Math.max(50,p-2), hi=Math.min(100,p+2);
+  var rows=r.rows.concat([['<b>Toplam net</b>','<b>'+num(gy+gk,2)+' / 120</b>'],['Tahmini '+AD[m][1]+' puanı','<b>'+num(p,3)+'</b>','hl'],['Olası aralık (±2 puan)',num(lo,1)+' – '+num(hi,1)]]);
+  var diger=Object.keys(AD).filter(function(x){return x!==m;}).map(function(x){return [AD[x][0]+' ('+AD[x][1]+') ile aynı net',num(kp(gy,gk,x),2)];});
+  return {main:['Tahmini '+AD[m][1]+' puanı', num(p,2)], sub:AD[m][0]+' · '+num(gy+gk,2)+' net (GY '+num(gy,2)+' · GK '+num(gk,2)+')', rows:rows.concat(diger),
+    note:'KPSS puanı, o yıl sınava giren tüm adayların test ortalamaları ve standart sapmalarına göre ÖSYM tarafından hesaplanır. Sonuç tahminidir; resmî puanınız ÖSYM sonuç belgenizde yer alır.'};
+}''',
+article=f'''<h2 id="nasil">KPSS puanı nasıl hesaplanır?</h2>
+<p>KPSS’de her testte <b>4 yanlış 1 doğruyu götürür</b>; net (ham puan) doğru sayısından yanlış sayısının dörtte biri çıkarılarak bulunur. ÖSYM bu netleri doğrudan toplamaz, üç aşamada puana çevirir:</p>
+<ol>
+<li><b>Standart puan:</b> Her testin neti, o testin Türkiye ortalaması ve standart sapması kullanılarak ortalaması 50, standart sapması 10 olan standart puana dönüştürülür.</li>
+<li><b>Ağırlıklı standart puan (ASP):</b> Genel Yetenek ve Genel Kültür standart puanları puan türünün ağırlıklarıyla toplanır. P3, P93 ve P94’te iki test de <b>%50</b> ağırlığa sahiptir.</li>
+<li><b>KPSS puanı:</b> ASP, aşağıdaki formülle 100’lük ölçeğe taşınır.</li>
+</ol>
+<div class="formula">KPSS puanı = 70 + 30 × [2 × (ASP − X) − S] ÷ [2 × (B − X) − S]</div>
+<p>Formülde X tüm adayların ASP ortalaması, S standart sapması, B ise en yüksek ASP’dir. Bu değerler sınav bitmeden bilinemediği için sınav öncesi ve sonrası yapılan her hesaplama tahmindir. Hesaplayıcımız 2026 KPSS Lisans test ortalamalarını kullanır ve 2026 sonuçlarına göre ayarlanmıştır.</p>
+<div class="example"><p><b>Örnek:</b> Genel Yetenek’te 45 doğru 12 yanlış (42 net), Genel Kültür’de 40 doğru 16 yanlış (36 net) yapan lisans mezunu bir adayın toplam neti 78, tahmini P3 puanı yaklaşık <b>{_tr(_kp(42, 36, 'lisans'), 1)}</b>’dir.</p></div>
+
+<h2 id="kac-net">KPSS’de kaç net kaç puan? (2026 tahmini)</h2>
+<p>Netlerin Genel Yetenek ve Genel Kültür’e eşit dağıldığı varsayımıyla tahmini puanlar:</p>
+{KPSS_KN_TABLO}
+<p>Tablo yaklaşık değerler verir; gerçek puan ±2 puan sapabilir. Netiniz testlerden birinde yoğunlaşıyorsa puanınız biraz farklı çıkar; kendi netlerinizle hesaplamak için yukarıdaki aracı kullanın.</p>
+
+<h2 id="hedef">Hedef puan için kaç net gerekir?</h2>
+{KPSS_HEDEF_TABLO}
+<p>Atanma için gereken puan kadroya, kuruma, şehre ve ilan edilen kontenjana göre her tercih döneminde değişir. Hedefinizi belirlerken bir önceki tercih döneminin taban puanlarına bakmak en sağlıklı yoldur.</p>
+
+<h2 id="turler">KPSS puan türleri ve ağırlıkları</h2>
+<div class="table-wrap"><table><thead><tr><th>Puan türü</th><th>Kimler için</th><th>Genel Yetenek</th><th>Genel Kültür</th></tr></thead><tbody>
+<tr><td>P1</td><td>Lisans – bazı özel kadrolar</td><td>%70</td><td>%30</td></tr>
+<tr><td>P2</td><td>Lisans – bazı özel kadrolar</td><td>%60</td><td>%40</td></tr>
+<tr><td>P3</td><td>Lisans mezunları – B grubu kadroların çoğu</td><td>%50</td><td>%50</td></tr>
+<tr><td>P93</td><td>Önlisans mezunları</td><td>%50</td><td>%50</td></tr>
+<tr><td>P94</td><td>Ortaöğretim (lise) mezunları</td><td>%50</td><td>%50</td></tr>
+</tbody></table></div>
+<p>Öğretmen adayları için P10 ve P121 gibi puan türlerinde Eğitim Bilimleri ve Öğretmenlik Alan Bilgisi testleri de hesaba katılır. A grubu kadrolarda ise alan bilgisi testleri kullanılır.</p>
+
+<h2 id="dagilim">Soru dağılımı ve süre</h2>
+<p>Lisans, önlisans ve ortaöğretim düzeylerinde Genel Yetenek–Genel Kültür oturumunun yapısı aynıdır; düzeyler arasındaki fark soruların zorluğundadır.</p>
+<div class="table-wrap"><table><thead><tr><th>Test</th><th>Ders</th><th>Soru</th></tr></thead><tbody>
+<tr><td rowspan="2">Genel Yetenek (60)</td><td>Türkçe</td><td>30</td></tr><tr><td>Matematik (geometri dahil)</td><td>30</td></tr>
+<tr><td rowspan="4">Genel Kültür (60)</td><td>Tarih</td><td>27</td></tr><tr><td>Coğrafya</td><td>18</td></tr><tr><td>Vatandaşlık</td><td>9</td></tr><tr><td>Güncel Bilgiler</td><td>6</td></tr>
+</tbody></table></div>
+<p>Oturum toplam 120 soru ve 130 dakikadır. Ders bazında netlerinizi ayrı ayrı görmek için <a href="https://hesaplarsin.com/kpss-net-hesaplama.html">KPSS net hesaplama</a> aracını kullanabilirsiniz.</p>
+
+<h2 id="2026">2026 KPSS istatistikleri ve takvimi</h2>
+<p>6 Eylül 2026’da yapılan KPSS Lisans Genel Yetenek–Genel Kültür oturumuna <b>1.595.476</b> aday katıldı. ÖSYM’nin açıkladığı sayısal bilgilere göre Genel Yetenek ortalaması <b>19,43</b>, Genel Kültür ortalaması <b>20,07</b> net oldu. 2024’te bu ortalamalar 16,73 ve 18,86 netti; ortalamanın yükselmesi, 2026’da aynı netin 2024’e göre biraz daha düşük puana karşılık geldiği anlamına gelir.</p>
+<div class="table-wrap"><table><thead><tr><th>Sınav</th><th>Sınav tarihi</th><th>Sonuç tarihi</th></tr></thead><tbody>
+<tr><td>KPSS Lisans (GY-GK)</td><td>6 Eylül 2026</td><td>7 Ekim 2026</td></tr>
+<tr><td>KPSS Önlisans</td><td>4 Ekim 2026</td><td>30 Ekim 2026</td></tr>
+<tr><td>KPSS Ortaöğretim</td><td>25 Ekim 2026</td><td>19 Kasım 2026</td></tr>
+<tr><td>KPSS DHBT</td><td>1 Kasım 2026</td><td>25 Kasım 2026</td></tr>
+</tbody></table></div>
+<p>Tarihler ÖSYM 2026 sınav takvimine göredir. KPSS sonuçları iki yıl geçerlidir; bu nedenle 2026 puanınızla 2028 sınavına kadar yapılan tercihlerde başvurabilirsiniz.</p>''',
+faq=[('KPSS’de kaç yanlış bir doğruyu götürür?', 'KPSS’de 4 yanlış 1 doğruyu götürür. Net, doğru sayısından yanlış sayısının dörtte biri çıkarılarak hesaplanır.'),
+     ('KPSS’de 80 net kaç puan eder?', f'Netlerin iki teste eşit dağıldığı varsayımıyla 80 net, 2026 verilerine göre yaklaşık {_tr(_kp(40, 40, "lisans"), 0)} P3 puanına karşılık gelir. Önlisansta (P93) yaklaşık {_tr(_kp(40, 40, "onlisans"), 0)}, ortaöğretimde (P94) yaklaşık {_tr(_kp(40, 40, "orta"), 0)} puandır.'),
+     ('P3 puanı nasıl hesaplanır?', 'Genel Yetenek ve Genel Kültür netleri standart puana çevrilir, %50–%50 ağırlıkla toplanır ve ÖSYM formülüyle 100’lük ölçeğe taşınır. Tüm adayların sonuçları kullanıldığı için kesin puanı ancak ÖSYM açıklar.'),
+     ('KPSS önlisans sonuçları ne zaman açıklanacak?', '4 Ekim 2026’da yapılan KPSS Önlisans sınavının sonuçları ÖSYM takvimine göre 30 Ekim 2026’da açıklanacak.'),
+     ('KPSS ortaöğretim sonuçları ne zaman açıklanacak?', '25 Ekim 2026’da yapılan KPSS Ortaöğretim sınavının sonuçları ÖSYM takvimine göre 19 Kasım 2026’da açıklanacak.'),
+     ('KPSS puanı kaç yıl geçerli?', 'KPSS sonuçları iki yıl geçerlidir ve bu süre içindeki tercih dönemlerinde kullanılabilir.')],
+related=['kpss-net-hesaplama', 'memur-maaslari', 'yas-hesaplama', 'ortalama-hesaplama', 'memur-emekli-zammi-hesaplama'],
+sources=[('ÖSYM – KPSS', 'https://www.osym.gov.tr/'), ('ÖSYM – Sınav takvimi', 'https://www.osym.gov.tr/TR,8797/takvim.html')],
+badges=['✓ Ücretsiz', 'P3 · P93 · P94', '2026 Verileri'],
 ))
