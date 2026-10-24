@@ -121,6 +121,10 @@ N['emekli-maasi-hesaplama'] = 'Emekli maaşı hesaplama 2026 (en düşük aylık
 for _k in ('memur-emekli-zammi-hesaplama', 'emeklilik-yasi-hesaplama', 'blog/memur-emekli-zammi-ocak-2027', 'blog/emeklilik-hesaplama-2026'):
     M.setdefault(_k, []); M[_k] = ['emekli-maasi-hesaplama'] + [x for x in M[_k] if x != 'emekli-maasi-hesaplama']
 M['emekli-maasi-hesaplama'] = ['memur-emekli-zammi-hesaplama', 'emeklilik-yasi-hesaplama', 'blog/memur-emekli-zammi-ocak-2027']
+N['not-ortalamasi-hesaplama'] = N.get('not-ortalamasi-hesaplama', 'Not ortalaması hesaplama'); N['obp-hesaplama'] = 'OBP hesaplama (diploma notundan YKS puanına katkı)'
+for _k in ('tyt-net-hesaplama', 'ayt-net-hesaplama', 'not-ortalamasi-hesaplama'):
+    M.setdefault(_k, []); M[_k] = ['obp-hesaplama'] + [x for x in M[_k] if x != 'obp-hesaplama']
+M['obp-hesaplama'] = ['tyt-net-hesaplama', 'ayt-net-hesaplama', 'not-ortalamasi-hesaplama']
 
 def block(src):
     items = [t for t in M.get(src, []) if t != src and os.path.exists(t + '.html')]

@@ -275,3 +275,70 @@ faq=[
 ],
 related=['not-ortalamasi-hesaplama','ortalama-hesaplama','tyt-net-hesaplama','yas-hesaplama','yuzde-hesaplama'],
 ))
+
+
+# ───────────────────────── OBP (ORTAÖĞRETİM BAŞARI PUANI) ─────────────────────────
+# Kurallar (ÖSYM YKS kılavuzu, kamuya açık rehberlerle 24 Ekim 2026 kontrol): OBP = diploma notu × 5 (250–500; 50 altı not 50 sayılır).
+# Yerleştirme katkısı OBP × 0,12; önceki yıl bir programa yerleştirilenlerde yarıya iner (× 0,06).
+# Meslek lisesi mezunları alanlarıyla ilgili, kılavuzda belirtilen önlisans programlarında ek puan: OBP × 0,06 (ilgili puan türünde en az 150).
+def _tr(x, d=2):
+    s = f"{x:,.{d}f}"
+    return s.replace(',', 'X').replace('.', ',').replace('X', '.')
+
+
+_OBP_ROWS = ''.join(f'<tr><td>{_tr(n, 0)}</td><td>{_tr(max(n, 50) * 5, 0)}</td><td>+{_tr(max(n, 50) * 5 * 0.12)}</td><td>+{_tr(max(n, 50) * 5 * 0.06)}</td></tr>'
+                    for n in (50, 60, 70, 75, 80, 85, 90, 95, 100))
+OBP_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Diploma notu</th><th>OBP</th><th>YKS’ye katkı (× 0,12)</th><th>Önceki yıl yerleşenler (× 0,06)</th></tr></thead>'
+             f'<tbody>{_OBP_ROWS}</tbody></table></div>')
+
+TOOLS.append(dict(
+slug='obp-hesaplama', name='OBP Hesaplama', cat='egitim', ico='🎓',
+title='OBP Hesaplama 2026 – Diploma Notundan OBP ve YKS Puanına Katkı | Hesaplarsın',
+desc='Diploma notunuzu girin; OBP’nizi (250–500) ve YKS yerleştirme puanınıza ekleneceği puanı (× 0,12 veya × 0,06) görün. Meslek lisesi ek puanı dahil.',
+h1='🎓 OBP Hesaplama 2026',
+lead='Ortaöğretim Başarı Puanı (OBP), lise diploma notunuzun 5 katıdır ve 0,12 ile çarpılarak YKS yerleştirme puanınıza eklenir. Diploma notunuzu girin; OBP’nizi, puanınıza katkısını ve isterseniz ham puanınızla yerleştirme puanınızı görün.',
+card_title='OBP ve Yerleştirme Puanı Hesaplayıcı', button='Hesapla',
+form='''<div class="form-grid">
+<div class="field"><label for="dip">Diploma notu (100 üzerinden)</label><input type="number" id="dip" placeholder="örn: 85,40" inputmode="decimal"></div>
+<div class="field"><label for="ham">YKS ham puanınız <small>isteğe bağlı (TYT, SAY, EA, SÖZ veya DİL)</small></label><input type="number" id="ham" placeholder="örn: 380" inputmode="decimal"></div>
+<div class="field full"><label class="chk"><input type="checkbox" id="once"> Geçen yıl bir yükseköğretim programına yerleştirildim</label>
+<label class="chk"><input type="checkbox" id="meslek"> Meslek lisesi mezunuyum, alanımla ilgili önlisans programı tercih edeceğim</label></div>
+</div>''',
+js=r'''
+function hesapla(){
+  var d=v('dip'); if(!(d>0&&d<=100)) return 'Diploma notunuzu 0 ile 100 arasında girin.';
+  var dn=Math.max(d,50), obp=dn*5, once=checked('once'), mes=checked('meslek');
+  var k=once?0.06:0.12, katki=obp*k, ek=(mes&&!once)?obp*0.06:0, h=v('ham');
+  var rows=[['Diploma notu (hesapta)',num(dn,2)+(d<50?' (50’nin altı 50 sayılır)':'')],['OBP (diploma notu × 5)',num(obp,2),'hl'],
+    ['Katsayı',once?'0,06 (geçen yıl yerleştiğiniz için yarıya iner)':'0,12'],['Yerleştirme puanına katkı','+'+num(katki,3)]];
+  if(mes) rows.push(['Meslek lisesi ek puanı (alanınızdaki önlisans programlarında)', once?'Kılavuzdan kontrol edin':'+'+num(ek,3)]);
+  if(h>0){ rows.push(['YKS ham puan',num(h,3)]); rows.push(['Yerleştirme puanı',num(h+katki,3),'hl']); if(ek>0) rows.push(['Alanınızdaki önlisans programlarında',num(h+katki+ek,3)]); }
+  return {main:['OBP’niz', num(obp,2)], sub:'YKS puanınıza +'+num(katki,2)+' puan ekler', rows:rows,
+    note:'Ek puan, ilgili puan türünde en az 150 puan alan meslek lisesi mezunlarına ÖSYM kılavuzunda belirtilen programlarda uygulanır. Kesin bilgi için o yılın YKS kılavuzunu kontrol edin.'};
+}''',
+article=f'''<h2 id="nedir">OBP nedir, nasıl hesaplanır?</h2>
+<p>Ortaöğretim Başarı Puanı (OBP), lise diploma notunuzun ÖSYM tarafından 500’lük sisteme çevrilmiş hâlidir. Hesaplaması basittir:</p>
+<div class="formula">OBP = Diploma notu × 5<br>YKS’ye katkı = OBP × 0,12</div>
+<p>OBP en az 250, en fazla 500 olur; diploma notu 50’nin altında olan adayların notu 50 kabul edilir. Bu nedenle OBP, yerleştirme puanınıza <b>en az 30, en fazla 60 puan</b> ekler. Diploma notunuz e-Okul ve e-Devlet’te görünen lise mezuniyet notudur; dönem ortalamalarınızdan hesaplamak için <a href="https://hesaplarsin.com/not-ortalamasi-hesaplama.html">not ortalaması hesaplama</a> aracını kullanabilirsiniz.</p>
+
+<h2 id="tablo">Diploma notuna göre OBP tablosu</h2>
+{OBP_TABLO}
+<p>İki aday arasındaki 10 puanlık diploma notu farkı, yerleştirme puanında 6 puanlık fark yaratır. Sıralamanın sıkıştığı puan aralıklarında bu fark binlerce sıra değiştirebilir.</p>
+
+<h2 id="yariya">OBP ne zaman yarıya düşer?</h2>
+<p>Bir önceki yıl ÖSYM tarafından bir yükseköğretim programına yerleştirilen adayların OBP katsayısı <b>0,12 yerine 0,06</b> olur; yani OBP katkısı yarıya iner. Yerleştiği programa kayıt yaptırmamış olmak bu kuralı değiştirmez. Bu yüzden yerleşip kayıt yaptırmadan ertesi yıl tekrar sınava girmeyi düşünen adaylar, 15–30 puanlık kaybı hesaba katmalıdır.</p>
+
+<h2 id="meslek">Meslek lisesi mezunlarına ek puan</h2>
+<p>Meslek lisesi mezunları, mezun oldukları alanla ilgili ve YKS kılavuzunda belirtilen önlisans programlarını tercih ettiklerinde, OBP’lerinin <b>0,06 katı</b> kadar ek puan alır. Bunun için ilgili puan türünde en az 150 puan almak gerekir. Örneğin diploma notu 80 olan bir meslek lisesi mezununun OBP’si 400’dür; normal katkısı 48 puan, alanındaki önlisans programlarında ek puanla birlikte toplam katkısı 72 puan olur.</p>
+
+<h2 id="yerlestirme">Yerleştirme puanı nasıl oluşur?</h2>
+<p>Yerleştirme puanı, sınavdaki ham puanınıza OBP katkısının eklenmesiyle bulunur. Önlisans programlarına TYT puan türüyle, lisans programlarına SAY, EA, SÖZ veya DİL puan türleriyle yerleştirme yapılır. Netlerinizi hesaplamak için <a href="https://hesaplarsin.com/tyt-net-hesaplama.html">TYT net</a> ve <a href="https://hesaplarsin.com/ayt-net-hesaplama.html">AYT net ve puan</a> hesaplama araçlarını kullanabilirsiniz.</p>''',
+faq=[('OBP nasıl hesaplanır?', 'Lise diploma notunuz 5 ile çarpılır. Örneğin 85 diploma notu 425 OBP eder. YKS yerleştirme puanınıza OBP’nin 0,12 katı, yani 51 puan eklenir.'),
+     ('OBP en az ve en fazla kaç puan ekler?', 'OBP 250 ile 500 arasında olduğundan YKS yerleştirme puanına en az 30, en fazla 60 puan ekler. Geçen yıl bir programa yerleştirilenlerde bu katkı 15–30 puana iner.'),
+     ('Diploma notu 70 olanın OBP’si kaç?', 'Diploma notu 70 olan adayın OBP’si 350’dir ve YKS puanına 42 puan ekler (350 × 0,12).'),
+     ('Geçen yıl yerleştim ama kayıt yaptırmadım, OBP’m düşer mi?', 'Evet. Bir önceki yıl bir programa yerleştirilen adayların OBP katsayısı, kayıt yaptırmamış olsalar da 0,06’ya düşer.'),
+     ('Meslek lisesi ek puanı nasıl hesaplanır?', 'Alanınızla ilgili, kılavuzda belirtilen önlisans programlarında OBP’nizin 0,06 katı kadar ek puan alırsınız. İlgili puan türünde en az 150 puan şartı vardır.')],
+related=['tyt-net-hesaplama', 'ayt-net-hesaplama', 'not-ortalamasi-hesaplama', 'takdir-tesekkur-hesaplama', 'kpss-net-hesaplama'],
+sources=[('ÖSYM – YKS Kılavuzu', 'https://www.osym.gov.tr/'), ('YÖK Atlas – Program taban puanları', 'https://yokatlas.yok.gov.tr/')],
+badges=['✓ Ücretsiz', '2026 YKS', 'Meslek Lisesi Ek Puanı'],
+))

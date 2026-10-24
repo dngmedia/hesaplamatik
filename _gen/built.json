@@ -239,6 +239,11 @@
   "name": "Takdir Teşekkür Hesaplama",
   "cat": "egitim"
  },
+ "obp-hesaplama": {
+  "ico": "🎓",
+  "name": "OBP Hesaplama",
+  "cat": "egitim"
+ },
  "memur-maaslari": {
   "ico": "🏛️",
   "name": "Memur Maaşları 2026–2027",
