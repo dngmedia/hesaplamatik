@@ -711,7 +711,7 @@ function hesapla(){
 }''',
 article='''
 <h2 id="nasil">Elektrik faturası nasıl hesaplanır?</h2>
-<p>Elektrik faturası temel olarak tüketilen enerji miktarı (kWh) ile birim fiyatın çarpılmasıyla oluşur. Türkiye’de mesken abonelerinin birim fiyatı; enerji bedeli, dağıtım bedeli, enerji fonu, TRT payı, belediye tüketim vergisi (BTV) ve KDV kalemlerinden oluşur. Tarifeler EPDK tarafından belirlenir ve dönemsel olarak güncellenir.</p>
+<p>Elektrik faturası temel olarak tüketilen enerji miktarı (kWh) ile birim fiyatın çarpılmasıyla oluşur. Türkiye’de mesken abonelerinin faturası; aktif enerji bedeli, dağıtım bedeli, elektrik ve havagazı tüketim vergisi (BTV, meskenlerde enerji bedelinin %5’i) ve %10 KDV’den oluşur. TRT payı ve enerji fonu 1 Ocak 2022’den beri faturada yer almıyor. Tarifeler EPDK tarafından belirlenir ve dönemsel olarak güncellenir.</p>
 <div class="formula">Fatura (₺) = Tüketim (kWh) × Vergiler dahil birim fiyat (₺/kWh)</div>
 <p>Kendi birim fiyatınızı bulmanın en kolay yolu son faturanızdaki <b>toplam tutarı tüketilen kWh’e bölmektir</b>. Bu değeri hesaplayıcıya girerek gelecek ayların faturasını tahmin edebilirsiniz.</p>
 

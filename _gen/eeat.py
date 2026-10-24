@@ -8,7 +8,7 @@ VARSAYILAN = '2026-10-21'
 TARIH = {
     'net-maas-hesaplama': '2026-10-24', 'mevduat-faizi-hesaplama': '2026-10-24', 'kredi-karti-asgari-odeme-hesaplama': '2026-10-24',
     'kidem-tazminati-hesaplama': '2026-10-24', 'gelir-vergisi-hesaplama': '2026-10-24', 'bilesik-faiz': '2026-10-24',
-    'komisyon-hesaplama': '2026-10-24', 'ihbar-tazminati-hesaplama': '2026-10-24', 'kdv-hesaplama': '2026-10-24', 'kredi-hesaplama': '2026-10-24',
+    'komisyon-hesaplama': '2026-10-24', 'ihbar-tazminati-hesaplama': '2026-10-24', 'kripto-kar-zarar-hesaplama': '2026-10-24', 'arac-kredisi-hesaplama': '2026-10-24', 'para-deger-kaybi-hesaplama': '2026-10-24', 'ayt-net-hesaplama': '2026-10-24', 'arac-muayene-gecikme-hesaplama': '2026-10-24', 'arac-deger-kaybi-hesaplama': '2026-10-24', 'kdv-haric-hesaplama': '2026-10-24', 'doviz-cevirici': '2026-10-24', 'yuzde-hesaplama': '2026-10-24', 'amortisman-hesaplama': '2026-10-24', 'kdv-hesaplama': '2026-10-24', 'kredi-hesaplama': '2026-10-24',
 }
 AY = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık']
 SKIP = {'index', 'blog', '404', 'iletisim', 'hakkimizda', 'gizlilik-politikasi', 'kullanim-sartlari', 'yontem-ve-kaynaklar', 'turkiye-maaslari-2026'}

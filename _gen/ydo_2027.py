@@ -176,7 +176,7 @@ body3 = f'''
     <p>• 2027 artışını belirleyecek yeniden değerleme oranı <strong>3 Kasım 2026</strong>’da belli olacak (Eylül itibarıyla %27,81).</p>
     <p>• Kırmızı ışık ve cep telefonu cezası 5.000 TL’den yaklaşık <strong>{t0(fl(5000*(1+T)))}</strong>’ye çıkabilir.</p>
     <p>• Alkollü araç kullanmanın ilk cezası 25.000 TL’den yaklaşık <strong>{t0(fl(25000*(1+T)))}</strong>’ye yükselebilir.</p>
-    <p>• Ceza tebliğden itibaren bir ay içinde ödenirse <strong>%25 indirim</strong> uygulanır.</p>
+    <p>• Ceza tebliğden itibaren 15 gün içinde ödenirse <strong>%25 indirim</strong> uygulanır.</p>
   </div>
 
   <h2>Hız Cezaları 2027 (Yerleşim Yeri İçi)</h2>
@@ -200,7 +200,7 @@ body3 = f'''
 
   <h2>Erken Ödeme İndirimi ve İtiraz</h2>
   <ul>
-    <li><strong>Erken ödeme:</strong> Ceza tutanağının tebliğinden itibaren bir ay içinde ödenirse cezanın dörtte biri (%25) indirilir. 6.390 TL’lik bir ceza erken ödemede 4.792,50 TL olur.</li>
+    <li><strong>Erken ödeme:</strong> Ceza tebliğden itibaren 15 gün içinde ödenirse cezanın dörtte biri (%25) indirilir (Kabahatler Kanunu m.17/6). İndirimli ödeme, itiraz hakkını ortadan kaldırmaz. 6.390 TL’lik bir ceza erken ödemede 4.792,50 TL olur.</li>
     <li><strong>İtiraz:</strong> Tebliğden itibaren 15 gün içinde sulh ceza hâkimliğine itiraz edilebilir.</li>
     <li><strong>Sorgulama:</strong> Cezalarınızı e-Devlet’teki “Araca Yazılan Trafik Cezası Sorgulama” ve “Sürücü Ceza Puanı Sorgulama” hizmetlerinden görebilirsiniz.</li>
   </ul>
@@ -214,7 +214,7 @@ faq3 = [
     ('2027’de kırmızı ışık cezası ne kadar olacak?', f'2026’da ilk ihlal için 5.000 TL olan kırmızı ışık cezasının 2027’de yaklaşık {t0(fl(5000*(1+T)))} olması bekleniyor; erken ödemede yaklaşık {t0(fl(er(fl(5000*(1+T)))))}.'),
     ('2027’de alkol cezası ne kadar olacak?', f'İlk tespitte 25.000 TL olan ceza yaklaşık {t0(fl(25000*(1+T)))}, 5 yıl içinde ikinci tespitte 50.000 TL olan ceza yaklaşık {t0(fl(50000*(1+T)))} olabilir.'),
     ('2027 hız cezası ne kadar?', f'Yerleşim yeri içinde 6–10 km/s aşımın cezası 2.000 TL’den yaklaşık {t0(fl(2000*(1+T)))}’ye, 66 km/s ve üzeri aşımın cezası 30.000 TL’den yaklaşık {t0(fl(30000*(1+T)))}’ye çıkabilir.'),
-    ('Trafik cezasında erken ödeme indirimi var mı?', 'Evet. Tebliğden itibaren bir ay içinde ödenen trafik cezalarında %25 indirim uygulanır.'),
+    ('Trafik cezasında erken ödeme indirimi var mı?', 'Evet. Tebliğden itibaren 15 gün içinde ödenen trafik cezalarında %25 indirim uygulanır.'),
     ('2026’da kesilen ceza 2027’de ödenirse artar mı?', 'Hayır. Ceza, ihlalin yapıldığı tarihteki tutar üzerinden kesilir; ödemenin 2027’ye kalması tutarı değiştirmez. Ancak süresinde ödenmeyen cezalara gecikme zammı eklenir.'),
 ]
 rel3 = [('📈', 'Yeniden Değerleme Oranı 2026', '2027’de neler ne kadar artacak?', f'{B}/blog/yeniden-degerleme-orani-2026.html'),
@@ -228,3 +228,101 @@ print(make('trafik-cezalari-2027',
      '2027 Trafik Cezaları', '2027 Trafik Cezaları Ne Kadar Olacak? Hız, Kırmızı Işık, Alkol ve Diğer Cezalar',
      hero('🚦', 'Ocak 2027’de güncelleniyor', 'KIRMIZI IŞIK (2027 TAHMİNİ)', t0(fl(5000 * (1 + T))), 'ALKOL – İLK TESPİT', t0(fl(25000 * (1 + T))), '#7f1d1d', '#dc2626'),
      ['Gündem', 'Trafik'], body3, faq3, rel3, date='2026-10-24', date_tr='24 Ekim 2026'))
+
+# ═══════════ 4) VERGİ DİLİMLERİ 2027 ═══════════
+U26 = [190000, 400000, 1500000, 5300000]       # ücret
+D26 = [190000, 400000, 1000000, 5300000]       # ücret dışı
+U25 = [158000, 330000, 1200000, 4300000]
+OR = ['%15', '%20', '%27', '%35', '%40']
+def kes(x): return fl(x / 1000) * 1000
+def gv(m, d=U26):
+    o = [.15, .20, .27, .35, .40]; v = 0; prev = 0
+    for i, lim in enumerate(d + [10**12]):
+        if m <= prev: break
+        v += (min(m, lim) - prev) * o[i]; prev = lim
+    return v
+def satirlar(d):
+    r = []; prev = 0
+    for i, lim in enumerate(d):
+        r.append([OR[i], f'{t0(prev)} – {t0(lim)}' if prev else f'0 – {t0(lim)}']); prev = lim
+    r.append([OR[4], t0(prev) + ' üzeri'])
+    return r
+tarife = table(['Oran', 'Ücret gelirleri (2026)', 'Ücret dışı gelirler (2026)'],
+               [[a[0], a[1], b[1]] for a, b in zip(satirlar(U26), satirlar(D26))], '2026 gelir vergisi tarifesi')
+t27 = table(['Dilim üst sınırı (ücret)', '2026', '2027 – %20 artışla', '2027 – %27,81 artışla'],
+            [[f'{OR[i]} dilimi', t0(x), t0(kes(x * 1.20)), t0(kes(x * (1 + T)))] for i, x in enumerate(U26)], '2027 vergi dilimi tahmini')
+ORN = 600000
+def ay_gecis(brut, sinir):
+    m = brut * 0.85
+    for ay in range(1, 13):
+        if m * ay > sinir: return ay
+    return None
+AYLAR = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık']
+gecis = table(['Aylık brüt ücret', 'Aylık vergi matrahı', '%20 dilimine geçiş', '%27 dilimine geçiş'],
+              [[t0(b), t0(b * 0.85)] + [(AYLAR[ay_gecis(b, s) - 1] if ay_gecis(b, s) else 'Yıl içinde geçmez') for s in (190000, 400000)] for b in (40000, 50000, 60000, 75000, 100000, 150000)],
+              'Dilim geçiş ayları')
+body4 = f'''
+  <p class="lead">Türkiye’de gelir vergisi artan oranlıdır: kazancınızın her dilime düşen kısmı o dilimin oranıyla vergilendirilir. Dilim sınırları her yıl güncellenir ve 2027 tarifesi, 3 Kasım 2026’da belli olacak <strong>yeniden değerleme oranı</strong> esas alınarak Aralık sonunda ilan edilecek. Bu yazıda <strong>2026’da geçerli dilimleri</strong>, <strong>2027 tahminini</strong> ve maaşınızın yılın hangi ayında üst dilime geçeceğini bulacaksınız.</p>
+
+  <div class="highlight-box">
+    <p><strong>2026 Gelir Vergisi Dilimleri (Ücret):</strong></p>
+    <p>• %15 → 0 – 190.000 TL</p>
+    <p>• %20 → 190.000 – 400.000 TL</p>
+    <p>• %27 → 400.000 – 1.500.000 TL (ücret dışı gelirlerde 1.000.000 TL’ye kadar)</p>
+    <p>• %35 → 1.500.000 – 5.300.000 TL</p>
+    <p>• %40 → 5.300.000 TL üzeri</p>
+  </div>
+
+  <h2>2026 Gelir Vergisi Tarifesi</h2>
+''' + tarife + f'''
+  <p>Ücret gelirleriyle diğer gelirler (serbest meslek, kira, ticari kazanç vb.) arasındaki tek fark %27 diliminin üst sınırıdır: ücretlilerde 1.500.000 TL, diğer gelirlerde 1.000.000 TL. Tarife <strong>yıllık</strong> matrah üzerinden uygulanır; maaşlarda ise yıl başından itibaren biriken (kümülatif) matrah esas alınır.</p>
+
+  <h2>2027 Vergi Dilimleri Ne Kadar Olacak?</h2>
+  <p>Dilim sınırları Gelir Vergisi Kanunu’nun 103. maddesine göre yeniden değerleme oranında artırılır, ancak son yıllarda artış bu oranın altında kaldı: 2026’da yeniden değerleme oranı %25,49 olmasına rağmen dilimler yaklaşık %20–25 artırıldı (ilk dilim 158.000 TL’den 190.000 TL’ye çıktı). Eylül 2026 itibarıyla oran %27,81 seviyesinde olduğu için iki senaryo hesapladık:</p>
+''' + t27 + f'''
+  <p>Tutarlar bin liranın altındaki kısımlar atılarak gösterilmiştir. Kesin 2027 tarifesi Aralık 2026 sonunda yayımlanacak ve bu yazı güncellenecek.</p>
+
+  <h2>Gelir Vergisi Nasıl Hesaplanır? Örnek</h2>
+  <p>Yıllık {t0(ORN)} ücret matrahı için 2026 tarifesiyle vergi:</p>
+''' + table(['Dilim', 'Matrah', 'Oran', 'Vergi'], [
+    ['1. dilim', t0(190000), '%15', t0(190000 * .15)], ['2. dilim', t0(210000), '%20', t0(210000 * .20)],
+    ['3. dilim', t0(ORN - 400000), '%27', t0((ORN - 400000) * .27)], ['<strong>Toplam</strong>', t0(ORN), '', '<strong>' + t0(gv(ORN)) + '</strong>']], 'Örnek hesap') + f'''
+  <p>Toplam vergi {t0(gv(ORN))}, yani efektif oran yaklaşık <strong>%{tl(gv(ORN) / ORN * 100, 1)}</strong>’dir. Üst dilime girmek tüm gelirinizin o oranla vergilendirileceği anlamına gelmez; yalnızca sınırı aşan kısım yüksek oranla vergilendirilir.</p>
+
+  <h2>Maaşım Yılın Hangi Ayında Üst Dilime Geçer?</h2>
+  <p>Bordroda gelir vergisi, yıl başından itibaren biriken matrah üzerinden hesaplanır. Matrah, brüt ücretten %14 SGK ve %1 işsizlik primi düşülerek bulunur. Biriken matrah dilim sınırını aştığı ay net maaşınız düşer. 2026 tarifesine göre geçiş ayları:</p>
+''' + gecis + f'''
+  <p>Asgari ücrete isabet eden vergi istisna edildiği için asgari ücretliler gelir vergisi ödemez; daha yüksek maaşlarda da asgari ücret kadar kısım vergiden istisnadır. Bu nedenle net maaştaki düşüş, tablodaki ayda vergi oranı farkı kadar değil daha sınırlı olur. Kendi net maaşınızı ay ay görmek için <a href="{B}/net-maas-hesaplama.html">net maaş hesaplama</a>, yıllık vergi tutarınızı görmek için <a href="{B}/gelir-vergisi-hesaplama.html">gelir vergisi hesaplama</a> aracını kullanabilirsiniz.</p>
+
+  <h2>Hangi Gelirler Bu Tarifeye Tabi?</h2>
+  <ul>
+    <li><strong>Ücret:</strong> İşveren tarafından her ay kesilir; tek işverenden ücret alanlar genellikle beyanname vermez.</li>
+    <li><strong>Serbest meslek ve ticari kazanç:</strong> Yıllık beyannameyle Mart ayında beyan edilir; ücret dışı tarife uygulanır.</li>
+    <li><strong>Kira geliri:</strong> Konut kiralarında 2026 için 58.000 TL istisna vardır; aşan kısım tarifeye göre vergilendirilir. Ayrıntılar <a href="{B}/blog/kira-geliri-vergisi-hesaplama.html">kira geliri vergisi rehberinde</a>.</li>
+    <li><strong>Değer artışı ve arızi kazançlar:</strong> İstisna tutarlarını aşan kısım beyan edilir.</li>
+  </ul>
+  <p>Diğer 2027 artışlarını <a href="{B}/blog/yeniden-degerleme-orani-2026.html">yeniden değerleme oranı rehberinde</a> bulabilirsiniz.</p>
+
+  <h2>Kaynaklar</h2>
+  <p style="font-size:.88rem">193 sayılı Gelir Vergisi Kanunu 103. madde · Gelir İdaresi Başkanlığı 2026 gelir vergisi tarifesi · TÜİK Yİ-ÜFE (Eylül 2026).</p>
+'''
+faq4 = [
+    ('2026 gelir vergisi dilimleri nedir?', 'Ücretlerde 190.000 TL’ye kadar %15, 400.000 TL’ye kadar %20, 1.500.000 TL’ye kadar %27, 5.300.000 TL’ye kadar %35, üzeri %40’tır. Ücret dışı gelirlerde %27 dilimi 1.000.000 TL’de biter.'),
+    ('2027 vergi dilimleri ne kadar olacak?', f'Dilimler %20 artırılırsa ilk dilim {t0(kes(190000*1.2))}, tam oranla (%27,81) {t0(kes(190000*(1+T)))} olur. Kesin tarife Aralık 2026 sonunda açıklanacak.'),
+    ('2027 vergi dilimleri ne zaman açıklanacak?', 'Yeniden değerleme oranı 3 Kasım 2026’da TÜİK verisiyle belli olur; yeni tarife genellikle Aralık ayının son günlerinde Resmî Gazete’de yayımlanır.'),
+    ('Üst dilime geçince bütün maaşım mı yüksek oranla vergilenir?', 'Hayır. Yalnızca dilim sınırını aşan kısım üst oranla vergilendirilir. Örneğin 600.000 TL yıllık matrahta ortalama vergi oranı yaklaşık %20,8’dir.'),
+    ('Maaşım hangi ay %20 dilimine geçer?', 'Aylık 60.000 TL brüt ücrette vergi matrahı 51.000 TL olur; biriken matrah 190.000 TL’yi Nisan ayında aşar ve o aydan itibaren %20 dilimi uygulanır.'),
+    ('Asgari ücretli vergi öder mi?', 'Hayır. Asgari ücrete isabet eden gelir ve damga vergisi istisna edildiği için asgari ücretliler bu vergileri ödemez.'),
+]
+rel4 = [('🧾', 'Gelir Vergisi Hesaplama', '2026 tarifesiyle vergi', f'{B}/gelir-vergisi-hesaplama.html'),
+        ('💼', 'Net Maaş Hesaplama', 'Ay ay net maaş', f'{B}/net-maas-hesaplama.html'),
+        ('📈', 'Yeniden Değerleme Oranı 2026', '2027’de neler artacak?', f'{B}/blog/yeniden-degerleme-orani-2026.html'),
+        ('🏠', 'Kira Geliri Vergisi', '58.000 TL istisna', f'{B}/blog/kira-geliri-vergisi-hesaplama.html')]
+if __name__ == '__main__':
+    print(make('vergi-dilimleri-2027',
+         'Gelir Vergisi Dilimleri 2027 – 2026 Tarifesi ve 2027 Tahmini | Hesaplarsın',
+         '2026 gelir vergisi dilimleri: 190.000 / 400.000 / 1.500.000 / 5.300.000 TL. 2027 dilimleri tahmini, örnek hesap ve maaşınızın hangi ay üst dilime geçeceği tablosu.',
+         'vergi dilimleri 2027, gelir vergisi dilimleri 2027, 2026 vergi dilimleri, gelir vergisi tarifesi 2027, vergi dilimi ne zaman değişir',
+         'Gelir Vergisi Dilimleri 2027', 'Gelir Vergisi Dilimleri 2027: Yeni Limitler Ne Kadar Olacak?',
+         hero('🧾', 'Aralık 2026’da açıklanacak', '2026 İLK DİLİM', '190.000 TL · %15', '2027 TAHMİNİ', f'{t0(kes(190000*1.2))} – {t0(kes(190000*(1+T)))}', '#7c2d12', '#ea580c'),
+         ['Vergi', 'Rehber'], body4, faq4, rel4, date='2026-10-24', date_tr='24 Ekim 2026'))
