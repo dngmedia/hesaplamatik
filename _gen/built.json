@@ -219,6 +219,11 @@
   "name": "Su Faturası Hesaplama",
   "cat": "diger"
  },
+ "fazla-mesai-hesaplama": {
+  "ico": "⏰",
+  "name": "Fazla Mesai Hesaplama",
+  "cat": "maas"
+ },
  "tyt-net-hesaplama": {
   "ico": "📝",
   "name": "TYT Net Hesaplama",

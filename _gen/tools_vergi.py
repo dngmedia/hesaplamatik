@@ -863,3 +863,84 @@ faq=[
 ],
 related=['elektrik-faturasi-hesaplama','dogalgaz-faturasi-hesaplama','su-ihtiyaci-hesaplama','yuzde-hesaplama','kdv-hesaplama'],
 ))
+
+
+# ───────────────────────── FAZLA MESAİ (yeniden yazıldı, 24 Ekim 2026) ─────────────────────────
+def _fm_tr(x, d=2):
+    s = f'{x:,.{d}f}'
+    return s.replace(',', '§').replace('.', ',').replace('§', '.')
+_FM_ROWS = ''.join(
+    f'<tr><td>{_fm_tr(b, 0)} ₺</td><td>{_fm_tr(b / 225)} ₺</td><td>{_fm_tr(b / 225 * 1.5)} ₺</td><td>{_fm_tr(b / 225 * 1.5 * 10)} ₺</td><td>{_fm_tr(b / 225 * 1.5 * 30)} ₺</td><td>{_fm_tr(b / 30)} ₺</td></tr>'
+    for b in (33030, 40000, 50000, 60000, 80000, 100000))
+FM_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Aylık brüt ücret</th><th>Saatlik ücret (÷225)</th><th>1 saat fazla mesai (×1,5)</th><th>10 saat</th><th>30 saat</th><th>Bayram günü ek ücret (1 gündelik)</th></tr></thead>'
+            f'<tbody>{_FM_ROWS}</tbody></table></div>')
+TOOLS.append(dict(
+slug='fazla-mesai-hesaplama', name='Fazla Mesai Hesaplama', cat='maas', ico='⏰',
+title='Fazla Mesai Hesaplama 2026 – Saatlik %50 Zamlı Ücret, Bayram Mesaisi | Hesaplarsın',
+desc='Brüt maaşınızı ve fazla mesai saatinizi girin; İş Kanunu’na göre %50 zamlı fazla çalışma, %25 zamlı fazla sürelerle çalışma ve bayram/genel tatil mesai ücretinizi brüt ve tahmini net olarak görün.',
+h1='⏰ Fazla Mesai Hesaplama 2026',
+lead='Aylık brüt ücretinizi ve mesai sürenizi girin; 4857 sayılı İş Kanunu’na göre fazla çalışma (%50 zamlı), fazla sürelerle çalışma (%25 zamlı) veya ulusal bayram ve genel tatil çalışması ücretinizi brüt ve tahmini net olarak hesaplayın.',
+card_title='Fazla Mesai Ücreti Hesaplayıcı', button='Mesai Ücretini Hesapla',
+form='''<div class="field full" style="margin-bottom:14px"><label>Çalışma türü</label>
+<div class="seg"><label><input type="radio" name="tur" value="fazla" checked onchange="turSec()">Haftalık 45 saat üstü (%50)</label><label><input type="radio" name="tur" value="sure" onchange="turSec()">Fazla sürelerle (%25)</label><label><input type="radio" name="tur" value="ubgt" onchange="turSec()">Bayram / genel tatil</label></div></div>
+<div class="form-grid">
+<div class="field"><label for="brut">Aylık brüt ücret (₺)</label><input type="number" id="brut" placeholder="örn: 33.030" inputmode="decimal">
+<div class="qtags"><span class="qtag" onclick="el('brut').value=33030">Asgari ücret</span><span class="qtag" onclick="el('brut').value=50000">50.000</span><span class="qtag" onclick="el('brut').value=80000">80.000</span></div></div>
+<div class="field"><label for="miktar" id="lbl-miktar">Fazla mesai saati (bu ay)</label><input type="number" id="miktar" placeholder="örn: 20" inputmode="decimal"></div>
+<div class="field full"><label for="dilim">Gelir vergisi diliminiz <small>(net tahmini için)</small></label><select id="dilim"><option value="0.15" selected>%15 (yılın ilk aylarında çoğu çalışan)</option><option value="0.20">%20</option><option value="0.27">%27</option><option value="0.35">%35</option></select></div>
+</div>''',
+js=r'''
+function turSec(){var t=radio('tur');el('lbl-miktar').textContent=t==='ubgt'?'Çalışılan bayram / genel tatil günü':(t==='sure'?'45 saate kadar fazladan çalışılan saat (bu ay)':'Fazla mesai saati (bu ay)');el('miktar').placeholder=t==='ubgt'?'örn: 2':'örn: 20';el('result').style.display='none';_last=null;}
+function hesapla(){
+  var b=v('brut'), m=v('miktar'), t=radio('tur'), g=parseFloat(el('dilim').value);
+  if(!(b>0)) return 'Aylık brüt ücretinizi girin.'; if(!(m>0)) return t==='ubgt'?'Çalışılan gün sayısını girin.':'Mesai saatini girin.';
+  var saat=b/225, gunluk=b/30, brut, rows, zam;
+  if(t==='ubgt'){ brut=gunluk*m; zam='Her gün için 1 günlük ek ücret';
+    rows=[['Günlük brüt ücret (aylık ÷ 30)',tl(gunluk)],['Çalışılan bayram/tatil günü',num(m,m%1?1:0)+' gün'],['Ek ödeme (gün × günlük ücret)',tl(brut),'hl']]; }
+  else { var k=t==='sure'?1.25:1.5; brut=saat*k*m; zam=(t==='sure'?'%25':'%50')+' zamlı';
+    rows=[['Saatlik brüt ücret (aylık ÷ 225)',tl(saat)],['Zamlı saat ücreti (× '+num(k,2)+')',tl(saat*k)],['Mesai saati',num(m,m%1?1:0)+' saat'],['Brüt mesai ücreti',tl(brut),'hl']];
+    if(t==='fazla'&&m>270/12) rows.push(['Uyarı','Yıllık fazla çalışma sınırı 270 saattir (ayda ortalama 22,5 saat).']); }
+  var sgk=brut*0.15, gv=(brut-sgk)*g, dv=brut*0.00759, net=brut-sgk-gv-dv;
+  rows=rows.concat([['SGK + işsizlik primi (%15)','−'+tl(sgk)],['Gelir vergisi (%'+num(g*100,0)+')','−'+tl(gv)],['Damga vergisi (%0,759)','−'+tl(dv)],['Tahmini net mesai ücreti',tl(net),'hl']]);
+  return {main:['Brüt mesai ücreti', tl(brut)], sub:zam+' · tahmini net '+tl(net), rows:rows,
+    note:'Saatlik ücret, yargı ve bordro uygulamasına uygun olarak aylık brüt ücretin 225 saate bölünmesiyle bulunur. Net tutar seçtiğiniz vergi dilimine göre tahminidir; asgari ücret istisnası ve kümülatif matrah bordronuzda farklı sonuç verebilir.'};
+}''',
+article=f'''<h2 id="nasil">Fazla mesai ücreti nasıl hesaplanır?</h2>
+<p>4857 sayılı İş Kanunu’nun 41. maddesine göre haftalık 45 saati aşan çalışmalar <b>fazla çalışmadır</b> ve her bir saati için normal saat ücretinin <b>%50 fazlası</b> ödenir. Normal saat ücreti, aylık brüt ücretin <b>225 saate</b> bölünmesiyle bulunur (30 gün × 7,5 saat). Bu yöntem bordro ve yargı uygulamasında esas alınır.</p>
+<div class="formula">Saatlik ücret = Aylık brüt ücret ÷ 225<br>Fazla mesai ücreti = Saatlik ücret × 1,5 × Fazla mesai saati</div>
+<div class="example"><p><b>Örnek:</b> 2026 brüt asgari ücreti 33.030 ₺ olan bir çalışanın saatlik ücreti 33.030 ÷ 225 = <b>146,80 ₺</b>, bir saatlik fazla mesai ücreti 146,80 × 1,5 = <b>220,20 ₺</b>’dir. Ayda 20 saat fazla mesai yapan çalışana brüt <b>4.404 ₺</b> ödenir.</p></div>
+
+<h2 id="tablo">Maaşa göre fazla mesai ücreti tablosu (brüt)</h2>
+{FM_TABLO}
+<p>Tablodaki tutarlar brüttür; SGK primi, gelir vergisi ve damga vergisi kesildikten sonra elinize geçen tutar daha düşüktür. Hesaplayıcı, seçtiğiniz vergi dilimine göre net tutarı da gösterir.</p>
+
+<h2 id="turler">Fazla çalışma türleri ve zam oranları</h2>
+<div class="table-wrap"><table><thead><tr><th>Çalışma türü</th><th>Ne zaman?</th><th>Ödeme</th><th>Dayanak</th></tr></thead><tbody>
+<tr><td>Fazla çalışma</td><td>Haftalık 45 saati aşan çalışma</td><td>Saat ücreti × 1,5</td><td>İş K. m.41</td></tr>
+<tr><td>Fazla sürelerle çalışma</td><td>Sözleşmede haftalık süre 45 saatin altındaysa (ör. 40 saat), 45 saate kadar yapılan ek çalışma</td><td>Saat ücreti × 1,25</td><td>İş K. m.41</td></tr>
+<tr><td>Ulusal bayram ve genel tatil</td><td>Bayram ve resmî tatil günlerinde çalışma</td><td>Çalışılan her gün için ayrıca 1 günlük ücret</td><td>İş K. m.47</td></tr>
+<tr><td>Hafta tatili çalışması</td><td>7 günlük dönemde 24 saatlik dinlenme verilmeden çalışma</td><td>Haftalık 45 saati aştığından fazla çalışma olarak %50 zamlı</td><td>İş K. m.46, yargı uygulaması</td></tr>
+</tbody></table></div>
+<p><b>Gece çalışması</b> (20.00–06.00) için İş Kanunu’nda ayrı bir ücret zammı yoktur. Kanun yalnızca işçilerin gece çalışmasının 7,5 saati geçemeyeceğini düzenler (m.69). Gece için ek ödeme ancak toplu veya bireysel iş sözleşmesiyle kararlaştırılabilir.</p>
+
+<h2 id="sinirlar">Fazla mesaide yasal sınırlar</h2>
+<ul>
+<li>Fazla çalışma yılda <b>270 saati</b> geçemez.</li>
+<li>Günlük çalışma süresi, fazla mesai dahil <b>11 saati</b> aşamaz.</li>
+<li>Fazla çalışma için işçinin <b>yazılı onayı</b> alınır; onay her yıl başında yenilenir.</li>
+<li>İşçi isterse fazla mesai ücreti yerine serbest zaman kullanabilir: her 1 saat fazla çalışma için <b>1 saat 30 dakika</b>, fazla sürelerle çalışmada 1 saat 15 dakika izin verilir. Bu süre 6 ay içinde kullandırılır.</li>
+<li>Fazla mesai alacağı için zamanaşımı <b>5 yıldır</b>.</li>
+</ul>
+
+<h2 id="net">Fazla mesaiden ne kadar kesinti yapılır?</h2>
+<p>Fazla mesai ücreti normal ücret gibi vergilendirilir: brüt tutardan %14 SGK işçi payı ve %1 işsizlik sigortası primi, kalan tutardan gelir vergisi (dilime göre %15–%40) ve %0,759 damga vergisi kesilir. Yıl içinde kümülatif vergi matrahınız arttıkça aynı fazla mesai için elinize daha az para geçer. Aylık net maaşınızı <a href="https://hesaplarsin.com/net-maas-hesaplama.html">net maaş hesaplama</a>, saatlik ücretinizi <a href="https://hesaplarsin.com/saatlik-ucret-hesaplama.html">saatlik ücret hesaplama</a> aracıyla görebilirsiniz.</p>''',
+faq=[('Fazla mesai ücreti nasıl hesaplanır?', 'Aylık brüt ücret 225’e bölünerek saatlik ücret bulunur, bu tutar 1,5 ile ve fazla mesai saatiyle çarpılır. 33.030 ₺ brüt ücrette bir saatlik fazla mesai 220,20 ₺’dir.'),
+     ('Fazla mesai saatlik ücreti neden 225’e bölünerek bulunur?', 'Aylık ücret 30 günü kapsar ve günlük normal çalışma 7,5 saat kabul edilir (45 saat ÷ 6 gün). 30 × 7,5 = 225 saat olduğu için bordro ve yargı uygulamasında bu bölen kullanılır.'),
+     ('Gece mesaisi zamlı mı ödenir?', 'İş Kanunu’nda gece çalışması için ayrı bir zam yoktur. Gece çalışması 7,5 saati geçemez; ek ödeme ancak toplu veya bireysel iş sözleşmesiyle kararlaştırılabilir. Gece yapılan çalışma haftalık 45 saati aşıyorsa %50 zamlı fazla mesai ödenir.'),
+     ('Bayramda çalışmanın ücreti ne kadar?', 'Ulusal bayram ve genel tatil günlerinde çalışan işçiye, o gün için normal ücretine ek olarak bir günlük ücret daha ödenir. Günlük ücret, aylık brüt ücretin 30’a bölünmesiyle bulunur.'),
+     ('Yılda en fazla kaç saat fazla mesai yapılabilir?', 'Yıllık fazla çalışma sınırı 270 saattir. Günlük çalışma süresi fazla mesai dahil 11 saati aşamaz.'),
+     ('Fazla mesai yapmak zorunda mıyım?', 'Hayır. Fazla çalışma için işçinin yazılı onayı gerekir ve bu onay her yıl başında alınır. Zorunlu nedenler ve olağanüstü hâller kanunda ayrıca düzenlenmiştir.')],
+related=['saatlik-ucret-hesaplama', 'net-maas-hesaplama', 'prim-hesaplama', 'yillik-izin-hesaplama', 'kidem-tazminati-hesaplama'],
+sources=[('4857 sayılı İş Kanunu (m.41, 46, 47, 69)', 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4857&MevzuatTur=1&MevzuatTertip=5'), ('İş Kanununa İlişkin Fazla Çalışma ve Fazla Sürelerle Çalışma Yönetmeliği', 'https://www.mevzuat.gov.tr/')],
+badges=['✓ Ücretsiz', '÷225 Yöntemi', 'Brüt + Net'],
+))

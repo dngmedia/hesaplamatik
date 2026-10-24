@@ -75,3 +75,6 @@ TESTS['lgs-puan-hesaplama']=[dict(fill={'trd':'17','matd':'15','fend':'16','inkd
   dict(fill={'trd':'20','matd':'20','fend':'20','inkd':'10','dind':'10','ingd':'10'}, expect='499,96')]
 TESTS['kpss-puan-hesaplama']=[dict(fill={'gyd':'45','gyy':'12','gkd':'40','gky':'16'}, expect='82,09'),
   dict(radio={'duz':'onlisans'}, fill={'gyd':'45','gyy':'12','gkd':'40','gky':'16'}, expect='85,33')]
+TESTS['fazla-mesai-hesaplama']=[dict(fill={'brut':'33030','miktar':'20'}, expect='4.404,00'),
+  dict(radio={'tur':'ubgt'}, fill={'brut':'33030','miktar':'2'}, expect='2.202,00'),
+  dict(radio={'tur':'sure'}, fill={'brut':'45000','miktar':'10'}, expect='2.500,00')]
