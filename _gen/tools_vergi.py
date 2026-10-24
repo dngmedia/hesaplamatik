@@ -5,10 +5,10 @@ TOOLS = []
 # ───────────────────────── MTV ─────────────────────────
 TOOLS.append(dict(
 slug='mtv-hesaplama', name='MTV Hesaplama', cat='vergi', ico='🚗',
-title='MTV Hesaplama 2026 – Motor Hacmi, Yaş ve Değere Göre MTV | Hesaplarsın',
-desc='2026 motorlu taşıtlar vergisini (MTV) aracınızın motor hacmi, yaşı, tescil yılı ve taşıt değerine göre hesaplayın. Otomobil ve motosiklet tarifeleri, taksit tutarları.',
+title='MTV Hesaplama 2026 ve 2027 Tahmini – Motor Hacmi, Yaş ve Değere Göre | Hesaplarsın',
+desc='2026 motorlu taşıtlar vergisini (MTV) motor hacmi, yaş, tescil yılı ve taşıt değerine göre hesaplayın; 2027 MTV tahminini iki senaryoyla görün. Otomobil ve motosiklet.',
 h1='🚗 MTV Hesaplama 2026',
-lead='Aracınızın motor silindir hacmini, yaşını ve ilk tescil yılını seçin; 2026 yılı motorlu taşıtlar vergisini ve Ocak–Temmuz taksit tutarlarını görün.',
+lead='Aracınızın motor silindir hacmini, yaşını ve ilk tescil yılını seçin; 2026 yılı motorlu taşıtlar vergisini, Ocak–Temmuz taksit tutarlarını ve yeniden değerleme oranına göre 2027 MTV tahminini görün.',
 form='''<div class="form-grid">
 <div class="field"><label for="tip">Araç Tipi</label><select id="tip"><option value="oto">Otomobil, arazi taşıtı, kaptıkaçtı</option><option value="moto">Motosiklet</option></select></div>
 <div class="field" id="f-tescil"><label for="tescil">İlk Tescil Tarihi</label><select id="tescil"><option value="yeni">1 Ocak 2018 ve sonrası</option><option value="eski">31 Aralık 2017 ve öncesi</option></select></div>
@@ -36,14 +36,18 @@ function doldur(){var m=el('tip').value==='moto', s=el('cc'); s.innerHTML=(m?MCC
   el('f-tescil').style.display=m?'none':''; degerGoster();}
 function degerGoster(){el('f-deger').style.display=(el('tip').value==='oto'&&el('tescil').value==='yeni')?'':'none';}
 function onReady(){doldur(); el('tip').addEventListener('change',doldur); el('tescil').addEventListener('change',degerGoster);}
+var R27=[[0.20,'sınırlı artış, %20'],[0.2781,'tam oran, %27,81']];
 function hesapla(){
-  var m=el('tip').value==='moto', c=+el('cc').value, y=+el('yas').value, t, aciklama;
-  if(m){t=MOTO[c][y]; aciklama='Motosiklet · '+MCC[c];}
-  else if(el('tescil').value==='eski'){t=ESKI[c][y]; aciklama='2017 ve öncesi tescil · '+CC[c];}
-  else {var d=v('deger'); if(!(d>0)) return '2018 ve sonrası tescilli otomobillerde taşıt değerini girin.'; var k=YENI[c]; for(var i=0;i<k.length;i++){if(d<=k[i][0]){t=k[i][1][y];break;}} aciklama='2018 sonrası tescil · '+CC[c]+' · değer '+tl(d,0);}
-  return {main:['2026 yıllık MTV', tl(t,0)], sub:aciklama,
-    rows:[['1. taksit (Ocak 2026)',tl(t/2)],['2. taksit (Temmuz 2026)',tl(t/2)],['Araç yaşı grubu',el('yas').options[y].text],['Aylık ortalama maliyet',tl(t/12)]],
-    note:'Taksitler Ocak ve Temmuz ayları sonuna kadar ödenir. Geç ödemede aylık gecikme zammı uygulanır. Kesin tutarı GİB İnternet Vergi Dairesi’nden sorgulayın.'};
+  var m=el('tip').value==='moto', c=+el('cc').value, y=+el('yas').value, aciklama, d=v('deger');
+  function tut(yy){ if(m) return MOTO[c][yy]; if(el('tescil').value==='eski') return ESKI[c][yy]; var k=YENI[c]; for(var i=0;i<k.length;i++){if(d<=k[i][0]) return k[i][1][yy];} }
+  if(!m&&el('tescil').value==='yeni'&&!(d>0)) return '2018 ve sonrası tescilli otomobillerde taşıt değerini girin.';
+  var t=tut(y);
+  aciklama=m?'Motosiklet · '+MCC[c]:(el('tescil').value==='eski'?'2017 ve öncesi tescil · '+CC[c]:'2018 sonrası tescil · '+CC[c]+' · değer '+tl(d,0));
+  var rows=[['1. taksit (Ocak 2026)',tl(t/2)],['2. taksit (Temmuz 2026)',tl(t/2)],['Araç yaşı grubu',el('yas').options[y].text],['Aylık ortalama maliyet',tl(t/12)]];
+  R27.forEach(function(r){rows.push(['2027 tahmini ('+r[1]+')',tl(Math.floor(t*(1+r[0])),0),'hl']);});
+  if(y<4){var t2=tut(y+1); rows.push(['2027’de bir üst yaş grubuna geçerseniz ('+el('yas').options[y+1].text+')',tl(Math.floor(t2*1.20),0)+' – '+tl(Math.floor(t2*1.2781),0)]);}
+  return {main:['2026 yıllık MTV', tl(t,0)], sub:aciklama, rows:rows,
+    note:'2027 tutarları tahminidir: MTV, Kasım’da açıklanan yeniden değerleme oranıyla artar, ancak Cumhurbaşkanı daha düşük oran belirleyebilir (2026’da oran %25,49 iken MTV %18,95 artırıldı). Taksitler Ocak ve Temmuz sonuna kadar ödenir; kesin tutarı GİB İnternet Vergi Dairesi’nden sorgulayın.'};
 }''',
 article='''
 <h2 id="nedir">MTV (motorlu taşıtlar vergisi) nedir?</h2>

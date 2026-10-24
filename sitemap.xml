@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/blog.html</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -193,6 +193,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://hesaplarsin.com/blog/pasaport-ehliyet-harci-2027.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://hesaplarsin.com/blog/sgk-primi-hesaplama-rehberi.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -205,6 +211,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://hesaplarsin.com/blog/trafik-cezalari-2027.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://hesaplarsin.com/blog/vergi-dilimleri-2027.html</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -212,7 +224,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/blog/yeniden-degerleme-orani-2026.html</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -326,7 +338,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/finans-hesaplamalari.html</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -602,7 +614,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/mtv-hesaplama.html</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -764,7 +776,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/vergi-hesaplamalari.html</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

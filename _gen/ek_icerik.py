@@ -809,3 +809,14 @@ EK['kar-payi-hesaplama'] = dict(article=f'''
 <h2 id="reel-getiri">Kâr payı enflasyonu karşılıyor mu?</h2>
 <p>Kâr payı getirisini değerlendirirken stopaj sonrası net oranı enflasyonla karşılaştırın. Yıllık %{f(_kp_o * 100, 0)} brüt oran, %17,5 stopajla yaklaşık %{f(_kp_o * (1 - _kp_s) * 100, 0)} net getiriye iner. Kâr payını her ay anaparaya ekleyip vadeyi yenilerseniz bileşik etkiyle yıllık net getiri yaklaşık %{f(((1 + _kp_ay) ** (365 / _kp_g) - 1) * 100, 1)} olur. Yıllık enflasyon bu oranın üzerindeyse paranızın alım gücü azalıyor demektir; hesap için enflasyon hesaplama aracını kullanabilirsiniz.</p>
 ''', faq=[('Ayda 20.000 TL kâr payı için ne kadar para gerekir?', f'Yıllık %40 tahmini oran, 32 günlük vade ve %17,5 stopajla yaklaşık {f(20000 / _kp_ay, 0)} ₺ gerekir. Oran değiştikçe gereken tutar da değişir.')])
+
+# ───────────── MTV 2027 tahmini ─────────────
+_MTV26 = [('1300 cm³ ve altı', 5750), ('1301 – 1600 cm³', 10016), ('1601 – 1800 cm³', 19472), ('1801 – 2000 cm³', 30679),
+          ('2001 – 2500 cm³', 46027), ('2501 – 3000 cm³', 64175)]
+EK['mtv-hesaplama'] = dict(article='''
+<h2 id="mtv-2027">2027 MTV ne kadar olacak?</h2>
+<p>MTV tutarları her yıl, Ekim ayı Yİ-ÜFE değişimine göre belirlenen <a href="https://hesaplarsin.com/blog/yeniden-degerleme-orani-2026.html">yeniden değerleme oranıyla</a> artırılır. Oran 3 Kasım 2026’da TÜİK verisiyle netleşir; ancak Cumhurbaşkanı MTV için daha düşük bir artış belirleyebilir. 2026’da oran %25,49 olmasına rağmen MTV <b>%18,95</b> artırılmıştı. Eylül 2026 itibarıyla yıllık Yİ-ÜFE %27,81 olduğundan iki senaryo hesapladık:</p>
+''' + tablo(['Motor hacmi (2018 sonrası, 1–3 yaş, en düşük değer dilimi)', '2026 MTV', '2027 – sınırlı artış (%20)', '2027 – tam oran (%27,81)'],
+            [[a, f(b) + ' ₺', f(math.floor(b * 1.20)) + ' ₺', f(math.floor(b * 1.2781)) + ' ₺'] for a, b in _MTV26]) + '''
+<p>Aracınız 2027’de bir üst yaş grubuna geçecekse (örneğin 2024 model bir otomobil 4–6 yaş grubuna girecekse) ödeyeceğiniz tutar, artışa rağmen 2026’dakinden düşük olabilir; yukarıdaki hesaplayıcı bu durumu da gösterir. Kesin 2027 tarifesi Aralık sonunda Resmî Gazete’de yayımlanır ve bu sayfa aynı gün güncellenir.</p>
+''', faq=[('2027 MTV ne kadar artacak?', 'MTV, 3 Kasım 2026’da netleşecek yeniden değerleme oranıyla artar; Eylül verisine göre bu oran %27,81 civarındadır. Cumhurbaşkanı daha düşük oran belirleyebildiği için (2026’da %18,95 uygulanmıştı) artışın %20–%28 aralığında olması bekleniyor. Kesin tarife Aralık sonunda yayımlanır.')])

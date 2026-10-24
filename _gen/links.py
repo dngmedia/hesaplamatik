@@ -136,6 +136,15 @@ for _k in ('memur-maaslari',):
 M['lgs-puan-hesaplama'] = ['obp-hesaplama', 'not-ortalamasi-hesaplama', 'takdir-tesekkur-hesaplama']
 M['kpss-puan-hesaplama'] = ['kpss-net-hesaplama', 'memur-maaslari', 'yas-hesaplama']
 
+N['blog/trafik-cezalari-2027'] = 'Rehber: 2027 trafik cezaları ne kadar olacak?'; N['blog/pasaport-ehliyet-harci-2027'] = 'Rehber: 2027 pasaport ve ehliyet harçları'
+N['mtv-hesaplama'] = N.get('mtv-hesaplama', 'MTV hesaplama (2026 ve 2027 tahmini)'); N['doviz-cevirici'] = N.get('doviz-cevirici', 'Döviz çevirici'); N['arac-muayene-gecikme-hesaplama'] = N.get('arac-muayene-gecikme-hesaplama', 'Araç muayene gecikme cezası hesaplama')
+for _k, _v in (('mtv-hesaplama', ['blog/yeniden-degerleme-orani-2026', 'blog/trafik-cezalari-2027', 'blog/pasaport-ehliyet-harci-2027']),
+               ('arac-muayene-gecikme-hesaplama', ['blog/trafik-cezalari-2027']), ('doviz-cevirici', ['blog/pasaport-ehliyet-harci-2027']),
+               ('blog/yeniden-degerleme-orani-2026', ['blog/trafik-cezalari-2027', 'blog/pasaport-ehliyet-harci-2027', 'mtv-hesaplama'])):
+    M.setdefault(_k, []); M[_k] = _v + [x for x in M[_k] if x not in _v]
+M['blog/trafik-cezalari-2027'] = ['mtv-hesaplama', 'arac-muayene-gecikme-hesaplama', 'blog/yeniden-degerleme-orani-2026']
+M['blog/pasaport-ehliyet-harci-2027'] = ['blog/yeniden-degerleme-orani-2026', 'mtv-hesaplama', 'doviz-cevirici']
+
 def block(src):
     items = [t for t in M.get(src, []) if t != src and os.path.exists(t + '.html')]
     if not items:
