@@ -33,7 +33,7 @@ function hesapla(){
 
 TOOLS.append(dict(
 slug='para-sayma-hesaplama', name='Para Sayma Hesaplama', cat='finans', ico='💵',
-title='Para Sayma Hesaplama – 225 Tane 200 TL Ne Kadar Eder? | Hesaplarsın',
+title='Kaç Tane 200 TL Ne Kadar Eder? Para Sayma Hesaplama ve Tablo | Hesaplarsın',
 desc='225 tane 200 TL 45.000 TL eder. Elinizdeki 200, 100, 50, 20, 10 ve 5 TL banknotların adedini girin; toplam tutarı, deste sayısını anında görün.',
 h1='💵 Para Sayma Hesaplama',
 lead='Her banknottan kaç tane olduğunu yazın; toplam tutarı, deste sayısını ve banknot dağılımını anında görün. Kasa sayımı, düğün takısı, harçlık birikimi ya da elden ödeme kontrolü için.',

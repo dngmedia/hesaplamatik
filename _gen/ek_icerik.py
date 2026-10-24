@@ -820,3 +820,72 @@ EK['mtv-hesaplama'] = dict(article='''
             [[a, f(b) + ' ₺', f(math.floor(b * 1.20)) + ' ₺', f(math.floor(b * 1.2781)) + ' ₺'] for a, b in _MTV26]) + '''
 <p>Aracınız 2027’de bir üst yaş grubuna geçecekse (örneğin 2024 model bir otomobil 4–6 yaş grubuna girecekse) ödeyeceğiniz tutar, artışa rağmen 2026’dakinden düşük olabilir; yukarıdaki hesaplayıcı bu durumu da gösterir. Kesin 2027 tarifesi Aralık sonunda Resmî Gazete’de yayımlanır ve bu sayfa aynı gün güncellenir.</p>
 ''', faq=[('2027 MTV ne kadar artacak?', 'MTV, 3 Kasım 2026’da netleşecek yeniden değerleme oranıyla artar; Eylül verisine göre bu oran %27,81 civarındadır. Cumhurbaşkanı daha düşük oran belirleyebildiği için (2026’da %18,95 uygulanmıştı) artışın %20–%28 aralığında olması bekleniyor. Kesin tarife Aralık sonunda yayımlanır.')])
+
+# ═════════════ 5. PARTİ (24 Ekim): Search Console'da 5–10. sıradaki sayfalar ═════════════
+
+# ───────────── PARA SAYMA: arama sorgularına birebir tablolar ─────────────
+_adet = [5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 100, 110, 115, 120, 125, 130, 140, 145, 150, 160, 175, 180, 182, 188,
+         200, 225, 250, 260, 275, 300, 350, 400, 450, 500, 600, 750, 1000]
+_yarim = len(_adet) // 2
+_s = lambda n: [f'{n} tane', f(n * 200) + ' ₺', f(n * 100) + ' ₺', f(n * 50) + ' ₺']
+EK['para-sayma-hesaplama'] = dict(article='''
+<h2 id="buyuk-tablo">Kaç tane 200 TL ne kadar eder? Büyük tablo</h2>
+<p>En çok aranan adetlerin 200 ₺, 100 ₺ ve 50 ₺’lik banknotlardaki karşılığı. Aradığınız adet yoksa yukarıdaki hesaplayıcıya girin.</p>
+''' + tablo(['Adet', '200 ₺’lik', '100 ₺’lik', '50 ₺’lik'], [_s(n) for n in _adet[:_yarim]]) + tablo(['Adet', '200 ₺’lik', '100 ₺’lik', '50 ₺’lik'], [_s(n) for n in _adet[_yarim:]]) + '''
+<h2 id="kac-tane">Bir tutar kaç tane 200 TL eder?</h2>
+<p>Elinizdeki ya da ödeyeceğiniz tutarın kaç adet 200 ₺’lik banknota karşılık geldiğini gösteren tablo:</p>
+''' + tablo(['Tutar', 'Kaç tane 200 ₺', 'Kaç deste (100’lük)', 'Kaç tane 100 ₺'],
+            [[f(t) + ' ₺', f(t // 200) + (f' + {f(t % 200)} ₺' if t % 200 else ''), f(t / 20000, 2).rstrip('0').rstrip(','), f(t // 100)]
+             for t in (1000, 5000, 10000, 15000, 20000, 21000, 25000, 30000, 40000, 50000, 75000, 100000, 150000, 200000, 250000, 500000, 1000000)]) + '''
+<p>Formül: <b>Adet = Tutar ÷ 200</b>. Örneğin 21.000 ₺ = 105 tane 200 ₺, 25.000 ₺ = 125 tane 200 ₺ eder.</p>
+''', faq=[('25 tane 200 TL ne kadar eder?', '25 × 200 = 5.000 TL eder.'),
+          ('75 tane 200 TL kaç TL?', '75 × 200 = 15.000 TL eder.'),
+          ('21 bin TL kaç tane 200 TL eder?', '21.000 ÷ 200 = 105 tane 200 TL eder.'),
+          ('25 bin TL kaç tane 200 TL eder?', '25.000 ÷ 200 = 125 tane 200 TL eder.'),
+          ('10.000 TL kaç tane 200 TL yapar?', '10.000 ÷ 200 = 50 tane 200 TL yapar.')])
+
+# ───────────── ORTALAMA: Google yorum puanı ve sık sorulan örnekler ─────────────
+_yildiz = {5: 120, 4: 40, 3: 15, 2: 5, 1: 10}
+_ypuan = sum(k * v for k, v in _yildiz.items()) / sum(_yildiz.values())
+EK['ortalama-hesaplama']['article'] += f'''
+<h2 id="yorum-puani">Google yorum puanı (yıldız ortalaması) nasıl hesaplanır?</h2>
+<p>Google, Trendyol veya bir uygulama mağazasındaki puan, verilen yıldızların <b>ağırlıklı ortalamasıdır</b>: her yıldız değeri o yıldızı veren kişi sayısıyla çarpılır, toplam kişi sayısına bölünür.</p>
+''' + tablo(['Yıldız', 'Değerlendirme sayısı', 'Yıldız × sayı'], [[f'{k} ★', str(v), str(k * v)] for k, v in _yildiz.items()] +
+            [['<b>Toplam</b>', f'<b>{sum(_yildiz.values())}</b>', f'<b>{sum(k * v for k, v in _yildiz.items())}</b>']]) + f'''
+<p>Puan = {sum(k * v for k, v in _yildiz.items())} ÷ {sum(_yildiz.values())} = <b>{f(_ypuan, 2)}</b>. İşletmenizin puanını 4,5’e çıkarmak için gereken 5 yıldızlı yorum sayısı: (4,5 × toplam − yıldız toplamı) ÷ (5 − 4,5) = <b>{math.ceil((4.5 * sum(_yildiz.values()) - sum(k * v for k, v in _yildiz.items())) / 0.5)}</b> yeni 5 yıldız. Hesaplayıcının ağırlıklı ortalama bölümüne yıldızları değer, kişi sayılarını ağırlık olarak girerek kendi puanınızı bulabilirsiniz.</p>
+
+<h2 id="hizli-ornekler">Hızlı örnekler</h2>
+''' + tablo(['Sayılar', 'Ortalama', 'Nasıl?'], [
+    ['1, 2, 3, 4, 5', '3', '15 ÷ 5'], ['10, 20, 30', '20', '60 ÷ 3'], ['85, 90, 70', f(245 / 3, 2), '245 ÷ 3'],
+    ['1’den 100’e kadar sayılar', '50,5', '(1 + 100) ÷ 2'], ['2, 4, 6, 8', '5', '20 ÷ 4']]) + '''
+<p>Ardışık sayıların ortalaması, ilk ve son sayının ortalamasına eşittir: 1’den 100’e kadar sayıların ortalaması (1 + 100) ÷ 2 = 50,5’tir.</p>
+'''
+EK['ortalama-hesaplama']['faq'] += [('1, 2, 3, 4, 5 sayılarının ortalaması kaçtır?', 'Toplamları 15, adetleri 5 olduğundan ortalama 15 ÷ 5 = 3’tür.'),
+                                    ('Google yorum puanı nasıl hesaplanır?', 'Her yıldız değeri o yıldızı veren kişi sayısıyla çarpılır, toplam kişi sayısına bölünür. Bu bir ağırlıklı ortalamadır.')]
+
+# ───────────── YATIRIM GERİ DÖNÜŞ: geri ödeme süresi formülü ─────────────
+_yat, _nak = 1000000, [250000, 300000, 350000, 400000, 450000]
+_kum = []; _top = 0
+for _i, _n in enumerate(_nak, 1):
+    _top += _n; _kum.append([f'{_i}. yıl', f(_n) + ' ₺', f(_top) + ' ₺', f(max(0, _yat - _top)) + ' ₺'])
+_gy = 3 + (_yat - sum(_nak[:3])) / _nak[3]
+_r = 0.30
+_ind = []; _t2 = 0; _gy2 = None
+for _i, _n in enumerate(_nak, 1):
+    _bd = _n / (1 + _r) ** _i; _onc = _t2; _t2 += _bd
+    if _gy2 is None and _t2 >= _yat: _gy2 = _i - 1 + (_yat - _onc) / _bd
+    _ind.append([f'{_i}. yıl', f(_n) + ' ₺', f(_bd) + ' ₺', f(_t2) + ' ₺'])
+EK['yatirim-geri-donus-suresi-hesaplama']['article'] += f'''
+<h2 id="geri-odeme-formulu">Geri ödeme süresi formülü (payback period)</h2>
+<p>Nakit girişleri her yıl aynıysa formül basittir: <b>Geri ödeme süresi = Yatırım tutarı ÷ Yıllık net nakit girişi</b>. Girişler yıldan yıla değişiyorsa birikimli (kümülatif) nakit girişi yatırım tutarına ulaşana kadar yıllar toplanır:</p>
+<div class="formula">Geri ödeme süresi = Tam yıl sayısı + (Kalan tutar ÷ Sonraki yılın nakit girişi)</div>
+<p>Örnek: {f(_yat)} ₺ yatırım, yıllık nakit girişleri {', '.join(f(x) for x in _nak)} ₺:</p>
+''' + tablo(['Yıl', 'Nakit girişi', 'Birikimli giriş', 'Kalan'], _kum) + f'''
+<p>İlk üç yılda {f(sum(_nak[:3]))} ₺ geri döner; kalan {f(_yat - sum(_nak[:3]))} ₺ dördüncü yılın {f(_nak[3])} ₺’lik girişiyle {f((_yat - sum(_nak[:3])) / _nak[3], 2)} yılda kapanır. Geri ödeme süresi = 3 + {f((_yat - sum(_nak[:3])) / _nak[3], 2)} = <b>{f(_gy, 2)} yıl</b>.</p>
+
+<h2 id="iskontolu">İskontolu geri ödeme süresi</h2>
+<p>Basit yöntem paranın zaman değerini dikkate almaz. Yüksek enflasyon ve faiz ortamında her yılın nakit girişi bugünkü değere indirgenerek hesaplanır: <b>Bugünkü değer = Nakit girişi ÷ (1 + r)ⁿ</b>. Aynı örnekte yıllık %{f(_r * 100)} iskonto oranıyla:</p>
+''' + tablo(['Yıl', 'Nakit girişi', 'Bugünkü değeri', 'Birikimli bugünkü değer'], _ind) + f'''
+<p>{'İskontolu geri ödeme süresi yaklaşık <b>' + f(_gy2, 2) + ' yıl</b>' if _gy2 else 'Bu oranla yatırım beş yıl içinde bugünkü değer olarak kendini <b>geri ödemiyor</b>; basit yöntemde ' + f(_gy, 2) + ' yıl görünen süre gerçekte çok daha uzundur'}. Bu nedenle uzun vadeli yatırım kararlarında basit geri ödeme süresinin yanında iskontolu süreye ve <a href="https://hesaplarsin.com/roi-hesaplama.html">yatırım getirisine (ROI)</a> de bakmak gerekir.</p>
+'''
+EK['yatirim-geri-donus-suresi-hesaplama']['faq'] += [('Geri ödeme süresi formülü nedir?', 'Nakit girişleri eşitse yatırım tutarı yıllık net nakit girişine bölünür. Eşit değilse birikimli giriş yatırıma ulaşana kadar geçen tam yıllara, kalan tutarın sonraki yılın girişine oranı eklenir.')]
