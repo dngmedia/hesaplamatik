@@ -117,6 +117,10 @@ M['mevduat-faizi-hesaplama'] = ['kar-payi-hesaplama'] + M['mevduat-faizi-hesapla
 M['asgari-ucret-hesaplama'] = ['asgari-ucret-2027-hesaplama'] + M['asgari-ucret-hesaplama']
 M['blog/asgari-ucret-2027'] = ['asgari-ucret-2027-hesaplama', 'net-maas-hesaplama']; N['tyt-net-hesaplama'] = 'TYT net hesaplama'
 
+N['emekli-maasi-hesaplama'] = 'Emekli maaşı hesaplama 2026 (en düşük aylık, Ocak 2027)'
+for _k in ('memur-emekli-zammi-hesaplama', 'emeklilik-yasi-hesaplama', 'blog/memur-emekli-zammi-ocak-2027', 'blog/emeklilik-hesaplama-2026'):
+    M.setdefault(_k, []); M[_k] = ['emekli-maasi-hesaplama'] + [x for x in M[_k] if x != 'emekli-maasi-hesaplama']
+M['emekli-maasi-hesaplama'] = ['memur-emekli-zammi-hesaplama', 'emeklilik-yasi-hesaplama', 'blog/memur-emekli-zammi-ocak-2027']
 
 def block(src):
     items = [t for t in M.get(src, []) if t != src and os.path.exists(t + '.html')]

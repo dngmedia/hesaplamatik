@@ -314,6 +314,11 @@
   "name": "Kâr Payı Hesaplama",
   "cat": "finans"
  },
+ "emekli-maasi-hesaplama": {
+  "ico": "👴",
+  "name": "Emekli Maaşı Hesaplama 2026",
+  "cat": "maas"
+ },
  "banka-komisyon-hesaplama": {
   "ico": "🏦",
   "name": "Banka Komisyon Hesaplama",

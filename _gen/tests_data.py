@@ -68,3 +68,4 @@ TESTS['issizlik-maasi-hesaplama']=[dict(fill={'brut':'50.000','gun':'180'}, expe
 TESTS['muhendis-maasi']=[dict(fill={'aylik':'1'}, expect='116.57')]
 TESTS['ekonomi-takvimi']=[dict(fill={'grup':'enflasyon'}, expect='gün'), dict(fill={'grup':'faiz'})]
 TESTS['maas-siralamasi']=[dict(fill={'maas':'42.000'}, expect='En üst'), dict(fill={'maas':'28075,50'}, expect='46,7'), dict(fill={'maas':'20000'}, expect='Alt %25'), dict(fill={'maas':'150000'}, expect='≈')]
+TESTS['emekli-maasi-hesaplama']=[dict(fill={'tur':'ssk','maas':'30000','aylik':'1'}, expect='32.630,66'), dict(fill={'tur':'memur','maas':'30000','aylik':'1'}, expect='32.020,74'), dict(fill={'tur':'bagkur','maas':'20000','aylik':'1'}, expect='23.552')]
