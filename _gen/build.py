@@ -47,6 +47,11 @@ json.dump({t['slug']: dict(ico=t['ico'], name=t['name'], cat=t['cat']) for t in 
 
 
 # ── Ana sayfa: yaklaşan açıklamalar kutusu (ekonomi takvimi verisinden) ──
+# Ana sayfadaki 'Gündemdeki Hesaplamalar' bağlantıları (sezona göre güncelle; arama verisine göre seçilir)
+GUNDEM = [('blog/kasim-2026-kira-artis-orani.html', 'Kasım 2026 kira artış oranı'), ('kira-artis-hesaplama.html', 'Kira artış hesaplama'),
+          ('emekli-maasi-hesaplama.html', 'Emekli maaşı 2026'), ('memur-emekli-zammi-hesaplama.html', 'Ocak 2027 memur ve emekli zammı'),
+          ('asgari-ucret-2027-hesaplama.html', 'Asgari ücret 2027'), ('kredi-karti-asgari-odeme-hesaplama.html', 'Kredi kartı asgari ödeme'),
+          ('takdir-tesekkur-hesaplama.html', 'Takdir teşekkür hesaplama'), ('yas-hesaplama.html', 'Yaş ve okula başlama yaşı')]
 try:
     import tools_takvim as _tk, datetime as _dt
     _up = [e for e in _tk.EVENTS if _dt.date.fromisoformat(e[0]) >= _dt.date.today()][:4]
@@ -57,7 +62,11 @@ try:
     _html = ('<!-- TAKVIM-KUTU --><div style="max-width:1200px;margin:36px auto 0;padding:0 16px">'
              '<h2 class="section-title">📅 Yaklaşan Açıklamalar</h2>'
              f'<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">{_items}</div>'
-             f'<p style="margin-top:10px;font-size:.85rem"><a href="{BASE}/ekonomi-takvimi.html">Tüm ekonomi takvimini gör →</a></p></div><!-- /TAKVIM-KUTU -->')
+             f'<p style="margin-top:10px;font-size:.85rem"><a href="{BASE}/ekonomi-takvimi.html">Tüm ekonomi takvimini gör →</a></p>'
+             '<h2 class="section-title" style="margin-top:26px">Gündemdeki Hesaplamalar</h2>'
+             '<div style="display:flex;flex-wrap:wrap;gap:8px">' + ''.join(
+                 f'<a href="{BASE}/{u}" style="padding:8px 14px;border:1px solid #c7dafc;border-radius:999px;background:#f0f6ff;color:#1a56db;font-size:.85rem;font-weight:600;text-decoration:none">{t}</a>'
+                 for u, t in GUNDEM) + '</div></div><!-- /TAKVIM-KUTU -->')
     _s = open('index.html', encoding='utf-8').read()
     _s = re.sub(r'<!-- TAKVIM-KUTU -->.*?<!-- /TAKVIM-KUTU -->', lambda m: _html, _s, flags=re.S)
     open('index.html', 'w', encoding='utf-8').write(_s)
@@ -107,6 +116,14 @@ try:
     print('veri sayfası:', _vs.run())
 except Exception as _e:
     print('veri sayfası hatası:', _e)
+
+
+# ── Eski araç sayfalarına güncelleme tarihi + yazar (E-E-A-T) ──
+try:
+    import eeat as _ee
+    print('eeat:', _ee.run())
+except Exception as _e:
+    print('eeat hatası:', _e)
 
 
 # ── Emoji arayüz ikonları → tek tip SVG (Lucide) ──
