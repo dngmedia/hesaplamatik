@@ -85,11 +85,14 @@ R = {
  faq=[('BMI her zaman doğru sonuç verir mi?', 'BMI kas ve yağ ayrımı yapmaz; kaslı sporcularda yüksek, kas kütlesi az kişilerde düşük çıkabilir. Bel çevresi ve vücut yağ oranıyla birlikte değerlendirmek daha doğrudur.'),
       ('Bazal metabolizma nedir?', 'Vücudun dinlenme hâlinde temel işlevlerini sürdürmek için harcadığı enerjidir. Günlük kalori ihtiyacı, bazal metabolizmanın aktivite katsayısıyla çarpılmasıyla bulunur.')]),
 'egitim': dict(
- rehber=[('YKS’ye hazırlanıyorsunuz', 'tyt-net-hesaplama', 'Deneme sınavı doğru-yanlışlarınızdan TYT netiniz; alan sınavı için AYT net aracı.'),
-         ('KPSS’ye gireceksiniz', 'kpss-net-hesaplama', 'Genel yetenek ve genel kültür netleri.'),
+ rehber=[('8. sınıftasınız, LGS’ye hazırlanıyorsunuz', 'lgs-puan-hesaplama', 'Deneme netlerinizden tahmini LGS puanı; 2020–2024 sonuçlarıyla karşılaştırma.'),
+         ('YKS’ye hazırlanıyorsunuz', 'tyt-net-hesaplama', 'Deneme sınavı doğru-yanlışlarınızdan TYT netiniz; alan sınavı için AYT net aracı.'),
+         ('KPSS’ye girdiniz, puanınızı merak ediyorsunuz', 'kpss-puan-hesaplama', 'Lisans (P3), önlisans (P93) ve ortaöğretim (P94) tahmini puanı.'),
+         ('Yüksek lisans veya akademik kadroya başvuracaksınız', 'ales-puan-hesaplama', 'ALES sayısal, sözel ve eşit ağırlık puanı; 55 ve 70 barajları.'),
+         ('Diploma notunuzun YKS’ye katkısını görmek istiyorsunuz', 'obp-hesaplama', 'OBP ve yerleştirme puanına eklenecek puan.'),
          ('Karne öncesi ortalamanızı merak ediyorsunuz', 'not-ortalamasi-hesaplama', 'Ders saatine göre ağırlıklı not ortalaması.'),
          ('Takdir veya teşekkür alıp alamayacağınızı görmek istiyorsunuz', 'takdir-tesekkur-hesaplama', 'Ortalamanıza göre belge durumu.')],
- tablo=[('Net hesabı', 'Doğru − Yanlış ÷ 4'), ('Takdir belgesi', '85,00 ve üzeri ortalama'), ('Teşekkür belgesi', '70,00 – 84,99 ortalama'), ('TYT soru sayısı', '120')],
+ tablo=[('Net hesabı (YKS, KPSS, ALES)', 'Doğru − Yanlış ÷ 4'), ('Net hesabı (LGS)', 'Doğru − Yanlış ÷ 3'), ('Takdir belgesi', '85,00 ve üzeri ortalama'), ('Teşekkür belgesi', '70,00 – 84,99 ortalama'), ('ALES yüksek lisans asgari puanı', '55'), ('TYT soru sayısı', '120')],
  faq=[('Boş bırakılan sorular neti etkiler mi?', 'Hayır. Net yalnızca doğru ve yanlış sayısına göre hesaplanır; boş sorular neti düşürmez ama doğru olarak da sayılmaz.'),
       ('TYT kaç soru, kaç dakika?', 'TYT 120 sorudan oluşur ve 165 dakika sürer: Türkçe 40, Sosyal Bilimler 20, Temel Matematik 40, Fen Bilimleri 20 soru.')]),
 'diger': dict(
