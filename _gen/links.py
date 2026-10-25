@@ -145,6 +145,11 @@ for _k, _v in (('mtv-hesaplama', ['blog/yeniden-degerleme-orani-2026', 'blog/tra
 M['blog/trafik-cezalari-2027'] = ['mtv-hesaplama', 'arac-muayene-gecikme-hesaplama', 'blog/yeniden-degerleme-orani-2026']
 M['blog/pasaport-ehliyet-harci-2027'] = ['blog/yeniden-degerleme-orani-2026', 'mtv-hesaplama', 'doviz-cevirici']
 
+N['ales-puan-hesaplama'] = 'ALES puan hesaplama (SAY, SÖZ, EA)'; N['gun-hesaplama'] = N.get('gun-hesaplama', 'Gün hesaplama')
+for _k in ('kpss-puan-hesaplama', 'not-ortalamasi-hesaplama'):
+    M.setdefault(_k, []); M[_k] = ['ales-puan-hesaplama'] + [x for x in M[_k] if x != 'ales-puan-hesaplama']
+M['ales-puan-hesaplama'] = ['kpss-puan-hesaplama', 'not-ortalamasi-hesaplama', 'gun-hesaplama']
+
 def block(src):
     items = [t for t in M.get(src, []) if t != src and os.path.exists(t + '.html')]
     if not items:

@@ -259,6 +259,11 @@
   "name": "KPSS Puan Hesaplama",
   "cat": "egitim"
  },
+ "ales-puan-hesaplama": {
+  "ico": "🎓",
+  "name": "ALES Puan Hesaplama",
+  "cat": "egitim"
+ },
  "memur-maaslari": {
   "ico": "🏛️",
   "name": "Memur Maaşları 2026–2027",

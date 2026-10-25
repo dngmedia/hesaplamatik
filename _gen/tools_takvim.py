@@ -41,6 +41,8 @@ EVENTS += [
     ('2026-10-22', 'faiz', 'TCMB faiz kararı (PPK)', 'Politika faizi %37’den %36’ya indirildi (−100 baz puan)', '/mevduat-faizi-hesaplama.html'),
     ('2026-10-30', 'sinav', 'KPSS Önlisans sonuçları', 'ÖSYM 4 Ekim sınavının sonuçlarını açıklar (P93)', '/kpss-puan-hesaplama.html'),
     ('2026-11-19', 'sinav', 'KPSS Ortaöğretim sonuçları', 'ÖSYM 25 Ekim sınavının sonuçlarını açıklar (P94)', '/kpss-puan-hesaplama.html'),
+    ('2026-11-29', 'sinav', 'ALES/3 sınavı', 'ÖSYM ALES/3 oturumu (sonuçlar 17 Aralık)', '/ales-puan-hesaplama.html'),
+    ('2026-12-17', 'sinav', 'ALES/3 sonuçları', 'ÖSYM 29 Kasım ALES sonuçlarını açıklar', '/ales-puan-hesaplama.html'),
     ('2026-11-12', 'faiz', 'TCMB Enflasyon Raporu', 'Merkez Bankası enflasyon tahminlerini günceller', '/enflasyon-hesaplama.html'),
     ('2026-12-10', 'faiz', 'TCMB faiz kararı (PPK)', 'Para Politikası Kurulu toplantısı, saat 14:00', '/mevduat-faizi-hesaplama.html'),
     ('2027-01-21', 'faiz', 'TCMB faiz kararı (PPK)', 'Para Politikası Kurulu toplantısı', '/mevduat-faizi-hesaplama.html'),

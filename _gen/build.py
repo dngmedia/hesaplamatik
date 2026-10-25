@@ -50,7 +50,7 @@ json.dump({t['slug']: dict(ico=t['ico'], name=t['name'], cat=t['cat']) for t in 
 # Ana sayfadaki 'Gündemdeki Hesaplamalar' bağlantıları (sezona göre güncelle; arama verisine göre seçilir)
 GUNDEM = [('blog/kasim-2026-kira-artis-orani.html', 'Kasım 2026 kira artış oranı'), ('kira-artis-hesaplama.html', 'Kira artış hesaplama'),
           ('emekli-maasi-hesaplama.html', 'Emekli maaşı 2026'), ('memur-emekli-zammi-hesaplama.html', 'Ocak 2027 memur ve emekli zammı'),
-          ('asgari-ucret-2027-hesaplama.html', 'Asgari ücret 2027'), ('kpss-puan-hesaplama.html', 'KPSS puan hesaplama'), ('blog/trafik-cezalari-2027.html', '2027 trafik cezaları'), ('blog/yeniden-degerleme-orani-2026.html', '2027 MTV ve harçlar'), ('kredi-karti-asgari-odeme-hesaplama.html', 'Kredi kartı asgari ödeme'),
+          ('asgari-ucret-2027-hesaplama.html', 'Asgari ücret 2027'), ('kpss-puan-hesaplama.html', 'KPSS puan hesaplama'), ('ales-puan-hesaplama.html', 'ALES puan hesaplama'), ('blog/trafik-cezalari-2027.html', '2027 trafik cezaları'), ('blog/yeniden-degerleme-orani-2026.html', '2027 MTV ve harçlar'), ('kredi-karti-asgari-odeme-hesaplama.html', 'Kredi kartı asgari ödeme'),
           ('takdir-tesekkur-hesaplama.html', 'Takdir teşekkür hesaplama'), ('yas-hesaplama.html', 'Yaş ve okula başlama yaşı')]
 # Ana sayfada öne çıkan sayfalar (Search Console'da 5–10. sırada olup ilk 3'e taşınmak istenenler; ayda bir gözden geçir)
 ONE_CIKAN = [('para-sayma-hesaplama.html', 'Kaç tane 200 TL ne kadar eder?', 'Banknot adedinden toplam tutar ve tablo'),

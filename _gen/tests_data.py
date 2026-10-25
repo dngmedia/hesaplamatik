@@ -78,3 +78,5 @@ TESTS['kpss-puan-hesaplama']=[dict(fill={'gyd':'45','gyy':'12','gkd':'40','gky':
 TESTS['fazla-mesai-hesaplama']=[dict(fill={'brut':'33030','miktar':'20'}, expect='4.404,00'),
   dict(radio={'tur':'ubgt'}, fill={'brut':'33030','miktar':'2'}, expect='2.202,00'),
   dict(radio={'tur':'sure'}, fill={'brut':'45000','miktar':'10'}, expect='2.500,00')]
+TESTS['ales-puan-hesaplama']=[dict(fill={'sayd':'32','sayy':'8','sozd':'30'}, expect='77,32'),
+  dict(fill={'sayd':'50','sozd':'50'}, expect='100,00')]

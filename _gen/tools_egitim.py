@@ -576,3 +576,97 @@ related=['kpss-net-hesaplama', 'memur-maaslari', 'yas-hesaplama', 'ortalama-hesa
 sources=[('ÖSYM – KPSS', 'https://www.osym.gov.tr/'), ('ÖSYM – Sınav takvimi', 'https://www.osym.gov.tr/TR,8797/takvim.html')],
 badges=['✓ Ücretsiz', 'P3 · P93 · P94', '2026 Verileri'],
 ))
+
+
+# ═════════════════════════ ALES PUAN ═════════════════════════
+# Net başına katsayılar 2025/2 oturumu sonuçlarından türetilmiştir (sayısal, sözel). Sabit, tam netin 100 puana
+# karşılık geldiği varsayımıyla bulunur. 2017 ÖSYM test istatistikleriyle standart puan zinciri bu modelle 1–4 puan içinde örtüşür.
+ALES_K = {'SAY': (0.80251, 0.33159), 'SOZ': (0.27064, 1.00642), 'EA': (0.52294, 0.64822)}
+ALES_S = {k: 100 - 50 * (a + b) for k, (a, b) in ALES_K.items()}
+def _ales(say, soz, t):
+    a, b = ALES_K[t]
+    return max(0, min(100, ALES_S[t] + a * say + b * soz))
+def _ales_ters(h, t):  # iki teste eşit dağıtılmış toplam net
+    lo, hi = 0.0, 100.0
+    for _ in range(60):
+        m = (lo + hi) / 2
+        if _ales(m / 2, m / 2, t) < h: lo = m
+        else: hi = m
+    return hi
+ALES_KN = ('<div class="table-wrap"><table><thead><tr><th>Sayısal net</th><th>Sözel net</th><th>SAY</th><th>SÖZ</th><th>EA</th></tr></thead><tbody>'
+           + ''.join(f'<tr><td>{s}</td><td>{z}</td>' + ''.join(f'<td>{_tr(_ales(s, z, t), 1)}</td>' for t in ('SAY', 'SOZ', 'EA')) + '</tr>'
+                     for s, z in ((10, 15), (15, 15), (15, 25), (20, 20), (20, 30), (25, 25), (30, 20), (30, 30), (35, 35), (40, 40), (45, 45)))
+           + '</tbody></table></div>')
+ALES_HEDEF = ('<div class="table-wrap"><table><thead><tr><th>Hedef puan</th><th>Ne için gerekir?</th><th>SAY için toplam net</th><th>SÖZ için</th><th>EA için</th></tr></thead><tbody>'
+              + ''.join(f'<tr><td>{h}</td><td>{d}</td>' + ''.join(f'<td>≈ {_tr(_ales_ters(h, t), 0)}</td>' for t in ('SAY', 'SOZ', 'EA')) + '</tr>'
+                        for h, d in ((55, 'Tezli yüksek lisans ve doktora (asgari)'), (70, 'Araştırma ve öğretim görevlisi kadroları'), (80, 'Lisans derecesiyle doktora'), (90, 'Rekabetçi programlar ve burslar')))
+              + '</tbody></table></div>')
+ALES_JS = 'var AK=' + str({k: [ALES_S[k], *v] for k, v in ALES_K.items()}).replace("'", '"') + ';'
+
+TOOLS.append(dict(
+slug='ales-puan-hesaplama', name='ALES Puan Hesaplama', cat='egitim', ico='🎓',
+title='ALES Puan Hesaplama 2026 – Sayısal, Sözel, Eşit Ağırlık Puanı | Hesaplarsın',
+desc='ALES sayısal ve sözel doğru-yanlışlarınızı girin; netlerinizi ve tahmini SAY, SÖZ, EA puanlarınızı görün. Yüksek lisans (55), araştırma görevlisi (70) ve doktora barajlarıyla karşılaştırın.',
+h1='🎓 ALES Puan Hesaplama 2026',
+lead='Akademik Personel ve Lisansüstü Eğitime Giriş Sınavı (ALES) sayısal ve sözel testlerindeki doğru ve yanlış sayılarınızı girin; netlerinizi, tahmini sayısal (SAY), sözel (SÖZ) ve eşit ağırlık (EA) puanlarınızı ve hangi başvurular için yeterli olduğunu anında görün.',
+card_title='ALES Net ve Puan Hesaplayıcı', button='Puanımı Hesapla',
+form=net_satirlari([('say', 'Sayısal test', 50), ('soz', 'Sözel test', 50)]),
+js=NET_JS + ALES_JS + r'''
+function ap(s,z,t){var k=AK[t];return Math.max(0,Math.min(100,k[0]+k[1]*s+k[2]*z));}
+function hesapla(){
+  var r=netHesap([["say","Sayısal",50],["soz","Sözel",50]],4); if(r.hata) return r.hata;
+  if(!(v('sayd')||v('sayy')||v('sozd')||v('sozy'))) return 'Sayısal ve sözel doğru-yanlış sayılarınızı girin.';
+  var s=(v('sayd')||0)-(v('sayy')||0)/4, z=(v('sozd')||0)-(v('sozy')||0)/4;
+  var p={SAY:ap(s,z,'SAY'),SOZ:ap(s,z,'SOZ'),EA:ap(s,z,'EA')}, best=['SAY','SOZ','EA'].sort(function(a,b){return p[b]-p[a];})[0];
+  var ad={SAY:'Sayısal (SAY)',SOZ:'Sözel (SÖZ)',EA:'Eşit ağırlık (EA)'};
+  function dur(x){return x>=80?'Lisans derecesiyle doktora dahil tüm eşikleri geçiyor':x>=70?'Araştırma görevlisi (70) eşiğini geçiyor':x>=55?'Yüksek lisans ve doktora (55) eşiğini geçiyor':'55 eşiğinin altında';}
+  var rows=r.rows.concat([['<b>Toplam net</b>','<b>'+num(s+z,2)+' / 100</b>']]);
+  ['SAY','SOZ','EA'].forEach(function(t){rows.push([ad[t]+' puanı','<b>'+num(p[t],2)+'</b> <small style="color:var(--muted)">('+num(Math.max(0,p[t]-4),1)+'–'+num(Math.min(100,p[t]+4),1)+')</small>',t===best?'hl':'']);});
+  rows.push(['En yüksek puan türünüze göre',dur(p[best])]);
+  return {main:['Tahmini '+ad[best]+' puanı', num(p[best],2)], sub:'Sayısal '+num(s,2)+' · Sözel '+num(z,2)+' net', rows:rows,
+    note:'ALES puanı, o oturuma giren tüm adayların ortalaması ve standart sapmasıyla hesaplanır; sonuç tahminidir ve ±4 puan sapabilir. Başvuracağınız programın istediği puan türünü ilandan kontrol edin.'};
+}''',
+article=f'''<h2 id="nasil">ALES puanı nasıl hesaplanır?</h2>
+<p>ALES, ÖSYM tarafından yılda üç kez yapılan, <b>50 sayısal ve 50 sözel</b> sorudan oluşan bir sınavdır. Her testte <b>4 yanlış 1 doğruyu götürür</b>. Netler doğrudan toplanmaz; ÖSYM her testin netini o oturumun ortalaması ve standart sapmasıyla ortalaması 50, standart sapması 10 olan standart puana çevirir. Ardından puan türüne göre ağırlıklandırır:</p>
+<div class="table-wrap"><table><thead><tr><th>Puan türü</th><th>Sayısal testin ağırlığı</th><th>Sözel testin ağırlığı</th><th>Genellikle istenen alanlar</th></tr></thead><tbody>
+<tr><td>Sayısal (SAY)</td><td>%75</td><td>%25</td><td>Mühendislik, fen bilimleri, tıp temel bilimleri</td></tr>
+<tr><td>Sözel (SÖZ)</td><td>%25</td><td>%75</td><td>Edebiyat, tarih, dil, hukuk ve ilahiyat programları</td></tr>
+<tr><td>Eşit ağırlık (EA)</td><td>%50</td><td>%50</td><td>İşletme, iktisat, eğitim, psikoloji, sosyal bilimler</td></tr>
+</tbody></table></div>
+<p>Son olarak ağırlıklı puan, KPSS ve diğer ÖSYM sınavlarındaki yöntemle 100 üzerinden puana dönüştürülür:</p>
+<div class="formula">ALES puanı = 70 + 30 × [2 × (AP − X) − S] ÷ [2 × (B − X) − S]</div>
+<p>Formülde AP adayın ağırlıklı puanı, X tüm adayların ortalaması, S standart sapması, B ise en yüksek ağırlıklı puandır. Bu değerler sınavdan sonra belli olduğu için her hesaplama tahmindir. Hesaplayıcımız, geçmiş oturum sonuçlarından türetilen net katsayılarını kullanır.</p>
+
+<h2 id="kac-net">ALES’te kaç net kaç puan?</h2>
+{ALES_KN}
+<p>Aynı toplam nette, ağırlığı yüksek testteki net puanı daha çok artırır: sayısal ağırlıklı puanda 1 sayısal net yaklaşık {_tr(ALES_K['SAY'][0], 2)}, 1 sözel net yaklaşık {_tr(ALES_K['SAY'][1], 2)} puan getirir. Sözel puanda ise 1 sözel net yaklaşık {_tr(ALES_K['SOZ'][1], 2)} puan değerindedir.</p>
+
+<h2 id="baraj">ALES’te kaç puan gerekir?</h2>
+{ALES_HEDEF}
+<p>Lisansüstü Eğitim ve Öğretim Yönetmeliği’ne göre tezli yüksek lisans ve doktora programlarına başvuruda ilgili puan türünde en az <b>55</b>, lisans derecesiyle doktoraya başvuruda en az <b>80</b> puan aranır; tezsiz yüksek lisansta ALES şartı yoktur. Araştırma görevlisi ve öğretim görevlisi kadrolarında ise en az <b>70</b> puan istenir. Üniversiteler bu eşiklerin üzerinde puan isteyebilir ve programa göre puan türü belirler; başvurmadan önce ilanı kontrol edin. Tablodaki net değerleri iki teste eşit dağıtılmış toplam netlerdir.</p>
+
+<h2 id="tarih">2026 ALES/3 ne zaman?</h2>
+<div class="table-wrap"><table><thead><tr><th>Aşama</th><th>Tarih</th></tr></thead><tbody>
+<tr><td>Başvuru</td><td>7–15 Ekim 2026 (geç başvuru 21 Ekim)</td></tr>
+<tr><td>Sınav</td><td>29 Kasım 2026, Pazar</td></tr>
+<tr><td>Sonuç</td><td>17 Aralık 2026</td></tr>
+</tbody></table></div>
+<p>ALES sonuçları açıklandığı tarihten itibaren <b>5 yıl</b> geçerlidir. Birden fazla oturuma girdiyseniz başvuruda en yüksek geçerli puanınızı kullanabilirsiniz. Sınava kaç gün kaldığını <a href="https://hesaplarsin.com/gun-hesaplama.html">gün hesaplama</a> aracıyla takip edebilirsiniz.</p>
+
+<h2 id="taktik">ALES’e hazırlanırken</h2>
+<ul>
+<li>Hedef programınızın puan türünü önce öğrenin: EA isteyen bir programa başvuracaksanız sayısal ve sözel testlere eşit zaman ayırın.</li>
+<li>Sayısal testte sayısal mantık ve problem soruları, sözel testte paragraf ve sözel mantık soruları belirleyicidir.</li>
+<li>4 yanlış 1 doğruyu götürdüğü için emin olmadığınız soruları boş bırakmak çoğu zaman daha kârlıdır.</li>
+<li>Yabancı dil şartı için YDS veya YÖKDİL puanınızı da kontrol edin; doktora ve kadro ilanlarında genellikle ayrıca aranır.</li>
+</ul>''',
+faq=[('ALES’te kaç yanlış bir doğruyu götürür?', 'ALES’te 4 yanlış 1 doğruyu götürür. Net, doğru sayısından yanlış sayısının dörtte biri çıkarılarak bulunur.'),
+     ('ALES’te 60 net kaç puan eder?', f'Netlerin iki teste eşit dağıldığı varsayımıyla 60 net (30 sayısal + 30 sözel) yaklaşık {_tr(_ales(30, 30, "SAY"), 0)} SAY, {_tr(_ales(30, 30, "SOZ"), 0)} SÖZ ve {_tr(_ales(30, 30, "EA"), 0)} EA puanına karşılık gelir. Gerçek puan oturumun zorluğuna göre ±4 puan değişebilir.'),
+     ('Yüksek lisans için ALES kaç olmalı?', 'Tezli yüksek lisansta ilgili puan türünde en az 55 puan aranır. Tezsiz yüksek lisans programlarında ALES şartı yoktur. Üniversiteler daha yüksek puan isteyebilir.'),
+     ('Araştırma görevlisi olmak için ALES kaç gerekir?', 'Araştırma görevlisi ve öğretim görevlisi kadrolarında ilgili puan türünde en az 70 ALES puanı aranır.'),
+     ('2026 ALES/3 sonuçları ne zaman açıklanacak?', '29 Kasım 2026’da yapılacak ALES/3 sınavının sonuçları ÖSYM takvimine göre 17 Aralık 2026’da açıklanacak.'),
+     ('ALES puanı kaç yıl geçerli?', 'ALES sonuçları açıklandığı tarihten itibaren 5 yıl geçerlidir.')],
+related=['kpss-puan-hesaplama', 'kpss-net-hesaplama', 'not-ortalamasi-hesaplama', 'gun-hesaplama', 'obp-hesaplama'],
+sources=[('ÖSYM – ALES', 'https://www.osym.gov.tr/'), ('YÖK – Lisansüstü Eğitim ve Öğretim Yönetmeliği', 'https://www.mevzuat.gov.tr/')],
+badges=['✓ Ücretsiz', 'SAY · SÖZ · EA', 'ALES/3 29 Kasım'],
+))
