@@ -445,8 +445,8 @@ related=['iskonto-hesaplama','yuzde-hesaplama','kar-marji-hesaplama','kdv-hesapl
 # ───────────────────────── VERİ KULLANIM ─────────────────────────
 TOOLS.append(dict(
 slug='veri-kullanim-hesaplama', name='Mobil Veri Kullanım Hesaplama', cat='diger', ico='📶',
-title='İnternet Kotası Hesaplama – Kaç GB Yeterli? Veri Kullanımı | Hesaplarsın',
-desc='Video, sosyal medya, müzik, oyun ve görüntülü görüşme sürelerinize göre aylık mobil internet (GB) ihtiyacınızı hesaplayın. Hangi paket yeter, öğrenin.',
+title='Veri Kullanım Hesaplayıcı – Aylık Kaç GB İnternet Yeterli? | Hesaplarsın',
+desc='1 saat HD video yaklaşık 0,7 GB, 1 saat Instagram/TikTok 0,6 GB harcar. Günlük kullanımınızı girin; aylık kaç GB internet ve hangi paket gerektiğini görün.',
 h1='📶 Mobil Veri Kullanım Hesaplama – Kaç GB Yeter?',
 lead='Günde ne kadar video izlediğinizi, sosyal medyada vakit geçirdiğinizi ve müzik dinlediğinizi girin; aylık kaç GB internete ihtiyacınız olduğunu görün.',
 form='''<p style="font-size:.82rem;color:var(--muted);margin-bottom:12px">Günlük ortalama kullanım sürelerinizi <b>dakika</b> olarak girin (Wi-Fi hariç, yalnızca mobil veri).</p>
