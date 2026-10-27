@@ -494,17 +494,19 @@ KPSS_KN_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Toplam net (GY +
 KPSS_HEDEF_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Hedef puan</th><th>P3 için gereken net</th><th>P93 için</th><th>P94 için</th></tr></thead><tbody>'
                     + ''.join(f'<tr><td>{h}</td>' + ''.join(f'<td>≈ {_tr(_kp_ters(h, m), 0)}</td>' for m in ('lisans', 'onlisans', 'orta')) + '</tr>'
                               for h in (70, 75, 80, 85, 90, 95)) + '</tbody></table></div>')
+KPSS_P93_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Toplam net (GY + GK)</th><th>Tahmini P93 (önlisans)</th></tr></thead><tbody>'
+                   + ''.join(f'<tr><td>{t} net</td><td>{_tr(_kp(t / 2, t / 2, "onlisans"), 1)}</td></tr>' for t in (110, 100, 90, 85, 80, 75, 70, 65, 60, 50, 40, 30)) + '</tbody></table></div>')
 KPSS_JS_M = 'var KM=' + str({k: [v['mg'], v['sg'], v['mk'], v['sk'], v['a'], v['b']] for k, v in KPSS_M.items()}).replace("'", '"') + ';'
 
 TOOLS.append(dict(
 slug='kpss-puan-hesaplama', name='KPSS Puan Hesaplama', cat='egitim', ico='🏛️',
-title='KPSS Puan Hesaplama 2026 – P3, P93, P94 Lisans, Önlisans, Ortaöğretim | Hesaplarsın',
-desc='KPSS Genel Yetenek ve Genel Kültür doğru-yanlışlarınızı girin; netinizi ve 2026 verileriyle tahmini P3 (lisans), P93 (önlisans) veya P94 (ortaöğretim) puanınızı görün.',
-h1='🏛️ KPSS Puan Hesaplama 2026',
-lead='Genel Yetenek ve Genel Kültür testlerindeki doğru ve yanlış sayılarınızı girin; netlerinizi ve ÖSYM’nin standart puan yöntemiyle tahmini KPSS puanınızı lisans (P3), önlisans (P93) ve ortaöğretim (P94) için anında görün.',
+title='KPSS Önlisans Puan Hesaplama 2026 (P93) – Lisans P3, Ortaöğretim P94 | Hesaplarsın',
+desc=f'KPSS önlisans sonuçları 30 Ekim’de açıklanıyor. Doğru-yanlışlarınızı girin, tahmini P93 puanınızı görün: 80 net ≈ {_tr(_kp(40, 40, "onlisans"), 0)} puan. Lisans (P3) ve ortaöğretim (P94) de hesaplanır.',
+h1='🏛️ KPSS Puan Hesaplama 2026 – Önlisans, Lisans, Ortaöğretim',
+lead='Genel Yetenek ve Genel Kültür testlerindeki doğru ve yanlış sayılarınızı girin; netlerinizi ve ÖSYM’nin standart puan yöntemiyle tahmini KPSS puanınızı önlisans (P93), lisans (P3) ve ortaöğretim (P94) için anında görün. KPSS önlisans sonuçları 30 Ekim 2026’da açıklanıyor.',
 card_title='KPSS Net ve Puan Hesaplayıcı', button='Puanımı Hesapla',
 form='''<div class="field full" style="margin-bottom:14px"><label>Sınav düzeyi</label>
-<div class="seg"><label><input type="radio" name="duz" value="lisans" checked>Lisans (P3)</label><label><input type="radio" name="duz" value="onlisans">Önlisans (P93)</label><label><input type="radio" name="duz" value="orta">Ortaöğretim (P94)</label></div></div>''' + net_satirlari([('gy', 'Genel Yetenek (Türkçe + Matematik)', 60), ('gk', 'Genel Kültür (Tarih, Coğrafya, Vatandaşlık, Güncel)', 60)]),
+<div class="seg"><label><input type="radio" name="duz" value="onlisans" checked>Önlisans (P93)</label><label><input type="radio" name="duz" value="lisans">Lisans (P3)</label><label><input type="radio" name="duz" value="orta">Ortaöğretim (P94)</label></div></div>''' + net_satirlari([('gy', 'Genel Yetenek (Türkçe + Matematik)', 60), ('gk', 'Genel Kültür (Tarih, Coğrafya, Vatandaşlık, Güncel)', 60)]),
 js=NET_JS + KPSS_JS_M + r'''
 var AD={lisans:['Lisans','P3'],onlisans:['Önlisans','P93'],orta:['Ortaöğretim','P94']};
 function kp(gy,gk,m){var k=KM[m];var a=0.5*(50+10*(gy-k[0])/k[1])+0.5*(50+10*(gk-k[2])/k[3]);return Math.min(100,k[4]+k[5]*(a-50));}
@@ -519,7 +521,15 @@ function hesapla(){
   return {main:['Tahmini '+AD[m][1]+' puanı', num(p,2)], sub:AD[m][0]+' · '+num(gy+gk,2)+' net (GY '+num(gy,2)+' · GK '+num(gk,2)+')', rows:rows.concat(diger),
     note:'KPSS puanı, o yıl sınava giren tüm adayların test ortalamaları ve standart sapmalarına göre ÖSYM tarafından hesaplanır. Sonuç tahminidir; resmî puanınız ÖSYM sonuç belgenizde yer alır.'};
 }''',
-article=f'''<h2 id="nasil">KPSS puanı nasıl hesaplanır?</h2>
+article=f'''<h2 id="onlisans">KPSS önlisans puan hesaplama (P93)</h2>
+<p>4 Ekim 2026’da yapılan KPSS Önlisans sınavının sonuçları <b>30 Ekim 2026</b>’da açıklanıyor. Önlisans mezunlarının kullandığı puan türü <b>P93</b>’tür; Genel Yetenek ve Genel Kültür testleri %50’şer ağırlıkla hesaba katılır. Yukarıdaki hesaplayıcı önlisans seçili açılır; doğru ve yanlış sayılarınızı girmeniz yeterli.</p>
+<p>Netlerin iki teste eşit dağıldığı varsayımıyla tahmini P93 puanları:</p>
+{KPSS_P93_TABLO}
+<p>Önlisans tahminleri ÖSYM’nin önceki yıllarda yayımladığı önlisans test istatistiklerine dayanır. ÖSYM 2026 önlisans sayısal bilgilerini sonuçlarla birlikte yayımladığında hesaplayıcıyı bu verilerle güncelleyeceğiz; gerçek puanınız birkaç puan farklı çıkabilir.</p>
+<h3>KPSS önlisans sonuçları nasıl öğrenilir?</h3>
+<p>Sonuçlar ÖSYM’nin <b>sonuc.osym.gov.tr</b> adresinde T.C. kimlik numarası ve aday şifresiyle sorgulanır. Sonuç belgesinde Genel Yetenek ve Genel Kültür netleriniz ile P93 puanınız yer alır. Belgede gördüğünüz netleri buraya girerek hesaplayıcının tahminini kendi gerçek puanınızla karşılaştırabilirsiniz.</p>
+
+<h2 id="nasil">KPSS puanı nasıl hesaplanır?</h2>
 <p>KPSS’de her testte <b>4 yanlış 1 doğruyu götürür</b>; net (ham puan) doğru sayısından yanlış sayısının dörtte biri çıkarılarak bulunur. ÖSYM bu netleri doğrudan toplamaz, üç aşamada puana çevirir:</p>
 <ol>
 <li><b>Standart puan:</b> Her testin neti, o testin Türkiye ortalaması ve standart sapması kullanılarak ortalaması 50, standart sapması 10 olan standart puana dönüştürülür.</li>
@@ -567,6 +577,8 @@ article=f'''<h2 id="nasil">KPSS puanı nasıl hesaplanır?</h2>
 </tbody></table></div>
 <p>Tarihler ÖSYM 2026 sınav takvimine göredir. KPSS sonuçları iki yıl geçerlidir; bu nedenle 2026 puanınızla 2028 sınavına kadar yapılan tercihlerde başvurabilirsiniz.</p>''',
 faq=[('KPSS’de kaç yanlış bir doğruyu götürür?', 'KPSS’de 4 yanlış 1 doğruyu götürür. Net, doğru sayısından yanlış sayısının dörtte biri çıkarılarak hesaplanır.'),
+     ('KPSS önlisansta 70 net kaç puan eder?', f'Netlerin Genel Yetenek ve Genel Kültür’e eşit dağıldığı varsayımıyla 70 net yaklaşık {_tr(_kp(35, 35, "onlisans"), 0)}, 60 net yaklaşık {_tr(_kp(30, 30, "onlisans"), 0)} P93 puanına karşılık gelir. Kesin puanı ÖSYM 30 Ekim 2026’da açıklayacak.'),
+     ('KPSS önlisans sonuçları nereden öğrenilir?', 'Sonuçlar ÖSYM’nin sonuc.osym.gov.tr adresinde T.C. kimlik numarası ve aday şifresiyle sorgulanır. Sonuç belgesinde netleriniz ve P93 puanınız yer alır.'),
      ('KPSS’de 80 net kaç puan eder?', f'Netlerin iki teste eşit dağıldığı varsayımıyla 80 net, 2026 verilerine göre yaklaşık {_tr(_kp(40, 40, "lisans"), 0)} P3 puanına karşılık gelir. Önlisansta (P93) yaklaşık {_tr(_kp(40, 40, "onlisans"), 0)}, ortaöğretimde (P94) yaklaşık {_tr(_kp(40, 40, "orta"), 0)} puandır.'),
      ('P3 puanı nasıl hesaplanır?', 'Genel Yetenek ve Genel Kültür netleri standart puana çevrilir, %50–%50 ağırlıkla toplanır ve ÖSYM formülüyle 100’lük ölçeğe taşınır. Tüm adayların sonuçları kullanıldığı için kesin puanı ancak ÖSYM açıklar.'),
      ('KPSS önlisans sonuçları ne zaman açıklanacak?', '4 Ekim 2026’da yapılan KPSS Önlisans sınavının sonuçları ÖSYM takvimine göre 30 Ekim 2026’da açıklanacak.'),
