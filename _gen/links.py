@@ -16,7 +16,7 @@ N = {  # hedef -> görünen ad
  'elektrik-faturasi-hesaplama': 'Elektrik faturası hesaplama', 'kredi-erken-kapama-hesaplama': 'Kredi erken kapama hesaplama', 'kredi-karti-asgari-odeme-hesaplama': 'Kredi kartı asgari ödeme',
  'kripto-kar-zarar-hesaplama': 'Kripto kâr/zarar hesaplama', 'otv-hesaplama': 'ÖTV hesaplama', 'stok-karliligi-hesaplama': 'Stok kârlılığı hesaplama',
  'borc-kapatma-hesaplama': 'Borç kapatma hesaplama', 'damga-vergisi-hesaplama': 'Damga vergisi hesaplama', 'indirim-hesaplama': 'İndirim hesaplama',
- 'pazaryeri-komisyon-hesaplama': 'Pazaryeri komisyon hesaplama (Trendyol, Hepsiburada)', 'emeklilik-yasi-hesaplama': 'Emeklilik hesaplama – ne zaman emekli olurum?',
+ 'pazaryeri-komisyon-hesaplama': 'Pazaryeri komisyon hesaplama (Trendyol, Hepsiburada)', 'desi-hesaplama': 'Desi hesaplama (kargo)', 'emeklilik-yasi-hesaplama': 'Emeklilik hesaplama – ne zaman emekli olurum?',
  'ekonomi-takvimi': 'Ekonomi takvimi (enflasyon, faiz kararı tarihleri)', 'net-maas-hesaplama': 'Net maaş hesaplama', 'kidem-tazminati-hesaplama': 'Kıdem tazminatı hesaplama',
  'ihbar-tazminati-hesaplama': 'İhbar tazminatı hesaplama', 'kira-artis-hesaplama': 'Kira artış hesaplama', 'tapu-harci-hesaplama': 'Tapu harcı hesaplama',
  'metrekare-fiyat-hesaplama': 'Metrekare fiyatı hesaplama', 'enflasyon-hesaplama': 'Enflasyon hesaplama', 'yuzde-hesaplama': 'Yüzde hesaplama', 'kdv-hesaplama': 'KDV hesaplama',
@@ -36,6 +36,7 @@ N = {  # hedef -> görünen ad
  'blog/vergi-dilimleri-2027': 'Gelir vergisi dilimleri 2027', 'blog/kira-artisi-2027': 'Kira artışı 2027',
 }
 M = {  # kaynak sayfa -> hedefler
+ 'desi-hesaplama': ['pazaryeri-komisyon-hesaplama', 'trendyol-komisyon-hesaplama', 'kar-marji-hesaplama'],
  'komisyon-hesaplama': ['para-sayma-hesaplama', 'pazaryeri-komisyon-hesaplama', 'prim-hesaplama', 'blog/komisyon-hesaplama-rehberi'],
  'yuzde-hesaplama': ['para-sayma-hesaplama', 'indirim-hesaplama', 'kdv-haric-hesaplama'],
  'doviz-cevirici': ['para-sayma-hesaplama', 'para-deger-kaybi-hesaplama', 'enflasyon-hesaplama'],

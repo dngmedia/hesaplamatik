@@ -685,3 +685,69 @@ faq=[
 ],
 related=['yakit-tuketimi-hesaplama','arac-kredisi-hesaplama','mtv-hesaplama','arac-deger-kaybi-hesaplama','yuzde-hesaplama'],
 ))
+
+
+# ───────────────────────── DESİ ─────────────────────────
+import math as _m
+def _dtr(x, d=2):
+    s = f'{x:,.{d}f}'; return s.replace(',', 'X').replace('.', ',').replace('X', '.')
+_DK = [('Küçük kutu (ayakkabı kutusu)', 30, 20, 12), ('Orta boy koli', 40, 30, 20), ('Büyük koli', 50, 40, 30), ('Taşınma kolisi', 60, 40, 40), ('Bavul boyutu', 75, 50, 30), ('Çok büyük koli', 80, 60, 50)]
+rows = ''.join(f'<tr><td>{a}</td><td>{e} × {b} × {y} cm</td><td>{_dtr(e*b*y/3000)}</td><td>{_m.ceil(e*b*y/3000-1e-9)}</td></tr>' for a, e, b, y in _DK)
+TOOLS.append(dict(
+slug='desi-hesaplama', name='Desi Hesaplama', cat='isletme', ico='📦',
+title='Desi Hesaplama – Kargo Desi Nasıl Hesaplanır? (En × Boy × Yükseklik ÷ 3000) | Hesaplarsın',
+desc='Kargo desi hesaplama: paketin en, boy ve yüksekliğini girin, desi ve ücrete esas ağırlığı anında görün. 40×30×20 cm koli 8 desidir. Yurt içi 3000, yurt dışı 5000 bölen.',
+h1='📦 Desi Hesaplama – Kargo Desi ve Ücrete Esas Ağırlık',
+lead='Paketinizin en, boy ve yükseklik ölçülerini santimetre olarak, isterseniz gerçek ağırlığını da girin; kargo firmalarının fiyatlandırmada kullandığı desiyi ve desi ile kilogramdan hangisinin esas alınacağını görün.',
+card_title='Kargo Desi Hesaplayıcı', button='Desiyi Hesapla',
+form='''<div class="form-grid">
+  <div class="field"><label for="en">En (cm)</label><input type="number" id="en" placeholder="örn: 40" inputmode="decimal"></div>
+  <div class="field"><label for="boy">Boy (cm)</label><input type="number" id="boy" placeholder="örn: 30" inputmode="decimal"></div>
+  <div class="field"><label for="yuk">Yükseklik (cm)</label><input type="number" id="yuk" placeholder="örn: 20" inputmode="decimal"></div>
+  <div class="field"><label for="kg">Gerçek ağırlık (kg) <small>isteğe bağlı</small></label><input type="number" id="kg" placeholder="örn: 5" inputmode="decimal"></div>
+  <div class="field"><label for="adet">Paket adedi</label><input type="number" id="adet" value="1" inputmode="numeric"></div>
+  <div class="field"><label for="bolen">Gönderi türü</label><select id="bolen"><option value="3000" selected>Yurt içi kargo (÷ 3000)</option><option value="5000">Uluslararası ekspres (÷ 5000)</option><option value="6000">Hava kargo – IATA (÷ 6000)</option></select></div>
+</div>''',
+js=r'''
+function hesapla(){
+  var e=v('en'), b=v('boy'), y=v('yuk'), kg=v('kg')||0, n=Math.max(1,Math.round(v('adet')||1)), bol=parseFloat(el('bolen').value);
+  if(!(e>0&&b>0&&y>0)) return 'Paketin en, boy ve yükseklik ölçülerini girin.';
+  var d=e*b*y/bol, dy=Math.ceil(d-1e-9), esas=Math.max(d,kg), hangi=kg>d?'gerçek ağırlık (kg)':'desi';
+  var rows=[['Hacim',num(e*b*y,0)+' cm³'],['Desi (tam değer)',num(d,2)],['Desi (üste yuvarlanmış)',num(dy,0)],
+    ['Gerçek ağırlık',kg?num(kg,2)+' kg':'girilmedi'],['Ücrete esas ağırlık (paket başı)',num(esas,2)+(kg>d?' kg':' desi'),'hl']];
+  if(n>1) rows.push(['Toplam ('+n+' paket)',num(esas*n,2)+(kg>d?' kg':' desi')]);
+  return {main:['Paketin desisi', num(d,2)+' desi'], sub:'Ücretlendirmede <b>'+hangi+'</b> esas alınır'+(n>1?' · '+n+' paket toplam '+num(esas*n,2):''), rows:rows,
+    note:'Desi = En × Boy × Yükseklik (cm) ÷ '+bol+'. Kargo firmaları desi ile kilogramdan büyük olanı fiyatlandırır; çoğu firma küsuratlı desiyi bir üst tam sayıya yuvarlar. Kesin desi ve ücret için gönderi yapacağınız firmanın tarifesine bakın.'};
+}''',
+article=f'''<h2 id="nedir">Desi nedir?</h2>
+<p>Desi, kargo gönderilerinde paketin kapladığı hacmi ağırlık cinsinden ifade eden birimdir. Kargo araçlarında yer, ağırlık kadar değerlidir: büyük ama hafif bir koli, küçük ama ağır bir paket kadar alan kaplar. Bu yüzden kargo firmaları paketin <b>gerçek ağırlığı (kg)</b> ile <b>desisini</b> karşılaştırır ve hangisi büyükse ücreti ona göre belirler. Fiyatlandırmada 1 desi, 1 kilogram gibi değerlendirilir.</p>
+
+<h2 id="formul">Desi nasıl hesaplanır?</h2>
+<div class="formula">Desi = En (cm) × Boy (cm) × Yükseklik (cm) ÷ 3000</div>
+<p>Türkiye’de yurt içi kargo firmaları desiyi 3000’e bölerek hesaplar. Uluslararası ekspres kargoda bölen genellikle 5000, hava kargoda ise IATA standardı olan 6000’dir; bölen büyüdükçe aynı paketin desisi küçülür.</p>
+<div class="example"><p><b>Örnek:</b> 40 × 30 × 20 cm ölçülerindeki bir koli: 40 × 30 × 20 = 24.000 cm³; 24.000 ÷ 3000 = <b>8 desi</b>. Koli 5 kg geliyorsa ücret 8 desi üzerinden, 12 kg geliyorsa 12 kg üzerinden hesaplanır.</p></div>
+
+<h2 id="tablo">Koli ölçülerine göre desi tablosu</h2>
+<div class="table-wrap"><table><thead><tr><th>Paket</th><th>Ölçü</th><th>Desi</th><th>Üste yuvarlanmış</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p>Tablo yurt içi kargo için 3000 bölenle hesaplanmıştır. Ölçüler paketin en dış noktalarından, ambalaj dahil alınmalıdır.</p>
+
+<h2 id="kg">Desi mi, kilogram mı? Hangisi esas alınır?</h2>
+<p>Kargo ücreti her zaman desi ile gerçek ağırlıktan <b>büyük olana</b> göre belirlenir. Yastık, battaniye, oyuncak gibi hafif ama hacimli ürünlerde desi; kitap, alet, sıvı gibi küçük ama ağır ürünlerde kilogram belirleyicidir. Örneğin 60 × 40 × 40 cm’lik bir yorgan kolisi yalnızca 4 kg gelse de 32 desi üzerinden ücretlendirilir.</p>
+
+<h2 id="dusurme">Desiyi düşürmenin yolları</h2>
+<ul>
+<li><b>Ürüne uygun koli seçin:</b> Gereğinden büyük koli, boşluğu dolduran malzemeyle birlikte desiyi gereksiz yere artırır.</li>
+<li><b>Vakumlu poşet kullanın:</b> Tekstil ürünlerinde hacmi yarıya kadar düşürebilir.</li>
+<li><b>Yüksekliği azaltın:</b> Üç ölçü çarpıldığı için tek bir kenarı 10 cm kısaltmak bile desiyi belirgin şekilde düşürür.</li>
+<li><b>Pazaryeri anlaşmalarını kontrol edin:</b> Trendyol ve Hepsiburada gibi pazaryerleri satıcılar için desi aralıklarına göre anlaşmalı kargo fiyatları uygular; ürünün desi aralığını bilmek kâr hesabını doğrudan etkiler.</li>
+</ul>
+<p>Satış başına elinize kalan tutarı kargo dahil görmek için <a href="/pazaryeri-komisyon-hesaplama.html">pazaryeri komisyon hesaplama</a> ve <a href="/kar-marji-hesaplama.html">kâr marjı hesaplama</a> araçlarını kullanabilirsiniz.</p>''',
+faq=[('1 desi kaç kg?', 'Kargo fiyatlandırmasında 1 desi 1 kilogram gibi değerlendirilir. Paketin desisi ile gerçek ağırlığı karşılaştırılır ve büyük olan ücrete esas alınır.'),
+     ('Desi hesaplama formülü nedir?', 'Yurt içi kargoda desi = en × boy × yükseklik (cm) ÷ 3000’dir. Uluslararası ekspres kargoda genellikle 5000, hava kargoda 6000 bölen kullanılır.'),
+     ('40x30x20 koli kaç desi?', '40 × 30 × 20 = 24.000 cm³; 24.000 ÷ 3000 = 8 desidir.'),
+     ('Desi küsuratlı çıkarsa ne olur?', 'Çoğu kargo firması küsuratlı desiyi bir üst tam sayıya yuvarlar; örneğin 7,2 desi 8 desi olarak fiyatlandırılabilir. Yuvarlama kuralı firmadan firmaya değişebilir.'),
+     ('Zarf gönderilerinde desi hesaplanır mı?', 'Evrak ve dosya gönderileri genellikle desi yerine sabit “dosya/zarf” tarifesiyle ücretlendirilir. Zarfın içine kalın ürün konduğunda koli tarifesine geçilebilir.')],
+related=['pazaryeri-komisyon-hesaplama', 'trendyol-komisyon-hesaplama', 'hepsiburada-komisyon-hesaplama', 'kar-marji-hesaplama', 'kar-zarar-hesaplama'],
+sources=[('IATA – hacimsel ağırlık (6000 cm³/kg) standardı', 'https://www.iata.org/')],
+badges=['✓ Ücretsiz', 'Yurt içi ÷3000', 'Yurt dışı ÷5000'],
+))

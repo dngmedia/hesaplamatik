@@ -44,6 +44,11 @@
   "name": "Yakıt Maliyeti Hesaplama",
   "cat": "arac"
  },
+ "desi-hesaplama": {
+  "ico": "📦",
+  "name": "Desi Hesaplama",
+  "cat": "isletme"
+ },
  "vucut-kitle-indeksi": {
   "ico": "⚖️",
   "name": "Vücut Kitle İndeksi (VKİ) Hesaplama",

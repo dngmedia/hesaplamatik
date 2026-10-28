@@ -173,7 +173,7 @@ article=f'''<h2 id="nasil">Pazaryerinde bir satıştan ne kadar kazanırım?</h2
 faq=[('Trendyol mu Hepsiburada mı daha az komisyon alıyor?', 'Kategoriye göre değişir. Giyimde Hepsiburada’nın oranı (yaklaşık %18) Trendyol’dan (yaklaşık %21,5) düşüktür; elektronikte iki platform birbirine yakındır. Sabit hizmet bedeli ve kargo da sonucu değiştirdiği için ürününüzle iki platformu hesaplayıcıda karşılaştırın.'),
      ('Pazaryerinde net kâr nasıl hesaplanır?', 'Net kâr = KDV hariç satış tutarı − KDV hariç ürün maliyeti − komisyon − hizmet bedeli − kargo (hepsi KDV hariç). KDV mükellefi değilseniz KDV’ler de maliyete eklenir. Stopaj vergiden mahsup edildiği için kâra gider olarak yazılmaz.'),
      ('Hesabıma yatan para neden net kârımdan farklı?', 'Hesaba yatan tutar, ürün maliyetini ve devlete ödeyeceğiniz KDV’yi içermez. Bu paradan ürünün alış bedelini ve aylık KDV beyannamesindeki farkı ödedikten sonra kalan tutar net kârınızdır.')] + COMMON_FAQ,
-related=['trendyol-komisyon-hesaplama', 'hepsiburada-komisyon-hesaplama', 'shopier-komisyon-hesaplama', 'komisyon-hesaplama', 'kar-marji-hesaplama'],
+related=['trendyol-komisyon-hesaplama', 'hepsiburada-komisyon-hesaplama', 'shopier-komisyon-hesaplama', 'desi-hesaplama', 'kar-marji-hesaplama'],
 sources=SOURCES,
 badges=['✓ Ücretsiz', '2026 Oranları', 'Stopaj Dahil'],
 ))
@@ -206,7 +206,7 @@ article=f'''<h2 id="oranlar">Trendyol komisyon oranları 2026 (yaklaşık)</h2>
 faq=[('Trendyol giyim komisyonu yüzde kaç?', 'Giyim, ayakkabı ve çanta kategorilerinde 2026’da Trendyol komisyonu genellikle %21,5 ile %22,5 arasındadır. Alt kategori ve marka anlaşmanıza göre farklı olabilir.'),
      ('Trendyol hizmet bedeli ne kadar?', '2026’da standart platform hizmet bedeli sipariş başına yaklaşık 8,49 ₺ + KDV’dir. Aynı gün kargoya verilen “Bugün Kargoda” siparişlerinde daha düşük tutar uygulanır. Güncel tutar satıcı panelinde yer alır.'),
      ('Trendyol’da 100 ₺’lik üründen ne kadar kazanırım?', 'Düşük fiyatlı ürünlerde kargo ve sabit hizmet bedeli satış tutarının büyük kısmını alır. 100 ₺’lik bir üründe barem kargo, hizmet bedeli ve komisyon birlikte satışın yarısını geçebilir. Hesaplayıcıya kendi maliyetinizi girerek zarar edip etmediğinizi görün.')] + COMMON_FAQ[-1:],
-related=['pazaryeri-komisyon-hesaplama', 'hepsiburada-komisyon-hesaplama', 'shopier-komisyon-hesaplama', 'kar-marji-hesaplama', 'kdv-hesaplama'],
+related=['pazaryeri-komisyon-hesaplama', 'hepsiburada-komisyon-hesaplama', 'desi-hesaplama', 'kar-marji-hesaplama', 'kdv-hesaplama'],
 sources=SOURCES[:1] + SOURCES[3:],
 badges=['✓ Ücretsiz', '2026 Oranları', 'Stopaj Dahil'],
 ))
@@ -236,7 +236,7 @@ article=f'''<h2 id="oranlar">Hepsiburada komisyon oranları 2026 (yaklaşık)</h
 faq=[('Hepsiburada komisyon oranı yüzde kaç?', 'Kategoriye göre yaklaşık %6 ile %25 arasındadır. Giyim, çanta ve ev tekstilinde yaklaşık %18, ayakkabıda %19,49, cep telefonunda %7–8,5 civarındadır. Oranlara ayrıca KDV eklenir.'),
      ('Hepsiburada hizmet bedeli ne kadar?', '21 Eylül 2026’dan itibaren teslimat başına 10,99 ₺ + KDV’dir (KDV dahil yaklaşık 13,19 ₺). Barem kargo desteği olan gönderilerde de uygulanır.'),
      ('Hepsiburada barem kargo ücretleri nedir?', '0–200 ₺ arası siparişlerde 43,99 ₺ + KDV, 200–400 ₺ arası siparişlerde 75,99 ₺ + KDV’dir. 400 ₺ ve üzerinde kargo ücreti ürünün desisine göre belirlenir.')] + COMMON_FAQ[-1:],
-related=['pazaryeri-komisyon-hesaplama', 'trendyol-komisyon-hesaplama', 'shopier-komisyon-hesaplama', 'kar-marji-hesaplama', 'kdv-hesaplama'],
+related=['pazaryeri-komisyon-hesaplama', 'trendyol-komisyon-hesaplama', 'desi-hesaplama', 'kar-marji-hesaplama', 'kdv-hesaplama'],
 sources=SOURCES[1:2] + SOURCES[3:],
 badges=['✓ Ücretsiz', 'Eylül 2026 Ücretleri', 'Stopaj Dahil'],
 ))
