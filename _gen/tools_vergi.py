@@ -501,8 +501,8 @@ howto=('Yıllık izin hakkı nasıl hesaplanır?',['İşe giriş tarihinizi giri
 # ───────────────────────── EMEKLİLİK YAŞI ─────────────────────────
 TOOLS.append(dict(
 slug='emeklilik-yasi-hesaplama', name='Emeklilik Hesaplama', cat='maas', ico='🎖️',
-title='Emeklilik Hesaplama 2026 – Ne Zaman Emekli Olurum? SSK, Bağ-Kur, Memur | Hesaplarsın',
-desc='SSK, Bağ-Kur ve memurlar için emeklilik yaşınızı, eksik prim gününüzü ve tahmini emeklilik tarihinizi hesaplayın. EYT ve 2008 sonrası kademeli yaş dahil.',
+title='Emeklilik Hesaplama 2026 – SGK Emeklilik Tablosu, Ne Zaman Emekli Olurum? | Hesaplarsın',
+desc='SSK, Bağ-Kur ve memurlar için emeklilik yaşınızı, eksik prim gününüzü ve emeklilik tarihinizi hesaplayın. EYT prim günü tablosu, kademeli yaş ve BES emeklilik yaşı.',
 h1='🎖️ Emeklilik Hesaplama – Ne Zaman Emekli Olurum?',
 lead='Statünüzü (SSK, Bağ-Kur, memur), ilk sigorta giriş tarihinizi, doğum tarihinizi ve prim gününüzü girin; emeklilik grubunuzu, yaş şartınızı, eksik prim gününüzü ve tahmini emeklilik tarihinizi öğrenin.',
 form='''<div class="field full" style="margin-bottom:14px"><label>Sigorta Statüsü</label><div class="seg"><label><input type="radio" name="stat" value="a" checked>SSK (4/a)</label><label><input type="radio" name="stat" value="b">Bağ-Kur (4/b)</label><label><input type="radio" name="stat" value="c">Memur (4/c)</label></div></div>
@@ -581,6 +581,14 @@ article='''
 <h2 id="eyt">EYT kapsamındakiler ne zaman emekli olur?</h2>
 <p>Mart 2023’te yürürlüğe giren düzenlemeyle 8 Eylül 1999 ve öncesinde sigortalı olanlar için yaş şartı kaldırılmıştır. Bu gruptakiler, kadınlarda 20, erkeklerde 25 yıllık sigortalılık süresini ve işe giriş tarihlerine göre 5000 ile 5975 gün arasında değişen prim gün sayısını tamamladıklarında emekli olabilir. Prim gün sayısı, 23 Mayıs 2002 tarihindeki sigortalılık sürenize göre kademeli olarak belirlenir: sigortalılık süreniz uzadıkça gereken prim günü azalır.</p>
 
+<h2 id="eyt-tablo">SGK emeklilik tablosu: EYT’de giriş tarihine göre prim günü</h2>
+<p>8 Eylül 1999 ve öncesinde SSK’lı (4/a) olanlarda yaş şartı yoktur; kadınlar 20, erkekler 25 yıllık sigortalılık süresini ve aşağıdaki tabloda ilk giriş tarihlerine karşılık gelen prim gün sayısını tamamladığında emekli olur. Prim günü, 23 Mayıs 2002 tarihindeki sigortalılık süresine göre kademelidir.</p>
+<h3>Kadınlar (20 yıl sigortalılık)</h3>
+<div class="table-wrap"><table><thead><tr><th>İlk sigorta giriş tarihi</th><th>Gereken prim günü</th></tr></thead><tbody><tr><td>23.05.1985 ve öncesi</td><td>5.000 gün</td></tr><tr><td>24.05.1985 – 23.05.1986</td><td>5.075 gün</td></tr><tr><td>24.05.1986 – 23.05.1987</td><td>5.150 gün</td></tr><tr><td>24.05.1987 – 23.05.1988</td><td>5.225 gün</td></tr><tr><td>24.05.1988 – 23.05.1989</td><td>5.300 gün</td></tr><tr><td>24.05.1989 – 23.05.1990</td><td>5.375 gün</td></tr><tr><td>24.05.1990 – 23.05.1991</td><td>5.450 gün</td></tr><tr><td>24.05.1991 – 23.05.1992</td><td>5.525 gün</td></tr><tr><td>24.05.1992 – 23.05.1993</td><td>5.600 gün</td></tr><tr><td>24.05.1993 – 23.05.1994</td><td>5.675 gün</td></tr><tr><td>24.05.1994 – 23.05.1995</td><td>5.750 gün</td></tr><tr><td>24.05.1995 – 23.05.1996</td><td>5.825 gün</td></tr><tr><td>24.05.1996 – 23.05.1997</td><td>5.900 gün</td></tr><tr><td>24.05.1997 – 08.09.1999</td><td>5.975 gün</td></tr></tbody></table></div>
+<h3>Erkekler (25 yıl sigortalılık)</h3>
+<div class="table-wrap"><table><thead><tr><th>İlk sigorta giriş tarihi</th><th>Gereken prim günü</th></tr></thead><tbody><tr><td>23.11.1980 ve öncesi</td><td>5.000 gün</td></tr><tr><td>24.11.1980 – 23.05.1982</td><td>5.075 gün</td></tr><tr><td>24.05.1982 – 23.11.1983</td><td>5.150 gün</td></tr><tr><td>24.11.1983 – 23.05.1985</td><td>5.225 gün</td></tr><tr><td>24.05.1985 – 23.11.1986</td><td>5.300 gün</td></tr><tr><td>24.11.1986 – 23.05.1988</td><td>5.375 gün</td></tr><tr><td>24.05.1988 – 23.11.1989</td><td>5.450 gün</td></tr><tr><td>24.11.1989 – 23.05.1991</td><td>5.525 gün</td></tr><tr><td>24.05.1991 – 23.11.1992</td><td>5.600 gün</td></tr><tr><td>24.11.1992 – 23.05.1994</td><td>5.675 gün</td></tr><tr><td>24.05.1994 – 23.11.1995</td><td>5.750 gün</td></tr><tr><td>24.11.1995 – 23.05.1997</td><td>5.825 gün</td></tr><tr><td>24.05.1997 – 23.11.1998</td><td>5.900 gün</td></tr><tr><td>24.11.1998 – 08.09.1999</td><td>5.975 gün</td></tr></tbody></table></div>
+<p>Örneğin 1 Mart 1996’da işe başlayan bir kadın 5.825 prim günü ve 20 yıl sigortalılıkla (1 Mart 2016) şartları tamamlar; prim günü eksikse tamamlandığı gün emekliliğe hak kazanır. Bağ-Kur ve memurlar için bu tablo geçerli değildir.</p>
+
 <h2 id="kademe">01.05.2008 sonrası girişliler için kademeli emeklilik yaşı</h2>
 <div class="table-wrap"><table><thead><tr><th>Şartların tamamlandığı yıl</th><th>Kadın</th><th>Erkek</th></tr></thead><tbody>
 <tr><td>2035 ve öncesi</td><td>58</td><td>60</td></tr><tr><td>2036 – 2037</td><td>59</td><td>61</td></tr><tr><td>2038 – 2039</td><td>60</td><td>62</td></tr>
@@ -589,11 +597,15 @@ article='''
 </tbody></table></div>
 <p>Örneğin 1990 doğumlu ve 2010’da işe başlamış bir kadın 58 yaşını 2048’de dolduracağından, bu yıl için geçerli yaş 65 olur; yani 2055’te emekli olabilir.</p>
 
+<h2 id="bes">Bireysel emeklilik (BES) yaşı nasıl hesaplanır?</h2>
+<p>Bireysel Emeklilik Sistemi (BES), SGK emekliliğinden tamamen ayrıdır; birinden emekli olmak diğerini etkilemez. BES’ten emeklilik hakkı kazanmak için <b>sistemde en az 10 yıl kalmak</b> ve <b>56 yaşını doldurmak</b> gerekir. Örneğin 40 yaşında BES’e giren biri 10 yılı 50 yaşında tamamlar ama 56 yaşını beklemesi gerekir, yani <b>56 yaşında</b> emekli olur. 50 yaşında giren biri ise 10 yılı dolduracağı <b>60 yaşında</b> emekli olur.</p>
+<p>Şartlar sağlanmadan sistemden çıkılırsa devlet katkısının yalnızca sistemde kalınan süreye göre bir kısmı (3 yıldan az kalanlarda hiçbiri) alınabilir. Kesin hak ediş tutarınızı emeklilik şirketinizin uygulamasından veya e-Devlet’teki BES ekranından görebilirsiniz.</p>
+
 <h2 id="prim">Prim gün sayımı nasıl öğrenirim?</h2>
 <p>e-Devlet’te “SGK Tescil ve Hizmet Dökümü” ile toplam prim gününüzü ve ilk giriş tarihinizi görebilirsiniz. Askerlik, doğum ve yurt dışı borçlanmaları prim gününüzü artırabilir; doğum borçlanması ilk giriş tarihinizi değiştirmez, ancak askerlik borçlanması belirli şartlarla emeklilik şartlarını etkileyebilir. Kesin değerlendirme için SGK’nın “Ne Zaman Emekli Olabilirim?” servisini kullanın.</p>
 
 <h2 id="diger">Bağ-Kur ve memurlar için farklılıklar</h2>
-<p>Bağ-Kur’lular (4/b) ve memurlar (4/c) için prim gün sayıları ve geçiş hükümleri SSK’dan farklıdır. Hizmetiniz birden fazla statüde geçtiyse son 7 yıllık (2520 gün) çalışmanızda fazla prim ödediğiniz statüye göre emekli olursunuz. Bu hesaplayıcı yalnızca 4/a (SSK) kurallarını esas alır. Emeklilik planlamanıza yardımcı olması için <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı</a> ve <a href="/yas-hesaplama.html">yaş hesaplama</a> araçlarını da kullanabilirsiniz.</p>
+<p>Bağ-Kur’lular (4/b) ve memurlar (4/c) için prim gün sayıları ve geçiş hükümleri SSK’dan farklıdır. Hizmetiniz birden fazla statüde geçtiyse son 7 yıllık (2520 gün) çalışmanızda fazla prim ödediğiniz statüye göre emekli olursunuz. Hesaplayıcı üç statüyü genel kurallara göre hesaplar; birden fazla statüde hizmetiniz varsa sonucu e-Devlet’ten doğrulayın. Emeklilik planlamanıza yardımcı olması için <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı</a> ve <a href="/yas-hesaplama.html">yaş hesaplama</a> araçlarını da kullanabilirsiniz.</p>
 ''',
 faq=[
 ('Ne zaman emekli olurum nasıl hesaplanır?','İlk sigorta giriş tarihiniz hangi gruba girdiğinizi belirler. Grubunuzun yaş, prim günü ve (EYT’de) sigortalılık süresi şartlarından en son tamamlanacak olanın tarihi emeklilik tarihinizdir. Yukarıdaki hesaplayıcıya statünüzü, doğum ve giriş tarihinizi ve prim gününüzü girerek tahmini tarihi görebilirsiniz.'),
@@ -602,6 +614,8 @@ faq=[
 ('EYT’liler kaç yaşında emekli olur?','08.09.1999 ve öncesi girişlilerde yaş şartı yoktur. Sigortalılık süresini (kadın 20, erkek 25 yıl) ve prim gün sayısını tamamladıklarında emekli olabilirler.'),
 ('2000 yılında işe giren kaç yaşında emekli olur?','09.09.1999 – 30.04.2008 arasında girişi olanlar kadınsa 58, erkekse 60 yaşında ve 7000 prim günüyle emekli olur.'),
 ('2008 sonrası girişliler kaç yaşında emekli olur?','Şartlarını 2035’e kadar tamamlayanlar kadın 58, erkek 60 yaşında emekli olur. 2036’dan itibaren yaş kademeli olarak 65’e yükselir. Prim şartı 7200 gündür.'),
+('Bireysel emeklilik (BES) kaç yaşında?','BES’ten emekli olmak için sistemde en az 10 yıl kalmak ve 56 yaşını doldurmak gerekir. İki şart birlikte aranır: 50 yaşında BES’e giren biri 60 yaşında emekli olur. BES emekliliği SGK emekliliğinden bağımsızdır.'),
+('1996’da işe giren kadın kaç günle emekli olur?','24.05.1995 – 23.05.1996 arası girişli kadınlar 5.825, 24.05.1996 – 23.05.1997 arası girişliler 5.900 prim günü ve 20 yıl sigortalılıkla, yaş şartı olmadan emekli olur.'),
 ('Prim günüm dolduysa yaşımı bekler miyim?','Evet. EYT kapsamı dışındaki gruplarda prim gün sayısını doldursanız bile yaş şartını beklemeniz gerekir.'),
 ('Askerlik borçlanması emekliliği öne çeker mi?','Prim gününüzü artırır. İşe girişten önceki askerlik süresinin borçlanılması, belirli durumlarda sigorta başlangıcını geriye çekebilir; SGK’dan teyit alınmalıdır.'),
 ],
