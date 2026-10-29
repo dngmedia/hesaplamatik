@@ -33,11 +33,11 @@ N = {  # hedef -> görünen ad
  'blog/net-maas-nasil-hesaplanir': 'Rehber: Net maaş nasıl hesaplanır?', 'blog/komisyon-hesaplama-rehberi': 'Rehber: Komisyon nasıl hesaplanır?',
  'blog/kira-geliri-vergisi-hesaplama': 'Rehber: Kira geliri vergisi', 'blog/sgk-primi-hesaplama-rehberi': 'Rehber: SGK primi nasıl hesaplanır?',
  'blog/banka-kredisi-taksit-hesaplama': 'Rehber: Kredi taksiti nasıl hesaplanır?', 'blog/enflasyon-etkisi-2026': 'Enflasyonun maaşa etkisi 2026',
- 'blog/vergi-dilimleri-2027': 'Gelir vergisi dilimleri 2027', 'blog/kira-artisi-2027': 'Kira artışı 2027',
+ 'blog/vergi-dilimleri-2027': 'Gelir vergisi dilimleri 2027', 'blog/kira-artisi-2027': 'Kira artışı 2027', 'blog/dugun-altini-rehberi': 'Düğün altını rehberi (takılan altınlar ne eder?)',
 }
 M = {  # kaynak sayfa -> hedefler
  'taksi-ucreti-hesaplama': ['yakit-maliyeti-hesaplama', 'yakit-tuketimi-hesaplama'],
- 'altin-hesaplama': ['doviz-cevirici', 'para-deger-kaybi-hesaplama', 'enflasyon-hesaplama'],
+ 'altin-hesaplama': ['blog/dugun-altini-rehberi', 'doviz-cevirici', 'para-deger-kaybi-hesaplama'],
  'desi-hesaplama': ['pazaryeri-komisyon-hesaplama', 'trendyol-komisyon-hesaplama', 'kar-marji-hesaplama'],
  'komisyon-hesaplama': ['para-sayma-hesaplama', 'pazaryeri-komisyon-hesaplama', 'prim-hesaplama', 'blog/komisyon-hesaplama-rehberi'],
  'yuzde-hesaplama': ['para-sayma-hesaplama', 'indirim-hesaplama', 'kdv-haric-hesaplama'],
