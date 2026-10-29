@@ -10,13 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Kaynakları dene
+      - name: Truncgil tam yanıt
         run: |
-          out=_gen/altin_probe.txt; : > $out
-          for u in "https://finans.truncgil.com/v4/today.json" "https://finans.truncgil.com/today.json" "https://api.gold-api.com/price/XAU" "https://api.frankfurter.app/latest?from=USD&to=TRY" "https://data-asg.goldprice.org/dbXRates/USD"; do
-            echo "===== $u" >> $out
-            curl -sS -m 20 -A "Mozilla/5.0 hesaplarsin-bot" -D - "$u" 2>&1 | head -c 6000 >> $out
-            echo >> $out
-          done
+          curl -sS -m 20 -A "Mozilla/5.0 hesaplarsin-bot" "https://finans.truncgil.com/v4/today.json" > _gen/altin_probe.json
           git config user.email noreply@anthropic.com; git config user.name "altin-probe"
-          git add $out; git commit -m "Altın kaynak testi çıktısı [skip ci]" && git push
+          git add _gen/altin_probe.json; git commit -m "Altın kaynak testi 2 [skip ci]" && git push
