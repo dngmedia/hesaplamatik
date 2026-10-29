@@ -334,6 +334,11 @@
   "name": "Para Sayma Hesaplama",
   "cat": "finans"
  },
+ "altin-hesaplama": {
+  "ico": "🪙",
+  "name": "Altın Hesaplama",
+  "cat": "finans"
+ },
  "asgari-ucret-2027-hesaplama": {
   "ico": "📈",
   "name": "Asgari Ücret 2027 Hesaplama",

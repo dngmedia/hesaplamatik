@@ -53,7 +53,8 @@ GUNDEM = [('blog/kasim-2026-kira-artis-orani.html', 'Kasım 2026 kira artış or
           ('asgari-ucret-2027-hesaplama.html', 'Asgari ücret 2027'), ('kpss-puan-hesaplama.html', 'KPSS puan hesaplama'), ('ales-puan-hesaplama.html', 'ALES puan hesaplama'), ('blog/trafik-cezalari-2027.html', '2027 trafik cezaları'), ('blog/yeniden-degerleme-orani-2026.html', '2027 MTV ve harçlar'), ('kredi-karti-asgari-odeme-hesaplama.html', 'Kredi kartı asgari ödeme'),
           ('takdir-tesekkur-hesaplama.html', 'Takdir teşekkür hesaplama'), ('yas-hesaplama.html', 'Yaş ve okula başlama yaşı')]
 # Ana sayfada öne çıkan sayfalar (Search Console'da 5–10. sırada olup ilk 3'e taşınmak istenenler; ayda bir gözden geçir)
-ONE_CIKAN = [('para-sayma-hesaplama.html', 'Kaç tane 200 TL ne kadar eder?', 'Banknot adedinden toplam tutar ve tablo'),
+ONE_CIKAN = [('altin-hesaplama.html', 'Altın hesaplama', 'Gram, çeyrek, tam altın kaç TL? Canlı fiyat'),
+             ('para-sayma-hesaplama.html', 'Kaç tane 200 TL ne kadar eder?', 'Banknot adedinden toplam tutar ve tablo'),
              ('blog/kasim-2026-kira-artis-orani.html', 'Kasım 2026 kira artış oranı', 'Tahmin ve kira zammı tablosu'),
              ('blog/kira-artisi-2027.html', 'Kira artışı 2027 tahmini', '2027 TÜFE beklentisi ve kira zammı'),
              ('yatirim-geri-donus-suresi-hesaplama.html', 'Yatırım geri dönüş süresi', 'Dükkân, ev veya makine kaç yılda öder?'),
@@ -61,8 +62,7 @@ ONE_CIKAN = [('para-sayma-hesaplama.html', 'Kaç tane 200 TL ne kadar eder?', 'B
              ('metrekare-fiyat-hesaplama.html', 'Metrekare fiyatı hesaplama', 'Evin m² fiyatı ve ilan karşılaştırma'),
              ('ortalama-hesaplama.html', 'Ortalama hesaplama', 'Ortalama, medyan ve Google yorum puanı'),
              ('indirim-hesaplama.html', 'İndirim hesaplama', 'Yüzde kaç indirim, indirimli fiyat'),
-             ('saatlik-ucret-hesaplama.html', 'Saatlik ücret hesaplama', 'Maaşım saatte kaç TL?'),
-             ('fazla-mesai-hesaplama.html', 'Fazla mesai hesaplama', '%50 zamlı mesai ücreti, ÷225 yöntemi')]
+             ('saatlik-ucret-hesaplama.html', 'Saatlik ücret hesaplama', 'Maaşım saatte kaç TL?')]
 try:
     import tools_takvim as _tk, datetime as _dt
     _up = [e for e in _tk.EVENTS if _dt.date.fromisoformat(e[0]) >= _dt.date.today()][:4]

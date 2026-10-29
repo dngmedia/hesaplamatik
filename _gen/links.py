@@ -7,7 +7,7 @@ import os, re
 
 B = 'https://hesaplarsin.com/'
 N = {  # hedef -> görünen ad
- 'para-sayma-hesaplama': 'Para sayma (kaç tane 200 TL ne eder?)', 'boya-hesaplama': 'Boya hesaplama (kaç litre boya lazım?)',
+ 'para-sayma-hesaplama': 'Para sayma (kaç tane 200 TL ne eder?)', 'altin-hesaplama': 'Altın hesaplama (gram, çeyrek, tam altın kaç TL?)', 'boya-hesaplama': 'Boya hesaplama (kaç litre boya lazım?)',
  'maas-siralamasi': 'Maaşım Türkiye’de kaçıncı sırada?', 'muhendis-maasi': 'Mühendis maaşı 2026', 'doktor-maasi': 'Doktor maaşı 2026',
  'hemsire-maasi': 'Hemşire maaşı 2026', 'ogretmen-maasi': 'Öğretmen maaşı 2026', 'polis-maasi': 'Polis maaşı 2026', 'memur-maaslari': 'Memur maaşları 2026',
  'issizlik-maasi-hesaplama': 'İşsizlik maaşı hesaplama', 'kdv-haric-hesaplama': 'KDV hariç fiyat hesaplama', 'prim-hesaplama': 'Satış primi hesaplama',
@@ -36,10 +36,11 @@ N = {  # hedef -> görünen ad
  'blog/vergi-dilimleri-2027': 'Gelir vergisi dilimleri 2027', 'blog/kira-artisi-2027': 'Kira artışı 2027',
 }
 M = {  # kaynak sayfa -> hedefler
+ 'altin-hesaplama': ['doviz-cevirici', 'para-deger-kaybi-hesaplama', 'enflasyon-hesaplama'],
  'desi-hesaplama': ['pazaryeri-komisyon-hesaplama', 'trendyol-komisyon-hesaplama', 'kar-marji-hesaplama'],
  'komisyon-hesaplama': ['para-sayma-hesaplama', 'pazaryeri-komisyon-hesaplama', 'prim-hesaplama', 'blog/komisyon-hesaplama-rehberi'],
  'yuzde-hesaplama': ['para-sayma-hesaplama', 'indirim-hesaplama', 'kdv-haric-hesaplama'],
- 'doviz-cevirici': ['para-sayma-hesaplama', 'para-deger-kaybi-hesaplama', 'enflasyon-hesaplama'],
+ 'doviz-cevirici': ['altin-hesaplama', 'para-sayma-hesaplama', 'para-deger-kaybi-hesaplama'],
  'metrekare-fiyat-hesaplama': ['boya-hesaplama', 'tapu-harci-hesaplama', 'blog/tapu-harci-hesaplama'],
  'kira-artis-hesaplama': ['blog/kasim-2026-kira-artis-orani', 'boya-hesaplama', 'ekonomi-takvimi', 'blog/kira-geliri-vergisi-hesaplama'],
  'net-maas-hesaplama': ['maas-siralamasi', 'blog/brutten-nete-maas-tablosu-2026', 'issizlik-maasi-hesaplama', 'memur-maaslari'],

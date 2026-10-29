@@ -83,3 +83,5 @@ TESTS['ales-puan-hesaplama']=[dict(fill={'sayd':'32','sayy':'8','sozd':'30'}, ex
 
 TESTS['desi-hesaplama']=[dict(fill={'en':'40','boy':'30','yuk':'20','kg':'5'}, expect='8,00'),
   dict(fill={'en':'40','boy':'30','yuk':'20','bolen':'5000'}, expect='4,80')]
+TESTS['altin-hesaplama']=[dict(fill={'ceyrek':'2','manuel':'6000'}, expect='19.391,03'),
+  dict(radio={'mod':'butce'}, fill={'butce':'60000','manuel':'6000'}, expect='60.000,00')]

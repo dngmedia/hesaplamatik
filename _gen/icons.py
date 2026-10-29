@@ -11,7 +11,7 @@ CATPAGE = {'maas-hesaplamalari': 'wallet', 'memur-hesaplamalari': 'landmark', 'v
            'isletme-hesaplamalari': 'store', 'emlak-hesaplamalari': 'house', 'arac-hesaplamalari': 'car', 'saglik-hesaplamalari': 'heart-pulse',
            'egitim-hesaplamalari': 'graduation-cap', 'gunluk-hesaplamalar': 'calculator'}
 TOOL = {
- 'net-maas-hesaplama': 'wallet', 'kidem-tazminati-hesaplama': 'briefcase', 'ihbar-tazminati-hesaplama': 'file-text', 'fazla-mesai-hesaplama': 'clock', 'desi-hesaplama': 'ruler',
+ 'net-maas-hesaplama': 'wallet', 'kidem-tazminati-hesaplama': 'briefcase', 'ihbar-tazminati-hesaplama': 'file-text', 'fazla-mesai-hesaplama': 'clock', 'desi-hesaplama': 'ruler', 'altin-hesaplama': 'coins',
  'saatlik-ucret-hesaplama': 'timer', 'maas-siralamasi': 'chart-bar', 'issizlik-maasi-hesaplama': 'shield-check', 'maas-zam-hesaplama': 'trending-up',
  'prim-hesaplama': 'badge-percent', 'emeklilik-yasi-hesaplama': 'hourglass', 'asgari-ucret-hesaplama': 'banknote', 'asgari-ucret-2027-hesaplama': 'trending-up', 'emekli-maasi-hesaplama': 'hand-coins', 'obp-hesaplama': 'graduation-cap', 'lgs-puan-hesaplama': 'graduation-cap', 'kpss-puan-hesaplama': 'landmark', 'ales-puan-hesaplama': 'graduation-cap',
  'yillik-izin-hesaplama': 'sun', 'turkiye-maaslari-2026': 'chart-column', 'memur-maaslari': 'landmark', 'ogretmen-maasi': 'graduation-cap',
