@@ -49,6 +49,11 @@
   "name": "Desi Hesaplama",
   "cat": "isletme"
  },
+ "taksi-ucreti-hesaplama": {
+  "ico": "🚕",
+  "name": "Taksi Ücreti Hesaplama",
+  "cat": "arac"
+ },
  "vucut-kitle-indeksi": {
   "ico": "⚖️",
   "name": "Vücut Kitle İndeksi (VKİ) Hesaplama",

@@ -751,3 +751,83 @@ related=['pazaryeri-komisyon-hesaplama', 'trendyol-komisyon-hesaplama', 'hepsibu
 sources=[('IATA – hacimsel ağırlık (6000 cm³/kg) standardı', 'https://www.iata.org/')],
 badges=['✓ Ücretsiz', 'Yurt içi ÷3000', 'Yurt dışı ÷5000'],
 ))
+
+# ───────────────────────── TAKSİ ÜCRETİ ─────────────────────────
+# İstanbul: İBB Meclisi, 20.07.2026'dan itibaren (BirGün 16.09.2026, Sabah 19.07.2026). Ankara: 01.03.2026'dan itibaren (Cumhuriyet).
+TAKSI = [  # anahtar, ad, açılış, km, dakika, minimum
+    ('ist_sari', 'İstanbul – sarı taksi', 71.94, 47.92, 9.98, 230),
+    ('ist_d', 'İstanbul – D segment / elektrikli', 82.73, 55.10, 11.47, 265),
+    ('ist_donusum', 'İstanbul – UKOME dönüşümlü', 93.52, 62.29, 12.97, 300),
+    ('ist_lux', 'İstanbul – lüks taksi', 122.30, 81.46, 16.96, 400),
+    ('ankara', 'Ankara', 65.0, 40.0, 7.0, 200),
+]
+def _t2(x):
+    return f'{x:,.2f}'.replace(',', 'X').replace('.', ',').replace('X', '.')
+TAKSI_TARIFE = ('<div class="table-wrap"><table><thead><tr><th>Şehir / sınıf</th><th>Açılış</th><th>Km başı</th><th>Dakika başı</th><th>İndi-bindi (en az)</th></tr></thead><tbody>'
+    + ''.join(f'<tr><td>{ad}</td><td>{_t2(a)} ₺</td><td>{_t2(k)} ₺</td><td>{_t2(d)} ₺</td><td>{_t2(m)} ₺</td></tr>' for _, ad, a, k, d, m in TAKSI) + '</tbody></table></div>')
+TAKSI_ORNEK = ('<div class="table-wrap"><table><thead><tr><th>Mesafe</th><th>İstanbul sarı taksi</th><th>Ankara</th></tr></thead><tbody>'
+    + ''.join(f'<tr><td>{km} km</td>' + ''.join(f'<td>{_t2(max(m, a + k * km))} ₺</td>' for key, _, a, k, d, m in TAKSI if key in ('ist_sari', 'ankara')) + '</tr>' for km in (2, 5, 10, 15, 20, 30, 40, 50))
+    + '</tbody></table></div>')
+TOOLS.append(dict(
+slug='taksi-ucreti-hesaplama', name='Taksi Ücreti Hesaplama', cat='arac', ico='🚕',
+title='Taksi Ücreti Hesaplama 2026 – İstanbul ve Ankara Güncel Taksimetre Tarifesi | Hesaplarsın',
+desc=f'Taksi ücreti hesaplama: mesafe ve bekleme süresini girin, güncel tarifeyle ödeyeceğiniz tutarı görün. İstanbul sarı taksi açılış {_t2(71.94)} ₺, km {_t2(47.92)} ₺; 10 km yaklaşık {_t2(71.94 + 479.2)} ₺.',
+h1='🚕 Taksi Ücreti Hesaplama – Güncel Taksimetre Tarifesi',
+lead='Şehri ve taksi sınıfını seçin, gideceğiniz mesafeyi ve trafikte bekleme süresini girin; güncel resmî tarifeyle taksimetrenin yazacağı tutarı görün. Diğer şehirler için açılış, km ve dakika ücretini kendiniz girebilirsiniz.',
+card_title='Taksimetre Hesaplayıcı', button='Ücreti Hesapla',
+form='''<div class="form-grid">
+  <div class="field full"><label for="tarife">Şehir / taksi sınıfı</label><select id="tarife">''' + ''.join(f'<option value="{k}">{ad}</option>' for k, ad, *_ in TAKSI) + '''<option value="ozel">Diğer şehir – tarifeyi kendim gireceğim</option></select></div>
+  <div class="field"><label for="km">Mesafe (km)</label><input type="number" id="km" placeholder="örn: 10" inputmode="decimal"></div>
+  <div class="field"><label for="dk">Trafikte bekleme / yavaş gidiş <small>dakika</small></label><input type="number" id="dk" placeholder="örn: 5" inputmode="decimal"></div>
+  <div class="field"><label for="kisi">Kişi sayısı <small>ücreti bölmek için</small></label><input type="number" id="kisi" value="1" inputmode="numeric"></div>
+  <div class="field"><label for="acilis">Açılış ücreti (₺) <small>diğer şehir</small></label><input type="number" id="acilis" inputmode="decimal"></div>
+  <div class="field"><label for="kmu">Km ücreti (₺) <small>diğer şehir</small></label><input type="number" id="kmu" inputmode="decimal"></div>
+  <div class="field"><label for="dku">Dakika ücreti (₺) <small>diğer şehir</small></label><input type="number" id="dku" inputmode="decimal"></div>
+  <div class="field"><label for="min">İndi-bindi / en az ücret (₺) <small>diğer şehir</small></label><input type="number" id="min" inputmode="decimal"></div>
+</div>''',
+js='var TK=' + str({k: [ad, a, km, d, m] for k, ad, a, km, d, m in TAKSI}).replace("'", '"') + ';' + r'''
+function hesapla(){
+  var s=el('tarife').value, km=v('km'), dk=v('dk')||0, n=Math.max(1,Math.round(v('kisi')||1)), t;
+  if(!(km>0)) return 'Gideceğiniz mesafeyi km olarak girin.';
+  if(s==='ozel'){ t=['Girdiğiniz tarife', v('acilis')||0, v('kmu'), v('dku')||0, v('min')||0]; if(!(t[2]>0)) return 'Diğer şehir için en az km ücretini girin (taksimetre tarifesi şehrinizin belediyesinden öğrenilebilir).'; }
+  else t=TK[s];
+  var mesafe=km*t[2], zaman=dk*t[3], top=t[1]+mesafe+zaman, minU=top<t[4];
+  if(minU) top=t[4];
+  var rows=[['Açılış',tl(t[1])],['Mesafe ('+num(km,1)+' km × '+tl(t[2])+')',tl(mesafe)]];
+  if(dk>0) rows.push(['Bekleme ('+num(dk,0)+' dk × '+tl(t[3])+')',tl(zaman)]);
+  if(minU) rows.push(['İndi-bindi (en az ücret) uygulandı',tl(t[4]),'hl']);
+  if(n>1) rows.push(['Kişi başı ('+n+' kişi)',tl(top/n),'hl']);
+  return {main:['Tahmini taksi ücreti', tl(top)], sub:t[0]+' · '+num(km,1)+' km'+(dk>0?' + '+num(dk,0)+' dk bekleme':''), rows:rows,
+    note:'Taksimetre araç hareket ederken mesafeye, dururken ya da çok yavaş giderken zamana göre işler; bekleme süresini trafikte durduğunuz toplam süre olarak girin. Köprü, tünel ve otoyol geçiş ücretleri tutara dahil değildir ve yolcu tarafından ayrıca ödenir.'};
+}''',
+article=f'''<h2 id="tarife">Güncel taksi tarifeleri</h2>
+{TAKSI_TARIFE}
+<p>İstanbul tarifesi İstanbul Büyükşehir Belediyesi kararıyla 20 Temmuz 2026’dan, Ankara tarifesi 1 Mart 2026’dan beri uygulanıyor. Taksi ücretleri yılda bir veya iki kez güncellenir; yeni tarife açıklandığında tabloyu güncelliyoruz.</p>
+
+<h2 id="nasil">Taksi ücreti nasıl hesaplanır?</h2>
+<div class="formula">Taksi ücreti = Açılış + (Km × km ücreti) + (Bekleme dakikası × dakika ücreti)</div>
+<p>Taksimetre biner binmez açılış ücretini yazar. Araç hareket ettikçe mesafe ücreti, trafikte durduğunda veya çok yavaş ilerlediğinde zaman ücreti işler. Hesaplanan tutar şehrin <b>indi-bindi (en az) ücretinin</b> altında kalırsa en az ücret ödenir; İstanbul’da sarı taksiyle 1–2 km’lik kısa yolculuklar bu yüzden 230 ₺ tutar.</p>
+<div class="example"><p><b>Örnek:</b> İstanbul’da sarı taksiyle 10 km yol ve trafikte toplam 8 dakika bekleme: 71,94 + (10 × 47,92) + (8 × 9,98) = <b>{_t2(71.94 + 479.2 + 79.84)} ₺</b>.</p></div>
+
+<h2 id="km">Kilometreye göre taksi ücreti tablosu</h2>
+<p>Bekleme olmadan, yalnızca mesafeye göre yaklaşık tutarlar:</p>
+{TAKSI_ORNEK}
+<p>Yoğun trafikte bekleme süresi tutarı belirgin şekilde artırır. İstanbul sarı taksi için her 10 dakikalık bekleme yaklaşık 100 ₺ ekler.</p>
+
+<h2 id="ipucu">Taksi ücretini etkileyen diğer kalemler</h2>
+<ul>
+<li><b>Köprü, tünel ve otoyol:</b> Geçiş ücretleri taksimetreye dahil değildir; yolcu ayrıca öder.</li>
+<li><b>Taksi sınıfı:</b> İstanbul’da D segment, elektrikli, dönüşümlü ve lüks taksilerin tarifesi sarı taksiden yüksektir.</li>
+<li><b>Havalimanı yolculukları:</b> Uzun mesafede tutarı belirleyen kilometre ücretidir; trafik yoğunsa bekleme süresi de eklenir.</li>
+<li><b>Diğer şehirler:</b> Tarifeyi il belediyesi (UKOME veya belediye meclisi) belirler. Şehrinizin açılış, km ve dakika ücretini girerek aynı hesabı yapabilirsiniz.</li>
+</ul>
+<p>Kendi aracınızla aynı yolun maliyetini karşılaştırmak için <a href="/yakit-maliyeti-hesaplama.html">yakıt maliyeti hesaplama</a> aracını kullanabilirsiniz.</p>''',
+faq=[('İstanbul’da taksi açılış ücreti ne kadar?', 'İstanbul’da sarı taksinin açılış ücreti 71,94 ₺, kilometre ücreti 47,92 ₺, dakika ücreti 9,98 ₺ ve indi-bindi (en az) ücreti 230 ₺’dir. Tarife 20 Temmuz 2026’dan beri uygulanıyor.'),
+     ('Ankara’da taksi ücreti ne kadar?', 'Ankara’da 1 Mart 2026’dan beri açılış 65 ₺, kilometre 40 ₺, dakika 7 ₺ ve indi-bindi ücreti 200 ₺’dir.'),
+     ('İndi-bindi ücreti nedir?', 'Kısa mesafeli yolculuklarda ödenen en az ücrettir. Taksimetre bu tutarın altında kalsa bile yolcu en az indi-bindi ücretini öder.'),
+     ('Taksimetre beklerken de para yazar mı?', 'Evet. Araç dururken veya çok yavaş ilerlerken taksimetre dakika başına zaman ücreti işletir. Bu yüzden trafikte aynı mesafe daha pahalıya gelir.'),
+     ('Köprü ve otoyol ücreti taksi ücretine dahil mi?', 'Hayır. Köprü, tünel ve otoyol geçiş ücretleri taksimetreye dahil değildir ve yolcu tarafından ayrıca ödenir.')],
+related=['yakit-maliyeti-hesaplama', 'yakit-tuketimi-hesaplama', 'gun-hesaplama', 'yuzde-hesaplama', 'doviz-cevirici'],
+sources=[('BirGün – İstanbul taksi ücretleri 2026 (İBB tarifesi)', 'https://www.birgun.net/haber/istanbul-taksi-ucretleri-2026-acilis-kilometre-ve-indi-bindi-fiyatlari-584162'), ('Cumhuriyet – Ankara taksi tarifesi', 'https://www.cumhuriyet.com.tr/ekonomi/ankara-da-taksi-tarifelerine-zam-geldi-acilis-ucreti-o-seviyeye-ulasti-2483922')],
+badges=['✓ Ücretsiz', 'İstanbul · Ankara', 'Güncel Tarife'],
+))

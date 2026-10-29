@@ -21,7 +21,7 @@ N = {  # hedef -> görünen ad
  'ihbar-tazminati-hesaplama': 'İhbar tazminatı hesaplama', 'kira-artis-hesaplama': 'Kira artış hesaplama', 'tapu-harci-hesaplama': 'Tapu harcı hesaplama',
  'metrekare-fiyat-hesaplama': 'Metrekare fiyatı hesaplama', 'enflasyon-hesaplama': 'Enflasyon hesaplama', 'yuzde-hesaplama': 'Yüzde hesaplama', 'kdv-hesaplama': 'KDV hesaplama',
  'gelir-vergisi-hesaplama': 'Gelir vergisi hesaplama', 'fazla-mesai-hesaplama': 'Fazla mesai hesaplama', 'saatlik-ucret-hesaplama': 'Saatlik ücret hesaplama',
- 'asgari-ucret-hesaplama': 'Asgari ücret hesaplama', 'internet-hizi-donusturucu': 'İnternet hızı dönüştürücü', 'yakit-maliyeti-hesaplama': 'Yakıt maliyeti hesaplama',
+ 'asgari-ucret-hesaplama': 'Asgari ücret hesaplama', 'internet-hizi-donusturucu': 'İnternet hızı dönüştürücü', 'yakit-maliyeti-hesaplama': 'Yakıt maliyeti hesaplama', 'taksi-ucreti-hesaplama': 'Taksi ücreti hesaplama (İstanbul, Ankara)',
  'mtv-hesaplama': 'MTV hesaplama',
  'blog/dask-sigortasi-hesaplama': 'Rehber: DASK sigortası nasıl hesaplanır?', 'blog/nafaka-hesaplama': 'Rehber: Nafaka nasıl hesaplanır?',
  'blog/brutten-nete-maas-tablosu-2026': 'Brütten nete maaş tablosu 2026', 'blog/elektrik-faturasi-neden-yuksek': 'Rehber: Elektrik faturası neden yüksek geliyor?',
@@ -36,6 +36,7 @@ N = {  # hedef -> görünen ad
  'blog/vergi-dilimleri-2027': 'Gelir vergisi dilimleri 2027', 'blog/kira-artisi-2027': 'Kira artışı 2027',
 }
 M = {  # kaynak sayfa -> hedefler
+ 'taksi-ucreti-hesaplama': ['yakit-maliyeti-hesaplama', 'yakit-tuketimi-hesaplama'],
  'altin-hesaplama': ['doviz-cevirici', 'para-deger-kaybi-hesaplama', 'enflasyon-hesaplama'],
  'desi-hesaplama': ['pazaryeri-komisyon-hesaplama', 'trendyol-komisyon-hesaplama', 'kar-marji-hesaplama'],
  'komisyon-hesaplama': ['para-sayma-hesaplama', 'pazaryeri-komisyon-hesaplama', 'prim-hesaplama', 'blog/komisyon-hesaplama-rehberi'],
@@ -58,7 +59,7 @@ M = {  # kaynak sayfa -> hedefler
  'fazla-mesai-hesaplama': ['prim-hesaplama', 'blog/fazla-mesai-haklari-2026', 'saatlik-ucret-hesaplama'],
  'enflasyon-hesaplama': ['para-deger-kaybi-hesaplama', 'ekonomi-takvimi', 'blog/enflasyon-etkisi-2026'],
  'internet-hizi-donusturucu': ['veri-kullanim-hesaplama', 'dosya-indirme-suresi-hesaplama'],
- 'yakit-maliyeti-hesaplama': ['yakit-tuketimi-hesaplama', 'mtv-hesaplama', 'arac-muayene-gecikme-hesaplama'],
+ 'yakit-maliyeti-hesaplama': ['taksi-ucreti-hesaplama', 'yakit-tuketimi-hesaplama', 'mtv-hesaplama'],
  'mtv-hesaplama': ['arac-muayene-gecikme-hesaplama', 'otv-hesaplama', 'yakit-tuketimi-hesaplama'],
  'arac-kredisi-hesaplama': ['otv-hesaplama', 'kredi-erken-kapama-hesaplama', 'mtv-hesaplama'],
  'elektrik-faturasi-hesaplama': ['blog/elektrik-faturasi-neden-yuksek', 'dogalgaz-faturasi-hesaplama', 'su-faturasi-hesaplama'],

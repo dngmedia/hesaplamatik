@@ -85,3 +85,6 @@ TESTS['desi-hesaplama']=[dict(fill={'en':'40','boy':'30','yuk':'20','kg':'5'}, e
   dict(fill={'en':'40','boy':'30','yuk':'20','bolen':'5000'}, expect='4,80')]
 TESTS['altin-hesaplama']=[dict(fill={'ceyrek':'2','manuel':'6000'}, expect='19.391,03'),
   dict(radio={'mod':'butce'}, fill={'butce':'60000','manuel':'6000'}, expect='60.000,00')]
+TESTS['taksi-ucreti-hesaplama']=[dict(fill={'km':'10','dk':'5'}, expect='601,04'),
+  dict(fill={'tarife':'ankara','km':'2'}, expect='200,00'),
+  dict(fill={'tarife':'ozel','km':'10','acilis':'50','kmu':'30'}, expect='350,00')]
