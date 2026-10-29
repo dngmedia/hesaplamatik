@@ -16,7 +16,7 @@ N = {  # hedef -> görünen ad
  'elektrik-faturasi-hesaplama': 'Elektrik faturası hesaplama', 'kredi-erken-kapama-hesaplama': 'Kredi erken kapama hesaplama', 'kredi-karti-asgari-odeme-hesaplama': 'Kredi kartı asgari ödeme',
  'kripto-kar-zarar-hesaplama': 'Kripto kâr/zarar hesaplama', 'otv-hesaplama': 'ÖTV hesaplama', 'stok-karliligi-hesaplama': 'Stok kârlılığı hesaplama',
  'borc-kapatma-hesaplama': 'Borç kapatma hesaplama', 'damga-vergisi-hesaplama': 'Damga vergisi hesaplama', 'indirim-hesaplama': 'İndirim hesaplama',
- 'pazaryeri-komisyon-hesaplama': 'Pazaryeri komisyon hesaplama (Trendyol, Hepsiburada)', 'desi-hesaplama': 'Desi hesaplama (kargo)', 'emeklilik-yasi-hesaplama': 'Emeklilik hesaplama – ne zaman emekli olurum?',
+ 'pazaryeri-komisyon-hesaplama': 'Pazaryeri komisyon hesaplama (Trendyol, Hepsiburada)', 'desi-hesaplama': 'Desi hesaplama (kargo)', 'kar-marji-hesaplama': 'Kâr marjı hesaplama', 'emeklilik-yasi-hesaplama': 'Emeklilik hesaplama – ne zaman emekli olurum?',
  'ekonomi-takvimi': 'Ekonomi takvimi (enflasyon, faiz kararı tarihleri)', 'net-maas-hesaplama': 'Net maaş hesaplama', 'kidem-tazminati-hesaplama': 'Kıdem tazminatı hesaplama',
  'ihbar-tazminati-hesaplama': 'İhbar tazminatı hesaplama', 'kira-artis-hesaplama': 'Kira artış hesaplama', 'tapu-harci-hesaplama': 'Tapu harcı hesaplama',
  'metrekare-fiyat-hesaplama': 'Metrekare fiyatı hesaplama', 'enflasyon-hesaplama': 'Enflasyon hesaplama', 'yuzde-hesaplama': 'Yüzde hesaplama', 'kdv-hesaplama': 'KDV hesaplama',
@@ -173,7 +173,9 @@ def run():
         b = block(src)
         if not b:
             continue
-        if '<footer' in s:
+        if '<!--HZ-FOOT-->' in s:  # ortak alt bilgi bloğunun DIŞINA (chrome.py bloğu yeniden yazar)
+            s = s.replace('<!--HZ-FOOT-->', b + '\n<!--HZ-FOOT-->', 1)
+        elif '<footer' in s:
             s = s.replace('<footer', b + '\n<footer', 1)
         else:
             continue
@@ -184,3 +186,9 @@ def run():
 if __name__ == '__main__':
     os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     print(run(), 'sayfaya iç bağlantı kutusu eklendi')
+
+# 29 Ekim 2026: yeni araçlara (altın, taksi, desi) trafik alan sayfalardan bağlantı
+for _k, _h in (('enflasyon-hesaplama', 'altin-hesaplama'), ('para-deger-kaybi-hesaplama', 'altin-hesaplama'), ('mevduat-faizi-hesaplama', 'altin-hesaplama'),
+               ('kar-marji-hesaplama', 'desi-hesaplama'), ('kar-zarar-hesaplama', 'desi-hesaplama'), ('yakit-tuketimi-hesaplama', 'taksi-ucreti-hesaplama'),
+               ('para-sayma-hesaplama', 'altin-hesaplama')):
+    M.setdefault(_k, []); M[_k] = [_h] + [x for x in M[_k] if x != _h]

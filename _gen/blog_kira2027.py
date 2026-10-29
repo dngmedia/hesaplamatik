@@ -81,8 +81,8 @@ rel = [('🏠', 'Kira Artış Hesaplama', 'Ekim 2026: %31,49', f'{B}/kira-artis-
 if __name__ == '__main__':
     print(O_OCAK27, O_TEM27, O_OCAK28)
     print(make('kira-artisi-2027',
-         'Kira Artış Oranı 2027 Tahmini – 2027 TÜFE Beklentisi ve Kira Zammı | Hesaplarsın',
-         f'2027 kira zam oranı tahmini: Ocak 2027 ≈ {p(O_OCAK27)}, Temmuz 2027 ≈ {p(O_TEM27)}. OVP’ye göre 2027 TÜFE hedefi %21. 2026’da ay ay kira artış oranları ve hesaplama.',
+         '2027 TÜFE Oranı ve Kira Artışı Tahmini: Ocak 2027 Kira Zammı Ne Kadar? | Hesaplarsın',
+         f'2027 TÜFE (enflasyon) tahmini ve kira zam oranı: Ocak 2027 ≈ {p(O_OCAK27)}, Temmuz 2027 ≈ {p(O_TEM27)}. OVP’ye göre 2027 sonu TÜFE hedefi %21. Ay ay oranlar ve hesaplama.',
          'kira artış oranı 2027, 2027 kira zam oranı tahmini, 2027 tüfe tahmini, 2027 tefe tüfe oranı, ocak 2027 kira artışı',
          'Kira Artış Oranı 2027', 'Kira Artış Oranı 2027: TÜFE Beklentisi ve Kira Zammı Tahmini',
          hero('🏠', 'Ocak 2027 tahmini', 'EKİM 2026 KİRA ORANI', '%31,49', 'OCAK 2027 TAHMİNİ', '≈ ' + p(O_OCAK27), '#065f46', '#10b981'),

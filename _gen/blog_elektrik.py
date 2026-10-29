@@ -76,8 +76,8 @@ rel = [('⚡', 'Elektrik Faturası Hesaplama', 'kWh ve cihaz bazlı maliyet', f'
        ('🧾', 'KDV Oranları 2026', 'Hangi üründe yüzde kaç?', f'{B}/blog/kdv-oranlari-2026.html'),
        ('💧', 'Su Faturası Hesaplama', 'Aylık su gideri', f'{B}/su-faturasi-hesaplama.html')]
 print(make('elektrik-faturasi-neden-yuksek',
-     'Elektrik Faturası Neden Yüksek? 2026 KDV, 4.000 kWh Sınırı ve Fatura Kalemleri | Hesaplarsın',
-     'Elektrik faturası kalemleri 2026: mesken KDV %10, tüketim vergisi %5, TRT payı yok. Yıllık 4.000 kWh sınırını aşınca ne olur, fatura neden yüksek gelir, nasıl düşer?',
+     'Elektrik KDV Oranı 2026: %10 mu %20 mi? Fatura Kalemleri ve 4.000 kWh Sınırı | Hesaplarsın',
+     'Elektrik KDV oranı 2026: meskende %10, işyerinde %20. Tüketim vergisi %5, TRT payı yok. Fatura kalemleri, 4.000 kWh sınırı ve faturanın neden yüksek geldiği.',
      'elektrik faturası neden yüksek, elektrik kdv oranı 2026, elektrik faturası kalemleri, 4000 kwh sınırı, son kaynak tedarik tarifesi, elektrik tüketim vergisi',
      'Elektrik Faturası Neden Yüksek?', 'Elektrik Faturası Neden Yüksek? 2026 Fatura Kalemleri, KDV ve 4.000 kWh Sınırı',
      hero('⚡', '2026 sınırı: 4.000 kWh/yıl', 'MESKEN KDV', '%10', 'TÜKETİM VERGİSİ (BTV)', '%5', '#0f307a', '#1a56db'),
