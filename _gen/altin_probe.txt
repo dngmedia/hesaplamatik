@@ -1,0 +1,84 @@
+===== https://finans.truncgil.com/v4/today.json
+HTTP/2 200 
+server: nginx
+date: Thu, 29 Oct 2026 06:49:34 GMT
+content-type: application/json
+content-length: 6807
+last-modified: Thu, 29 Oct 2026 06:49:01 GMT
+vary: Accept-Encoding
+etag: "6ae2ec5d-1a97"
+expires: Thu, 31 Dec 2037 23:55:55 GMT
+cache-control: max-age=315360000
+access-control-allow-origin: *
+access-control-allow-methods: GET, OPTIONS
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With, X-CSRF-Token
+access-control-expose-headers: Content-Length, Content-Type
+accept-ranges: bytes
+
+{"Update_Date":"2026-10-29 09:49:01","USD":{"Buying":49.8336,"Type":"Currency","Selling":49.8392,"Change":-0.01},"EUR":{"Buying":55.6285,"Type":"Currency","Selling":55.6604,"Change":0.14},"GBP":{"Buying":66.4717,"Type":"Currency","Selling":66.5167,"Change":0.1},"CHF":{"Buying":60.1197,"Type":"Currency","Selling":60.149,"Change":-0.08},"CAD":{"Buying":35.6183,"Type":"Currency","Selling":35.63,"Change":0.04},"RUB":{"Buying":0.6219,"Type":"Currency","Selling":0.6221,"Change":0.62},"AED":{"Buying":13.5658,"Type":"Currency","Selling":13.5746,"Change":0.01},"AUD":{"Buying":35.0975,"Type":"Currency","Selling":35.1119,"Change":-0.14},"DKK":{"Buying":7.4264,"Type":"Currency","Selling":7.4294,"Change":-0.13},"SEK":{"Buying":5.0248,"Type":"Currency","Selling":5.0272,"Change":-0.1},"NOK":{"Buying":5.3771,"Type":"Currency","Selling":5.3824,"Change":-0.08},"JPY":{"Buying":0.00316,"Type":"Currency","Selling":0.0031709999999999998,"Change":0},"KWD":{"Buying":160.0177,"Type":"Currency","Selling":160.5502,"Change":-0.01},"ZAR":{"Buying":2.9946,"Type":"Currency","Selling":2.9957,"Change":-0.2},"BHD":{"Buying":132.0725,"Type":"Currency","Selling":132.0874,"Change":0.01},"LYD":{"Buying":7.7502,"Type":"Currency","Selling":7.751,"Change":-0.17},"SAR":{"Buying":13.2785,"Type":"Currency","Selling":13.2818,"Change":0},"IQD":{"Buying":0.0329,"Type":"Currency","Selling":0.0329,"Change":0.06},"ILS":{"Buying":15.9657,"Type":"Currency","Selling":15.9674,"Change":-0.08},"INR":{"Buying":0.5221,"Type":"Currency","Selling":0.5221,"Change":-0.14},"MXN":{"Buying":2.665,"Type":"Currency","Selling":2.6653,"Change":-0.36},"HUF":{"Buying":0.1512,"Type":"Currency","Selling":0.1513,"Change":-0.13},"NZD":{"Buying":27.998,"Type":"Currency","Selling":28.0011,"Change":-0.13},"BRL":{"Buying":9.3211,"Type":"Currency","Selling":9.3222,"Change":0.06},"IDR":{"Buying":0.0027,"Type":"Currency","Selling":0.0027,"Change":0.04},"CZK":{"Buying":2.2785,"Type":"Currency","Selling":2.2787,"Change":-0.19},"PLN":{"Buying":12.6135,"Type":"Currency","Selling":12.615,"Change":-0.13},"RON":{"Buying":10.3726,"Type":"Currency","Selling":10.3838,"Change":-0.1},"CNY":{"Buying":7.4849,"Type":"Currency","Selling":7.4868,"Change":0.06},"ARS":{"Buying":0.0323,"Type":"Currency","Selling":0.0323,"Change":-0.01},"ALL":{"Buying":0.6115,"Type":"Currency","Selling":0.6115,"Change":-0.07},"AZN":{"Buying":29.3139,"Type":"Currency","Selling":29.3172,"Change":-0.01},"BAM":{"Buying":28.3758,"Type":"Currency","Selling":28.379,"Change":-0.83},"CLP":{"Buying":0.0505,"Type":"Currency","Selling":0.0505,"Change":0.09},"COP":{"Buying":0.0157,"Type":"Currency","Selling":0.0157,"Change":-0.06},"CRC":{"Buying":0.1096,"Type":"Currency","Selling":0.1096,"Change":-0.01},"DZD":{"Buying":0.3683,"Type":"Currency","Selling":0.3684,"Change":-0.06},"EGP":{"Buying":0.8881,"Type":"Currency","Selling":0.8882,"Change":-0.11},"HKD":{"Buying":6.3513,"Type":"Currency","Selling":6.352,"Change":-0.01},"ISK":{"Buying":0.4087,"Type":"Currency","Selling":0.4088,"Change":-0.15},"KRW":{"Buying":0.0373,"Type":"Currency","Selling":0.0373,"Change":0.46},"KZT":{"Buying":0.1096,"Type":"Currency","Selling":0.1096,"Change":0.14},"LBP":{"Buying":0.0006,"Type":"Currency","Selling":0.0006,"Change":-89.9},"LKR":{"Buying":0.1499,"Type":"Currency","Selling":0.1499,"Change":-0.01},"MAD":{"Buying":5.0577,"Type":"Currency","Selling":5.0582,"Change":-0.08},"MDL":{"Buying":2.784,"Type":"Currency","Selling":2.7843,"Change":0.03},"MKD":{"Buying":0.9015,"Type":"Currency","Selling":0.9016,"Change":0.01},"MYR":{"Buying":12.2628,"Type":"Currency","Selling":12.2642,"Change":0.31},"OMR":{"Buying":129.6096,"Type":"Currency","Selling":129.6242,"Change":0},"PEN":{"Buying":14.4739,"Type":"Currency","Selling":14.4755,"Change":0.26},"PHP":{"Buying":0.78,"Type":"Currency","Selling":0.7801,"Change":-0.02},"PKR":{"Buying":0.1749,"Type":"Currency","Selling":0.1863,"Change":-0.06},"QAR":{"Buying":13.2046,"Type":"Currency","Selling":14.2195,"Change":-0.01},"RSD":{"Buying":0.4735,"Type":"Currency","Selling":0.4743,"Change":0.17},"SGD":{"Buying":38.9173,"Type":"Currency","Selling":38.9217,"Change":0.07},"SYP":{"Buying":0.4084,"Type":"Currency","Selling":0.4085,"Change":-0.01},"THB":{"Buying":1.4763,"Type":"Currency","Selling":1.4765,"Change":-0.17},"TWD":{"Buying":1.5319,"Type":"Currency","Selling":1.5321,"Change":-0.44},"UAH":{"Buying":1.0943,"Type":"Currency","Selling":1.0945,"Change":0.03},"UYU":{"Buying":1.2409,"Type":"Currency","Selling":1.241,"Change":0.12},"GEL":{"Buying":19.4094,"Type":"Currency","Selling":19.4116,"Change":0.87},"TND":{"Buying":16.6389,"Type":"Currency","Selling":16.6408,"Change":0.43},"BGN":{"Buying":28.352,"Type":"Currency","Selling":28.6323,"Change":0.49},"VND":{"Buying":0.0019,"Type":"Currency","Selling":0.0019,"Change":0.02},"GRA":{"Selling":6457.36,"Type":"Gold","Name":"GRAMALTIN","Change":-0.93,"Buying":6456.51},"XU100":{"Selling":11165.44,"Type":"Gold","Name":"XU100","Change":0.13},"DBITCOIN":{"Selling":0,"Type":"Gold","Name":"DBITCOIN","Change":-1.22},"GUMUS":{"Selling":84.49,"Type":"Gold","Name":"GUMUS","Change":-2.36,"Buying":84.41},"BRENT":{"Selling":0,"Type":"Gold","Name":"BRENT","Change":-1.17},"ONS":{"Buying":0,"Type":"Gold","Name":"ONS","Selling":0,"Change":-0.92},"HAS":{"Buying":6424.23,"Type":"Gold","Name":"GRAMHASALTIN","Selling":6425.08,"Change":-0.93},"CEYREKALTIN":{"Buying":10392.68,"Type":"Gold","Name":"CEYREKALTIN","Selling":10632.48,"Change":0},"YARIMALTIN":{"Buying":
+===== https://finans.truncgil.com/today.json
+HTTP/2 200 
+server: nginx
+date: Thu, 29 Oct 2026 06:49:35 GMT
+content-type: application/json
+content-length: 7108
+last-modified: Thu, 29 Oct 2026 06:45:05 GMT
+vary: Accept-Encoding
+etag: "6ae2eb71-1bc4"
+expires: Thu, 31 Dec 2037 23:55:55 GMT
+cache-control: max-age=315360000
+access-control-allow-origin: *
+access-control-allow-methods: GET, OPTIONS
+access-control-allow-headers: Content-Type, Authorization, X-Requested-With, X-CSRF-Token
+access-control-expose-headers: Content-Length, Content-Type
+accept-ranges: bytes
+
+{"Update_Date":"2026-10-29 09:45:04","USD":{"Alış":"49,8350","Tür":"Döviz","Satış":"49,8382","Değişim":"%0,00"},"EUR":{"Alış":"55,5935","Tür":"Döviz","Satış":"55,6872","Değişim":"%0,13"},"GBP":{"Alış":"66,4769","Tür":"Döviz","Satış":"66,5220","Değişim":"%0,10"},"CHF":{"Alış":"60,1291","Tür":"Döviz","Satış":"60,1547","Değişim":"%-0,07"},"CAD":{"Alış":"35,6193","Tür":"Döviz","Satış":"35,6318","Değişim":"%0,04"},"RUB":{"Alış":"0,6219","Tür":"Döviz","Satış":"0,6221","Değişim":"%0,62"},"AED":{"Alış":"13,5654","Tür":"Döviz","Satış":"13,5750","Değişim":"%0,01"},"AUD":{"Alış":"35,0988","Tür":"Döviz","Satış":"35,1110","Değişim":"%-0,14"},"DKK":{"Alış":"7,4266","Tür":"Döviz","Satış":"7,4299","Değişim":"%-0,12"},"SEK":{"Alış":"5,0244","Tür":"Döviz","Satış":"5,0283","Değişim":"%-0,09"},"NOK":{"Alış":"5,3791","Tür":"Döviz","Satış":"5,3814","Değişim":"%-0,07"},"JPY":{"Alış":"0,3160","Tür":"Döviz","Satış":"0,3171","Değişim":"%0,22"},"KWD":{"Alış":"160,0177","Tür":"Döviz","Satış":"160,5502","Değişim":"%-0,01"},"ZAR":{"Alış":"2,9942","Tür":"Döviz","Satış":"2,9956","Değişim":"%-0,21"},"BHD":{"Alış":"132,0762","Tür":"Döviz","Satış":"132,0847","Değişim":"%0,01"},"LYD":{"Alış":"7,7504","Tür":"Döviz","Satış":"7,7509","Değişim":"%-0,17"},"SAR":{"Alış":"13,2785","Tür":"Döviz","Satış":"13,2818","Değişim":"%0,00"},"IQD":{"Alış":"0,0329","Tür":"Döviz","Satış":"0,0329","Değişim":"%0,06"},"ILS":{"Alış":"15,9717","Tür":"Döviz","Satış":"15,9728","Değişim":"%-0,04"},"INR":{"Alış":"0,5221","Tür":"Döviz","Satış":"0,5221","Değişim":"%-0,14"},"MXN":{"Alış":"2,6651","Tür":"Döviz","Satış":"2,6653","Değişim":"%-0,36"},"HUF":{"Alış":"0,1513","Tür":"Döviz","Satış":"0,1513","Değişim":"%-0,12"},"NZD":{"Alış":"28,0003","Tür":"Döviz","Satış":"28,0021","Değişim":"%-0,13"},"BRL":{"Alış":"9,3214","Tür":"Döviz","Satış":"9,3220","Değişim":"%0,06"},"IDR":{"Alış":"0,0027","Tür":"Döviz","Satış":"0,0027","Değişim":"%0,04"},"CZK":{"Alış":"2,2786","Tür":"Döviz","Satış":"2,2788","Değişim":"%-0,18"},"PLN":{"Alış":"12,6142","Tür":"Döviz","Satış":"12,6150","Değişim":"%-0,13"},"RON":{"Alış":"10,3724","Tür":"Döviz","Satış":"10,3845","Değişim":"%-0,10"},"CNY":{"Alış":"7,4855","Tür":"Döviz","Satış":"7,4869","Değişim":"%0,06"},"ARS":{"Alış":"0,0323","Tür":"Döviz","Satış":"0,0323","Değişim":"%-0,01"},"ALL":{"Alış":"0,6115","Tür":"Döviz","Satış":"0,6115","Değişim":"%-0,07"},"AZN":{"Alış":"29,3147","Tür":"Döviz","Satış":"29,3166","Değişim":"%0,00"},"BAM":{"Alış":"28,3766","Tür":"Döviz","Satış":"28,3784","Değişim":"%-0,82"},"CLP":{"Alış":"0,0505","Tür":"Döviz","Satış":"0,0505","Değişim":"%0,09"},"COP":{"Alış":"0,0157","Tür":"Döviz","Satış":"0,0157","Değişim":"%-0,06"},"CRC":{"Alış":"0,1096","Tür":"Döviz","Satış":"0,1096","Değişim":"%0,00"},"DZD":{"Alış":"0,3683","Tür":"Döviz","Satış":"0,3684","Değişim":"%-0,06"},"EGP":{"Alış":"0,8881","Tür":"Döviz","Satış":"0,8881","Değişim":"%-0,11"},"HKD":{"Alış":"6,3516","Tür":"Döviz","Satış":"6,3520","Değişim":"%-0,01"},"ISK":{"Alış":"0,4087","Tür":"Döviz","Satış":"0,4087","Değişim":"%-0,15"},"KRW":{"Alış":"0,0373","Tür":"Döviz","Satış":"0,0373","Değişim":"%0,46"},"KZT":{"Alış":"0,1096","Tür":"Döviz","Satış":"0,1096","Değişim":"%0,14"},"LBP":{"Alış":"0,0006","Tür":"Döviz","Satış":"0,0006","Değişim":"%-89,90"},"LKR":{"Alış":"0,1499","Tür":"Döviz","Satış":"0,1499","Değişim":"%-0,01"},"MAD":{"Alış":"5,0578","Tür":"Döviz","Satış":"5,0581","Değişim":"%-0,08"},"MDL":{"Alış":"2,7841","Tür":"Döviz","Satış":"2,7843","Değişim":"%0,03"},"MKD":{"Alış":"0,9015","Tür":"Döviz","Satış":"0,9016","Değişim":"%0,01"},"MYR":{"Alış":"12,2632","Tür":"Döviz","Satış":"12,2639","Değişim":"%0,31"},"OMR":{"Alış":"129,6133","Tür":"Döviz","Satış":"129,6216","Değişim":"%0,00"},"PEN":{"Alış":"14,4743","Tür":"Döviz","Satış":"14,4752","Değişim":"%0,26"},"PHP":{"Alış":"0,7801","Tür":"Döviz","Satış":"0,7801","Değişim":"%-0,01"},"PKR":{"Alış":"0,1749","Tür":"Döviz","Satış":"0,1863","Değişim":"%-0,06"},"QAR":{"Alış":"13,2042","Tür":"Döviz","Satış":"14,2199","Değişim":"%-0,01"},"RSD":{"Alış":"0,4735","Tür":"Döviz","Satış":"0,4743","Değişim":"%0,17"},"SGD":{"Alış":"38,9184","Tür":"Döviz","Satış":"38,9209","Değişim":"%0,07"},"SYP":{"Alış":"0,4085","Tür":"Döviz","Satış":"0,4085","Değişim":"%0,00"},"THB":{"Alış":"1,4764","Tür":"Döviz","Satış":"1,4765","Değişim":"%-0,16"},"TWD":{"Alış":"1,5320","Tür":"Döviz","Satış":"1,5321","Değişim":"%-0,44"},"UAH":{"Alış":"1,0944","Tür":"Döviz","Satış":"1,0944","Değişim":"%0,03"},"UYU":{"Alış":"1,2409","Tür":"Döviz","Satış":"1,2410","Değişim":"%0,12"},"GEL":{"Alış":"19,4099","Tür":"Döviz","Satış":"19,4112","Değişim":"%0,87"},"TND":{"Alış":"16,6394","Tür":"Döviz","Satış":"16,6405","Değişim":"%0,43"},"BGN":{"Alış":"28,3520","Tür":"Döviz","Satış":"28,6323","Değişim":"%0,49"},"VND":{"Alış":"0,0019","Tür":"Döviz","Satış":"0,0019","Değişim":"%0,07"},"ons":{"Alış":"$4.031,46","Tür":"Altın","Satış":"$4.032,01","Değişim":"%-0,88"},"gram-altin":{"Alış":"6.459,54","Tür":"Altın","Satış":"6.460,
+===== https://api.gold-api.com/price/XAU
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Thu, 29 Oct 2026 06:49:36 GMT
+Content-Type: application/json
+Content-Length: 182
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Headers: Content-Type, x-api-key
+Cache-Control: public, max-age=26
+
+{"currency":"USD","currencySymbol":"$","exchangeRate":1.0,"name":"Gold","price":4031.699951,"symbol":"XAU","updatedAt":"2026-10-29T06:49:31Z","updatedAtReadable":"a few seconds ago"}
+===== https://api.frankfurter.app/latest?from=USD&to=TRY
+HTTP/2 301 
+date: Thu, 29 Oct 2026 06:49:36 GMT
+content-type: text/html; charset=UTF-8
+location: https://api.frankfurter.dev/v1/latest?from=USD&to=TRY
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=lKmGoe4fgTAnRzPkDj05pwwYEBz4HpSQ5PvtB3GN%2FXz7%2BWcL95azXZp651NueJnWPsESwyX4hPJyIdE2GpFYmq1HoR%2FuxB%2BKRubj6CpvTfgTW%2FOJZ6nSAK1K9MFYmGv%2BnXKBuxHl"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a5203dc0a86df6da-MSP
+
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>cloudflare</center>
+</body>
+</html>
+
+===== https://data-asg.goldprice.org/dbXRates/USD
+HTTP/2 403 
+content-type: text/plain; charset=utf-8
+content-length: 10
+server: Webscale
+set-cookie: lagrange_session=e400ad4d-3266-4039-a3c3-7bcab045bda4; Path=/; Max-Age=1800; HttpOnly; Secure; SameSite=Lax
+set-cookie: wcid=nDXyMf6ppCZRAAAB; Path=/; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax
+strict-transport-security: max-age=31557600
+x-content-type-options: nosniff
+date: Thu, 29 Oct 2026 06:49:36 GMT
+x-cache: Error from cloudfront
+via: 1.1 80b948cbcf1caaca30b9744e8b51b204.cloudfront.net (CloudFront)
+x-amz-cf-pop: ORD58-P12
+x-amz-cf-id: Hf7YpU7BnlCwKFyWqIbsByiop2ICPwXAw68izOpdpHFPCqx6Rh-NJA==
+
+Forbidden
+
