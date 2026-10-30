@@ -9,7 +9,7 @@ B = 'https://hesaplarsin.com/'
 N = {  # hedef -> görünen ad
  'para-sayma-hesaplama': 'Para sayma (kaç tane 200 TL ne eder?)', 'altin-hesaplama': 'Altın hesaplama (gram, çeyrek, tam altın kaç TL?)', 'boya-hesaplama': 'Boya hesaplama (kaç litre boya lazım?)',
  'maas-siralamasi': 'Maaşım Türkiye’de kaçıncı sırada?', 'muhendis-maasi': 'Mühendis maaşı 2026', 'doktor-maasi': 'Doktor maaşı 2026',
- 'hemsire-maasi': 'Hemşire maaşı 2026', 'ogretmen-maasi': 'Öğretmen maaşı 2026', 'polis-maasi': 'Polis maaşı 2026', 'memur-maaslari': 'Memur maaşları 2026',
+ 'hemsire-maasi': 'Hemşire maaşı 2026', 'bedelli-askerlik-hesaplama': 'Bedelli askerlik ücreti 2026–2027', 'ogretmen-maasi': 'Öğretmen maaşı 2026', 'polis-maasi': 'Polis maaşı 2026', 'memur-maaslari': 'Memur maaşları 2026',
  'issizlik-maasi-hesaplama': 'İşsizlik maaşı hesaplama', 'kdv-haric-hesaplama': 'KDV hariç fiyat hesaplama', 'prim-hesaplama': 'Satış primi hesaplama',
  'veri-kullanim-hesaplama': 'Veri (GB) kullanım hesaplama', 'para-deger-kaybi-hesaplama': 'Paranın değer kaybı hesaplama', 'yakit-tuketimi-hesaplama': 'Yakıt tüketimi (100 km’de kaç litre)',
  'arac-muayene-gecikme-hesaplama': 'Araç muayene gecikme cezası', 'dogalgaz-faturasi-hesaplama': 'Doğalgaz faturası hesaplama', 'su-faturasi-hesaplama': 'Su faturası hesaplama',
@@ -196,3 +196,7 @@ for _k, _h in (('enflasyon-hesaplama', 'altin-hesaplama'), ('para-deger-kaybi-he
 for _k, _h in (('para-sayma-hesaplama', 'blog/dugun-altini-rehberi'), ('doviz-cevirici', 'blog/dugun-altini-rehberi'),
                ('roi-hesaplama', 'kar-payi-hesaplama'), ('yatirim-geri-donus-suresi-hesaplama', 'kar-payi-hesaplama'), ('bilesik-faiz', 'kar-payi-hesaplama')):
     M.setdefault(_k, []); M[_k] = M[_k][:1] + [_h] + [x for x in M[_k][1:] if x != _h]
+
+for _k in ('memur-maaslari', 'memur-emekli-zammi-hesaplama', 'yas-hesaplama'):
+    M.setdefault(_k, []); M[_k] = M[_k][:1] + ['bedelli-askerlik-hesaplama'] + [x for x in M[_k][1:] if x != 'bedelli-askerlik-hesaplama']
+M['bedelli-askerlik-hesaplama'] = ['memur-emekli-zammi-hesaplama', 'memur-maaslari']

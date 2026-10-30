@@ -340,3 +340,63 @@ faq=[
 related=['memur-maaslari','ogretmen-maasi','polis-maasi','memur-emekli-zammi-hesaplama','net-maas-hesaplama'],
 sources=SOURCES,
 ))
+
+# ───────────────────────── BEDELLİ ASKERLİK ─────────────────────────
+# 7179 sayılı Askeralma Kanunu m.9: bedel = 300.000 gösterge × memur aylık katsayısı (17.04.2026 öncesi 240.000 gösterge);
+# yoklama kaçağı/bakaya ek bedeli: her ay için 3.500 gösterge × katsayı (1–30 gün bir ay). Temmuz–Aralık 2026 katsayısı 1,575512 (MSB duyurusu 472.653,60 TL).
+BED_G, BED_EK, BED_K = 300000, 3500, 1.575512
+BED_SEN = [('Düşük senaryo (%5,47 zam)', 0.0547), ('Orta senaryo (%6,74 zam)', 0.0674), ('Yüksek senaryo (%8,01 zam)', 0.0801)]
+def _b2(x):
+    return f'{x:,.2f}'.replace(',', 'X').replace('.', ',').replace('X', '.')
+BED_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Dönem</th><th>Memur aylık katsayısı</th><th>Bedelli askerlik ücreti</th></tr></thead><tbody>'
+    '<tr><td>1 Ocak – 16 Nisan 2026 (240.000 gösterge)</td><td>1,387871</td><td>333.089,04 ₺</td></tr>'
+    '<tr><td>17 Nisan – 30 Haziran 2026</td><td>1,387871</td><td>416.361,30 ₺</td></tr>'
+    f'<tr><td><b>1 Temmuz – 31 Aralık 2026 (güncel)</b></td><td>{str(BED_K).replace(".", ",")}</td><td><b>{_b2(BED_G * BED_K)} ₺</b></td></tr>'
+    + ''.join(f'<tr><td>Ocak 2027 – {ad.lower()}</td><td>≈ {str(round(BED_K * (1 + z), 6)).replace(".", ",")}</td><td>≈ {_b2(BED_G * BED_K * (1 + z))} ₺</td></tr>' for ad, z in BED_SEN)
+    + '</tbody></table></div>')
+TOOLS.append(dict(
+slug='bedelli-askerlik-hesaplama', name='Bedelli Askerlik Ücreti Hesaplama', cat='kamu', ico='🎖️',
+title='Bedelli Askerlik Ücreti 2026 – Ocak 2027’de Ne Kadar Olacak? | Hesaplarsın',
+desc=f'Bedelli askerlik ücreti Temmuz–Aralık 2026’da {_b2(BED_G * BED_K)} TL. Ocak 2027 tahmini ≈ {_b2(BED_G * BED_K * 1.0547)[:-3]} – {_b2(BED_G * BED_K * 1.0801)[:-3]} TL. Yoklama kaçağı ek bedeliyle hesaplayın.',
+h1='🎖️ Bedelli Askerlik Ücreti Hesaplama – 2026 ve Ocak 2027',
+lead='Bedelli askerlik ücreti, 300.000 gösterge rakamının ödeme günündeki memur aylık katsayısıyla çarpılmasıyla bulunur. Dönemi seçin; yoklama kaçağı veya bakaya durumunuz varsa geçen ay sayısını girin, ödemeniz gereken toplam bedeli görün.',
+card_title='Bedelli Askerlik Hesaplayıcı', button='Hesapla',
+form='''<div class="form-grid">
+  <div class="field full"><label for="donem">Ödeme dönemi</label><select id="donem"><option value="guncel">1 Temmuz – 31 Aralık 2026 (güncel)</option>''' + ''.join(f'<option value="{z}">Ocak 2027 – {ad.lower()}</option>' for ad, z in BED_SEN) + '''<option value="ozel">Katsayıyı kendim gireceğim</option></select></div>
+  <div class="field"><label for="ay">Yoklama kaçağı / bakaya süresi <small>ay (yoksa boş)</small></label><input type="number" id="ay" placeholder="0" inputmode="numeric"></div>
+  <div class="field"><label for="katsayi">Memur aylık katsayısı <small>“kendim gireceğim” için</small></label><input type="number" id="katsayi" placeholder="örn: 1,575512" inputmode="decimal" step="any"></div>
+</div>''',
+js=f'var BG={BED_G}, BE={BED_EK}, BK={BED_K};' + r'''
+function hesapla(){
+  var d=el('donem').value, ay=Math.max(0,Math.ceil(v('ay')||0)), k, ad;
+  if(d==='guncel'){k=BK; ad='1 Temmuz – 31 Aralık 2026';}
+  else if(d==='ozel'){k=v('katsayi'); if(!(k>0)) return 'Memur aylık katsayısını girin (örn. 1,575512).'; ad='Girdiğiniz katsayı';}
+  else {k=BK*(1+parseFloat(d)); ad='Ocak 2027 tahmini (%'+num(parseFloat(d)*100,2)+' zam)';}
+  var bedel=BG*k, ek=ay*BE*k, top=bedel+ek;
+  var rows=[['Memur aylık katsayısı',num(k,6)],['Bedel (300.000 × katsayı)',tl(bedel)]];
+  if(ay>0){rows.push(['Ek bedel ('+ay+' ay × 3.500 × katsayı)',tl(ek)]); rows.push(['Toplam ödenecek',tl(top),'hl']);}
+  return {main:['Bedelli askerlik ücreti', tl(top)], sub:ad+(ay>0?' · '+ay+' ay ek bedel dahil':''), rows:rows,
+    note:'7179 sayılı Askeralma Kanunu 9. madde. Ek bedel, yoklama kaçağı, bakaya veya saklı durumunda geçen her ay için alınır; 1–30 gün bir ay sayılır. Bu durumdakilere ayrıca idari para cezası uygulanabilir. Ocak 2027 tutarları memur zammına göre tahmindir; kesin tutarı Milli Savunma Bakanlığı açıklar.'};
+}''',
+article=f'''<h2 id="nasil">Bedelli askerlik ücreti nasıl hesaplanır?</h2>
+<p>7179 sayılı Askeralma Kanunu’nun 9. maddesine göre bedelli askerlik ücreti, <b>300.000 gösterge rakamının</b> ödemenin yapıldığı gün geçerli <b>memur aylık katsayısıyla</b> çarpılmasıyla bulunur. Memur aylık katsayısı her yıl Ocak ve Temmuz’da güncellendiği için bedelli ücreti de yılda iki kez değişir.</p>
+<div class="formula">Bedelli askerlik ücreti = 300.000 × memur aylık katsayısı</div>
+<div class="example"><p><b>Örnek:</b> Temmuz–Aralık 2026 döneminde katsayı 1,575512’dir: 300.000 × 1,575512 = <b>{_b2(BED_G * BED_K)} ₺</b>. Milli Savunma Bakanlığı’nın bu dönem için açıkladığı tutar da budur.</p></div>
+
+<h2 id="donemler">Dönemlere göre bedelli askerlik ücreti</h2>
+{BED_TABLO}
+<p>17 Nisan 2026’dan önce gösterge rakamı 240.000 olduğu için bedel daha düşüktü. Ocak 2027 tutarı, memurların alacağı %5 toplu sözleşme zammı ile enflasyon farkına bağlıdır; zam oranı Aralık enflasyonu açıklandığında, Ocak başında kesinleşir. Senaryoların ayrıntısı için <a href="/memur-emekli-zammi-hesaplama.html">memur zammı hesaplama</a> sayfasına bakabilirsiniz.</p>
+
+<h2 id="ocak">Ocak’tan önce ödemek avantajlı mı?</h2>
+<p>Bedel, ödemenin yapıldığı gündeki katsayıyla hesaplanır. Bu yüzden Aralık sonuna kadar yapılan ödemelerde Temmuz–Aralık 2026 tutarı ({_b2(BED_G * BED_K)} ₺) geçerlidir; Ocak 2027’de katsayı artınca bedel de yaklaşık {_b2(BED_G * BED_K * 0.0547)[:-3]} – {_b2(BED_G * BED_K * 0.0801)[:-3]} ₺ artacak. Başvuru ve ödeme tarihlerini Milli Savunma Bakanlığı’nın dönem duyurusundan kontrol edin.</p>
+
+<h2 id="ek">Yoklama kaçağı ve bakaya için ek bedel</h2>
+<p>Yoklama kaçağı, bakaya veya saklı durumunda olanlar bedelli askerlikten yararlanmak için bedele ek olarak, bu durumda geçen <b>her ay için 3.500 gösterge × memur aylık katsayısı</b> kadar ek bedel öder. 1 ile 30 gün arası süre bir ay sayılır. Temmuz–Aralık 2026 döneminde aylık ek bedel <b>{_b2(BED_EK * BED_K)} ₺</b>’dir. Bu durumdakilere Askeralma Kanunu’na göre ayrıca idari para cezası uygulanabilir.</p>''',
+faq=[('Bedelli askerlik ücreti 2026’da ne kadar?', f'1 Temmuz – 31 Aralık 2026 döneminde bedelli askerlik ücreti {_b2(BED_G * BED_K)} ₺’dir (300.000 × 1,575512).'),
+     ('Ocak 2027’de bedelli askerlik ne kadar olacak?', f'Memur zammı senaryolarına göre Ocak 2027’de bedel yaklaşık {_b2(BED_G * BED_K * 1.0547)[:-3]} ile {_b2(BED_G * BED_K * 1.0801)[:-3]} ₺ arasında olacak. Kesin tutar Ocak başında memur katsayısı açıklanınca belli olur.'),
+     ('Bedelli askerlik ücreti nasıl hesaplanır?', '300.000 gösterge rakamı, ödeme günündeki memur aylık katsayısıyla çarpılır. Katsayı Ocak ve Temmuz’da güncellendiği için ücret yılda iki kez değişir.'),
+     ('Yoklama kaçağı bedelli ücreti ne kadar?', f'Bedele ek olarak kaçak ya da bakaya geçen her ay için 3.500 × memur aylık katsayısı kadar ek bedel ödenir. Temmuz–Aralık 2026’da aylık ek bedel {_b2(BED_EK * BED_K)} ₺’dir; ayrıca idari para cezası uygulanabilir.')],
+related=['memur-emekli-zammi-hesaplama', 'memur-maaslari', 'yas-hesaplama', 'gun-hesaplama', 'net-maas-hesaplama'],
+sources=[('7179 sayılı Askeralma Kanunu (madde 9)', 'https://www.mevzuat.gov.tr/'), ('Milli Savunma Bakanlığı – bedelli askerlik duyuruları', 'https://www.msb.gov.tr/')],
+badges=['✓ Ücretsiz', 'Güncel: 472.653,60 ₺', 'Ocak 2027 Tahmini'],
+))

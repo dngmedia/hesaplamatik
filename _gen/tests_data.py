@@ -88,3 +88,6 @@ TESTS['altin-hesaplama']=[dict(fill={'ceyrek':'2','manuel':'6000'}, expect='19.3
 TESTS['taksi-ucreti-hesaplama']=[dict(fill={'km':'10','dk':'5'}, expect='601,04'),
   dict(fill={'tarife':'ankara','km':'2'}, expect='200,00'),
   dict(fill={'tarife':'ozel','km':'10','acilis':'50','kmu':'30'}, expect='350,00')]
+TESTS['bedelli-askerlik-hesaplama']=[dict(fill={}, expect='472.653,60'),
+  dict(fill={'ay':'3'}, expect='489.196,48'),
+  dict(fill={'donem':'ozel','katsayi':'1.5'}, expect='450.000,00')]

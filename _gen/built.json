@@ -304,6 +304,11 @@
   "name": "Mühendis Maaşı 2027",
   "cat": "kamu"
  },
+ "bedelli-askerlik-hesaplama": {
+  "ico": "🎖️",
+  "name": "Bedelli Askerlik Ücreti Hesaplama",
+  "cat": "kamu"
+ },
  "ekonomi-takvimi": {
   "ico": "📅",
   "name": "Ekonomi Takvimi 2026–2027",
