@@ -1,0 +1,3 @@
+#!/bin/sh
+# Doğruluk denetimi geçmeden push yapılmaz. Kurulum: git config core.hooksPath .githooks
+python3 _gen/dogrula.py || { echo "✗ Doğruluk denetimi başarısız — push iptal edildi (python3 _gen/dogrula.py)"; exit 1; }

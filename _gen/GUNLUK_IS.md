@@ -14,3 +14,14 @@ Duran "günlük iş" yazdığında:
 
 Tempo: günde en fazla 1 yeni içerik. Toplu/seri içerik üretilmez (Google "scaled content" ve AdSense riski).
 Hatırlatmalar (send_later): 23 Eki 08:00Z, 2 Kas 08:00Z, 3 Kas 07:15Z, 31 Ara 07:00Z, 1 Oca 07:00Z, 4 Oca 07:15Z.
+
+## Doğruluk kuralları (30 Eki 2026'dan itibaren zorunlu)
+
+- **Tek doğruluk kaynağı:** `_gen/veri.py`. Resmî rakam (asgari ücret, SGK oranları, kıdem tavanı, katsayı, DASK, faiz, TÜFE…) değişince önce burası güncellenir: değer, kaynak, `dogrulandi`, `kontrol` tarihi. Eski değer `ESKI` listesine eklenir.
+- **Otomatik denetim:** `python3 _gen/dogrula.py` — build sonunda ve `test_pages.py` içinde çalışır; `.githooks/pre-push` hata varken push'u engeller (yeni klonda `git config core.hooksPath .githooks`). GitHub Actions `dogruluk.yml` her push'ta ve her sabah çalışır.
+  1. ESKI: bilinen eski/yanlış ifade sayfada kalmışsa hata.
+  2. BAGLAM: işveren SGK oranı, kıdem tavanı, prim tavanı gibi rakamlar izinli değer dışındaysa hata.
+  3. HESAP: sayfadaki "A × B = C" ve "A = B = C" zincirleri yeniden hesaplanır; tutmazsa hata.
+  4. TARİH: `kontrol` tarihi geçen veri hata verir → resmî kaynaktan yeniden doğrula, tarihi ileri al.
+- **Yeni içerik yazarken:** örnek tablo/hesap elle yazılmaz, Python ile hesaplanıp sayfaya basılır. Örnek hesabı mümkünse "A × B = C" biçiminde de yaz ki denetim yakalayabilsin. Kaynaksız oran (sektör ortalaması, "yaygın oran") yazılmaz; yazılırsa "resmî değildir" notu düşülür.
+- **"Bu ay" bilgisi** (faiz, kur, tarife) her zaman tarihle yazılır ve `veri.py`'de kontrol tarihi olur.

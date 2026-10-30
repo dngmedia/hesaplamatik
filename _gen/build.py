@@ -156,3 +156,13 @@ try:
     print('menü/footer:', _ch.run())
 except Exception as _e:
     print('menü/footer hatası:', _e)
+
+# ── Doğruluk denetimi (veri.py + dogrula.py) — hata varsa yayınlanmaz ──
+try:
+    import dogrula as _dg
+    _h = _dg.run()
+    for _x in _h:
+        print('✗', _x)
+    print('DOĞRULUK HATASI:', len(_h))
+except Exception as _e:
+    print('doğruluk denetimi çalışmadı:', _e)

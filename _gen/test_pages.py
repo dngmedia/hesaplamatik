@@ -57,4 +57,14 @@ with sync_playwright() as p:
         pg.goto(f'http://127.0.0.1:{PORT}/yas-hesaplama.html'); pg.set_viewport_size({'width': 390, 'height': 800}); pg.click('#hzHam')
         print('menü açılıyor:', pg.locator('#hzLinks').is_visible()); fails += 0 if pg.locator('#hzLinks').is_visible() else 1
     b.close()
+# doğruluk denetimi: eski/yanlış rakam, tutmayan örnek hesap, süresi geçmiş veri
+try:
+    import os as _os, sys as _sys
+    _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+    import dogrula as _dg
+    _dh = _dg.run()
+    for _x in _dh: print('✗', _x)
+    print('DOĞRULUK HATASI:', len(_dh)); fails += len(_dh)
+except Exception as _e:
+    print('doğruluk denetimi çalışmadı:', _e); fails += 1
 print('HATA SAYISI:', fails)
