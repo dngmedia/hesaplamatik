@@ -83,8 +83,8 @@ rel1 = [('🚗', 'MTV Hesaplama', '2026 MTV ve 2027 tahmini', f'{B}/mtv-hesaplam
         ('🚦', '2027 Trafik Cezaları', 'Hız, alkol, kırmızı ışık', f'{B}/blog/trafik-cezalari-2027.html'),
         ('📊', 'Vergi Dilimleri 2027', 'Gelir vergisi tarifesi tahmini', f'{B}/blog/vergi-dilimleri-2027.html')]
 print(make('yeniden-degerleme-orani-2026',
-     'Yeniden Değerleme Oranı 2026: 2027’de MTV, Harçlar ve Cezalar Ne Kadar? | Hesaplarsın',
-     'Yeniden değerleme oranı 3 Kasım 2026’da belli olacak. Eylül Yİ-ÜFE %27,81. 2027 MTV, pasaport, ehliyet, IMEI, trafik cezaları ve vergi istisnaları için tahmini tutarlar tek tabloda.',
+     'Yeniden Değerleme Oranı 2026: 2027 MTV, Harç ve Cezalar | Hesaplarsın',
+     'Yeniden değerleme oranı 3 Kasım 2026’da belli olacak (Eylül Yİ-ÜFE %27,81). 2027 MTV, harç, trafik cezası ve vergi istisnası tahminleri tek tabloda.',
      'yeniden değerleme oranı 2026, yeniden değerleme oranı 2027, 2027 mtv, 2027 harçlar, 2027 trafik cezaları, yİ-üfe ekim 2026',
      'Yeniden Değerleme Oranı 2026', 'Yeniden Değerleme Oranı 2026: 2027’de MTV, Harçlar ve Cezalar Ne Kadar Olacak?',
      hero('📈', '3 Kasım 2026’da açıklanacak', 'EYLÜL Yİ-ÜFE (YILLIK)', '%27,81', '2027 TAHMİNİ ARALIK', '%26 – %30', '#7c2d12', '#ea580c'),
@@ -222,8 +222,8 @@ rel3 = [('📈', 'Yeniden Değerleme Oranı 2026', '2027’de neler ne kadar art
         ('🛂', '2027 Pasaport ve Ehliyet Harçları', 'Süre ve sınıfa göre tutarlar', f'{B}/blog/pasaport-ehliyet-harci-2027.html'),
         ('🔧', 'Araç Muayene Gecikme Cezası', 'Gecikme süresine göre ceza', f'{B}/arac-muayene-gecikme-hesaplama.html')]
 print(make('trafik-cezalari-2027',
-     '2027 Trafik Cezaları Ne Kadar Olacak? Hız, Kırmızı Işık, Alkol Tahmini | Hesaplarsın',
-     '2027 trafik cezaları tahmini: kırmızı ışık ve cep telefonu 5.000 TL’den yaklaşık 6.390 TL’ye, alkol 25.000 TL’den yaklaşık 31.952 TL’ye. Hız cezaları ve erken ödeme tutarları tablolarla.',
+     '2027 Trafik Cezaları Ne Kadar Olacak? Hız, Alkol, Kırmızı Işık | Hesaplarsın',
+     '2027 trafik cezaları tahmini: kırmızı ışık ve cep telefonu ≈ 6.390 TL, alkol ≈ 31.952 TL. Hız cezaları ve erken ödeme indirimli tutarlar tablolarla.',
      '2027 trafik cezaları, trafik cezaları 2027, 2027 hız cezası, 2027 kırmızı ışık cezası, 2027 alkol cezası, trafik cezası ne kadar',
      '2027 Trafik Cezaları', '2027 Trafik Cezaları Ne Kadar Olacak? Hız, Kırmızı Işık, Alkol ve Diğer Cezalar',
      hero('🚦', 'Ocak 2027’de güncelleniyor', 'KIRMIZI IŞIK (2027 TAHMİNİ)', t0(fl(5000 * (1 + T))), 'ALKOL – İLK TESPİT', t0(fl(25000 * (1 + T))), '#7f1d1d', '#dc2626'),

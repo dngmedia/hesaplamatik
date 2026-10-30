@@ -192,3 +192,7 @@ for _k, _h in (('enflasyon-hesaplama', 'altin-hesaplama'), ('para-deger-kaybi-he
                ('kar-marji-hesaplama', 'desi-hesaplama'), ('kar-zarar-hesaplama', 'desi-hesaplama'), ('yakit-tuketimi-hesaplama', 'taksi-ucreti-hesaplama'),
                ('para-sayma-hesaplama', 'altin-hesaplama')):
     M.setdefault(_k, []); M[_k] = [_h] + [x for x in M[_k] if x != _h]
+# 30 Ekim 2026 SEO denetimi: az iç bağlantı alan sayfalar
+for _k, _h in (('para-sayma-hesaplama', 'blog/dugun-altini-rehberi'), ('doviz-cevirici', 'blog/dugun-altini-rehberi'),
+               ('roi-hesaplama', 'kar-payi-hesaplama'), ('yatirim-geri-donus-suresi-hesaplama', 'kar-payi-hesaplama'), ('bilesik-faiz', 'kar-payi-hesaplama')):
+    M.setdefault(_k, []); M[_k] = M[_k][:1] + [_h] + [x for x in M[_k][1:] if x != _h]

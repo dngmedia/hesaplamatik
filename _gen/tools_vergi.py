@@ -501,7 +501,7 @@ howto=('Yıllık izin hakkı nasıl hesaplanır?',['İşe giriş tarihinizi giri
 # ───────────────────────── EMEKLİLİK YAŞI ─────────────────────────
 TOOLS.append(dict(
 slug='emeklilik-yasi-hesaplama', name='Emeklilik Hesaplama', cat='maas', ico='🎖️',
-title='Emeklilik Hesaplama 2026 – SGK Emeklilik Tablosu, Ne Zaman Emekli Olurum? | Hesaplarsın',
+title='Emeklilik Hesaplama 2026 – Ne Zaman Emekli Olurum? SGK Tablosu | Hesaplarsın',
 desc='SSK, Bağ-Kur ve memurlar için emeklilik yaşınızı, eksik prim gününüzü ve emeklilik tarihinizi hesaplayın. EYT prim günü tablosu, kademeli yaş ve BES emeklilik yaşı.',
 h1='🎖️ Emeklilik Hesaplama – Ne Zaman Emekli Olurum?',
 lead='Statünüzü (SSK, Bağ-Kur, memur), ilk sigorta giriş tarihinizi, doğum tarihinizi ve prim gününüzü girin; emeklilik grubunuzu, yaş şartınızı, eksik prim gününüzü ve tahmini emeklilik tarihinizi öğrenin.',

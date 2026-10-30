@@ -695,7 +695,7 @@ _DK = [('Küçük kutu (ayakkabı kutusu)', 30, 20, 12), ('Orta boy koli', 40, 3
 rows = ''.join(f'<tr><td>{a}</td><td>{e} × {b} × {y} cm</td><td>{_dtr(e*b*y/3000)}</td><td>{_m.ceil(e*b*y/3000-1e-9)}</td></tr>' for a, e, b, y in _DK)
 TOOLS.append(dict(
 slug='desi-hesaplama', name='Desi Hesaplama', cat='isletme', ico='📦',
-title='Desi Hesaplama – Kargo Desi Nasıl Hesaplanır? (En × Boy × Yükseklik ÷ 3000) | Hesaplarsın',
+title='Desi Hesaplama – Kargo Desi Nasıl Hesaplanır? (÷ 3000) | Hesaplarsın',
 desc='Kargo desi hesaplama: paketin en, boy ve yüksekliğini girin, desi ve ücrete esas ağırlığı anında görün. 40×30×20 cm koli 8 desidir. Yurt içi 3000, yurt dışı 5000 bölen.',
 h1='📦 Desi Hesaplama – Kargo Desi ve Ücrete Esas Ağırlık',
 lead='Paketinizin en, boy ve yükseklik ölçülerini santimetre olarak, isterseniz gerçek ağırlığını da girin; kargo firmalarının fiyatlandırmada kullandığı desiyi ve desi ile kilogramdan hangisinin esas alınacağını görün.',
@@ -770,7 +770,7 @@ TAKSI_ORNEK = ('<div class="table-wrap"><table><thead><tr><th>Mesafe</th><th>İs
     + '</tbody></table></div>')
 TOOLS.append(dict(
 slug='taksi-ucreti-hesaplama', name='Taksi Ücreti Hesaplama', cat='arac', ico='🚕',
-title='Taksi Ücreti Hesaplama 2026 – İstanbul ve Ankara Güncel Taksimetre Tarifesi | Hesaplarsın',
+title='Taksi Ücreti Hesaplama 2026 – İstanbul, Ankara Taksimetre | Hesaplarsın',
 desc=f'Taksi ücreti hesaplama: mesafe ve bekleme süresini girin, güncel tarifeyle ödeyeceğiniz tutarı görün. İstanbul sarı taksi açılış {_t2(71.94)} ₺, km {_t2(47.92)} ₺; 10 km yaklaşık {_t2(71.94 + 479.2)} ₺.',
 h1='🚕 Taksi Ücreti Hesaplama – Güncel Taksimetre Tarifesi',
 lead='Şehri ve taksi sınıfını seçin, gideceğiniz mesafeyi ve trafikte bekleme süresini girin; güncel resmî tarifeyle taksimetrenin yazacağı tutarı görün. Diğer şehirler için açılış, km ve dakika ücretini kendiniz girebilirsiniz.',

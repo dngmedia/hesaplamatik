@@ -70,8 +70,8 @@ rel = [('🪙', 'Altın Hesaplama', 'Canlı fiyatla altınların kaç TL?', f'{B
        ('📉', 'Paranın Değer Kaybı', 'Enflasyonla alım gücü', f'{B}/para-deger-kaybi-hesaplama.html'),
        ('💱', 'Döviz Çevirici', 'Dolar ve euro kaç TL?', f'{B}/doviz-cevirici.html')]
 print(make('dugun-altini-rehberi',
-     'Düğün Altını Hesaplama: Takılan Altınlar Ne Eder? Bozdururken Dikkat | Hesaplarsın',
-     f'Düğünde takılan çeyrek, yarım, tam, Cumhuriyet altını ve bileziklerin değeri nasıl hesaplanır? Örnek hesap: 15 çeyrek + 4 yarım + 2 tam + 40 g bilezik bozdurulursa {tl(AL, 0)} TL. Alış-satış farkı ve dikkat edilecekler.',
+     'Düğün Altını Hesaplama: Takılan Altınlar Ne Eder? | Hesaplarsın',
+     f'Düğünde takılan çeyrek, yarım, tam altın ve bileziklerin değeri nasıl hesaplanır? Örnek: 15 çeyrek, 4 yarım, 2 tam ve 40 g bilezik ≈ {tl(AL, 0)} TL. Bozdururken dikkat.',
      'düğün altını hesaplama, takılan altınlar ne eder, altın bozdurma, çeyrek altın kaç gram, bilezik bozdurma, altın alış satış farkı',
      'Düğün Altını Rehberi', 'Düğün Altını Hesaplama: Takılan Altınlar Ne Eder, Bozdururken Nelere Dikkat Edilmeli?',
      hero('💍', 'Bozdururken alış fiyatı geçerli', 'ÇEYREK ALTIN – ALIŞ (29 EKİM)', t(F['ceyrek'][1]), 'ÖRNEK DÜĞÜN ALTINI (ALIŞ)', t(AL), '#78350f', '#d97706'),

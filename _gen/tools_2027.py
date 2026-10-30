@@ -208,7 +208,7 @@ function onReady(){ el('taban').addEventListener('change',function(){ el('maas')
 
 TOOLS.append(dict(
 slug='emekli-maasi-hesaplama', name='Emekli Maaşı Hesaplama 2026', cat='maas', ico='👴',
-title='Emekli Maaşı Hesaplama 2026 – En Düşük Emekli Maaşı ve Ocak 2027 Zammı | Hesaplarsın',
+title='Emekli Maaşı Hesaplama 2026 – Ocak 2027 Zammı, En Düşük Aylık | Hesaplarsın',
 desc='En düşük emekli maaşı 23.552 ₺. SSK, Bağ-Kur ve memur emeklisi için Ocak 2027 zamlı maaşınızı hesaplayın; 65 yaş aylığı ve bayram ikramiyesi tutarları.',
 h1='👴 Emekli Maaşı Hesaplama 2026',
 lead='Şu an aldığınız emekli aylığını ve emeklilik türünüzü girin; Ocak 2027 zammıyla yeni aylığınızı tahmin edin. 2026’da kesinleşen zam oranları, en düşük emekli maaşı, 65 yaş aylığı ve bayram ikramiyesi tutarları aşağıda.',

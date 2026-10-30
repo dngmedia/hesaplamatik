@@ -138,7 +138,7 @@ ALTIN_GRAMAJ = ('<div class="table-wrap"><table><thead><tr><th>Altın türü</th
 
 TOOLS.append(dict(
 slug='altin-hesaplama', name='Altın Hesaplama', cat='finans', ico='🪙',
-title='Altın Hesaplama – Gram, Çeyrek, Tam Altın Kaç TL? Canlı Fiyatlarla | Hesaplarsın',
+title='Altın Hesaplama – Gram, Çeyrek, Tam Altın Kaç TL? Canlı Fiyat | Hesaplarsın',
 desc='Canlı fiyatlarla altın hesaplama: gram, çeyrek, yarım, tam, Cumhuriyet altını ve 22 ayar bilezik kaç TL? Düğünde takılan altınların değerini ve bütçenizle kaç altın alacağınızı görün.',
 h1='🪙 Altın Hesaplama – Canlı Fiyatlarla Altın Kaç TL?',
 lead='Elinizdeki ya da düğünde takılan çeyrek, yarım, tam, Cumhuriyet altınlarını ve gram/bilezik miktarını girin; canlı alış veya satış fiyatıyla toplam değerini görün. Bütçe modunda, paranızla kaç gram ya da kaç çeyrek altın alabileceğinizi hesaplayın.',

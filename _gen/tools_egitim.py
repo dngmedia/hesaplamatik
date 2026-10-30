@@ -340,7 +340,7 @@ faq=[('OBP nasıl hesaplanır?', 'Lise diploma notunuz 5 ile çarpılır. Örne�
      ('Meslek lisesi ek puanı nasıl hesaplanır?', 'Alanınızla ilgili, kılavuzda belirtilen önlisans programlarında OBP’nizin 0,06 katı kadar ek puan alırsınız. İlgili puan türünde en az 150 puan şartı vardır.')],
 related=['tyt-net-hesaplama', 'ayt-net-hesaplama', 'not-ortalamasi-hesaplama', 'takdir-tesekkur-hesaplama', 'kpss-net-hesaplama'],
 sources=[('ÖSYM – YKS Kılavuzu', 'https://www.osym.gov.tr/'), ('YÖK Atlas – Program taban puanları', 'https://yokatlas.yok.gov.tr/')],
-badges=['✓ Ücretsiz', '2026 YKS', 'Meslek Lisesi Ek Puanı'],
+badges=['✓ Ücretsiz', '2027 YKS', 'Meslek Lisesi Ek Puanı'],
 ))
 
 
@@ -575,7 +575,8 @@ article=f'''<h2 id="onlisans">KPSS önlisans puan hesaplama (P93)</h2>
 <tr><td>KPSS Ortaöğretim</td><td>25 Ekim 2026</td><td>19 Kasım 2026</td></tr>
 <tr><td>KPSS DHBT</td><td>1 Kasım 2026</td><td>25 Kasım 2026</td></tr>
 </tbody></table></div>
-<p>Tarihler ÖSYM 2026 sınav takvimine göredir. KPSS sonuçları iki yıl geçerlidir; bu nedenle 2026 puanınızla 2028 sınavına kadar yapılan tercihlerde başvurabilirsiniz.</p>''',
+<p>Tarihler ÖSYM 2026 sınav takvimine göredir. KPSS sonuçları iki yıl geçerlidir; bu nedenle 2026 puanınızla 2028 sınavına kadar yapılan tercihlerde başvurabilirsiniz.</p>
+<p><b>2027 KPSS:</b> ÖSYM’nin 2027 takvimine göre A Grubu Genel Yetenek–Genel Kültür oturumu <b>12 Eylül 2027</b>’de, Alan Bilgisi oturumları 18–19 Eylül 2027’de yapılacak; başvurular 8–19 Temmuz 2027, sonuçlar 13 Ekim 2027’de. KPSS önlisans ve ortaöğretim sınavları iki yılda bir yapıldığı için 2027 takviminde yer almıyor; bir sonraki oturumlar 2028’de.</p>''',
 faq=[('KPSS’de kaç yanlış bir doğruyu götürür?', 'KPSS’de 4 yanlış 1 doğruyu götürür. Net, doğru sayısından yanlış sayısının dörtte biri çıkarılarak hesaplanır.'),
      ('KPSS önlisansta 70 net kaç puan eder?', f'Netlerin Genel Yetenek ve Genel Kültür’e eşit dağıldığı varsayımıyla 70 net yaklaşık {_tr(_kp(35, 35, "onlisans"), 0)}, 60 net yaklaşık {_tr(_kp(30, 30, "onlisans"), 0)} P93 puanına karşılık gelir. Kesin puanı ÖSYM 30 Ekim 2026’da açıklayacak.'),
      ('KPSS önlisans sonuçları nereden öğrenilir?', 'Sonuçlar ÖSYM’nin sonuc.osym.gov.tr adresinde T.C. kimlik numarası ve aday şifresiyle sorgulanır. Sonuç belgesinde netleriniz ve P93 puanınız yer alır.'),
@@ -663,7 +664,13 @@ article=f'''<h2 id="nasil">ALES puanı nasıl hesaplanır?</h2>
 <tr><td>Sınav</td><td>29 Kasım 2026, Pazar</td></tr>
 <tr><td>Sonuç</td><td>17 Aralık 2026</td></tr>
 </tbody></table></div>
-<p>ALES sonuçları açıklandığı tarihten itibaren <b>5 yıl</b> geçerlidir. Birden fazla oturuma girdiyseniz başvuruda en yüksek geçerli puanınızı kullanabilirsiniz. Sınava kaç gün kaldığını <a href="https://hesaplarsin.com/gun-hesaplama.html">gün hesaplama</a> aracıyla takip edebilirsiniz.</p>
+<h3>2027 ALES tarihleri</h3>
+<div class="table-wrap"><table><thead><tr><th>Oturum</th><th>Başvuru</th><th>Sınav</th><th>Sonuç</th></tr></thead><tbody>
+<tr><td>ALES/1</td><td>24 Şubat – 4 Mart 2027</td><td>18 Nisan 2027</td><td>7 Mayıs 2027</td></tr>
+<tr><td>ALES/2</td><td>25 Mayıs – 2 Haziran 2027</td><td>11 Temmuz 2027</td><td>30 Temmuz 2027</td></tr>
+<tr><td>ALES/3</td><td>12–20 Ekim 2027</td><td>28 Kasım 2027</td><td>17 Aralık 2027</td></tr>
+</tbody></table></div>
+<p>2027 tarihleri ÖSYM’nin 28 Ekim 2026’da yayımladığı 2027 sınav takvimine göredir; ÖSYM takvimde değişiklik yapabilir. ALES sonuçları açıklandığı tarihten itibaren <b>5 yıl</b> geçerlidir. Birden fazla oturuma girdiyseniz başvuruda en yüksek geçerli puanınızı kullanabilirsiniz. Sınava kaç gün kaldığını <a href="https://hesaplarsin.com/gun-hesaplama.html">gün hesaplama</a> aracıyla takip edebilirsiniz.</p>
 
 <h2 id="taktik">ALES’e hazırlanırken</h2>
 <ul>
@@ -676,6 +683,7 @@ faq=[('ALES’te kaç yanlış bir doğruyu götürür?', 'ALES’te 4 yanlış 
      ('ALES’te 60 net kaç puan eder?', f'Netlerin iki teste eşit dağıldığı varsayımıyla 60 net (30 sayısal + 30 sözel) yaklaşık {_tr(_ales(30, 30, "SAY"), 0)} SAY, {_tr(_ales(30, 30, "SOZ"), 0)} SÖZ ve {_tr(_ales(30, 30, "EA"), 0)} EA puanına karşılık gelir. Gerçek puan oturumun zorluğuna göre ±4 puan değişebilir.'),
      ('Yüksek lisans için ALES kaç olmalı?', 'Tezli yüksek lisansta ilgili puan türünde en az 55 puan aranır. Tezsiz yüksek lisans programlarında ALES şartı yoktur. Üniversiteler daha yüksek puan isteyebilir.'),
      ('Araştırma görevlisi olmak için ALES kaç gerekir?', 'Araştırma görevlisi ve öğretim görevlisi kadrolarında ilgili puan türünde en az 70 ALES puanı aranır.'),
+     ('2027’de ALES ne zaman?', 'ÖSYM’nin 2027 takvimine göre ALES/1 18 Nisan, ALES/2 11 Temmuz, ALES/3 28 Kasım 2027’de yapılacak.'),
      ('2026 ALES/3 sonuçları ne zaman açıklanacak?', '29 Kasım 2026’da yapılacak ALES/3 sınavının sonuçları ÖSYM takvimine göre 17 Aralık 2026’da açıklanacak.'),
      ('ALES puanı kaç yıl geçerli?', 'ALES sonuçları açıklandığı tarihten itibaren 5 yıl geçerlidir.')],
 related=['kpss-puan-hesaplama', 'kpss-net-hesaplama', 'not-ortalamasi-hesaplama', 'gun-hesaplama', 'obp-hesaplama'],
