@@ -204,3 +204,7 @@ M['bedelli-askerlik-hesaplama'] = ['memur-emekli-zammi-hesaplama', 'memur-maasla
 for _k in ('kredi-hesaplama', 'tapu-harci-hesaplama', 'kira-getirisi-hesaplama', 'metrekare-fiyat-hesaplama', 'kredi-erken-kapama-hesaplama', 'blog/tapu-harci-hesaplama'):
     M.setdefault(_k, []); M[_k] = ['konut-kredisi-hesaplama'] + [x for x in M[_k] if x != 'konut-kredisi-hesaplama']
 M['konut-kredisi-hesaplama'] = ['kredi-hesaplama', 'tapu-harci-hesaplama', 'blog/tapu-harci-hesaplama']
+
+# 30 Ekim: KPSS puan sayfasına dizindeki güçlü sayfalardan bağlantı
+for _k in ('memur-maaslari', 'ogretmen-maasi', 'polis-maasi', 'hemsire-maasi', 'lgs-puan-hesaplama', 'ales-puan-hesaplama', 'tyt-net-hesaplama', 'obp-hesaplama', 'not-ortalamasi-hesaplama', 'bedelli-askerlik-hesaplama'):
+    M.setdefault(_k, []); M[_k] = ['kpss-puan-hesaplama'] + [x for x in M[_k] if x != 'kpss-puan-hesaplama']
