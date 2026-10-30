@@ -91,3 +91,6 @@ TESTS['taksi-ucreti-hesaplama']=[dict(fill={'km':'10','dk':'5'}, expect='601,04'
 TESTS['bedelli-askerlik-hesaplama']=[dict(fill={}, expect='472.653,60'),
   dict(fill={'ay':'3'}, expect='489.196,48'),
   dict(fill={'donem':'ozel','katsayi':'1.5'}, expect='450.000,00')]
+TESTS['konut-kredisi-hesaplama']=[dict(fill={'fiyat':'4000000'}, expect='95.611'),
+  dict(fill={'fiyat':'4000000','enerji':'1','pesinat':'1000000','vade':'60'}, expect='105.857'),
+  dict(radio={'mod':'maas'}, fill={'gelir':'80000'}, expect='1.338.753')]

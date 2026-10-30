@@ -16,7 +16,7 @@ N = {  # hedef -> görünen ad
  'elektrik-faturasi-hesaplama': 'Elektrik faturası hesaplama', 'kredi-erken-kapama-hesaplama': 'Kredi erken kapama hesaplama', 'kredi-karti-asgari-odeme-hesaplama': 'Kredi kartı asgari ödeme',
  'kripto-kar-zarar-hesaplama': 'Kripto kâr/zarar hesaplama', 'otv-hesaplama': 'ÖTV hesaplama', 'stok-karliligi-hesaplama': 'Stok kârlılığı hesaplama',
  'borc-kapatma-hesaplama': 'Borç kapatma hesaplama', 'damga-vergisi-hesaplama': 'Damga vergisi hesaplama', 'indirim-hesaplama': 'İndirim hesaplama',
- 'pazaryeri-komisyon-hesaplama': 'Pazaryeri komisyon hesaplama (Trendyol, Hepsiburada)', 'desi-hesaplama': 'Desi hesaplama (kargo)', 'kar-marji-hesaplama': 'Kâr marjı hesaplama', 'emeklilik-yasi-hesaplama': 'Emeklilik hesaplama – ne zaman emekli olurum?',
+ 'pazaryeri-komisyon-hesaplama': 'Pazaryeri komisyon hesaplama (Trendyol, Hepsiburada)', 'desi-hesaplama': 'Desi hesaplama (kargo)', 'konut-kredisi-hesaplama': 'Konut kredisi hesaplama (ev kredisi)', 'kredi-hesaplama': 'Kredi hesaplama (ihtiyaç, taşıt, konut)', 'kar-marji-hesaplama': 'Kâr marjı hesaplama', 'emeklilik-yasi-hesaplama': 'Emeklilik hesaplama – ne zaman emekli olurum?',
  'ekonomi-takvimi': 'Ekonomi takvimi (enflasyon, faiz kararı tarihleri)', 'net-maas-hesaplama': 'Net maaş hesaplama', 'kidem-tazminati-hesaplama': 'Kıdem tazminatı hesaplama',
  'ihbar-tazminati-hesaplama': 'İhbar tazminatı hesaplama', 'kira-artis-hesaplama': 'Kira artış hesaplama', 'tapu-harci-hesaplama': 'Tapu harcı hesaplama',
  'metrekare-fiyat-hesaplama': 'Metrekare fiyatı hesaplama', 'enflasyon-hesaplama': 'Enflasyon hesaplama', 'yuzde-hesaplama': 'Yüzde hesaplama', 'kdv-hesaplama': 'KDV hesaplama',
@@ -200,3 +200,7 @@ for _k, _h in (('para-sayma-hesaplama', 'blog/dugun-altini-rehberi'), ('doviz-ce
 for _k in ('memur-maaslari', 'memur-emekli-zammi-hesaplama', 'yas-hesaplama'):
     M.setdefault(_k, []); M[_k] = M[_k][:1] + ['bedelli-askerlik-hesaplama'] + [x for x in M[_k][1:] if x != 'bedelli-askerlik-hesaplama']
 M['bedelli-askerlik-hesaplama'] = ['memur-emekli-zammi-hesaplama', 'memur-maaslari']
+
+for _k in ('kredi-hesaplama', 'tapu-harci-hesaplama', 'kira-getirisi-hesaplama', 'metrekare-fiyat-hesaplama', 'kredi-erken-kapama-hesaplama', 'blog/tapu-harci-hesaplama'):
+    M.setdefault(_k, []); M[_k] = ['konut-kredisi-hesaplama'] + [x for x in M[_k] if x != 'konut-kredisi-hesaplama']
+M['konut-kredisi-hesaplama'] = ['kredi-hesaplama', 'tapu-harci-hesaplama', 'blog/tapu-harci-hesaplama']

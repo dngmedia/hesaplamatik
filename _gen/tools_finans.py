@@ -1046,3 +1046,98 @@ faq=[
 ],
 related=['fazla-mesai-hesaplama','net-maas-hesaplama','asgari-ucret-hesaplama','maas-zam-hesaplama','is-gunu-hesaplama'],
 ))
+
+# ═════════════════════════ KONUT KREDİSİ ═════════════════════════
+# Kredi/değer oranları: BDDK 29.01.2026 düzenlemesi (Sabah 31.01.2026, BEMO). 10 milyon TL üzeri kademeler yaklaşık (%20–50 aralığı).
+# Faiz örneği: 16.10.2026 en uygun bankalar aylık %2,87–2,99. Konut kredisinde KKDF ve BSMV yoktur. Tahsis ücreti en fazla binde 5.
+KK_LTV = [(5e6, 0.90, 0.80, 0.70), (7e6, 0.80, 0.70, 0.60), (10e6, 0.70, 0.60, 0.50), (20e6, 0.50, 0.40, 0.30), (1e18, 0.40, 0.30, 0.20)]
+KK_FAIZ = 2.89
+def _kk(x):
+    return f'{x:,.0f}'.replace(',', '.')
+def _kk_taksit(P, r, n):
+    r = r / 100
+    return P * r * (1 + r) ** n / ((1 + r) ** n - 1)
+KK_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Kredi tutarı</th><th>60 ay</th><th>120 ay</th><th>180 ay</th></tr></thead><tbody>'
+    + ''.join(f'<tr><td>{_kk(P)} ₺</td>' + ''.join(f'<td>{_kk(_kk_taksit(P, KK_FAIZ, n))} ₺</td>' for n in (60, 120, 180)) + '</tr>' for P in (1e6, 2e6, 3e6, 4e6, 5e6))
+    + '</tbody></table></div>')
+TOOLS.append(dict(
+slug='konut-kredisi-hesaplama', name='Konut Kredisi Hesaplama', cat='gayrimenkul', ico='🏡',
+title='Konut Kredisi Hesaplama 2026 – Ev Kredisi Taksit ve Peşinat | Hesaplarsın',
+desc=f'Konut kredisi hesaplama: ev fiyatı ve enerji sınıfına göre çekebileceğiniz kredi, peşinat ve aylık taksit. 2 milyon TL, 120 ay, %{str(KK_FAIZ).replace(".", ",")} faiz ≈ {_kk(_kk_taksit(2e6, KK_FAIZ, 120))} TL taksit.',
+h1='🏡 Konut Kredisi Hesaplama – Ev Kredisi Taksit, Peşinat ve Maaşa Göre Kredi',
+lead='Evin fiyatını ve enerji sınıfını girin; BDDK kurallarına göre çekebileceğiniz en yüksek krediyi, gereken peşinatı, aylık taksiti ve ek masrafları görün. “Maaşıma göre” modunda gelirinize uygun kredi tutarını ve ev fiyatını hesaplayın.',
+card_title='Konut Kredisi Hesaplayıcı', button='Hesapla',
+form=f'''<div class="field full" style="margin-bottom:14px"><label>Hesaplama</label>
+<div class="seg"><label><input type="radio" name="mod" value="ev" checked>Ev fiyatına göre</label><label><input type="radio" name="mod" value="maas">Maaşıma göre</label></div></div>
+<div class="form-grid">
+  <div class="field"><label for="fiyat">Ev fiyatı (₺) <small>ev fiyatı modu</small></label><input type="number" id="fiyat" placeholder="örn: 4000000" inputmode="decimal"></div>
+  <div class="field"><label for="enerji">Enerji sınıfı</label><select id="enerji"><option value="1">A veya B</option><option value="2" selected>C</option><option value="3">D ve altı</option></select></div>
+  <div class="field"><label for="pesinat">Peşinat (₺) <small>boşsa en az peşinat</small></label><input type="number" id="pesinat" placeholder="otomatik" inputmode="decimal"></div>
+  <div class="field"><label for="gelir">Aylık net gelir (₺) <small>maaş modu</small></label><input type="number" id="gelir" placeholder="örn: 80000" inputmode="decimal"></div>
+  <div class="field"><label for="faiz">Aylık faiz (%)</label><input type="number" id="faiz" value="{KK_FAIZ}" inputmode="decimal" step="0.01"></div>
+  <div class="field"><label for="vade">Vade</label><select id="vade"><option value="60">60 ay (5 yıl)</option><option value="120" selected>120 ay (10 yıl)</option><option value="180">180 ay (15 yıl)</option><option value="240">240 ay (20 yıl)</option></select></div>
+</div>
+<label style="display:flex;gap:8px;align-items:center;margin-top:12px;font-size:.88rem"><input type="checkbox" id="evvar"> Benim, eşimin veya 18 yaş altı çocuğumun üzerine kayıtlı konut var</label>''',
+js='var LTV=' + str([[a, b, c, d] for a, b, c, d in KK_LTV]).replace('1e+18', '1e18') + ';' + r'''
+function ltv(f,s){for(var i=0;i<LTV.length;i++){if(f<=LTV[i][0]) return LTV[i][s];} return LTV[LTV.length-1][s];}
+function tak(P,r,n){r=r/100; return P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);}
+function hesapla(){
+  var mod=radio('mod')||'ev', s=parseInt(el('enerji').value), r=v('faiz'), n=parseInt(el('vade').value), evvar=el('evvar').checked;
+  if(!(r>0)) return 'Aylık faiz oranını girin (örn. 2,89).';
+  var uyari=evvar?' Üzerinize kayıtlı konut varsa BDDK oranları daha düşük uygulanır; tablo oranı üst sınırdır, kesin oranı bankanızdan öğrenin.':'';
+  if(mod==='maas'){
+    var g=v('gelir'); if(!(g>0)) return 'Maaş modunda aylık net gelirinizi girin.';
+    var t=g*0.5, P=t*(1-Math.pow(1+r/100,-n))/(r/100), f=P/ltv(P/0.9,s), k=0;
+    for(var i=0;i<30;i++){ f=P/ltv(f,s); }
+    return {main:['Çekebileceğiniz yaklaşık kredi', tl(P,0)], sub:'Taksit gelirin en fazla %50’si varsayımıyla · '+n+' ay · aylık %'+num(r,2),
+      rows:[['Aylık taksit (en fazla)',tl(t,0)],['Bu krediyle alınabilecek ev fiyatı (yaklaşık)',tl(f,0)],['Gereken peşinat',tl(f-P,0)],['Toplam geri ödeme',tl(t*n,0)]],
+      note:'Bankalar kredi tutarını gelir, borç durumu ve kredi notuna göre belirler; taksitin gelirin yarısını aşmaması yaygın bir ölçüttür, yasal bir sınır değildir. Ev fiyatı, seçtiğiniz enerji sınıfına göre BDDK kredi/değer oranından hesaplanmıştır.'+uyari};
+  }
+  var F=v('fiyat'); if(!(F>0)) return 'Evin fiyatını girin.';
+  var oran=ltv(F,s), maxK=F*oran, pes=v('pesinat'), P;
+  if(pes>0){ P=Math.max(0,F-pes); if(P>maxK) return 'Bu peşinatla kredi tutarı ('+tl(P,0)+') BDDK sınırını ('+tl(maxK,0)+', %'+Math.round(oran*100)+') aşıyor. En az '+tl(F-maxK,0)+' peşinat gerekir.'; }
+  else P=maxK;
+  if(P<=0) return 'Kredi tutarı sıfır; peşinat ev fiyatına eşit veya büyük.';
+  var t=tak(P,r,n), top=t*n;
+  return {main:['Aylık taksit', tl(t,0)], sub:tl(P,0)+' kredi · '+n+' ay · aylık %'+num(r,2)+' · konut kredisinde KKDF ve BSMV yoktur',
+    rows:[['Ev fiyatı',tl(F,0)],['Azami kredi oranı (BDDK)','%'+Math.round(oran*100)+' → '+tl(maxK,0)],['Kullanılan kredi',tl(P,0)],['Peşinat',tl(F-P,0),'hl'],
+      ['Toplam geri ödeme',tl(top,0)],['Toplam faiz',tl(top-P,0)],['Kredi tahsis ücreti (en fazla binde 5)',tl(P*0.005,0)],['Tapu harcı – alıcı payı (%2)',tl(F*0.02,0)],
+      ['Önerilen en az net gelir (taksit ≤ gelirin %50’si)',tl(t*2,0)]],
+    note:'Kredi/değer oranları BDDK’nın 29 Ocak 2026 düzenlemesine göredir; 10 milyon TL üzeri konutlarda oranlar yaklaşıktır. Tapu harcı satış bedeli üzerinden hesaplanmıştır. Ekspertiz ücreti, DASK, ipotek ve sigorta masrafları bankaya ve konuta göre değişir.'+uyari};
+}''',
+article=f'''<h2 id="ltv">Konut kredisi evin yüzde kaçı kadar çekilebilir?</h2>
+<p>BDDK’nın 29 Ocak 2026’da yaptığı düzenlemeyle birinci el ve ikinci el konut ayrımı kaldırıldı; çekilebilecek en yüksek kredi artık <b>konutun değerine</b> ve <b>enerji kimlik belgesindeki sınıfa</b> göre belirleniyor.</p>
+<div class="table-wrap"><table><thead><tr><th>Konut değeri</th><th>A–B enerji sınıfı</th><th>C sınıfı</th><th>Diğer sınıflar</th></tr></thead><tbody>
+<tr><td>5 milyon TL’ye kadar</td><td>%90</td><td>%80</td><td>%70</td></tr>
+<tr><td>5 – 7 milyon TL</td><td>%80</td><td>%70</td><td>%60</td></tr>
+<tr><td>7 – 10 milyon TL</td><td>%70</td><td>%60</td><td>%50</td></tr>
+<tr><td>10 milyon TL üzeri</td><td colspan="3">Enerji sınıfına göre %20 – %50</td></tr>
+</tbody></table></div>
+<p>Kendisinin, eşinin veya 18 yaşından küçük çocuğunun üzerine kayıtlı konutu olanlar için bu oranlar daha düşük uygulanır. Örneğin C sınıfı, 4 milyon TL’lik bir ev için en fazla 3,2 milyon TL kredi çekilebilir; kalan 800 bin TL peşinat olarak ödenir.</p>
+
+<h2 id="taksit">Konut kredisi taksit tablosu</h2>
+<p>Aylık %{str(KK_FAIZ).replace(".", ",")} faizle (Ekim 2026’da en uygun bankaların aralığı yaklaşık %2,87–2,99) örnek taksitler:</p>
+{KK_TABLO}
+<p>Konut kredisinde, ihtiyaç ve taşıt kredilerinden farklı olarak <b>KKDF ve BSMV alınmaz</b>; bu yüzden bankanın ilan ettiği faiz oranı doğrudan taksite yansır. Aynı tutar ve faizle ihtiyaç kredisi, vergiler nedeniyle belirgin şekilde daha pahalıya gelir. Diğer kredi türlerini karşılaştırmak için <a href="/kredi-hesaplama.html">kredi hesaplama</a> aracını kullanabilirsiniz.</p>
+
+<h2 id="maas">Maaşıma göre ne kadar konut kredisi çekebilirim?</h2>
+<p>Bankalar kredi tutarını belirlerken gelirinizi, mevcut borçlarınızı ve kredi notunuzu birlikte değerlendirir. Yaygın bir ölçüt, <b>aylık taksitin net gelirin yarısını aşmamasıdır</b>. Örneğin aylık 80.000 TL net geliri olan biri en fazla 40.000 TL taksit ödeyebilir; bu taksitle aylık %{str(KK_FAIZ).replace(".", ",")} faiz ve 120 ay vadede yaklaşık <b>{_kk(40000 * (1 - (1 + KK_FAIZ / 100) ** -120) / (KK_FAIZ / 100))} TL</b> kredi çekilebilir. Eşlerin gelirleri birlikte değerlendirilerek ortak başvuru yapılabilir.</p>
+
+<h2 id="masraf">Konut kredisinin ek masrafları</h2>
+<ul>
+<li><b>Kredi tahsis ücreti:</b> Konut kredilerinde kredi tutarının en fazla binde 5’i kadar alınabilir.</li>
+<li><b>Ekspertiz ücreti:</b> Banka, evin değerini lisanslı bir değerleme şirketine tespit ettirir; ücret konuta ve bankaya göre değişir.</li>
+<li><b>Tapu harcı:</b> Satış bedelinin %4’ü; alıcı ve satıcı %2’şer öder. Ayrıntı için <a href="/tapu-harci-hesaplama.html">tapu harcı hesaplama</a>.</li>
+<li><b>DASK ve ipotek:</b> Zorunlu deprem sigortası olmadan konut kredisi kullanılamaz; ipotek tesis işlemi tapu müdürlüğünde yapılır.</li>
+<li><b>Konut ve hayat sigortası:</b> Bankaya göre istenebilir; zorunlu tutulamayan sigortaları farklı şirketten de yaptırabilirsiniz.</li>
+</ul>
+<p>Satın almak yerine kiralamanın maliyetini karşılaştırmak için <a href="/kira-getirisi-hesaplama.html">kira getirisi hesaplama</a>, krediyi vadesinden önce kapatmayı düşünüyorsanız <a href="/kredi-erken-kapama-hesaplama.html">kredi erken kapama hesaplama</a> araçlarına bakabilirsiniz.</p>''',
+faq=[('Konut kredisi evin yüzde kaçı kadar verilir?', '5 milyon TL’ye kadar konutlarda A–B enerji sınıfında %90, C sınıfında %80, diğer sınıflarda %70’e kadar kredi verilebilir. Konut değeri yükseldikçe oran düşer; 10 milyon TL üzeri konutlarda %20–50 aralığındadır.'),
+     ('Konut kredisinde KKDF ve BSMV var mı?', 'Hayır. Konut kredilerinde KKDF ve BSMV alınmaz. İhtiyaç ve taşıt kredilerinde ise faizin üzerine %15 KKDF ve %15 BSMV eklenir.'),
+     ('2 milyon TL konut kredisinin taksiti ne kadar?', f'Aylık %{str(KK_FAIZ).replace(".", ",")} faizle 2 milyon TL konut kredisinin taksiti 60 ayda yaklaşık {_kk(_kk_taksit(2e6, KK_FAIZ, 60))} TL, 120 ayda yaklaşık {_kk(_kk_taksit(2e6, KK_FAIZ, 120))} TL’dir.'),
+     ('Maaşım ne kadar olmalı?', 'Bankalar genellikle aylık taksitin net gelirin yarısını aşmamasına bakar. Örneğin 50.000 TL taksit için en az yaklaşık 100.000 TL net gelir gerekir. Eş geliriyle ortak başvuru yapılabilir.'),
+     ('Konut kredisi tahsis ücreti ne kadar?', 'Konut kredilerinde kredi tahsis ücreti kredi tutarının en fazla binde 5’idir; 2 milyon TL kredi için en fazla 10.000 TL.')],
+related=['kredi-hesaplama', 'tapu-harci-hesaplama', 'kredi-erken-kapama-hesaplama', 'kira-getirisi-hesaplama', 'metrekare-fiyat-hesaplama'],
+sources=[('BDDK – konut kredisi kredi/değer oranı düzenlemesi (29 Ocak 2026)', 'https://www.bddk.org.tr/'), ('Sabah – konut kredisinde 1. ve 2. el ayrımı kalktı (31 Ocak 2026)', 'https://www.sabah.com.tr/trend/galeri/ekonomi/konut-kredisinde-1-ve-2-el-ayrimi-kalkti-5-milyon-tllik-ev-icin-yuzde-90-kredi-imkani')],
+badges=['✓ Ücretsiz', 'BDDK 2026 Oranları', 'Maaşa Göre Kredi'],
+))

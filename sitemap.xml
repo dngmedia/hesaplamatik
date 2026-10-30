@@ -230,7 +230,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/blog/tapu-harci-hesaplama.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -350,7 +350,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/emlak-hesaplamalari.html</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -536,13 +536,19 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/kira-getirisi-hesaplama.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hesaplarsin.com/komisyon-hesaplama.html</loc>
     <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesaplarsin.com/konut-kredisi-hesaplama.html</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -560,13 +566,13 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/kredi-erken-kapama-hesaplama.html</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hesaplarsin.com/kredi-hesaplama.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -632,7 +638,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/metrekare-fiyat-hesaplama.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -788,7 +794,7 @@
   </url>
   <url>
     <loc>https://hesaplarsin.com/tapu-harci-hesaplama.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
