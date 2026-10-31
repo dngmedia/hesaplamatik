@@ -1,5 +1,15 @@
 # "Günlük iş" akışı
 
+> **ÖNCE BUNU OKU — AdSense durumu (Duran'ın kalıcı talimatı: her işte göz önünde bulundur)**
+> AdSense 2 kez reddedildi (ilki Ekim başı, ikincisi 31 Eki 2026), sebep: **"Düşük değere sahip içerik"**.
+> Google'ın istediği üç şey ve bizdeki eksik:
+> 1. *Özgün ve yüksek kaliteli bilgi/araç* → kopyası her yerde olan genel araçlar yerine kimsede olmayan veri ve araç; her rakam kaynaklı ve doğru.
+> 2. *Sürekli içerik seçimi ve yapısal istikrar* → 9–30 Eki arası 98 commit, sayfa sayısı ~70'ten 148'e çıktı. Artık büyük yapı değişikliği ve toplu sayfa yok; haftada en fazla 2–3 seçilmiş yeni sayfa.
+> 3. *Gerçek kullanıcı ilgisi* → Ekim'de Google'dan günde 2–5 tıklama. Asıl eksik trafik ve marka varlığı (dizin kayıtları, basın bülteni, dış link).
+> Yeniden başvuru: en erken Aralık ortası, şu şartlar oturunca — günlük organik kullanıcı düzenli 100+ (kendi hedefimiz, resmî eşik değil), sayfaların neredeyse tamamı dizinde, 3–4 hafta yapısal değişiklik yok.
+> Her iş seçilirken sor: bu, üç maddeden hangisini iyileştiriyor? Hiçbirini değilse önceliği düşük.
+
+
 Duran "günlük iş" yazdığında:
 
 1. **Rakam kontrolü (otomatik yayın serbest):** O gün değişen resmî veri var mı? TÜİK enflasyonu (her ayın 3'ü / sonraki iş günü),
