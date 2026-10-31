@@ -76,6 +76,8 @@ def _deger(seg):
     seg = seg.strip()
     if not seg:
         return None, None
+    if re.fullmatch(r'\d{1,2}/\d', seg):
+        return None, None  # derece/kademe gösterimi (1/4), bölme değil
     if re.fullmatch(r'%?\s*(?:' + NUM + r')\s*%?', seg):
         t = seg.replace('%', '').strip()
         return tr2f(t), t

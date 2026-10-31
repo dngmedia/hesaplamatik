@@ -314,6 +314,11 @@
   "name": "Bedelli Askerlik Ücreti Hesaplama",
   "cat": "kamu"
  },
+ "emekli-ikramiyesi-hesaplama": {
+  "ico": "🏅",
+  "name": "Emekli İkramiyesi Hesaplama",
+  "cat": "kamu"
+ },
  "ekonomi-takvimi": {
   "ico": "📅",
   "name": "Ekonomi Takvimi 2026–2027",

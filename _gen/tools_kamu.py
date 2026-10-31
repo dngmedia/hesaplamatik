@@ -400,3 +400,118 @@ related=['memur-emekli-zammi-hesaplama', 'memur-maaslari', 'yas-hesaplama', 'gun
 sources=[('7179 sayılı Askeralma Kanunu (madde 9)', 'https://www.mevzuat.gov.tr/'), ('Milli Savunma Bakanlığı – bedelli askerlik duyuruları', 'https://www.msb.gov.tr/')],
 badges=['✓ Ücretsiz', 'Güncel: 472.653,60 ₺', 'Ocak 2027 Tahmini'],
 ))
+
+import json
+# ───────────────────────── EMEKLİ İKRAMİYESİ (MEMUR, 5434 m.89 / 5510 ek 82) ─────────────────────────
+# İkramiye = her tam hizmet yılı için emekliliğe esas 1 aylık tutar. 1 aylık tutar:
+#   (gösterge + ek gösterge) × aylık katsayı + 1.000 × taban aylık katsayısı + min(yıl,25) × 20 × aylık katsayı
+#   + 9.500 × aylık katsayı × yansıtma oranı (mülga 5434 ek 70 oranları, 5510 geç. 4 ile uygulanır)
+# Doğrulama: 1500 + 8000, 25+ yıl → 73.729,87 TL = Temmuz–Aralık 2026 kıdem tazminatı tavanı (ÇSGB).
+# 30 yıl sınırı AYM 25.12.2014 E.2013/111 K.2014/195 (RG 7.1.2015) ile kaldırıldı.
+EI_K, EI_TK = 1.575512, 25.794915
+EI_ORAN = [(8400, 2.55), (7600, 2.15), (6400, 1.95), (4800, 1.65), (3600, 1.45), (2200, 0.85), (0, 0.55)]
+EI_GOST = {1: [1320, 1380, 1440, 1500], 2: [1155, 1210, 1265, 1320, 1380, 1440], 3: [1020, 1065, 1110, 1155, 1210, 1265, 1320, 1380],
+           4: [915, 950, 985, 1020, 1065, 1110, 1155, 1210, 1265], 5: [835, 865, 895, 915, 950, 985, 1020, 1065, 1110],
+           6: [760, 785, 810, 835, 865, 895, 915, 950, 985], 7: [705, 720, 740, 760, 785, 810, 835, 865, 895],
+           8: [660, 675, 690, 705, 720, 740, 760, 785, 810], 9: [620, 630, 645, 660, 675, 690, 705, 720, 740],
+           10: [590, 600, 610, 620, 630, 645, 660, 675, 690], 11: [560, 570, 580, 590, 600, 610, 620, 630, 645],
+           12: [545, 550, 555, 560, 570, 580, 590, 600, 610], 13: [530, 535, 540, 545, 550, 555, 560, 570, 580],
+           14: [515, 520, 525, 530, 535, 540, 545, 550, 555], 15: [500, 505, 510, 515, 520, 525, 530, 535, 540]}
+def _ei_oran(eg):
+    return next(o for e, o in EI_ORAN if eg >= e)
+def _ei(g, eg, y, k=EI_K, tk=EI_TK):
+    p = [(g + eg) * k, 1000 * tk, min(y, 25) * 20 * k, 9500 * k * _ei_oran(eg)]
+    return p, sum(p), sum(p) * y
+assert abs(_ei(1500, 8000, 25)[1] - 73729.87) < 0.01, 'emekli ikramiyesi formülü kıdem tavanıyla tutmuyor'
+EI_ORNEK = [('1/4', 1500, 3600, 20), ('1/4', 1500, 3600, 25), ('1/4', 1500, 3600, 30), ('1/4', 1500, 3600, 35),
+            ('1/4', 1500, 4800, 30), ('1/4', 1500, 2200, 25), ('1/4', 1500, 0, 25), ('3/1', 1020, 0, 20)]
+EI_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Derece/kademe</th><th>Ek gösterge</th><th>Hizmet yılı</th><th>1 aylık tutar</th><th>Emekli ikramiyesi (Temmuz–Aralık 2026)</th></tr></thead><tbody>'
+    + ''.join(f'<tr><td>{d}</td><td>{tl(eg) if eg else "Yok"}</td><td>{y}</td><td>{_b2(_ei(g, eg, y)[1])} ₺</td><td><b>{_b2(_ei(g, eg, y)[2])} ₺</b></td></tr>' for d, g, eg, y in EI_ORNEK)
+    + '</tbody></table></div>')
+EI_ORAN_T = ('<div class="table-wrap"><table><thead><tr><th>Ek gösterge</th><th>Yansıtma oranı</th><th>Tazminat tutarı (9.500 × 1,575512 × oran)</th></tr></thead><tbody>'
+    + ''.join(f'<tr><td>{lab}</td><td>%{int(round(o*100))}</td><td>{_b2(9500 * EI_K * o)} ₺</td></tr>' for lab, o in
+              [('8.400 ve üzeri', 2.55), ('7.600 – 8.399', 2.15), ('6.400 – 7.599', 1.95), ('4.800 – 6.399', 1.65), ('3.600 – 4.799', 1.45), ('2.200 – 3.599', 0.85), ('2.200’den az veya yok', 0.55)])
+    + '</tbody></table></div>')
+_p, _a, _t = _ei(1500, 3600, 25)
+EI_SEN_T = ('<div class="table-wrap"><table><thead><tr><th>Dönem</th><th>Aylık katsayı</th><th>1/4, 3.600 ek gösterge, 25 yıl</th><th>1/4, 3.600 ek gösterge, 30 yıl</th></tr></thead><tbody>'
+    f'<tr><td><b>1 Temmuz – 31 Aralık 2026 (güncel)</b></td><td>1,575512</td><td><b>{_b2(_t)} ₺</b></td><td><b>{_b2(_ei(1500, 3600, 30)[2])} ₺</b></td></tr>'
+    + ''.join(f'<tr><td>Ocak 2027 – {ad.lower()}</td><td>≈ {str(round(EI_K*(1+z), 6)).replace(".", ",")}</td><td>≈ {_b2(_ei(1500, 3600, 25, EI_K*(1+z), EI_TK*(1+z))[2])} ₺</td><td>≈ {_b2(_ei(1500, 3600, 30, EI_K*(1+z), EI_TK*(1+z))[2])} ₺</td></tr>' for ad, z in BED_SEN)
+    + '</tbody></table></div>')
+_dopts = ''.join(f'<option value="{d}"{" selected" if d == 1 else ""}>{d}. derece</option>' for d in range(1, 16))
+TOOLS.append(dict(
+slug='emekli-ikramiyesi-hesaplama', name='Emekli İkramiyesi Hesaplama', cat='kamu', ico='🏅',
+title='Emekli İkramiyesi Hesaplama 2026 – Memur İkramiyesi Ne Kadar? | Hesaplarsın',
+desc=f'Memur emekli ikramiyesi hesaplama 2026: derece, kademe, ek gösterge ve hizmet yılını girin. 1/4, 3.600 ek gösterge, 25 yıl: {_b2(_t)[:-3]} TL. Ocak 2027 tahmini.',
+h1='🏅 Emekli İkramiyesi Hesaplama 2026 – Memur ve 4/C',
+lead='Memur emekli ikramiyesi, her tam hizmet yılı için emekliliğe esas bir aylık tutar kadardır. Derecenizi, kademenizi, ek göstergenizi ve hizmet yılınızı girin; Temmuz–Aralık 2026 katsayılarıyla ikramiyenizi ve kalem kalem dökümünü, Ocak 2027 tahminiyle birlikte görün.',
+card_title='Emekli İkramiyesi Hesaplayıcı', button='Hesapla',
+form=f'''<div class="form-grid">
+  <div class="field"><label for="derece">Derece</label><select id="derece">{_dopts}</select></div>
+  <div class="field"><label for="kademe">Kademe</label><select id="kademe"></select></div>
+  <div class="field"><label for="ekg">Ek gösterge <small>bordronuzda yazar; yoksa 0</small></label><input type="number" id="ekg" value="3600" inputmode="numeric" list="ekgl"><datalist id="ekgl"><option value="0"><option value="2200"><option value="3000"><option value="3600"><option value="4800"><option value="6400"><option value="7000"><option value="7600"><option value="8000"></datalist></div>
+  <div class="field"><label for="yil">Tam hizmet yılı <small>ay kesirleri sayılmaz</small></label><input type="number" id="yil" value="25" inputmode="numeric"></div>
+  <div class="field full"><label for="donem">Dönem</label><select id="donem"><option value="guncel">1 Temmuz – 31 Aralık 2026 (güncel katsayılar)</option>''' + ''.join(f'<option value="{z}">Ocak 2027 – {ad.lower()}</option>' for ad, z in BED_SEN) + '''</select></div>
+</div>''',
+js=f'var EK={EI_K}, ETK={EI_TK}, GOST={json.dumps(EI_GOST)}, ORAN={json.dumps(EI_ORAN)};' + r'''
+function kademeDoldur(){var d=el('derece').value, s=el('kademe'), eski=s.value; s.innerHTML='';
+  GOST[d].forEach(function(g,i){var o=document.createElement('option'); o.value=g; o.textContent=(i+1)+'. kademe – '+g+' gösterge'; s.appendChild(o);});
+  s.selectedIndex=GOST[d].length-1;}
+document.addEventListener('DOMContentLoaded',function(){kademeDoldur(); el('derece').addEventListener('change',kademeDoldur);});
+if(document.readyState!=='loading'){kademeDoldur(); el('derece').addEventListener('change',kademeDoldur);}
+function oranBul(eg){for(var i=0;i<ORAN.length;i++){if(eg>=ORAN[i][0]) return ORAN[i][1];} return 0.55;}
+function hesapla(){
+  if(!el('kademe').value) kademeDoldur();
+  var g=parseFloat(el('kademe').value), eg=Math.max(0,v('ekg')||0), y=Math.floor(v('yil')||0), d=el('donem').value;
+  if(!(y>=1)) return 'Tam hizmet yılınızı girin (en az 1).'; if(y>45) return 'Hizmet yılı 45’ten büyük olamaz.'; if(eg>9000) return 'Ek gösterge 9.000’den büyük olamaz.';
+  var k=EK, tk=ETK, ad='1 Temmuz – 31 Aralık 2026';
+  if(d!=='guncel'){var z=parseFloat(d); k=EK*(1+z); tk=ETK*(1+z); ad='Ocak 2027 tahmini (%'+num(z*100,2)+' zam)';}
+  var o=oranBul(eg), a1=(g+eg)*k, a2=1000*tk, a3=Math.min(y,25)*20*k, a4=9500*k*o, ay=a1+a2+a3+a4, top=ay*y;
+  return {main:['Emekli ikramiyesi', tl(top)], sub:ad+' · '+y+' yıl × '+tl(ay)+' (1 aylık tutar)',
+    rows:[['Gösterge + ek gösterge aylığı (('+g+' + '+eg+') × '+num(k,6)+')',tl(a1)],['Taban aylığı (1.000 × '+num(tk,6)+')',tl(a2)],
+          ['Kıdem aylığı ('+Math.min(y,25)+' yıl × 20 × katsayı)',tl(a3)],['Tazminat yansıtması (9.500 × katsayı × %'+Math.round(o*100)+')',tl(a4)],
+          ['Emekliliğe esas 1 aylık tutar',tl(ay)],['Hizmet yılı',String(y)],['Emekli ikramiyesi',tl(top),'hl']],
+    note:'5434 sayılı Kanun m.89 (5510 kapsamındaki 4/C’liler için ek m.82). İkramiye gelir vergisinden istisnadır (GVK m.25/7). 30 yıl sınırı 7 Ocak 2015’ten beri uygulanmıyor. Makam, görev veya temsil tazminatı alanlarda, SSK/Bağ-Kur’da geçen veya daha önce ikramiyesi ödenmiş sürelerde tutar farklı olur; kesin tutar SGK’nın emeklilik onayındadır. Ocak 2027 tutarı memur zammına göre tahmindir.'};
+}''',
+article=f'''<h2 id="nasil">Memur emekli ikramiyesi nasıl hesaplanır?</h2>
+<p>5434 sayılı Emekli Sandığı Kanunu’nun 89. maddesine göre emekli olan memura <b>her tam hizmet yılı için emekliliğe esas bir aylık tutar</b> kadar emekli ikramiyesi ödenir. 2008 Ekim’inden sonra memur olanlar (5510 sayılı Kanun 4/C) da aynı esaslarla ikramiye alır. Bir aylık tutar dört kalemden oluşur:</p>
+<div class="formula">1 aylık tutar = (gösterge + ek gösterge) × aylık katsayı + 1.000 × taban aylık katsayısı + kıdem aylığı + tazminat yansıtması<br>Emekli ikramiyesi = 1 aylık tutar × tam hizmet yılı</div>
+<ul>
+<li><b>Gösterge ve ek gösterge aylığı:</b> Derece-kademe göstergeniz (ör. 1. derece 4. kademe için 1.500) ile ek göstergeniz toplanıp memur aylık katsayısıyla (Temmuz–Aralık 2026: 1,575512) çarpılır.</li>
+<li><b>Taban aylığı:</b> 1.000 × taban aylık katsayısı (Temmuz–Aralık 2026: 25,794915) = {_b2(1000*EI_TK)} ₺. Herkes için aynıdır.</li>
+<li><b>Kıdem aylığı:</b> Her hizmet yılı için 20 gösterge, en fazla 25 yıl (500 gösterge) × aylık katsayı. 25 yılda {_b2(500*EI_K)} ₺.</li>
+<li><b>Tazminat yansıtması:</b> En yüksek devlet memurunun gösterge toplamı olan 9.500 × aylık katsayı, ek göstergenize göre belirlenen oranla çarpılır (tablo aşağıda).</li>
+</ul>
+<div class="example"><p><b>Örnek:</b> 1/4 derece (1.500), 3.600 ek gösterge, 25 yıl hizmet: (1.500 + 3.600) × 1,575512 = {_b2(_p[0])} ₺; taban aylığı {_b2(_p[1])} ₺; kıdem aylığı 500 × 1,575512 = {_b2(_p[2])} ₺; tazminat 9.500 × 1,575512 × %145 = {_b2(_p[3])} ₺. Bir aylık tutar <b>{_b2(_a)} ₺</b>, ikramiye {_b2(_a)} × 25 = <b>{_b2(_t)} ₺</b>.</p></div>
+<p>Formülün doğruluğunu kontrol etmenin kolay bir yolu var: en yüksek devlet memuru (1.500 + 8.000 gösterge, 25+ yıl) için bir yıllık ikramiye 73.729,87 ₺ çıkar. Bu tutar, Çalışma ve Sosyal Güvenlik Bakanlığı’nın açıkladığı Temmuz–Aralık 2026 <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı tavanının</a> ta kendisidir, çünkü tavan bu ikramiyeye bağlıdır.</p>
+
+<h2 id="tablo">Örnek emekli ikramiyesi tutarları (Temmuz–Aralık 2026)</h2>
+{EI_TABLO}
+
+<h2 id="oran">Ek göstergeye göre tazminat yansıtma oranları</h2>
+<p>İkramiyeye yansıyan tazminat, ek göstergenizin bulunduğu gruba göre değişir. Bu oranlar mülga 5434 sayılı Kanun ek 70. maddesindeki oranlardır ve 5510 sayılı Kanun’un geçici 4. maddesi uyarınca uygulanmaya devam eder.</p>
+{EI_ORAN_T}
+<p>Bu yüzden ek göstergedeki küçük bir fark ikramiyeyi ciddi değiştirebilir: 3.599 ile 3.600 ek gösterge arasında yansıtma oranı %85’ten %145’e çıkar.</p>
+
+<h2 id="ocak">Ocak 2027’de emekli ikramiyesi ne kadar olacak?</h2>
+<p>İkramiye, emekliliğin başladığı tarihteki katsayılarla hesaplanır. Ocak 2027’de memur aylık katsayısı ve taban aylık katsayısı memur zammı oranında artacağı için, Ocak’ta emekli olanın ikramiyesi de aynı oranda yükselir. Zam oranı Aralık enflasyonu açıklandığında kesinleşir; senaryolar <a href="/memur-emekli-zammi-hesaplama.html">memur zammı hesaplama</a> sayfasındaki yöntemle hesaplanmıştır.</p>
+{EI_SEN_T}
+
+<h2 id="30yil">30 yıl sınırı kalktı mı?</h2>
+<p>Evet. Eskiden ikramiye en fazla 30 hizmet yılı için ödeniyordu. Anayasa Mahkemesi bu sınırı iptal etti (25.12.2014, E.2013/111, K.2014/195); karar 7 Ocak 2015’te Resmî Gazete’de yayımlandı. Bu tarihten sonra emekli olanlara 30 yılı aşan tam yıllar için de ikramiye ödenir. Kıdem aylığı ise hâlâ en fazla 25 yıl üzerinden hesaplanır.</p>
+
+<h2 id="kimler">Kimler emekli ikramiyesi alır?</h2>
+<p>Emekli ikramiyesi memurlara (5434 sayılı Kanun’a tabi olanlar ve 5510 sayılı Kanun 4/C kapsamındakiler) ödenir. SSK’lı (4/A) çalışanlara emekli ikramiyesi yerine işverenin ödediği <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı</a>, Bağ-Kur’lulara (4/B) ise ikramiye ödenmez. Memuriyetten önce SSK veya Bağ-Kur’da geçen süreler ve daha önce ikramiye ya da kıdem tazminatı ödenmiş süreler ikramiye hesabına girmez.</p>
+<p>Emekli ikramiyesi gelir vergisinden istisnadır (Gelir Vergisi Kanunu m.25/7). Hesaplayıcı brüt ikramiyeyi gösterir; varsa kesintiler SGK’nın ödeme dökümünde yer alır.</p>''',
+faq=[('Emekli ikramiyesi nasıl hesaplanır?', f'Memur emekli ikramiyesi, emekliliğe esas bir aylık tutarın tam hizmet yılı ile çarpılmasıyla bulunur. Bir aylık tutar; gösterge ve ek gösterge aylığı, taban aylığı, kıdem aylığı ve ek göstergeye göre tazminat yansıtmasından oluşur. 1/4 derece, 3.600 ek gösterge ve 25 yıl için Temmuz–Aralık 2026’da ikramiye {_b2(_t)} ₺’dir.'),
+     ('25 yıllık memurun emekli ikramiyesi ne kadar?', f'1/4 derece ve 3.600 ek göstergeli bir memur için 25 yıllık ikramiye Temmuz–Aralık 2026 katsayılarıyla {_b2(_t)} ₺’dir. Ek gösterge ve derece-kademe farklıysa tutar değişir; hesaplayıcıya kendi bilgilerinizi girin.'),
+     ('30 yıldan fazla hizmet için ikramiye ödenir mi?', 'Evet. Anayasa Mahkemesi’nin 7 Ocak 2015’te yayımlanan kararıyla 30 yıl sınırı kaldırıldı; bu tarihten sonra emekli olanlara 30 yılı aşan tam yıllar için de ikramiye ödenir. Kıdem aylığı ise en fazla 25 yıl üzerinden hesaplanır.'),
+     ('Emekli ikramiyesinden vergi kesilir mi?', 'Emekli ikramiyesi Gelir Vergisi Kanunu’nun 25/7. maddesi gereği gelir vergisinden istisnadır. Kesin ödeme tutarını SGK’nın emeklilik onayı ve ödeme dökümünde görebilirsiniz.'),
+     ('SSK ve Bağ-Kur emeklileri ikramiye alır mı?', 'Hayır. Emekli ikramiyesi memurlara ödenir. SSK’lı (4/A) işçiler emeklilikte işverenden kıdem tazminatı alır; Bağ-Kur’lulara ikramiye ödenmez. Bayram ikramiyesi ise ayrı bir ödemedir.'),
+     ('Ocak 2027’de emekli olursam ikramiyem artar mı?', 'Evet. İkramiye emekliliğin başladığı tarihteki katsayılarla hesaplanır. Ocak 2027’de memur katsayıları zam oranında artacağı için ikramiye de yaklaşık aynı oranda yükselir; zam oranı Ocak başında kesinleşir.')],
+related=['kidem-tazminati-hesaplama', 'memur-emekli-zammi-hesaplama', 'memur-maaslari', 'emekli-maasi-hesaplama', 'emeklilik-yasi-hesaplama'],
+sources=[('5434 sayılı T.C. Emekli Sandığı Kanunu (m.89)', 'https://www.mevzuat.gov.tr/MevzuatMetin/1.3.5434.pdf'),
+         ('ÇSGB – Temmuz 2026 kıdem tazminatı tavanı hesap tablosu', 'https://csgb.gov.tr/Media/5vuhphpb/kıdem-tazminatı-2026_temmuz-dönem.pdf'),
+         ('Anayasa Mahkemesi kararı E.2013/111, K.2014/195 (30 yıl sınırı)', 'https://normkararlarbilgibankasi.anayasa.gov.tr/'),
+         ('Memurlar.net – Özel hizmet aylığı (tazminat) oranları', 'https://www.memurlar.net/haber/1008033/emekli-maasinda-ozel-hizmet-ayligi-nedir-ve-nasil-hesaplanmaktadir.html')],
+badges=['✓ Ücretsiz', 'Temmuz 2026 katsayıları', 'Ocak 2027 Tahmini'],
+))

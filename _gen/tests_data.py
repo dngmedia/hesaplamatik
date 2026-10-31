@@ -94,3 +94,8 @@ TESTS['bedelli-askerlik-hesaplama']=[dict(fill={}, expect='472.653,60'),
 TESTS['konut-kredisi-hesaplama']=[dict(fill={'fiyat':'4000000'}, expect='95.611'),
   dict(fill={'fiyat':'4000000','enerji':'1','pesinat':'1000000','vade':'60'}, expect='105.857'),
   dict(radio={'mod':'maas'}, fill={'gelir':'80000'}, expect='1.338.753')]
+
+TESTS['emekli-ikramiyesi-hesaplama']=[dict(fill={}, expect='1.408.011,50'),
+  dict(fill={'ekg':'8000','yil':'25'}, expect='1.843.246,69'),
+  dict(fill={'ekg':'3000','yil':'30'}, expect='1.391.842,03'),
+  dict(fill={'derece':'9','yil':'20','ekg':'0'}, expect='716.460,98')]
