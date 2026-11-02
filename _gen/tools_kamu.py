@@ -515,3 +515,88 @@ sources=[('5434 sayılı T.C. Emekli Sandığı Kanunu (m.89)', 'https://www.mev
          ('Memurlar.net – Özel hizmet aylığı (tazminat) oranları', 'https://www.memurlar.net/haber/1008033/emekli-maasinda-ozel-hizmet-ayligi-nedir-ve-nasil-hesaplanmaktadir.html')],
 badges=['✓ Ücretsiz', 'Temmuz 2026 katsayıları', 'Ocak 2027 Tahmini'],
 ))
+
+# ───────────────────────── RAPOR PARASI (GEÇİCİ İŞ GÖREMEZLİK ÖDENEĞİ) ─────────────────────────
+# 5510 m.17 (günlük kazanç: son 12 ayda prim ödenen son 3 ayın kazancı / prim günü), m.18 (hastalıkta 2 günden sonra, son 1 yılda 90 gün kısa vadeli prim;
+# iş kazası/meslek hastalığında ilk günden, prim şartı yok; ödenek yatarakta 1/2, ayakta 2/3), m.82 (günlük kazanç alt/üst sınırı = asgari ücret/30, tavan/30).
+# Analık: 7578 s.K. (RG 01.05.2026) ile doğum sonrası 16 hafta → toplam tekil 24, çoğul 26 hafta (SGK 2026/13 genelge).
+RP_ALT, RP_UST = 33030 / 30, 297270 / 30
+def _rp_gunluk(brut):
+    return min(max(brut / 30, RP_ALT), RP_UST)
+RP_ORNEK = [33030, 50000, 75000, 100000, 150000, 297270]
+RP_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Aylık brüt kazanç</th><th>Günlük kazanç</th><th>Günlük ödenek (ayakta, 2/3)</th><th>Günlük ödenek (yatarak, 1/2)</th><th>10 günlük hastalık raporu (8 gün, ayakta)</th></tr></thead><tbody>'
+    + ''.join(f'<tr><td>{tl(b)} ₺{" (asgari)" if b == 33030 else " ve üzeri (tavan)" if b == 297270 else ""}</td><td>{_b2(_rp_gunluk(b))} ₺</td><td><b>{_b2(_rp_gunluk(b)*2/3)} ₺</b></td><td>{_b2(_rp_gunluk(b)/2)} ₺</td><td>{_b2(_rp_gunluk(b)*2/3*8)} ₺</td></tr>' for b in RP_ORNEK)
+    + '</tbody></table></div>')
+RP_ANALIK = ('<div class="table-wrap"><table><thead><tr><th>Aylık brüt kazanç</th><th>Tekil gebelik (24 hafta = 168 gün)</th><th>Çoğul gebelik (26 hafta = 182 gün)</th></tr></thead><tbody>'
+    + ''.join(f'<tr><td>{tl(b)} ₺</td><td><b>{_b2(_rp_gunluk(b)*2/3*168)} ₺</b></td><td>{_b2(_rp_gunluk(b)*2/3*182)} ₺</td></tr>' for b in [33030, 50000, 75000, 100000])
+    + '</tbody></table></div>')
+_ra = _rp_gunluk(33030)
+TOOLS.append(dict(
+slug='rapor-parasi-hesaplama', name='Rapor Parası Hesaplama', cat='maas', ico='🩺',
+title='Rapor Parası Hesaplama 2026 – SGK İş Göremezlik Ödeneği Ne Kadar? | Hesaplarsın',
+desc=f'Asgari ücretlide günlük rapor parası ayakta {_b2(_ra*2/3)} TL, yatarak {_b2(_ra/2)} TL. Maaşınızı ve rapor gününüzü girin; hastalık, iş kazası ve 24 haftalık doğum raporu için ödeneği görün.',
+h1='🩺 Rapor Parası Hesaplama 2026 – Hastalık, İş Kazası ve Doğum',
+lead='Rapor parası (geçici iş göremezlik ödeneği), raporlu olduğunuz günler için işveren yerine SGK’nın ödediği tutardır. Rapor türünü, brüt maaşınızı ve rapor gün sayınızı girin; günlük ve toplam ödeneğinizi 2026 sınırlarıyla görün.',
+card_title='Rapor Parası Hesaplayıcı', button='Hesapla',
+form='''<div class="form-grid">
+  <div class="field full"><label for="tur">Rapor türü</label><select id="tur"><option value="hastalik">Hastalık</option><option value="kaza">İş kazası / meslek hastalığı</option><option value="analik">Doğum (analık) raporu</option></select></div>
+  <div class="field"><label for="brut">Aylık brüt kazanç (₺) <small>son 3 ayın ortalaması</small></label><input type="number" id="brut" value="50000" inputmode="decimal"></div>
+  <div class="field"><label for="tedavi">Tedavi şekli <small>doğumda dikkate alınmaz</small></label><select id="tedavi"><option value="ayakta">Ayakta (evde istirahat)</option><option value="yatarak">Yatarak (hastanede)</option></select></div>
+  <div class="field"><label for="gun">Rapor gün sayısı <small>takvim günü; doğumda otomatik</small></label><input type="number" id="gun" value="10" inputmode="numeric"></div>
+  <div class="field"><label for="gebelik">Gebelik <small>yalnızca doğum raporu için</small></label><select id="gebelik"><option value="tekil">Tekil (24 hafta)</option><option value="cogul">Çoğul (26 hafta)</option></select></div>
+</div>''',
+js=f'var ALT={RP_ALT}, UST={RP_UST};' + r'''
+function hesapla(){
+  var t=el('tur').value, b=v('brut'), ted=el('tedavi').value, g=Math.floor(v('gun')||0);
+  if(!(b>0)) return 'Aylık brüt kazancınızı girin.';
+  var gk=Math.min(Math.max(b/30,ALT),UST), oran, ode, aciklama;
+  if(t==='analik'){ g=(el('gebelik').value==='cogul')?182:168; oran=2/3; ode=g; aciklama='Doğum raporu: '+(g/7)+' hafta ('+g+' gün), günlük kazancın 2/3’ü'; }
+  else { if(!(g>=1)) return 'Rapor gün sayısını girin.'; if(g>540) return 'Rapor gün sayısı çok yüksek.';
+    oran=(ted==='yatarak')?0.5:2/3;
+    if(t==='hastalik'){ ode=Math.max(0,g-2); aciklama='Hastalık: ilk 2 gün ödenmez, '+ode+' gün ödenir'; }
+    else { ode=g; aciklama='İş kazası / meslek hastalığı: ilk günden itibaren '+g+' gün ödenir'; } }
+  var gun=gk*oran, top=gun*ode;
+  var rows=[['Günlük kazanç (brüt ÷ 30'+(gk===ALT&&b/30<ALT?', alt sınır':gk===UST?', üst sınır':'')+')',tl(gk)],
+            ['Ödenek oranı',(oran===0.5?'1/2 (yatarak)':'2/3'+(t==='analik'?'':' (ayakta)'))],['Günlük rapor parası',tl(gun)],
+            ['Ödenen gün',String(ode)],['Toplam rapor parası',tl(top),'hl']];
+  if(t==='hastalik'&&ode===0) rows.push(['Not','2 gün ve daha kısa hastalık raporunda SGK ödeme yapmaz']);
+  return {main:['Toplam rapor parası', tl(top)], sub:aciklama, rows:rows,
+    note:(t==='hastalik'?'Hastalıkta ödenek için rapordan önceki 1 yılda en az 90 gün kısa vadeli sigorta primi gerekir. ':t==='analik'?'Doğum raporunda doğumdan önceki 1 yılda en az 90 gün prim gerekir; 1 Mayıs 2026’dan beri doğum sonrası süre 16 haftadır. ':'İş kazası ve meslek hastalığında prim günü şartı aranmaz. ')+
+      'Günlük kazanç, son 12 ayda prim ödenen son 3 ayın brüt kazancının prim gününe bölünmesiyle bulunur; burada aylık ortalama ÷ 30 kabul edildi. Rapor parasından vergi ve prim kesilmez. Bağ-Kur’lulara (4/B) hastalık raporu parası ödenmez.'};
+}''',
+article=f'''<h2 id="nedir">Rapor parası nedir, kim öder?</h2>
+<p>Rapor parası, resmî adıyla <b>geçici iş göremezlik ödeneği</b>, hastalık, iş kazası, meslek hastalığı veya doğum nedeniyle raporlu olduğunuz ve çalışamadığınız günler için <b>SGK’nın</b> ödediği paradır (5510 sayılı Kanun m.18). Raporlu günler için işveren kanunen maaş ödemek zorunda değildir; bu günlerin geliri SGK’dan gelir. Bazı toplu iş sözleşmeleri veya işveren uygulamaları aradaki farkı tamamlayabilir.</p>
+
+<h2 id="nasil">Rapor parası nasıl hesaplanır?</h2>
+<div class="formula">Günlük kazanç = son 3 ayın brüt kazancı ÷ prim gün sayısı<br>Günlük rapor parası = günlük kazanç × 2/3 (ayakta) veya × 1/2 (yatarak)<br>Toplam = günlük rapor parası × ödenen gün</div>
+<ul>
+<li><b>Günlük kazanç:</b> Rapordan önceki 12 ay içinde prim ödenen son 3 ayın brüt kazancı toplanıp bu aylardaki prim gün sayısına bölünür. Maaşınız 3 ay boyunca aynıysa bu, kabaca aylık brüt ÷ 30’dur.</li>
+<li><b>Sınırlar (2026):</b> Günlük kazanç en az {_b2(RP_ALT)} ₺ (asgari ücret ÷ 30), en fazla {_b2(RP_UST)} ₺ (SGK tavanı 297.270 ÷ 30) alınır. Bu yüzden günlük rapor parası ayakta en fazla {_b2(RP_UST*2/3)} ₺, yatarakta en fazla {_b2(RP_UST/2)} ₺’dir.</li>
+<li><b>Hastalık:</b> İlk 2 gün ödenmez; 3. günden itibaren ödenir. Rapordan önceki 1 yılda en az 90 gün kısa vadeli sigorta primi şartı vardır.</li>
+<li><b>İş kazası ve meslek hastalığı:</b> İlk günden itibaren ödenir; prim günü şartı yoktur.</li>
+</ul>
+<div class="example"><p><b>Örnek:</b> Aylık brüt 50.000 ₺ olan bir çalışan 10 gün ayakta hastalık raporu alıyor. Günlük kazanç 50.000 ÷ 30 = {_b2(50000/30)} ₺. Günlük ödenek {_b2(50000/30)} × 2/3 = {_b2(50000/30*2/3)} ₺. İlk 2 gün ödenmediği için 8 gün: {_b2(50000/30*2/3)} × 8 = <b>{_b2(50000/30*2/3*8)} ₺</b>.</p></div>
+
+<h2 id="tablo">Maaşa göre rapor parası tablosu (2026)</h2>
+{RP_TABLO}
+
+<h2 id="dogum">Doğum raporu parası 2026: artık 24 hafta</h2>
+<p>7578 sayılı Kanun’la 1 Mayıs 2026’dan itibaren doğum sonrası istirahat süresi <b>8 haftadan 16 haftaya</b> çıktı. Doğum öncesi 8 hafta (çoğul gebelikte 10 hafta) ile birlikte toplam süre <b>tekil gebelikte 24 hafta, çoğul gebelikte 26 hafta</b>. Bu sürenin tamamı için günlük kazancın 2/3’ü oranında ödenek alınır. Doğumdan önceki 1 yılda en az 90 gün prim şartı vardır.</p>
+{RP_ANALIK}
+<p>Hekim onayıyla doğuma 2 hafta kalana kadar çalışılabilir; çalışılan doğum öncesi günler doğum sonrasına eklenir, toplam süre değişmez.</p>
+
+<h2 id="odeme">Rapor parası ne zaman ve nereye yatar?</h2>
+<p>4/A’lı çalışanlarda rapor elektronik olarak SGK’ya gelir; işveren e-Bildirim’den çalışmadığınızı onayladıktan sonra ödenek, T.C. kimlik numaranıza tanımlı PTT veya banka hesabına yatırılır. Ödemenizi e-Devlet’te “SGK Geçici İş Göremezlik Ödemesi Sorgulama” hizmetinden takip edebilirsiniz. Rapor parasından gelir vergisi, damga vergisi veya SGK primi kesilmez.</p>
+<p>Bağ-Kur’lulara (4/B) hastalık raporu parası ödenmez; iş kazası ve meslek hastalığında ise yalnızca yatarak tedavi ve sonrasındaki istirahat süresi için, prim borcu yoksa ödenir.</p>''',
+faq=[('Rapor parası nasıl hesaplanır?', f'Son 3 ayın brüt kazancı prim gününe bölünerek günlük kazanç bulunur. Ayakta tedavide bunun 2/3’ü, yatarak tedavide 1/2’si günlük rapor parasıdır. Hastalıkta ilk 2 gün ödenmez. Aylık brüt 50.000 ₺ için 10 günlük ayakta hastalık raporunda {_b2(50000/30*2/3*8)} ₺ ödenir.'),
+     ('Asgari ücretli ne kadar rapor parası alır?', f'2026’da asgari ücretlinin günlük rapor parası ayakta {_b2(_ra*2/3)} ₺, yatarak {_b2(_ra/2)} ₺’dir. 10 günlük ayakta hastalık raporunda 8 gün ödenir: {_b2(_ra*2/3*8)} ₺.'),
+     ('2 günlük raporun parası ödenir mi?', 'Hastalık raporunda hayır; SGK ilk 2 günü ödemez, ödeme 3. günden başlar. İş kazası ve meslek hastalığında ise ilk günden itibaren ödenir.'),
+     ('Doğum raporu kaç hafta, ne kadar para ödenir?', f'1 Mayıs 2026’dan beri tekil gebelikte 24 hafta (168 gün), çoğul gebelikte 26 hafta (182 gün). Günlük kazancın 2/3’ü ödenir; asgari ücretli için tekil gebelikte toplam {_b2(_ra*2/3*168)} ₺.'),
+     ('Rapor parasından vergi kesilir mi?', 'Hayır. Geçici iş göremezlik ödeneğinden gelir vergisi, damga vergisi veya SGK primi kesilmez.'),
+     ('Raporlu günlerde işveren maaş öder mi?', 'Kanunen zorunlu değildir; raporlu günlerin geliri SGK’nın ödediği rapor parasıdır. Toplu iş sözleşmesi veya işyeri uygulamasıyla işveren aradaki farkı ya da ilk 2 günü ödeyebilir.')],
+related=['net-maas-hesaplama', 'issizlik-maasi-hesaplama', 'yillik-izin-hesaplama', 'kidem-tazminati-hesaplama', 'saatlik-ucret-hesaplama'],
+sources=[('5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu (m.17, 18, 82)', 'https://www.mevzuat.gov.tr/mevzuatmetin/1.5.5510.pdf'),
+         ('KPMG – 7578 sayılı Kanun ve 2026/13 Genelge: analık istirahat süreleri', 'https://kpmgvergi.com/yayinlar/mali-bultenler/sosyal-guvenlik/7578-sayili-kanun-ve-202613-sayili-genelge-ile-analik-istirahat-sureleri-ve-gecici-is-goremezlik-odenegi-uygulamalarinda-yapilan-degisiklikler/4494'),
+         ('SGK – Geçici iş göremezlik ödeneği', 'https://www.sgk.gov.tr/')],
+badges=['✓ Ücretsiz', '2026 sınırları', 'Doğum: 24 hafta'],
+))

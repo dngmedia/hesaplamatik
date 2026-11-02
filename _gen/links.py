@@ -214,3 +214,9 @@ N['emekli-ikramiyesi-hesaplama'] = 'Memur emekli ikramiyesi hesaplama'
 M['emekli-ikramiyesi-hesaplama'] = ['kidem-tazminati-hesaplama', 'memur-emekli-zammi-hesaplama', 'memur-maaslari']
 for _k in ['kidem-tazminati-hesaplama', 'memur-emekli-zammi-hesaplama', 'memur-maaslari', 'emekli-maasi-hesaplama', 'emeklilik-yasi-hesaplama', 'blog/kidem-tazminati-2027', 'blog/memur-emekli-zammi-ocak-2027', 'ogretmen-maasi', 'polis-maasi']:
     M.setdefault(_k, []); M[_k] = M[_k][:1] + ['emekli-ikramiyesi-hesaplama'] + [x for x in M[_k][1:] if x != 'emekli-ikramiyesi-hesaplama']
+
+# rapor parası (2 Kas 2026)
+N['rapor-parasi-hesaplama'] = 'Rapor parası hesaplama'
+M['rapor-parasi-hesaplama'] = ['net-maas-hesaplama', 'issizlik-maasi-hesaplama', 'yillik-izin-hesaplama']
+for _k in ['net-maas-hesaplama', 'issizlik-maasi-hesaplama', 'yillik-izin-hesaplama', 'fazla-mesai-hesaplama', 'saatlik-ucret-hesaplama', 'blog/sgk-primi-hesaplama-rehberi', 'blog/net-maas-nasil-hesaplanir']:
+    M.setdefault(_k, []); M[_k] = M[_k][:1] + ['rapor-parasi-hesaplama'] + [x for x in M[_k][1:] if x != 'rapor-parasi-hesaplama']

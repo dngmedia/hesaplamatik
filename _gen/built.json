@@ -319,6 +319,11 @@
   "name": "Emekli İkramiyesi Hesaplama",
   "cat": "kamu"
  },
+ "rapor-parasi-hesaplama": {
+  "ico": "🩺",
+  "name": "Rapor Parası Hesaplama",
+  "cat": "maas"
+ },
  "ekonomi-takvimi": {
   "ico": "📅",
   "name": "Ekonomi Takvimi 2026–2027",

@@ -99,3 +99,7 @@ TESTS['emekli-ikramiyesi-hesaplama']=[dict(fill={}, expect='1.408.011,50'),
   dict(fill={'ekg':'8000','yil':'25'}, expect='1.843.246,69'),
   dict(fill={'ekg':'3000','yil':'30'}, expect='1.391.842,03'),
   dict(fill={'derece':'9','yil':'20','ekg':'0'}, expect='716.460,98')]
+TESTS['rapor-parasi-hesaplama']=[dict(fill={}, expect='8.888,89'),
+  dict(fill={'brut':'33030','tedavi':'yatarak'}, expect='4.404,00'),
+  dict(fill={'tur':'kaza','brut':'400000','gun':'5'}, expect='33.030,00'),
+  dict(fill={'tur':'analik','brut':'33030'}, expect='123.312,00')]
