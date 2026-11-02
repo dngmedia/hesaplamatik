@@ -147,8 +147,8 @@ rel2 = [('📈', 'Yeniden Değerleme Oranı 2026', '2027’de neler ne kadar art
         ('🚗', 'MTV Hesaplama', '2026 MTV ve 2027 tahmini', f'{B}/mtv-hesaplama.html'),
         ('💱', 'Döviz Çevirici', 'Seyahat öncesi kur hesabı', f'{B}/doviz-cevirici.html')]
 print(make('pasaport-ehliyet-harci-2027',
-     '2027 Pasaport Ücretleri: 10 Yıllık Pasaport Ne Kadar Olacak? | Hesaplarsın',
-     f'2027 pasaport ücretleri tahmini: 10 yıllık pasaport {t0(fl(P[4][1]*(1+L))+DEF)} – {t0(fl(P[4][1]*(1+T))+DEF)}, 1 yıllık {t0(fl(P[1][1]*(1+L))+DEF)} – {t0(fl(P[1][1]*(1+T))+DEF)}. 2026 tarifesi, ehliyet ve yurt dışı çıkış harcı tablolarla.',
+     f'2027 Pasaport Ücretleri: 10 Yıllık {tl(fl(P[4][1]*(1+L))+DEF,0)}–{t0(fl(P[4][1]*(1+T))+DEF)} | Hesaplarsın',
+     f'Pasaport ücreti 2027: 10 yıllık {t0(fl(P[4][1]*(1+L))+DEF)} – {t0(fl(P[4][1]*(1+T))+DEF)}, 1 yıllık {t0(fl(P[1][1]*(1+L))+DEF)} – {t0(fl(P[1][1]*(1+T))+DEF)} olabilir. Ocak’ta zamlanmadan önce 2026 tarifesini ve ehliyet harcını görün.',
      '2027 pasaport harcı, 2027 ehliyet harcı, pasaport ücreti 2027, ehliyet ücreti 2027, yurt dışı çıkış harcı 2027, imei kayıt ücreti 2027',
      '2027 Pasaport ve Ehliyet Harçları', '2027 Pasaport Ücretleri ve Ehliyet Harcı Ne Kadar Olacak? Yurt Dışı Çıkış ve IMEI',
      hero('🛂', 'Ocak 2027’de zamlanıyor', '10 YILLIK PASAPORT (2026)', t2(P[4][1] + DEF), 'B SINIFI EHLİYET (2026)', t2(EH[1][1] + DK + VK), '#7c2d12', '#ea580c'),

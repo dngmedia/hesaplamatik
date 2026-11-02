@@ -134,7 +134,7 @@ related=['yatirim-geri-donus-suresi-hesaplama','bilesik-faiz','kar-marji-hesapla
 # ───────────────────────── YATIRIM GERİ DÖNÜŞ ─────────────────────────
 TOOLS.append(dict(
 slug='yatirim-geri-donus-suresi-hesaplama', name='Yatırım Geri Dönüş Süresi Hesaplama', cat='finans', ico='⏳',
-title='Yatırım Geri Dönüş Süresi Hesaplama – Kaç Yılda Kendini Öder? | Hesaplarsın',
+title='Yatırım Geri Dönüş Süresi Hesaplama: Kaç Ayda Amorti Eder? | Hesaplarsın',
 desc='1.000.000 TL’lik yatırım ayda 25.000 TL getiriyorsa 40 ayda (3,3 yıl) amorti eder. Dükkân, ev veya makine yatırımınızın geri dönüş süresini hesaplayın.',
 h1='⏳ Yatırım Geri Dönüş Süresi Hesaplama',
 lead='Bir dükkân, makine, güneş paneli ya da kiralık daire yatırımının kendini ne zaman amorti edeceğini hesaplayın. Yıllık artış oranı girerseniz büyüyen nakit akışı da hesaba katılır.',

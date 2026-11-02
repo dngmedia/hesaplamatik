@@ -300,7 +300,7 @@ sources=[('Borsa İstanbul 2026 tatil tablosu','https://www.borsaistanbul.com/fi
 # ───────────────────────── ORTALAMA ─────────────────────────
 TOOLS.append(dict(
 slug='ortalama-hesaplama', name='Ortalama Hesaplama', cat='diger', ico='➗',
-title='Ortalama Hesaplama – Sayıların Ortalaması Nasıl Bulunur? | Hesaplarsın',
+title='Ortalama Hesaplama: Sayıları Yapıştır, Ortalama ve Medyan Anında | Hesaplarsın',
 desc='70, 85 ve 90’ın ortalaması 81,67. Sayıları yapıştırın; aritmetik ve ağırlıklı ortalama, medyan, mod ve standart sapma tek seferde çıksın. Ücretsiz, kayıt gerektirmez.',
 h1='➗ Ortalama Hesaplama',
 lead='Sayılarınızı yapıştırın; aritmetik ortalama, medyan, mod, en büyük-en küçük değer, açıklık ve standart sapma tek tıkla hesaplansın. Ağırlıklı ortalama modu da mevcut.',
