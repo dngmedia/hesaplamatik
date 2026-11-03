@@ -50,6 +50,7 @@ with sync_playwright() as p:
             ok = not errors and (main or case.get('expect_toast'))
             if exp and (not main or exp not in main[0]): ok = False
             if case.get('expect_toast') and case['expect_toast'] not in toast: ok = False
+            if case.get('expect_row') and not any(case['expect_row'] in r for r in rows): ok = False
             fails += 0 if ok else 1
             print(('✅' if ok else '❌'), slug, ci, '|', (main[0] if main else 'TOAST: ' + toast), '|', ' ; '.join(r.replace('\n', ': ') for r in rows[:4]), ('| ERR ' + '; '.join(errors) if errors else ''))
     # menü testi

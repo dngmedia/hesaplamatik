@@ -743,19 +743,40 @@ _iz = []
 for y in (1, 2, 3, 5, 6, 10, 14, 15, 20, 25):
     _iz.append([f'{y}. yıl', f'{_izin(y)} gün', f'{sum(_izin(i) for i in range(1, y + 1))} gün', f'{_izin(y, True)} gün'])
 _BR = 33030
+def _net(x, d):
+    return x - x * 0.15 - x * 0.85 * d - x * 0.00759
 EK['yillik-izin-hesaplama'] = dict(article='''
 <h2 id="kumulatif">Kıdeme göre toplam izin hakkı tablosu</h2>
 <p>Hiç izin kullanmamış bir çalışanın işten ayrılırken talep edebileceği toplam izin, her kıdem yılında kazanılan izinlerin toplamıdır. Aşağıdaki tablo İş Kanunu’ndaki asgari sürelerle hesaplanmıştır:</p>
-''' + tablo(['Kıdem yılı', 'O yıl kazanılan izin', 'Toplam birikmiş izin', '18 yaş altı / 50 yaş üstü (o yıl)'], _iz) + f'''
-<p>Not: 18 yaşından küçük veya 50 yaşından büyük çalışanlarda her yıl en az 20 gün izin verilir; birikmiş toplamı bu yaş aralığında geçen yıllara göre ayrıca hesaplamak gerekir.</p>
+''' + tablo(['Kıdem yılı', 'O yıl kazanılan izin', 'Toplam birikmiş izin', '18 yaş ve altı / 50 yaş ve üstü (o yıl)'], _iz) + f'''
+<p>Not: 18 yaş ve altındaki veya 50 yaş ve üstündeki çalışanlarda her yıl en az 20 gün izin verilir; birikmiş toplamı bu yaş aralığında geçen yıllara göre ayrıca hesaplamak gerekir.</p>
 
 <h2 id="izin-ucreti-tablo">Kullanılmayan izin ücreti örnekleri (brüt)</h2>
 <p>İzin ücreti son brüt maaşın 30’a bölünüp gün sayısıyla çarpılmasıyla bulunur. Farklı maaş seviyeleri için brüt izin ücreti:</p>
 ''' + tablo(['Brüt aylık ücret', '14 gün', '20 gün', '26 gün', '60 gün (birikmiş)'],
             [[f(b, 0) + ' ₺'] + [f(b / 30 * g, 0) + ' ₺' for g in (14, 20, 26, 60)] for b in (_BR, 45000, 60000, 80000, 100000)]) + f'''
-<p>İlk satır 2026 brüt asgari ücretidir ({f(_BR, 0)} ₺). İzin ücretinden gelir vergisi, damga vergisi ve SGK primi kesildiği için elinize geçecek net tutar daha düşük olur. Net tutarı görmek için brüt tutarı net maaş hesaplama aracına girebilirsiniz.</p>
+<p>İlk satır 2026 brüt asgari ücretidir ({f(_BR, 0)} ₺). İzin ücretinden gelir vergisi, damga vergisi ve SGK primi kesildiği için elinize geçecek net tutar daha düşük olur. Yukarıdaki hesaplayıcı net tutarı da gösterir.</p>
+
+<h2 id="izin-ucreti-net">Kullanılmayan izin ücreti netten kaç TL eder?</h2>
+<p>İzin ücreti, ayrılış ayındaki maaşın üstüne eklenen bir ödemedir. Maaşınız asgari ücret istisnasını zaten kullandığı için izin ücretinin tamamından kesinti yapılır: önce %15 SGK işçi payı ve işsizlik primi, sonra kalan tutardan gelir vergisi dilim oranınız, brüt tutardan da binde 7,59 damga vergisi.</p>
+<div class="formula">Net izin ücreti = Brüt − Brüt × %15 − (Brüt × 0,85) × GV dilimi − Brüt × 0,00759</div>
+''' + tablo(['Brüt izin ücreti', 'SGK (%15)', 'Gelir vergisi (%15 dilim)', 'Damga vergisi', 'Net (%15 dilim)', 'Net (%20 dilim)'],
+            [[f(x, 2) + ' ₺', f(x * 0.15, 2) + ' ₺', f(x * 0.85 * 0.15, 2) + ' ₺', f(x * 0.00759, 2) + ' ₺', f(_net(x, 0.15), 2) + ' ₺', f(_net(x, 0.20), 2) + ' ₺']
+             for x in (_BR / 30 * 14, _BR / 30 * 20, 45000 / 30 * 20, 60000 / 30 * 26, 80000 / 30 * 60)]) + f'''
+<p>Satırlar sırasıyla asgari ücretlinin 14 ve 20 günlük izni, 45.000 ₺ brütle 20 gün, 60.000 ₺ brütle 26 gün ve 80.000 ₺ brütle 60 günlük birikmiş izindir. Yüksek tutarlarda ayrılış ayının toplam kazancı SGK tavanını ({f(_BR * 9, 0)} ₺) aşarsa aşan kısımdan prim kesilmez; yıl içinde kümülatif matrahınız dilim değiştirirse vergi de farklı olur.</p>
+
+<h2 id="izin-ucreti-hak">İzin ücreti ne zaman ve nasıl talep edilir?</h2>
+<ul>
+<li>İzin ücreti yalnızca iş sözleşmesi sona erdiğinde ödenir; çalışırken izin yerine para verilemez (İş Kanunu m.59).</li>
+<li>Sözleşme hangi nedenle biterse bitsin (istifa, işveren feshi, emeklilik) hak kaybolmaz.</li>
+<li>Hesapta son brüt çıplak ücret esas alınır; fazla mesai, prim ve yemek, yol gibi sosyal yardımlar eklenmez.</li>
+<li>Ödenmezse zamanaşımı sözleşmenin sona erdiği tarihten itibaren 5 yıldır. İzin kullandırıldığını ispat yükü işverendedir; bu yüzden imzalı izin formu ve bordrodaki izin kaydı önemlidir.</li>
+</ul>
 ''', faq=[('10 yıl çalışan işçinin toplam kaç gün izin hakkı olur?', f'Hiç izin kullanılmadıysa 1–5. yıllarda 14’er, 6–10. yıllarda 20’şer gün olmak üzere toplam {sum(_izin(i) for i in range(1, 11))} gün yıllık izin birikir.'),
-          ('Asgari ücretlinin 14 günlük izin ücreti ne kadar?', f'2026 brüt asgari ücreti {f(_BR, 0)} ₺ üzerinden 14 günlük izin ücreti brüt {f(_BR / 30 * 14, 0)} ₺’dir; vergi ve SGK kesintisi sonrası net tutar daha düşüktür.')])
+          ('Asgari ücretlinin 14 günlük izin ücreti ne kadar?', f'2026 brüt asgari ücreti {f(_BR, 0)} ₺ üzerinden 14 günlük izin ücreti brüt {f(_BR / 30 * 14, 2)} ₺’dir. %15 SGK, %15 gelir vergisi ve damga vergisi kesildiğinde net yaklaşık {f(_net(_BR / 30 * 14, 0.15), 2)} ₺ olur.'),
+          ('Yıllık izin ücretinden SGK ve vergi kesilir mi?', 'Evet. Kullanılmayan izin ücreti prime esas kazançtır (5510 s.K. m.80); %14 SGK işçi payı ve %1 işsizlik primi kesilir. Ücret sayıldığı için gelir vergisi ve binde 7,59 damga vergisi de alınır.'),
+          ('İstifa eden işçi izin ücretini alır mı?', 'Evet. İş sözleşmesi hangi nedenle sona ererse ersin kullanılmayan yıllık izinlerin ücreti son brüt ücret üzerinden ödenir; istifa bu hakkı ortadan kaldırmaz.'),
+          ('Yıllık izin ücreti zamanaşımı kaç yıl?', 'İş sözleşmesinin sona erdiği tarihten itibaren 5 yıldır. Çalışma devam ederken zamanaşımı işlemez.')])
 
 # ───────────── ENFLASYON ─────────────
 TUFE = {2010: 6.40, 2011: 10.45, 2012: 6.16, 2013: 7.40, 2014: 8.17, 2015: 8.81, 2016: 8.53, 2017: 11.92, 2018: 20.30,

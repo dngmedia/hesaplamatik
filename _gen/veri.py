@@ -75,6 +75,8 @@ ESKI = [
     (r'~29\.500–31\.000', 'araç kredisi banka taksitleri vergisiz/yanlış hesaplanmıştı'),
     (r"ÖSYM'nin açıkladığı resmi katsayı", 'ÖSYM sabit katsayı yayımlamaz'),
     (r'ÖSYM katsayıları her yıl', 'ÖSYM sabit katsayı yayımlamaz'),
+    (r'18 yaşından küçük[^.<]{0,30}50 yaşından büyük[^.<]{0,40}izin', 'İş K. m.53: 18 yaş ve altı, 50 yaş ve üstü'),
+    (r'5 yıldan az[^.<]{0,20}14 gün', 'İş K. m.53: 5 yıl dahil 14 gün'),
 ]
 
 # Bağlam kuralları: (ad, regex — ilk grup rakamı yakalar, izinli değerler kümesi)

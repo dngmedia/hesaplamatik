@@ -46,7 +46,7 @@ TESTS.update({
  'tapu-harci-hesaplama': [dict(fill={'bedel': '3500000'}, expect='140.000,00')],
  'damga-vergisi-hesaplama': [dict(fill={'tutar': '1000000', 'nusha': '2'}, expect='18.960,00'), dict(fill={'tur': '1.89', 'tutar': '20000', 'ay': '12'}, expect='453,60')],
  'asgari-ucret-hesaplama': [dict(fill={}, expect='28.075,50')],
- 'yillik-izin-hesaplama': [dict(fill={'giris': '2019-02-01', 'dogum': '1975-05-10', 'hedef': '2026-10-21', 'kullanilan': '60', 'brut': '45000'}, expect='20 gün'), dict(fill={'giris': '2026-01-01', 'dogum': '1990-01-01'})],
+ 'yillik-izin-hesaplama': [dict(fill={'giris': '2019-02-01', 'dogum': '1975-05-10', 'hedef': '2026-10-21', 'kullanilan': '60', 'brut': '45000'}, expect='20 gün'), dict(fill={'giris': '2026-01-01', 'dogum': '1990-01-01'}), dict(fill={'giris': '2019-02-01', 'dogum': '1975-05-10', 'hedef': '2026-10-21', 'kullanilan': '60', 'brut': '45000'}, expect='20 gün', expect_row='53.618,25'), dict(fill={'giris': '2021-02-01', 'dogum': '1990-01-01', 'hedef': '2026-03-01'}, expect='14 gün'), dict(fill={'giris': '2020-01-01', 'dogum': '2004-06-01', 'hedef': '2023-01-15'}, expect='20 gün')],
  'emeklilik-yasi-hesaplama': [dict(fill={'dogum': '1975-03-01', 'giris': '1995-06-01', 'prim': '6000'}), dict(fill={'dogum': '1980-03-01', 'giris': '2003-06-01'}), dict(radio={'cins': 'k'}, fill={'dogum': '1990-03-01', 'giris': '2010-06-01'})],
  'enflasyon-hesaplama': [dict(fill={'tutar': '1000', 'y1': '2023', 'y2': '2025'}, expect='1.889'), dict(radio={'mod': 'gelecek'}, fill={'tutar': '1000', 'oran': '25', 'yil': '5'})],
  'elektrik-faturasi-hesaplama': [dict(fill={'kwh': '230', 'birim': '3,2'}, expect='736,00'), dict(radio={'mod': 'cihaz'}, fill={'watt': '1200', 'saat': '6', 'birim': '3,2'}, expect='691,20')],

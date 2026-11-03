@@ -428,9 +428,9 @@ sources=[('KPMG – 2026 Yılı Asgari Ücreti Açıklandı','https://kpmgvergi.
 # ───────────────────────── YILLIK İZİN ─────────────────────────
 TOOLS.append(dict(
 slug='yillik-izin-hesaplama', name='Yıllık İzin Hesaplama', cat='maas', ico='🏖️',
-title='Yıllık İzin Hesaplama – Kaç Gün İzin Hakkım Var? (İş Kanunu) | Hesaplarsın',
-desc='İşe giriş tarihinize ve yaşınıza göre İş Kanunu’ndaki yıllık ücretli izin hakkınızı (14, 20, 26 gün) hesaplayın. Kullanılmayan izin ücreti de hesaplanır.',
-h1='🏖️ Yıllık İzin Hesaplama',
+title='Yıllık İzin ve İzin Ücreti Hesaplama 2026 – Kaç Gün, Kaç TL? | Hesaplarsın',
+desc='Kaç gün yıllık izin hakkınız var, işten ayrılırken kullanılmayan izin ücretiniz brüt ve net kaç TL? İş Kanunu m.53 ve m.59’a göre 14, 20, 26 gün ve SGK, vergi kesintileriyle hesaplayın.',
+h1='🏖️ Yıllık İzin ve İzin Ücreti Hesaplama',
 lead='İşe giriş tarihinizi ve doğum tarihinizi girin; İş Kanunu’na göre kaç gün yıllık ücretli izin hakkınız olduğunu ve işten ayrılırken kullanılmayan izin ücretinizi hesaplayın.',
 form='''<div class="form-grid">
 <div class="field"><label for="giris">İşe Giriş Tarihi</label><input type="date" id="giris"></div>
@@ -438,10 +438,11 @@ form='''<div class="form-grid">
 <div class="field"><label for="hedef">Hesaplama Tarihi <small>(boş = bugün)</small></label><input type="date" id="hedef"></div>
 <div class="field"><label for="kullanilan">Kullanılan İzin (gün) <small>toplam</small></label><input type="number" id="kullanilan" placeholder="örn: 20" inputmode="numeric"></div>
 <div class="field"><label for="brut">Brüt Aylık Ücret (₺) <small>izin ücreti için</small></label><input type="number" id="brut" placeholder="örn: 45.000" inputmode="decimal"></div>
+<div class="field"><label for="dilim">Gelir Vergisi Dilimi <small>net izin ücreti için</small></label><select id="dilim"><option value="15">%15</option><option value="20">%20</option><option value="27">%27</option><option value="35">%35</option><option value="40">%40</option></select></div>
 <div class="field"><label class="chk" style="margin-top:26px"><input type="checkbox" id="yer"> Yer altı işlerinde çalışıyorum (+4 gün)</label></div>
 </div>''',
 js=r'''
-function hak(kidem,yas){var g=kidem<5?14:(kidem<15?20:26); if((yas<18||yas>=50)&&g<20) g=20; return g;}
+function hak(kidem,yas){var g=kidem<=5?14:(kidem<15?20:26); if((yas<=18||yas>=50)&&g<20) g=20; return g;}
 function yasHesap(d,t){var y=t.getFullYear()-d.getFullYear(); if(t.getMonth()<d.getMonth()||(t.getMonth()===d.getMonth()&&t.getDate()<d.getDate())) y--; return y;}
 function hesapla(){
   var g=parseDate('giris'), d=parseDate('dogum'), t=parseDate('hedef')||new Date(); if(!g) return 'İşe giriş tarihinizi seçin.'; if(!d) return 'Doğum tarihinizi seçin.';
@@ -451,10 +452,11 @@ function hesapla(){
   var top=0, satir=[], ek=checked('yer')?4:0;
   for(var i=1;i<=tam;i++){var hk=new Date(g.getFullYear()+i,g.getMonth(),g.getDate()), yas=yasHesap(d,hk), gun=hak(i,yas)+ek; top+=gun; if(tam-i<6) satir.push('<tr><td>'+i+'. yıl ('+hk.toLocaleDateString('tr-TR')+')</td><td>'+gun+' gün</td></tr>');}
   var buYil=hak(tam,yasHesap(d,t))+ek, kul=v('kullanilan')||0, kalan=Math.max(0,top-kul), b=v('brut'), rows=[['Kıdem (tam yıl)',tam+' yıl'],['Bu yılki izin hakkı',buYil+' gün'],['Toplam hak edilen izin',top+' gün'],['Kullanılan izin',kul+' gün'],['Kalan izin',kalan+' gün','hl']];
-  if(b>0) rows.push(['Kullanılmayan izin ücreti (brüt)',tl(b/30*kalan)]);
+  if(b>0&&kalan>0){var ib=b/30*kalan, sg=ib*0.15, dl=(parseFloat(document.getElementById('dilim').value)||15)/100, gv=(ib-sg)*dl, dv=ib*0.00759;
+    rows.push(['Kullanılmayan izin ücreti (brüt)',tl(ib)],['SGK işçi + işsizlik (%15)','− '+tl(sg)],['Gelir vergisi (%'+Math.round(dl*100)+')','− '+tl(gv)],['Damga vergisi (binde 7,59)','− '+tl(dv)],['Tahmini net izin ücreti',tl(ib-sg-gv-dv),'hl']);}
   return {main:['Yıllık izin hakkınız', buYil+' gün'], sub:tam+' yıllık kıdeminiz var · Toplam kalan izin: '+kalan+' gün', rows:rows,
     extra:'<table><thead><tr><th>Hak ediş yılı</th><th>İzin</th></tr></thead><tbody>'+satir.join('')+'</tbody></table>',
-    note:'Hafta tatili, ulusal bayram ve genel tatil günleri izin süresine dahil edilmez. Toplu sözleşme veya iş sözleşmesiyle daha uzun izin verilebilir.'};
+    note:'Hafta tatili, ulusal bayram ve genel tatil günleri izin süresine dahil edilmez. Net izin ücreti, maaşınızın asgari ücret istisnasını zaten kullandığı varsayımıyla tahminidir; ayrılış ayındaki toplam kazanç SGK tavanını aşarsa veya kümülatif matrah dilim değiştirirse kesinti farklı olur.'};
 }''',
 article='''
 <h2 id="kac-gun">Yıllık izin kaç gün?</h2>
@@ -464,11 +466,11 @@ article='''
 <tr><td>5 yıldan fazla, 15 yıldan az</td><td>20 gün</td></tr>
 <tr><td>15 yıl (dahil) ve daha fazla</td><td>26 gün</td></tr>
 </tbody></table></div>
-<p><b>18 yaşından küçük</b> ve <b>50 yaşından büyük</b> işçilere verilecek yıllık izin süresi <b>20 günden az olamaz</b>. Yer altı işlerinde çalışanların izin süreleri 4’er gün artırılarak uygulanır. Bu süreler asgari sürelerdir; iş veya toplu iş sözleşmeleriyle artırılabilir.</p>
+<p><b>18 yaş ve altındaki</b> ile <b>50 yaş ve üstündeki</b> işçilere verilecek yıllık izin süresi <b>20 günden az olamaz</b>. Yer altı işlerinde çalışanların izin süreleri 4’er gün artırılarak uygulanır. Bu süreler asgari sürelerdir; iş veya toplu iş sözleşmeleriyle artırılabilir.</p>
 
 <h2 id="nasil">Yıllık izin hakkı nasıl hesaplanır?</h2>
 <p>İzin hakkı, işe giriş tarihinin her yıl dönümünde doğar. Örneğin 15 Mart 2022’de işe başlayan biri ilk izin hakkını 15 Mart 2023’te kazanır. Kıdem yılı ve hak ediş tarihindeki yaş birlikte değerlendirilir.</p>
-<div class="example"><p><b>Örnek:</b> 1 Şubat 2019’da işe başlayan, 1975 doğumlu bir çalışan için 2026 yılında:</p><p>Kıdem 7 yıl → 20 gün. 50 yaşından büyük olduğu için en az 20 gün kuralı zaten karşılanıyor. Toplam hak edilen izin: 1–5. yıllar (yaşı 50’nin altındaysa 14’er, üzerindeyse 20’şer) + 6–7. yıllar 20’şer gün.</p></div>
+<div class="example"><p><b>Örnek:</b> 1 Şubat 2019’da işe başlayan. 10 Mayıs 1975 doğumlu bir çalışan. 21 Ekim 2026 itibarıyla 7 tam yıl kıdeme sahiptir.</p><p>1–5. yıllarda (hak ediş tarihlerinde 44–48 yaşında) 14’er gün = 70 gün; 6. yıl 20 gün; 7. yıl 20 gün (kıdem 5 yılı geçtiği için; 50 yaşına da girmiştir). Toplam hak edilen izin <b>110 gün</b>. 60 gün kullandıysa kalan izin 50 gündür; brüt 45.000 ₺ maaşla kullanılmayan izin ücreti 45.000 ÷ 30 × 50 = 75.000 ₺ (brüt) olur.</p></div>
 
 <h2 id="tatil">Hafta sonu ve bayramlar izinden sayılır mı?</h2>
 <p>Hayır. İzin süresine rastlayan hafta tatili, ulusal bayram ve genel tatil günleri izin süresinden sayılmaz. Örneğin 14 günlük izin, Cumartesi çalışılmayan bir işyerinde yaklaşık 3 haftalık bir döneme karşılık gelir. İzin dönüş tarihinizi resmi tatilleri düşerek bulmak için <a href="/is-gunu-hesaplama.html">iş günü hesaplama</a> aracını kullanabilirsiniz.</p>
@@ -484,10 +486,10 @@ article='''
 <h2 id="ucret">Kullanılmayan izin ücreti nasıl hesaplanır?</h2>
 <p>İş sözleşmesi herhangi bir nedenle sona erdiğinde, kullanılmamış yıllık izin süreleri son brüt ücret üzerinden ödenir.</p>
 <div class="formula">İzin ücreti (brüt) = Son brüt aylık ücret ÷ 30 × Kullanılmayan izin günü</div>
-<p>Bu ücret gelir vergisi, damga vergisi ve SGK primlerine tabidir. İşten ayrılırken alacağınız diğer haklar için <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı</a> ve <a href="/ihbar-tazminati-hesaplama.html">ihbar tazminatı</a> hesaplama araçlarına göz atın.</p>
+<p>Yıllık izin ücreti 5510 sayılı Kanun m.80’e göre prime esas kazançtır: iş sözleşmesinin sona erdiği ayın kazancına eklenir ve SGK işçi payı (%14) ile işsizlik sigortası (%1) kesilir. Ayrıca ücret sayıldığı için gelir vergisi ve damga vergisine (binde 7,59) tabidir. Hesapta yalnızca çıplak ücret esas alınır; fazla mesai, prim ve sosyal yardımlar eklenmez. İşten ayrılırken alacağınız diğer haklar için <a href="/kidem-tazminati-hesaplama.html">kıdem tazminatı</a> ve <a href="/ihbar-tazminati-hesaplama.html">ihbar tazminatı</a> hesaplama araçlarına göz atın.</p>
 ''',
 faq=[
-('1 yılını dolduran işçi kaç gün izin kullanır?','1–5 yıl arası kıdemi olan işçi yılda en az 14 gün yıllık ücretli izin hakkına sahiptir; 18 yaşından küçük veya 50 yaşından büyükse en az 20 gün.'),
+('1 yılını dolduran işçi kaç gün izin kullanır?','1–5 yıl arası kıdemi olan işçi yılda en az 14 gün yıllık ücretli izin hakkına sahiptir; 18 yaş ve altı veya 50 yaş ve üstündeyse en az 20 gün.'),
 ('Deneme süresi izin hesabına dahil mi?','Evet. Bir yıllık çalışma süresinin hesabında deneme süresi de dahil edilir.'),
 ('Cumartesi yıllık izinden sayılır mı?','Cumartesi çalışılan işyerlerinde Cumartesi iş günü sayıldığı için izinden düşülür. Cumartesi çalışılmayan işyerlerinde ise izin gününden sayılmaz.'),
 ('Kullanılmayan izinler yanar mı?','Hayır. Kullanılmayan izinler birikir ve iş sözleşmesi sona erdiğinde ücreti ödenmek zorundadır.'),
@@ -495,7 +497,7 @@ faq=[
 ],
 related=['kidem-tazminati-hesaplama','ihbar-tazminati-hesaplama','is-gunu-hesaplama','net-maas-hesaplama','fazla-mesai-hesaplama'],
 sources=[('4857 sayılı İş Kanunu m.53–60','https://www.mevzuat.gov.tr/mevzuatmetin/1.5.4857.pdf')],
-howto=('Yıllık izin hakkı nasıl hesaplanır?',['İşe giriş tarihinizi girin.','Doğum tarihinizi girin (18 yaş altı ve 50 yaş üstü kuralı için).','Kullandığınız izin gününü ve isterseniz brüt ücretinizi ekleyip Hesapla’ya basın.']),
+howto=('Yıllık izin hakkı nasıl hesaplanır?',['İşe giriş tarihinizi girin.','Doğum tarihinizi girin (18 yaş ve altı, 50 yaş ve üstü kuralı için).','Kullandığınız izin gününü ve isterseniz brüt ücretinizi ekleyip Hesapla’ya basın.']),
 ))
 
 # ───────────────────────── EMEKLİLİK YAŞI ─────────────────────────
