@@ -4,12 +4,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from newpost import make, tl, table, hero
 B = 'https://hesaplarsin.com'
 ORAN26 = [('Ocak', 34.88), ('Şubat', 33.98), ('Mart', 33.39), ('Nisan', 32.82), ('Mayıs', 32.43), ('Haziran', 32.24),
-          ('Temmuz', 32.03), ('Ağustos', 31.90), ('Eylül', 31.79), ('Ekim', 31.49)]
+          ('Temmuz', 32.03), ('Ağustos', 31.90), ('Eylül', 31.79), ('Ekim', 31.49), ('Kasım', 31.23)]
 # Yıllık TÜFE (%) — 2025 gerçekleşen; 2026 Tem–Ağu, kira oranlarındaki aylık farktan türetilmiş; Eyl 2026 TÜİK
-Y = {'2025-10': 32.87, '2025-11': 31.07, '2025-12': 30.89, '2026-07': 31.96, '2026-08': 31.63, '2026-09': 29.73}
-# OVP senaryosu: Ekim–Aralık 2026 yıllık TÜFE 2026 sonu %28,4'e, 2027 boyunca 2027 sonu %21'e doğrusal iner
-for i, m in enumerate(('10', '11', '12')):
-    Y['2026-' + m] = 29.73 + (28.4 - 29.73) * (i + 1) / 3
+Y = {'2025-10': 32.87, '2025-11': 31.07, '2025-12': 30.89, '2026-07': 31.96, '2026-08': 31.63, '2026-09': 29.73, '2026-10': 29.77}
+# OVP senaryosu: Kasım–Aralık 2026 yıllık TÜFE 2026 sonu %28,4'e, 2027 boyunca 2027 sonu %21'e doğrusal iner (Ekim 2026 TÜİK %29,77)
+for i, m in enumerate(('11', '12')):
+    Y['2026-' + m] = 29.77 + (28.4 - 29.77) * (i + 1) / 2
 for k in range(1, 13):
     Y[f'2027-{k:02d}'] = 28.4 + (21.0 - 28.4) * k / 12
 def ort(son_ay):  # son_ay = (yıl, ay): kira oranı = önceki 12 ayın yıllık TÜFE ortalaması
@@ -18,7 +18,7 @@ def ort(son_ay):  # son_ay = (yıl, ay): kira oranı = önceki 12 ayın yıllık
         keys.append(f'{y}-{m:02d}'); m -= 1
         if m == 0: y, m = y - 1, 12
     return sum(Y[k] for k in keys) / 12, keys
-O_OCAK27 = 31.49 + (Y['2026-10'] + Y['2026-11'] + Y['2026-12'] - Y['2025-10'] - Y['2025-11'] - Y['2025-12']) / 12
+O_OCAK27 = 31.23 + (Y['2026-11'] + Y['2026-12'] - Y['2025-11'] - Y['2025-12']) / 12
 O_TEM27, _ = ort((2027, 6))
 O_OCAK28, _ = ort((2027, 12))
 t = lambda x: tl(x, 0) + ' TL'
@@ -29,7 +29,7 @@ body = f'''
 
   <div class="highlight-box">
     <p><strong>Kısaca:</strong></p>
-    <p>• Ekim 2026 yasal kira artış oranı: <strong>%31,49</strong> (Kasım tahmini ~%31,2)</p>
+    <p>• Kasım 2026 yasal kira artış oranı: <strong>%31,23</strong> (TÜİK, 3 Kasım 2026)</p>
     <p>• Orta Vadeli Program (Eylül 2026): 2026 sonu enflasyon beklentisi <strong>%28,4</strong>, 2027 sonu hedefi <strong>%21</strong></p>
     <p>• Ocak 2027 kira artış oranı tahmini: yaklaşık <strong>{p(O_OCAK27)}</strong> · Temmuz 2027: yaklaşık <strong>{p(O_TEM27)}</strong></p>
     <p>• Sınır hem konut hem çatılı işyeri kiralarında geçerlidir.</p>
@@ -46,7 +46,7 @@ body = f'''
   <h2>2027 TÜFE (TEFE-TÜFE) Tahmini</h2>
   <p>Hükümetin 7 Eylül 2026’da açıkladığı Orta Vadeli Program’a (2027–2029) göre yıl sonu enflasyon beklentileri:</p>
 ''' + table(['Yıl', 'Yıl sonu TÜFE (OVP)'], [['2026', '%28,4 (beklenti)'], ['2027', '%21 (hedef)'], ['2028', '%13,5 (hedef)'], ['2029', '%9 (hedef)']], 'OVP enflasyon hedefleri') + f'''
-  <p>Kira artışında “TEFE” artık kullanılmıyor; yalnızca TÜFE’nin 12 aylık ortalaması esas alınıyor. Eylül 2026’da yıllık TÜFE %29,73 oldu.</p>
+  <p>Kira artışında “TEFE” artık kullanılmıyor; yalnızca TÜFE’nin 12 aylık ortalaması esas alınıyor. Ekim 2026’da yıllık TÜFE %29,77 oldu.</p>
 
   <h2>2027 Kira Zam Oranı Tahmini</h2>
   <p>Kira oranı geçmiş 12 ayın ortalaması olduğu için enflasyondaki düşüşü gecikmeli yansıtır. Yıllık enflasyonun OVP’deki gibi 2026 sonunda %28,4’e, 2027 sonunda %21’e doğrusal olarak indiğini varsayarak hesapladığımız tahminler:</p>
@@ -65,16 +65,16 @@ body = f'''
   </ul>
 
   <h2>Kaynaklar</h2>
-  <p style="font-size:.88rem">6098 sayılı Türk Borçlar Kanunu m.344 · TÜİK Tüketici Fiyat Endeksi bültenleri (2025–2026) · Orta Vadeli Program 2027–2029 (7 Eylül 2026).</p>
+  <p style="font-size:.88rem">6098 sayılı Türk Borçlar Kanunu m.344 · TÜİK Tüketici Fiyat Endeksi bültenleri (2025 – Ekim 2026) · Orta Vadeli Program 2027–2029 (7 Eylül 2026).</p>
 '''
 faq = [
-    ('2027 TÜFE oranı tahmini ne kadar?', 'Orta Vadeli Program’a göre 2027 yıl sonu enflasyon hedefi %21’dir; 2026 sonu beklentisi %28,4’tür. Eylül 2026’da yıllık TÜFE %29,73 olmuştu.'),
+    ('2027 TÜFE oranı tahmini ne kadar?', 'Orta Vadeli Program’a göre 2027 yıl sonu enflasyon hedefi %21’dir; 2026 sonu beklentisi %28,4’tür. Ekim 2026’da yıllık TÜFE %29,77 oldu.'),
     ('Ocak 2027 kira artış oranı ne kadar olacak?', f'Aralık 2026 verisiyle 4 Ocak 2027’de belli olacak. Enflasyonun OVP beklentisine yakın seyretmesi halinde oranın yaklaşık {p(O_OCAK27)} olacağını tahmin ediyoruz.'),
     ('2027 kira zam oranı tahmini nedir?', f'Tahminimize göre yasal azami artış Ocak 2027’de yaklaşık {p(O_OCAK27)}, Temmuz 2027’de yaklaşık {p(O_TEM27)} olur. Oranlar enflasyon düştükçe yıl içinde azalır.'),
     ('İşyeri kiralarında artış sınırı var mı?', 'Evet. TBK 344. maddedeki 12 aylık TÜFE ortalaması sınırı hem konut hem çatılı işyeri kiraları için geçerlidir.'),
     ('Kira artışında TEFE kullanılıyor mu?', 'Hayır. TEFE yerine Yİ-ÜFE kullanılmaya başlandı ve kira artışında yalnızca TÜFE’nin 12 aylık ortalaması esas alınır.'),
 ]
-rel = [('🏠', 'Kira Artış Hesaplama', 'Ekim 2026: %31,49', f'{B}/kira-artis-hesaplama.html'),
+rel = [('🏠', 'Kira Artış Hesaplama', 'Kasım 2026: %31,23', f'{B}/kira-artis-hesaplama.html'),
        ('📅', 'Kasım 2026 Kira Artış Oranı', 'Tahmin ve tablo', f'{B}/blog/kasim-2026-kira-artis-orani.html'),
        ('📈', 'Enflasyon Hesaplama', 'Paranın alım gücü', f'{B}/enflasyon-hesaplama.html'),
        ('🧾', 'Kira Geliri Vergisi', '58.000 TL istisna', f'{B}/blog/kira-geliri-vergisi-hesaplama.html')]
@@ -85,5 +85,5 @@ if __name__ == '__main__':
          f'2027 TÜFE (enflasyon) tahmini ve kira zam oranı: Ocak 2027 ≈ {p(O_OCAK27)}, Temmuz 2027 ≈ {p(O_TEM27)}. OVP’ye göre 2027 sonu TÜFE hedefi %21. Ay ay oranlar ve hesaplama.',
          'kira artış oranı 2027, 2027 kira zam oranı tahmini, 2027 tüfe tahmini, 2027 tefe tüfe oranı, ocak 2027 kira artışı',
          'Kira Artış Oranı 2027', 'Kira Artış Oranı 2027: TÜFE Beklentisi ve Kira Zammı Tahmini',
-         hero('🏠', 'Ocak 2027 tahmini', 'EKİM 2026 KİRA ORANI', '%31,49', 'OCAK 2027 TAHMİNİ', '≈ ' + p(O_OCAK27), '#065f46', '#10b981'),
-         ['Kira', 'Gündem'], body, faq, rel, date='2026-10-24', date_tr='24 Ekim 2026'))
+         hero('🏠', 'Ocak 2027 tahmini', 'KASIM 2026 KİRA ORANI', '%31,23', 'OCAK 2027 TAHMİNİ', '≈ ' + p(O_OCAK27), '#065f46', '#10b981'),
+         ['Kira', 'Gündem'], body, faq, rel, date='2026-11-03', date_tr='3 Kasım 2026'))

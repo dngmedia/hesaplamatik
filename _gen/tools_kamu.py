@@ -16,11 +16,11 @@ U = {
     'vaiz': ('Vaiz (1/4)', 87016), 'avukat': ('Avukat (1/4)', 102168),
 }
 def _z(a):
-    h = 1.0557 * (1 + a / 100) ** 3 - 1
+    h = 1.0829 * (1 + a / 100) ** 2 - 1
     return 1.05 * (1 + max(0.0, (1 + h) / 1.07 - 1)) - 1
 
 
-SC = [(a, _z(a)) for a in (0.6, 1.0, 1.4)]  # Ekim–Aralık aylık ort. enflasyon → Ocak 2027 memur zammı (hesaplayıcıyla aynı formül)
+SC = [(a, _z(a)) for a in (0.3, 0.6, 1.0)]  # Kasım–Aralık aylık ort. enflasyon → Ocak 2027 memur zammı (hesaplayıcıyla aynı formül)
 
 
 def tl(x):
@@ -32,21 +32,21 @@ def form(keys):
     return f'''<div class="form-grid">
 <div class="field full"><label for="unvan">Unvan</label><select id="unvan">{opts}<option value="0">Diğer / kendi maaşımı gireceğim</option></select></div>
 <div class="field"><label for="maas">Mevcut Net Maaşınız (₺) <small>bordronuzdaki tutar; boş bırakırsanız örnek maaş kullanılır</small></label><input type="number" id="maas" placeholder="örn: 85.000" inputmode="decimal"></div>
-<div class="field"><label for="aylik">Ekim–Aralık aylık ort. enflasyon tahmini (%)</label><input type="number" id="aylik" value="1" inputmode="decimal"></div>
+<div class="field"><label for="aylik">Kasım–Aralık aylık ort. enflasyon tahmini (%)</label><input type="number" id="aylik" value="0.6" inputmode="decimal"></div>
 </div>'''
 
 
 JS = r'''
-var Q3=0.0557, TS=0.05, ONCEKI=0.07;
-function zam(a){var h=(1+Q3)*Math.pow(1+a/100,3)-1, f=Math.max(0,(1+h)/(1+ONCEKI)-1); return {h:h,f:f,z:(1+TS)*(1+f)-1};}
+var Q3=0.0829, TS=0.05, ONCEKI=0.07;
+function zam(a){var h=(1+Q3)*Math.pow(1+a/100,2)-1, f=Math.max(0,(1+h)/(1+ONCEKI)-1); return {h:h,f:f,z:(1+TS)*(1+f)-1};}
 function hesapla(){
   var m=v('maas'); if(!(m>0)) m=parseFloat(el('unvan').value); if(!(m>0)) return 'Mevcut net maaşınızı girin.';
   var a=v('aylik'); if(isNaN(a)) a=1; if(a<-2||a>10) return 'Aylık enflasyon tahmini −2 ile 10 arasında olmalı.';
-  var r=zam(a), lo=zam(0.6), hi=zam(1.4), y=m*(1+r.z);
+  var r=zam(a), lo=zam(0.3), hi=zam(1.0), y=m*(1+r.z);
   return {main:['Ocak 2027 tahmini net maaş', tl(y)], sub:'%'+num(r.z*100,2)+' zamla (Temmuz–Aralık 2026 maaşı: '+tl(m)+')',
     rows:[['6 aylık enflasyon (Temmuz–Aralık)',pct(r.h*100)],['Toplu sözleşme zammı','%5,00'],['Enflasyon farkı',pct(r.f*100)],['Toplam zam',pct(r.z*100),'hl'],
-          ['Aylık artış',tl(y-m)],['Düşük senaryo (aylık %0,6 enflasyon)',tl(m*(1+lo.z))],['Yüksek senaryo (aylık %1,4 enflasyon)',tl(m*(1+hi.z))]],
-    note:'Temmuz–Eylül 2026 enflasyonu %5,57 olarak gerçekleşti. Kesin zam Aralık enflasyonunun açıklandığı Ocak 2027’nin ilk günlerinde belli olur. Aile yardımı, ek ders, nöbet ve döner sermaye ödemeleri hesaba dahil değildir.'};
+          ['Aylık artış',tl(y-m)],['Düşük senaryo (aylık %0,3 enflasyon)',tl(m*(1+lo.z))],['Yüksek senaryo (aylık %1,0 enflasyon)',tl(m*(1+hi.z))]],
+    note:'Temmuz–Ekim 2026 enflasyonu %8,29 olarak gerçekleşti. Kesin zam Aralık enflasyonunun açıklandığı Ocak 2027’nin ilk günlerinde belli olur. Aile yardımı, ek ders, nöbet ve döner sermaye ödemeleri hesaba dahil değildir.'};
 }'''
 
 
@@ -56,10 +56,11 @@ def ocak_table(keys):
     return f'<div class="table-wrap"><table><thead>{head}</thead><tbody>{rows}</tbody></table></div>'
 
 
-SCEN = '''<div class="table-wrap"><table><thead><tr><th>Ekim–Aralık aylık ort. enflasyon</th><th>6 aylık enflasyon</th><th>Enflasyon farkı</th><th>Ocak 2027 memur zammı</th></tr></thead><tbody>
-<tr><td>%0,6</td><td>%7,48</td><td>%0,45</td><td>%5,47</td></tr>
-<tr><td>%1,0</td><td>%8,77</td><td>%1,65</td><td>%6,74</td></tr>
-<tr><td>%1,4</td><td>%10,07</td><td>%2,87</td><td>%8,01</td></tr>
+SCEN = '''<div class="table-wrap"><table><thead><tr><th>Kasım–Aralık aylık ort. enflasyon</th><th>6 aylık enflasyon</th><th>Enflasyon farkı</th><th>Ocak 2027 memur zammı</th></tr></thead><tbody>
+<tr><td>%0,3</td><td>%8,94</td><td>%1,82</td><td>%6,91</td></tr>
+<tr><td>%0,6</td><td>%9,60</td><td>%2,43</td><td>%7,55</td></tr>
+<tr><td>%1,0</td><td>%10,47</td><td>%3,24</td><td>%8,41</td></tr>
+
 </tbody></table></div>'''
 
 NOTE = '<p><small>Tablolardaki tutarlar, basında yayımlanan Temmuz 2026 memur maaş tablolarından alınmıştır (Ocak 2026 maaşlarına %13,52 Temmuz zammı uygulanmış). Aile yardımı, ek ders, nöbet, döner sermaye ve bölgesel ödemeler hariçtir; derece, kademe, hizmet yılı ve kuruma göre değişir. Kendi bordronuzdaki tutarı hesaplayıcıya girerek kişisel sonucunuzu görebilirsiniz.</small></p>'
@@ -87,7 +88,7 @@ article=f'''
 {NOTE}
 
 <h2 id="zam">Ocak 2027 memur zammı ne kadar olacak?</h2>
-<p>8. Dönem Toplu Sözleşme’ye göre memurlar 2027’nin ilk yarısında <b>%5</b> zam alır. 2026’nın ikinci yarısındaki %7’lik zam, Temmuz–Aralık enflasyonunun altında kalırsa aradaki fark <b>enflasyon farkı</b> olarak Ocak maaşına eklenir. Temmuz–Eylül döneminde enflasyon %5,57 oldu; zam oranını Ekim, Kasım ve Aralık enflasyonu belirleyecek:</p>
+<p>8. Dönem Toplu Sözleşme’ye göre memurlar 2027’nin ilk yarısında <b>%5</b> zam alır. 2026’nın ikinci yarısındaki %7’lik zam, Temmuz–Aralık enflasyonunun altında kalırsa aradaki fark <b>enflasyon farkı</b> olarak Ocak maaşına eklenir. Temmuz–Ekim döneminde enflasyon %8,29 oldu; zam oranını Ekim, Kasım ve Aralık enflasyonu belirleyecek:</p>
 {SCEN}
 <p>Senaryoların ayrıntılı açıklaması için <a href="/blog/memur-emekli-zammi-ocak-2027.html">Ocak 2027 memur ve emekli zammı</a> yazımıza, emekliler için <a href="/memur-emekli-zammi-hesaplama.html">memur ve emekli zammı hesaplama</a> aracına bakabilirsiniz.</p>
 
@@ -116,7 +117,7 @@ article=f'''
 </ul>
 ''',
 faq=[
-('Ocak 2027 memur maaşları ne kadar olacak?','Ocak 2027’de memurlar %5 toplu sözleşme zammı ve enflasyon farkı alacak. Ekim–Aralık enflasyonuna göre toplam zammın yaklaşık %5,5–%8 olması bekleniyor. Örneğin Temmuz 2026’da 83.287 ₺ olan 1/4 öğretmen maaşı %6,74 zamla yaklaşık 88.900 ₺ olur.'),
+('Ocak 2027 memur maaşları ne kadar olacak?','Ocak 2027’de memurlar %5 toplu sözleşme zammı ve enflasyon farkı alacak. Kasım–Aralık enflasyonuna göre toplam zammın yaklaşık %6,9–%8,4 olması bekleniyor. Örneğin Temmuz 2026’da 83.287 ₺ olan 1/4 öğretmen maaşı %7,55 zamla yaklaşık 89.600 ₺ olur.'),
 ('En düşük memur maaşı ne kadar?','Tablodaki unvanlar arasında en düşük maaş 9/1 derecedeki üniversite mezunu memur için 73.103 ₺’dir. Lise mezunu ve daha düşük derecede başlayan bazı kadrolarda maaş daha düşük olabilir.'),
 ('Memur maaşları ne zaman yatar?','Memur maaşları her ayın 15’inde peşin ödenir. Ocak 2027 zamlı maaşı 15 Ocak 2027’de yatacak.'),
 ('Memur maaş katsayısı ne kadar?','Temmuz–Aralık 2026 döneminde aylık katsayı 1,575512, taban aylık katsayısı 25,794915, yan ödeme katsayısı 0,499649’dur. Ocak 2027 katsayıları zam oranı belli olduğunda yeniden belirlenecek.'),
@@ -160,7 +161,7 @@ article=f'''
 <p>Diğer unvanlarla karşılaştırma için <a href="/memur-maaslari.html">memur maaşları tablosuna</a>, net maaşınızın kesinti dökümü için <a href="/net-maas-hesaplama.html">net maaş hesaplama</a> aracına bakabilirsiniz.</p>
 ''',
 faq=[
-('Öğretmen maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 83.287 ₺ olan 1/4 öğretmen maaşı, Ocak 2027’de beklenen %5,5–%8 zamla yaklaşık 87.800–90.000 ₺ olur. Kesin tutar Aralık enflasyonuyla belli olacak.'),
+('Öğretmen maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 83.287 ₺ olan 1/4 öğretmen maaşı, Ocak 2027’de beklenen %6,9–%8,4 zamla yaklaşık 89.100–90.300 ₺ olur. Kesin tutar Aralık enflasyonuyla belli olacak.'),
 ('Uzman öğretmen maaşı ne kadar?','Temmuz–Aralık 2026 döneminde 1/4 derecedeki uzman öğretmenin maaşı 92.200 ₺’dir; aynı derecedeki öğretmenden aylık yaklaşık 8.900 ₺ fazladır.'),
 ('Ek ders ücreti 2026’da ne kadar?','Temmuz–Aralık 2026 döneminde gündüz ek ders ücreti brüt 220,57 ₺ (140 × 1,575512), gece ek ders ücreti brüt 236,33 ₺’dir. Net tutar vergi dilimine göre değişir.'),
 ('Yeni atanan öğretmen maaşı ne kadar?','Yeni atanan öğretmenler genellikle 9. dereceden başlar ve maaşları 1/4 derecedeki öğretmenden daha düşüktür. Kesin tutar için bordrodaki net maaşınızı hesaplayıcıya girebilirsiniz.'),
@@ -206,7 +207,7 @@ article=f'''
 <p>Diğer unvanlarla karşılaştırma için <a href="/memur-maaslari.html">memur maaşları tablosuna</a> bakabilirsiniz.</p>
 ''',
 faq=[
-('Polis maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 92.652 ₺ olan 8/1 polis memuru maaşı, Ocak 2027’de beklenen %5,5–%8 zamla yaklaşık 97.700–100.100 ₺ olur.'),
+('Polis maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 92.652 ₺ olan 8/1 polis memuru maaşı, Ocak 2027’de beklenen %6,9–%8,4 zamla yaklaşık 99.100–100.400 ₺ olur.'),
 ('Başkomiser maaşı ne kadar?','Temmuz–Aralık 2026 döneminde 3/1 derecedeki başkomiserin maaşı 101.276 ₺’dir.'),
 ('Yeni başlayan polis maaşı ne kadar?','Yeni başlayan polis memurları daha düşük derecede göreve başladığı için maaşları 8/1 derecedeki polis memurundan bir miktar düşüktür. Kesin tutar için ilk bordronuzu hesaplayıcıya girebilirsiniz.'),
 ('Polis maaşları ne zaman yatar?','Polis maaşları diğer memurlar gibi her ayın 15’inde peşin ödenir.'),
@@ -246,7 +247,7 @@ article=f'''
 <p>Diğer sağlık çalışanlarının maaşları için <a href="/doktor-maasi.html">doktor maaşı</a>, tüm unvanlar için <a href="/memur-maaslari.html">memur maaşları tablosuna</a> bakabilirsiniz.</p>
 ''',
 faq=[
-('Hemşire maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 84.879 ₺ olan 5/1 hemşire maaşı, Ocak 2027’de beklenen %5,5–%8 zamla yaklaşık 89.500–91.700 ₺ olur. Döner sermaye ve nöbet ücretleri buna ayrıca eklenir.'),
+('Hemşire maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 84.879 ₺ olan 5/1 hemşire maaşı, Ocak 2027’de beklenen %6,9–%8,4 zamla yaklaşık 90.800–92.000 ₺ olur. Döner sermaye ve nöbet ücretleri buna ayrıca eklenir.'),
 ('Hemşirelere döner sermaye ne kadar ödenir?','Döner sermaye ek ödemesi hastanenin gelirine, birime ve performans puanına göre her ay değişir; sabit bir tutarı yoktur.'),
 ('Yeni atanan hemşire maaşı ne kadar?','Yeni atanan hemşireler daha düşük derecede başladığı için maaşları 5/1 derecedeki hemşireden düşüktür. Kendi bordronuzdaki net tutarla Ocak 2027 maaşınızı hesaplayabilirsiniz.'),
 ('Hemşire maaşları ne zaman yatar?','Kamuda çalışan hemşirelerin maaşı her ayın 15’inde peşin ödenir; döner sermaye ek ödemesi ise kurumun belirlediği tarihte ayrıca yatar.'),
@@ -286,7 +287,7 @@ article=f'''
 <p>Diğer sağlık çalışanları için <a href="/hemsire-maasi.html">hemşire maaşı</a>, tüm unvanlar için <a href="/memur-maaslari.html">memur maaşları tablosuna</a> bakabilirsiniz.</p>
 ''',
 faq=[
-('Doktor maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 170.764 ₺ olan 1/4 uzman doktor maaşı, Ocak 2027’de beklenen %5,5–%8 zamla yaklaşık 180.000–184.400 ₺ olur. Döner sermaye ek ödemesi bu tutara ayrıca eklenir.'),
+('Doktor maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 170.764 ₺ olan 1/4 uzman doktor maaşı, Ocak 2027’de beklenen %6,9–%8,4 zamla yaklaşık 182.700–185.100 ₺ olur. Döner sermaye ek ödemesi bu tutara ayrıca eklenir.'),
 ('Profesör maaşı ne kadar?','Temmuz–Aralık 2026 döneminde 1/4 derecedeki profesörün maaşı 153.353 ₺’dir.'),
 ('Asistan doktor (araştırma görevlisi) maaşı ne kadar?','Temmuz–Aralık 2026 döneminde 7/1 derecedeki araştırma görevlisinin maaşı 102.813 ₺’dir; nöbet ücretleri ayrıca ödenir.'),
 ('Doktor maaşına döner sermaye dahil mi?','Tablodaki tutarlara döner sermaye dahil değildir. Döner sermaye ek ödemesi hastanenin gelirine ve hekimin performansına göre her ay değişir.'),
@@ -332,7 +333,7 @@ article=f'''
 <p>Diğer unvanlarla karşılaştırma için <a href="/memur-maaslari.html">memur maaşları tablosuna</a> bakabilirsiniz.</p>
 ''',
 faq=[
-('Kamuda mühendis maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 109.219 ₺ olan 1/4 derecedeki mühendis maaşı, Ocak 2027’de beklenen %5,5–%8 zamla yaklaşık 115.200–118.000 ₺ olur.'),
+('Kamuda mühendis maaşı 2027’de ne kadar olacak?','Temmuz 2026’da 109.219 ₺ olan 1/4 derecedeki mühendis maaşı, Ocak 2027’de beklenen %6,9–%8,4 zamla yaklaşık 116.900–118.400 ₺ olur.'),
 ('Yeni başlayan mühendis maaşı ne kadar?','Kamuda yeni başlayan mühendisler genellikle 9. dereceden başladığı için maaşları 1/4 derecedeki mühendisten daha düşüktür. Kendi bordronuzdaki net tutarla Ocak 2027 maaşınızı hesaplayabilirsiniz.'),
 ('Teknisyen maaşı ne kadar?','Temmuz–Aralık 2026 döneminde lise mezunu 11/1 derecedeki teknisyenin maaşı 75.911 ₺’dir.'),
 ('Mühendis maaşı memurdan neden yüksek?','Mühendisler Teknik Hizmetler Sınıfı’nda yer alır; bu sınıfta ek gösterge ve özel hizmet tazminatı oranları genel idare hizmetlerine göre yüksektir.'),
@@ -345,7 +346,7 @@ sources=SOURCES,
 # 7179 sayılı Askeralma Kanunu m.9: bedel = 300.000 gösterge × memur aylık katsayısı (17.04.2026 öncesi 240.000 gösterge);
 # yoklama kaçağı/bakaya ek bedeli: her ay için 3.500 gösterge × katsayı (1–30 gün bir ay). Temmuz–Aralık 2026 katsayısı 1,575512 (MSB duyurusu 472.653,60 TL).
 BED_G, BED_EK, BED_K = 300000, 3500, 1.575512
-BED_SEN = [('Düşük senaryo (%5,47 zam)', 0.0547), ('Orta senaryo (%6,74 zam)', 0.0674), ('Yüksek senaryo (%8,01 zam)', 0.0801)]
+BED_SEN = [('Düşük senaryo (%6,91 zam)', 0.0691), ('Orta senaryo (%7,55 zam)', 0.0755), ('Yüksek senaryo (%8,41 zam)', 0.0841)]
 def _b2(x):
     return f'{x:,.2f}'.replace(',', 'X').replace('.', ',').replace('X', '.')
 BED_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Dönem</th><th>Memur aylık katsayısı</th><th>Bedelli askerlik ücreti</th></tr></thead><tbody>'
@@ -357,7 +358,7 @@ BED_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Dönem</th><th>Memur
 TOOLS.append(dict(
 slug='bedelli-askerlik-hesaplama', name='Bedelli Askerlik Ücreti Hesaplama', cat='kamu', ico='🎖️',
 title='Bedelli Askerlik Ücreti 2026 – Ocak 2027’de Ne Kadar Olacak? | Hesaplarsın',
-desc=f'Bedelli askerlik ücreti Temmuz–Aralık 2026’da {_b2(BED_G * BED_K)} TL. Ocak 2027 tahmini ≈ {_b2(BED_G * BED_K * 1.0547)[:-3]} – {_b2(BED_G * BED_K * 1.0801)[:-3]} TL. Yoklama kaçağı ek bedeliyle hesaplayın.',
+desc=f'Bedelli askerlik ücreti Temmuz–Aralık 2026’da {_b2(BED_G * BED_K)} TL. Ocak 2027 tahmini ≈ {_b2(BED_G * BED_K * (1 + BED_SEN[0][1]))[:-3]} – {_b2(BED_G * BED_K * (1 + BED_SEN[2][1]))[:-3]} TL. Yoklama kaçağı ek bedeliyle hesaplayın.',
 h1='🎖️ Bedelli Askerlik Ücreti Hesaplama – 2026 ve Ocak 2027',
 lead='Bedelli askerlik ücreti, 300.000 gösterge rakamının ödeme günündeki memur aylık katsayısıyla çarpılmasıyla bulunur. Dönemi seçin; yoklama kaçağı veya bakaya durumunuz varsa geçen ay sayısını girin, ödemeniz gereken toplam bedeli görün.',
 card_title='Bedelli Askerlik Hesaplayıcı', button='Hesapla',
@@ -388,12 +389,12 @@ article=f'''<h2 id="nasil">Bedelli askerlik ücreti nasıl hesaplanır?</h2>
 <p>17 Nisan 2026’dan önce gösterge rakamı 240.000 olduğu için bedel daha düşüktü. Ocak 2027 tutarı, memurların alacağı %5 toplu sözleşme zammı ile enflasyon farkına bağlıdır; zam oranı Aralık enflasyonu açıklandığında, Ocak başında kesinleşir. Senaryoların ayrıntısı için <a href="/memur-emekli-zammi-hesaplama.html">memur zammı hesaplama</a> sayfasına bakabilirsiniz.</p>
 
 <h2 id="ocak">Ocak’tan önce ödemek avantajlı mı?</h2>
-<p>Bedel, ödemenin yapıldığı gündeki katsayıyla hesaplanır. Bu yüzden Aralık sonuna kadar yapılan ödemelerde Temmuz–Aralık 2026 tutarı ({_b2(BED_G * BED_K)} ₺) geçerlidir; Ocak 2027’de katsayı artınca bedel de yaklaşık {_b2(BED_G * BED_K * 0.0547)[:-3]} – {_b2(BED_G * BED_K * 0.0801)[:-3]} ₺ artacak. Başvuru ve ödeme tarihlerini Milli Savunma Bakanlığı’nın dönem duyurusundan kontrol edin.</p>
+<p>Bedel, ödemenin yapıldığı gündeki katsayıyla hesaplanır. Bu yüzden Aralık sonuna kadar yapılan ödemelerde Temmuz–Aralık 2026 tutarı ({_b2(BED_G * BED_K)} ₺) geçerlidir; Ocak 2027’de katsayı artınca bedel de yaklaşık {_b2(BED_G * BED_K * BED_SEN[0][1])[:-3]} – {_b2(BED_G * BED_K * BED_SEN[2][1])[:-3]} ₺ artacak. Başvuru ve ödeme tarihlerini Milli Savunma Bakanlığı’nın dönem duyurusundan kontrol edin.</p>
 
 <h2 id="ek">Yoklama kaçağı ve bakaya için ek bedel</h2>
 <p>Yoklama kaçağı, bakaya veya saklı durumunda olanlar bedelli askerlikten yararlanmak için bedele ek olarak, bu durumda geçen <b>her ay için 3.500 gösterge × memur aylık katsayısı</b> kadar ek bedel öder. 1 ile 30 gün arası süre bir ay sayılır. Temmuz–Aralık 2026 döneminde aylık ek bedel <b>{_b2(BED_EK * BED_K)} ₺</b>’dir. Bu durumdakilere Askeralma Kanunu’na göre ayrıca idari para cezası uygulanabilir.</p>''',
 faq=[('Bedelli askerlik ücreti 2026’da ne kadar?', f'1 Temmuz – 31 Aralık 2026 döneminde bedelli askerlik ücreti {_b2(BED_G * BED_K)} ₺’dir (300.000 × 1,575512).'),
-     ('Ocak 2027’de bedelli askerlik ne kadar olacak?', f'Memur zammı senaryolarına göre Ocak 2027’de bedel yaklaşık {_b2(BED_G * BED_K * 1.0547)[:-3]} ile {_b2(BED_G * BED_K * 1.0801)[:-3]} ₺ arasında olacak. Kesin tutar Ocak başında memur katsayısı açıklanınca belli olur.'),
+     ('Ocak 2027’de bedelli askerlik ne kadar olacak?', f'Memur zammı senaryolarına göre Ocak 2027’de bedel yaklaşık {_b2(BED_G * BED_K * (1 + BED_SEN[0][1]))[:-3]} ile {_b2(BED_G * BED_K * (1 + BED_SEN[2][1]))[:-3]} ₺ arasında olacak. Kesin tutar Ocak başında memur katsayısı açıklanınca belli olur.'),
      ('Bedelli askerlik ücreti nasıl hesaplanır?', '300.000 gösterge rakamı, ödeme günündeki memur aylık katsayısıyla çarpılır. Katsayı Ocak ve Temmuz’da güncellendiği için ücret yılda iki kez değişir.'),
      ('Yoklama kaçağı bedelli ücreti ne kadar?', f'Bedele ek olarak kaçak ya da bakaya geçen her ay için 3.500 × memur aylık katsayısı kadar ek bedel ödenir. Temmuz–Aralık 2026’da aylık ek bedel {_b2(BED_EK * BED_K)} ₺’dir; ayrıca idari para cezası uygulanabilir.')],
 related=['memur-emekli-zammi-hesaplama', 'memur-maaslari', 'yas-hesaplama', 'gun-hesaplama', 'net-maas-hesaplama'],

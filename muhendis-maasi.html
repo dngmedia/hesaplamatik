@@ -29,7 +29,7 @@
 <meta name="theme-color" content="#1a56db" />
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Mühendis Maaşı 2027", "url": "https://hesaplarsin.com/muhendis-maasi.html", "description": "Kamuda mühendis maaşı 2027: Temmuz 2026’da 1/4 derecede 109.219 TL. Ocak 2027 zam tahmini, teknik hizmetler sınıfı, özel sektör farkı ve hesaplama.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "tr-TR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"}, "dateModified": "2026-10-21", "publisher": {"@type": "Organization", "name": "Hesaplarsın", "url": "https://hesaplarsin.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://hesaplarsin.com/"}, {"@type": "ListItem", "position": 2, "name": "Kamu & Memur Araçları", "item": "https://hesaplarsin.com/memur-hesaplamalari.html"}, {"@type": "ListItem", "position": 3, "name": "Mühendis Maaşı 2027", "item": "https://hesaplarsin.com/muhendis-maasi.html"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kamuda mühendis maaşı 2027’de ne kadar olacak?", "acceptedAnswer": {"@type": "Answer", "text": "Temmuz 2026’da 109.219 ₺ olan 1/4 derecedeki mühendis maaşı, Ocak 2027’de beklenen %5,5–%8 zamla yaklaşık 115.200–118.000 ₺ olur."}}, {"@type": "Question", "name": "Yeni başlayan mühendis maaşı ne kadar?", "acceptedAnswer": {"@type": "Answer", "text": "Kamuda yeni başlayan mühendisler genellikle 9. dereceden başladığı için maaşları 1/4 derecedeki mühendisten daha düşüktür. Kendi bordronuzdaki net tutarla Ocak 2027 maaşınızı hesaplayabilirsiniz."}}, {"@type": "Question", "name": "Teknisyen maaşı ne kadar?", "acceptedAnswer": {"@type": "Answer", "text": "Temmuz–Aralık 2026 döneminde lise mezunu 11/1 derecedeki teknisyenin maaşı 75.911 ₺’dir."}}, {"@type": "Question", "name": "Mühendis maaşı memurdan neden yüksek?", "acceptedAnswer": {"@type": "Answer", "text": "Mühendisler Teknik Hizmetler Sınıfı’nda yer alır; bu sınıfta ek gösterge ve özel hizmet tazminatı oranları genel idare hizmetlerine göre yüksektir."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kamuda mühendis maaşı 2027’de ne kadar olacak?", "acceptedAnswer": {"@type": "Answer", "text": "Temmuz 2026’da 109.219 ₺ olan 1/4 derecedeki mühendis maaşı, Ocak 2027’de beklenen %6,9–%8,4 zamla yaklaşık 116.900–118.400 ₺ olur."}}, {"@type": "Question", "name": "Yeni başlayan mühendis maaşı ne kadar?", "acceptedAnswer": {"@type": "Answer", "text": "Kamuda yeni başlayan mühendisler genellikle 9. dereceden başladığı için maaşları 1/4 derecedeki mühendisten daha düşüktür. Kendi bordronuzdaki net tutarla Ocak 2027 maaşınızı hesaplayabilirsiniz."}}, {"@type": "Question", "name": "Teknisyen maaşı ne kadar?", "acceptedAnswer": {"@type": "Answer", "text": "Temmuz–Aralık 2026 döneminde lise mezunu 11/1 derecedeki teknisyenin maaşı 75.911 ₺’dir."}}, {"@type": "Question", "name": "Mühendis maaşı memurdan neden yüksek?", "acceptedAnswer": {"@type": "Answer", "text": "Mühendisler Teknik Hizmetler Sınıfı’nda yer alır; bu sınıfta ek gösterge ve özel hizmet tazminatı oranları genel idare hizmetlerine göre yüksektir."}}]}</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--brand:#1a56db;--brand-dark:#1341b0;--brand-light:#e8f0fe;--accent:#f59e0b;--success:#10b981;--danger:#dc2626;
@@ -204,7 +204,7 @@ footer.hz-foot a:hover{color:#fff!important}
       <div class="form-grid">
 <div class="field full"><label for="unvan">Unvan</label><select id="unvan"><option value="109219">Mühendis (1/4) – 109.219 ₺</option><option value="75911">Teknisyen, lise mezunu (11/1) – 75.911 ₺</option><option value="0">Diğer / kendi maaşımı gireceğim</option></select></div>
 <div class="field"><label for="maas">Mevcut Net Maaşınız (₺) <small>bordronuzdaki tutar; boş bırakırsanız örnek maaş kullanılır</small></label><input type="text" autocomplete="off" id="maas" placeholder="örn: 85.000" inputmode="decimal"></div>
-<div class="field"><label for="aylik">Ekim–Aralık aylık ort. enflasyon tahmini (%)</label><input type="text" autocomplete="off" id="aylik" value="1" inputmode="decimal"></div>
+<div class="field"><label for="aylik">Kasım–Aralık aylık ort. enflasyon tahmini (%)</label><input type="text" autocomplete="off" id="aylik" value="0.6" inputmode="decimal"></div>
 </div>
       <button class="btn-calc" type="button" onclick="run()">Mühendis Maaşını Hesapla</button>
       <button class="btn-reset" type="button" onclick="sifirla()">Temizle</button>
@@ -228,7 +228,7 @@ footer.hz-foot a:hover{color:#fff!important}
 <p><b>Kısa cevap:</b> Temmuz–Aralık 2026 döneminde kamuda 1/4 derecedeki bir mühendisin maaşı <b>109.219 ₺</b>’dir. Ocak 2027’de memur zammıyla bu tutarın yaklaşık <b>115.200–118.000 ₺</b> aralığına çıkması bekleniyor. Aynı dönemde lise mezunu 11/1 teknisyenin maaşı 75.911 ₺’dir.</p>
 
 <h2 id="b-tablo">Mühendis ve teknisyen maaşı: Temmuz 2026 ve Ocak 2027 tahmini</h2>
-<div class="table-wrap"><table><thead><tr><th>Unvan</th><th>Temmuz–Aralık 2026</th><th>Ocak 2027 (%5,47)</th><th>Ocak 2027 (%6,74)</th><th>Ocak 2027 (%8,01)</th></tr></thead><tbody><tr><td>Mühendis (1/4)</td><td><b>109.219 ₺</b></td><td>115.196 ₺</td><td>116.576 ₺</td><td>117.966 ₺</td></tr><tr><td>Teknisyen, lise mezunu (11/1)</td><td><b>75.911 ₺</b></td><td>80.065 ₺</td><td>81.024 ₺</td><td>81.991 ₺</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Unvan</th><th>Temmuz–Aralık 2026</th><th>Ocak 2027 (%6,90)</th><th>Ocak 2027 (%7,54)</th><th>Ocak 2027 (%8,40)</th></tr></thead><tbody><tr><td>Mühendis (1/4)</td><td><b>109.219 ₺</b></td><td>116.760 ₺</td><td>117.459 ₺</td><td>118.395 ₺</td></tr><tr><td>Teknisyen, lise mezunu (11/1)</td><td><b>75.911 ₺</b></td><td>81.152 ₺</td><td>81.638 ₺</td><td>82.289 ₺</td></tr></tbody></table></div>
 <p><small>Tablolardaki tutarlar, basında yayımlanan Temmuz 2026 memur maaş tablolarından alınmıştır (Ocak 2026 maaşlarına %13,52 Temmuz zammı uygulanmış). Aile yardımı, ek ders, nöbet, döner sermaye ve bölgesel ödemeler hariçtir; derece, kademe, hizmet yılı ve kuruma göre değişir. Kendi bordronuzdaki tutarı hesaplayıcıya girerek kişisel sonucunuzu görebilirsiniz.</small></p>
 
 <h2 id="b-neden">Kamuda mühendis maaşı neden yüksek?</h2>
@@ -252,7 +252,7 @@ footer.hz-foot a:hover{color:#fff!important}
 <p>Diğer unvanlarla karşılaştırma için <a href="/memur-maaslari.html">memur maaşları tablosuna</a> bakabilirsiniz.</p>
 
   <h2 id="sss">Sık Sorulan Sorular</h2>
-  <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Kamuda mühendis maaşı 2027’de ne kadar olacak?</button><div class="faq-a">Temmuz 2026’da 109.219 ₺ olan 1/4 derecedeki mühendis maaşı, Ocak 2027’de beklenen %5,5–%8 zamla yaklaşık 115.200–118.000 ₺ olur.</div></div>
+  <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Kamuda mühendis maaşı 2027’de ne kadar olacak?</button><div class="faq-a">Temmuz 2026’da 109.219 ₺ olan 1/4 derecedeki mühendis maaşı, Ocak 2027’de beklenen %6,9–%8,4 zamla yaklaşık 116.900–118.400 ₺ olur.</div></div>
 <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Yeni başlayan mühendis maaşı ne kadar?</button><div class="faq-a">Kamuda yeni başlayan mühendisler genellikle 9. dereceden başladığı için maaşları 1/4 derecedeki mühendisten daha düşüktür. Kendi bordronuzdaki net tutarla Ocak 2027 maaşınızı hesaplayabilirsiniz.</div></div>
 <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Teknisyen maaşı ne kadar?</button><div class="faq-a">Temmuz–Aralık 2026 döneminde lise mezunu 11/1 derecedeki teknisyenin maaşı 75.911 ₺’dir.</div></div>
 <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Mühendis maaşı memurdan neden yüksek?</button><div class="faq-a">Mühendisler Teknik Hizmetler Sınıfı’nda yer alır; bu sınıfta ek gösterge ve özel hizmet tazminatı oranları genel idare hizmetlerine göre yüksektir.</div></div>
@@ -317,16 +317,16 @@ document.addEventListener('DOMContentLoaded',function(){
 
 // ── MÜHENDIS MAAŞI 2027 ──
 
-var Q3=0.0557, TS=0.05, ONCEKI=0.07;
-function zam(a){var h=(1+Q3)*Math.pow(1+a/100,3)-1, f=Math.max(0,(1+h)/(1+ONCEKI)-1); return {h:h,f:f,z:(1+TS)*(1+f)-1};}
+var Q3=0.0829, TS=0.05, ONCEKI=0.07;
+function zam(a){var h=(1+Q3)*Math.pow(1+a/100,2)-1, f=Math.max(0,(1+h)/(1+ONCEKI)-1); return {h:h,f:f,z:(1+TS)*(1+f)-1};}
 function hesapla(){
   var m=v('maas'); if(!(m>0)) m=parseFloat(el('unvan').value); if(!(m>0)) return 'Mevcut net maaşınızı girin.';
   var a=v('aylik'); if(isNaN(a)) a=1; if(a<-2||a>10) return 'Aylık enflasyon tahmini −2 ile 10 arasında olmalı.';
-  var r=zam(a), lo=zam(0.6), hi=zam(1.4), y=m*(1+r.z);
+  var r=zam(a), lo=zam(0.3), hi=zam(1.0), y=m*(1+r.z);
   return {main:['Ocak 2027 tahmini net maaş', tl(y)], sub:'%'+num(r.z*100,2)+' zamla (Temmuz–Aralık 2026 maaşı: '+tl(m)+')',
     rows:[['6 aylık enflasyon (Temmuz–Aralık)',pct(r.h*100)],['Toplu sözleşme zammı','%5,00'],['Enflasyon farkı',pct(r.f*100)],['Toplam zam',pct(r.z*100),'hl'],
-          ['Aylık artış',tl(y-m)],['Düşük senaryo (aylık %0,6 enflasyon)',tl(m*(1+lo.z))],['Yüksek senaryo (aylık %1,4 enflasyon)',tl(m*(1+hi.z))]],
-    note:'Temmuz–Eylül 2026 enflasyonu %5,57 olarak gerçekleşti. Kesin zam Aralık enflasyonunun açıklandığı Ocak 2027’nin ilk günlerinde belli olur. Aile yardımı, ek ders, nöbet ve döner sermaye ödemeleri hesaba dahil değildir.'};
+          ['Aylık artış',tl(y-m)],['Düşük senaryo (aylık %0,3 enflasyon)',tl(m*(1+lo.z))],['Yüksek senaryo (aylık %1,0 enflasyon)',tl(m*(1+hi.z))]],
+    note:'Temmuz–Ekim 2026 enflasyonu %8,29 olarak gerçekleşti. Kesin zam Aralık enflasyonunun açıklandığı Ocak 2027’nin ilk günlerinde belli olur. Aile yardımı, ek ders, nöbet ve döner sermaye ödemeleri hesaba dahil değildir.'};
 }
 </script>
 <script id="hz-js">(function(){var b=document.getElementById('hzHam'),n=document.getElementById('hzLinks');if(!b||!n)return;

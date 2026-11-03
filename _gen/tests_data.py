@@ -32,7 +32,7 @@ TESTS.update({
  'yatirim-geri-donus-suresi-hesaplama': [dict(fill={'yatirim': '1.200.000', 'nakit': '25000'}, expect='4 yıl 0 ay'), dict(fill={'yatirim': '1200000', 'nakit': '25000', 'artis': '25', 'iskonto': '30'})],
  'iskonto-hesaplama': [dict(fill={'fiyat': '10000', 'oranlar': '20 10 5'}, expect='6.840,00'), dict(radio={'mod': 'senet'}, fill={'nominal': '100000', 'gun': '90', 'faiz': '45'})],
  'kira-getirisi-hesaplama': [dict(fill={'fiyat': '4500000', 'kira': '22000', 'masraf': '180000', 'gider': '15000', 'bos': '1', 'artis': '30'})],
- 'kira-artis-hesaplama': [dict(fill={'kira': '20000'}, expect='26.298,00'), dict(fill={'kira': '20000', 'anlasma': '25'}, expect='25.000,00')],
+ 'kira-artis-hesaplama': [dict(fill={'kira': '20000'}, expect='26.246,00'), dict(fill={'kira': '20000', 'anlasma': '25'}, expect='25.000,00')],
  'metrekare-fiyat-hesaplama': [dict(fill={'f1': '3850000', 'm1': '110', 'f2': '4000000', 'm2': '120', 'hedefm': '125'}, expect='35.000')],
  'kar-zarar-hesaplama': [dict(fill={'alis': '750', 'satis': '1000'}, expect='250,00')],
  'kar-marji-hesaplama': [dict(fill={'maliyet': '400', 'satis': '560'}, expect='%28,57'), dict(radio={'mod': 'fiyat'}, fill={'maliyet': '400', 'hedef': '30'}, expect='571,43')],
@@ -58,17 +58,17 @@ TESTS.update({
  'takdir-tesekkur-hesaplama': [dict(fill={}, expect_toast='Derslerinize')],
 })
 TESTS['takdir-tesekkur-hesaplama'].append(dict(fill={}, js="document.querySelectorAll('#dersler .ders').forEach(function(d,i){d.children[1].value=[80,90,85,75,88,95,100,90][i];});", expect='TAKDİR'))
-TESTS['memur-emekli-zammi-hesaplama']=[dict(fill={'tur':'emekli','maas':'50.000','aylik':'1'}, expect='54.384'), dict(fill={'tur':'memur','maas':'50000','aylik':'1'}, expect='53.367'), dict(fill={'tur':'memuremekli','maas':'30000','alti':'10'}, expect='32.383')]
-TESTS['memur-maaslari']=[dict(fill={'aylik':'1'}, expect='88.897'), dict(fill={'unvan':'0','maas':'100.000','aylik':'1'}, expect='106.73')]
-TESTS['ogretmen-maasi']=[dict(fill={'aylik':'1'}, expect='88.897')]
-TESTS['polis-maasi']=[dict(fill={'aylik':'1'}, expect='98.89')]
-TESTS['hemsire-maasi']=[dict(fill={'aylik':'1'}, expect='90.59')]
-TESTS['doktor-maasi']=[dict(fill={'aylik':'1'}, expect='182.266')]
+TESTS['memur-emekli-zammi-hesaplama']=[dict(fill={'tur':'emekli','maas':'50.000','aylik':'1'}, expect='55.233'), dict(fill={'tur':'memur','maas':'50000','aylik':'1'}, expect='54.200'), dict(fill={'tur':'memuremekli','maas':'30000','alti':'10'}, expect='32.383')]
+TESTS['memur-maaslari']=[dict(fill={'aylik':'1'}, expect='90.284'), dict(fill={'unvan':'0','maas':'100.000','aylik':'1'}, expect='108.40')]
+TESTS['ogretmen-maasi']=[dict(fill={'aylik':'1'}, expect='90.284')]
+TESTS['polis-maasi']=[dict(fill={'aylik':'1'}, expect='100.436')]
+TESTS['hemsire-maasi']=[dict(fill={'aylik':'1'}, expect='92.010')]
+TESTS['doktor-maasi']=[dict(fill={'aylik':'1'}, expect='185.111')]
 TESTS['issizlik-maasi-hesaplama']=[dict(fill={'brut':'50.000','gun':'180'}, expect='19.848,20'), dict(fill={'brut':'90000','gun':'300'}, expect='26.223,44'), dict(fill={'brut':'40000','gun':'0'}, expect_toast='600 gün')]
-TESTS['muhendis-maasi']=[dict(fill={'aylik':'1'}, expect='116.57')]
+TESTS['muhendis-maasi']=[dict(fill={'aylik':'1'}, expect='118.395')]
 TESTS['ekonomi-takvimi']=[dict(fill={'grup':'enflasyon'}, expect='gün'), dict(fill={'grup':'faiz'})]
 TESTS['maas-siralamasi']=[dict(fill={'maas':'42.000'}, expect='En üst'), dict(fill={'maas':'28075,50'}, expect='46,7'), dict(fill={'maas':'20000'}, expect='Alt %25'), dict(fill={'maas':'150000'}, expect='≈')]
-TESTS['emekli-maasi-hesaplama']=[dict(fill={'tur':'ssk','maas':'30000','aylik':'1'}, expect='32.630,66'), dict(fill={'tur':'memur','maas':'30000','aylik':'1'}, expect='32.020,74'), dict(fill={'tur':'bagkur','maas':'20000','aylik':'1'}, expect='23.552')]
+TESTS['emekli-maasi-hesaplama']=[dict(fill={'tur':'ssk','maas':'30000','aylik':'1'}, expect='33.139,99'), dict(fill={'tur':'memur','maas':'30000','aylik':'1'}, expect='32.520,55'), dict(fill={'tur':'bagkur','maas':'20000','aylik':'1'}, expect='23.552')]
 TESTS['obp-hesaplama']=[dict(fill={'dip':'85','ham':'380'}, expect='425'), dict(fill={'dip':'40'}, expect='250'), dict(fill={'dip':'80'}, check=['once'], expect='400,00')]
 
 TESTS['lgs-puan-hesaplama']=[dict(fill={'trd':'17','matd':'15','fend':'16','inkd':'9','dind':'9','ingd':'8'}, expect='442,31'),

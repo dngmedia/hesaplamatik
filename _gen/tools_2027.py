@@ -57,7 +57,7 @@ lead='2027 asgari ücreti Aralık 2026’da açıklanacak. Beklenen zam oranlar�
 card_title='2027 Asgari Ücret Senaryo Hesaplayıcı', button='Hesapla',
 form=FORM, js=JS,
 article=f'''<h2 id="senaryolar">2027 asgari ücret senaryoları</h2>
-<p>Asgari ücret artışının sabit bir formülü yoktur, ancak Asgari Ücret Tespit Komisyonu kararlarında yıl sonu enflasyon tahmini temel referanstır. Eylül 2026’da yıllık enflasyon %29,73, yılın ilk 9 ayındaki enflasyon %24,32 oldu. Orta Vadeli Program 2026 yıl sonu enflasyonunu %28,4 olarak öngörüyor. Bu verilere göre farklı artış oranlarında 2027 asgari ücreti:</p>
+<p>Asgari ücret artışının sabit bir formülü yoktur, ancak Asgari Ücret Tespit Komisyonu kararlarında yıl sonu enflasyon tahmini temel referanstır. Ekim 2026’da yıllık enflasyon %29,77, yılın ilk 10 ayındaki enflasyon %27,53 oldu (TÜİK, 3 Kasım 2026). Orta Vadeli Program 2026 yıl sonu enflasyonunu %28,4 olarak öngörüyor. Bu verilere göre farklı artış oranlarında 2027 asgari ücreti:</p>
 {TABLO}
 <p>Kurumların tahminleri %28 ile %30,4 arasında yoğunlaşıyor; bu aralıkta net asgari ücret yaklaşık <strong>36.000–36.600 ₺</strong> olur.</p>
 <h2 id="nasil">Net asgari ücret nasıl hesaplanır?</h2>
@@ -156,13 +156,13 @@ badges=['✓ Ücretsiz', '2026 Stopaj Oranları', 'Temettü Dahil'],
 # Kaynaklar (24 Ekim 2026 kontrol): Ocak 2026 SSK/Bağ-Kur zammı %12,19; Temmuz 2026 SSK/Bağ-Kur zammı %17,76 (Ocak–Haziran 6 aylık TÜFE);
 # memur emeklisi Temmuz 2026 %13,52; en düşük emekli aylığı 20.000 → 23.552 ₺ (7590 sayılı Kanun, Temmuz 2026);
 # 65 yaş aylığı 7.257 ₺, engelli aylığı 5.793 / 8.690 ₺ (Temmuz 2026); bayram ikramiyesi 4.000 ₺.
-# Temmuz–Eylül 2026 TÜFE: %5,57 (memur-emekli-zammi-hesaplama ile aynı). GÜNCELLEME: Q3_26 → Ekim/Kasım verisiyle.
-Q3_26 = 5.57
+# Temmuz–Ekim 2026 TÜFE: %8,29 (Q3 %5,57 × Ekim %2,58) (memur-emekli-zammi-hesaplama ile aynı). GÜNCELLEME: Q3_26 → Ekim/Kasım verisiyle.
+Q3_26 = 8.29
 EN_DUSUK = 23552
 
 
 def _alti(a):
-    return ((1 + Q3_26 / 100) * (1 + a / 100) ** 3 - 1) * 100
+    return ((1 + Q3_26 / 100) * (1 + a / 100) ** 2 - 1) * 100
 
 
 def _memur(h):
@@ -171,31 +171,31 @@ def _memur(h):
 
 
 EM_TABLO = ('<div class="table-wrap"><table><thead><tr><th>Şu anki aylık</th>'
-            + ''.join(f'<th>Ekim–Aralık ayda %{tr(a, 1)} (zam %{tr(_alti(a))})</th>' for a in (0.6, 1.0, 1.4))
+            + ''.join(f'<th>Kasım–Aralık ayda %{tr(a, 1)} (zam %{tr(_alti(a))})</th>' for a in (0.3, 0.6, 1.0))
             + '</tr></thead><tbody>'
-            + ''.join('<tr><td>' + tr(m, 0) + ' ₺</td>' + ''.join(f'<td>{tr(max(m * (1 + _alti(a) / 100), 0), 0)} ₺</td>' for a in (0.6, 1.0, 1.4)) + '</tr>'
+            + ''.join('<tr><td>' + tr(m, 0) + ' ₺</td>' + ''.join(f'<td>{tr(max(m * (1 + _alti(a) / 100), 0), 0)} ₺</td>' for a in (0.3, 0.6, 1.0)) + '</tr>'
                       for m in (23552, 25000, 30000, 35000, 40000, 50000))
             + '</tbody></table></div>')
 
 EM_FORM = '''<div class="form-grid">
 <div class="field"><label for="tur">Emeklilik türü</label><select id="tur"><option value="ssk">SSK emeklisi (4A)</option><option value="bagkur">Bağ-Kur emeklisi (4B)</option><option value="memur">Memur emeklisi (4C, Emekli Sandığı)</option></select></div>
 <div class="field"><label for="maas">Şu an aldığınız aylık (₺)</label><input type="number" id="maas" placeholder="örn: 30.000" inputmode="decimal"></div>
-<div class="field"><label for="aylik">Ekim–Aralık aylık ortalama enflasyon tahmini (%)</label><input type="number" id="aylik" value="1" inputmode="decimal"></div>
+<div class="field"><label for="aylik">Kasım–Aralık aylık ortalama enflasyon tahmini (%)</label><input type="number" id="aylik" value="0.6" inputmode="decimal"></div>
 <div class="field full"><label class="chk"><input type="checkbox" id="taban"> En düşük emekli aylığını (23.552 ₺) alıyorum</label></div>
 </div>'''
 
 EM_JS = r'''
-var Q3=0.0557, EN_DUSUK=23552;
+var Q3=0.0829, EN_DUSUK=23552;
 function hesapla(){
   var tur=el('tur').value, taban=checked('taban'), m=taban?EN_DUSUK:v('maas');
   if(!(m>0)) return 'Şu an aldığınız aylığı girin.';
   var a=v('aylik'); if(isNaN(a)) a=1; if(a<-2||a>10) return 'Aylık enflasyon tahmini −2 ile 10 arasında olmalı.';
-  var h=(1+Q3)*Math.pow(1+a/100,3)-1, z;
+  var h=(1+Q3)*Math.pow(1+a/100,2)-1, z;
   if(tur==='memur'){ var fark=Math.max(0,(1+h)/1.07-1); z=1.05*(1+fark)-1; } else { z=h; }
   var y=m*(1+z), rows=[['Temmuz–Aralık 2026 enflasyonu (tahmini)',pct(h*100)],['Ocak 2027 zam oranı (tahmini)',pct(z*100),'hl'],
     ['Zam yöntemi',tur==='memur'?'%5 toplu sözleşme + enflasyon farkı':'6 aylık TÜFE artışı kadar'],['Aylık artış',tl(y-m)],['Ocak–Haziran 2027 toplam ek gelir',tl((y-m)*6)],
     ['Bayram ikramiyesi (2026)','4.000 ₺ (her bayram)']];
-  var note='Temmuz–Eylül 2026 enflasyonu %5,57 olarak gerçekleşti; kalan aylar sizin tahmininizle hesaplandı. Kesin oran Aralık enflasyonunun açıklandığı Ocak 2027’nin ilk günlerinde belli olur.';
+  var note='Temmuz–Ekim 2026 enflasyonu %8,29 olarak gerçekleşti; kalan aylar sizin tahmininizle hesaplandı. Kesin oran Aralık enflasyonunun açıklandığı Ocak 2027’nin ilk günlerinde belli olur.';
   if(tur!=='memur' && (taban || m<=EN_DUSUK)){
     note='En düşük aylık alanlarda zam, kanunla belirlenen tabana değil kök aylığa uygulanır. Ocak 2027’de taban için yeni bir yasal düzenleme yapılmazsa aylığınız 23.552 ₺ kalabilir; taban zam oranında artırılırsa '+tl(EN_DUSUK*(1+z))+' olur. '+note;
     rows=[rows[0],rows[1],['Taban sabit kalırsa',tl(EN_DUSUK)],['Taban zam oranında artırılırsa',tl(EN_DUSUK*(1+z))],rows[5]];
@@ -228,12 +228,12 @@ article=f'''<h2 id="2026-rakamlar">2026’da emekli maaşları: kesinleşen raka
 <p>En düşük emekli aylığı Temmuz 2026’da 7590 sayılı Kanun’la 20.000 ₺’den 23.552 ₺’ye yükseltildi. Kanun Temmuz ödemelerinden sonra yürürlüğe girdiği için aradaki <b>3.552 ₺ fark</b> en düşük aylık alan emeklilere sonradan, ayrı bir ödemeyle verildi. 65 yaş ve engelli aylıkları memur maaş katsayısına bağlı olduğundan memur zammıyla aynı dönemlerde artar.</p>
 
 <h2 id="ocak-2027">Ocak 2027 emekli zammı ne kadar olacak?</h2>
-<p>SSK (4A) ve Bağ-Kur (4B) emeklileri Ocak’ta, Temmuz–Aralık dönemindeki <b>altı aylık TÜFE artışı</b> kadar zam alır. Temmuz–Eylül 2026 enflasyonu %5,57 olarak gerçekleşti. Memur emeklileri (4C) ise 2027’nin ilk yarısı için toplu sözleşmedeki %5 zamla birlikte, altı aylık enflasyonun %7’yi aşan kısmı kadar enflasyon farkı alır.</p>
-<div class="formula">SSK / Bağ-Kur zammı = 1,0557 × (1 + Ekim) × (1 + Kasım) × (1 + Aralık) − 1</div>
-<p>Ekim–Aralık için farklı aylık enflasyon varsayımlarıyla SSK ve Bağ-Kur emeklilerinin Ocak 2027 tahmini aylıkları:</p>
+<p>SSK (4A) ve Bağ-Kur (4B) emeklileri Ocak’ta, Temmuz–Aralık dönemindeki <b>altı aylık TÜFE artışı</b> kadar zam alır. Temmuz–Ekim 2026 enflasyonu %8,29 olarak gerçekleşti. Memur emeklileri (4C) ise 2027’nin ilk yarısı için toplu sözleşmedeki %5 zamla birlikte, altı aylık enflasyonun %7’yi aşan kısmı kadar enflasyon farkı alır.</p>
+<div class="formula">SSK / Bağ-Kur zammı = 1,0829 × (1 + Kasım) × (1 + Aralık) − 1</div>
+<p>Kasım–Aralık için farklı aylık enflasyon varsayımlarıyla SSK ve Bağ-Kur emeklilerinin Ocak 2027 tahmini aylıkları:</p>
 {EM_TABLO}
 <p style="font-size:.85rem;color:var(--muted)">23.552 ₺ satırı, kök aylığı tabana eşit olan emekliler içindir. Kök aylığı daha düşük olup taban tamamlamasıyla 23.552 ₺ alanlarda Ocak 2027 tutarı yasal düzenlemeye bağlıdır.</p>
-<p>Aynı senaryolarda memur emeklisi zammı sırasıyla yaklaşık %{tr(_memur(_alti(0.6)))}, %{tr(_memur(_alti(1.0)))} ve %{tr(_memur(_alti(1.4)))} olur. Memur ve memur emeklisi için ayrıntılı hesap: <a href="https://hesaplarsin.com/memur-emekli-zammi-hesaplama.html">memur ve emekli zammı hesaplama</a>.</p>
+<p>Aynı senaryolarda memur emeklisi zammı sırasıyla yaklaşık %{tr(_memur(_alti(0.3)))}, %{tr(_memur(_alti(0.6)))} ve %{tr(_memur(_alti(1.0)))} olur. Memur ve memur emeklisi için ayrıntılı hesap: <a href="https://hesaplarsin.com/memur-emekli-zammi-hesaplama.html">memur ve emekli zammı hesaplama</a>.</p>
 
 <h2 id="en-dusuk">En düşük emekli maaşı nasıl belirlenir?</h2>
 <p>En düşük emekli aylığı bir zam oranı değil, <b>kanunla belirlenen bir tabandır</b>. Kök aylığı bu tutarın altında kalan emeklilere aradaki fark Hazine tarafından tamamlanır. Bu nedenle Ocak zammı kök aylığa uygulanır; zamlı kök aylık hâlâ tabanın altında kalıyorsa emekli, yeni bir yasal düzenleme yapılana kadar taban tutarı almaya devam eder. Son yıllarda taban her zam döneminde ayrı bir kanunla yükseltildi.</p>
@@ -247,7 +247,7 @@ article=f'''<h2 id="2026-rakamlar">2026’da emekli maaşları: kesinleşen raka
 <p>Henüz emekli olmadıysanız ne zaman emekli olacağınızı <a href="https://hesaplarsin.com/emeklilik-yasi-hesaplama.html">emeklilik yaşı hesaplama</a> aracıyla bulabilirsiniz.</p>''',
 faq=[('En düşük emekli maaşı 2026’da ne kadar?', 'Temmuz 2026’dan itibaren en düşük emekli aylığı 23.552 ₺’dir. Ocak–Haziran 2026 döneminde 20.000 ₺ idi.'),
      ('2026 Temmuz emekli zammı yüzde kaç oldu?', 'SSK ve Bağ-Kur emeklileri Ocak–Haziran 2026 enflasyonu kadar %17,76, memur emeklileri %13,52 zam aldı. Ocak 2026’da SSK ve Bağ-Kur zammı %12,19 idi.'),
-     ('Ocak 2027 emekli zammı ne kadar olacak?', 'Temmuz–Eylül enflasyonu %5,57 gerçekleşti. Ekim–Aralık’ta aylık ortalama %1 enflasyonla SSK ve Bağ-Kur emeklilerinin zammı yaklaşık %' + tr(_alti(1.0)) + ' olur. Kesin oran Ocak 2027’nin ilk günlerinde belli olacak.'),
+     ('Ocak 2027 emekli zammı ne kadar olacak?', 'Temmuz–Ekim enflasyonu %8,29 gerçekleşti. Kasım–Aralık’ta aylık ortalama %0,6 enflasyonla SSK ve Bağ-Kur emeklilerinin zammı yaklaşık %' + tr(_alti(0.6)) + ' olur. Kesin oran Ocak 2027’nin ilk günlerinde belli olacak.'),
      ('65 yaş aylığı ne kadar?', 'Temmuz 2026’dan itibaren 65 yaş (yaşlılık) aylığı 7.257 ₺’dir. Bu aylık memur maaş katsayısına bağlı olduğundan Ocak 2027’de memur zammı oranında artar.'),
      ('Emekli bayram ikramiyesi ne kadar?', '2026’da emeklilere Ramazan ve Kurban bayramlarında ayrı ayrı 4.000 ₺ bayram ikramiyesi ödendi.')],
 related=['memur-emekli-zammi-hesaplama', 'emeklilik-yasi-hesaplama', 'enflasyon-hesaplama', 'asgari-ucret-2027-hesaplama', 'maas-zam-hesaplama'],

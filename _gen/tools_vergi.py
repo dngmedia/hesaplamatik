@@ -36,7 +36,7 @@ function doldur(){var m=el('tip').value==='moto', s=el('cc'); s.innerHTML=(m?MCC
   el('f-tescil').style.display=m?'none':''; degerGoster();}
 function degerGoster(){el('f-deger').style.display=(el('tip').value==='oto'&&el('tescil').value==='yeni')?'':'none';}
 function onReady(){doldur(); el('tip').addEventListener('change',doldur); el('tescil').addEventListener('change',degerGoster);}
-var R27=[[0.20,'sınırlı artış, %20'],[0.2781,'tam oran, %27,81']];
+var R27=[[0.20,'sınırlı artış, %20'],[0.2741,'tam oran, %27,41']];
 function hesapla(){
   var m=el('tip').value==='moto', c=+el('cc').value, y=+el('yas').value, aciklama, d=v('deger');
   function tut(yy){ if(m) return MOTO[c][yy]; if(el('tescil').value==='eski') return ESKI[c][yy]; var k=YENI[c]; for(var i=0;i<k.length;i++){if(d<=k[i][0]) return k[i][1][yy];} }
@@ -45,9 +45,9 @@ function hesapla(){
   aciklama=m?'Motosiklet · '+MCC[c]:(el('tescil').value==='eski'?'2017 ve öncesi tescil · '+CC[c]:'2018 sonrası tescil · '+CC[c]+' · değer '+tl(d,0));
   var rows=[['1. taksit (Ocak 2026)',tl(t/2)],['2. taksit (Temmuz 2026)',tl(t/2)],['Araç yaşı grubu',el('yas').options[y].text],['Aylık ortalama maliyet',tl(t/12)]];
   R27.forEach(function(r){rows.push(['2027 tahmini ('+r[1]+')',tl(Math.floor(t*(1+r[0])),0),'hl']);});
-  if(y<4){var t2=tut(y+1); rows.push(['2027’de bir üst yaş grubuna geçerseniz ('+el('yas').options[y+1].text+')',tl(Math.floor(t2*1.20),0)+' – '+tl(Math.floor(t2*1.2781),0)]);}
+  if(y<4){var t2=tut(y+1); rows.push(['2027’de bir üst yaş grubuna geçerseniz ('+el('yas').options[y+1].text+')',tl(Math.floor(t2*1.20),0)+' – '+tl(Math.floor(t2*1.2741),0)]);}
   return {main:['2026 yıllık MTV', tl(t,0)], sub:aciklama, rows:rows,
-    note:'2027 tutarları tahminidir: MTV, Kasım’da açıklanan yeniden değerleme oranıyla artar, ancak Cumhurbaşkanı daha düşük oran belirleyebilir (2026’da oran %25,49 iken MTV %18,95 artırıldı). Taksitler Ocak ve Temmuz sonuna kadar ödenir; kesin tutarı GİB İnternet Vergi Dairesi’nden sorgulayın.'};
+    note:'2027 tutarları tahminidir: 2026 yeniden değerleme oranı %27,41 olarak açıklandı (3 Kasım 2026); MTV bu oranla artar, ancak Cumhurbaşkanı daha düşük oran belirleyebilir (2026’da oran %25,49 iken MTV %18,95 artırıldı). Taksitler Ocak ve Temmuz sonuna kadar ödenir; kesin tutarı GİB İnternet Vergi Dairesi’nden sorgulayın.'};
 }''',
 article='''
 <h2 id="nedir">MTV (motorlu taşıtlar vergisi) nedir?</h2>
@@ -654,7 +654,7 @@ function hesapla(){
     return {main:[a+' sonundaki '+tl(t,0)+' → '+b+' sonunda', tl(t*c)], sub:'Toplam (kümülatif) enflasyon: '+pct((c-1)*100,1),
       rows:[['Fiyatlar kaç kat arttı?',num(c,2)+' kat'],['Yıllık ortalama enflasyon',pct(yillik)],['Paranın alım gücü kaybı',pct((1-1/c)*100,1),'neg'],[b+' sonundaki '+tl(t,0)+'’nin '+a+' değeri',tl(t/c)]],
       extra:'<table><thead><tr><th>Yıl</th><th>Yıllık TÜFE</th><th>Tutarın karşılığı</th></tr></thead><tbody>'+tab.join('')+'</tbody></table>',
-      note:'TÜİK Aralık ayı yıllık TÜFE değerleri kullanılmıştır. Eylül 2026 itibarıyla yıllık TÜFE %29,73’tür.'};
+      note:'TÜİK Aralık ayı yıllık TÜFE değerleri kullanılmıştır. Ekim 2026 itibarıyla yıllık TÜFE %29,77’dir.'};
   }
   if(m==='gelecek'){
     var r=v('oran'), n=v('yil'); if(!(r>-100)||!(n>0)) return 'Enflasyon oranını ve süreyi girin.'; var c=Math.pow(1+r/100,n);
@@ -679,7 +679,7 @@ article='''
 <tr><td>2014</td><td>%8,17</td><td>2022</td><td>%64,27</td></tr><tr><td>2015</td><td>%8,81</td><td>2023</td><td>%64,77</td></tr>
 <tr><td>2016</td><td>%8,53</td><td>2024</td><td>%44,38</td></tr><tr><td>2017</td><td>%11,92</td><td>2025</td><td>%30,89</td></tr>
 </tbody></table></div>
-<p>2026 yılında yıllık enflasyon Eylül ayı itibarıyla %29,73 olarak açıklanmıştır.</p>
+<p>2026 yılında yıllık enflasyon Ekim ayı itibarıyla %29,77 olarak açıklanmıştır (TÜİK, 3 Kasım 2026).</p>
 
 <h2 id="reel">Reel getiri ve enflasyon</h2>
 <p>Yatırımınızın gerçekten kazandırıp kazandırmadığını anlamak için getirisini enflasyonla karşılaştırmanız gerekir. %40 faiz getirisi, %30 enflasyon ortamında yaklaşık %7,7 reel getiriye karşılık gelir: 1,40 ÷ 1,30 − 1. Maaş artışınızın enflasyonun üzerinde olup olmadığını <a href="/maas-zam-hesaplama.html">maaş zam hesaplama</a>, birikiminizin getirisini <a href="/mevduat-faizi-hesaplama.html">mevduat faizi hesaplama</a> ile kontrol edebilirsiniz.</p>

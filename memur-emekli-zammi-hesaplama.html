@@ -29,7 +29,7 @@
 <meta name="theme-color" content="#1a56db" />
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Memur ve Emekli Zammı Hesaplama", "url": "https://hesaplarsin.com/memur-emekli-zammi-hesaplama.html", "description": "Ocak 2027 SSK, Bağ-Kur emeklisi ve memur zammını hesaplayın: 6 aylık enflasyon, %5 toplu sözleşme, enflasyon farkı ve yeni maaşınız tek ekranda.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "tr-TR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"}, "dateModified": "2026-10-21", "publisher": {"@type": "Organization", "name": "Hesaplarsın", "url": "https://hesaplarsin.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://hesaplarsin.com/"}, {"@type": "ListItem", "position": 2, "name": "Kamu & Memur Araçları", "item": "https://hesaplarsin.com/memur-hesaplamalari.html"}, {"@type": "ListItem", "position": 3, "name": "Memur ve Emekli Zammı Hesaplama", "item": "https://hesaplarsin.com/memur-emekli-zammi-hesaplama.html"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Ocak 2027 emekli zammı ne kadar olacak?", "acceptedAnswer": {"@type": "Answer", "text": "SSK ve Bağ-Kur emeklilerinin Ocak 2027 zammı Temmuz–Aralık 2026 enflasyonuna eşit olacak. Temmuz–Eylül döneminde enflasyon %5,57 oldu; Ekim–Aralık’ta aylık ortalama %1–1,4 enflasyonla zam yaklaşık %8,8–%10,1 olur."}}, {"@type": "Question", "name": "Ocak 2027 memur zammı ne kadar olacak?", "acceptedAnswer": {"@type": "Answer", "text": "Memurlar %5 toplu sözleşme zammına ek olarak, altı aylık enflasyonun %7’yi aşan kısmı kadar enflasyon farkı alacak. Mevcut tahminlerle toplam memur zammı yaklaşık %6,7–%8 aralığında."}}, {"@type": "Question", "name": "Memur emeklisinin zammı memurla aynı mı?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Emekli Sandığı’na tabi memur emeklileri, memurlarla aynı oranda (toplu sözleşme zammı + enflasyon farkı) zam alır."}}, {"@type": "Question", "name": "Emekli zammı ne zaman yatar?", "acceptedAnswer": {"@type": "Answer", "text": "Kesin oran Ocak 2027’nin ilk iş günlerinde açıklanır; zamlı aylıklar Ocak ayındaki olağan ödeme günlerinde hesaplara yatırılır."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Ocak 2027 emekli zammı ne kadar olacak?", "acceptedAnswer": {"@type": "Answer", "text": "SSK ve Bağ-Kur emeklilerinin Ocak 2027 zammı Temmuz–Aralık 2026 enflasyonuna eşit olacak. Temmuz–Ekim döneminde enflasyon %8,29 oldu; Kasım–Aralık’ta aylık ortalama %0,3–1 enflasyonla zam yaklaşık %8,9–%10,5 olur."}}, {"@type": "Question", "name": "Ocak 2027 memur zammı ne kadar olacak?", "acceptedAnswer": {"@type": "Answer", "text": "Memurlar %5 toplu sözleşme zammına ek olarak, altı aylık enflasyonun %7’yi aşan kısmı kadar enflasyon farkı alacak. Mevcut tahminlerle toplam memur zammı yaklaşık %6,9–%8,4 aralığında."}}, {"@type": "Question", "name": "Memur emeklisinin zammı memurla aynı mı?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Emekli Sandığı’na tabi memur emeklileri, memurlarla aynı oranda (toplu sözleşme zammı + enflasyon farkı) zam alır."}}, {"@type": "Question", "name": "Emekli zammı ne zaman yatar?", "acceptedAnswer": {"@type": "Answer", "text": "Kesin oran Ocak 2027’nin ilk iş günlerinde açıklanır; zamlı aylıklar Ocak ayındaki olağan ödeme günlerinde hesaplara yatırılır."}}]}</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--brand:#1a56db;--brand-dark:#1341b0;--brand-light:#e8f0fe;--accent:#f59e0b;--success:#10b981;--danger:#dc2626;
@@ -204,8 +204,8 @@ footer.hz-foot a:hover{color:#fff!important}
       <div class="form-grid">
 <div class="field"><label for="tur">Kim için hesaplanacak?</label><select id="tur"><option value="emekli">SSK veya Bağ-Kur emeklisi</option><option value="memur">Memur</option><option value="memuremekli">Memur emeklisi (Emekli Sandığı)</option></select></div>
 <div class="field"><label for="maas">Mevcut Aylık (₺)</label><input type="text" autocomplete="off" id="maas" placeholder="örn: 30.000" inputmode="decimal"></div>
-<div class="field"><label for="aylik">Ekim–Aralık aylık ortalama enflasyon tahmini (%)</label><input type="text" autocomplete="off" id="aylik" value="1" inputmode="decimal"></div>
-<div class="field"><label for="alti">6 aylık enflasyon (%) <small>biliyorsanız; boş bırakın</small></label><input type="text" autocomplete="off" id="alti" placeholder="örn: 8,77" inputmode="decimal"></div>
+<div class="field"><label for="aylik">Kasım–Aralık aylık ortalama enflasyon tahmini (%)</label><input type="text" autocomplete="off" id="aylik" value="0.6" inputmode="decimal"></div>
+<div class="field"><label for="alti">6 aylık enflasyon (%) <small>biliyorsanız; boş bırakın</small></label><input type="text" autocomplete="off" id="alti" placeholder="örn: 10,47" inputmode="decimal"></div>
 </div>
       <button class="btn-calc" type="button" onclick="run()">Hesapla</button>
       <button class="btn-reset" type="button" onclick="sifirla()">Temizle</button>
@@ -229,15 +229,16 @@ footer.hz-foot a:hover{color:#fff!important}
 <h2 id="b-nasil">Ocak 2027 zammı nasıl hesaplanır?</h2>
 <p><b>SSK ve Bağ-Kur emeklileri</b> (5510 sayılı Kanun) Ocak ayında, önceki Temmuz–Aralık dönemindeki altı aylık TÜFE artışı kadar zam alır. <b>Memurlar ve memur emeklileri</b> ise 8. Dönem Toplu Sözleşme’ye göre 2027’nin ilk yarısı için <b>%5</b> zam alır; 2026’nın ikinci yarısındaki %7’lik toplu sözleşme zammını aşan enflasyon da <b>enflasyon farkı</b> olarak eklenir.</p>
 <div class="formula">Emekli zammı = (1 + Temmuz) × (1 + Ağustos) × … × (1 + Aralık) − 1<br>Enflasyon farkı = (1 + 6 aylık enflasyon) ÷ 1,07 − 1<br>Memur zammı = 1,05 × (1 + Enflasyon farkı) − 1</div>
-<div class="example"><p><b>Örnek:</b> Temmuz–Eylül enflasyonu %5,57; Ekim, Kasım ve Aralık’ta ayda %1 enflasyon olursa altı aylık enflasyon 1,0557 × 1,01³ − 1 = <b>%8,77</b> olur. SSK/Bağ-Kur emeklisi %8,77 zam alır. Memurun enflasyon farkı 1,0877 ÷ 1,07 − 1 = %1,65, toplam zammı 1,05 × 1,0165 − 1 = <b>%6,74</b> olur.</p></div>
+<div class="example"><p><b>Örnek:</b> Temmuz–Ekim enflasyonu %8,29; Kasım ve Aralık’ta ayda %1 enflasyon olursa altı aylık enflasyon 1,0829 × 1,01 × 1,01 − 1 = <b>%10,47</b> olur. SSK/Bağ-Kur emeklisi %10,47 zam alır. Memurun enflasyon farkı 1,1047 ÷ 1,07 − 1 = %3,24, toplam zammı 1,05 × 1,0324 − 1 = <b>%8,40</b> olur.</p></div>
 
 <h2 id="b-senaryo">Ocak 2027 zam senaryoları</h2>
-<div class="table-wrap"><table><thead><tr><th>Ekim–Aralık aylık ort.</th><th>6 aylık enflasyon</th><th>Emekli zammı</th><th>Memur zammı</th></tr></thead><tbody>
-<tr><td>%0,6</td><td>%7,48</td><td>%7,48</td><td>%5,47</td></tr>
-<tr><td>%1,0</td><td>%8,77</td><td>%8,77</td><td>%6,74</td></tr>
-<tr><td>%1,4</td><td>%10,07</td><td>%10,07</td><td>%8,01</td></tr>
+<div class="table-wrap"><table><thead><tr><th>Kasım–Aralık aylık ort.</th><th>6 aylık enflasyon</th><th>Emekli zammı</th><th>Memur zammı</th></tr></thead><tbody>
+<tr><td>%0,3</td><td>%8,94</td><td>%8,94</td><td>%6,91</td></tr>
+<tr><td>%0,6</td><td>%9,60</td><td>%9,60</td><td>%7,55</td></tr>
+<tr><td>%1,0</td><td>%10,47</td><td>%10,47</td><td>%8,41</td></tr>
+
 </tbody></table></div>
-<p>Kurumların yıl sonu enflasyon tahminleri (OVP %28,4, TCMB Piyasa Katılımcıları Anketi %29,61) Ekim–Aralık için aylık ortalama %1–1,4 aralığına işaret ediyor. Ayrıntılı değerlendirme için <a href="/blog/memur-emekli-zammi-ocak-2027.html">Ocak 2027 memur ve emekli zammı</a> yazımıza bakın.</p>
+<p>Kurumların yıl sonu enflasyon tahminleri (OVP %28,4, TCMB Piyasa Katılımcıları Anketi %29,61) Kasım–Aralık için aylık ortalama yaklaşık %0,3–0,8’e işaret ediyor. Ayrıntılı değerlendirme için <a href="/blog/memur-emekli-zammi-ocak-2027.html">Ocak 2027 memur ve emekli zammı</a> yazımıza bakın.</p>
 
 <h2 id="b-takvim">Zam ne zaman kesinleşir?</h2>
 <ul>
@@ -254,8 +255,8 @@ footer.hz-foot a:hover{color:#fff!important}
 <p>Ekim 2026 itibarıyla en düşük emekli aylığı 23.552 ₺’dir. Bu tutar ayrıca kanunla belirlendiği için Ocak 2027’de yalnızca enflasyon oranında değil, yapılacak yasal düzenlemeye göre artırılabilir.</p>
 
   <h2 id="sss">Sık Sorulan Sorular</h2>
-  <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Ocak 2027 emekli zammı ne kadar olacak?</button><div class="faq-a">SSK ve Bağ-Kur emeklilerinin Ocak 2027 zammı Temmuz–Aralık 2026 enflasyonuna eşit olacak. Temmuz–Eylül döneminde enflasyon %5,57 oldu; Ekim–Aralık’ta aylık ortalama %1–1,4 enflasyonla zam yaklaşık %8,8–%10,1 olur.</div></div>
-<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Ocak 2027 memur zammı ne kadar olacak?</button><div class="faq-a">Memurlar %5 toplu sözleşme zammına ek olarak, altı aylık enflasyonun %7’yi aşan kısmı kadar enflasyon farkı alacak. Mevcut tahminlerle toplam memur zammı yaklaşık %6,7–%8 aralığında.</div></div>
+  <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Ocak 2027 emekli zammı ne kadar olacak?</button><div class="faq-a">SSK ve Bağ-Kur emeklilerinin Ocak 2027 zammı Temmuz–Aralık 2026 enflasyonuna eşit olacak. Temmuz–Ekim döneminde enflasyon %8,29 oldu; Kasım–Aralık’ta aylık ortalama %0,3–1 enflasyonla zam yaklaşık %8,9–%10,5 olur.</div></div>
+<div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Ocak 2027 memur zammı ne kadar olacak?</button><div class="faq-a">Memurlar %5 toplu sözleşme zammına ek olarak, altı aylık enflasyonun %7’yi aşan kısmı kadar enflasyon farkı alacak. Mevcut tahminlerle toplam memur zammı yaklaşık %6,9–%8,4 aralığında.</div></div>
 <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Memur emeklisinin zammı memurla aynı mı?</button><div class="faq-a">Evet. Emekli Sandığı’na tabi memur emeklileri, memurlarla aynı oranda (toplu sözleşme zammı + enflasyon farkı) zam alır.</div></div>
 <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Emekli zammı ne zaman yatar?</button><div class="faq-a">Kesin oran Ocak 2027’nin ilk iş günlerinde açıklanır; zamlı aylıklar Ocak ayındaki olağan ödeme günlerinde hesaplara yatırılır.</div></div>
   <p style="font-size:.8rem;color:var(--muted)"><strong>Kaynaklar:</strong> <a href="https://www.mevzuat.gov.tr/mevzuatmetin/1.5.5510.pdf" target="_blank" rel="noopener">5510 sayılı Sosyal Sigortalar ve GSS Kanunu</a> · <a href="https://data.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK Tüketici Fiyat Endeksi</a> · <a href="https://www.csgb.gov.tr/" target="_blank" rel="noopener">ÇSGB – Kamu Görevlileri Toplu Sözleşmesi</a></p>
@@ -319,18 +320,18 @@ document.addEventListener('DOMContentLoaded',function(){
 
 // ── MEMUR VE EMEKLI ZAMMI HESAPLAMA ──
 
-var Q3=0.0557, TS=0.05, TS_ONCEKI=0.07, KIDEM=73729.87;
+var Q3=0.0829, TS=0.05, TS_ONCEKI=0.07, KIDEM=73729.87;
 function hesapla(){
   var m=v('maas'); if(!(m>0)) return 'Mevcut aylığınızı girin.';
   var a=v('aylik'); if(isNaN(a)) a=1; if(a<-2||a>10) return 'Aylık enflasyon tahmini −2 ile 10 arasında olmalı.';
-  var h=v('alti'), h2=(h>0)?h/100:(1+Q3)*Math.pow(1+a/100,3)-1, tur=el('tur').value, z, rows=[['Temmuz–Aralık 6 aylık enflasyon',pct(h2*100)]];
+  var h=v('alti'), h2=(h>0)?h/100:(1+Q3)*Math.pow(1+a/100,2)-1, tur=el('tur').value, z, rows=[['Temmuz–Aralık 6 aylık enflasyon',pct(h2*100)]];
   if(tur==='emekli'){ z=h2; rows.push(['Zam yöntemi','6 aylık TÜFE artışı kadar']); }
   else { var fark=Math.max(0,(1+h2)/(1+TS_ONCEKI)-1); z=(1+TS)*(1+fark)-1; rows.push(['Toplu sözleşme zammı (2027 ilk yarı)','%5,00']); rows.push(['Enflasyon farkı',pct(fark*100)]); }
   var y=m*(1+z);
   rows.push(['Toplam zam oranı',pct(z*100),'hl']); rows.push(['Aylık artış',tl(y-m)]); rows.push(['Ocak–Haziran 2027 toplam ek gelir',tl((y-m)*6)]);
   if(tur!=='emekli') rows.push(['Kıdem tazminatı tavanı (Ocak 2027, tahmini)',tl(KIDEM*(1+z))]);
   return {main:['Ocak 2027 tahmini aylık', tl(y)], sub:'%'+num(z*100,2)+' zam ile', rows:rows,
-    note:'Temmuz–Eylül 2026 enflasyonu %5,57 olarak gerçekleşti. Kesin zam oranı, Aralık 2026 enflasyonunun açıklandığı Ocak 2027’nin ilk günlerinde belli olur. En düşük emekli aylığı kanunla ayrıca belirlenir.'};
+    note:'Temmuz–Ekim 2026 enflasyonu %8,29 olarak gerçekleşti. Kesin zam oranı, Aralık 2026 enflasyonunun açıklandığı Ocak 2027’nin ilk günlerinde belli olur. En düşük emekli aylığı kanunla ayrıca belirlenir.'};
 }
 </script>
 <script id="hz-js">(function(){var b=document.getElementById('hzHam'),n=document.getElementById('hzLinks');if(!b||!n)return;

@@ -36,7 +36,8 @@ def enf_etki(veri):
 
 
 # (tarih, grup, başlık, açıklama, link)
-EVENTS = [(t, 'enflasyon', f'{v} enflasyonu', f'TÜİK, saat 10:00 · Belirler: {enf_etki(v)}', '/kira-artis-hesaplama.html') for t, v in ENF]
+SONUC = {'Ekim 2026': '<b>Açıklandı:</b> aylık %2,58, yıllık %29,77 · Kasım kira artış oranı %31,23 · yeniden değerleme oranı %27,41'}
+EVENTS = [(t, 'enflasyon', f'{v} enflasyonu', SONUC.get(v) or f'TÜİK, saat 10:00 · Belirler: {enf_etki(v)}', '/kira-artis-hesaplama.html') for t, v in ENF]
 EVENTS += [
     ('2026-10-22', 'faiz', 'TCMB faiz kararı (PPK)', 'Politika faizi %37’den %36’ya indirildi (−100 baz puan)', '/mevduat-faizi-hesaplama.html'),
     ('2026-10-30', 'sinav', 'KPSS Önlisans sonuçları', 'ÖSYM 4 Ekim sınavının sonuçlarını açıklar (P93)', '/kpss-puan-hesaplama.html'),
@@ -165,7 +166,7 @@ article=f'''
 <p>Ramazan Bayramı <b>9–11 Mart 2027</b> (arife 8 Mart yarım gün), Kurban Bayramı <b>16–19 Mayıs 2027</b> (arife 15 Mayıs yarım gün). Tüm resmî tatiller ve iki tarih arasındaki iş günü sayısı için <a href="/is-gunu-hesaplama.html">iş günü hesaplama</a> aracını kullanabilirsiniz.</p>
 ''',
 faq=[
-('Kasım ayında enflasyon ne zaman açıklanacak?', 'Ekim 2026 enflasyonu 3 Kasım 2026 Salı günü saat 10:00’da TÜİK tarafından açıklanacak. Kasım 2026 enflasyonu ise 3 Aralık 2026 Perşembe günü açıklanır.'),
+('Kasım 2026 enflasyonu ne zaman açıklanacak?', 'Kasım 2026 enflasyonu 3 Aralık 2026 Perşembe günü saat 10:00’da TÜİK tarafından açıklanacak. Ekim 2026 enflasyonu 3 Kasım’da açıklandı: aylık %2,58, yıllık %29,77.'),
 ('Memur ve emekli zammı ne zaman belli olacak?', 'Ocak 2027 zammını belirleyen Aralık 2026 enflasyonu 4 Ocak 2027 Pazartesi günü açıklanacak; zam oranları aynı gün kesinleşir.'),
 ('SSK emekli maaşı ayın kaçında yatar?', 'SSK emeklilerinin aylıkları her ayın 17’si ile 26’sı arasında, tahsis numarasının son hanesine göre ödenir. Son hanesi 9 olanlar 17’sinde, 0 olanlar 26’sında alır.'),
 ('Bağ-Kur emekli maaşı ayın kaçında yatar?', 'Bağ-Kur emeklilerinin aylıkları her ayın 25’i ile 28’i arasında ödenir: son hanesi 5, 7, 9 olanlar 25’inde; 1, 3 olanlar 26’sında; 4, 6, 8 olanlar 27’sinde; 0, 2 olanlar 28’inde.'),

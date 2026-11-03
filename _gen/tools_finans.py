@@ -323,13 +323,13 @@ related=['kira-artis-hesaplama','tapu-harci-hesaplama','metrekare-fiyat-hesaplam
 # ───────────────────────── KİRA ARTIŞ ─────────────────────────
 TOOLS.append(dict(
 slug='kira-artis-hesaplama', name='Kira Artış Hesaplama', cat='gayrimenkul', ico='📈',
-title='Kira Artış Oranı Hesaplama Ekim 2026 – Yasal Kira Zammı (%31,49) | Hesaplarsın',
-desc='Ekim 2026 yasal kira artış oranı %31,49 (12 aylık TÜFE ortalaması). Mevcut kiranızı girin, kira sözleşmenizin yenilendiği aya göre yeni kiranızı hesaplayın.',
-h1='📈 Kira Artış Hesaplama (Ekim 2026: %31,49)',
+title='Kira Artış Oranı Kasım 2026: %31,23 – Yeni Kiranızı Hesaplayın | Hesaplarsın',
+desc='Kasım 2026 yasal kira artış oranı %31,23 oldu (TÜİK, 3 Kasım). 20.000 TL kira en fazla 26.246 TL olur. Kiranızı girin, yenileme ayınıza göre yeni kiranızı görün.',
+h1='📈 Kira Artış Hesaplama (Kasım 2026: %31,23)',
 lead='Kira sözleşmenizin yenilendiği ayı ve mevcut kiranızı seçin; Türk Borçlar Kanunu’na göre uygulanabilecek en yüksek yasal kira artışını ve yeni kiranızı görün.',
 form='''<div class="form-grid">
 <div class="field"><label for="kira">Mevcut Aylık Kira (₺)</label><input type="number" id="kira" placeholder="örn: 20.000" inputmode="decimal"></div>
-<div class="field"><label for="ay">Sözleşme Yenileme Ayı</label><select id="ay"><option value="31.49" selected>Ekim 2026 – %31,49</option><option value="31.79">Eylül 2026 – %31,79</option><option value="31.90">Ağustos 2026 – %31,90</option><option value="32.03">Temmuz 2026 – %32,03</option><option value="32.24">Haziran 2026 – %32,24</option><option value="32.43">Mayıs 2026 – %32,43</option><option value="32.82">Nisan 2026 – %32,82</option><option value="33.39">Mart 2026 – %33,39</option><option value="33.98">Şubat 2026 – %33,98</option><option value="34.88">Ocak 2026 – %34,88</option><option value="manuel">Diğer ay (oranı kendim gireceğim)</option></select></div>
+<div class="field"><label for="ay">Sözleşme Yenileme Ayı</label><select id="ay"><option value="31.23" selected>Kasım 2026 – %31,23</option><option value="31.49">Ekim 2026 – %31,49</option><option value="31.79">Eylül 2026 – %31,79</option><option value="31.90">Ağustos 2026 – %31,90</option><option value="32.03">Temmuz 2026 – %32,03</option><option value="32.24">Haziran 2026 – %32,24</option><option value="32.43">Mayıs 2026 – %32,43</option><option value="32.82">Nisan 2026 – %32,82</option><option value="33.39">Mart 2026 – %33,39</option><option value="33.98">Şubat 2026 – %33,98</option><option value="34.88">Ocak 2026 – %34,88</option><option value="manuel">Diğer ay (oranı kendim gireceğim)</option></select></div>
 <div class="field" id="f-oran" style="display:none"><label for="oran">Kira Artış Oranı (%)</label><input type="number" id="oran" placeholder="örn: 32,5" inputmode="decimal"></div>
 <div class="field"><label for="anlasma">Sözleşmedeki Artış Oranı (%) <small>isteğe bağlı</small></label><input type="number" id="anlasma" placeholder="örn: 25" inputmode="decimal"></div>
 </div>''',
@@ -344,10 +344,10 @@ function hesapla(){
     note:(a>o?'Sözleşmedeki oran (%'+num(a,2)+') yasal sınırı aştığı için yasal sınır uygulanır. ':'')+'Oran, kira döneminin başladığı aydan önceki ayın TÜİK verisine göre belirlenir.'};
 }''',
 article='''
-<h2 id="oran">Ekim 2026 kira artış oranı ne kadar?</h2>
-<p>TÜİK’in 5 Ekim 2026’da açıkladığı Eylül ayı enflasyon verisine göre, tüketici fiyat endeksinin (TÜFE) <b>12 aylık ortalama değişimi %31,49</b> olmuştur. Kira sözleşmesi Ekim 2026’da yenilenen konut ve işyeri kiracıları için uygulanabilecek en yüksek kira artış oranı budur. Eylül 2026’da yenilenen sözleşmeler için oran %31,79 idi.</p>
+<h2 id="oran">Kasım 2026 kira artış oranı ne kadar?</h2>
+<p>TÜİK’in 3 Kasım 2026’da açıkladığı Ekim ayı enflasyon verisine göre, tüketici fiyat endeksinin (TÜFE) <b>12 aylık ortalama değişimi %31,23</b> olmuştur. Kira sözleşmesi Kasım 2026’da yenilenen konut ve işyeri kiracıları için uygulanabilecek en yüksek kira artış oranı budur. Ekim 2026’da yenilenen sözleşmeler için oran %31,49 idi.</p>
 <div class="formula">Yeni kira = Mevcut kira × (1 + Kira artış oranı ÷ 100)</div>
-<div class="example"><p><b>Örnek:</b> Ekim 2026’da yenilenen 20.000 ₺’lik kira: 20.000 × 1,3149 = <b>26.298 ₺</b> (aylık artış 6.298 ₺).</p></div>
+<div class="example"><p><b>Örnek:</b> Kasım 2026’da yenilenen 20.000 ₺’lik kira: 20.000 × 1,3123 = <b>26.246 ₺</b> (aylık artış 6.246 ₺).</p></div>
 
 <h2 id="yasal">Kira artışında yasal sınır nedir?</h2>
 <p>Türk Borçlar Kanunu’nun 344. maddesine göre yenilenen kira dönemlerinde kira artışı, bir önceki kira yılındaki <b>TÜFE’nin 12 aylık ortalamalara göre değişim oranını</b> geçemez. Konutlarda 2022–2024 arasında uygulanan %25 sınırı 1 Temmuz 2024’te sona ermiştir; şu an konut ve işyerleri için aynı kural geçerlidir.</p>
@@ -360,27 +360,28 @@ article='''
 <h2 id="tablo">2026 kira artış oranları (aylara göre)</h2>
 <p>Kira sözleşmenizin <b>yenilendiği aya</b> göre uygulanabilecek en yüksek artış oranları. Oran, bir önceki ayın TÜİK enflasyon verisindeki “12 aylık ortalamalara göre değişim”dir:</p>
 <div class="table-wrap"><table><thead><tr><th>Kira yenileme ayı</th><th>Dayandığı veri</th><th>Yasal üst sınır</th><th>20.000 ₺ kira olur</th></tr></thead><tbody>
-<tr><td>Kasım 2026</td><td>Ekim 2026 enflasyonu</td><td colspan="2">3 Kasım 2026’da açıklanacak</td></tr>
+<tr><td>Aralık 2026</td><td>Kasım 2026 enflasyonu</td><td colspan="2">3 Aralık 2026’da açıklanacak</td></tr>
+<tr><td>Kasım 2026</td><td>Ekim 2026 enflasyonu</td><td><b>%31.23</b></td><td>26.246 ₺</td></tr>
 <tr><td>Ekim 2026</td><td>Eylül 2026 enflasyonu</td><td><b>%31.49</b></td><td>26.298 ₺</td></tr><tr><td>Eylül 2026</td><td>Ağustos 2026 enflasyonu</td><td><b>%31.79</b></td><td>26.358 ₺</td></tr><tr><td>Ağustos 2026</td><td>Temmuz 2026 enflasyonu</td><td><b>%31.90</b></td><td>26.380 ₺</td></tr><tr><td>Temmuz 2026</td><td>Haziran 2026 enflasyonu</td><td><b>%32.03</b></td><td>26.406 ₺</td></tr><tr><td>Haziran 2026</td><td>Mayıs 2026 enflasyonu</td><td><b>%32.24</b></td><td>26.448 ₺</td></tr><tr><td>Mayıs 2026</td><td>Nisan 2026 enflasyonu</td><td><b>%32.43</b></td><td>26.486 ₺</td></tr><tr><td>Nisan 2026</td><td>Mart 2026 enflasyonu</td><td><b>%32.82</b></td><td>26.564 ₺</td></tr><tr><td>Mart 2026</td><td>Şubat 2026 enflasyonu</td><td><b>%33.39</b></td><td>26.678 ₺</td></tr><tr><td>Şubat 2026</td><td>Ocak 2026 enflasyonu</td><td><b>%33.98</b></td><td>26.796 ₺</td></tr><tr><td>Ocak 2026</td><td>Aralık 2025 enflasyonu</td><td><b>%34.88</b></td><td>26.976 ₺</td></tr>
 </tbody></table></div>
-<p>Tablo, enflasyonun 2026 boyunca yavaşladığını da gösteriyor: Ocak’ta %34,88 olan kira artış sınırı Ekim’de %31,49’a geriledi. Aynı 20.000 ₺’lik kira için bu, Ocak’ta yenilenen kiracıya göre Ekim’de yenilenen kiracının ayda yaklaşık 678 ₺ daha az zam ödemesi demek.</p>
+<p>Tablo, enflasyonun 2026 boyunca yavaşladığını da gösteriyor: Ocak’ta %34,88 olan kira artış sınırı Kasım’da %31,23’e geriledi. Aynı 20.000 ₺’lik kira için bu, Ocak’ta yenilenen kiracıya göre Kasım’da yenilenen kiracının ayda yaklaşık 730 ₺ daha az zam ödemesi demek.</p>
 <p>Oranlar her ayın 3’ünde (hafta sonuna denk gelirse sonraki iş günü) TÜİK tarafından açıklanan enflasyon verileriyle güncellenir. Sonraki açıklama tarihleri için <a href="/ekonomi-takvimi.html#enflasyon">ekonomi takvimine</a> bakabilirsiniz. Diğer aylar için hesaplayıcıda “Diğer ay” seçeneğiyle oranı elle girebilirsiniz.</p>
 
-<h2 id="kira-tablosu">Ekim 2026 kira zammı tablosu</h2>
-<p>%31,49 yasal üst sınırla yeni kira tutarları:</p>
+<h2 id="kira-tablosu">Kasım 2026 kira zammı tablosu</h2>
+<p>%31,23 yasal üst sınırla yeni kira tutarları:</p>
 <div class="table-wrap"><table><thead><tr><th>Mevcut kira</th><th>Yeni kira (en fazla)</th><th>Aylık artış</th><th>Yıllık ek ödeme</th></tr></thead><tbody>
-<tr><td>10.000 ₺</td><td>13.149 ₺</td><td>3.149 ₺</td><td>37.788 ₺</td></tr><tr><td>15.000 ₺</td><td>19.724 ₺</td><td>4.724 ₺</td><td>56.682 ₺</td></tr><tr><td>20.000 ₺</td><td>26.298 ₺</td><td>6.298 ₺</td><td>75.576 ₺</td></tr><tr><td>25.000 ₺</td><td>32.872 ₺</td><td>7.872 ₺</td><td>94.470 ₺</td></tr><tr><td>30.000 ₺</td><td>39.447 ₺</td><td>9.447 ₺</td><td>113.364 ₺</td></tr><tr><td>40.000 ₺</td><td>52.596 ₺</td><td>12.596 ₺</td><td>151.152 ₺</td></tr><tr><td>50.000 ₺</td><td>65.745 ₺</td><td>15.745 ₺</td><td>188.940 ₺</td></tr>
+<tr><td>10.000 ₺</td><td>13.123 ₺</td><td>3.123 ₺</td><td>37.476 ₺</td></tr><tr><td>15.000 ₺</td><td>19.684 ₺</td><td>4.684 ₺</td><td>56.214 ₺</td></tr><tr><td>20.000 ₺</td><td>26.246 ₺</td><td>6.246 ₺</td><td>74.952 ₺</td></tr><tr><td>25.000 ₺</td><td>32.808 ₺</td><td>7.808 ₺</td><td>93.690 ₺</td></tr><tr><td>30.000 ₺</td><td>39.369 ₺</td><td>9.369 ₺</td><td>112.428 ₺</td></tr><tr><td>40.000 ₺</td><td>52.492 ₺</td><td>12.492 ₺</td><td>149.904 ₺</td></tr><tr><td>50.000 ₺</td><td>65.615 ₺</td><td>15.615 ₺</td><td>187.380 ₺</td></tr>
 </tbody></table></div>
 
 <h2 id="ortalama">Neden yıllık enflasyon değil, 12 aylık ortalama?</h2>
-<p>Haberlerde sık geçen “yıllık enflasyon” ile kira artışında kullanılan oran farklıdır. Eylül 2026’da yıllık enflasyon <b>%29,73</b> iken kira artış sınırı <b>%31,49</b> oldu. Çünkü kira artışında son 12 ayın endeks ortalaması, bir önceki 12 ayın ortalamasıyla karşılaştırılır. Enflasyon düşerken 12 aylık ortalama yıllık orandan bir süre daha yüksek kalır; enflasyon yükselirken ise tersi olur. Kira artışında her zaman TÜİK bülteninde “12 aylık ortalamalara göre değişim” başlığındaki oran kullanılır.</p>
+<p>Haberlerde sık geçen “yıllık enflasyon” ile kira artışında kullanılan oran farklıdır. Ekim 2026’da yıllık enflasyon <b>%29,77</b> iken kira artış sınırı <b>%31,23</b> oldu. Çünkü kira artışında son 12 ayın endeks ortalaması, bir önceki 12 ayın ortalamasıyla karşılaştırılır. Enflasyon düşerken 12 aylık ortalama yıllık orandan bir süre daha yüksek kalır; enflasyon yükselirken ise tersi olur. Kira artışında her zaman TÜİK bülteninde “12 aylık ortalamalara göre değişim” başlığındaki oran kullanılır.</p>
 
 <h2 id="ay">Hangi ayın oranı uygulanır?</h2>
-<p>Kira yılının başladığı aydan önce açıklanan son oran esas alınır. Sözleşmesi 15 Ekim 2026’da yenilenen kiracı için 5 Ekim’de açıklanan Eylül verisi, yani <b>%31,49</b> kullanılır. Sözleşmesi Kasım’da yenilenecekler için 3 Kasım’da açıklanacak oran geçerli olur; bu oranın yaklaşık %31,2 olması bekleniyor (ayrıntılar: <a href="/blog/kasim-2026-kira-artis-orani.html">Kasım 2026 kira artış oranı</a>).</p>
+<p>Kira yılının başladığı aydan önce açıklanan son oran esas alınır. Sözleşmesi 15 Kasım 2026’da yenilenen kiracı için 3 Kasım’da açıklanan Ekim verisi, yani <b>%31,23</b> kullanılır. Aralık’ta yenilenecek sözleşmeler için oran 3 Aralık 2026’da açıklanacak (ayrıntılar: <a href="/blog/kasim-2026-kira-artis-orani.html">Kasım 2026 kira artış oranı</a>).</p>
 
 <h2 id="isyeri">İşyeri kiralarında stopaj ve artış</h2>
 <p>Şirket veya şahıs işletmesi olan kiracılar, işyeri kirasında brüt kira üzerinden <b>%20 stopaj</b> keserek vergi dairesine öder; ev sahibine net tutar yatırılır. Kira artışı brüt kira üzerinden hesaplanır.</p>
-<div class="example"><p><b>Örnek:</b> Ev sahibine net 20.000 ₺ ödenen bir dükkânın brüt kirası 20.000 ÷ 0,80 = <b>25.000 ₺</b>’dir. %31,49 artışla yeni brüt kira 32.872 ₺, ev sahibine ödenecek yeni net kira 26.298 ₺ olur; kiracı her ay 6.574 ₺ stopajı vergi dairesine yatırır.</p></div>
+<div class="example"><p><b>Örnek:</b> Ev sahibine net 20.000 ₺ ödenen bir dükkânın brüt kirası 20.000 ÷ 0,80 = <b>25.000 ₺</b>’dir. %31,23 artışla yeni brüt kira 32.808 ₺, ev sahibine ödenecek yeni net kira 26.246 ₺ olur; kiracı her ay 6.562 ₺ stopajı vergi dairesine yatırır.</p></div>
 
 <h2 id="bes-yil">5 yılı dolduran kiracılarda kira tespit davası</h2>
 <p>TÜFE sınırı her kira yılı için geçerlidir; ancak Türk Borçlar Kanunu’nun 344. maddesine göre <b>beş yıldan uzun süreli</b> veya beş yıldan sonra yenilenen kira sözleşmelerinde, bu tarihten sonraki her beş yıllık dönemin başında yeni kira bedeli <b>hâkim tarafından</b> belirlenebilir. Hâkim; TÜFE’deki değişimi, kiralananın durumunu ve çevredeki <b>emsal kira bedellerini</b> dikkate alarak hakkaniyete uygun bir kira belirler.</p>
@@ -406,14 +407,14 @@ article='''
 <p>Kiraya verenler için yatırımın getirisini <a href="/kira-getirisi-hesaplama.html">kira getirisi hesaplama</a>, genel fiyat değişimini görmek için <a href="/enflasyon-hesaplama.html">enflasyon hesaplama</a> aracını kullanabilirsiniz.</p>
 ''',
 faq=[
-('2026’da aylara göre kira artış oranları nedir?','Yenileme ayına göre yasal üst sınırlar: Ocak %34,88, Şubat %33,98, Mart %33,39, Nisan %32,82, Mayıs %32,43, Haziran %32,24, Temmuz %32,03, Ağustos %31,90, Eylül %31,79, Ekim %31,49. Kasım oranı 3 Kasım 2026’da açıklanacak.'),
+('2026’da aylara göre kira artış oranları nedir?','Yenileme ayına göre yasal üst sınırlar: Ocak %34,88, Şubat %33,98, Mart %33,39, Nisan %32,82, Mayıs %32,43, Haziran %32,24, Temmuz %32,03, Ağustos %31,90, Eylül %31,79, Ekim %31,49, Kasım %31,23. Aralık oranı 3 Aralık 2026’da açıklanacak.'),
 ('5 yıldan uzun oturan kiracıya ne kadar zam yapılabilir?','Beş yılı dolduran kira ilişkilerinde, her beş yıllık dönemin başında yeni kira bedeli kira tespit davasıyla hâkim tarafından emsal kiralar dikkate alınarak belirlenebilir; bu durumda artış TÜFE sınırının üzerinde olabilir. 5 yıl dolmadan TÜFE’nin 12 aylık ortalaması aşılamaz.'),
 
-('Ekim 2026 kira zammı yüzde kaç?','Ekim 2026’da kira sözleşmesi yenilenenler için yasal kira artış üst sınırı %31,49’dur.'),
+('Kasım 2026 kira zammı yüzde kaç?','Kasım 2026’da kira sözleşmesi yenilenenler için yasal kira artış üst sınırı %31,23’tür (TÜİK, 3 Kasım 2026). Ekim’de oran %31,49’du.'),
 ('Kira artışı TÜFE’den fazla olabilir mi?','Hayır. Yenilenen kira dönemlerinde artış, 12 aylık TÜFE ortalamasını geçemez. Yalnızca 5 yılı aşan kira ilişkilerinde hakim hakkaniyete göre yeni bedel belirleyebilir.'),
 ('İşyeri kiralarında da aynı oran mı uygulanır?','Evet. Konut ve çatılı işyeri kiralarında aynı TÜFE 12 aylık ortalama sınırı geçerlidir.'),
 ('Kira artış oranı ne zaman açıklanır?','TÜİK her ayın 3’ünde enflasyon verilerini açıklar; aynı gün o ay yenilenecek kira sözleşmeleri için artış oranı da belli olur.'),
-('20.000 TL kira Ekim 2026’da ne kadar olur?','Ekim 2026’da yenilenen 20.000 TL’lik kira, %31,49 yasal sınırla en fazla 26.298 TL olur.'),
+('20.000 TL kira Kasım 2026’da ne kadar olur?','Kasım 2026’da yenilenen 20.000 TL’lik kira, %31,23 yasal sınırla en fazla 26.246 TL olur.'),
 ('Sözleşmede kira artışı yazmıyorsa ne olur?','Kiraya veren yine yasal sınıra kadar artış talep edebilir; uzlaşılamazsa arabuluculuk ve kira tespit davası yoluna gidilebilir.'),
 ],
 related=['kira-getirisi-hesaplama','enflasyon-hesaplama','tapu-harci-hesaplama','metrekare-fiyat-hesaplama','yuzde-hesaplama'],
@@ -814,10 +815,10 @@ article='''
 <div class="example"><p><b>Örnek:</b> 45.000 ₺ maaşa %30 zam: 45.000 × 1,30 = <b>58.500 ₺</b>. Aylık artış 13.500 ₺, yıllık ek kazanç 162.000 ₺.</p></div>
 
 <h2 id="reel">Reel zam nedir?</h2>
-<p>Reel zam, enflasyonun etkisi çıkarıldıktan sonra maaşınızın alım gücündeki gerçek değişimdir. %30 zam alırken enflasyon %29,73 ise alım gücünüz neredeyse aynı kalmıştır. Reel zam basitçe zam oranından enflasyonu çıkararak değil, şu formülle hesaplanır:</p>
+<p>Reel zam, enflasyonun etkisi çıkarıldıktan sonra maaşınızın alım gücündeki gerçek değişimdir. %30 zam alırken enflasyon %29,77 ise alım gücünüz neredeyse aynı kalmıştır. Reel zam basitçe zam oranından enflasyonu çıkararak değil, şu formülle hesaplanır:</p>
 <div class="formula">Reel zam = (1 + Zam oranı) ÷ (1 + Enflasyon) − 1</div>
-<div class="example"><p><b>Örnek:</b> %30 zam, %29,73 enflasyon → 1,30 ÷ 1,2973 − 1 = <b>%0,21 reel artış</b>.</p></div>
-<p>TÜİK verilerine göre Eylül 2026 itibarıyla yıllık TÜFE %29,73’tür. Geçmiş yıllara göre paranızın değerini görmek için <a href="/enflasyon-hesaplama.html">enflasyon hesaplama</a> aracını kullanabilirsiniz.</p>
+<div class="example"><p><b>Örnek:</b> %30 zam, %29,77 enflasyon → 1,30 ÷ 1,2977 − 1 = <b>%0,18 reel artış</b>.</p></div>
+<p>TÜİK verilerine göre Ekim 2026 itibarıyla yıllık TÜFE %29,77’dir. Geçmiş yıllara göre paranızın değerini görmek için <a href="/enflasyon-hesaplama.html">enflasyon hesaplama</a> aracını kullanabilirsiniz.</p>
 
 <h2 id="brut-net">Brüt zam mı net zam mı?</h2>
 <p>Zam oranı brüt maaşa uygulandığında, gelir vergisi dilimleri nedeniyle net maaştaki artış oranı farklı olabilir. Özellikle yılın ilerleyen aylarında vergi dilimi yükseldiği için net artış brüt artıştan düşük görünebilir. Zamlı brüt maaşınızın net karşılığını <a href="/net-maas-hesaplama.html">net maaş hesaplama</a> ile görebilirsiniz.</p>
@@ -849,36 +850,37 @@ lead='Maaşınızı ve kalan ayların enflasyon tahminini girin; Ocak 2027’de 
 form='''<div class="form-grid">
 <div class="field"><label for="tur">Kim için hesaplanacak?</label><select id="tur"><option value="emekli">SSK veya Bağ-Kur emeklisi</option><option value="memur">Memur</option><option value="memuremekli">Memur emeklisi (Emekli Sandığı)</option></select></div>
 <div class="field"><label for="maas">Mevcut Aylık (₺)</label><input type="number" id="maas" placeholder="örn: 30.000" inputmode="decimal"></div>
-<div class="field"><label for="aylik">Ekim–Aralık aylık ortalama enflasyon tahmini (%)</label><input type="number" id="aylik" value="1" inputmode="decimal"></div>
-<div class="field"><label for="alti">6 aylık enflasyon (%) <small>biliyorsanız; boş bırakın</small></label><input type="number" id="alti" placeholder="örn: 8,77" inputmode="decimal"></div>
+<div class="field"><label for="aylik">Kasım–Aralık aylık ortalama enflasyon tahmini (%)</label><input type="number" id="aylik" value="0.6" inputmode="decimal"></div>
+<div class="field"><label for="alti">6 aylık enflasyon (%) <small>biliyorsanız; boş bırakın</small></label><input type="number" id="alti" placeholder="örn: 10,47" inputmode="decimal"></div>
 </div>''',
 js=r'''
-var Q3=0.0557, TS=0.05, TS_ONCEKI=0.07, KIDEM=73729.87;
+var Q3=0.0829, TS=0.05, TS_ONCEKI=0.07, KIDEM=73729.87;
 function hesapla(){
   var m=v('maas'); if(!(m>0)) return 'Mevcut aylığınızı girin.';
   var a=v('aylik'); if(isNaN(a)) a=1; if(a<-2||a>10) return 'Aylık enflasyon tahmini −2 ile 10 arasında olmalı.';
-  var h=v('alti'), h2=(h>0)?h/100:(1+Q3)*Math.pow(1+a/100,3)-1, tur=el('tur').value, z, rows=[['Temmuz–Aralık 6 aylık enflasyon',pct(h2*100)]];
+  var h=v('alti'), h2=(h>0)?h/100:(1+Q3)*Math.pow(1+a/100,2)-1, tur=el('tur').value, z, rows=[['Temmuz–Aralık 6 aylık enflasyon',pct(h2*100)]];
   if(tur==='emekli'){ z=h2; rows.push(['Zam yöntemi','6 aylık TÜFE artışı kadar']); }
   else { var fark=Math.max(0,(1+h2)/(1+TS_ONCEKI)-1); z=(1+TS)*(1+fark)-1; rows.push(['Toplu sözleşme zammı (2027 ilk yarı)','%5,00']); rows.push(['Enflasyon farkı',pct(fark*100)]); }
   var y=m*(1+z);
   rows.push(['Toplam zam oranı',pct(z*100),'hl']); rows.push(['Aylık artış',tl(y-m)]); rows.push(['Ocak–Haziran 2027 toplam ek gelir',tl((y-m)*6)]);
   if(tur!=='emekli') rows.push(['Kıdem tazminatı tavanı (Ocak 2027, tahmini)',tl(KIDEM*(1+z))]);
   return {main:['Ocak 2027 tahmini aylık', tl(y)], sub:'%'+num(z*100,2)+' zam ile', rows:rows,
-    note:'Temmuz–Eylül 2026 enflasyonu %5,57 olarak gerçekleşti. Kesin zam oranı, Aralık 2026 enflasyonunun açıklandığı Ocak 2027’nin ilk günlerinde belli olur. En düşük emekli aylığı kanunla ayrıca belirlenir.'};
+    note:'Temmuz–Ekim 2026 enflasyonu %8,29 olarak gerçekleşti. Kesin zam oranı, Aralık 2026 enflasyonunun açıklandığı Ocak 2027’nin ilk günlerinde belli olur. En düşük emekli aylığı kanunla ayrıca belirlenir.'};
 }''',
 article='''
 <h2 id="nasil">Ocak 2027 zammı nasıl hesaplanır?</h2>
 <p><b>SSK ve Bağ-Kur emeklileri</b> (5510 sayılı Kanun) Ocak ayında, önceki Temmuz–Aralık dönemindeki altı aylık TÜFE artışı kadar zam alır. <b>Memurlar ve memur emeklileri</b> ise 8. Dönem Toplu Sözleşme’ye göre 2027’nin ilk yarısı için <b>%5</b> zam alır; 2026’nın ikinci yarısındaki %7’lik toplu sözleşme zammını aşan enflasyon da <b>enflasyon farkı</b> olarak eklenir.</p>
 <div class="formula">Emekli zammı = (1 + Temmuz) × (1 + Ağustos) × … × (1 + Aralık) − 1<br>Enflasyon farkı = (1 + 6 aylık enflasyon) ÷ 1,07 − 1<br>Memur zammı = 1,05 × (1 + Enflasyon farkı) − 1</div>
-<div class="example"><p><b>Örnek:</b> Temmuz–Eylül enflasyonu %5,57; Ekim, Kasım ve Aralık’ta ayda %1 enflasyon olursa altı aylık enflasyon 1,0557 × 1,01³ − 1 = <b>%8,77</b> olur. SSK/Bağ-Kur emeklisi %8,77 zam alır. Memurun enflasyon farkı 1,0877 ÷ 1,07 − 1 = %1,65, toplam zammı 1,05 × 1,0165 − 1 = <b>%6,74</b> olur.</p></div>
+<div class="example"><p><b>Örnek:</b> Temmuz–Ekim enflasyonu %8,29; Kasım ve Aralık’ta ayda %1 enflasyon olursa altı aylık enflasyon 1,0829 × 1,01 × 1,01 − 1 = <b>%10,47</b> olur. SSK/Bağ-Kur emeklisi %10,47 zam alır. Memurun enflasyon farkı 1,1047 ÷ 1,07 − 1 = %3,24, toplam zammı 1,05 × 1,0324 − 1 = <b>%8,40</b> olur.</p></div>
 
 <h2 id="senaryo">Ocak 2027 zam senaryoları</h2>
-<div class="table-wrap"><table><thead><tr><th>Ekim–Aralık aylık ort.</th><th>6 aylık enflasyon</th><th>Emekli zammı</th><th>Memur zammı</th></tr></thead><tbody>
-<tr><td>%0,6</td><td>%7,48</td><td>%7,48</td><td>%5,47</td></tr>
-<tr><td>%1,0</td><td>%8,77</td><td>%8,77</td><td>%6,74</td></tr>
-<tr><td>%1,4</td><td>%10,07</td><td>%10,07</td><td>%8,01</td></tr>
+<div class="table-wrap"><table><thead><tr><th>Kasım–Aralık aylık ort.</th><th>6 aylık enflasyon</th><th>Emekli zammı</th><th>Memur zammı</th></tr></thead><tbody>
+<tr><td>%0,3</td><td>%8,94</td><td>%8,94</td><td>%6,91</td></tr>
+<tr><td>%0,6</td><td>%9,60</td><td>%9,60</td><td>%7,55</td></tr>
+<tr><td>%1,0</td><td>%10,47</td><td>%10,47</td><td>%8,41</td></tr>
+
 </tbody></table></div>
-<p>Kurumların yıl sonu enflasyon tahminleri (OVP %28,4, TCMB Piyasa Katılımcıları Anketi %29,61) Ekim–Aralık için aylık ortalama %1–1,4 aralığına işaret ediyor. Ayrıntılı değerlendirme için <a href="/blog/memur-emekli-zammi-ocak-2027.html">Ocak 2027 memur ve emekli zammı</a> yazımıza bakın.</p>
+<p>Kurumların yıl sonu enflasyon tahminleri (OVP %28,4, TCMB Piyasa Katılımcıları Anketi %29,61) Kasım–Aralık için aylık ortalama yaklaşık %0,3–0,8’e işaret ediyor. Ayrıntılı değerlendirme için <a href="/blog/memur-emekli-zammi-ocak-2027.html">Ocak 2027 memur ve emekli zammı</a> yazımıza bakın.</p>
 
 <h2 id="takvim">Zam ne zaman kesinleşir?</h2>
 <ul>
@@ -895,8 +897,8 @@ article='''
 <p>Ekim 2026 itibarıyla en düşük emekli aylığı 23.552 ₺’dir. Bu tutar ayrıca kanunla belirlendiği için Ocak 2027’de yalnızca enflasyon oranında değil, yapılacak yasal düzenlemeye göre artırılabilir.</p>
 ''',
 faq=[
-('Ocak 2027 emekli zammı ne kadar olacak?','SSK ve Bağ-Kur emeklilerinin Ocak 2027 zammı Temmuz–Aralık 2026 enflasyonuna eşit olacak. Temmuz–Eylül döneminde enflasyon %5,57 oldu; Ekim–Aralık’ta aylık ortalama %1–1,4 enflasyonla zam yaklaşık %8,8–%10,1 olur.'),
-('Ocak 2027 memur zammı ne kadar olacak?','Memurlar %5 toplu sözleşme zammına ek olarak, altı aylık enflasyonun %7’yi aşan kısmı kadar enflasyon farkı alacak. Mevcut tahminlerle toplam memur zammı yaklaşık %6,7–%8 aralığında.'),
+('Ocak 2027 emekli zammı ne kadar olacak?','SSK ve Bağ-Kur emeklilerinin Ocak 2027 zammı Temmuz–Aralık 2026 enflasyonuna eşit olacak. Temmuz–Ekim döneminde enflasyon %8,29 oldu; Kasım–Aralık’ta aylık ortalama %0,3–1 enflasyonla zam yaklaşık %8,9–%10,5 olur.'),
+('Ocak 2027 memur zammı ne kadar olacak?','Memurlar %5 toplu sözleşme zammına ek olarak, altı aylık enflasyonun %7’yi aşan kısmı kadar enflasyon farkı alacak. Mevcut tahminlerle toplam memur zammı yaklaşık %6,9–%8,4 aralığında.'),
 ('Memur emeklisinin zammı memurla aynı mı?','Evet. Emekli Sandığı’na tabi memur emeklileri, memurlarla aynı oranda (toplu sözleşme zammı + enflasyon farkı) zam alır.'),
 ('Emekli zammı ne zaman yatar?','Kesin oran Ocak 2027’nin ilk iş günlerinde açıklanır; zamlı aylıklar Ocak ayındaki olağan ödeme günlerinde hesaplara yatırılır.'),
 ],

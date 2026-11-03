@@ -18,7 +18,7 @@ R = {
          ('Sağlık çalışanıysanız', 'hemsire-maasi', 'Hemşire maaşları; hekimler için doktor maaşı sayfasına bakın.'),
          ('Ocak zammıyla yeni maaşınızı hesaplamak istiyorsunuz', 'memur-emekli-zammi-hesaplama', 'Toplu sözleşme zammı ve enflasyon farkını birlikte uygular; emekliler için de geçerli.')],
  tablo=[('Maaş katsayısı (Temmuz–Aralık 2026)', '1,575512'), ('Taban aylık katsayısı', '25,794915'), ('Yan ödeme katsayısı', '0,499649'),
-        ('Temmuz 2026 memur zammı', '%13,52'), ('Ocak 2027 toplu sözleşme zammı', '%5 + enflasyon farkı'), ('Temmuz–Eylül 2026 enflasyonu', '%5,57')],
+        ('Temmuz 2026 memur zammı', '%13,52'), ('Ocak 2027 toplu sözleşme zammı', '%5 + enflasyon farkı'), ('Temmuz–Ekim 2026 enflasyonu', '%8,29')],
  faq=[('Enflasyon farkı nasıl hesaplanır?', 'Altı aylık enflasyon toplu sözleşmedeki zam oranını aşarsa, aşan kısım enflasyon farkı olarak maaşa eklenir. Ocak 2027 için %5 zam ile Temmuz–Aralık enflasyonunun %7’yi aşan kısmı birleşik uygulanır.'),
       ('Memur emeklisi zammı da aynı mı?', 'Evet, memur emeklilerine (4/c) çalışan memurlarla aynı oranda zam yapılır; SSK ve Bağ-Kur emeklileri ise altı aylık enflasyon oranında zam alır.')]),
 'vergi': dict(
