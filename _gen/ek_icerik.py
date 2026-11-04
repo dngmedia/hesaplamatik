@@ -621,7 +621,22 @@ EK['yas-hesaplama']['article'] += '''
 <h2 id="yas-farki">İki kişi arasındaki yaş farkı nasıl hesaplanır?</h2>
 <p>Büyük olanın doğum tarihini “Doğum Tarihi”, küçük olanın doğum tarihini “Hesaplama Tarihi” alanına girin. Sonuç, aradaki farkı yıl, ay ve gün olarak verir. Yalnızca gün farkı için <a href="/gun-hesaplama.html">gün hesaplama</a> aracını kullanabilirsiniz.</p>
 '''
+_YB = 2026
+EK['yas-hesaplama']['article'] = """
+<h2 id="dogum-yili-tablo">Doğum yılına göre 2026’da kaç yaşındasınız?</h2>
+<p>Yalnızca doğum yılınızı biliyorsanız yaşınızı aşağıdaki tablodan okuyabilirsiniz. Yaş = 2026 − doğum yılı; doğum gününüz 2026’da henüz gelmediyse bir eksiği geçerlidir. Tam yaşınızı yıl, ay ve gün olarak görmek için yukarıdaki hesaplayıcıya doğum tarihinizi girin.</p>
+""" + tablo(['Doğum yılı', '2026’da (doğum günü geldiyse)', '2026’da (doğum günü gelmediyse)', '2027’de (doğum günü geldiyse)'],
+            [[str(y), f'{_YB - y} yaş', f'{_YB - y - 1} yaş' if _YB - y > 0 else '–', f'{_YB + 1 - y} yaş'] for y in range(2025, 1944, -1)]) + f"""
+<p>Örneğin 2000 doğumlu biri doğum günü geldiyse 2026’da {_YB - 2000}, gelmediyse {_YB - 2001} yaşındadır; 1990 doğumlular {_YB - 1990}, 1985 doğumlular {_YB - 1985} yaşına girer.</p>
+
+<h2 id="doldurmak">“Yaşını doldurmak” ne demek?</h2>
+<p>Resmî işlemlerde “18 yaşını doldurmak”, 18. doğum gününün gelmiş olması demektir. 10 Mayıs 2008 doğumlu biri 18 yaşını 10 Mayıs 2026’da doldurur; ehliyet, seçme hakkı ve ergin olma gibi yaş şartlarında bu tarih esas alınır. Takvim yılından basitçe çıkarma yapmak (2026 − 2008 = 18) doğum günü gelmeden önce bir yaş fazla gösterir; bu yüzden başvurulardan önce tam tarihle hesaplamak önemlidir.</p>
+""" + EK['yas-hesaplama']['article']
 EK['yas-hesaplama']['faq'] += [
+    ('2000 doğumlu kaç yaşında?', '2026 yılında doğum günü geldiyse 26, henüz gelmediyse 25 yaşındadır. 2027’de doğum günüyle birlikte 27 yaşına girer.'),
+    ('1990 doğumlu kaç yaşında?', '2026 yılında doğum günü geldiyse 36, gelmediyse 35 yaşındadır.'),
+    ('2026’da kaç yaşındayım?', '2026’dan doğum yılınızı çıkarın: doğum gününüz geldiyse sonuç yaşınızdır, gelmediyse bir eksiği. Yıl, ay ve gün olarak tam yaşınız için hesaplayıcıya doğum tarihinizi girin.'),
+    ('Burcumu nasıl öğrenirim?', 'Hesaplayıcı doğum tarihinize göre güneş burcunuzu da gösterir. Örneğin 25 Ocak doğumlular Kova, 15 Mart doğumlular Balık, 10 Ağustos doğumlular Aslan burcudur.'),
     ('Çocuğum okula kaç yaşında başlar?', '2026–2027 kurallarına göre 30 Eylül itibarıyla 72 ayını dolduran çocukların 1. sınıfa kaydı zorunludur; 69–71 aylık çocuklar veli dilekçesiyle ertelenebilir, 66–68 aylık çocuklar ise veli isterse 1. sınıfa başlayabilir.'),
     ('B sınıfı ehliyet kaç yaşında alınır?', 'Otomobil kullanmayı sağlayan B sınıfı ehliyet 18 yaşında alınabilir. Motosiklet için A1 16, A2 18 yaşındadır.'),
 ]

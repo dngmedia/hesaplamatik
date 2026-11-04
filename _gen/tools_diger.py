@@ -26,8 +26,8 @@ TOOLS = []
 # ───────────────────────── YAŞ ─────────────────────────
 TOOLS.append(dict(
 slug='yas-hesaplama', name='Yaş Hesaplama', cat='diger', ico='🎂',
-title='Yaş Hesaplama – Kaç Yaşındayım? Yıl, Ay, Gün Olarak | Hesaplarsın',
-desc='Doğum tarihinizi girin; yaşınızı yıl, ay, gün olarak öğrenin. Doğum gününüze kalan gün, okula başlama yaşı (ay), ehliyet ve askerlik yaşı tek sayfada.',
+title='Yaş Hesaplama 2026 – Kaç Yaşındayım? Yıl, Ay, Gün + Doğum Yılı Tablosu | Hesaplarsın',
+desc='1990 doğumlular 2026’da 36, 2000 doğumlular 26 yaşında (doğum günü geldiyse). Doğum tarihinizi girin; yaşınızı yıl, ay, gün, yaşadığınız gün sayısı ve burcunuzla görün.',
 h1='🎂 Yaş Hesaplama – Kaç Yaşındayım?',
 lead='Doğum tarihinizi girin; tam yaşınızı yıl-ay-gün olarak, toplam yaşadığınız gün sayısını ve bir sonraki doğum gününüze kalan süreyi saniyeler içinde öğrenin.',
 form='''<div class="form-grid">
@@ -52,9 +52,8 @@ function hesapla(){
   var gun=Math.round((h-d)/864e5);
   var sonraki=new Date(h.getFullYear(),d.getMonth(),d.getDate()); if(sonraki<h) sonraki.setFullYear(h.getFullYear()+1);
   var kalan=Math.round((sonraki-h)/864e5);
-  var burclar=[[1,20,'Oğlak'],[2,19,'Kova'],[3,21,'Balık'],[4,20,'Koç'],[5,21,'Boğa'],[6,22,'İkizler'],[7,23,'Yengeç'],[8,23,'Aslan'],[9,23,'Başak'],[10,23,'Terazi'],[11,22,'Akrep'],[12,22,'Yay'],[13,1,'Oğlak']];
-  var mm=d.getMonth()+1, dd=d.getDate(), burc='Oğlak';
-  for(var i=0;i<12;i++){ if(mm===burclar[i][0] && dd<burclar[i][1]){burc=i===0?'Oğlak':burclar[i-1][2];break;} if(mm===burclar[i][0]){burc=burclar[i][2];break;} }
+  var BS=['Oğlak','Kova','Balık','Koç','Boğa','İkizler','Yengeç','Aslan','Başak','Terazi','Akrep','Yay','Oğlak'], BC=[20,19,21,20,21,22,23,23,23,23,22,22];
+  var mm=d.getMonth()+1, dd=d.getDate(), burc=dd>=BC[mm-1]?BS[mm]:BS[mm-1];
   return {
     main:['Yaşınız', y+' yaş '+m+' ay '+g+' gün'],
     sub: kalan===0?'🎉 Bugün doğum gününüz! İyi ki doğdunuz.':'Bir sonraki doğum gününüze <b>'+kalan+' gün</b> kaldı ('+(y+1)+'. yaş)',
