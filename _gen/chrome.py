@@ -135,6 +135,13 @@ def run():
                 body = body[:m.start()] + FOOTER + body[m.end():]
             else:
                 body = body.replace('</body>', FOOTER + '\n</body>', 1)
+        # <main> = sayfanın asıl içeriği (araç + yazı + SSS). Önceden yalnız formu sarıyordu, blog/kategori sayfalarında hiç yoktu.
+        body = body.replace('<main id="icerik">', '').replace('</main><!--/icerik-->', '')
+        body = re.sub(r'<main(\b[^>]*)>', lambda m: '<div' + (m.group(1) if m.group(1).strip() else '') + '>', body)
+        body = body.replace('</main>', '</div>')
+        if '<!--/HZ-HEAD-->' in body and '<!--HZ-FOOT-->' in body:
+            body = body.replace('<!--/HZ-HEAD-->', '<!--/HZ-HEAD-->\n<main id="icerik">', 1)
+            body = body.replace('<!--HZ-FOOT-->', '</main><!--/icerik-->\n<!--HZ-FOOT-->', 1)
         # css + js
         head = re.sub(r'<style id="hz-chrome">.*?</style>\n?', '', head, flags=re.S)
         head = head.replace('</head>', CSS + '\n</head>', 1)
