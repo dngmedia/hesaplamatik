@@ -67,9 +67,9 @@ EVENTS += [
     ('2027-01-01', 'maas', 'Yeni yıl tutarları yürürlüğe girer', 'Asgari ücret, vergi dilimleri, MTV ve harçlar, SGK tavanı', '/net-maas-hesaplama.html'),
     ('2027-01-15', 'maas', 'Memurlara Ocak zamlı maaş', 'Memur maaşları her ayın 15’inde peşin ödenir', '/memur-maaslari.html'),
     ('2027-02-01', 'vergi', 'MTV 1. taksit son gün', '31 Ocak Pazar olduğu için süre 1 Şubat’a uzar', '/mtv-hesaplama.html'),
-    ('2027-03-09', 'tatil', 'Ramazan Bayramı (9–11 Mart)', 'Arife 8 Mart yarım gün', '/is-gunu-hesaplama.html'),
+    ('2027-03-09', 'tatil', 'Ramazan Bayramı (9–11 Mart)', 'Arife 8 Mart yarım gün', '/resmi-tatiller-2027.html'),
     ('2027-03-31', 'vergi', 'Yıllık gelir vergisi beyannamesi son gün', '2026 gelirleri; 1–31 Mart, 1. taksit ödemesi', '/gelir-vergisi-hesaplama.html'),
-    ('2027-05-16', 'tatil', 'Kurban Bayramı (16–19 Mayıs)', 'Arife 15 Mayıs yarım gün', '/is-gunu-hesaplama.html'),
+    ('2027-05-16', 'tatil', 'Kurban Bayramı (16–19 Mayıs)', 'Arife 15 Mayıs yarım gün', '/resmi-tatiller-2027.html'),
     ('2027-05-31', 'vergi', 'Emlak vergisi 1. taksit son gün', '2027 emlak vergisinin ilk taksiti', '/blog/yeniden-degerleme-orani-2026.html'),
     ('2027-07-15', 'maas', 'Memurlara Temmuz zamlı maaş', 'Haziran enflasyonuyla kesinleşen Temmuz zammı', '/memur-maaslari.html'),
     ('2027-08-02', 'vergi', 'MTV 2. taksit ve gelir vergisi 2. taksit son gün', '31 Temmuz Cumartesi olduğu için süre 2 Ağustos’a uzar', '/mtv-hesaplama.html'),
@@ -163,7 +163,7 @@ article=f'''
 </ul>
 
 <h2 id="tatil">2027 bayram ve resmî tatiller</h2>
-<p>Ramazan Bayramı <b>9–11 Mart 2027</b> (arife 8 Mart yarım gün), Kurban Bayramı <b>16–19 Mayıs 2027</b> (arife 15 Mayıs yarım gün). Tüm resmî tatiller ve iki tarih arasındaki iş günü sayısı için <a href="/is-gunu-hesaplama.html">iş günü hesaplama</a> aracını kullanabilirsiniz.</p>
+<p>Ramazan Bayramı <b>9–11 Mart 2027</b> (arife 8 Mart yarım gün), Kurban Bayramı <b>16–19 Mayıs 2027</b> (arife 15 Mayıs yarım gün). Tüm tatiller, köprü günleri ve kaç gün izinle kaç gün tatil yapılacağı için <a href="/resmi-tatiller-2027.html">2027 resmi tatiller ve köprü günleri</a> sayfasına, iki tarih arasındaki iş günü sayısı için <a href="/is-gunu-hesaplama.html">iş günü hesaplama</a> aracını kullanabilirsiniz.</p>
 ''',
 faq=[
 ('Kasım 2026 enflasyonu ne zaman açıklanacak?', 'Kasım 2026 enflasyonu 3 Aralık 2026 Perşembe günü saat 10:00’da TÜİK tarafından açıklanacak. Ekim 2026 enflasyonu 3 Kasım’da açıklandı: aylık %2,58, yıllık %29,77.'),
@@ -176,4 +176,203 @@ faq=[
 related=['kira-artis-hesaplama', 'memur-emekli-zammi-hesaplama', 'enflasyon-hesaplama', 'memur-maaslari', 'asgari-ucret-hesaplama'],
 sources=[('TÜİK Ulusal Veri Yayımlama Takvimi', 'https://www.tuik.gov.tr/'), ('TCMB Para Politikası Kurulu toplantı takvimi', 'https://www.tcmb.gov.tr/'),
          ('SGK emekli aylık ödeme günleri', 'https://www.sgk.gov.tr/'), ('GİB Vergi Takvimi', 'https://www.gib.gov.tr/')],
+))
+
+
+# ══════════════ 2027 Resmi Tatiller ve Köprü Günleri (11 Kas 2026) ══════════════
+# Kaynak: 2429 sayılı Ulusal Bayram ve Genel Tatiller Kanunu; dini bayram tarihleri Diyanet 2027 takvimi.
+# (tarih, ad, gün değeri: 1 = tam gün, 0.5 = 13:00'ten sonra yarım gün)
+RT = [('2027-01-01', 'Yılbaşı', 1),
+      ('2027-03-08', 'Ramazan Bayramı arifesi', 0.5), ('2027-03-09', 'Ramazan Bayramı 1. gün', 1), ('2027-03-10', 'Ramazan Bayramı 2. gün', 1), ('2027-03-11', 'Ramazan Bayramı 3. gün', 1),
+      ('2027-04-23', 'Ulusal Egemenlik ve Çocuk Bayramı', 1), ('2027-05-01', 'Emek ve Dayanışma Günü', 1),
+      ('2027-05-15', 'Kurban Bayramı arifesi', 0.5), ('2027-05-16', 'Kurban Bayramı 1. gün', 1), ('2027-05-17', 'Kurban Bayramı 2. gün', 1), ('2027-05-18', 'Kurban Bayramı 3. gün', 1),
+      ('2027-05-19', 'Kurban Bayramı 4. gün + Atatürk’ü Anma, Gençlik ve Spor Bayramı', 1),
+      ('2027-07-15', 'Demokrasi ve Millî Birlik Günü', 1), ('2027-08-30', 'Zafer Bayramı', 1),
+      ('2027-10-28', 'Cumhuriyet Bayramı arifesi', 0.5), ('2027-10-29', 'Cumhuriyet Bayramı', 1)]
+_RT = {_d.date.fromisoformat(t): (a, v) for t, a, v in RT}
+
+
+def _bos(d):
+    """o gün çalışılmayan kısım: hafta sonu 1, tam tatil 1, yarım gün 0.5, değilse 0"""
+    if d.weekday() >= 5:
+        return 1
+    return _RT.get(d, ('', 0))[1]
+
+
+# Tatil kümeleri: birbirine en çok 1 gün uzak tatiller tek küme
+_kume, _s = [], None
+for t in sorted(_RT):
+    if _s and (t - _s[-1]).days <= 2:
+        _s.append(t)
+    else:
+        _s = [t]; _kume.append(_s)
+KUME_AD = []
+for k in _kume:
+    a = _RT[k[0]][0]
+    KUME_AD.append('Ramazan Bayramı' if 'Ramazan' in a else 'Kurban Bayramı ve 19 Mayıs' if 'Kurban' in a else 'Cumhuriyet Bayramı' if 'Cumhuriyet' in a else a)
+
+
+def _plan(k, butce):
+    """kümeyi içeren, izin ihtiyacı <= bütçe olan en uzun kesintisiz tatil penceresi"""
+    en = None
+    cek = [t for t in k if _RT[t][1] == 1]  # pencere tam gün tatillerin hepsini içermeli; arife dışarıda kalabilir
+    for s0 in range(0, 10):
+        s = cek[0] - _d.timedelta(s0)
+        for e0 in range(0, 10):
+            e = cek[-1] + _d.timedelta(e0)
+            gunler = [s + _d.timedelta(i) for i in range((e - s).days + 1)]
+            izin = sum(1 - _bos(g) for g in gunler)
+            if izin > butce + 1e-9:
+                continue
+            uzun = len(gunler)
+            if en is None or uzun > en[0] or (uzun == en[0] and izin < en[1]):
+                en = (uzun, izin, s, e, [g for g in gunler if _bos(g) < 1])
+    return en
+
+
+def _tr_kisa(d):
+    return f'{d.day} {AY[d.month-1]} {GUN[d.weekday()]}'
+
+
+def _gun_s(x):
+    return (f'{x:g}'.replace('.', ',')) + ' gün'
+
+
+PLAN = []  # her küme için bütçe 0..4 (0,5 adım)
+for k, ad in zip(_kume, KUME_AD):
+    p, ham = {}, {}
+    for b in [0, 0.5, 1, 1.5, 2, 2.5, 3, 4]:
+        ham[b] = _plan(k, b)
+        u0 = ham[0][0]
+        # bütçe içindeki en uzun tatil; ancak her izin günü en az 2 gün tatil kazandırmalı (yoksa köprü değil)
+        aday = [ham[x] for x in ham if ham[x][1] == 0 or (ham[x][0] - u0) / ham[x][1] >= 2]
+        u, iz, s, e, ig = max(aday, key=lambda r: (r[0], -r[1]))
+        p[str(b)] = [u, iz, s.isoformat(), e.isoformat(), [g.isoformat() + ('|y' if _bos(g) == 0.5 else '') for g in ig]]
+    PLAN.append([ad, k[0].isoformat(), p])
+
+# yıl özeti
+_yil = [_d.date(2027, 1, 1) + _d.timedelta(i) for i in range(365)]
+HAFTAICI_TATIL = sum(v for t, (a, v) in _RT.items() if t.weekday() < 5)
+IS_GUNU = sum(1 - _bos(g) for g in _yil)
+AY_T = []
+for m in range(1, 13):
+    gs = [g for g in _yil if g.month == m]
+    AY_T.append((AY[m-1], sum(1 for g in gs if g.weekday() < 5), sum(_RT.get(g, ('', 0))[1] for g in gs if g.weekday() < 5), sum(1 - _bos(g) for g in gs)))
+assert abs(sum(r[3] for r in AY_T) - IS_GUNU) < 1e-9
+
+RT_TABLO = '<div class="table-wrap"><table><thead><tr><th>Tarih</th><th>Gün</th><th>Tatil</th><th>Süre</th></tr></thead><tbody>' + ''.join(
+    f'<tr><td>{_d.date.fromisoformat(t).day} {AY[int(t[5:7])-1]} 2027</td><td>{GUN[_d.date.fromisoformat(t).weekday()]}</td><td>{a}</td><td>{"Yarım gün (13:00’ten sonra)" if v == 0.5 else "Tam gün"}</td></tr>' for t, a, v in RT) + '</tbody></table></div>'
+
+
+def _kopru_satir(i):
+    ad, bas, p = PLAN[i]
+    sat = []
+    for b in ['0', '1', '1.5', '2', '3']:
+        u, iz, s, e, ig = p[b]
+        sat.append((float(b), u, iz, s, e, ig))
+    # aynı sonucu veren bütçeleri ele
+    out, son, u0 = [], None, sat[0][1]
+    for b, u, iz, s, e, ig in sat:
+        if son and son == (u, s, e):
+            continue
+        son = (u, s, e)
+        if iz and (u - u0) / iz < 2:
+            continue  # verimsiz: izin günü kadar tatil kazandırıyor, köprü değil
+        izs = ', '.join(_tr_kisa(_d.date.fromisoformat(g.split('|')[0])) + (' (yarım gün)' if g.endswith('|y') else '') for g in ig) or '—'
+        out.append(f'<tr><td>{ad}</td><td>{_gun_s(iz) if iz else "İzinsiz"}</td><td>{izs}</td><td>{_tr_kisa(_d.date.fromisoformat(s)) + ((' – ' + _tr_kisa(_d.date.fromisoformat(e))) if e != s else '')}</td><td><b>{u} gün</b></td></tr>')
+    return ''.join(out)
+
+
+KOPRU_T = '<div class="table-wrap"><table><thead><tr><th>Tatil</th><th>Kullanılan izin</th><th>İzin alınacak günler</th><th>Tatil aralığı</th><th>Toplam</th></tr></thead><tbody>' + ''.join(
+    _kopru_satir(i) for i in range(len(PLAN))) + '</tbody></table></div>'
+AY_TABLO = '<div class="table-wrap"><table><thead><tr><th>Ay</th><th>Hafta içi gün</th><th>Hafta içine denk gelen tatil</th><th>İş günü</th></tr></thead><tbody>' + ''.join(
+    f'<tr><td>{a}</td><td>{h}</td><td>{_gun_s(t) if t else "–"}</td><td>{f"{w:g}".replace(".", ",")}</td></tr>' for a, h, t, w in AY_T) + \
+    f'<tr><td><b>Toplam</b></td><td><b>{sum(r[1] for r in AY_T)}</b></td><td><b>{_gun_s(HAFTAICI_TATIL)}</b></td><td><b>{f"{IS_GUNU:g}".replace(".", ",")}</b></td></tr></tbody></table></div>'
+
+_ram = PLAN[KUME_AD.index('Ramazan Bayramı')][2]
+_kur = PLAN[KUME_AD.index('Kurban Bayramı ve 19 Mayıs')][2]
+TOPLAM_TATIL = sum(v for t, a, v in RT)
+
+RT_JS = '''
+var PL=''' + _j.dumps(PLAN, ensure_ascii=False) + r''';
+var RTL=''' + _j.dumps(RT, ensure_ascii=False) + r''';
+var AYL=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'],GNL=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+function d0(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+function kd(s){var d=d0(s);return d.getDate()+' '+AYL[d.getMonth()]+' '+GNL[d.getDay()];}
+function gs(x){return String(x).replace('.',',')+' gün';}
+function onReady(){run(false);}
+function hesapla(){
+  var b=el('butce').value, now=new Date(); now.setHours(0,0,0,0);
+  var sec=el('tatil').value, rows=[], ilk=null;
+  PL.forEach(function(k,i){
+    if(sec!=='hepsi'&&String(i)!==sec) return;
+    var p=k[2][b], kal=Math.round((d0(k[1])-now)/864e5);
+    var iz=p[4].length?p[4].map(function(g){var y=g.indexOf('|y')>0;return kd(g.split('|')[0])+(y?' (yarım)':'');}).join(', '):'izin gerekmez';
+    if(kal>=0&&(!ilk||p[0]>ilk[1][0])) ilk=[k,p,kal];
+    rows.push(['<b>'+k[0]+'</b>'+(kal>=0?' <small>('+kal+' gün kaldı)</small>':' <small>(geçti)</small>'), '<b>'+p[0]+' gün</b> tatil: '+kd(p[2])+' – '+kd(p[3])+'<br><small>İzin: '+iz+(p[1]?' ('+gs(p[1])+')':'')+'</small>']);
+  });
+  if(!rows.length) return 'Seçim bulunamadı.';
+  var f=ilk||[PL[0],PL[0][2][b],0];
+  return {main:[f[0][0], f[1][0]+' gün tatil'], sub:(ilk?f[2]+' gün kaldı · ':'')+kd(f[1][2])+' – '+kd(f[1][3])+(f[1][1]?' · '+gs(f[1][1])+' izinle':' · izin gerekmez'),
+    rows:rows, note:'Hesap hafta sonu çalışmayan (Pazartesi–Cuma) çalışanlar içindir; arife günleri 13:00’ten sonra tatildir, sabahı yarım gün izin sayılır. Kamuda idari izin kararı ayrıca açıklanabilir.'};
+}'''
+
+RT_FORM = '''<div class="form-grid"><div class="field"><label for="butce">Kaç gün izin kullanabilirsiniz?</label><select id="butce">
+<option value="0">İzin kullanmadan</option><option value="0.5">Yarım gün</option><option value="1">1 gün</option><option value="1.5" selected>1,5 gün</option><option value="2">2 gün</option><option value="2.5">2,5 gün</option><option value="3">3 gün</option><option value="4">4 gün</option></select></div>
+<div class="field"><label for="tatil">Hangi tatil?</label><select id="tatil"><option value="hepsi">Tüm 2027 tatilleri</option>''' + ''.join(
+    f'<option value="{i}">{k[0]}</option>' for i, k in enumerate(PLAN)) + '''</select></div></div>'''
+
+TOOLS.append(dict(
+slug='resmi-tatiller-2027', name='2027 Resmi Tatiller ve Köprü Günleri', cat='diger', ico='🗓️',
+title='2027 Resmi Tatiller ve Köprü Günleri – Ramazan ve Kurban Bayramı Ne Zaman?',
+desc=f'2027’de Ramazan Bayramı 9–11 Mart, Kurban Bayramı 16–19 Mayıs. {_gun_s(_ram["1.5"][1])} izinle {_ram["1.5"][0]}, {_gun_s(_kur["2"][1])} izinle {_kur["2"][0]} gün tatil. Tüm resmi tatiller, köprü günleri ve kaç gün kaldı.',
+h1='🗓️ 2027 Resmi Tatiller ve Köprü Günleri',
+lead='2027 bayram ve resmi tatil günlerini, hangi güne denk geldiklerini ve kaç gün izinle kaç günlük tatil yapabileceğinizi görün. Bayrama kaç gün kaldığını da hesaplar.',
+card_title='Kaç gün izinle kaç gün tatil?', button='Planı Göster',
+badges=['✓ Ücretsiz', 'Diyanet takvimi', '2429 s. Kanun'],
+form=RT_FORM, js=RT_JS,
+article=f'''
+<p><b>Kısa cevap:</b> 2027’de <b>Ramazan Bayramı 9–11 Mart</b> (Salı–Perşembe, arife 8 Mart Pazartesi öğleden sonra), <b>Kurban Bayramı 16–19 Mayıs</b> (Pazar–Çarşamba, arife 15 Mayıs Cumartesi). Ramazan Bayramı’nda arife sabahı ve Cuma için {_gun_s(_ram["1.5"][1])} izin alırsanız <b>{_ram["1.5"][0]} gün</b>, Kurban Bayramı’nda Perşembe–Cuma için {_gun_s(_kur["2"][1])} izinle <b>{_kur["2"][0]} gün</b> kesintisiz tatil yapabilirsiniz.</p>
+
+<h2 id="liste">2027 resmi tatil günleri listesi</h2>
+<p>Resmi tatiller 2429 sayılı Ulusal Bayram ve Genel Tatiller Hakkında Kanun’la belirlenir; Ramazan ve Kurban bayramlarının tarihleri her yıl Diyanet İşleri Başkanlığı takvimine göre değişir. 2027’de 19 Mayıs, Kurban Bayramı’nın 4. gününe denk geliyor; bu yüzden yıl genelinde toplam {_gun_s(TOPLAM_TATIL)} resmi tatil var (normal yıllarda 15,5 gün).</p>
+{RT_TABLO}
+
+<h2 id="kopru">2027 köprü günleri: kaç gün izinle kaç gün tatil?</h2>
+<p>Aşağıdaki tablo, kullandığınız her izin gününe en az iki gün tatil kazandıran köprüleri listeler. Hesap Pazartesi–Cuma çalışan biri içindir; arife günlerinde 13:00’e kadar çalışıldığı için arife sabahı <b>yarım gün izin</b> sayılır.</p>
+{KOPRU_T}
+<p>En verimli köprüler: <b>Ramazan Bayramı</b> ({_gun_s(_ram["1.5"][1])} izin → {_ram["1.5"][0]} gün) ve <b>Kurban Bayramı</b> ({_gun_s(_kur["2"][1])} izin → {_kur["2"][0]} gün). 1 Ocak, 23 Nisan ve 29 Ekim Cuma’ya, 30 Ağustos Pazartesi’ye denk geldiği için izin kullanmadan 3 günlük hafta sonu oluşuyor. 1 Mayıs ise Cumartesi’ye denk geliyor.</p>
+
+<h2 id="is-gunu">2027’de kaç iş günü var?</h2>
+<p>Hafta sonları ve hafta içine denk gelen resmi tatiller düşüldüğünde 2027’de <b>{f"{IS_GUNU:g}".replace(".", ",")} iş günü</b> vardır (yarım günler 0,5 sayılmıştır). Ay ay dağılım:</p>
+{AY_TABLO}
+<p>İki tarih arasındaki iş günü sayısını bulmak için <a href="/is-gunu-hesaplama.html">iş günü hesaplama</a>, takvim günü farkı için <a href="/gun-hesaplama.html">gün hesaplama</a> aracını kullanabilirsiniz.</p>
+
+<h2 id="ramazan">2027 Ramazan ayı ve dini günler</h2>
+<ul>
+<li><b>İlk teravih:</b> 7 Şubat 2027 Pazar akşamı</li>
+<li><b>Ramazan’ın başlangıcı (ilk oruç):</b> 8 Şubat 2027 Pazartesi</li>
+<li><b>Kadir Gecesi:</b> 5 Mart 2027 Cuma</li>
+<li><b>Ramazan Bayramı arifesi:</b> 8 Mart 2027 Pazartesi (13:00’ten sonra tatil)</li>
+<li><b>Ramazan Bayramı:</b> 9–11 Mart 2027 (Salı, Çarşamba, Perşembe)</li>
+<li><b>Kurban Bayramı arifesi:</b> 15 Mayıs 2027 Cumartesi</li>
+<li><b>Kurban Bayramı:</b> 16–19 Mayıs 2027 (Pazar–Çarşamba)</li>
+</ul>
+
+<h2 id="calisma">Resmi tatilde çalışana ne ödenir?</h2>
+<p>İş Kanunu m.47’ye göre ulusal bayram ve genel tatil günlerinde çalışan işçiye, o gün için ayrıca <b>bir günlük ücret</b> daha ödenir; yani tatilde çalışılan gün toplam iki yevmiye eder. Bu günlerde çalışılıp çalışılmayacağı toplu sözleşme veya iş sözleşmesiyle belirlenir; hüküm yoksa işçinin onayı gerekir. Tatil ücretinizi <a href="/fazla-mesai-hesaplama.html">fazla mesai hesaplama</a> aracıyla, yıllık izin hakkınızı <a href="/yillik-izin-hesaplama.html">yıllık izin hesaplama</a> aracıyla bulabilirsiniz.</p>
+<p><b>Not:</b> Kamu kurumlarında bayramların uzatılması (idari izin) Cumhurbaşkanlığı genelgesiyle ayrıca açıklanır; 2027 için henüz bir karar yayımlanmadı. Karar açıklanırsa bu sayfa güncellenir. Özel sektörde idari izin kararı bağlayıcı değildir.</p>
+''',
+faq=[
+('2027 Ramazan Bayramı ne zaman?', '2027 Ramazan Bayramı 9 Mart Salı başlayıp 11 Mart Perşembe günü sona eriyor. Arife 8 Mart Pazartesi; arife günü 13:00’ten sonra resmi tatildir.'),
+('2027 Kurban Bayramı ne zaman?', '2027 Kurban Bayramı 16 Mayıs Pazar – 19 Mayıs Çarşamba arasındadır. Arife 15 Mayıs Cumartesi. Bayramın 4. günü 19 Mayıs Atatürk’ü Anma, Gençlik ve Spor Bayramı’na denk geliyor.'),
+('2027’de Ramazan ne zaman başlıyor?', 'Diyanet takvimine göre 2027’de ilk oruç 8 Şubat Pazartesi tutulacak; ilk teravih 7 Şubat Pazar akşamı kılınacak. Kadir Gecesi 5 Mart Cuma.'),
+('2027 köprü günleri hangileri?', f'Ramazan Bayramı için 8 Mart arife sabahı ve 12 Mart Cuma ({_gun_s(_ram["1.5"][1])}) izin alınırsa {_ram["1.5"][0]} gün, Kurban Bayramı için 20–21 Mayıs Perşembe–Cuma ({_gun_s(_kur["2"][1])}) izin alınırsa {_kur["2"][0]} gün tatil olur. 15 Temmuz Perşembe olduğu için 16 Temmuz Cuma izin alınırsa 4 gün tatil yapılır.'),
+('2027 yılbaşı hangi güne denk geliyor?', '1 Ocak 2027 Cuma gününe denk geliyor; Cumartesi ve Pazar ile birlikte 3 günlük tatil oluşuyor.'),
+('2027’de kaç gün resmi tatil var?', f'2027’de toplam {_gun_s(TOPLAM_TATIL)} resmi tatil var; 19 Mayıs Kurban Bayramı’nın 4. gününe denk geldiği için bir gün eksik. Bunun {_gun_s(HAFTAICI_TATIL)} hafta içine denk geliyor ve yıl genelinde {f"{IS_GUNU:g}".replace(".", ",")} iş günü kalıyor.'),
+('Arife günü tatil mi?', 'Ramazan ve Kurban bayramlarının arifesi ile 28 Ekim, saat 13:00’ten itibaren yarım gün resmi tatildir. Sabah mesaisi normal çalışma süresidir.'),
+],
+related=['is-gunu-hesaplama', 'gun-hesaplama', 'yillik-izin-hesaplama', 'ekonomi-takvimi', 'fazla-mesai-hesaplama'],
+sources=[('2429 sayılı Ulusal Bayram ve Genel Tatiller Hakkında Kanun', 'https://www.mevzuat.gov.tr/'), ('Diyanet İşleri Başkanlığı 2027 dini günler takvimi', 'https://www.diyanet.gov.tr/'),
+         ('4857 sayılı İş Kanunu m.47 (genel tatil ücreti)', 'https://www.mevzuat.gov.tr/')],
 ))

@@ -220,3 +220,9 @@ N['rapor-parasi-hesaplama'] = 'Rapor parası hesaplama'
 M['rapor-parasi-hesaplama'] = ['net-maas-hesaplama', 'issizlik-maasi-hesaplama', 'yillik-izin-hesaplama']
 for _k in ['net-maas-hesaplama', 'issizlik-maasi-hesaplama', 'yillik-izin-hesaplama', 'fazla-mesai-hesaplama', 'saatlik-ucret-hesaplama', 'blog/sgk-primi-hesaplama-rehberi', 'blog/net-maas-nasil-hesaplanir']:
     M.setdefault(_k, []); M[_k] = M[_k][:1] + ['rapor-parasi-hesaplama'] + [x for x in M[_k][1:] if x != 'rapor-parasi-hesaplama']
+
+# 2027 resmi tatiller (11 Kas 2026)
+N['resmi-tatiller-2027'] = '2027 resmi tatiller ve köprü günleri'
+M['resmi-tatiller-2027'] = ['is-gunu-hesaplama', 'yillik-izin-hesaplama', 'gun-hesaplama']
+for _k in ['is-gunu-hesaplama', 'gun-hesaplama', 'yillik-izin-hesaplama', 'ekonomi-takvimi', 'fazla-mesai-hesaplama', 'yas-hesaplama']:
+    M.setdefault(_k, []); M[_k] = M[_k][:1] + ['resmi-tatiller-2027'] + [x for x in M[_k][1:] if x != 'resmi-tatiller-2027']

@@ -1,4 +1,5 @@
 TESTS = {
+ 'resmi-tatiller-2027': [dict(fill={}, expect_row='9 gün'), dict(fill={'butce': '2', 'tatil': '4'}, expect='9 gün tatil'), dict(fill={'butce': '0', 'tatil': '1'}, expect='3 gün tatil'), dict(fill={'butce': '1', 'tatil': '5'}, expect='4 gün tatil')],
  'yas-hesaplama': [dict(fill={'dogum': '1995-01-25', 'hedef': '2026-11-04'}, expect='31 yaş 9 ay 10 gün', expect_row='Kova'), dict(fill={'dogum': '1990-12-10', 'hedef': '2026-11-04'}, expect='35 yaş', expect_row='Yay'), dict(fill={'dogum': '1990-12-25', 'hedef': '2026-11-04'}, expect_row='Oğlak'), dict(fill={'dogum': '1995-03-15', 'hedef': '2026-10-21'}, expect='31 yaş 7 ay 6 gün'), dict(fill={}, expect_toast='doğum')],
  'gun-hesaplama': [dict(fill={'t1': '2026-03-01', 't2': '2026-06-15'}, expect='106 gün'),
                    dict(radio={'mod': 'ekle'}, fill={'t1': '2026-01-01', 'gun': '90'}, expect='1 Nisan 2026')],

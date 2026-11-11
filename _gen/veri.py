@@ -41,6 +41,7 @@ FACTS = {
     'temettu_stopaj':     ('%15 (22.12.2024–)', 'CB Kararı 2024/9286', '2026-10-30', '2027-06-30'),
     'kobi_siniri':       ('250 çalışan; net satış veya bilanço 1 milyar TL', 'KOBİ Yönetmeliği değişikliği 7.8.2025', '2026-10-30', '2027-06-30'),
     'tmsf_limit':        ('1.200.000 TL / kişi (2026)', 'TMSF', '2026-10-30', '2027-01-05'),
+    'bayram_2027':        ('Ramazan 9–11 Mart (arife 8 Mart), Kurban 16–19 Mayıs (arife 15 Mayıs); kamu idari izin kararı henüz yok', 'Diyanet 2027 takvimi, 2429 s.K.', '2026-11-11', '2027-01-15'),
     'mevduat_stopaj':     ('%17,5 / %15 / %10 (9.7.2025–)', 'CB Kararı', '2026-10-30', '2027-01-05'),
 }
 

@@ -329,6 +329,11 @@
   "name": "Ekonomi Takvimi 2026–2027",
   "cat": "finans"
  },
+ "resmi-tatiller-2027": {
+  "ico": "🗓️",
+  "name": "2027 Resmi Tatiller ve Köprü Günleri",
+  "cat": "diger"
+ },
  "maas-siralamasi": {
   "ico": "🏆",
   "name": "Maaş Sıralaması: Türkiye’de Kaçıncı Sıradasın?",

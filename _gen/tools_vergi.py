@@ -495,7 +495,7 @@ faq=[
 ('Kullanılmayan izinler yanar mı?','Hayır. Kullanılmayan izinler birikir ve iş sözleşmesi sona erdiğinde ücreti ödenmek zorundadır.'),
 ('Yıllık izin hakkı ne zaman doğar?','İşe giriş tarihinin yıl dönümünde doğar. Kıdeminiz 5 yılı geçtiği yıl dönümünden itibaren izniniz 20 güne çıkar.'),
 ],
-related=['kidem-tazminati-hesaplama','ihbar-tazminati-hesaplama','is-gunu-hesaplama','net-maas-hesaplama','fazla-mesai-hesaplama'],
+related=['resmi-tatiller-2027', 'kidem-tazminati-hesaplama','ihbar-tazminati-hesaplama','is-gunu-hesaplama','net-maas-hesaplama','fazla-mesai-hesaplama'],
 sources=[('4857 sayılı İş Kanunu m.53–60','https://www.mevzuat.gov.tr/mevzuatmetin/1.5.4857.pdf')],
 howto=('Yıllık izin hakkı nasıl hesaplanır?',['İşe giriş tarihinizi girin.','Doğum tarihinizi girin (18 yaş ve altı, 50 yaş ve üstü kuralı için).','Kullandığınız izin gününü ve isterseniz brüt ücretinizi ekleyip Hesapla’ya basın.']),
 ))

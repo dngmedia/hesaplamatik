@@ -187,7 +187,7 @@ faq=[
 ('Hafta sonları hariç gün sayısını nasıl bulurum?','Sonuç tablosunda hafta içi gün sayısı ayrıca gösterilir. Resmi tatilleri de düşmek için iş günü hesaplama aracını kullanın.'),
 ('Bir yıl kaç gündür?','Normal yıl 365, artık yıl 366 gündür. Ortalama yıl uzunluğu 365,25 gün kabul edilir.'),
 ],
-related=['is-gunu-hesaplama','yas-hesaplama','mevduat-faizi-hesaplama','kidem-tazminati-hesaplama','ortalama-hesaplama'],
+related=['is-gunu-hesaplama','resmi-tatiller-2027','yas-hesaplama','mevduat-faizi-hesaplama','kidem-tazminati-hesaplama'],
 howto=('İki tarih arası gün nasıl hesaplanır?',['İşlem olarak “İki tarih arası”nı seçin.','Başlangıç ve bitiş tarihlerini girin.','Gerekirse bitiş gününü dahil edin ve Hesapla’ya basın.']),
 ))
 
@@ -273,6 +273,7 @@ article='''
 <tr><td>29 Ekim</td><td>Arife 28 Ekim (yarım gün), 29 Ekim 2027 (Cuma)</td></tr>
 </tbody></table></div>
 <p>Dini bayram tarihleri Diyanet İşleri Başkanlığı takvimine göre belirlenir. Hükümet tarafından ilan edilebilecek ek idari izinler (köprü günleri) resmi tatil sayılmaz ve hesaplamaya dahil edilmez.</p>
+<p>2027’de kaç gün izinle kaç günlük tatil yapabileceğinizi ve köprü günlerini <a href="/resmi-tatiller-2027.html">2027 resmi tatiller ve köprü günleri</a> sayfasında görebilirsiniz.</p>
 
 <h2 id="yillik">Bir yılda kaç iş günü var?</h2>
 <p>Pazartesi–Cuma çalışılan bir işyerinde bir yılda yaklaşık 260–261 hafta içi gün bulunur. 2026’da hafta içine denk gelen 10 resmi tatil günü düşüldüğünde Pazartesi–Cuma çalışan bir işyeri için <b>251 iş günü</b> kalır; üç arife günü yarım gün sayılırsa bu sayı <b>249,5</b> olur. Kesin sayıyı hesaplayıcıda 1 Ocak–31 Aralık 2026 aralığını seçerek görebilirsiniz.</p>
@@ -292,7 +293,7 @@ faq=[
 ('Başlangıç ve bitiş günleri hesaba dahil mi?','“İki tarih arası” modunda başlangıç ve bitiş günleri dahildir. “Tarihe iş günü ekle” modunda ise başlangıç günü sayılmaz, ertesi günden itibaren sayılır.'),
 ('Köprü günleri (idari izin) hesaba katılıyor mu?','Hayır. İdari izinler yalnızca kamu çalışanları için geçerlidir ve resmi tatil sayılmaz; bu nedenle iş günü hesabına dahil edilmez.'),
 ],
-related=['gun-hesaplama','yillik-izin-hesaplama','fazla-mesai-hesaplama','yas-hesaplama','saatlik-ucret-hesaplama'],
+related=['resmi-tatiller-2027','gun-hesaplama','yillik-izin-hesaplama','fazla-mesai-hesaplama','yas-hesaplama'],
 sources=[('Borsa İstanbul 2026 tatil tablosu','https://www.borsaistanbul.com/files/pay-piyasasi-2026-yili-tatil-tablosu.pdf'),('2429 sayılı Ulusal Bayram ve Genel Tatiller Kanunu','https://www.mevzuat.gov.tr/mevzuatmetin/1.3.2429.pdf')],
 ))
 
