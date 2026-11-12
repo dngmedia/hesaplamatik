@@ -42,6 +42,8 @@ FACTS = {
     'kobi_siniri':       ('250 çalışan; net satış veya bilanço 1 milyar TL', 'KOBİ Yönetmeliği değişikliği 7.8.2025', '2026-10-30', '2027-06-30'),
     'tmsf_limit':        ('1.200.000 TL / kişi (2026)', 'TMSF', '2026-10-30', '2027-01-05'),
     'bayram_2027':        ('Ramazan 9–11 Mart (arife 8 Mart), Kurban 16–19 Mayıs (arife 15 Mayıs); kamu idari izin kararı henüz yok', 'Diyanet 2027 takvimi, 2429 s.K.', '2026-11-11', '2027-01-15'),
+    'yiufe_endeks':       ('son ay Ekim 2026 = 5.998,51 (2003=100); _gen/tools_vergi.py YIUFE sözlüğüne her ay yeni değer eklenir', 'TÜİK Yİ-ÜFE', '2026-11-12', '2026-12-04'),
+    'dak_istisna':        ('2026: 150.000 TL; 2027 tutarı Aralık sonunda tebliğle (yeniden değerleme %27,83)', 'GVK Genel Tebliği Seri No: 332', '2026-11-12', '2027-01-05'),
     'mevduat_stopaj':     ('%17,5 / %15 / %10 (9.7.2025–)', 'CB Kararı', '2026-10-30', '2027-01-05'),
 }
 

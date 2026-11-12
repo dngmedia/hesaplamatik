@@ -226,3 +226,9 @@ N['resmi-tatiller-2027'] = '2027 resmi tatiller ve köprü günleri'
 M['resmi-tatiller-2027'] = ['is-gunu-hesaplama', 'yillik-izin-hesaplama', 'gun-hesaplama']
 for _k in ['is-gunu-hesaplama', 'gun-hesaplama', 'yillik-izin-hesaplama', 'ekonomi-takvimi', 'fazla-mesai-hesaplama', 'yas-hesaplama']:
     M.setdefault(_k, []); M[_k] = M[_k][:1] + ['resmi-tatiller-2027'] + [x for x in M[_k][1:] if x != 'resmi-tatiller-2027']
+
+# değer artış kazancı (12 Kas 2026)
+N['deger-artis-kazanci-hesaplama'] = 'Değer artış kazancı hesaplama'
+M['deger-artis-kazanci-hesaplama'] = ['tapu-harci-hesaplama', 'gelir-vergisi-hesaplama', 'kira-getirisi-hesaplama']
+for _k in ['tapu-harci-hesaplama', 'blog/tapu-harci-hesaplama', 'kira-getirisi-hesaplama', 'metrekare-fiyat-hesaplama', 'konut-kredisi-hesaplama', 'blog/kira-geliri-vergisi-hesaplama', 'gelir-vergisi-hesaplama']:
+    M.setdefault(_k, []); M[_k] = M[_k][:1] + ['deger-artis-kazanci-hesaplama'] + [x for x in M[_k][1:] if x != 'deger-artis-kazanci-hesaplama']

@@ -214,7 +214,7 @@ article='''
 <p>Satış bedelinin ödemesini tapu imzasıyla eş zamanlı yapmak için bankaların aracılık ettiği <b>güvenli ödeme</b> sistemlerinden yararlanabilirsiniz.</p>
 
 <h2 id="satis-sonrasi">Satıcı açısından vergi: değer artış kazancı</h2>
-<p>Konutu satın aldıktan sonraki <b>5 yıl içinde</b> satan kişi, alış ve satış bedeli arasındaki kazanç için değer artış kazancı vergisine tabi olabilir. 2026 yılında bu kazancın <b>150.000 ₺</b>’lik kısmı vergiden istisnadır. Alış bedeli, yeniden değerleme ile güncellenerek hesaplanır. Tapuda gerçek bedelin gösterilmesi bu hesapta hem alıcıyı hem satıcıyı korur. Miras yoluyla edinilen gayrimenkullerin satışında bu vergi doğmaz.</p>
+<p>Konutu satın aldıktan sonraki <b>5 yıl içinde</b> satan kişi, alış ve satış bedeli arasındaki kazanç için değer artış kazancı vergisine tabi olabilir. 2026 yılında bu kazancın <b>150.000 ₺</b>’lik kısmı vergiden istisnadır. Alış bedeli Yİ-ÜFE endeksiyle güncellenerek hesaplanır; ödeyeceğiniz vergiyi <a href="/deger-artis-kazanci-hesaplama.html">değer artış kazancı hesaplama</a> aracıyla bulabilirsiniz. Tapuda gerçek bedelin gösterilmesi bu hesapta hem alıcıyı hem satıcıyı korur. Miras yoluyla edinilen gayrimenkullerin satışında bu vergi doğmaz.</p>
 
 <h2 id="matrah">Tapuda gösterilecek bedel ne olmalı?</h2>
 <p>Tapu harcı, tapuda beyan edilen satış bedeli üzerinden alınır. Ancak beyan edilen bedel, gayrimenkulün belediyedeki <b>emlak vergisi değerinden</b> düşük olamaz. Gerçek satış bedelinin altında beyanda bulunmak vergi ziyaı cezasına yol açar; ayrıca konut kredisi kullanılan satışlarda ekspertiz değeri dikkate alınır. Gerçek bedelin tapuya yazılması hem yasal yükümlülük hem de ileride satışta değer artış kazancı vergisi açısından alıcının lehinedir.</p>
@@ -959,4 +959,200 @@ faq=[('Fazla mesai ücreti nasıl hesaplanır?', 'Aylık brüt ücret 225’e b�
 related=['saatlik-ucret-hesaplama', 'net-maas-hesaplama', 'prim-hesaplama', 'yillik-izin-hesaplama', 'kidem-tazminati-hesaplama'],
 sources=[('4857 sayılı İş Kanunu (m.41, 46, 47, 69)', 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4857&MevzuatTur=1&MevzuatTertip=5'), ('İş Kanununa İlişkin Fazla Çalışma ve Fazla Sürelerle Çalışma Yönetmeliği', 'https://www.mevzuat.gov.tr/')],
 badges=['✓ Ücretsiz', '÷225 Yöntemi', 'Brüt + Net'],
+))
+
+
+# ══════════════ Değer Artış Kazancı (12 Kas 2026) ══════════════
+# Kaynak: GVK mük. 80–81, GVK Genel Tebliği Seri No: 332 (2026 istisna 150.000 TL, tarife), TÜİK Yİ-ÜFE (2003=100).
+import json as _dj, datetime as _dd
+YIUFE = {
+ '2020-12': 568.27,
+ '2021-01': 583.38, '2021-02': 590.52, '2021-03': 614.93, '2021-04': 641.63, '2021-05': 666.79, '2021-06': 693.54, '2021-07': 710.61, '2021-08': 730.28, '2021-09': 741.58, '2021-10': 780.45, '2021-11': 858.43, '2021-12': 1022.25,
+ '2022-01': 1129.03, '2022-02': 1210.60, '2022-03': 1321.90, '2022-04': 1423.27, '2022-05': 1548.01, '2022-06': 1652.75, '2022-07': 1738.21, '2022-08': 1780.05, '2022-09': 1865.09, '2022-10': 2011.13, '2022-11': 2026.08, '2022-12': 2021.19,
+ '2023-01': 2105.17, '2023-02': 2138.04, '2023-03': 2147.44, '2023-04': 2164.94, '2023-05': 2179.02, '2023-06': 2320.72, '2023-07': 2511.75, '2023-08': 2659.60, '2023-09': 2749.98, '2023-10': 2803.29, '2023-11': 2882.04, '2023-12': 2915.02,
+ '2024-01': 3035.59, '2024-02': 3149.03, '2024-03': 3252.79, '2024-04': 3369.98, '2024-05': 3435.96, '2024-06': 3483.25, '2024-07': 3550.88, '2024-08': 3610.51, '2024-09': 3659.84, '2024-10': 3707.10, '2024-11': 3731.43, '2024-12': 3746.52,
+ '2025-01': 3861.33, '2025-02': 3943.01, '2025-03': 4017.30, '2025-04': 4128.19, '2025-05': 4230.69, '2025-06': 4334.94, '2025-07': 4409.73, '2025-08': 4518.89, '2025-09': 4632.89, '2025-10': 4708.20, '2025-11': 4747.63, '2025-12': 4783.04,
+ '2026-01': 4910.53, '2026-02': 5029.76, '2026-03': 5145.36, '2026-04': 5308.46, '2026-05': 5454.58, '2026-06': 5552.52, '2026-07': 5637.14, '2026-08': 5781.74, '2026-09': 5901.26, '2026-10': 5998.51,
+}
+# Yeni ay açıklanınca buraya eklenir (her ayın 3'ü). Aşağıdaki kontroller veriyi TÜİK'in yayımladığı oranlarla doğrular.
+def _yo(a, b):
+    return round((YIUFE[a] / YIUFE[b] - 1) * 100, 2)
+def _ort(bit_y, bit_m):
+    ks = []
+    for i in range(12):
+        m = bit_m - i; y = bit_y
+        if m <= 0: m += 12; y -= 1
+        ks.append(YIUFE[f'{y}-{m:02d}'])
+    return sum(ks) / 12
+assert _yo('2021-12', '2020-12') == 79.89 and _yo('2022-12', '2021-12') == 97.72 and _yo('2023-12', '2022-12') == 44.22 and _yo('2024-12', '2023-12') == 28.52
+assert _yo('2026-10', '2025-10') == 27.41 and _yo('2026-10', '2026-09') == 1.65 and _yo('2026-09', '2025-09') == 27.38 and _yo('2026-10', '2025-12') == 25.41
+assert round((_ort(2026, 10) / _ort(2025, 10) - 1) * 100, 2) == 27.83 and round((_ort(2025, 10) / _ort(2024, 10) - 1) * 100, 2) == 25.49
+DAK_SON = max(YIUFE)                       # son açıklanan endeks ayı
+DAK_IST = 150000                           # 2026 istisna
+DAK_TAR = [(190000, .15), (400000, .20), (1000000, .27), (5300000, .35), (None, .40)]   # 2026, ücret dışı
+_AYT = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık']
+
+
+def _onceki(d):
+    y, m = (d.year, d.month - 1) if d.month > 1 else (d.year - 1, 12)
+    return f'{y}-{m:02d}'
+
+
+def _gv26(m):
+    v, alt = 0, 0
+    for ust, o in DAK_TAR:
+        if ust is None or m <= ust:
+            return v + (m - alt) * o
+        v += (ust - alt) * o; alt = ust
+
+
+def _dak(alis_t, alis, satis_t, satis, gider=0):
+    a, s = _dd.date.fromisoformat(alis_t), _dd.date.fromisoformat(satis_t)
+    try:
+        bes = a.replace(year=a.year + 5)
+    except ValueError:
+        bes = a.replace(year=a.year + 5, day=28)
+    if s > bes:
+        return dict(vergili=False)
+    ea, es = YIUFE[_onceki(a)], YIUFE[min(_onceki(s), DAK_SON)]
+    art = es / ea - 1
+    mal = alis * es / ea if art >= 0.10 else alis
+    kaz = satis - mal - gider
+    mat = max(0, kaz - DAK_IST)
+    return dict(vergili=True, art=art, mal=mal, kaz=kaz, mat=mat, vergi=_gv26(mat))
+
+
+def _tl0(x):
+    return f'{x:,.0f}'.replace(',', '.')
+def _tl2(x):
+    return f'{x:,.2f}'.replace(',', 'X').replace('.', ',').replace('X', '.')
+def _yz(x, d=1):
+    return ('%' + f'{x * 100:.{d}f}').replace('.', ',')
+
+# Örnek senaryolar (hepsi kodla hesaplanır)
+DAK_ORN = [('2022-06-15', 1500000, '2026-11-16', 6500000, 130000), ('2024-03-10', 2800000, '2026-11-16', 6500000, 130000),
+           ('2025-05-20', 3000000, '2026-11-16', 5200000, 104000), ('2023-09-05', 2000000, '2026-11-16', 4700000, 94000),
+           ('2026-08-10', 4000000, '2026-11-16', 4400000, 88000)]
+def _orn_satir(o):
+    r = _dak(*o); a = _dd.date.fromisoformat(o[0])
+    return (f'<tr><td>{_AYT[a.month-1]} {a.year}</td><td>{_tl0(o[1])} ₺</td><td>{_tl0(o[3])} ₺</td><td>{_yz(r["art"])}{"" if r["art"] >= 0.10 else " (endeksleme yok)"}</td>'
+            f'<td>{_tl0(r["mal"])} ₺</td><td>{_tl0(max(0, r["kaz"]))} ₺</td><td><b>{_tl0(r["vergi"])} ₺</b></td></tr>')
+DAK_ORN_T = ('<div class="table-wrap"><table><thead><tr><th>Alış tarihi</th><th>Alış bedeli</th><th>Satış bedeli</th><th>Yİ-ÜFE artışı</th><th>Endeksli maliyet</th><th>Safi kazanç</th><th>Gelir vergisi</th></tr></thead><tbody>'
+             + ''.join(_orn_satir(o) for o in DAK_ORN) + '</tbody></table></div>')
+
+# Alış ayına göre endeksleme katsayısı (Kasım 2026 satışları: Ekim 2026 endeksi esas alınır)
+_es = YIUFE['2026-10']
+_ka = []
+for y, m in [(2021, 12)] + [(y, m) for y in range(2022, 2027) for m in (3, 6, 9, 12) if (y, m) <= (2026, 9)]:
+    d = _dd.date(y, m, 1); ea = YIUFE[_onceki(d)]; k = _es / ea
+    _ka.append(f'<tr><td>{_AYT[m-1]} {y}</td><td>{_tl2(ea)}</td><td>{f"{k:.4f}".replace(".", ",")}</td><td>{_yz(k - 1)}</td><td>{_tl0(1000000 * k) + " ₺" if k - 1 >= 0.10 else "1.000.000 ₺ (endeksleme yok)"}</td></tr>')
+DAK_KAT_T = ('<div class="table-wrap"><table><thead><tr><th>Alış ayı</th><th>Alıştan önceki ayın Yİ-ÜFE’si</th><th>Katsayı</th><th>Artış</th><th>1.000.000 ₺’lik alışın endeksli değeri</th></tr></thead><tbody>'
+             + ''.join(_ka) + '</tbody></table></div>')
+DAK_TAR_T = ('<div class="table-wrap"><table><thead><tr><th>Vergiye tabi kazanç (istisna düşüldükten sonra)</th><th>Oran</th></tr></thead><tbody>'
+             + ''.join(f'<tr><td>{_tl0(alt)} ₺ – {_tl0(ust)} ₺</td><td>%{int(o*100)}</td></tr>' if ust else f'<tr><td>{_tl0(alt)} ₺ üzeri</td><td>%{int(o*100)}</td></tr>'
+                       for (ust, o), alt in zip(DAK_TAR, [0] + [u for u, _ in DAK_TAR[:-1]])) + '</tbody></table></div>')
+_o1 = _dak(*DAK_ORN[0]); _o1e = (YIUFE[_onceki(_dd.date.fromisoformat(DAK_ORN[0][0]))], YIUFE['2026-10'])
+_o1n = _dak(DAK_ORN[0][0], DAK_ORN[0][1], DAK_ORN[0][2], DAK_ORN[0][3], DAK_ORN[0][4])
+_ham = DAK_ORN[0][3] - DAK_ORN[0][1] - DAK_ORN[0][4]   # endekslemesiz kazanç
+_ham_v = _gv26(max(0, _ham - DAK_IST))
+
+TOOLS.append(dict(
+slug='deger-artis-kazanci-hesaplama', name='Değer Artış Kazancı Hesaplama', cat='gayrimenkul', ico='🏠',
+title='Değer Artış Kazancı Hesaplama 2026 – Ev Satışında Ödenecek Vergi (Yİ-ÜFE Endeksli) | Hesaplarsın',
+desc='Evi, arsayı 5 yıl dolmadan sattıysanız ne kadar vergi ödersiniz? Alış bedelini Yİ-ÜFE ile otomatik endeksler, 2026 istisnasını (150.000 TL) düşer, gelir vergisini hesaplar.',
+h1='🏠 Değer Artış Kazancı Hesaplama 2026',
+lead='Gayrimenkulünüzü aldıktan sonra 5 yıl içinde sattıysanız ödeyeceğiniz gelir vergisini hesaplayın. Alış bedeli Yİ-ÜFE endeksiyle otomatik güncellenir; endeks değerlerini aramanız gerekmez.',
+card_title='Satış kazancı vergisi', button='Vergiyi Hesapla',
+badges=['✓ Ücretsiz', 'GVK mük. 80–81', 'TÜİK Yİ-ÜFE verisi'],
+form='''<div class="form-grid">
+<div class="field"><label for="alis_t">Alış (Tapu) Tarihi</label><input type="date" id="alis_t" min="2021-01-01" max="2026-12-31"></div>
+<div class="field"><label for="alis">Alış Bedeli (₺)</label><input type="number" id="alis" placeholder="örn: 1.500.000" inputmode="decimal"></div>
+<div class="field"><label for="satis_t">Satış Tarihi <small>2026</small></label><input type="date" id="satis_t" min="2026-01-01" max="2026-12-31"></div>
+<div class="field"><label for="satis">Satış Bedeli (₺)</label><input type="number" id="satis" placeholder="örn: 6.500.000" inputmode="decimal"></div>
+<div class="field full"><label for="gider">Satış Giderleri (₺) <small>sizin ödediğiniz tapu harcı, komisyon vb.; isteğe bağlı</small></label><input type="number" id="gider" placeholder="örn: 130.000" inputmode="decimal"></div>
+</div>''',
+js='var YI=' + _dj.dumps(YIUFE) + ',SON="' + DAK_SON + '",IST=' + str(DAK_IST) + r''',TAR=[[190000,.15],[400000,.20],[1000000,.27],[5300000,.35],[null,.40]];
+var AYT=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+function onc(s){var y=+s.slice(0,4),m=+s.slice(5,7)-1;if(m<1){m=12;y--;}return y+'-'+(m<10?'0':'')+m;}
+function ayad(k){return AYT[+k.slice(5,7)-1]+' '+k.slice(0,4);}
+function gv(m){var v=0,alt=0;for(var i=0;i<TAR.length;i++){var u=TAR[i][0];if(u===null||m<=u)return v+(m-alt)*TAR[i][1];v+=(u-alt)*TAR[i][1];alt=u;}}
+function hesapla(){
+  var at=el('alis_t').value, st=el('satis_t').value, a=v('alis'), s=v('satis'), g=v('gider')||0;
+  if(!at||!st) return 'Alış ve satış tarihlerini girin.';
+  if(!(a>0)||!(s>0)) return 'Alış ve satış bedelini girin.';
+  if(st.slice(0,4)!=='2026') return 'Bu araç 2026 yılında yapılan satışlar içindir (2026 istisnası ve tarifesi uygulanır).';
+  if(st<at) return 'Satış tarihi alış tarihinden önce olamaz.';
+  var bes=(+at.slice(0,4)+5)+at.slice(4); if(at.slice(5)==='02-29') bes=(+at.slice(0,4)+5)+'-02-28';
+  if(st>bes) return {main:['Değer artış kazancı vergisi','Vergi yok'], sub:'Alıştan itibaren 5 yıl dolmuş ('+bes.split('-').reverse().join('.')+'). Kazanç vergiye tabi değil, beyanname verilmez.',
+    rows:[['Alış tarihi',at.split('-').reverse().join('.')],['5 yılın dolduğu tarih',bes.split('-').reverse().join('.')],['Satış tarihi',st.split('-').reverse().join('.')]],
+    note:'5 yıllık süre iktisap (tapu tescil) tarihinden başlar. Ticari organizasyon içinde sürekli alım satım yapanların kazancı ticari kazanç sayılır ve bu kuraldan yararlanamaz.'};
+  var ka=onc(at), ks=onc(st), eksik=false; if(!YI[ka]) return 'Bu alış tarihi için endeks verisi yok (Ocak 2021 ve sonrası alışlar hesaplanır).';
+  if(!YI[ks]){ks=SON;eksik=true;}
+  var art=YI[ks]/YI[ka]-1, end=art>=0.10, mal=end?a*YI[ks]/YI[ka]:a, kaz=s-mal-g, mat=Math.max(0,kaz-IST), ver=gv(mat);
+  var rows=[['Alıştan önceki ayın Yİ-ÜFE’si ('+ayad(ka)+')',num(YI[ka])],['Satıştan önceki ayın Yİ-ÜFE’si ('+ayad(ks)+')',num(YI[ks])],
+    ['Endeks artış oranı',pct(art*100)+(end?'':' (%10’un altında, endeksleme yapılmaz)')],['Endekslenmiş alış bedeli (maliyet)',tl(mal)],['Satış giderleri','− '+tl(g)],
+    ['Safi değer artış kazancı',tl(kaz)],['2026 istisnası','− '+tl(Math.min(IST,Math.max(0,kaz)))],['Vergiye tabi kazanç (matrah)',tl(mat)],['Gelir vergisi',tl(ver),'hl']];
+  if(ver>0) rows.push(['Mart 2027 taksidi',tl(ver/2)],['Temmuz 2027 taksidi',tl(ver/2)],['Verginin satış bedeline oranı',pct(ver/s*100)]);
+  return {main: ver>0?['Ödenecek gelir vergisi',tl(ver)]:['Değer artış kazancı vergisi','Vergi çıkmıyor'],
+    sub: kaz<=0?'Endekslenmiş maliyet ve giderler satış bedelini aşıyor; vergiye tabi kazanç yok.':(mat<=0?'Kazanç 150.000 ₺ istisnanın altında kaldığı için vergi doğmuyor, beyanname verilmez.':'Kazanç Mart 2027’de yıllık gelir vergisi beyannamesiyle beyan edilir.'),
+    rows:rows,
+    note:(eksik?'Satış tarihinden önceki ayın endeksi henüz açıklanmadı; hesapta son açıklanan '+ayad(SON)+' endeksi kullanıldı, yeni veri gelince sonuç biraz değişebilir. ':'')+'Hesap, o yıl beyan edilecek başka geliriniz olmadığı varsayımıyla yapılır; kira, ücret gibi beyana tabi başka gelir varsa kazanç onlarla toplanır ve vergi oranı yükselebilir. Bilgi amaçlıdır; beyan öncesi mali müşavire danışın.'};
+}''',
+article=f'''
+<p><b>Kısa cevap:</b> Ev, arsa veya dükkânı aldıktan sonra <b>5 yıl içinde</b> satarsanız kazancınız gelir vergisine tabidir. Kazanç hesaplanırken alış bedeliniz Yİ-ÜFE endeksiyle bugüne taşınır, 2026 için <b>{_tl0(DAK_IST)} ₺</b> istisna düşülür ve kalan tutar %15–%40 arasındaki gelir vergisi tarifesiyle vergilendirilir. 5 yıl dolduktan sonra yapılan satışta vergi yoktur.</p>
+
+<h2 id="nasil">Değer artış kazancı nasıl hesaplanır?</h2>
+<div class="formula">Endeksli maliyet = Alış bedeli × (Satıştan önceki ayın Yİ-ÜFE’si ÷ Alıştan önceki ayın Yİ-ÜFE’si)<br>Safi kazanç = Satış bedeli − Endeksli maliyet − Satış giderleri<br>Vergi matrahı = Safi kazanç − {_tl0(DAK_IST)} ₺ istisna</div>
+<ul>
+<li><b>Hangi endeks?</b> Alış ve satışın yapıldığı aylar hesaba katılmaz; her ikisinde de <b>bir önceki ayın</b> Yİ-ÜFE değeri kullanılır (GVK mük. m.81).</li>
+<li><b>%10 şartı:</b> Endeksleme yalnızca iki endeks arasındaki artış %10 veya üzerindeyse yapılır. Altındaysa alış bedeli olduğu gibi indirilir.</li>
+<li><b>Giderler:</b> Satış sırasında sizin ödediğiniz tapu harcı, emlakçı komisyonu gibi masraflar kazançtan düşülür. Alıcının ödediği kalemler düşülemez.</li>
+<li><b>İstisna:</b> Bir takvim yılındaki toplam değer artış kazancının {_tl0(DAK_IST)} ₺’si vergi dışıdır. Aynı yıl birden fazla satış varsa kazançlar toplanır, istisna bir kez uygulanır.</li>
+</ul>
+<div class="example"><p><b>Örnek:</b> Haziran 2022’de {_tl0(DAK_ORN[0][1])} ₺’ye alınan daire Kasım 2026’da {_tl0(DAK_ORN[0][3])} ₺’ye satılıyor; satıcı {_tl0(DAK_ORN[0][4])} ₺ tapu harcı ödüyor.</p>
+<p>Mayıs 2022 Yİ-ÜFE’si {_tl2(_o1e[0])}, Ekim 2026 Yİ-ÜFE’si {_tl2(_o1e[1])}; artış {_yz(_o1["art"])}. Endeksli maliyet {_tl0(_o1["mal"])} ₺ olur. Safi kazanç {_tl0(_o1["kaz"])} ₺, istisna sonrası matrah {_tl0(_o1["mat"])} ₺, ödenecek gelir vergisi <b>{_tl0(_o1["vergi"])} ₺</b>.</p>
+<p>Endeksleme olmasaydı kazanç {_tl0(_ham)} ₺ görünür ve vergi {_tl0(_ham_v)} ₺ çıkardı. Endeksleme bu örnekte vergiyi {_tl0(_ham_v - _o1["vergi"])} ₺ azaltıyor.</p></div>
+
+<h2 id="ornekler">Örnek hesaplamalar (Kasım 2026 satışı)</h2>
+<p>Satıcının satış bedelinin %2’si kadar tapu harcı ödediği varsayımıyla:</p>
+{DAK_ORN_T}
+<p>Yüksek enflasyon dönemlerinde endeksleme kazancın büyük kısmını siler. Fiyatı Yİ-ÜFE’den hızlı artan gayrimenkullerde ise vergi doğar; dördüncü satırda kazanç istisnanın altında kaldığı için vergi çıkmıyor. Son satırdaki gibi birkaç ay içinde yapılan satışlarda endeks artışı %10’un altında kaldığından endeksleme yapılamaz.</p>
+
+<h2 id="katsayi">Alış ayına göre Yİ-ÜFE endeksleme katsayıları</h2>
+<p>Kasım 2026’da yapılan satışlarda Ekim 2026 endeksi ({_tl2(_es)}) esas alınır. Alış ayınıza göre alış bedelinizin çarpılacağı katsayı:</p>
+{DAK_KAT_T}
+<p>Endeks değerleri TÜİK’in Yurt İçi Üretici Fiyat Endeksi (2003=100) serisinden alınmıştır. Hesaplayıcı, girdiğiniz tarihlere göre doğru ayları kendisi seçer.</p>
+
+<h2 id="tarife">2026 gelir vergisi tarifesi (ücret dışı gelirler)</h2>
+{DAK_TAR_T}
+<p>Değer artış kazancı ücret geliri olmadığı için üçüncü dilimin üst sınırı 1.000.000 ₺’dir. Diğer vergi dilimleri için <a href="/gelir-vergisi-hesaplama.html">gelir vergisi hesaplama</a> aracına bakabilirsiniz.</p>
+
+<h2 id="beyan">Ne zaman beyan edilir, nasıl ödenir?</h2>
+<ul>
+<li>2026’da yapılan satışın kazancı <b>Mart 2027</b>’de yıllık gelir vergisi beyannamesiyle (Hazır Beyan Sistemi üzerinden) beyan edilir.</li>
+<li>Vergi <b>Mart ve Temmuz 2027</b>’de iki eşit taksitte ödenir.</li>
+<li>Kazanç istisna tutarının altındaysa veya 5 yıl dolmuşsa beyanname verilmez.</li>
+</ul>
+
+<h2 id="kapsam">Hangi satışlarda vergi doğmaz?</h2>
+<ul>
+<li><b>5 yıldan sonra satış:</b> İktisap tarihinden itibaren 5 yıl geçtikten sonra yapılan satışın kazancı vergiye tabi değildir.</li>
+<li><b>Miras ve bağış:</b> Karşılıksız (ivazsız) edinilen gayrimenkulün satışından doğan kazanç değer artış kazancı sayılmaz.</li>
+<li><b>Zararına veya başa baş satış:</b> Endekslenmiş maliyet ve giderler satış bedeline eşit ya da fazlaysa kazanç yoktur.</li>
+</ul>
+<p>Sürekli alım satım yapan ve bunu bir ticari organizasyon içinde yürütenlerin kazancı ticari kazanç sayılır; bu durumda istisna ve 5 yıl kuralı uygulanmaz. Satışta ödenecek harç için <a href="/tapu-harci-hesaplama.html">tapu harcı hesaplama</a>, kira geliriniz varsa <a href="/blog/kira-geliri-vergisi-hesaplama.html">kira geliri vergisi</a> sayfasına bakabilirsiniz.</p>
+<p><b>2027 satışları:</b> İstisna tutarı her yıl yeniden değerleme oranında artırılır. 2026 oranı %27,83 olduğundan 2027 istisnası 190 bin ₺ dolayında olacaktır; kesin tutar Aralık sonunda yayımlanacak Gelir Vergisi Genel Tebliği ile belli olur ve bu sayfa güncellenir.</p>
+''',
+faq=[
+('Ev satışında vergi ödenir mi?', f'Evi aldıktan sonra 5 yıl içinde satarsanız ve endekslenmiş kazancınız 2026 için {_tl0(DAK_IST)} ₺ istisnayı aşıyorsa gelir vergisi ödersiniz. 5 yıl dolduktan sonra yapılan satışta değer artış kazancı vergisi yoktur.'),
+('2026 değer artış kazancı istisnası ne kadar?', f'2026 yılında elde edilen değer artış kazancının {_tl0(DAK_IST)} ₺’si gelir vergisinden istisnadır. İstisna yılda bir kez, o yılki toplam kazanca uygulanır.'),
+('Alış bedeli hangi endeksle güncellenir?', 'TÜİK’in Yurt İçi Üretici Fiyat Endeksi (Yİ-ÜFE) kullanılır. Alış bedeli, satıştan önceki ayın endeksinin alıştan önceki ayın endeksine oranıyla çarpılır. Endeksleme için artışın en az %10 olması gerekir.'),
+('Mirastan kalan evi satarsam vergi öder miyim?', 'Hayır. Miras veya bağış gibi karşılıksız yollarla edinilen gayrimenkulün satışından doğan kazanç, değer artış kazancı olarak vergilendirilmez.'),
+('Değer artış kazancı ne zaman beyan edilir?', 'Satışın yapıldığı yılı izleyen Mart ayında yıllık gelir vergisi beyannamesiyle beyan edilir. 2026 satışları Mart 2027’de beyan edilir; vergi Mart ve Temmuz aylarında iki eşit taksitte ödenir.'),
+('Tapu harcı ve komisyon kazançtan düşülür mü?', 'Evet. Satış sırasında satıcının ödediği tapu harcı, emlakçı komisyonu gibi giderler safi kazanç hesaplanırken indirilir. Alıcının ödediği giderler düşülemez.'),
+('5 yıl hangi tarihten başlar?', '5 yıllık süre gayrimenkulün iktisap edildiği, yani tapuda adınıza tescil edildiği tarihten başlar. Satış bu tarihten itibaren 5 yıl geçtikten sonra yapılırsa vergi doğmaz.'),
+],
+related=['tapu-harci-hesaplama', 'gelir-vergisi-hesaplama', 'kira-getirisi-hesaplama', 'konut-kredisi-hesaplama', 'enflasyon-hesaplama'],
+sources=[('193 sayılı Gelir Vergisi Kanunu mükerrer m.80 ve m.81', 'https://www.mevzuat.gov.tr/'), ('Gelir Vergisi Genel Tebliği (Seri No: 332) – 2026 istisna tutarı ve tarife', 'https://www.gib.gov.tr/'),
+         ('TÜİK – Yurt İçi Üretici Fiyat Endeksi (2003=100)', 'https://data.tuik.gov.tr/')],
 ))

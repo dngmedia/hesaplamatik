@@ -27,6 +27,9 @@ Hatırlatmalar (send_later): 23 Eki 08:00Z, 2 Kas 08:00Z, 3 Kas 07:15Z, 31 Ara 0
 
 ## Doğruluk kuralları (30 Eki 2026'dan itibaren zorunlu)
 
+- **Yeniden değerleme oranı = Yİ-ÜFE "on iki aylık ortalamalara göre değişim"** (VUK mük. 298). Ekim bülteninde iki ayrı rakam vardır: yıllık değişim ve 12 aylık ortalama. Yıllık değişim ASLA yeniden değerleme oranı olarak yazılmaz (12 Kas 2026'da bu hata düzeltildi: 27,41 → 27,83).
+- **Her ay TÜİK verisi gelince** `_gen/tools_vergi.py` içindeki `YIUFE` sözlüğüne yeni ayın Yİ-ÜFE endeks değeri (2003=100) eklenir (değer artış kazancı hesaplayıcısı kullanır); aylık ve yıllık değişimle tutması için bir `assert` satırı da eklenir. `veri.py` `yiufe_endeks` tarihi ileri alınır.
+
 - **Tek doğruluk kaynağı:** `_gen/veri.py`. Resmî rakam (asgari ücret, SGK oranları, kıdem tavanı, katsayı, DASK, faiz, TÜFE…) değişince önce burası güncellenir: değer, kaynak, `dogrulandi`, `kontrol` tarihi. Eski değer `ESKI` listesine eklenir.
 - **Otomatik denetim:** `python3 _gen/dogrula.py` — build sonunda ve `test_pages.py` içinde çalışır; `.githooks/pre-push` hata varken push'u engeller (yeni klonda `git config core.hooksPath .githooks`). GitHub Actions `dogruluk.yml` her push'ta ve her sabah çalışır.
   1. ESKI: bilinen eski/yanlış ifade sayfada kalmışsa hata.

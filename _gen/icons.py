@@ -17,7 +17,7 @@ TOOL = {
  'yillik-izin-hesaplama': 'sun', 'turkiye-maaslari-2026': 'chart-column', 'memur-maaslari': 'landmark', 'ogretmen-maasi': 'graduation-cap',
  'polis-maasi': 'shield-check', 'hemsire-maasi': 'heart-pulse', 'doktor-maasi': 'activity', 'muhendis-maasi': 'ruler', 'memur-emekli-zammi-hesaplama': 'trending-up',
  'kdv-hesaplama': 'receipt', 'kdv-haric-hesaplama': 'receipt', 'gelir-vergisi-hesaplama': 'file-text', 'otv-hesaplama': 'car', 'amortisman-hesaplama': 'chart-line',
- 'tapu-harci-hesaplama': 'house', 'mtv-hesaplama': 'car', 'damga-vergisi-hesaplama': 'file-text', 'ekonomi-takvimi': 'calendar-days',
+ 'tapu-harci-hesaplama': 'house', 'deger-artis-kazanci-hesaplama': 'house', 'mtv-hesaplama': 'car', 'damga-vergisi-hesaplama': 'file-text', 'ekonomi-takvimi': 'calendar-days',
  'kredi-hesaplama': 'credit-card', 'bilesik-faiz': 'chart-line', 'mevduat-faizi-hesaplama': 'piggy-bank', 'enflasyon-hesaplama': 'trending-up',
  'kredi-erken-kapama-hesaplama': 'credit-card', 'borc-kapatma-hesaplama': 'hand-coins', 'kredi-karti-asgari-odeme-hesaplama': 'credit-card',
  'kripto-kar-zarar-hesaplama': 'bitcoin', 'doviz-cevirici': 'arrow-left-right', 'para-deger-kaybi-hesaplama': 'trending-down', 'roi-hesaplama': 'percent',
