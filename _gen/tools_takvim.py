@@ -36,7 +36,7 @@ def enf_etki(veri):
 
 
 # (tarih, grup, başlık, açıklama, link)
-SONUC = {'Ekim 2026': '<b>Açıklandı:</b> aylık %2,58, yıllık %29,77 · Kasım kira artış oranı %31,23 · yeniden değerleme oranı %27,41'}
+SONUC = {'Ekim 2026': '<b>Açıklandı:</b> aylık %2,58, yıllık %29,77 · Kasım kira artış oranı %31,23 · yeniden değerleme oranı %27,83'}
 EVENTS = [(t, 'enflasyon', f'{v} enflasyonu', SONUC.get(v) or f'TÜİK, saat 10:00 · Belirler: {enf_etki(v)}', '/kira-artis-hesaplama.html') for t, v in ENF]
 EVENTS += [
     ('2026-10-22', 'faiz', 'TCMB faiz kararı (PPK)', 'Politika faizi %37’den %36’ya indirildi (−100 baz puan)', '/mevduat-faizi-hesaplama.html'),

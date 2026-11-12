@@ -36,7 +36,7 @@ function doldur(){var m=el('tip').value==='moto', s=el('cc'); s.innerHTML=(m?MCC
   el('f-tescil').style.display=m?'none':''; degerGoster();}
 function degerGoster(){el('f-deger').style.display=(el('tip').value==='oto'&&el('tescil').value==='yeni')?'':'none';}
 function onReady(){doldur(); el('tip').addEventListener('change',doldur); el('tescil').addEventListener('change',degerGoster);}
-var R27=[[0.20,'sınırlı artış, %20'],[0.2741,'tam oran, %27,41']];
+var R27=[[0.20,'sınırlı artış, %20'],[0.2783,'tam oran, %27,83']];
 function hesapla(){
   var m=el('tip').value==='moto', c=+el('cc').value, y=+el('yas').value, aciklama, d=v('deger');
   function tut(yy){ if(m) return MOTO[c][yy]; if(el('tescil').value==='eski') return ESKI[c][yy]; var k=YENI[c]; for(var i=0;i<k.length;i++){if(d<=k[i][0]) return k[i][1][yy];} }
@@ -45,9 +45,9 @@ function hesapla(){
   aciklama=m?'Motosiklet · '+MCC[c]:(el('tescil').value==='eski'?'2017 ve öncesi tescil · '+CC[c]:'2018 sonrası tescil · '+CC[c]+' · değer '+tl(d,0));
   var rows=[['1. taksit (Ocak 2026)',tl(t/2)],['2. taksit (Temmuz 2026)',tl(t/2)],['Araç yaşı grubu',el('yas').options[y].text],['Aylık ortalama maliyet',tl(t/12)]];
   R27.forEach(function(r){rows.push(['2027 tahmini ('+r[1]+')',tl(Math.floor(t*(1+r[0])),0),'hl']);});
-  if(y<4){var t2=tut(y+1); rows.push(['2027’de bir üst yaş grubuna geçerseniz ('+el('yas').options[y+1].text+')',tl(Math.floor(t2*1.20),0)+' – '+tl(Math.floor(t2*1.2741),0)]);}
+  if(y<4){var t2=tut(y+1); rows.push(['2027’de bir üst yaş grubuna geçerseniz ('+el('yas').options[y+1].text+')',tl(Math.floor(t2*1.20),0)+' – '+tl(Math.floor(t2*1.2783),0)]);}
   return {main:['2026 yıllık MTV', tl(t,0)], sub:aciklama, rows:rows,
-    note:'2027 tutarları tahminidir: 2026 yeniden değerleme oranı %27,41 olarak açıklandı (3 Kasım 2026); MTV bu oranla artar, ancak Cumhurbaşkanı daha düşük oran belirleyebilir (2026’da oran %25,49 iken MTV %18,95 artırıldı). Taksitler Ocak ve Temmuz sonuna kadar ödenir; kesin tutarı GİB İnternet Vergi Dairesi’nden sorgulayın.'};
+    note:'2027 tutarları tahminidir: 2026 yeniden değerleme oranı %27,83 olarak açıklandı (3 Kasım 2026); MTV bu oranla artar, ancak Cumhurbaşkanı daha düşük oran belirleyebilir (2026’da oran %25,49 iken MTV %18,95 artırıldı). Taksitler Ocak ve Temmuz sonuna kadar ödenir; kesin tutarı GİB İnternet Vergi Dairesi’nden sorgulayın.'};
 }''',
 article='''
 <h2 id="nedir">MTV (motorlu taşıtlar vergisi) nedir?</h2>

@@ -2,7 +2,7 @@
 import sys, math
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from newpost import make, tl, table, hero
-L, T = 0.20, 0.2741  # T: Ekim 2026 Yİ-ÜFE yıllık %27,41 (TÜİK, 3 Kasım 2026) = 2026 yeniden değerleme oranı
+L, T = 0.20, 0.2783  # T: 2026 yeniden değerleme oranı = Ekim 2026 Yİ-ÜFE on iki aylık ortalamalara göre değişim %27,83 (TÜİK, 3 Kasım 2026). Yıllık değişim (%27,41) DEĞİL.
 fl = lambda x: math.floor(x)
 def t0(x): return tl(x, 0) + ' TL'
 def t2(x): return tl(x, 2) + ' TL'
@@ -16,12 +16,12 @@ MTV = [('1300 cm³ ve altı', 5750), ('1301 – 1600 cm³', 10016), ('1601 – 1
 
 # ═══════════ 1) ANA YAZI ═══════════
 body1 = f'''
-  <p class="lead">Her yıl Kasım ayında açıklanan <strong>yeniden değerleme oranı</strong>, ertesi yıl ödenecek motorlu taşıtlar vergisinden pasaport ve ehliyet harçlarına, trafik cezalarından vergi istisnalarına kadar yüzlerce sabit tutarı belirler. 2027’de uygulanacak oran <strong>3 Kasım 2026</strong>’da TÜİK’in Ekim ayı üretici fiyatları verisiyle belli oldu: <strong>%27,41</strong>. Bu yazıda oranın nasıl hesaplandığını ve 2027’de hangi kalemin ne kadar olacağını tek tabloda bulacaksınız.</p>
+  <p class="lead">Her yıl Kasım ayında açıklanan <strong>yeniden değerleme oranı</strong>, ertesi yıl ödenecek motorlu taşıtlar vergisinden pasaport ve ehliyet harçlarına, trafik cezalarından vergi istisnalarına kadar yüzlerce sabit tutarı belirler. 2027’de uygulanacak oran <strong>3 Kasım 2026</strong>’da TÜİK’in Ekim ayı üretici fiyatları verisiyle belli oldu: <strong>%27,83</strong>. Bu yazıda oranın nasıl hesaplandığını ve 2027’de hangi kalemin ne kadar olacağını tek tabloda bulacaksınız.</p>
 
   <div class="highlight-box">
     <p><strong>Özet:</strong></p>
     <p>• Hesaplama: Yurt İçi Üretici Fiyat Endeksi’nin (Yİ-ÜFE) Ekim ayı yıllık değişimi</p>
-    <p>• 2026 yeniden değerleme oranı: <strong>%27,41</strong> (Ekim 2026 Yİ-ÜFE yıllık değişimi, TÜİK 3 Kasım 2026); Hazine ve Maliye Bakanlığı tebliğiyle ilan edilir</p>
+    <p>• 2026 yeniden değerleme oranı: <strong>%27,83</strong> (Ekim 2026 Yİ-ÜFE on iki aylık ortalama artışı, TÜİK 3 Kasım 2026); Hazine ve Maliye Bakanlığı tebliğiyle ilan edilir</p>
     <p>• 1 Ocak 2027’den itibaren trafik cezaları gibi idari para cezaları bu oranla artar; MTV ve harçlarda Cumhurbaşkanı daha düşük oran belirleyebilir</p>
     <p>• Geçen yıl: oran %25,49 idi; MTV, harçlar ve damga vergisinde %18,95 uygulandı, cezalar ve vergi istisnaları tam oranla arttı</p>
   </div>
@@ -30,12 +30,12 @@ body1 = f'''
   <p>Vergi Usul Kanunu’nun mükerrer 298. maddesine göre yeniden değerleme oranı, <strong>Yİ-ÜFE’nin Ekim ayında bir önceki yılın aynı ayına göre değişimidir</strong>. Yani tüketici enflasyonu (TÜFE) değil, üretici fiyatları esas alınır. Oran Kasım ayında ilan edilir ve maktu (sabit tutarlı) vergi, harç ve cezalar ertesi yılın 1 Ocak’ından itibaren bu oranda artırılır.</p>
   <p>İdari para cezaları ise Kabahatler Kanunu’nun 17. maddesi uyarınca her takvim yılı başında yeniden değerleme oranında artırılır. Bu nedenle trafik cezaları, harçlar gibi indirimli artışa tabi tutulmaz ve genellikle tam oranla güncellenir.</p>
 
-  <h2>2026 Yeniden Değerleme Oranı Belli Oldu: %27,41</h2>
-  <p>TÜİK’in 3 Kasım 2026’da açıkladığı verilere göre Yİ-ÜFE Ekim’de aylık %1,65, yıllık <strong>%27,41</strong> arttı. Vergi Usul Kanunu’na göre 2026 yılı yeniden değerleme oranı budur (Eylül’de yıllık değişim %27,81’di). Aşağıdaki hesaplarda tam oran için %27,41’i, Cumhurbaşkanının geçen yılki gibi sınırlı artış belirleyebileceği kalemler (MTV, harçlar) için %20’yi kullandık. Bu kalemlerin kesin oranı Aralık sonunda yayımlanacak kararla netleşecek.</p>
+  <h2>2026 Yeniden Değerleme Oranı Belli Oldu: %27,83</h2>
+  <p>TÜİK’in 3 Kasım 2026’da açıkladığı verilere göre Yİ-ÜFE Ekim’de aylık %1,65, yıllık %27,41, on iki aylık ortalamalara göre <strong>%27,83</strong> arttı. Vergi Usul Kanunu’nun mükerrer 298. maddesine göre yeniden değerleme oranı, Ekim ayı dahil son on iki ayın ortalama artışıdır; yani 2026 yılı oranı %27,83’tür (2025 oranı %25,49’du). Aşağıdaki hesaplarda tam oran için %27,83’i, Cumhurbaşkanının geçen yılki gibi sınırlı artış belirleyebileceği kalemler (MTV, harçlar) için %20’yi kullandık. Bu kalemlerin kesin oranı Aralık sonunda yayımlanacak kararla netleşecek.</p>
 
   <h2>2027’de Ne Ne Kadar Olacak? Toplu Tablo</h2>
   <p>2026’da geçerli tutarlar ve iki senaryoda 2027 tahmini:</p>
-''' + table(['Kalem', '2026', '2027 – sınırlı artış (%20)', '2027 – tam oran (%27,41)'], [
+''' + table(['Kalem', '2026', '2027 – sınırlı artış (%20)', '2027 – tam oran (%27,83)'], [
     ['10 yıllık pasaport harcı', t2(P[4][1]), t0(fl(P[4][1] * (1 + L))), t0(fl(P[4][1] * (1 + T)))],
     ['B sınıfı ehliyet harcı', t2(EH[1][1]), t0(fl(EH[1][1] * (1 + L))), t0(fl(EH[1][1] * (1 + T)))],
     ['Yurt dışı çıkış harcı', t0(YDC), t0(fl(YDC * (1 + L))), t0(fl(YDC * (1 + T)))],
@@ -62,7 +62,7 @@ body1 = f'''
   <p>Kanun, Cumhurbaşkanına MTV, harçlar ve damga vergisi gibi kalemlerde yeniden değerleme oranını uygulamama ya da daha düşük bir oran belirleme yetkisi verir. Nitekim 2025 için hesaplanan oran %25,49 olmasına rağmen 31 Aralık 2025’te yayımlanan kararla bu kalemler 2026’da <strong>%18,95</strong> artırıldı. Örneğin 10 yıllık pasaport harcı 11.274 TL’den 13.410,40 TL’ye, B sınıfı ehliyet harcı 5.678 TL’den 6.754,60 TL’ye yükseldi. Bu karar genellikle yılın son günlerinde açıklandığı için kesin 2027 tutarları da Aralık sonunda netleşecek.</p>
 
   <h2>Yeniden Değerleme Oranı ile Enflasyon Arasındaki Fark</h2>
-  <p>Kira artışı ve emekli zammı TÜFE’ye (tüketici fiyatları), yeniden değerleme oranı ise Yİ-ÜFE’ye (üretici fiyatları) bağlıdır. Ekim 2026’da yıllık TÜFE %29,77, yıllık Yİ-ÜFE %27,41 oldu. Bu nedenle vergi ve harçlardaki artış, maaş ve kira artışlarından farklı çıkabilir. Kira artış sınırını <a href="{B}/kira-artis-hesaplama.html">kira artış hesaplama</a>, maaşınızın enflasyon karşısındaki durumunu <a href="{B}/enflasyon-hesaplama.html">enflasyon hesaplama</a> aracıyla görebilirsiniz.</p>
+  <p>Kira artışı ve emekli zammı TÜFE’ye (tüketici fiyatları), yeniden değerleme oranı ise Yİ-ÜFE’ye (üretici fiyatları) bağlıdır. Ekim 2026’da yıllık TÜFE %29,77, yıllık Yİ-ÜFE %27,41, Yİ-ÜFE’nin on iki aylık ortalama artışı (yeniden değerleme oranı) %27,83 oldu. Bu nedenle vergi ve harçlardaki artış, maaş ve kira artışlarından farklı çıkabilir. Kira artış sınırını <a href="{B}/kira-artis-hesaplama.html">kira artış hesaplama</a>, maaşınızın enflasyon karşısındaki durumunu <a href="{B}/enflasyon-hesaplama.html">enflasyon hesaplama</a> aracıyla görebilirsiniz.</p>
 
   <h2>Şirketler İçin Yeniden Değerleme</h2>
   <p>Aynı oran, bilanço esasına göre defter tutan işletmelerin amortismana tabi iktisadi kıymetlerini yeniden değerlemesinde de kullanılır. Varlıkların net değeri bu oranla artırılır ve oluşan fark özkaynakta değer artış fonu olarak izlenir. Amortisman hesaplarınız için <a href="{B}/amortisman-hesaplama.html">amortisman hesaplama</a> aracını kullanabilirsiniz.</p>
@@ -71,11 +71,11 @@ body1 = f'''
   <p style="font-size:.88rem">213 sayılı Vergi Usul Kanunu mükerrer 298. madde · 5326 sayılı Kabahatler Kanunu 17. madde · TÜİK Yurt İçi Üretici Fiyat Endeksi (Ekim 2026) · 31 Aralık 2025 tarihli Resmî Gazete (10783 sayılı Cumhurbaşkanı Kararı ve 98 Seri No’lu Harçlar Kanunu Genel Tebliği) · 7574 sayılı Kanun (Resmî Gazete, 27 Şubat 2026).</p>
 '''
 faq1 = [
-    ('2026 yeniden değerleme oranı ne zaman açıklandı?', 'Oran, TÜİK’in 3 Kasım 2026’da açıkladığı Ekim ayı Yİ-ÜFE verisiyle %27,41 olarak belli oldu; Hazine ve Maliye Bakanlığı tebliğle ilan eder. Bu oran 1 Ocak 2027’den itibaren uygulanır.'),
-    ('2026 yeniden değerleme oranı kaç oldu?', '2026 yılı yeniden değerleme oranı %27,41’dir (Ekim 2026 Yİ-ÜFE yıllık değişimi). MTV, harç ve cezalar 2027’de bu oran esas alınarak güncellenir.'),
+    ('2026 yeniden değerleme oranı ne zaman açıklandı?', 'Oran, TÜİK’in 3 Kasım 2026’da açıkladığı Ekim ayı Yİ-ÜFE verisiyle %27,83 olarak belli oldu; Hazine ve Maliye Bakanlığı tebliğle ilan eder. Bu oran 1 Ocak 2027’den itibaren uygulanır.'),
+    ('2026 yeniden değerleme oranı kaç oldu?', '2026 yılı yeniden değerleme oranı %27,83’tür (Ekim 2026 itibarıyla Yİ-ÜFE’nin on iki aylık ortalama artışı). MTV, harç ve cezalar 2027’de bu oran esas alınarak güncellenir.'),
     ('Yeniden değerleme oranı nasıl hesaplanır?', 'Vergi Usul Kanunu mükerrer 298. maddeye göre Yurt İçi Üretici Fiyat Endeksi’nin Ekim ayındaki yıllık değişim oranıdır. TÜFE değil, üretici fiyatları esas alınır.'),
-    ('2027’de pasaport ve ehliyet ne kadar olacak?', f'Harçlar %20 artırılırsa 10 yıllık pasaport harcı yaklaşık {t0(fl(P[4][1]*1.2))}, B sınıfı ehliyet harcı yaklaşık {t0(fl(EH[1][1]*1.2))} olur. Tam oran (%27,41) uygulanırsa bu tutarlar {t0(fl(P[4][1]*(1+T)))} ve {t0(fl(EH[1][1]*(1+T)))} olur.'),
-    ('Trafik cezaları 2027’de ne kadar artacak?', 'İdari para cezaları Kabahatler Kanunu gereği her yıl yeniden değerleme oranında artırılır. Oran %27,41 olduğu için 5.000 TL’lik kırmızı ışık cezası 1 Ocak 2027’de yaklaşık 6.370 TL’ye yükselecek.'),
+    ('2027’de pasaport ve ehliyet ne kadar olacak?', f'Harçlar %20 artırılırsa 10 yıllık pasaport harcı yaklaşık {t0(fl(P[4][1]*1.2))}, B sınıfı ehliyet harcı yaklaşık {t0(fl(EH[1][1]*1.2))} olur. Tam oran (%27,83) uygulanırsa bu tutarlar {t0(fl(P[4][1]*(1+T)))} ve {t0(fl(EH[1][1]*(1+T)))} olur.'),
+    ('Trafik cezaları 2027’de ne kadar artacak?', 'İdari para cezaları Kabahatler Kanunu gereği her yıl yeniden değerleme oranında artırılır. Oran %27,83 olduğu için 5.000 TL’lik kırmızı ışık cezası 1 Ocak 2027’de yaklaşık 6.370 TL’ye yükselecek.'),
     ('Yeniden değerleme oranı maaşları etkiler mi?', 'Doğrudan etkilemez; maaş, emekli aylığı ve kira artışları TÜFE’ye bağlıdır. Ancak gelir vergisi dilimleri bu oranla güncellendiği için net maaşı dolaylı olarak etkiler.'),
 ]
 rel1 = [('🚗', 'MTV Hesaplama', '2026 MTV ve 2027 tahmini', f'{B}/mtv-hesaplama.html'),
@@ -84,21 +84,21 @@ rel1 = [('🚗', 'MTV Hesaplama', '2026 MTV ve 2027 tahmini', f'{B}/mtv-hesaplam
         ('📊', 'Vergi Dilimleri 2027', 'Gelir vergisi tarifesi tahmini', f'{B}/blog/vergi-dilimleri-2027.html')]
 print(make('yeniden-degerleme-orani-2026',
      'Yeniden Değerleme Oranı 2026: 2027 MTV, Harç ve Cezalar | Hesaplarsın',
-     '2026 yeniden değerleme oranı %27,41 oldu (Ekim Yİ-ÜFE, TÜİK 3 Kasım). 2027 MTV, harç, trafik cezası ve vergi dilimleri bu orana göre tek tabloda.',
+     '2026 yeniden değerleme oranı %27,83 oldu (Yİ-ÜFE 12 aylık ortalama, TÜİK 3 Kasım). 2027 MTV, harç, trafik cezası ve vergi dilimleri bu orana göre tek tabloda.',
      'yeniden değerleme oranı 2026, yeniden değerleme oranı 2027, 2027 mtv, 2027 harçlar, 2027 trafik cezaları, yİ-üfe ekim 2026',
      'Yeniden Değerleme Oranı 2026', 'Yeniden Değerleme Oranı 2026: 2027’de MTV, Harçlar ve Cezalar Ne Kadar Olacak?',
-     hero('📈', '3 Kasım 2026’da açıklandı', 'YENİDEN DEĞERLEME ORANI', '%27,41', 'EKİM Yİ-ÜFE AYLIK', '%1,65', '#7c2d12', '#ea580c'),
+     hero('📈', '3 Kasım 2026’da açıklandı', 'YENİDEN DEĞERLEME ORANI', '%27,83', 'EKİM Yİ-ÜFE AYLIK', '%1,65', '#7c2d12', '#ea580c'),
      ['Vergi', 'Gündem'], body1, faq1, rel1, date='2026-11-03', date_tr='3 Kasım 2026'))
 
 # ═══════════ 2) PASAPORT / EHLİYET ═══════════
 body2 = f'''
-  <p class="lead">Pasaport, ehliyet, yurt dışı çıkış ve yurt dışından getirilen telefonların IMEI kayıt harçları her yıl yeniden değerleme oranına bağlı olarak artırılır. 2027 tutarları, 3 Kasım 2026’da %27,41 olarak açıklanan yeniden değerleme oranı ve Aralık sonunda yayımlanacak Cumhurbaşkanı kararıyla netleşecek. Bu yazıda <strong>2026’da ödenen tutarları</strong> ve iki senaryoda <strong>2027 tahminlerini</strong> bulacaksınız.</p>
+  <p class="lead">Pasaport, ehliyet, yurt dışı çıkış ve yurt dışından getirilen telefonların IMEI kayıt harçları her yıl yeniden değerleme oranına bağlı olarak artırılır. 2027 tutarları, 3 Kasım 2026’da %27,83 olarak açıklanan yeniden değerleme oranı ve Aralık sonunda yayımlanacak Cumhurbaşkanı kararıyla netleşecek. Bu yazıda <strong>2026’da ödenen tutarları</strong> ve iki senaryoda <strong>2027 tahminlerini</strong> bulacaksınız.</p>
 
   <div class="highlight-box">
     <p><strong>Kısaca:</strong></p>
     <p>• 2026’da 10 yıllık pasaport: {t2(P[4][1])} harç + {t2(DEF)} defter = <strong>{t2(P[4][1] + DEF)}</strong></p>
     <p>• 2026’da B sınıfı ehliyet: {t2(EH[1][1])} harç + {t0(DK)} kart + {t0(VK)} vakıf payı = <strong>{t2(EH[1][1] + DK + VK)}</strong></p>
-    <p>• 2026’da harçlar %18,95 arttı. 2027’de artışın %20 ile %27,41 (yeniden değerleme oranı) arasında olması bekleniyor.</p>
+    <p>• 2026’da harçlar %18,95 arttı. 2027’de artışın %20 ile %27,83 (yeniden değerleme oranı) arasında olması bekleniyor.</p>
     <p>• İşlemini yıl sonuna kadar tamamlayanlar 2026 tarifesinden öder.</p>
   </div>
 
@@ -107,7 +107,7 @@ body2 = f'''
   <p>Tutarlar umuma mahsus (bordo) pasaport içindir. Harç vergi dairesine, bankalara veya online olarak; defter bedeli Nüfus Müdürlüğüne ödenir. Başvuru öncesi Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü’nün güncel ücret sayfasını kontrol edin.</p>
 
   <h2>2027 Pasaport Ücreti Ne Kadar Olacak?</h2>
-''' + table(['Pasaport süresi', '2027 – %20 artışla (toplam)', '2027 – %27,41 artışla (toplam)'],
+''' + table(['Pasaport süresi', '2027 – %20 artışla (toplam)', '2027 – %27,83 artışla (toplam)'],
             [[a, t0(fl(b * (1 + L)) + DEF), t0(fl(b * (1 + T)) + DEF)] for a, b in P], '2027 pasaport tahmini') + f'''
   <p>Tablodaki toplamlarda defter bedeli 2026 tutarıyla ({t2(DEF)}) sabit varsayılmıştır; defter bedeli ayrıca belirlendiği için 2027’de değişebilir.</p>
 
@@ -117,7 +117,7 @@ body2 = f'''
   <p>Kurs ve sınav ücretleri bu tutarlara dahil değildir. Diğer sınıflardaki harç tutarları için Nüfus Müdürlüğü ücret tablosuna bakılmalıdır.</p>
 
   <h2>2027 Ehliyet Ücreti Ne Kadar Olacak?</h2>
-''' + table(['Sınıf', '2027 harç – %20', '2027 harç – %27,41', 'Tahmini toplam (kart ve vakıf payı dahil)'],
+''' + table(['Sınıf', '2027 harç – %20', '2027 harç – %27,83', 'Tahmini toplam (kart ve vakıf payı dahil)'],
             [[a, t0(fl(b * (1 + L))), t0(fl(b * (1 + T))), t0(fl(b * (1 + L)) + DK + VK) + ' – ' + t0(fl(b * (1 + T)) + DK + VK)] for a, b in EH], '2027 ehliyet tahmini') + f'''
   <p>Kart bedeli ve vakıf payı 2026 tutarlarıyla sabit varsayılmıştır.</p>
 
@@ -136,7 +136,7 @@ body2 = f'''
 '''
 faq2 = [
     ('2026’da 10 yıllık pasaport ne kadar?', f'Harç {t2(P[4][1])}, defter bedeli {t2(DEF)} olmak üzere toplam {t2(P[4][1] + DEF)}.'),
-    ('2027’de pasaport ne kadar olacak?', f'Harçlar %20 artırılırsa 10 yıllık pasaportun toplam maliyeti yaklaşık {t0(fl(P[4][1]*1.2)+DEF)}, tam oranla (%27,41) yaklaşık {t0(fl(P[4][1]*(1+T))+DEF)} olur. Kesin tutar Aralık sonunda belli olur.'),
+    ('2027’de pasaport ne kadar olacak?', f'Harçlar %20 artırılırsa 10 yıllık pasaportun toplam maliyeti yaklaşık {t0(fl(P[4][1]*1.2)+DEF)}, tam oranla (%27,83) yaklaşık {t0(fl(P[4][1]*(1+T))+DEF)} olur. Kesin tutar Aralık sonunda belli olur.'),
     ('2026’da B sınıfı ehliyet ücreti ne kadar?', f'Harç {t2(EH[1][1])}, kart bedeli {t0(DK)} ve vakıf payı {t0(VK)} ile toplam {t2(EH[1][1]+DK+VK)}. Kurs ve sınav ücretleri hariçtir.'),
     ('2027’de ehliyet harcı ne kadar olacak?', f'B sınıfı ehliyet harcının %20 artışla yaklaşık {t0(fl(EH[1][1]*1.2))}, tam oranla yaklaşık {t0(fl(EH[1][1]*(1+T)))} olması bekleniyor.'),
     ('2027 IMEI kayıt ücreti ne kadar olacak?', f'2026’da {t0(IMEI)} olan IMEI kayıt harcının 2027’de {t0(fl(IMEI*1.2))} ile {t0(fl(IMEI*(1+T)))} arasında olması bekleniyor.'),
@@ -169,11 +169,11 @@ DG = [('Seyir halinde cep telefonu (1. ihlal)', 5000, ''), ('Cep telefonu (1 yı
       ('Araçta radar tespit cihazı bulundurma', 185000, '')]
 H = ['İhlal', '2026', '2027 tahmini', '2027 erken ödeme (%25 indirimli)', 'Ek yaptırım']
 body3 = f'''
-  <p class="lead">Trafik cezaları 27 Şubat 2026’da Resmî Gazete’de yayımlanan <strong>7574 sayılı Kanun</strong> ile baştan belirlendi; hız, kırmızı ışık, alkol ve cep telefonu cezaları kat kat arttı. İdari para cezaları Kabahatler Kanunu gereği her yıl başında <strong>yeniden değerleme oranında</strong> güncellendiği için bu tutarların 1 Ocak 2027’de bir kez daha artması bekleniyor. Bu yazıda 2026 tutarlarını ve 3 Kasım’da %27,41 olarak açıklanan oranla hesaplanan 2027 tutarlarını bulacaksınız.</p>
+  <p class="lead">Trafik cezaları 27 Şubat 2026’da Resmî Gazete’de yayımlanan <strong>7574 sayılı Kanun</strong> ile baştan belirlendi; hız, kırmızı ışık, alkol ve cep telefonu cezaları kat kat arttı. İdari para cezaları Kabahatler Kanunu gereği her yıl başında <strong>yeniden değerleme oranında</strong> güncellendiği için bu tutarların 1 Ocak 2027’de bir kez daha artması bekleniyor. Bu yazıda 2026 tutarlarını ve 3 Kasım’da %27,83 olarak açıklanan oranla hesaplanan 2027 tutarlarını bulacaksınız.</p>
 
   <div class="highlight-box">
     <p><strong>Kısaca:</strong></p>
-    <p>• 2027 artışını belirleyecek yeniden değerleme oranı <strong>3 Kasım 2026</strong>’da <strong>%27,41</strong> olarak açıklandı.</p>
+    <p>• 2027 artışını belirleyecek yeniden değerleme oranı <strong>3 Kasım 2026</strong>’da <strong>%27,83</strong> olarak açıklandı.</p>
     <p>• Kırmızı ışık ve cep telefonu cezası 5.000 TL’den yaklaşık <strong>{t0(fl(5000*(1+T)))}</strong>’ye çıkabilir.</p>
     <p>• Alkollü araç kullanmanın ilk cezası 25.000 TL’den yaklaşık <strong>{t0(fl(25000*(1+T)))}</strong>’ye yükselebilir.</p>
     <p>• Ceza tebliğden itibaren 15 gün içinde ödenirse <strong>%25 indirim</strong> uygulanır.</p>
@@ -195,7 +195,7 @@ body3 = f'''
 ''' + table(H, [satir(a, x, e) for a, x, e in DG], 'Diğer trafik cezaları') + f'''
 
   <h2>2027 Tutarları Nasıl Hesaplanıyor?</h2>
-  <p>5326 sayılı Kabahatler Kanunu’nun 17. maddesine göre idari para cezaları her takvim yılı başında, o yıl için belirlenen yeniden değerleme oranında artırılarak uygulanır. Tablolardaki 2027 tutarları, 3 Kasım 2026’da açıklanan <strong>%27,41</strong> yeniden değerleme oranıyla ve küsuratlar atılarak hesaplanmıştır. Örneğin 5.000 TL’lik bir ceza 5.000 × 1,2741 = {t0(fl(5000*1.2741))} olur. Kesin liste Emniyet Genel Müdürlüğü’nün Ocak duyurusuyla teyit edilmelidir.</p>
+  <p>5326 sayılı Kabahatler Kanunu’nun 17. maddesine göre idari para cezaları her takvim yılı başında, o yıl için belirlenen yeniden değerleme oranında artırılarak uygulanır. Tablolardaki 2027 tutarları, 3 Kasım 2026’da açıklanan <strong>%27,83</strong> yeniden değerleme oranıyla ve küsuratlar atılarak hesaplanmıştır. Örneğin 5.000 TL’lik bir ceza 5.000 × 1,2741 = {t0(fl(5000*1.2783))} olur. Kesin liste Emniyet Genel Müdürlüğü’nün Ocak duyurusuyla teyit edilmelidir.</p>
   <p>Geçen yıl da aynı yöntem uygulandı: 2025’te 993 TL olan hatalı park cezası, 2026’da %25,49 oranıyla 1.246 TL’ye yükseldi. 7574 sayılı Kanun’la belirlenen yeni tutarların 2027’de ilk kez bu kurala göre güncellenmesi bekleniyor; kesin liste Ocak başında Emniyet Genel Müdürlüğü tarafından yayımlanır ve bu sayfa güncellenir.</p>
 
   <h2>Erken Ödeme İndirimi ve İtiraz</h2>
@@ -210,7 +210,7 @@ body3 = f'''
   <p style="font-size:.88rem">2918 sayılı Karayolları Trafik Kanunu ve 7574 sayılı Kanun (Resmî Gazete, 27 Şubat 2026) · 5326 sayılı Kabahatler Kanunu 17. madde · TÜİK Yİ-ÜFE (Ekim 2026). Yeni yılın kesin tutarları için Emniyet Genel Müdürlüğü duyurusu esas alınmalıdır.</p>
 '''
 faq3 = [
-    ('2027 trafik cezaları ne kadar artacak?', 'İdari para cezaları her yıl yeniden değerleme oranında artırılır. 3 Kasım 2026’da açıklanan oran %27,41 olduğu için cezalar 1 Ocak 2027’de yaklaşık %27,4 artar.'),
+    ('2027 trafik cezaları ne kadar artacak?', 'İdari para cezaları her yıl yeniden değerleme oranında artırılır. 3 Kasım 2026’da açıklanan oran %27,83 olduğu için cezalar 1 Ocak 2027’de yaklaşık %27,4 artar.'),
     ('2027’de kırmızı ışık cezası ne kadar olacak?', f'2026’da ilk ihlal için 5.000 TL olan kırmızı ışık cezasının 2027’de yaklaşık {t0(fl(5000*(1+T)))} olması bekleniyor; erken ödemede yaklaşık {t0(fl(er(fl(5000*(1+T)))))}.'),
     ('2027’de alkol cezası ne kadar olacak?', f'İlk tespitte 25.000 TL olan ceza yaklaşık {t0(fl(25000*(1+T)))}, 5 yıl içinde ikinci tespitte 50.000 TL olan ceza yaklaşık {t0(fl(50000*(1+T)))} olabilir.'),
     ('2027 hız cezası ne kadar?', f'Yerleşim yeri içinde 6–10 km/s aşımın cezası 2.000 TL’den yaklaşık {t0(fl(2000*(1+T)))}’ye, 66 km/s ve üzeri aşımın cezası 30.000 TL’den yaklaşık {t0(fl(30000*(1+T)))}’ye çıkabilir.'),
@@ -223,7 +223,7 @@ rel3 = [('📈', 'Yeniden Değerleme Oranı 2026', '2027’de neler ne kadar art
         ('🔧', 'Araç Muayene Gecikme Cezası', 'Gecikme süresine göre ceza', f'{B}/arac-muayene-gecikme-hesaplama.html')]
 print(make('trafik-cezalari-2027',
      '2027 Trafik Cezaları Ne Kadar Olacak? Hız, Alkol, Kırmızı Işık | Hesaplarsın',
-     f'2027 trafik cezaları (%27,41 yeniden değerleme ile): kırmızı ışık ve cep telefonu ≈ {t0(fl(5000*(1+T)))}, alkol ≈ {t0(fl(25000*(1+T)))}. Hız cezaları ve erken ödeme tutarları tablolarla.',
+     f'2027 trafik cezaları (%27,83 yeniden değerleme ile): kırmızı ışık ve cep telefonu ≈ {t0(fl(5000*(1+T)))}, alkol ≈ {t0(fl(25000*(1+T)))}. Hız cezaları ve erken ödeme tutarları tablolarla.',
      '2027 trafik cezaları, trafik cezaları 2027, 2027 hız cezası, 2027 kırmızı ışık cezası, 2027 alkol cezası, trafik cezası ne kadar',
      '2027 Trafik Cezaları', '2027 Trafik Cezaları Ne Kadar Olacak? Hız, Kırmızı Işık, Alkol ve Diğer Cezalar',
      hero('🚦', 'Ocak 2027’de güncelleniyor', 'KIRMIZI IŞIK (2027 TAHMİNİ)', t0(fl(5000 * (1 + T))), 'ALKOL – İLK TESPİT', t0(fl(25000 * (1 + T))), '#7f1d1d', '#dc2626'),
@@ -249,7 +249,7 @@ def satirlar(d):
     return r
 tarife = table(['Oran', 'Ücret gelirleri (2026)', 'Ücret dışı gelirler (2026)'],
                [[a[0], a[1], b[1]] for a, b in zip(satirlar(U26), satirlar(D26))], '2026 gelir vergisi tarifesi')
-t27 = table(['Dilim üst sınırı (ücret)', '2026', '2027 – %20 artışla', '2027 – %27,41 artışla'],
+t27 = table(['Dilim üst sınırı (ücret)', '2026', '2027 – %20 artışla', '2027 – %27,83 artışla'],
             [[f'{OR[i]} dilimi', t0(x), t0(kes(x * 1.20)), t0(kes(x * (1 + T)))] for i, x in enumerate(U26)], '2027 vergi dilimi tahmini')
 ORN = 600000
 def ay_gecis(brut, sinir):
@@ -262,7 +262,7 @@ gecis = table(['Aylık brüt ücret', 'Aylık vergi matrahı', '%20 dilimine ge�
               [[t0(b), t0(b * 0.85)] + [(AYLAR[ay_gecis(b, s) - 1] if ay_gecis(b, s) else 'Yıl içinde geçmez') for s in (190000, 400000)] for b in (40000, 50000, 60000, 75000, 100000, 150000)],
               'Dilim geçiş ayları')
 body4 = f'''
-  <p class="lead">Türkiye’de gelir vergisi artan oranlıdır: kazancınızın her dilime düşen kısmı o dilimin oranıyla vergilendirilir. Dilim sınırları her yıl güncellenir ve 2027 tarifesi, 3 Kasım 2026’da %27,41 olarak açıklanan <strong>yeniden değerleme oranı</strong> esas alınarak Aralık sonunda ilan edilecek. Bu yazıda <strong>2026’da geçerli dilimleri</strong>, <strong>2027 tahminini</strong> ve maaşınızın yılın hangi ayında üst dilime geçeceğini bulacaksınız.</p>
+  <p class="lead">Türkiye’de gelir vergisi artan oranlıdır: kazancınızın her dilime düşen kısmı o dilimin oranıyla vergilendirilir. Dilim sınırları her yıl güncellenir ve 2027 tarifesi, 3 Kasım 2026’da %27,83 olarak açıklanan <strong>yeniden değerleme oranı</strong> esas alınarak Aralık sonunda ilan edilecek. Bu yazıda <strong>2026’da geçerli dilimleri</strong>, <strong>2027 tahminini</strong> ve maaşınızın yılın hangi ayında üst dilime geçeceğini bulacaksınız.</p>
 
   <div class="highlight-box">
     <p><strong>2026 Gelir Vergisi Dilimleri (Ücret):</strong></p>
@@ -278,7 +278,7 @@ body4 = f'''
   <p>Ücret gelirleriyle diğer gelirler (serbest meslek, kira, ticari kazanç vb.) arasındaki tek fark %27 diliminin üst sınırıdır: ücretlilerde 1.500.000 TL, diğer gelirlerde 1.000.000 TL. Tarife <strong>yıllık</strong> matrah üzerinden uygulanır; maaşlarda ise yıl başından itibaren biriken (kümülatif) matrah esas alınır.</p>
 
   <h2>2027 Vergi Dilimleri Ne Kadar Olacak?</h2>
-  <p>Dilim sınırları Gelir Vergisi Kanunu’nun 103. maddesine göre yeniden değerleme oranında artırılır, ancak son yıllarda artış bu oranın altında kaldı: 2026’da yeniden değerleme oranı %25,49 olmasına rağmen dilimler yaklaşık %20–25 artırıldı (ilk dilim 158.000 TL’den 190.000 TL’ye çıktı). 2026 yeniden değerleme oranı %27,41 olarak açıklandı; dilimlerin tam oranla mı yoksa daha sınırlı mı artırılacağı Aralık sonunda belli olacağı için iki senaryo hesapladık:</p>
+  <p>Dilim sınırları Gelir Vergisi Kanunu’nun 103. maddesine göre yeniden değerleme oranında artırılır, ancak son yıllarda artış bu oranın altında kaldı: 2026’da yeniden değerleme oranı %25,49 olmasına rağmen dilimler yaklaşık %20–25 artırıldı (ilk dilim 158.000 TL’den 190.000 TL’ye çıktı). 2026 yeniden değerleme oranı %27,83 olarak açıklandı; dilimlerin tam oranla mı yoksa daha sınırlı mı artırılacağı Aralık sonunda belli olacağı için iki senaryo hesapladık:</p>
 ''' + t27 + f'''
   <p>Tutarlar bin liranın altındaki kısımlar atılarak gösterilmiştir. Kesin 2027 tarifesi Aralık 2026 sonunda yayımlanacak ve bu yazı güncellenecek.</p>
 
@@ -308,8 +308,8 @@ body4 = f'''
 '''
 faq4 = [
     ('2026 gelir vergisi dilimleri nedir?', 'Ücretlerde 190.000 TL’ye kadar %15, 400.000 TL’ye kadar %20, 1.500.000 TL’ye kadar %27, 5.300.000 TL’ye kadar %35, üzeri %40’tır. Ücret dışı gelirlerde %27 dilimi 1.000.000 TL’de biter.'),
-    ('2027 vergi dilimleri ne kadar olacak?', f'Dilimler %20 artırılırsa ilk dilim {t0(kes(190000*1.2))}, tam oranla (%27,41) {t0(kes(190000*(1+T)))} olur. Kesin tarife Aralık 2026 sonunda açıklanacak.'),
-    ('2027 vergi dilimleri ne zaman açıklanacak?', 'Yeniden değerleme oranı 3 Kasım 2026’da %27,41 olarak belli oldu; yeni tarife genellikle Aralık ayının son günlerinde Resmî Gazete’de yayımlanır.'),
+    ('2027 vergi dilimleri ne kadar olacak?', f'Dilimler %20 artırılırsa ilk dilim {t0(kes(190000*1.2))}, tam oranla (%27,83) {t0(kes(190000*(1+T)))} olur. Kesin tarife Aralık 2026 sonunda açıklanacak.'),
+    ('2027 vergi dilimleri ne zaman açıklanacak?', 'Yeniden değerleme oranı 3 Kasım 2026’da %27,83 olarak belli oldu; yeni tarife genellikle Aralık ayının son günlerinde Resmî Gazete’de yayımlanır.'),
     ('Üst dilime geçince bütün maaşım mı yüksek oranla vergilenir?', 'Hayır. Yalnızca dilim sınırını aşan kısım üst oranla vergilendirilir. Örneğin 600.000 TL yıllık matrahta ortalama vergi oranı yaklaşık %20,8’dir.'),
     ('Maaşım hangi ay %20 dilimine geçer?', 'Aylık 60.000 TL brüt ücrette vergi matrahı 51.000 TL olur; biriken matrah 190.000 TL’yi Nisan ayında aşar ve o aydan itibaren %20 dilimi uygulanır.'),
     ('Asgari ücretli vergi öder mi?', 'Hayır. Asgari ücrete isabet eden gelir ve damga vergisi istisna edildiği için asgari ücretliler bu vergileri ödemez.'),
