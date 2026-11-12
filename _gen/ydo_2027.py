@@ -195,7 +195,7 @@ body3 = f'''
 ''' + table(H, [satir(a, x, e) for a, x, e in DG], 'Diğer trafik cezaları') + f'''
 
   <h2>2027 Tutarları Nasıl Hesaplanıyor?</h2>
-  <p>5326 sayılı Kabahatler Kanunu’nun 17. maddesine göre idari para cezaları her takvim yılı başında, o yıl için belirlenen yeniden değerleme oranında artırılarak uygulanır. Tablolardaki 2027 tutarları, 3 Kasım 2026’da açıklanan <strong>%27,83</strong> yeniden değerleme oranıyla ve küsuratlar atılarak hesaplanmıştır. Örneğin 5.000 TL’lik bir ceza 5.000 × 1,2741 = {t0(fl(5000*1.2783))} olur. Kesin liste Emniyet Genel Müdürlüğü’nün Ocak duyurusuyla teyit edilmelidir.</p>
+  <p>5326 sayılı Kabahatler Kanunu’nun 17. maddesine göre idari para cezaları her takvim yılı başında, o yıl için belirlenen yeniden değerleme oranında artırılarak uygulanır. Tablolardaki 2027 tutarları, 3 Kasım 2026’da açıklanan <strong>%27,83</strong> yeniden değerleme oranıyla ve küsuratlar atılarak hesaplanmıştır. Örneğin 5.000 TL’lik bir ceza 5.000 × 1,2783 = {t0(fl(5000*1.2783))} olur. Kesin liste Emniyet Genel Müdürlüğü’nün Ocak duyurusuyla teyit edilmelidir.</p>
   <p>Geçen yıl da aynı yöntem uygulandı: 2025’te 993 TL olan hatalı park cezası, 2026’da %25,49 oranıyla 1.246 TL’ye yükseldi. 7574 sayılı Kanun’la belirlenen yeni tutarların 2027’de ilk kez bu kurala göre güncellenmesi bekleniyor; kesin liste Ocak başında Emniyet Genel Müdürlüğü tarafından yayımlanır ve bu sayfa güncellenir.</p>
 
   <h2>Erken Ödeme İndirimi ve İtiraz</h2>
