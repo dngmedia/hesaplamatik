@@ -19,6 +19,12 @@ def ort(son_ay):  # son_ay = (yıl, ay): kira oranı = önceki 12 ayın yıllık
         if m == 0: y, m = y - 1, 12
     return sum(Y[k] for k in keys) / 12, keys
 O_OCAK27 = 31.23 + (Y['2026-11'] + Y['2026-12'] - Y['2025-11'] - Y['2025-12']) / 12
+# Aralık 2026 oranı (Kasım TÜFE ile 3 Aralık'ta açıklanır): Kasım 2025 aylık %0,87, yıllık %31,07 (TÜİK 3.12.2025)
+ARA_SEN = []
+for _m in (0.3, 0.6, 1.0):
+    _ynov = (1.2977 * (1 + _m / 100) / 1.0087 - 1) * 100
+    ARA_SEN.append((_m, _ynov, 31.23 + (_ynov - Y['2025-11']) / 12))
+O_ARA26 = ARA_SEN[1][2]
 O_TEM27, _ = ort((2027, 6))
 O_OCAK28, _ = ort((2027, 12))
 t = lambda x: tl(x, 0) + ' TL'
@@ -31,6 +37,7 @@ body = f'''
     <p><strong>Kısaca:</strong></p>
     <p>• Kasım 2026 yasal kira artış oranı: <strong>%31,23</strong> (TÜİK, 3 Kasım 2026)</p>
     <p>• Orta Vadeli Program (Eylül 2026): 2026 sonu enflasyon beklentisi <strong>%28,4</strong>, 2027 sonu hedefi <strong>%21</strong></p>
+    <p>• Aralık 2026 kira artış oranı tahmini: yaklaşık <strong>{p(O_ARA26)}</strong> (3 Aralık’ta kesinleşir)</p>
     <p>• Ocak 2027 kira artış oranı tahmini: yaklaşık <strong>{p(O_OCAK27)}</strong> · Temmuz 2027: yaklaşık <strong>{p(O_TEM27)}</strong></p>
     <p>• Sınır hem konut hem çatılı işyeri kiralarında geçerlidir.</p>
   </div>
@@ -47,6 +54,12 @@ body = f'''
   <p>Hükümetin 7 Eylül 2026’da açıkladığı Orta Vadeli Program’a (2027–2029) göre yıl sonu enflasyon beklentileri:</p>
 ''' + table(['Yıl', 'Yıl sonu TÜFE (OVP)'], [['2026', '%28,4 (beklenti)'], ['2027', '%21 (hedef)'], ['2028', '%13,5 (hedef)'], ['2029', '%9 (hedef)']], 'OVP enflasyon hedefleri') + f'''
   <p>Kira artışında “TEFE” artık kullanılmıyor; yalnızca TÜFE’nin 12 aylık ortalaması esas alınıyor. Ekim 2026’da yıllık TÜFE %29,77 oldu.</p>
+
+  <h2>Aralık 2026 Kira Artış Oranı Tahmini</h2>
+  <p>Aralık’ta yenilenecek sözleşmelerde uygulanacak oran, TÜİK’in <strong>3 Aralık 2026</strong> saat 10:00’da açıklayacağı Kasım enflasyonuyla belli olacak. Kasım 2025’teki aylık %0,87’lik artış 12 aylık hesaptan çıkacağı için, Kasım 2026 aylık enflasyonuna göre oran şöyle olur:</p>
+''' + table(['Kasım 2026 aylık TÜFE', 'Kasım yıllık TÜFE', 'Aralık 2026 kira artış oranı', f'{t(K)} kira → yeni kira'],
+            [[p(m), p(y), '≈ ' + p(o), t(K * (1 + o / 100))] for m, y, o in ARA_SEN], 'Aralık 2026 kira artış oranı tahmini') + f'''
+  <p>Hangi senaryo gerçekleşirse gerçekleşsin Aralık oranı <strong>%31 civarında</strong> kalır; Kasım oranından (%31,23) biraz düşüktür. Kesin oran açıklandığı gün bu sayfa ve <a href="/kira-artis-hesaplama.html">kira artış hesaplama</a> aracı güncellenir.</p>
 
   <h2>2027 Kira Zam Oranı Tahmini</h2>
   <p>Kira oranı geçmiş 12 ayın ortalaması olduğu için enflasyondaki düşüşü gecikmeli yansıtır. Yıllık enflasyonun OVP’deki gibi 2026 sonunda %28,4’e, 2027 sonunda %21’e doğrusal olarak indiğini varsayarak hesapladığımız tahminler:</p>
@@ -68,6 +81,7 @@ body = f'''
   <p style="font-size:.88rem">6098 sayılı Türk Borçlar Kanunu m.344 · TÜİK Tüketici Fiyat Endeksi bültenleri (2025 – Ekim 2026) · Orta Vadeli Program 2027–2029 (7 Eylül 2026).</p>
 '''
 faq = [
+    ('Aralık 2026 kira artış oranı ne kadar olacak?', f'TÜİK Kasım verisini 3 Aralık 2026’da açıklayacak. Kasım aylık enflasyonu %0,3 ile %1 arasında gelirse Aralık kira artış oranı yaklaşık {p(ARA_SEN[0][2])} ile {p(ARA_SEN[2][2])} arasında olur.'),
     ('2027 TÜFE oranı tahmini ne kadar?', 'Orta Vadeli Program’a göre 2027 yıl sonu enflasyon hedefi %21’dir; 2026 sonu beklentisi %28,4’tür. Ekim 2026’da yıllık TÜFE %29,77 oldu.'),
     ('Ocak 2027 kira artış oranı ne kadar olacak?', f'Aralık 2026 verisiyle 4 Ocak 2027’de belli olacak. Enflasyonun OVP beklentisine yakın seyretmesi halinde oranın yaklaşık {p(O_OCAK27)} olacağını tahmin ediyoruz.'),
     ('2027 kira zam oranı tahmini nedir?', f'Tahminimize göre yasal azami artış Ocak 2027’de yaklaşık {p(O_OCAK27)}, Temmuz 2027’de yaklaşık {p(O_TEM27)} olur. Oranlar enflasyon düştükçe yıl içinde azalır.'),
@@ -86,4 +100,4 @@ if __name__ == '__main__':
          'kira artış oranı 2027, 2027 kira zam oranı tahmini, 2027 tüfe tahmini, 2027 tefe tüfe oranı, ocak 2027 kira artışı',
          'Kira Artış Oranı 2027', 'Kira Artış Oranı 2027: TÜFE Beklentisi ve Kira Zammı Tahmini',
          hero('🏠', 'Ocak 2027 tahmini', 'KASIM 2026 KİRA ORANI', '%31,23', 'OCAK 2027 TAHMİNİ', '≈ ' + p(O_OCAK27), '#065f46', '#10b981'),
-         ['Kira', 'Gündem'], body, faq, rel, date='2026-11-03', date_tr='3 Kasım 2026'))
+         ['Kira', 'Gündem'], body, faq, rel, date='2026-10-24', date_tr='17 Kasım 2026', modified='2026-11-17'))

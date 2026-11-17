@@ -37,7 +37,8 @@ def hero(icon, badge, l1, v1, l2, v2, c1, c2):
   </div>'''
 
 
-def make(slug, title, desc, keywords, crumb, h1, hero_html, badges, body, faq, related, date='2026-10-21', date_tr='21 Ekim 2026'):
+def make(slug, title, desc, keywords, crumb, h1, hero_html, badges, body, faq, related, date='2026-10-21', date_tr='21 Ekim 2026', modified=None):
+    modified = modified or date
     s = TPL
     url = f'https://hesaplarsin.com/blog/{slug}.html'
     words = len(re.sub(r'<[^>]+>', ' ', body + ' '.join(q + a for q, a in faq)).split())
@@ -55,7 +56,7 @@ def make(slug, title, desc, keywords, crumb, h1, hero_html, badges, body, faq, r
     s = re.sub(r'(<meta name="twitter:title" content=")[^"]*', lambda m: m.group(1) + e(title.replace(' | Hesaplarsın', '')), s, count=1)
     s = re.sub(r'(<meta name="twitter:description" content=")[^"]*', lambda m: m.group(1) + e(desc), s, count=1)
     # şemalar
-    art = {"@context": "https://schema.org", "@type": "Article", "headline": h1, "description": desc, "datePublished": date, "dateModified": date,
+    art = {"@context": "https://schema.org", "@type": "Article", "headline": h1, "description": desc, "datePublished": date, "dateModified": modified,
            "inLanguage": "tr", "mainEntityOfPage": url, "image": "https://hesaplarsin.com/assets/og-image.png",
            "author": {"@type": "Person", "name": "Duran Gönülalan", "jobTitle": "Hesaplarsın Kurucusu", "url": "https://hesaplarsin.com/hakkimizda.html#kurucu"},
            "publisher": {"@type": "Organization", "name": "Hesaplarsın", "url": "https://hesaplarsin.com", "logo": {"@type": "ImageObject", "url": "https://hesaplarsin.com/assets/icon-512.png"}}}
