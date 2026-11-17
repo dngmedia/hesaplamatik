@@ -44,6 +44,8 @@ FACTS = {
     'bayram_2027':        ('Ramazan 9–11 Mart (arife 8 Mart), Kurban 16–19 Mayıs (arife 15 Mayıs); kamu idari izin kararı henüz yok', 'Diyanet 2027 takvimi, 2429 s.K.', '2026-11-11', '2027-01-15'),
     'yiufe_endeks':       ('son ay Ekim 2026 = 5.998,51 (2003=100); _gen/tools_vergi.py YIUFE sözlüğüne her ay yeni değer eklenir', 'TÜİK Yİ-ÜFE', '2026-11-12', '2026-12-04'),
     'dak_istisna':        ('2026: 150.000 TL; 2027 tutarı Aralık sonunda tebliğle (yeniden değerleme %27,83)', 'GVK Genel Tebliği Seri No: 332', '2026-11-12', '2027-01-05'),
+    'kira_stopaj':        ('%20 (GVK 94/5-a); 2026 stopajlı GMSİ beyan sınırı 400.000 TL; 2027 tutarı tebliğle', 'GVK Tebliğ 332, Alomaliye', '2026-11-17', '2027-01-05'),
+    'meb_takvim':         ('2026-27: 1. ara 16-20 Kas, karne 22 Oca, sömestr 25 Oca-5 Şub, 2. ara 8-12 Mar, kapanış 25 Haz 2027', 'MEB genelgesi 13.6.2026', '2026-11-17', '2027-06-01'),
     'mevduat_stopaj':     ('%17,5 / %15 / %10 (9.7.2025–)', 'CB Kararı', '2026-10-30', '2027-01-05'),
 }
 

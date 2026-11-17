@@ -244,6 +244,11 @@
   "name": "Değer Artış Kazancı Hesaplama",
   "cat": "gayrimenkul"
  },
+ "kira-stopaji-hesaplama": {
+  "ico": "🏢",
+  "name": "Kira Stopajı Hesaplama",
+  "cat": "vergi"
+ },
  "tyt-net-hesaplama": {
   "ico": "📝",
   "name": "TYT Net Hesaplama",
@@ -337,6 +342,11 @@
  "resmi-tatiller-2027": {
   "ico": "🗓️",
   "name": "2027 Resmi Tatiller ve Köprü Günleri",
+  "cat": "diger"
+ },
+ "kac-gun-kaldi": {
+  "ico": "⏳",
+  "name": "Kaç Gün Kaldı?",
   "cat": "diger"
  },
  "maas-siralamasi": {

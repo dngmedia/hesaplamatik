@@ -376,3 +376,121 @@ related=['is-gunu-hesaplama', 'gun-hesaplama', 'yillik-izin-hesaplama', 'ekonomi
 sources=[('2429 sayılı Ulusal Bayram ve Genel Tatiller Hakkında Kanun', 'https://www.mevzuat.gov.tr/'), ('Diyanet İşleri Başkanlığı 2027 dini günler takvimi', 'https://www.diyanet.gov.tr/'),
          ('4857 sayılı İş Kanunu m.47 (genel tatil ücreti)', 'https://www.mevzuat.gov.tr/')],
 ))
+
+
+# ══════════════ Kaç Gün Kaldı? (17 Kas 2026) ══════════════
+# Kaynaklar: MEB 2026-2027 Çalışma Takvimi genelgesi (13 Haziran 2026), Diyanet 2027 takvimi, 2429 s.K.
+KGK = [  # (tarih, ad, kategori, not)
+    ('2027-01-01', 'Yılbaşı (2027)', 'tatil', 'Resmi tatil, 3 günlük hafta sonu'),
+    ('2027-01-22', 'Karne günü (1. dönem sonu)', 'okul', '1. dönemin son günü'),
+    ('2027-01-25', 'Yarıyıl (sömestr) tatili', 'okul', '25 Ocak – 5 Şubat 2027'),
+    ('2027-02-08', 'Ramazan (ilk oruç)', 'dini', 'İlk teravih 7 Şubat akşamı; 2. dönem de bu gün başlar'),
+    ('2027-03-05', 'Kadir Gecesi', 'dini', 'Ramazan’ın 27. gecesi'),
+    ('2027-03-08', '2. ara tatil', 'okul', '8 – 12 Mart 2027'),
+    ('2027-03-09', 'Ramazan Bayramı', 'bayram', '9 – 11 Mart 2027; arife 8 Mart öğleden sonra'),
+    ('2027-04-23', '23 Nisan Ulusal Egemenlik ve Çocuk Bayramı', 'tatil', 'Cuma'),
+    ('2027-05-01', '1 Mayıs Emek ve Dayanışma Günü', 'tatil', 'Cumartesi'),
+    ('2027-05-16', 'Kurban Bayramı', 'bayram', '16 – 19 Mayıs 2027; arife 15 Mayıs'),
+    ('2027-05-19', '19 Mayıs Gençlik ve Spor Bayramı', 'tatil', 'Kurban Bayramı’nın 4. gününe denk gelir'),
+    ('2027-06-25', 'Okulların kapanması (yaz tatili)', 'okul', 'Karne günü'),
+    ('2027-07-15', '15 Temmuz Demokrasi ve Millî Birlik Günü', 'tatil', 'Perşembe'),
+    ('2027-08-30', '30 Ağustos Zafer Bayramı', 'tatil', 'Pazartesi'),
+    ('2027-10-29', '29 Ekim Cumhuriyet Bayramı', 'tatil', 'Cuma; arife 28 Ekim öğleden sonra'),
+    ('2028-01-01', 'Yılbaşı (2028)', 'tatil', 'Cumartesi’ye denk gelir'),
+]
+for _t, _a, _k, _n in KGK:
+    _g = _d.date.fromisoformat(_t)
+    if _t in [x[0] for x in RT]:
+        assert any(x[0] == _t for x in RT), _t
+assert _d.date(2027, 1, 1).weekday() == 4 and _d.date(2027, 6, 25).weekday() == 4 and _d.date(2028, 1, 1).weekday() == 5
+assert _d.date(2027, 4, 23).weekday() == 4 and _d.date(2027, 5, 1).weekday() == 5 and _d.date(2027, 7, 15).weekday() == 3
+assert _d.date(2027, 8, 30).weekday() == 0 and _d.date(2027, 10, 29).weekday() == 4 and _d.date(2027, 3, 5).weekday() == 4
+
+
+def _tr_tam(t):
+    g = _d.date.fromisoformat(t)
+    return f'{g.day} {AY[g.month-1]} {g.year} {GUN[g.weekday()]}'
+
+
+KGK_T = ('<div class="table-wrap"><table><thead><tr><th>Ne zaman?</th><th>Tarih</th><th>Kalan gün</th><th>Not</th></tr></thead><tbody>'
+         + ''.join(f'<tr><td>{a}</td><td>{_tr_tam(t)}</td><td data-kalan="{t}">–</td><td>{n}</td></tr>' for t, a, k, n in KGK)
+         + '</tbody></table></div>')
+
+KGK_JS = 'var KG=' + _j.dumps(KGK, ensure_ascii=False) + r''';
+var AYL=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'],GNL=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+function d0(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+function bugun(){var n=new Date();n.setHours(0,0,0,0);return n;}
+function fark(s){return Math.round((d0(s)-bugun())/864e5);}
+function kd(s){var d=d0(s);return d.getDate()+' '+AYL[d.getMonth()]+' '+d.getFullYear()+' '+GNL[d.getDay()];}
+function hg(n){var h=Math.floor(n/7),g=n%7;return (h?h+' hafta':'')+(h&&g?' ':'')+(g||!h?g+' gün':'');}
+function tabloDoldur(){document.querySelectorAll('[data-kalan]').forEach(function(td){var f=fark(td.getAttribute('data-kalan'));td.textContent=f>0?f+' gün':(f===0?'Bugün':'Geçti');});}
+function onReady(){tabloDoldur();run(false);}
+function hesapla(){
+  var sec=el('hedef').value, ozel=el('ozel').value, liste=[];
+  if(ozel){var f=fark(ozel);return {main:['Seçtiğiniz tarihe', f>0?f+' gün kaldı':(f===0?'Bugün':Math.abs(f)+' gün geçti')], sub:kd(ozel)+(f>0?' · '+hg(f):''), rows:[['Bugün',kd(bugun().getFullYear()+'-'+String(bugun().getMonth()+1).padStart(2,'0')+'-'+String(bugun().getDate()).padStart(2,'0'))],['Hedef tarih',kd(ozel)],['Kalan',f>0?f+' gün ('+hg(f)+')':'—']]};}
+  KG.forEach(function(e){var f=fark(e[0]);if(f>=0&&(sec==='hepsi'||e[2]===sec)) liste.push([e,f]);});
+  if(!liste.length) return 'Bu kategoride yaklaşan bir tarih kalmadı.';
+  var ilk=liste[0];
+  return {main:[ilk[0][1], ilk[1]===0?'Bugün':ilk[1]+' gün kaldı'], sub:kd(ilk[0][0])+(ilk[1]>0?' · '+hg(ilk[1]):''),
+    rows:liste.slice(0,10).map(function(x){return [x[0][1]+'<br><small>'+kd(x[0][0])+'</small>', x[1]===0?'Bugün':'<b>'+x[1]+' gün</b>'];}),
+    note:'Kalan gün, bugünden hedef güne kadar olan takvim günüdür (bugün sayılmaz). Okul tarihleri MEB 2026-2027 çalışma takvimine, dini günler Diyanet takvimine göredir.'};
+}'''
+
+_yb = KGK[0][0]
+TOOLS.append(dict(
+slug='kac-gun-kaldi', name='Kaç Gün Kaldı?', cat='diger', ico='⏳',
+title='Kaç Gün Kaldı? Yılbaşı, Ramazan, Bayram ve Yaz Tatiline Geri Sayım 2027',
+desc='Yılbaşına, Ramazan’a, Ramazan ve Kurban Bayramı’na, sömestr ve yaz tatiline kaç gün kaldı? MEB ve Diyanet takvimine göre canlı geri sayım ve 2027 tarihleri tek sayfada.',
+h1='⏳ Kaç Gün Kaldı? 2027 Geri Sayım',
+lead='Yılbaşı, Ramazan, bayramlar, sömestr ve yaz tatili için kalan günü görün. Listede olmayan bir tarih için kendi tarihinizi de girebilirsiniz.',
+card_title='Geri sayım', button='Kalan Günü Göster',
+badges=['✓ Canlı sayaç', 'MEB 2026-2027 takvimi', 'Diyanet takvimi'],
+form='''<div class="form-grid"><div class="field"><label for="hedef">Ne için?</label><select id="hedef">
+<option value="hepsi" selected>Yaklaşan tüm tarihler</option><option value="bayram">Bayramlar (Ramazan, Kurban)</option><option value="dini">Ramazan ve Kadir Gecesi</option>
+<option value="okul">Okul: karne, sömestr, yaz tatili</option><option value="tatil">Resmi tatiller ve yılbaşı</option></select></div>
+<div class="field"><label for="ozel">Başka bir tarih <small>isteğe bağlı</small></label><input type="date" id="ozel" min="2026-01-01" max="2035-12-31"></div></div>''',
+js=KGK_JS,
+article=f'''
+<p><b>Kısa cevap:</b> Yılbaşı 1 Ocak 2027 Cuma, Ramazan’ın ilk orucu 8 Şubat 2027 Pazartesi, Ramazan Bayramı 9–11 Mart 2027, Kurban Bayramı 16–19 Mayıs 2027’dir. Okullarda sömestr tatili 25 Ocak 2027’de başlar, yaz tatili 25 Haziran 2027 Cuma günü karnelerle başlar. Aşağıdaki tabloda her birine bugünden itibaren kaç gün kaldığı otomatik güncellenir.</p>
+
+<h2 id="tablo">2027 geri sayım tablosu</h2>
+{KGK_T}
+<p>“Kalan gün” sütunu sayfayı açtığınız güne göre hesaplanır; bugün sayılmaz, hedef gün sayılır. Örneğin yarın olan bir tarih için “1 gün” yazar.</p>
+
+<h2 id="yilbasi">Yılbaşına kaç gün kaldı?</h2>
+<p>2027 yılbaşı <b>1 Ocak 2027 Cuma</b> gününe denk geliyor. Resmi tatil olduğu için Cumartesi ve Pazar ile birlikte 3 günlük bir hafta sonu oluşuyor. 31 Aralık 2026 Perşembe yarım gün tatil değildir; normal iş günüdür.</p>
+
+<h2 id="ramazan">Ramazan’a ve Ramazan Bayramı’na kaç gün kaldı?</h2>
+<p>Diyanet takvimine göre 2027’de <b>ilk teravih 7 Şubat Pazar akşamı</b> kılınacak, <b>ilk oruç 8 Şubat Pazartesi</b> tutulacak. Kadir Gecesi 5 Mart Cuma’dır. <b>Ramazan Bayramı 9–11 Mart 2027</b> (Salı–Perşembe), arife 8 Mart Pazartesi öğleden sonradır. Bayram, okulların 8–12 Mart 2. ara tatiline denk geldiği için öğrenciler için 9 günlük bir tatil oluşuyor.</p>
+
+<h2 id="kurban">Kurban Bayramı’na kaç gün kaldı?</h2>
+<p><b>Kurban Bayramı 16–19 Mayıs 2027</b> (Pazar–Çarşamba), arife 15 Mayıs Cumartesi’dir. Bayramın 4. günü 19 Mayıs Atatürk’ü Anma, Gençlik ve Spor Bayramı’na denk geliyor. Çalışanlar için köprü günleri ve kaç gün izinle kaç gün tatil yapılabileceği <a href="/resmi-tatiller-2027.html">2027 resmi tatiller ve köprü günleri</a> sayfasında.</p>
+
+<h2 id="okul">Sömestre ve yaz tatiline kaç gün kaldı?</h2>
+<p>MEB 2026-2027 çalışma takvimine göre:</p>
+<ul>
+<li><b>1. ara tatil:</b> 16–20 Kasım 2026</li>
+<li><b>1. dönem sonu (karne):</b> 22 Ocak 2027 Cuma</li>
+<li><b>Yarıyıl (sömestr) tatili:</b> 25 Ocak – 5 Şubat 2027</li>
+<li><b>2. dönem başlangıcı:</b> 8 Şubat 2027 Pazartesi</li>
+<li><b>2. ara tatil:</b> 8–12 Mart 2027</li>
+<li><b>Okulların kapanışı ve yaz tatili:</b> 25 Haziran 2027 Cuma</li>
+</ul>
+<p>Okul tarihleri il bazında hava koşulları veya olağanüstü durumlar nedeniyle değişebilir; kesin bilgi için il milli eğitim müdürlüğü duyurularını takip edin. Not ortalamanızı <a href="/not-ortalamasi-hesaplama.html">not ortalaması hesaplama</a>, karne belgenizi <a href="/takdir-tesekkur-hesaplama.html">takdir teşekkür hesaplama</a> aracıyla hesaplayabilirsiniz.</p>
+
+<h2 id="nasil">Kalan gün nasıl hesaplanır?</h2>
+<p>Hedef tarihten bugünün tarihi çıkarılır. Sonuç takvim günüdür; hafta sonları ve tatiller dahildir. Yalnızca iş günü saymak için <a href="/is-gunu-hesaplama.html">iş günü hesaplama</a>, iki tarih arasındaki farkı gün, ay ve yıl olarak görmek için <a href="/gun-hesaplama.html">gün hesaplama</a> aracını kullanabilirsiniz.</p>
+''',
+faq=[
+('Yılbaşı 2027 hangi güne denk geliyor?', '1 Ocak 2027 Cuma gününe denk geliyor. Resmi tatil olduğundan Cumartesi ve Pazar ile birlikte 3 günlük tatil oluşur.'),
+('2027’de Ramazan ne zaman başlıyor?', 'Diyanet takvimine göre ilk oruç 8 Şubat 2027 Pazartesi tutulacak; ilk teravih 7 Şubat Pazar akşamı kılınacak.'),
+('Ramazan Bayramı 2027 ne zaman?', '9–11 Mart 2027 (Salı, Çarşamba, Perşembe). Arife 8 Mart Pazartesi öğleden sonradır.'),
+('Kurban Bayramı 2027 ne zaman?', '16–19 Mayıs 2027 (Pazar–Çarşamba). Arife 15 Mayıs Cumartesi’dir; 19 Mayıs bayramın 4. gününe denk gelir.'),
+('Sömestr tatili 2027 ne zaman?', 'MEB takvimine göre yarıyıl tatili 25 Ocak 2027 Pazartesi başlar, 5 Şubat 2027 Cuma biter. Karneler 22 Ocak 2027 Cuma günü verilir.'),
+('Okullar ne zaman kapanacak, yaz tatili ne zaman?', '2026-2027 eğitim öğretim yılı 25 Haziran 2027 Cuma günü karnelerle sona erer; yaz tatili bu tarihte başlar.'),
+('Kalan gün hesabına bugün dahil mi?', 'Hayır. Kalan gün, bugünden hedef güne kadar olan takvim günü sayısıdır; hedef gün sayılır, bugün sayılmaz.'),
+],
+related=['resmi-tatiller-2027', 'gun-hesaplama', 'is-gunu-hesaplama', 'yas-hesaplama', 'yillik-izin-hesaplama'],
+sources=[('MEB 2026-2027 Eğitim ve Öğretim Yılı Çalışma Takvimi genelgesi', 'https://www.meb.gov.tr/'), ('Diyanet İşleri Başkanlığı 2027 dini günler takvimi', 'https://www.diyanet.gov.tr/'),
+         ('2429 sayılı Ulusal Bayram ve Genel Tatiller Hakkında Kanun', 'https://www.mevzuat.gov.tr/')],
+))

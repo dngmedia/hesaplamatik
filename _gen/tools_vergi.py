@@ -1156,3 +1156,90 @@ related=['tapu-harci-hesaplama', 'gelir-vergisi-hesaplama', 'kira-getirisi-hesap
 sources=[('193 sayılı Gelir Vergisi Kanunu mükerrer m.80 ve m.81', 'https://www.mevzuat.gov.tr/'), ('Gelir Vergisi Genel Tebliği (Seri No: 332) – 2026 istisna tutarı ve tarife', 'https://www.gib.gov.tr/'),
          ('TÜİK – Yurt İçi Üretici Fiyat Endeksi (2003=100)', 'https://data.tuik.gov.tr/')],
 ))
+
+
+# ══════════════ Kira Stopajı (17 Kas 2026) ══════════════
+# Kaynak: GVK m.94/5-a (%20 tevkifat), m.21, m.86/1-c (2026: stopajlı GMSİ beyan sınırı 400.000 TL), m.74 (götürü gider %15),
+#         GVK Genel Tebliği Seri No: 332 (2026 tarife). Tarife ve _gv26 değer artış kazancı bölümünde tanımlı.
+KS_SINIR = 400000
+def _ks(net_aylik, ay=12):
+    brut = net_aylik / 0.8
+    yb = brut * ay; st = yb * 0.20
+    beyan = yb > KS_SINIR
+    vergi = _gv26(yb * 0.85) if beyan else 0
+    return dict(brut=brut, stopaj=brut * 0.2, yb=yb, yst=st, beyan=beyan, vergi=vergi, fark=vergi - st)
+KS_ORN = [10000, 20000, 30000, 40000, 60000, 100000]
+KS_T = ('<div class="table-wrap"><table><thead><tr><th>Ev sahibine geçen net kira</th><th>Brüt kira</th><th>Aylık stopaj (%20)</th><th>Yıllık brüt</th><th>Beyanname</th></tr></thead><tbody>'
+        + ''.join(f'<tr><td>{_tl0(n)} ₺</td><td>{_tl0(_ks(n)["brut"])} ₺</td><td>{_tl0(_ks(n)["stopaj"])} ₺</td><td>{_tl0(_ks(n)["yb"])} ₺</td>'
+                  f'<td>{"Gerekli" if _ks(n)["beyan"] else "Gerekmez"}</td></tr>' for n in KS_ORN) + '</tbody></table></div>')
+_k1 = _ks(20000); _k2 = _ks(40000)
+assert round(_k1['brut']) == 25000 and round(_k1['stopaj']) == 5000 and not _k1['beyan']
+assert round(_k2['yb']) == 600000 and round(_k2['vergi']) == 100200 and round(_k2['fark']) == -19800
+
+TOOLS.append(dict(
+slug='kira-stopaji-hesaplama', name='Kira Stopajı Hesaplama', cat='vergi', ico='🏢',
+title='Kira Stopajı Hesaplama 2026 – Netten Brüte, Brütten Nete (%20) | Hesaplarsın',
+desc='İşyeri kirasında %20 stopajı hesaplayın: net kiradan brüt kirayı, brütten neti bulun. Yıllık stopaj, 400.000 TL beyan sınırı ve beyanname verirseniz vergi iadesi de hesaplanır.',
+h1='🏢 Kira Stopajı Hesaplama 2026',
+lead='Kiracı olarak keseceğiniz stopajı ya da ev sahibi olarak elinize geçecek net kirayı hesaplayın. Yıl sonunda beyanname gerekip gerekmediğini ve ödenecek ya da iade alınacak vergiyi de görün.',
+card_title='Stopaj hesabı', button='Hesapla',
+badges=['✓ Ücretsiz', 'GVK m.94', '2026 beyan sınırı'],
+form='''<div class="form-grid">
+<div class="field"><label for="tur">Bildiğiniz tutar</label><select id="tur"><option value="net" selected>Net kira (ev sahibine ödenen)</option><option value="brut">Brüt kira (sözleşmedeki)</option></select></div>
+<div class="field"><label for="tutar">Aylık Kira (₺)</label><input type="number" id="tutar" placeholder="örn: 20.000" inputmode="decimal"></div>
+<div class="field"><label for="ay">Kaç ay? <small>yıl içinde</small></label><input type="number" id="ay" value="12" min="1" max="12" inputmode="numeric"></div>
+</div>''',
+js=r'''var TAR=[[190000,.15],[400000,.20],[1000000,.27],[5300000,.35],[null,.40]],SINIR=''' + str(KS_SINIR) + r''';
+function gv(m){var v=0,alt=0;for(var i=0;i<TAR.length;i++){var u=TAR[i][0];if(u===null||m<=u)return v+(m-alt)*TAR[i][1];v+=(u-alt)*TAR[i][1];alt=u;}}
+function hesapla(){
+  var t=v('tutar'), ay=Math.round(v('ay')||12), net=el('tur').value==='net'; if(!(t>0)) return 'Aylık kira tutarını girin.';
+  if(ay<1||ay>12) return 'Ay sayısı 1 ile 12 arasında olmalı.';
+  var brut=net?t/0.8:t, st=brut*0.2, n=brut-st, yb=brut*ay, yst=st*ay, beyan=yb>SINIR;
+  var rows=[['Brüt kira (aylık)',tl(brut)],['Stopaj %20 (kiracı keser, vergi dairesine öder)',tl(st)],['Ev sahibine ödenen net kira',tl(n)],
+    ['Yıllık brüt kira ('+ay+' ay)',tl(yb)],['Yıllık stopaj',tl(yst)],['2026 beyan sınırı',tl(SINIR,0)]];
+  var sub;
+  if(beyan){var mat=yb*0.85, ver=gv(mat), f=ver-yst;
+    rows.push(['Matrah (götürü gider %15 düşülünce)',tl(mat)],['Hesaplanan gelir vergisi',tl(ver)],['Ödenen stopaj (mahsup)','− '+tl(yst)],[f<0?'Vergi iadesi':'Ek ödenecek vergi',tl(Math.abs(f)),'hl']);
+    sub='Yıllık brüt kira 400.000 ₺’yi aştığı için Mart 2027’de beyanname verilir; '+(f<0?'stopaj fazlası iade edilir.':'stopaj düşüldükten sonra kalan vergi ödenir.');}
+  else sub='Yıllık brüt kira 400.000 ₺’yi aşmadığı için (başka beyana tabi geliriniz yoksa) beyanname gerekmez; stopaj nihai vergidir.';
+  return {main:[net?'Sözleşmeye yazılacak brüt kira':'Ev sahibine geçen net kira', tl(net?brut:n)], sub:sub, rows:rows,
+    note:'Beyan hesabı, yalnızca stopajlı işyeri kira geliriniz olduğu ve götürü gider yöntemini seçtiğiniz varsayımıyla yapılır. Ücret, konut kirası gibi başka gelirleriniz varsa sonuç değişir; beyan öncesi mali müşavire danışın.'};
+}''',
+article=f'''
+<p><b>Kısa cevap:</b> İşyeri kirasında kiracı şirket veya işletme ise brüt kiranın <b>%20’sini stopaj</b> olarak keser ve vergi dairesine öder. Net kiradan brüte geçmek için net tutar 0,80’e bölünür: 20.000 ₺ net kira = 25.000 ₺ brüt kira, 5.000 ₺ stopaj.</p>
+
+<h2 id="nasil">Kira stopajı nasıl hesaplanır?</h2>
+<div class="formula">Stopaj = Brüt kira × %20<br>Net kira = Brüt kira × 0,80<br>Brüt kira = Net kira ÷ 0,80</div>
+<div class="example"><p><b>Örnek:</b> Ev sahibi eline aylık 20.000 ₺ geçmesini istiyor. Brüt kira 20.000 ÷ 0,80 = <b>25.000 ₺</b>, kiracının keseceği stopaj 25.000 × %20 = <b>5.000 ₺</b> olur. Sözleşmeye 25.000 ₺ brüt kira yazılır; kiracı ev sahibine 20.000 ₺, vergi dairesine 5.000 ₺ öder.</p></div>
+
+<h2 id="tablo">Net kiraya göre brüt kira ve stopaj tablosu (2026)</h2>
+{KS_T}
+<p>Tablo 12 aylık kira içindir. Beyanname sütunu, ev sahibinin başka beyana tabi geliri olmadığı varsayımıyla 400.000 ₺ sınırına göre doldurulmuştur.</p>
+
+<h2 id="kim">Stopajı kim keser?</h2>
+<p>Stopaj yükümlülüğü kiralanan yerin türüne değil, <b>kiracının kim olduğuna</b> bağlıdır (GVK m.94/5-a). Şirketler, ticari işletmeler, serbest meslek erbabı, dernek ve vakıflar ile kamu kurumları gibi vergi kesintisi yapmakla yükümlü kiracılar, gerçek kişi ev sahibine ödedikleri kiradan %20 stopaj keser ve muhtasar beyanname ile öder. Kiracı bir birey ise stopaj yapılmaz. Bir şirketin çalışanı için lojman olarak kiraladığı konutta da stopaj kesilir.</p>
+<p>Ev sahibi bir şirketse stopaj yapılmaz; bu durumda kira faturalı olur ve KDV uygulanır.</p>
+
+<h2 id="beyan">Ev sahibi beyanname verecek mi?</h2>
+<ul>
+<li>2026’da elde edilen ve stopaj yapılmış <b>brüt işyeri kirası toplamı 400.000 ₺’yi aşmıyorsa</b> ve başka beyana tabi gelir yoksa beyanname verilmez; kesilen stopaj nihai vergidir.</li>
+<li>400.000 ₺ aşılırsa kira geliri Mart 2027’de yıllık beyannameyle beyan edilir. Brüt kiradan %15 götürü gider (veya belgeli gerçek giderler) düşülür, kalan tutara 2026 tarifesi uygulanır ve yıl içinde kesilen stopaj hesaplanan vergiden mahsup edilir.</li>
+<li>Örneğin aylık 40.000 ₺ net (50.000 ₺ brüt) kirada yıllık brüt {_tl0(_k2["yb"])} ₺ olur. Götürü gider sonrası matrah {_tl0(_k2["yb"] * 0.85)} ₺, hesaplanan vergi {_tl0(_k2["vergi"])} ₺, yıl içinde kesilen stopaj {_tl0(_k2["yst"])} ₺’dir. Aradaki <b>{_tl0(-_k2["fark"])} ₺ iade</b> alınır.</li>
+</ul>
+<p>Konut kiraları için 2026 istisnası 58.000 ₺’dir; konut kirası vergisini <a href="/blog/kira-geliri-vergisi-hesaplama.html">kira geliri vergisi</a> rehberinde bulabilirsiniz. Yıllık kira artışını <a href="/kira-artis-hesaplama.html">kira artış hesaplama</a>, kira getirisini <a href="/kira-getirisi-hesaplama.html">kira getirisi hesaplama</a> aracıyla hesaplayabilirsiniz.</p>
+
+<h2 id="odeme">Kiracı stopajı ne zaman öder?</h2>
+<p>Kiracı kestiği stopajı muhtasar ve prim hizmet beyannamesiyle, ödemeyi izleyen ayın 26’sına kadar beyan edip öder. Kira yıllık peşin ödenirse stopaj da ödeme yapılan ayda tamamı üzerinden kesilir. Kiracı kira gider olarak brüt tutarı yazar.</p>
+''',
+faq=[
+('Kira stopajı yüzde kaç?', 'İşyeri kiralarında gerçek kişi ev sahibine ödenen brüt kira üzerinden %20 stopaj kesilir (GVK m.94/5-a).'),
+('Net kiradan brüt kira nasıl hesaplanır?', 'Net kira 0,80’e bölünür. Örneğin 20.000 ₺ net kira için brüt kira 25.000 ₺, stopaj 5.000 ₺ olur.'),
+('Konut kirasında stopaj var mı?', 'Kiracı birey ise yoktur. Kiracı şirket veya işletme ise (örneğin çalışanına lojman kiraladıysa) konut kirasından da %20 stopaj kesilir.'),
+('Stopajlı kira geliri ne zaman beyan edilir?', '2026’da stopaj yapılmış brüt işyeri kirası toplamı 400.000 ₺’yi aşarsa Mart 2027’de yıllık gelir vergisi beyannamesi verilir. Aşmazsa ve başka beyana tabi gelir yoksa beyanname gerekmez.'),
+('Beyanda stopaj iade alınır mı?', 'Evet. Beyannamede hesaplanan gelir vergisinden yıl içinde kesilen stopaj düşülür; stopaj daha fazlaysa fark iade edilir veya başka vergi borçlarına mahsup edilir.'),
+('Stopajı kim öder, kiracı mı ev sahibi mi?', 'Vergi ev sahibinin gelir vergisidir; ancak kiracı, ödediği kiradan keserek ev sahibi adına vergi dairesine yatırır.'),
+],
+related=['kira-artis-hesaplama', 'kira-getirisi-hesaplama', 'gelir-vergisi-hesaplama', 'deger-artis-kazanci-hesaplama', 'damga-vergisi-hesaplama'],
+sources=[('193 sayılı Gelir Vergisi Kanunu m.94/5-a, m.86, m.74', 'https://www.mevzuat.gov.tr/'), ('Gelir Vergisi Genel Tebliği (Seri No: 332) – 2026 tarife ve beyan sınırları', 'https://www.gib.gov.tr/'),
+         ('GİB Kira Geliri Rehberi', 'https://www.gib.gov.tr/')],
+))

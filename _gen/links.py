@@ -232,3 +232,13 @@ N['deger-artis-kazanci-hesaplama'] = 'Değer artış kazancı hesaplama'
 M['deger-artis-kazanci-hesaplama'] = ['tapu-harci-hesaplama', 'gelir-vergisi-hesaplama', 'kira-getirisi-hesaplama']
 for _k in ['tapu-harci-hesaplama', 'blog/tapu-harci-hesaplama', 'kira-getirisi-hesaplama', 'metrekare-fiyat-hesaplama', 'konut-kredisi-hesaplama', 'blog/kira-geliri-vergisi-hesaplama', 'gelir-vergisi-hesaplama']:
     M.setdefault(_k, []); M[_k] = M[_k][:1] + ['deger-artis-kazanci-hesaplama'] + [x for x in M[_k][1:] if x != 'deger-artis-kazanci-hesaplama']
+
+# kaç gün kaldı + kira stopajı (17 Kas 2026)
+N['kac-gun-kaldi'] = 'Kaç gün kaldı? Geri sayım'
+N['kira-stopaji-hesaplama'] = 'Kira stopajı hesaplama'
+M['kac-gun-kaldi'] = ['resmi-tatiller-2027', 'gun-hesaplama', 'is-gunu-hesaplama']
+M['kira-stopaji-hesaplama'] = ['blog/kira-geliri-vergisi-hesaplama', 'kira-artis-hesaplama', 'kira-getirisi-hesaplama']
+for _k in ['resmi-tatiller-2027', 'gun-hesaplama', 'is-gunu-hesaplama', 'not-ortalamasi-hesaplama', 'takdir-tesekkur-hesaplama', 'yas-hesaplama']:
+    M.setdefault(_k, []); M[_k] = M[_k][:1] + ['kac-gun-kaldi'] + [x for x in M[_k][1:] if x != 'kac-gun-kaldi']
+for _k in ['blog/kira-geliri-vergisi-hesaplama', 'kira-artis-hesaplama', 'kira-getirisi-hesaplama', 'gelir-vergisi-hesaplama', 'deger-artis-kazanci-hesaplama']:
+    M.setdefault(_k, []); M[_k] = M[_k][:1] + ['kira-stopaji-hesaplama'] + [x for x in M[_k][1:] if x != 'kira-stopaji-hesaplama']

@@ -4,6 +4,8 @@ TESTS = {
   dict(fill={'alis_t': '2021-03-10', 'alis': '900000', 'satis_t': '2026-04-01', 'satis': '5000000'}, expect='Vergi yok'),
   dict(fill={'alis_t': '2026-08-10', 'alis': '4000000', 'satis_t': '2026-11-16', 'satis': '4400000', 'gider': '88000'}, expect='24.300,00'),
   dict(fill={'alis_t': '2023-09-05', 'alis': '2000000', 'satis_t': '2026-11-16', 'satis': '4700000', 'gider': '94000'}, expect='Vergi çıkmıyor')],
+ 'kac-gun-kaldi': [dict(fill={'hedef': 'bayram'}, expect='gün kaldı', expect_row='Ramazan Bayramı'), dict(fill={'ozel': '2030-01-01'}, expect='gün kaldı'), dict(fill={'hedef': 'okul'}, expect_row='Okulların kapanması')],
+ 'kira-stopaji-hesaplama': [dict(fill={'tutar': '20000'}, expect='25.000,00', expect_row='5.000,00'), dict(fill={'tutar': '40000'}, expect_row='19.800,00'), dict(fill={'tur': 'brut', 'tutar': '50000'}, expect='40.000,00')],
  'yas-hesaplama': [dict(fill={'dogum': '1995-01-25', 'hedef': '2026-11-04'}, expect='31 yaş 9 ay 10 gün', expect_row='Kova'), dict(fill={'dogum': '1990-12-10', 'hedef': '2026-11-04'}, expect='35 yaş', expect_row='Yay'), dict(fill={'dogum': '1990-12-25', 'hedef': '2026-11-04'}, expect_row='Oğlak'), dict(fill={'dogum': '1995-03-15', 'hedef': '2026-10-21'}, expect='31 yaş 7 ay 6 gün'), dict(fill={}, expect_toast='doğum')],
  'gun-hesaplama': [dict(fill={'t1': '2026-03-01', 't2': '2026-06-15'}, expect='106 gün'),
                    dict(radio={'mod': 'ekle'}, fill={'t1': '2026-01-01', 'gun': '90'}, expect='1 Nisan 2026')],
