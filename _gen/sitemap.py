@@ -4,10 +4,14 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 BASE='https://hesaplarsin.com/'
 POP={'kdv-hesaplama.html','net-maas-hesaplama.html','kredi-hesaplama.html','yuzde-hesaplama.html','asgari-ucret-hesaplama.html','kidem-tazminati-hesaplama.html','enflasyon-hesaplama.html','kira-artis-hesaplama.html','tyt-net-hesaplama.html','yas-hesaplama.html','vucut-kitle-indeksi.html','gelir-vergisi-hesaplama.html'}
 LEGAL={'gizlilik-politikasi.html','kullanim-sartlari.html','hakkimizda.html','iletisim.html'}
+import sys
+sys.path.insert(0, '_gen')
+import icerik_tarih
+_dosyalar = [f for f in sorted(glob.glob('*.html')+glob.glob('blog/*.html'))]
+_TARIH = icerik_tarih.guncelle([f for f in _dosyalar if 'http-equiv="refresh"' not in open(f,encoding='utf-8').read()[:800]])
 def lastmod(f):
-    d=subprocess.run(['git','log','-1','--format=%cs','--',f],capture_output=True,text=True).stdout.strip()
-    if subprocess.run(['git','diff','--quiet','HEAD','--',f]).returncode: d=datetime.date.today().isoformat()
-    return d or datetime.date.today().isoformat()
+    # içerik değişmedikçe tarih değişmez (menü/footer/iç link güncellemeleri sayılmaz)
+    return _TARIH.get(f) or datetime.date.today().isoformat()
 urls=[]
 for f in sorted(glob.glob('*.html')+glob.glob('blog/*.html')):
     s=open(f,encoding='utf-8').read()

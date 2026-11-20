@@ -1,0 +1,622 @@
+{
+"404.html": [
+"507f4fe4b9eb445d",
+"2026-10-23"
+],
+"ales-puan-hesaplama.html": [
+"cdc70a024303b479",
+"2026-10-30"
+],
+"altin-hesaplama.html": [
+"edeedd6c6cc82a85",
+"2026-10-29"
+],
+"amortisman-hesaplama.html": [
+"8357731a06c09be7",
+"2026-10-24"
+],
+"arac-deger-kaybi-hesaplama.html": [
+"05db05f86dfbe8d8",
+"2026-10-30"
+],
+"arac-hesaplamalari.html": [
+"80fc689a7891d987",
+"2026-10-29"
+],
+"arac-kredisi-hesaplama.html": [
+"4889d41d4b235a58",
+"2026-10-30"
+],
+"arac-muayene-gecikme-hesaplama.html": [
+"82d55cad3d96b4c5",
+"2026-10-24"
+],
+"asgari-ucret-2027-hesaplama.html": [
+"8ded73467ea36662",
+"2026-11-03"
+],
+"asgari-ucret-hesaplama.html": [
+"9ea582cd1654ed5d",
+"2026-10-24"
+],
+"ayt-net-hesaplama.html": [
+"8310ac972d5454eb",
+"2026-10-30"
+],
+"banka-komisyon-hesaplama.html": [
+"d74ec00636490eaf",
+"2026-10-23"
+],
+"basa-bas-noktasi-hesaplama.html": [
+"56b4fb240f088868",
+"2026-10-24"
+],
+"bazal-metabolizma-hesaplama.html": [
+"22e91cd4737ceb52",
+"2026-10-24"
+],
+"bedelli-askerlik-hesaplama.html": [
+"2dd99f4b19dc9016",
+"2026-11-03"
+],
+"bel-kalca-orani-hesaplama.html": [
+"547f867bd5819f50",
+"2026-10-30"
+],
+"bilesik-faiz.html": [
+"850aeaa65f754f36",
+"2026-10-30"
+],
+"blog.html": [
+"99e7cd3353eec4d7",
+"2026-11-12"
+],
+"blog/asgari-ucret-2027.html": [
+"2713e40ff82ae932",
+"2026-11-03"
+],
+"blog/banka-kredisi-taksit-hesaplama.html": [
+"56a7ccc91f28ef59",
+"2026-10-30"
+],
+"blog/brutten-nete-maas-tablosu-2026.html": [
+"f2a09aad6df3fc73",
+"2026-10-24"
+],
+"blog/dask-sigortasi-hesaplama.html": [
+"3ba7e9c8c50e3eea",
+"2026-10-30"
+],
+"blog/dugun-altini-rehberi.html": [
+"f3122290b04c248b",
+"2026-10-29"
+],
+"blog/elektrik-faturasi-neden-yuksek.html": [
+"3d92035b0cc0305f",
+"2026-10-24"
+],
+"blog/emeklilik-hesaplama-2026.html": [
+"90749e089a215153",
+"2026-10-30"
+],
+"blog/enflasyon-etkisi-2026.html": [
+"2ae0b2d0ea1f6455",
+"2026-11-03"
+],
+"blog/fazla-mesai-haklari-2026.html": [
+"916ab14fca3baf57",
+"2026-10-24"
+],
+"blog/ihbar-tazminati-hesaplama.html": [
+"7516c470573c046e",
+"2026-10-24"
+],
+"blog/kasim-2026-kira-artis-orani.html": [
+"d5081a66a7600b61",
+"2026-11-03"
+],
+"blog/kdv-oranlari-2026.html": [
+"1240429dfac2c6bf",
+"2026-10-30"
+],
+"blog/kidem-tazminati-2027.html": [
+"6cad870ee854aac2",
+"2026-11-03"
+],
+"blog/kira-artisi-2027.html": [
+"7e092104926c184e",
+"2026-11-17"
+],
+"blog/kira-geliri-vergisi-hesaplama.html": [
+"55cab86b1f18f0ab",
+"2026-10-30"
+],
+"blog/komisyon-hesaplama-rehberi.html": [
+"3cf64f4378196a6a",
+"2026-10-30"
+],
+"blog/memur-emekli-zammi-ocak-2027.html": [
+"eb9b49e45d7ee8a3",
+"2026-11-03"
+],
+"blog/nafaka-hesaplama.html": [
+"43b0abd79fac3161",
+"2026-11-03"
+],
+"blog/net-maas-nasil-hesaplanir.html": [
+"eb46d8161fc21ebd",
+"2026-10-30"
+],
+"blog/pasaport-ehliyet-harci-2027.html": [
+"81cccf0e80113c46",
+"2026-11-12"
+],
+"blog/sgk-primi-hesaplama-rehberi.html": [
+"58558cdd89490ce0",
+"2026-10-30"
+],
+"blog/tapu-harci-hesaplama.html": [
+"e667a9ffd9cdb65a",
+"2026-10-23"
+],
+"blog/trafik-cezalari-2027.html": [
+"35881dbf4f3502a3",
+"2026-11-12"
+],
+"blog/vergi-dilimleri-2027.html": [
+"431c4724a6c0fac4",
+"2026-11-12"
+],
+"blog/yeniden-degerleme-orani-2026.html": [
+"9c4d5c9923692f91",
+"2026-11-12"
+],
+"borc-kapatma-hesaplama.html": [
+"b0abb4b4f44b0970",
+"2026-10-30"
+],
+"boya-hesaplama.html": [
+"04e45646ee2cfee5",
+"2026-10-30"
+],
+"brut-kar-hesaplama.html": [
+"b5fc4504a9fed78e",
+"2026-10-30"
+],
+"ciro-hesaplama.html": [
+"ac1badb005c45b39",
+"2026-10-30"
+],
+"damga-vergisi-hesaplama.html": [
+"fd44e848107d6850",
+"2026-10-23"
+],
+"deger-artis-kazanci-hesaplama.html": [
+"b0f9d366bde3c616",
+"2026-11-12"
+],
+"desi-hesaplama.html": [
+"8f0e6bed42eae377",
+"2026-10-28"
+],
+"dogalgaz-faturasi-hesaplama.html": [
+"85945078ee2bd7c5",
+"2026-10-23"
+],
+"doktor-maasi.html": [
+"065e07fadc0b3f65",
+"2026-11-03"
+],
+"dosya-boyutu-donusturucu.html": [
+"bc58014b164e295d",
+"2026-10-24"
+],
+"dosya-indirme-suresi-hesaplama.html": [
+"da189133249a6875",
+"2026-10-24"
+],
+"doviz-cevirici.html": [
+"4cb99552a4d55dd6",
+"2026-10-28"
+],
+"egitim-hesaplamalari.html": [
+"f280ec2ff8f23f3f",
+"2026-10-25"
+],
+"ekonomi-takvimi.html": [
+"f2081a8cfd9c988f",
+"2026-11-20"
+],
+"elektrik-faturasi-hesaplama.html": [
+"625dbcaa4da6931b",
+"2026-10-24"
+],
+"emekli-ikramiyesi-hesaplama.html": [
+"9205d801fb895d5a",
+"2026-11-03"
+],
+"emekli-maasi-hesaplama.html": [
+"ea0d1650d30ce26b",
+"2026-11-03"
+],
+"emeklilik-yasi-hesaplama.html": [
+"7df40afc27a45d6b",
+"2026-10-28"
+],
+"emlak-hesaplamalari.html": [
+"444f4ec0d9855dc7",
+"2026-11-12"
+],
+"enflasyon-hesaplama.html": [
+"cc7734481194bcea",
+"2026-11-03"
+],
+"fazla-mesai-hesaplama.html": [
+"4a7005845baabb91",
+"2026-10-24"
+],
+"finans-hesaplamalari.html": [
+"d7f6e35ca614b0cd",
+"2026-10-29"
+],
+"gelir-vergisi-hesaplama.html": [
+"334dd4cbc29b1625",
+"2026-10-30"
+],
+"gizlilik-politikasi.html": [
+"dd3edccf4d5b6d4c",
+"2026-10-23"
+],
+"gun-hesaplama.html": [
+"23d477a496233962",
+"2026-11-11"
+],
+"gunluk-hesaplamalar.html": [
+"957cc268b18c6ff5",
+"2026-11-17"
+],
+"gunluk-kalori-ihtiyaci-hesaplama.html": [
+"03d628b8bfd912c6",
+"2026-10-23"
+],
+"hakkimizda.html": [
+"895f4b2c834415da",
+"2026-10-23"
+],
+"hedef-kilo-suresi-hesaplama.html": [
+"caad2d6186d0e0c4",
+"2026-10-23"
+],
+"hemsire-maasi.html": [
+"fd339cb4c2c240be",
+"2026-11-03"
+],
+"hepsiburada-komisyon-hesaplama.html": [
+"f8c54c481e976da2",
+"2026-10-28"
+],
+"ideal-kilo-hesaplama.html": [
+"fdf6d07b86e9217f",
+"2026-10-23"
+],
+"ihbar-tazminati-hesaplama.html": [
+"a21082886d16f5db",
+"2026-10-30"
+],
+"iletisim.html": [
+"7faea04b0a4493e6",
+"2026-10-23"
+],
+"index.html": [
+"8f77d63b8baf2465",
+"2026-11-20"
+],
+"indirim-hesaplama.html": [
+"9dd24467f26819a6",
+"2026-10-24"
+],
+"internet-hizi-donusturucu.html": [
+"2f0a5e5bc20769cc",
+"2026-10-23"
+],
+"is-gunu-hesaplama.html": [
+"f0c8021deb0c71ec",
+"2026-11-11"
+],
+"iskonto-hesaplama.html": [
+"a666366ab36e4027",
+"2026-10-23"
+],
+"isletme-hesaplamalari.html": [
+"03711b7356477e3e",
+"2026-10-28"
+],
+"issizlik-maasi-hesaplama.html": [
+"55c7edcc9c514875",
+"2026-10-23"
+],
+"kac-gun-kaldi.html": [
+"ac6c935c253393f8",
+"2026-11-17"
+],
+"kalori-yakma-hesaplama.html": [
+"c8c999ea49d99ca5",
+"2026-10-23"
+],
+"kar-marji-hesaplama.html": [
+"8f3330d626008ebc",
+"2026-10-24"
+],
+"kar-payi-hesaplama.html": [
+"2aaba37e31d9d3e0",
+"2026-10-24"
+],
+"kar-zarar-hesaplama.html": [
+"d144cefdc12cb44e",
+"2026-10-23"
+],
+"kdv-haric-hesaplama.html": [
+"2820fdd09fff56b5",
+"2026-10-30"
+],
+"kdv-hesaplama.html": [
+"2545b0514f104736",
+"2026-10-24"
+],
+"kidem-tazminati-hesaplama.html": [
+"50b3571cd6955430",
+"2026-10-29"
+],
+"kira-artis-hesaplama.html": [
+"2c56dcea249aac82",
+"2026-11-03"
+],
+"kira-getirisi-hesaplama.html": [
+"06970618050e15df",
+"2026-10-23"
+],
+"kira-stopaji-hesaplama.html": [
+"f2bace793512fb34",
+"2026-11-17"
+],
+"komisyon-hesaplama.html": [
+"29a87dd41394debe",
+"2026-10-30"
+],
+"konut-kredisi-hesaplama.html": [
+"38a3354f35d889cb",
+"2026-10-30"
+],
+"kpss-net-hesaplama.html": [
+"33e60ffa8c21f0eb",
+"2026-10-24"
+],
+"kpss-puan-hesaplama.html": [
+"ab31189a4d98ab5f",
+"2026-10-30"
+],
+"kredi-erken-kapama-hesaplama.html": [
+"5879d50649f46e90",
+"2026-10-24"
+],
+"kredi-hesaplama.html": [
+"53a83b249b225bc6",
+"2026-10-24"
+],
+"kredi-karti-asgari-odeme-hesaplama.html": [
+"7a061431c89e12bb",
+"2026-10-26"
+],
+"kripto-kar-zarar-hesaplama.html": [
+"7809cfe19c86aa5f",
+"2026-10-24"
+],
+"kullanim-sartlari.html": [
+"a75f626ee4da5e28",
+"2026-10-23"
+],
+"lgs-puan-hesaplama.html": [
+"f0dbeba54d9bbc8a",
+"2026-10-24"
+],
+"maas-hesaplamalari.html": [
+"9c51c1dbfdaa78e0",
+"2026-11-02"
+],
+"maas-siralamasi.html": [
+"9e3ccedc8e5c6125",
+"2026-10-23"
+],
+"maas-zam-hesaplama.html": [
+"e6e9c3450b40345d",
+"2026-11-03"
+],
+"memur-emekli-zammi-hesaplama.html": [
+"d8fa0511609986e3",
+"2026-11-03"
+],
+"memur-hesaplamalari.html": [
+"40a36baa9584f15a",
+"2026-11-03"
+],
+"memur-maaslari.html": [
+"f779245f19876426",
+"2026-11-03"
+],
+"metrekare-fiyat-hesaplama.html": [
+"68f752d98f74f7a8",
+"2026-10-23"
+],
+"mevduat-faizi-hesaplama.html": [
+"13c61d760efd1df0",
+"2026-10-24"
+],
+"mtv-hesaplama.html": [
+"b0b220b46dbc6baa",
+"2026-11-12"
+],
+"muhendis-maasi.html": [
+"f51f6821b409f141",
+"2026-11-03"
+],
+"net-kar-hesaplama.html": [
+"c4e6d70de3e4c0d2",
+"2026-10-24"
+],
+"net-maas-hesaplama.html": [
+"69d35bc0d4cfa731",
+"2026-10-30"
+],
+"not-ortalamasi-hesaplama.html": [
+"eeaadaca074acc5b",
+"2026-10-23"
+],
+"obp-hesaplama.html": [
+"a7ae709ee33fcd15",
+"2026-10-30"
+],
+"ogretmen-maasi.html": [
+"e4da2e9be17d311c",
+"2026-11-03"
+],
+"ortalama-hesaplama.html": [
+"55b5a2e97846dc6b",
+"2026-10-24"
+],
+"otv-hesaplama.html": [
+"4afb1895a61b55bf",
+"2026-10-24"
+],
+"para-deger-kaybi-hesaplama.html": [
+"f3c93b0ee1d6db56",
+"2026-11-03"
+],
+"para-sayma-hesaplama.html": [
+"02aa63030de25522",
+"2026-10-24"
+],
+"pazaryeri-komisyon-hesaplama.html": [
+"0ca464fc347ade99",
+"2026-10-28"
+],
+"polis-maasi.html": [
+"41ce676f3a51c89f",
+"2026-11-03"
+],
+"prim-hesaplama.html": [
+"8f8398f402ae469e",
+"2026-10-23"
+],
+"protein-ihtiyaci-hesaplama.html": [
+"a2bfe56b448eec66",
+"2026-10-23"
+],
+"rapor-parasi-hesaplama.html": [
+"c7df4f1314b62ee6",
+"2026-11-02"
+],
+"resmi-tatiller-2027.html": [
+"d1b451272788cac1",
+"2026-11-11"
+],
+"roi-hesaplama.html": [
+"dbfd764c5c34cc98",
+"2026-10-23"
+],
+"saatlik-ucret-hesaplama.html": [
+"6407252750b1cd04",
+"2026-10-23"
+],
+"saglik-hesaplamalari.html": [
+"fb39e0a2f3374511",
+"2026-10-23"
+],
+"shopier-komisyon-hesaplama.html": [
+"cbf84965e28f4f0d",
+"2026-10-23"
+],
+"stok-karliligi-hesaplama.html": [
+"2b5e5fdd0a11e3ac",
+"2026-10-23"
+],
+"su-faturasi-hesaplama.html": [
+"96489fdce1bc024b",
+"2026-10-23"
+],
+"su-ihtiyaci-hesaplama.html": [
+"c0e1a9adecdd78ee",
+"2026-10-23"
+],
+"takdir-tesekkur-hesaplama.html": [
+"b43994d586613aef",
+"2026-10-23"
+],
+"taksi-ucreti-hesaplama.html": [
+"21ef6972142088a3",
+"2026-10-29"
+],
+"tapu-harci-hesaplama.html": [
+"8867d34c01d558ab",
+"2026-11-12"
+],
+"trendyol-komisyon-hesaplama.html": [
+"fcbf30f0cf83b164",
+"2026-10-28"
+],
+"turkiye-maaslari-2026.html": [
+"425473e369e57ff5",
+"2026-10-23"
+],
+"tyt-net-hesaplama.html": [
+"6f8186e1a9389f1b",
+"2026-10-23"
+],
+"vergi-hesaplamalari.html": [
+"1c81263d81654e9f",
+"2026-11-17"
+],
+"veri-kullanim-hesaplama.html": [
+"22f57594f774cf3c",
+"2026-10-23"
+],
+"vucut-kitle-indeksi.html": [
+"f453c2c9a811c6f1",
+"2026-10-23"
+],
+"vucut-yag-orani-hesaplama.html": [
+"468a21500e3985d9",
+"2026-10-23"
+],
+"yakit-maliyeti-hesaplama.html": [
+"df2240a906f91f2a",
+"2026-10-23"
+],
+"yakit-tuketimi-hesaplama.html": [
+"16b735cf8b774e82",
+"2026-10-23"
+],
+"yandex_f57c1ecd5ac90a70.html": [
+"c192a41292ca800c",
+"2026-10-22"
+],
+"yas-hesaplama.html": [
+"4a1267bf2512f664",
+"2026-11-04"
+],
+"yatirim-geri-donus-suresi-hesaplama.html": [
+"0c1725175965e48f",
+"2026-10-24"
+],
+"yillik-izin-hesaplama.html": [
+"082c050f6485ec4c",
+"2026-11-11"
+],
+"yontem-ve-kaynaklar.html": [
+"488aaba89498338c",
+"2026-11-03"
+],
+"yuzde-hesaplama.html": [
+"93c7cfd378426fae",
+"2026-10-24"
+]
+}
