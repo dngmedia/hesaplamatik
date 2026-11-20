@@ -248,3 +248,7 @@ N['blog/aralik-2026-kira-artis-orani'] = 'Aralık 2026 kira artış oranı'
 M['blog/aralik-2026-kira-artis-orani'] = ['kira-artis-hesaplama', 'blog/kira-artisi-2027', 'kira-stopaji-hesaplama']
 for _k in ['kira-artis-hesaplama', 'blog/kira-artisi-2027', 'blog/kasim-2026-kira-artis-orani', 'kira-getirisi-hesaplama', 'ekonomi-takvimi', 'kira-stopaji-hesaplama']:
     M.setdefault(_k, []); M[_k] = ['blog/aralik-2026-kira-artis-orani'] + [x for x in M[_k] if x != 'blog/aralik-2026-kira-artis-orani']
+
+N.setdefault('yillik-izin-hesaplama', 'Yıllık izin ve izin ücreti hesaplama'); N.setdefault('tapu-harci-hesaplama', 'Tapu harcı hesaplama'); N.setdefault('kira-artis-hesaplama', 'Kira artış hesaplama')
+N['sitene-hesaplayici-ekle'] = 'Sitenize ücretsiz hesaplayıcı ekleyin'
+M['sitene-hesaplayici-ekle'] = ['kira-artis-hesaplama', 'tapu-harci-hesaplama', 'yillik-izin-hesaplama']

@@ -54,6 +54,11 @@
   "name": "Taksi Ücreti Hesaplama",
   "cat": "arac"
  },
+ "sitene-hesaplayici-ekle": {
+  "ico": "🧩",
+  "name": "Sitenize Hesaplayıcı Ekleyin",
+  "cat": "diger"
+ },
  "vucut-kitle-indeksi": {
   "ico": "⚖️",
   "name": "Vücut Kitle İndeksi (VKİ) Hesaplama",

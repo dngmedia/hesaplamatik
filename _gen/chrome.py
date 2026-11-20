@@ -71,7 +71,7 @@ FOOTER = (f'<!--HZ-FOOT--><footer class="hz-foot"><div class="hz-fin"><div class
               ('maas-hesaplamalari', 'Maaş ve SGK'), ('memur-hesaplamalari', 'Kamu ve Memur'), ('vergi-hesaplamalari', 'Vergi'), ('finans-hesaplamalari', 'Finans ve Kredi'),
               ('isletme-hesaplamalari', 'İşletme'), ('emlak-hesaplamalari', 'Emlak ve Kira'), ('arac-hesaplamalari', 'Araç'), ('saglik-hesaplamalari', 'Sağlık'),
               ('egitim-hesaplamalari', 'Eğitim'), ('gunluk-hesaplamalar', 'Günlük')]) + '</div>'
-          f'<div><div class="hz-ft">Hesaplarsın</div><a href="{B}/hakkimizda.html">Hakkımızda</a><a href="{B}/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a>'
+          f'<div><div class="hz-ft">Hesaplarsın</div><a href="{B}/hakkimizda.html">Hakkımızda</a><a href="{B}/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a><a href="{B}/sitene-hesaplayici-ekle.html">Sitenize Hesaplayıcı Ekleyin</a>'
           f'<a href="{B}/turkiye-maaslari-2026.html">Türkiye’de Maaşlar 2026</a><a href="{B}/ekonomi-takvimi.html">Ekonomi Takvimi</a><a href="{B}/blog.html">Blog</a>'
           f'<a href="{B}/iletisim.html">İletişim</a><a href="{B}/gizlilik-politikasi.html">Gizlilik Politikası</a><a href="{B}/kullanim-sartlari.html">Kullanım Şartları</a></div>'
           f'</div><div class="hz-fbot"><span>© 2026 Hesaplarsın · Sonuçlar bilgilendirme amaçlıdır; resmî işlemler için yetkili kurumlara danışın.</span>'

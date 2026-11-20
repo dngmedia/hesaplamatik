@@ -143,6 +143,14 @@ except Exception as _e:
     print('eeat hatası:', _e)
 
 
+# ── Gömülebilir hesaplayıcılar (embed/*.html + araç sayfasında gömme kodu) ──
+try:
+    import embed as _emb
+    print('gömülebilir:', _emb.run(tools))
+except Exception as _e:
+    print('gömülebilir hatası:', _e)
+    raise
+
 # ── Emoji arayüz ikonları → tek tip SVG (Lucide) ──
 try:
     import icons as _ic

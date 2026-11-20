@@ -831,3 +831,66 @@ related=['yakit-maliyeti-hesaplama', 'yakit-tuketimi-hesaplama', 'gun-hesaplama'
 sources=[('BirGün – İstanbul taksi ücretleri 2026 (İBB tarifesi)', 'https://www.birgun.net/haber/istanbul-taksi-ucretleri-2026-acilis-kilometre-ve-indi-bindi-fiyatlari-584162'), ('Cumhuriyet – Ankara taksi tarifesi', 'https://www.cumhuriyet.com.tr/ekonomi/ankara-da-taksi-tarifelerine-zam-geldi-acilis-ucreti-o-seviyeye-ulasti-2483922')],
 badges=['✓ Ücretsiz', 'İstanbul · Ankara', 'Güncel Tarife'],
 ))
+
+
+# ══════════════ Sitenize Hesaplayıcı Ekleyin (20 Kas 2026) ══════════════
+import json as _ej, html as _eh
+from embed import EMBEDS as _EMB, kod as _ekod
+_EN = {'kira-artis-hesaplama': 'Kira Artış Hesaplama', 'tapu-harci-hesaplama': 'Tapu Harcı Hesaplama', 'kira-stopaji-hesaplama': 'Kira Stopajı Hesaplama',
+       'konut-kredisi-hesaplama': 'Konut Kredisi Hesaplama', 'deger-artis-kazanci-hesaplama': 'Değer Artış Kazancı Hesaplama', 'yillik-izin-hesaplama': 'Yıllık İzin Hesaplama',
+       'asgari-ucret-2027-hesaplama': 'Asgari Ücret 2027 Hesaplama', 'kar-marji-hesaplama': 'Kâr Marjı Hesaplama', 'yas-hesaplama': 'Yaş Hesaplama', 'kac-gun-kaldi': 'Kaç Gün Kaldı?'}
+assert set(_EN) == {s for s, h, k in _EMB}
+_EKOD = {s: _ekod(s, _EN[s], h) for s, h, k in _EMB}
+_ETAB = ('<div class="table-wrap"><table><thead><tr><th>Hesaplayıcı</th><th>Kimler için uygun?</th><th>Önizleme</th></tr></thead><tbody>'
+         + ''.join(f'<tr><td><a href="/{s}.html">{_EN[s]}</a></td><td>{k}</td><td><a href="/embed/{s}.html" target="_blank" rel="noopener">Aç</a></td></tr>' for s, h, k in _EMB)
+         + '</tbody></table></div>')
+TOOLS.append(dict(
+slug='sitene-hesaplayici-ekle', name='Sitenize Hesaplayıcı Ekleyin', cat='diger', ico='🧩',
+title='Sitenize Ücretsiz Hesaplayıcı Ekleyin – Kira Artış, Tapu Harcı, Yıllık İzin… | Hesaplarsın',
+desc='Emlak, muhasebe, İK veya blog sitenize ücretsiz hesaplayıcı ekleyin: kira artış, tapu harcı, kira stopajı, yıllık izin, asgari ücret 2027 ve daha fazlası. Kodu kopyalayın, rakamları biz güncelleyelim.',
+h1='🧩 Sitenize Ücretsiz Hesaplayıcı Ekleyin',
+lead='Hesaplarsın araçlarını kendi sitenize tek satır kodla ekleyebilirsiniz. Ücretsizdir, kayıt gerekmez; resmî oranlar değiştiğinde araç sizin sitenizde de kendiliğinden güncellenir.',
+card_title='Hesaplayıcı seçin', button='Kodu ve Önizlemeyi Göster',
+badges=['✓ Ücretsiz', 'Kayıt yok', 'Mobil uyumlu'],
+form='<div class="form-grid"><div class="field full"><label for="arac">Hangi hesaplayıcı?</label><select id="arac">'
+     + ''.join(f'<option value="{s}">{_EN[s]}</option>' for s, h, k in _EMB) + '</select></div></div>',
+js='var EK=' + _ej.dumps(_EKOD, ensure_ascii=False).replace('</', '<\\/') + ',EN=' + _ej.dumps(_EN, ensure_ascii=False) + r''';
+function onReady(){run(false);}
+function hesapla(){var s=el('arac').value,k=EK[s];
+  var ta='<textarea id="ekod" readonly rows="6" style="width:100%;font:12px/1.4 monospace;padding:8px;border:1px solid #e5e7eb;border-radius:8px" onclick="this.select()">'+esc(k)+'</textarea>'+
+    '<button type="button" class="btn-calc" style="margin-top:8px" onclick="navigator.clipboard&&navigator.clipboard.writeText(el(\'ekod\').value).then(function(){toast(\'Kod kopyalandı\')})">Kodu Kopyala</button>'+
+    '<div style="margin-top:14px;font-weight:700">Önizleme</div><iframe src="/embed/'+s+'.html" title="'+esc(EN[s])+'" width="100%" height="560" style="border:1px solid #e5e7eb;border-radius:10px;margin-top:6px" loading="lazy"></iframe>';
+  return {main:['Seçilen hesaplayıcı',EN[s]], sub:'Kodu sitenizin HTML alanına yapıştırın.', extra:ta};}''',
+article=f'''
+<p><b>Kısa cevap:</b> Aşağıdaki listeden bir hesaplayıcı seçin, kodu kopyalayıp sitenizin HTML ekleme alanına yapıştırın. Araç sitenizde çalışır; oranlar ve tarifeler değiştiğinde biz güncelleriz, sizin bir şey yapmanız gerekmez.</p>
+
+<h2 id="liste">Eklenebilir hesaplayıcılar</h2>
+{_ETAB}
+
+<h2 id="nasil">Nasıl eklenir?</h2>
+<ul>
+<li><b>WordPress:</b> Sayfada “Özel HTML” bloğu ekleyin, kodu yapıştırın.</li>
+<li><b>Wix, Ticimax, IdeaSoft, Shopify:</b> “HTML / Embed kodu” bileşenine yapıştırın.</li>
+<li><b>Kendi siteniz:</b> Kodu, aracın görünmesini istediğiniz yere ekleyin.</li>
+</ul>
+<p>Kod üç parçadan oluşur: aracı gösteren çerçeve (iframe), altında küçük bir kaynak satırı ve çerçevenin yüksekliğini sonuca göre ayarlayan kısa bir betik. Betik yalnızca yükseklik bilgisini alır; sitenizden veri toplamaz. Betiği eklemezseniz araç sabit yükseklikte çalışmaya devam eder.</p>
+
+<h2 id="kosullar">Kullanım koşulları</h2>
+<ul>
+<li>Ücretsizdir; ticari siteler dahil herkes kullanabilir.</li>
+<li>Kodun altındaki “Kaynak: … – Hesaplarsın” satırını kaldırmamanızı rica ederiz; aracı ücretsiz sunmaya devam etmemizi sağlar.</li>
+<li>Araçlarda reklam yoktur. Ziyaretçilerinizin girdiği değerler kaydedilmez; hesaplama tarayıcıda yapılır.</li>
+<li>Sonuçlar bilgi amaçlıdır; kaynaklar ve güncelleme takvimi için <a href="/yontem-ve-kaynaklar.html">Yöntem ve Kaynaklar</a> sayfasına bakabilirsiniz.</li>
+</ul>
+<p>Listede olmayan bir hesaplayıcıyı eklemek isterseniz <a href="/iletisim.html">iletişim</a> sayfasından yazın.</p>
+''',
+faq=[
+('Hesaplayıcıyı sitemize eklemek ücretli mi?', 'Hayır, tamamen ücretsizdir ve kayıt gerektirmez. Kodu kopyalayıp sitenize yapıştırmanız yeterlidir.'),
+('Oranlar değişince kodu güncellemem gerekir mi?', 'Hayır. Araç bizim sunucumuzdan yüklendiği için kira artış oranı, harç tarifesi gibi rakamlar değiştiğinde sitenizdeki araç da kendiliğinden güncellenir.'),
+('Araç sitemi yavaşlatır mı?', 'Hayır. Çerçeve “lazy” yüklenir; sayfa açılırken değil, ziyaretçi aracın bulunduğu yere geldiğinde yüklenir.'),
+('Ziyaretçilerimin verileri kaydediliyor mu?', 'Hayır. Hesaplama ziyaretçinin tarayıcısında yapılır, girilen değerler hiçbir yere gönderilmez ve araçta reklam veya takip kodu yoktur.'),
+('WordPress’e nasıl eklerim?', 'Sayfa düzenleyicide “Özel HTML” bloğu ekleyip kodu içine yapıştırın ve sayfayı güncelleyin.'),
+],
+related=['kira-artis-hesaplama', 'tapu-harci-hesaplama', 'yillik-izin-hesaplama', 'asgari-ucret-2027-hesaplama', 'kac-gun-kaldi'],
+sources=[('Hesaplarsın – Yöntem ve Kaynaklar', 'https://hesaplarsin.com/yontem-ve-kaynaklar.html')],
+))
