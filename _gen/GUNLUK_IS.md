@@ -27,6 +27,7 @@ Hatırlatmalar (send_later): 23 Eki 08:00Z, 2 Kas 08:00Z, 3 Kas 07:15Z, 31 Ara 0
 
 ## Doğruluk kuralları (30 Eki 2026'dan itibaren zorunlu)
 
+- **3 Aralık 2026 — Aralık kira sayfası:** `_gen/blog_aralik2026.py` içinde `KESIN = (oran, aylık TÜFE, yıllık TÜFE)` doldurulup `python3 _gen/blog_aralik2026.py` çalıştırılır; başlık otomatik "Belli Oldu" olur. blog.html kartındaki ≈ %31,1 ve "Tahmin" yazısı kesin oranla değiştirilir.
 - **3 Aralık 2026 (Kasım TÜFE):** `_gen/blog_kira2027.py` içindeki "Aralık 2026 Kira Artış Oranı Tahmini" bölümü (ARA_SEN) kesin orana çevrilir: ORAN26'ya ('Aralık', oran) eklenir, Y['2026-11'] gerçek yıllık TÜFE yapılır, tahmin tablosu kaldırılıp "Belli Oldu" metni yazılır. `kac-gun-kaldi` sayfası her yıl Haziran'da yeni MEB ve Diyanet takvimiyle güncellenir.
 
 - **Yeniden değerleme oranı = Yİ-ÜFE "on iki aylık ortalamalara göre değişim"** (VUK mük. 298). Ekim bülteninde iki ayrı rakam vardır: yıllık değişim ve 12 aylık ortalama. Yıllık değişim ASLA yeniden değerleme oranı olarak yazılmaz (12 Kas 2026'da bu hata düzeltildi: 27,41 → 27,83).

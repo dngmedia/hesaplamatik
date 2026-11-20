@@ -60,7 +60,7 @@ K = {
   desc='Kira artış oranı, kira getirisi, metrekare fiyatı, tapu harcı, damga vergisi ve boya hesaplamaları. TÜİK verisiyle aylık güncel.',
   intro=['Ev kiralayanlar, ev sahipleri ve alım-satım yapanlar için hesaplar: yasal kira artış oranı, bir evin kira getirisi ve amortisman süresi, metrekare birim fiyatı, tapu harcı ve taşınmadan önce kaç litre boya gerektiği.',
          'Konut kiralarında yıllık artış, TÜİK’in açıkladığı 12 aylık TÜFE ortalamasını aşamaz; oran her ayın 3’ünde yeni enflasyon verisiyle güncellenir. Tapu harcı alıcı ve satıcı için ayrı ayrı %2’dir.'],
-  extra=['tapu-harci-hesaplama', 'damga-vergisi-hesaplama', 'boya-hesaplama'], blogs=['kasim-2026-kira-artis-orani', 'kira-artisi-2027', 'tapu-harci-hesaplama', 'kira-geliri-vergisi-hesaplama', 'dask-sigortasi-hesaplama'],
+  extra=['tapu-harci-hesaplama', 'damga-vergisi-hesaplama', 'boya-hesaplama'], blogs=['aralik-2026-kira-artis-orani', 'kasim-2026-kira-artis-orani', 'kira-artisi-2027', 'tapu-harci-hesaplama', 'kira-geliri-vergisi-hesaplama', 'dask-sigortasi-hesaplama'],
   faq=[('Kira artış oranı nasıl belirlenir?', 'Konut kiralarında artış, kira döneminin bittiği aydan önceki 12 aylık TÜFE ortalamasıyla sınırlıdır. Bu oran her ay TÜİK enflasyon açıklamasıyla birlikte belli olur.'),
        ('Kira getirisi nasıl hesaplanır?', 'Yıllık kira geliri ev fiyatına bölünür: yılda 240.000 ₺ kira getiren 6.000.000 ₺’lik evin brüt kira getirisi %4’tür; ev kendini yaklaşık 25 yılda amorti eder.'),
        ('Metrekare fiyatı nasıl bulunur?', 'Satış fiyatı metrekareye bölünür: 4.500.000 ₺’lik 120 m² ev, metrekare başına 37.500 ₺ eder. İlanlarda brüt ve net m² farkına dikkat edin.')]),

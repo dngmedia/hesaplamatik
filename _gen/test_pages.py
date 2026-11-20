@@ -18,7 +18,7 @@ threading.Thread(target=srv.serve_forever, daemon=True).start()
 only = sys.argv[1:]
 fails = 0
 with sync_playwright() as p:
-    b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome', args=['--no-sandbox'])
+    b = p.chromium.launch(executable_path=(sorted(__import__('glob').glob('/opt/pw-browsers/chromium-*/chrome-linux*/chrome')) or [None])[-1], args=['--no-sandbox'])
     pg = b.new_page(viewport={'width': 390, 'height': 900})
     pg.add_init_script("try{localStorage.setItem('cerez','kabul')}catch(e){}")
     errors = []

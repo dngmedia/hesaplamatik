@@ -242,3 +242,9 @@ for _k in ['resmi-tatiller-2027', 'gun-hesaplama', 'is-gunu-hesaplama', 'not-ort
     M.setdefault(_k, []); M[_k] = M[_k][:1] + ['kac-gun-kaldi'] + [x for x in M[_k][1:] if x != 'kac-gun-kaldi']
 for _k in ['blog/kira-geliri-vergisi-hesaplama', 'kira-artis-hesaplama', 'kira-getirisi-hesaplama', 'gelir-vergisi-hesaplama', 'deger-artis-kazanci-hesaplama']:
     M.setdefault(_k, []); M[_k] = M[_k][:1] + ['kira-stopaji-hesaplama'] + [x for x in M[_k][1:] if x != 'kira-stopaji-hesaplama']
+
+# Aralık 2026 kira artış oranı (20 Kas 2026)
+N['blog/aralik-2026-kira-artis-orani'] = 'Aralık 2026 kira artış oranı'
+M['blog/aralik-2026-kira-artis-orani'] = ['kira-artis-hesaplama', 'blog/kira-artisi-2027', 'kira-stopaji-hesaplama']
+for _k in ['kira-artis-hesaplama', 'blog/kira-artisi-2027', 'blog/kasim-2026-kira-artis-orani', 'kira-getirisi-hesaplama', 'ekonomi-takvimi', 'kira-stopaji-hesaplama']:
+    M.setdefault(_k, []); M[_k] = ['blog/aralik-2026-kira-artis-orani'] + [x for x in M[_k] if x != 'blog/aralik-2026-kira-artis-orani']

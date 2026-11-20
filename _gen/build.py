@@ -48,7 +48,7 @@ json.dump({t['slug']: dict(ico=t['ico'], name=t['name'], cat=t['cat']) for t in 
 
 # ── Ana sayfa: yaklaşan açıklamalar kutusu (ekonomi takvimi verisinden) ──
 # Ana sayfadaki 'Gündemdeki Hesaplamalar' bağlantıları (sezona göre güncelle; arama verisine göre seçilir)
-GUNDEM = [('blog/kasim-2026-kira-artis-orani.html', 'Kasım 2026 kira artış oranı'), ('kira-artis-hesaplama.html', 'Kira artış hesaplama'),
+GUNDEM = [('blog/aralik-2026-kira-artis-orani.html', 'Aralık 2026 kira artış oranı'), ('kira-artis-hesaplama.html', 'Kira artış hesaplama'),
           ('emekli-maasi-hesaplama.html', 'Emekli maaşı 2026'), ('memur-emekli-zammi-hesaplama.html', 'Ocak 2027 memur ve emekli zammı'),
           ('asgari-ucret-2027-hesaplama.html', 'Asgari ücret 2027'), ('kpss-puan-hesaplama.html', 'KPSS puan hesaplama'), ('ales-puan-hesaplama.html', 'ALES puan hesaplama'), ('blog/trafik-cezalari-2027.html', '2027 trafik cezaları'), ('blog/yeniden-degerleme-orani-2026.html', '2027 MTV ve harçlar'), ('kredi-karti-asgari-odeme-hesaplama.html', 'Kredi kartı asgari ödeme'),
           ('takdir-tesekkur-hesaplama.html', 'Takdir teşekkür hesaplama'), ('yas-hesaplama.html', 'Yaş ve okula başlama yaşı')]
@@ -56,7 +56,7 @@ GUNDEM = [('blog/kasim-2026-kira-artis-orani.html', 'Kasım 2026 kira artış or
 ONE_CIKAN = [('kpss-puan-hesaplama.html', 'KPSS puan hesaplama', 'Önlisans sonuçları açıklandı: netinden P93 puanı'),
              ('altin-hesaplama.html', 'Altın hesaplama', 'Gram, çeyrek, tam altın kaç TL? Canlı fiyat'),
              ('para-sayma-hesaplama.html', 'Kaç tane 200 TL ne kadar eder?', 'Banknot adedinden toplam tutar ve tablo'),
-             ('blog/kasim-2026-kira-artis-orani.html', 'Kasım 2026 kira artış oranı', 'Tahmin ve kira zammı tablosu'),
+             ('blog/aralik-2026-kira-artis-orani.html', 'Aralık 2026 kira artış oranı', '3 Aralık’ta açıklanıyor: tahmin ve tablo'),
              ('blog/kira-artisi-2027.html', 'Kira artışı 2027 tahmini', '2027 TÜFE beklentisi ve kira zammı'),
              ('yatirim-geri-donus-suresi-hesaplama.html', 'Yatırım geri dönüş süresi', 'Dükkân, ev veya makine kaç yılda öder?'),
              ('komisyon-hesaplama.html', 'Komisyon hesaplama', 'Satış komisyonu ve net tutar'),

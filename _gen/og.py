@@ -48,7 +48,7 @@ def main(force, only):
         if i: todo.append((slug, i))
     if not todo: print('üretilecek görsel yok'); return
     with sync_playwright() as pw:
-        b = pw.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome', args=['--no-sandbox'])
+        b = pw.chromium.launch(executable_path=(sorted(__import__('glob').glob('/opt/pw-browsers/chromium-*/chrome-linux*/chrome')) or [None])[-1], args=['--no-sandbox'])
         pg = b.new_page(viewport={'width': 1200, 'height': 630})
         for slug, (h1, sub, ico) in todo:
             size = 68 if len(h1) <= 28 else 58 if len(h1) <= 40 else 50
